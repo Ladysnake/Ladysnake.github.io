@@ -279,6 +279,7 @@ h2.section-title {
 p.section-description {
 	font-weight: lighter;
 	font-size: 16px;
+	margin: 5px 0 5px 0;
 }
 h2.section-title + p {
 	margin-top: -70px;
@@ -407,4 +408,53 @@ h2.section-title + p {
 #ladysnake_logo {
   vertical-align: middle;
   height: 100%;
+}
+
+.wiki {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.h1-wiki-icon {
+	height: 48px;
+	image-rendering: crisp-edges;
+	vertical-align: middle;
+	margin: 20px 0 20px 0;
+	display: inline-block;
+}
+
+.h3-wiki-icon {
+  height: 24px;
+  image-rendering: crisp-edges;
+  margin: 10px 0 5px 5px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.recipe {
+  height: 160px;
+  image-rendering: crisp-edges;
+  margin-top: 10px;
+}
+
+.h3, h3 {
+    font-size: 24px;
+    display: inline-block;
+    margin: 10px 0 5px; 0;
+}
+
+.h2, h2 {
+    font-size: 30px;
+    margin: 20px 0 10px 0;
+	border-bottom: solid 1px black;
+}
+
+.h1, h1 {
+	margin: 20px 10px 20px 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+p {
+	text-align: justify;
 }
