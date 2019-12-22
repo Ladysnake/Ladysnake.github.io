@@ -191,10 +191,8 @@ a {
 .btn-danger:hover {
 	background-color: #c0392b;
 }
-.btn-link {}
 
-/*	NAVBAR
-*/
+/*	NAVBAR	*/
 .navbar-default {
 	background-color: #f6f8f9;
 	border: none;
@@ -245,11 +243,11 @@ a {
 */
 .dropdown-menu {
 	background: #FFF;
-    border: none;
-    border-radius: 0;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 13px;
+	border: none;
+	border-radius: 0;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-size: 13px;
 }
 
 /*	SECTIONS
@@ -271,10 +269,10 @@ a {
 
 h2.section-title {
 	font-weight: bold;
-    text-transform: uppercase;
-    font-size: 24px;
-    letter-spacing: 5px;
-    margin-bottom: 80px;
+	text-transform: uppercase;
+	font-size: 24px;
+	letter-spacing: 5px;
+	margin-bottom: 80px;
 }
 p.section-description {
 	font-weight: lighter;
@@ -323,21 +321,21 @@ h2.section-title + p {
 }
 .service-block i {
 	width: 80px;
-    height: 80px;
-    display: inline-block;
-    line-height: 80px;
-    text-align: center;
-    border-radius: 40px;
-    font-size: 25px;
-    background: #FFF;
-    box-shadow: 0 10px 20px rgba(0,0,0,.05);
+	height: 80px;
+	display: inline-block;
+	line-height: 80px;
+	text-align: center;
+	border-radius: 40px;
+	font-size: 25px;
+	background: #FFF;
+	box-shadow: 0 10px 20px rgba(0,0,0,.05);
 }
 .service-block h3 {
 	text-transform: uppercase;
-    font-size: 15px;
-    font-weight: bolder;
-    margin: 30px 0;
-    line-height: 1;
+	font-size: 15px;
+	font-weight: bolder;
+	margin: 30px 0;
+	line-height: 1;
 }
 .service-block.text-center p {
 	width: 80%;
@@ -402,12 +400,16 @@ h2.section-title + p {
 }
 
 .mod_icon {
-  height: 150px;
+	height: 150px;
+}
+
+.profile_pic {
+	height: 150px;
 }
 
 #ladysnake_logo {
-  vertical-align: middle;
-  height: 100%;
+	vertical-align: middle;
+	height: 100%;
 }
 
 .wiki {
@@ -424,28 +426,28 @@ h2.section-title + p {
 }
 
 .h3-wiki-icon {
-  height: 24px;
-  image-rendering: crisp-edges;
-  margin: 10px 0 5px 5px;
-  display: inline-block;
-  vertical-align: bottom;
+	height: 24px;
+	image-rendering: crisp-edges;
+	margin: 10px 0 5px 5px;
+	display: inline-block;
+	vertical-align: bottom;
 }
 
 .recipe {
-  height: 160px;
-  image-rendering: crisp-edges;
-  margin-top: 10px;
+	height: 160px;
+	image-rendering: crisp-edges;
+	margin-top: 10px;
 }
 
 .h3, h3 {
-    font-size: 24px;
-    display: inline-block;
-    margin: 10px 0 5px; 0;
+	font-size: 24px;
+	display: inline-block;
+	margin: 10px 0 5px	0;
 }
 
 .h2, h2 {
-    font-size: 30px;
-    margin: 20px 0 10px 0;
+	font-size: 30px;
+	margin: 20px 0 10px 0;
 	border-bottom: solid 1px black;
 }
 
