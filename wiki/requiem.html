@@ -97,6 +97,40 @@
                     <li>Optifine shaders: VanillaPlus works as is. More complex shaders may need to be turned off on load, but they can be re-enabled while playing.</li>
                 </ul>
             </p>
+            <h2 id="admin-commands">Admin Commands</h2>
+            <p>
+                Requiem adds a few admin commands to make testing the mod or helping clueless players more easily.
+                All Requiem commands start with <code>/requiem</code>. Most of them take an optional player argument. If that argument is not given, the target
+                of the command will be the command executor.
+            </p>
+            <ul>
+                <li><code>/requiem remnant</code>
+                    <ul>
+                        <li><code>/requiem remnant set &lt;true|false&gt; [player]</code>: sets the remnant status of a player. 
+                            (Remnants are called demons in the lore, they turn into ghosts when they die)</li>
+                        <li><code>/requiem remnant query [player]</code>: queries the remnant status of a player.</li>
+                    </ul>
+                </li>
+                <li><code>/requiem soul</code>
+                    <ul>
+                        <li><code>/requiem soul set &lt;true|false&gt; [player]</code>: sets the soul status of a remnant player.</li>
+                        <li><code>/requiem soul query [player]</code>: queries the soul status of a player</li>
+                    </ul>
+                </li>
+                <li><code>/requiem possession</code>
+                    <ul>
+                        <li><code>/requiem possession start &lt;mob&gt; [player]</code>: makes the player start possessing a mob, if they are already a soul.</li>
+                        <li><code>/requiem possession stop [player]</code>: stops an ongoing possession on the specified player.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>On top of those commands, Requiem adds a few gamerules to help customize a server&#39;s gameplay:</p>
+                <ul>
+                    <li><code>requiem:showPossessorNameTag</code>: if set to <code>true</code>, shows the name of the possessor 
+                        above the head of possessed entities. (default: <code>false</code>) </li>
+                    <li><code>requiem:startingRemnantType</code>: can be set to <code>FORCE_REMNANT</code> or <code>FORCE_VANILLA</code> to
+                        enforce all players to be respectively a demon or a normal player at the start of the game. <code>(default: CHOOSE)</code></li>
+                </ul>
         </div>
     </div>
     <!--/.section -->
