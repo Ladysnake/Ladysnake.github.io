@@ -1,0 +1,10 @@
+echo "This requires Python 3."
+echo "This also requires sudo. Sorry :("
+echo "Press ctrl + c to close it."
+if [ "$1" != "" ]; then
+    echo "Using $1 as the bind IP."
+    sudo python3 -m http.server 80 --bind $1
+else
+    echo "In order to use this with other computers on the network, please add the parameter with your local IP."
+    sudo python3 -m http.server 80
+fi
