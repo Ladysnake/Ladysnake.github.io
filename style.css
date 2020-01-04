@@ -428,7 +428,15 @@ h2.section-title + p {
 .h3-wiki-icon {
 	height: 24px;
 	image-rendering: crisp-edges;
-	margin: 10px 0 5px 5px;
+	margin: 10px 0 1px 5px;
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.p-wiki-icon {
+	height: 18px;
+	image-rendering: crisp-edges;
+	margin: 10px 0 1px 0;
 	display: inline-block;
 	vertical-align: bottom;
 }
