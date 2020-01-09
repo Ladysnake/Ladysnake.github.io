@@ -13,7 +13,7 @@ function setDarkMode(firstRun) {
     let allElements = document.getElementsByTagName("*");
     let cookeConsent;
     let cookie = cookies.includes("darkmode=true");
-    let prevDark;
+    let prevDark = darkMode;
     if (firstRun == undefined) {
         if (cookies.length === 0) {
             cookeConsent = confirm("Do you want to save this as a cookie?\nThis will save the state of your option for a year at a time.\nIf you press cancel, dark mode will not enable.");
@@ -23,22 +23,31 @@ function setDarkMode(firstRun) {
         if (cookeConsent) {
             if (cookie) {
                 darkMode = false;
-                document.cookie = "darkmode=false; Expires=" + getExpiryDate();
+                document.cookie = "darkmode=false; Expires=" + getExpiryDate() + "; path=/";
             } else {
                 darkMode = true;
-                document.cookie = "darkmode=true; Expires=" + getExpiryDate();
+                document.cookie = "darkmode=true; Expires=" + getExpiryDate() + "; path=/";
             }
         }
     } else {
         if (cookie) {
             darkMode = true;
+            document.cookie = "darkmode=true; Expires=" + getExpiryDate() + "; path=/";
+        } else if (cookies.length != 0) {
+            document.cookie = "darkmode=false; Expires=" + getExpiryDate() + "; path=/";
         }
     }
     if (darkMode != prevDark) {
+        a = (a + 1) % 2;
         for (let i = 0; i < allElements.length; i++) {
             allElements[i].classList.toggle("dark-mode");
+            let currentElement = allElements[i];
+            if (currentElement.src.includes("requiem")) {
+                currentElement.src = `/img/requiem_icon_${a.toString()}.png`;
+            } else if (currentElement.src.includes("curseforge")) {
+                currentElement.src = `/img/curseforge_${a.toString()}.svg`;
+            }
         }
-        a = (a + 1) % 2;
         icon.src = `/img/darkmode${a.toString()}.svg`;
         let ladysnake = document.getElementById("ladysnake_logo");
         ladysnake.src = `/img/ladysnake_logo_${a.toString()}.png`;
