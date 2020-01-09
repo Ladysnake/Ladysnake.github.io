@@ -42,10 +42,12 @@ function setDarkMode(firstRun) {
         for (let i = 0; i < allElements.length; i++) {
             allElements[i].classList.toggle("dark-mode");
             let currentElement = allElements[i];
-            if (currentElement.src.includes("requiem")) {
-                currentElement.src = `/img/requiem_icon_${a.toString()}.png`;
-            } else if (currentElement.src.includes("curseforge")) {
-                currentElement.src = `/img/curseforge_${a.toString()}.svg`;
+            if (currentElement.hasAttribute("src")) {
+                if (currentElement.src.includes("requiem")) {
+                    currentElement.src = `/img/requiem_icon_${a.toString()}.png`;
+                } else if (currentElement.src.includes("curseforge")) {
+                    currentElement.src = `/img/curseforge_${a.toString()}.svg`;
+                }
             }
         }
         icon.src = `/img/darkmode${a.toString()}.svg`;

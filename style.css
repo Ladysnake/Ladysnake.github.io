@@ -8,6 +8,21 @@ body:not(.dark-mode) {
 This section will be all about DARK MODE
 (if possible)
 */
+#dropdown > li > a {
+	display: block;
+	padding: 3px 20px;
+	clear: both;
+	font-weight: normal;
+	line-height: 1.42857143;
+	color: #aaa;
+	white-space: nowrap;
+}
+#dropdown > li > a:hover,
+#dropdown > li > a:focus {
+	color: #fff;
+	text-decoration: none;
+	background-color: #0a0a0a;
+}
 #darkmode-icon {
 	height: 25px;
 	vertical-align: middle;
