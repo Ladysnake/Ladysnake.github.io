@@ -7,28 +7,43 @@
  * This function is called when you click the icon, which will make all elements go to dark mode...
  * 
  * @author sschr15
- * @returns True if it doesn't error
  */
-function setDarkMode() {
+function setDarkMode(firstRun) {
+    let cookies = document.cookie;
     let allElements = document.getElementsByTagName("*");
     let cookeConsent;
-    if (cookies.length === 0) {
-        cookeConsent = confirm("uh\nDo you want to save this as a cookie?\nThis will save the state of your option for a year at a time.\nIf you press cancel, then your dark mode will reset once you leave.");
-    } else {
-        cookeConsent = true;
-    }
-    if (cookeConsent) {
-        if (cookies.includes("darkmode=false")) {
-            darkMode = true;
-            document.cookie = "darkmode=true expires=" + getExpiryDate();
+    let cookie = cookies.includes("darkmode=true");
+    let prevDark;
+    if (firstRun == undefined) {
+        if (cookies.length === 0) {
+            cookeConsent = confirm("Do you want to save this as a cookie?\nThis will save the state of your option for a year at a time.\nIf you press cancel, dark mode will not enable.");
         } else {
-            darkMode = false;
-            document.cookie = "darkmode=false expires=" + getExpiryDate();
+            cookeConsent = true;
+        }
+        if (cookeConsent) {
+            if (cookie) {
+                darkMode = false;
+                document.cookie = "darkmode=false; Expires=" + getExpiryDate();
+            } else {
+                darkMode = true;
+                document.cookie = "darkmode=true; Expires=" + getExpiryDate();
+            }
+        }
+    } else {
+        if (cookie) {
+            darkMode = true;
         }
     }
-    if (darkMode) {
+    if (darkMode != prevDark) {
         for (let i = 0; i < allElements.length; i++) {
-            allElements[i].classList.toggle("darkmode");
+            allElements[i].classList.toggle("dark-mode");
+        }
+        a = (a + 1) % 2;
+        icon.src = `/img/darkmode${a.toString()}.svg`;
+        let ladysnake = document.getElementById("ladysnake_logo");
+        ladysnake.src = `/img/ladysnake_logo_${a.toString()}.png`;
+        if (document.getElementById("requiem") != null) {
+            document.getElementById("requiem").src = `/img/requiem_icon_${a.toString()}.png`;
         }
     }
 }
@@ -44,8 +59,12 @@ function getExpiryDate() {
     return dateUTC;
 }
 
+// this code right here will run as soon as the site loads but then doesn't do anything past that
+document.getElementById("preload-darkmodeicon").id = "darkmode-icon";
+let icon = document.getElementById("darkmode-icon");
+icon.src = "/img/darkmode0.svg";
 let darkMode = false;
-let cookies = document.cookie;
-if (cookies.includes("darkmode=true")) {
-    setDarkMode();
+let a = 0;
+if (document.cookie.includes("darkmode=true")) {
+    setDarkMode(1);
 }

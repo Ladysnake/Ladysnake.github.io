@@ -8,6 +8,10 @@ body:not(.dark-mode) {
 This section will be all about DARK MODE
 (if possible)
 */
+#darkmode-icon {
+	height: 25px;
+	vertical-align: middle;
+}
 body.dark-mode {
 	font-family: 'Poppins', sans-serif;
 	color: #f6f8f9;
@@ -266,7 +270,7 @@ a {
 .navbar-default .navbar-toggle:focus:not(.dark-mode), .navbar-default .navbar-toggle:hover:not(.dark-mode) {
 	background-color: #bdc3c7;
 }
-.navbar-brand, .navbar-nav>li>a:not(.dark-mode) {
+.navbar-brand, .navbar-nav>li>a {
 	line-height: 80px;
 	font-weight: bold;
 	height: 80px;
@@ -277,7 +281,7 @@ a {
 	font-size: 24px;
 	letter-spacing: -0.05em;
 }
-.navbar-nav>li>a:not(.dark-mode) {
+.navbar-nav>li>a {
 	font-weight: 600;
 	font-size: 12px;
 	text-transform: none;
