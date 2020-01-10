@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://ladysnake.github.io/</loc>
+  <lastmod>2020-01-10T01:18:16+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://ladysnake.github.io/index.html</loc>
+  <lastmod>2020-01-10T01:18:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ladysnake.github.io/about.html</loc>
+  <lastmod>2020-01-10T01:18:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ladysnake.github.io/wiki/requiem.html</loc>
+  <lastmod>2020-01-10T01:18:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ladysnake.github.io/wiki/illuminations.html</loc>
+  <lastmod>2020-01-10T01:18:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ladysnake.github.io/wiki/creeperspores.html</loc>
+  <lastmod>2020-01-10T01:18:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ladysnake.github.io/wiki/nomadbooks.html</loc>
+  <lastmod>2020-01-10T01:18:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ladysnake.github.io/wiki/blast.html</loc>
+  <lastmod>2020-01-10T01:18:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ladysnake.github.io/wiki/requiem/landing.html</loc>
+  <lastmod>2020-01-10T01:18:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ladysnake.github.io/wiki/requiem/human_flesh.html</loc>
+  <lastmod>2020-01-10T01:18:16+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://ladysnake.github.io/wiki/requiem/opus_daemonium.html</loc>
+  <lastmod>2020-01-10T01:18:16+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://ladysnake.github.io/wiki/requiem/gameplay.html</loc>
+  <lastmod>2020-01-10T01:18:16+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://ladysnake.github.io/wiki/requiem/pandemonium.html</loc>
+  <lastmod>2020-01-10T01:18:16+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
