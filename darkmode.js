@@ -30,11 +30,13 @@ function setDarkMode(firstRun) {
             }
         }
     } else {
-        if (cookie) {
-            darkMode = true;
-            document.cookie = "darkmode=true; Expires=" + getExpiryDate() + "; path=/";
-        } else if (cookies.length != 0) {
-            document.cookie = "darkmode=false; Expires=" + getExpiryDate() + "; path=/";
+        if (cookies.length != 0) {
+           if (cookie) {
+                darkMode = true;
+                document.cookie = "darkmode=true; Expires=" + getExpiryDate() + "; path=/";
+            } else {
+                document.cookie = "darkmode=false; Expires=" + getExpiryDate() + "; path=/";
+            }
         }
     }
     if (darkMode != prevDark) {
@@ -43,7 +45,7 @@ function setDarkMode(firstRun) {
             allElements[i].classList.toggle("dark-mode");
             let currentElement = allElements[i];
             if (currentElement.hasAttribute("src")) {
-                if (currentElement.src.includes("requiem")) {
+                if (currentElement.src.includes("requiem_icon_")) {
                     currentElement.src = `/img/requiem_icon_${a.toString()}.png`;
                 } else if (currentElement.src.includes("curseforge")) {
                     currentElement.src = `/img/curseforge_${a.toString()}.svg`;
