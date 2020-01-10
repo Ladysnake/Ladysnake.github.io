@@ -24,6 +24,7 @@
     <meta property="og:image" content="http://ladysnake.glitch.me/img/ladysnake_logo2.png" />
     <meta name="description" content="Home of the Minecraft mod developers known as Ladysnake." />
 
+
 </head>
 
 <body>
@@ -37,18 +38,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img src="/img/ladysnake_logo.png" id="ladysnake_logo"></a>
+                <a class="navbar-brand" href="/"><img src="/img/ladysnake_logo_0.png" id="ladysnake_logo"></a>
                 <img id="ladysnake_logo"></div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a onclick="setDarkMode()"><img id="preload-darkmodeicon" src="/img/placeholder.png" /></a></li>
                     <li><a href="/index.html">Home</a></li>
                     <li><a href="/about.html">About Us</a></li>
                     <li><a href="https://discordapp.com/invite/RBHY26t">Discord</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mods <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+                        <ul id="dropdown" class="dropdown-menu">
                             <li><a href="/wiki/requiem.html">Requiem</a></li>
                             <li><a href="/wiki/illuminations.html">Illuminations</a></li>
                             <li><a href="/wiki/creeperspores.html">Creeper Spores</a></li>
@@ -76,7 +78,7 @@
             </div>
             <div class="col-md-4">
                 <div class="service-block text-center">
-                    <img src="img/requiem_icon.png" class="mod_icon">
+                    <img src="img/requiem_icon_0.png" class="mod_icon">
                     <h2 class="home">Requiem</h2>
                     <p class="home">Creates continuity in gameplay after death, replacing the classic respawn mechanic.
                     </p><a href="wiki/requiem.html" title="Learn More" class="btn btn-sm btn-primary">Learn More</a>
@@ -132,6 +134,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
+    <!-- Custom Night mode Option -->
+    <script src="/darkmode.js"></script>
 
 
 

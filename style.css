@@ -1,16 +1,90 @@
-body {
+body:not(.dark-mode) {
 	font-family: 'Poppins', sans-serif;
 	color: #2c3e50;
 	background: #f6f8f9;
 }
 
+/*
+This section will be all about DARK MODE
+(if possible)
+*/
+#dropdown.dark-mode > li > a {
+	display: block;
+	padding: 3px 20px;
+	clear: both;
+	font-weight: normal;
+	line-height: 1.42857143;
+	color: #aaa;
+	white-space: nowrap;
+}
+#dropdown.dark-mode > li > a:hover,
+#dropdown.dark-mode > li > a:focus {
+	color: #fff;
+	text-decoration: none;
+	background-color: #0a0a0a;
+}
+#darkmode-icon {
+	height: 25px;
+	vertical-align: middle;
+}
+body.dark-mode {
+	font-family: 'Poppins', sans-serif;
+	color: #f6f8f9;
+	background: #171717;
+}
+.navbar-default.dark-mode {
+	background-color: #171717;
+	border: none;
+	margin-bottom: 0;
+	margin-top: 20px;
+}
+/* a.dark-mode {
+	color: #f6f8f9;
+} */
+.navbar-default .navbar-nav>li>a .dark-mode {
+	color: #fff;
+}
+.navbar-default .navbar-nav>.open>a.dark-mode, .navbar-default .navbar-nav>.open>a:focus.dark-mode, .navbar-default .navbar-nav>.open>a:hover.dark-mode {
+	background-color: #171717;
+}
+.dropdown-menu.dark-mode {
+	background: #171717;
+	border: none;
+	border-radius: 0;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-size: 13px;
+	color: #777;
+}
+.btn-default.dark-mode {
+	background-color: #fff;
+	color: #171717;
+}
+.btn-default:hover.dark-mode {
+	background-color: #ddd;
+	color: #171717;
+}
+.navbar-default .navbar-toggle.dark-mode {
+	border-color: #eee;
+}
+.navbar-default .navbar-toggle .icon-bar.dark-mode {
+	background-color: #eee;
+}
+.navbar-default .navbar-toggle:focus.dark-mode, .navbar-default .navbar-toggle:hover.dark-mode {
+	background-color: #333;
+}
+.navbar-default .navbar-brand.dark-mode {
+	color: #eee;
+}
+
+/* ok back to your regularly scheduled content */
+
 a {
 	transition: all .3s;
 }
 
-/*	FORMS
-*/
-.form-control {
+/*	FORMS */
+.form-control:not(.dark-mode) {
 	border: 2px solid #cbd0d3;
 	border-radius: 0;
 	padding: 0 25px;
@@ -18,8 +92,7 @@ a {
 	height: 45px;
 }
 
-/*	EXTRA CLASSES
-*/
+/*	EXTRA CLASSES */
 .margin-zero {
 	margin: 0;
 }
@@ -27,7 +100,7 @@ a {
 	margin-top: 30px;
 }
 .margin-bottom-md {
-	margin-top: 30px;
+	margin-bottom: 30px;
 }
 .letter-spacing-sm {
 	letter-spacing: 1px;
@@ -59,8 +132,7 @@ a {
 	font-size: 36px;
 }
 
-/*	COLORS
-*/
+/*	COLORS */
 
 .color-grey {
 	color: #bdc3c7;
@@ -87,8 +159,7 @@ a {
 	color: #e74c3c;
 }
 
-/*	BACKGROUNDS
-*/
+/*	BACKGROUNDS */
 .background-grey {
 	background-color: #bdc3c7;
 }
@@ -117,8 +188,7 @@ a {
 	color: #FFF;
 }
 
-/*	ELEMENTS
-*/
+/*	ELEMENTS */
 .btn {
 	border-radius: 0;
 	text-transform: uppercase;
@@ -148,11 +218,11 @@ a {
 	font-size: 14px;
 }
 
-.btn-default {
+.btn-default:not(.dark-mode) {
 	background-color: #34495e;
 	color: #FFF;
 }
-.btn-default:hover {
+.btn-default:hover:not(.dark-mode) {
 	background-color: #2c3e50;
 	color: #FFF;
 }
@@ -193,13 +263,13 @@ a {
 }
 
 /*	NAVBAR	*/
-.navbar-default {
+.navbar-default:not(.dark-mode) {
 	background-color: #f6f8f9;
 	border: none;
 	margin-bottom: 0;
 	margin-top: 20px;
 }
-.navbar-default .navbar-brand {
+.navbar-default .navbar-brand:not(.dark-mode) {
 	color: #2c3e50;
 }
 .navbar-toggle {
@@ -207,13 +277,13 @@ a {
 	margin-top: 22px;
 	transition: all .3s;
 }
-.navbar-default .navbar-toggle {
+.navbar-default .navbar-toggle:not(.dark-mode) {
 	border-color: #2c3e50;
 }
-.navbar-default .navbar-toggle .icon-bar {
+.navbar-default .navbar-toggle .icon-bar:not(.dark-mode) {
 	background-color: #2c3e50;
 }
-.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+.navbar-default .navbar-toggle:focus:not(.dark-mode), .navbar-default .navbar-toggle:hover:not(.dark-mode) {
 	background-color: #bdc3c7;
 }
 .navbar-brand, .navbar-nav>li>a {
@@ -232,16 +302,15 @@ a {
 	font-size: 12px;
 	text-transform: none;
 }
-.navbar-default .navbar-nav>li>a {
+.navbar-default .navbar-nav>li>a:not(.dark-mode) {
 	color: #2c3e50;
 }
-.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+.navbar-default .navbar-nav>.open>a:not(.dark-mode), .navbar-default .navbar-nav>.open>a:focus:not(.dark-mode), .navbar-default .navbar-nav>.open>a:hover:not(.dark-mode) {
 	background-color: #FFF;
 }
 
-/*	DROPDOWN
-*/
-.dropdown-menu {
+/*	DROPDOWN */
+.dropdown-menu:not(.dark-mode) {
 	background: #FFF;
 	border: none;
 	border-radius: 0;
@@ -250,8 +319,7 @@ a {
 	font-size: 13px;
 }
 
-/*	SECTIONS
-*/
+/*	SECTIONS */
 .section {
 	padding-top: 80px;
 	padding-bottom: 80px;
@@ -283,8 +351,7 @@ h2.section-title + p {
 	margin-top: -70px;
 	margin-bottom: 20px;
 }
-/*	SECTION HERO
-*/
+/*	SECTION HERO */
 .hero {
 	padding-top: 200px;
 	padding-bottom: 200px;
@@ -313,8 +380,7 @@ h2.section-title + p {
 	margin-left: auto;
 }
 
-/*	SERVICE BLOCK
-*/
+/*	SERVICE BLOCK */
 .service-block {
 	display: block;
 	margin: 30px 0 30px 0;
@@ -346,8 +412,7 @@ h2.section-title + p {
 	margin-top: 10px;
 }
 
-/*	BLOG
-*/
+/*	BLOG */
 .entry {
 	margin-bottom: 30px;
 }
