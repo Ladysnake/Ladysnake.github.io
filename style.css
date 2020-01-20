@@ -76,6 +76,16 @@ body.dark-mode {
 .navbar-default .navbar-brand.dark-mode {
 	color: #eee;
 }
+code.dark-mode {
+	background-color: #0a0a0a;
+	color: #b7153e;
+}
+
+/* other stuff that sschr15 made and things */
+
+.nav li a img {
+	height: 30px;
+}
 
 /* ok back to your regularly scheduled content */
 

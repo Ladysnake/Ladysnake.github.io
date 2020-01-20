@@ -1,5 +1,18 @@
 /*jshint esversion: 6 */
 
+// this code right here will run as soon as the site loads but then doesn't do anything past that
+document.getElementById("preload-darkmodeicon").id = "darkmode-icon";
+let icon = document.getElementById("darkmode-icon");
+icon.src = "/img/darkmode0.svg";
+let darkMode = false;
+let a = 0;
+if (document.cookie.includes("darkmode")) {
+    refreshCookie();
+}
+if (document.cookie.includes("darkmode=true")) {
+    setDarkMode(1);
+}
+
 /**
  * ok so apparently you can do this
  * 
@@ -16,7 +29,11 @@ function setDarkMode(firstRun) {
     let prevDark = darkMode;
     if (firstRun == undefined) {
         if (cookies.length === 0) {
-            cookeConsent = confirm("Do you want to save this as a cookie?\nThis will save the state of your option for a year at a time.\nIf you press cancel, dark mode will not enable.");
+            cookeConsent = confirm(
+                "Do you want to save this as a cookie?\n" +
+                "This will save the state of your option for a year at a time.\n" +
+                "If you press cancel, dark mode will not enable.\n" +
+                "The cookie will update its expiration date every time you come to the page, though!");
         } else {
             cookeConsent = true;
         }
@@ -29,15 +46,8 @@ function setDarkMode(firstRun) {
                 document.cookie = "darkmode=true; Expires=" + getExpiryDate() + "; path=/";
             }
         }
-    } else {
-        if (cookies.length != 0) {
-           if (cookie) {
-                darkMode = true;
-                document.cookie = "darkmode=true; Expires=" + getExpiryDate() + "; path=/";
-            } else {
-                document.cookie = "darkmode=false; Expires=" + getExpiryDate() + "; path=/";
-            }
-        }
+    } else if (cookie) {
+        darkMode = true;
     }
     if (darkMode != prevDark) {
         a = (a + 1) % 2;
@@ -45,19 +55,22 @@ function setDarkMode(firstRun) {
             allElements[i].classList.toggle("dark-mode");
             let currentElement = allElements[i];
             if (currentElement.hasAttribute("src")) {
-                if (currentElement.src.includes("requiem_icon_")) {
-                    currentElement.src = `/img/requiem_icon_${a.toString()}.png`;
-                } else if (currentElement.src.includes("curseforge")) {
-                    currentElement.src = `/img/curseforge_${a.toString()}.svg`;
+                let srcPrev = currentElement.src.toString();
+                if (srcPrev.endsWith("_0.svg") || srcPrev.endsWith("_1.svg")) {
+                    currentElement.src = srcPrev.substring(0, srcPrev.length - 5) + a.toString() + ".svg";
+                } else if (srcPrev.endsWith("_0.png") || srcPrev.endsWith("_1.png")) {
+                    currentElement.src = srcPrev.substring(0, srcPrev.length - 5) + a.toString() + ".png";
                 }
             }
         }
         icon.src = `/img/darkmode${a.toString()}.svg`;
+/*         
         let ladysnake = document.getElementById("ladysnake_logo");
         ladysnake.src = `/img/ladysnake_logo_${a.toString()}.png`;
         if (document.getElementById("requiem") != null) {
             document.getElementById("requiem").src = `/img/requiem_icon_${a.toString()}.png`;
-        }
+        } 
+*/
     }
 }
 
@@ -72,12 +85,16 @@ function getExpiryDate() {
     return dateUTC;
 }
 
-// this code right here will run as soon as the site loads but then doesn't do anything past that
-document.getElementById("preload-darkmodeicon").id = "darkmode-icon";
-let icon = document.getElementById("darkmode-icon");
-icon.src = "/img/darkmode0.svg";
-let darkMode = false;
-let a = 0;
-if (document.cookie.includes("darkmode=true")) {
-    setDarkMode(1);
+/**
+ * This refreshes the cookie expiry date...
+ */
+function refreshCookie() {
+    let temp;
+    if (document.cookie.includes("darkmode=true")) {
+        temp = true;
+    } else {
+        temp = false
+    }
+    document.cookie = "darkmode=0; path=/";
+    document.cookie = `darkmode=${temp.toString()}; Expires=${getExpiryDate()}; path=/`;
 }
