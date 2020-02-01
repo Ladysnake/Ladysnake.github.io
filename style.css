@@ -86,6 +86,9 @@ code.dark-mode {
 .nav li a img {
 	height: 30px;
 }
+span {
+	padding: 0 8px 0 8px;
+}
 
 /* ok back to your regularly scheduled content */
 

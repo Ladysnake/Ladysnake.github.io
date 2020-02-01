@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ladysnake 🐍</title>
+    <title>Illuminations - Ladysnake 🐍</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -18,15 +18,15 @@
         type="text/css">
     <!-- Style -->
     <link href="/style.css" rel="stylesheet" type="text/css">
-    <meta property="og:title" content="Ladysnake 🐍" />
+    <meta property="og:title" content="Illuminations - Ladysnake 🐍" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ladysnake.github.io" />
-    <meta property="og:image" content="https://ladysnake.github.io/img/colored-ladysnake-icon.png" />
+    <meta property="og:image" content="https://ladysnake.github.io/img/illuminations.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="300" />
     <meta property="og:image:height" content="300" />
-    <meta property="og:image:alt" content="The Colored Ladysnake Logo" />
-    <meta property="og:description" content="Home of a small group of developers called Ladysnake" />
+    <meta property="og:image:alt" content="The Illuminations Logo" />
+    <meta property="og:description" content="The Illuminations mod: Get it on Curseforge!" />
     <meta name="description" content="Home of the Minecraft mod developers known as Ladysnake." />
 
 </head>
@@ -71,7 +71,65 @@
 
     <!-- START SECTION -->
     <div class="container">
-        This is where we put our own text for the page!
+        <h1><img src="/img/impersonate.png" class="h1-wiki-icon" />&nbsp;Impersonate</h1>
+        <br />
+        <h3>
+            <span><a href="https://www.curseforge.com/minecraft/mc-mods/impersonate"><img src="/img/curseforge_0.svg" class="h3-wiki-icon" />&nbsp;Curseforge Page</a></span>
+            <span><a href="https://www.github.com/Ladysnake/Impersonate"><img src="/img/GitHubWord_0.png" class="h3-wiki-icon" /></a></span>
+        </h3>
+        <p>
+            Have you ever wanted to impersonate another player ? Be it for making machinimas, roleplaying, playing 5D chess in factions, or just pranking friends, 
+            there are lots of (relatively) good reasons to assume the identity of someone else.
+        </p>
+        <h2>Overview</h2>
+        <p>
+            Impersonate allows players to take on the name and appearance of other players. When impersonating someone, a player will:
+            <ul>
+                <li>have the skin of the impersonated player</li>
+                <li>have the nameplate of the impersonated player</li>
+                <li>send every chat message as if they were the impersonated player</li>
+                <li>appear as the impersonated players in online player lists</li>
+                <li>sign books as if they were the impersonated player</li>
+                <li>etc.</li>
+            </ul>
+            They will however not fool the impersonated player's pets, if any. <br />
+            To avoid moderation chaos, server logs will always display the actual player's name, alongside their fake identity.
+        </p>
+        <h3>Commands</h3>
+        <p>
+            Impersonate adds the <code>/impersonate</code> command, allowing server operators and mapmakers to interact with the API through commands.
+            <ul>
+                <li><code>/impersonate disguise</code></li>
+                <ul>
+                    <li><code>/impersonate disguise as &lt;name&gt; [&lt;targets&gt;] [&lt;key&gt;]</code>: disguises one or more players</li>
+                    <ul>
+                        <li><code>name</code>: Name of the player to impersonate. Does not have to be online or even real.</li>
+                        <li>
+                            <code>targets</code>: If specified, must be either a player's username or a target selector. 
+                            If unspecified, defaults to the player using the command. When used in a command block, player is not optional.
+                        </li>
+                        <li><code>key</code>: If specified, must be a valid identifier serving as a key for the impersonation.</li>
+                    </ul>
+                    <li><code>/impersonate disguise clear [&lt;targets&gt;] [&lt;key&gt;]</code>: stops the impersonation of one or more players</li>
+                    <ul>
+                        <li><code>targets</code>: see above</li>
+                        <li>
+                            <code>key</code>: If specified, must be a valid identifier that was previously used as a key to start an impersonation. 
+                            If left unspecified, the command will clear every active impersonation.
+                        </li>
+                    </ul>
+                </ul>
+            </ul>
+        </p>
+        <h3>Gamerules</h3>
+        <p>
+            <ul>
+                <li><code>impersonate:fakeCapes</code>: Whether impersonators should get the cape and elytra of impersonated players. Defaults to false.</li>
+                <li><code>impersonate:opRevealImpersonations</code>: Whether impersonations should be revealed to online server operators like they get revealed in the server logs. Defaults to true.</li>
+            </ul>
+        </p>
+        <h2>Using Impersonate (for developers)</h2>
+        <p>Mod developers can use gradle to add Impersonate as a dependency. More information is available in the <a href="https://github.com/Ladysnake/Impersonate/#adding-impersonate-to-your-project">Github Readme</a>.</p>
     </div>
     <!--/.section -->
     <div class="container">

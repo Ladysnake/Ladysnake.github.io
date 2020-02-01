@@ -93,7 +93,7 @@ function refreshCookie() {
     if (document.cookie.includes("darkmode=true")) {
         temp = true;
     } else {
-        temp = false
+        temp = false;
     }
     document.cookie = "darkmode=0; path=/";
     document.cookie = `darkmode=${temp.toString()}; Expires=${getExpiryDate()}; path=/`;
