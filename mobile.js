@@ -9,14 +9,33 @@ oh also this happens on other small browsing windows as well
 
 */
 
-/**width of the screen, from JQuery */
-let width = $(window).width();
+/**
+ * This was originally only run once at the time of webpage load.
+ * It is now changed so it runs repeatedly every second to allow for changing screen sizes.
+ * @author sschr15
+ */
+let mobile = setInterval(function(){
+    /** width of the screen, from JQuery */
+    let width = $(window).width();
+    
+    let logo = document.getElementById("ladysnake_logo");
+    
+    let bigness = (768 < width && width < 992);
+    let bigness2 = (width < 430);
 
-let logo = document.getElementById("ladysnake_logo");
+    /**
+     * checks if the cookies contain darkmode=true.
+     * If it does, then the dark mode image will be applied instead.
+     */
+    let darkMode = document.cookie.includes("darkmode=true") ? 1 : 0;
+    
+    if (bigness || bigness2) {
+        logo.src = `/img/ladysnake_icon_${darkMode}.png`;
+    } else {
+        logo.src = `/img/ladysnake_logo_${darkMode}.png`;
+    }
+}, 500);
 
-let bigness = (768 < width && width < 992);
-let bigness2 = (width < 430);
-
-if (bigness || bigness2) {
-    logo.src = "/img/ladysnake_icon_0.png";
+function killMobileUpdater() {
+    clearInterval(mobile);
 }
