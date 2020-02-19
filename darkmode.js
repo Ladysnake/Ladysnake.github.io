@@ -6,6 +6,9 @@ let icon = document.getElementById("darkmode-icon");
 icon.src = "/img/darkmode0.svg";
 let darkMode = false;
 let a = 0;
+let uhh;
+let shift = false;
+let ded;
 if (document.cookie.includes("darkmode")) {
     refreshCookie();
 }
@@ -27,13 +30,22 @@ function setDarkMode(firstRun) {
     let cookeConsent;
     let cookie = cookies.includes("darkmode=true");
     let prevDark = darkMode;
+//    shift = isKeyPressed(16); // contains outdated code
+    /* jshint -W033 */
+//    if (shift) {document.cookie = "a=a"}
+//    ded = shift ? function(){document.cookie="a=a"} : ded;
+    /* jshint +W033 */
     if (firstRun == undefined) {
         if (cookies.length === 0) {
-            cookeConsent = confirm(
+            cookeConsent = (uhh != undefined) ? uhh : confirm(
                 "Do you want to save this as a cookie?\n" +
                 "This will save the state of your option for a year at a time.\n" +
-                "If you press cancel, dark mode will not enable.\n" +
-                "The cookie will update its expiration date every time you come to the page, though!");
+                "If you press cancel, dark mode will not persist from this page.\n" +
+//                "Hold shift to set the cookie if you decide you do want a cookie.\n" +
+                "The cookie will update its expiration date every time you come to the page, though!"
+            );
+            uhh = cookeConsent;
+            darkMode = !darkMode;
         } else {
             cookeConsent = true;
         }
@@ -97,4 +109,16 @@ function refreshCookie() {
     }
     document.cookie = "darkmode=0; path=/";
     document.cookie = `darkmode=${temp.toString()}; Expires=${getExpiryDate()}; path=/`;
+}
+
+/**
+ * Tests if a key is pressed, using JQuery.
+ * 
+ * See https://stackoverflow.com/a/3781360 for a list of character codes.
+ * @param {Number} keycode 
+ */
+function isKeyPressed(keycode) {
+    let temp;
+    temp = event.shiftKey;
+    return temp;
 }
