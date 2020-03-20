@@ -3,6 +3,7 @@ echo This requires Python 3 to be installed in order to run.
 echo Auto IP detection might not work on older devices. Sorry!
 if [%1] equ [localhost] goto :localhost
 if [%1] equ [127.0.0.1] goto :localhost
+if [%1] equ [::] goto :localhost
 if [%1] neq [] goto :neq
 
 set ip_address_string="IPv4 Address"
@@ -24,6 +25,9 @@ python -m http.server 80 --bind %1
 goto :eof
 
 :localhost
-echo Using localhost. You will not be able to access 
+echo Using localhost. You will not be able to access
+echo the page from other devices on the network.
 python -m http.server 80
 goto :eof
+
+:eof

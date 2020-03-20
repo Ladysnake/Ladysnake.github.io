@@ -6,9 +6,8 @@ body:not(.dark-mode) {
 
 /*
 This section will be all about DARK MODE
-(if possible)
 */
-#dropdown.dark-mode > li > a {
+#dropdown.dark-mode > li > a, #mod-dropdown.dark-mode > li > a {
 	display: block;
 	padding: 3px 20px;
 	clear: both;
@@ -17,8 +16,8 @@ This section will be all about DARK MODE
 	color: #aaa;
 	white-space: nowrap;
 }
-#dropdown.dark-mode > li > a:hover,
-#dropdown.dark-mode > li > a:focus {
+#dropdown.dark-mode > li > a:hover, #mod-dropdown.dark-mode > li > a:hover,
+#dropdown.dark-mode > li > a:focus, #mod-dropdown.dark-mode > li > a:focus {
 	color: #fff;
 	text-decoration: none;
 	background-color: #0a0a0a;
@@ -88,6 +87,9 @@ code.dark-mode {
 }
 span {
 	padding: 0 8px 0 8px;
+}
+.container img.wiki {
+	max-width: 500px;
 }
 
 /* ok back to your regularly scheduled content */

@@ -12,6 +12,8 @@ oh also this happens on other small browsing windows as well
 /**
  * This was originally only run once at the time of webpage load.
  * It is now changed so it runs repeatedly every second to allow for changing screen sizes.
+ * 
+ * Kill it by running (in the console) clearInterval(mobile)
  * @author sschr15
  */
 let mobile = setInterval(function(){
