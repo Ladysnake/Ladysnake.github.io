@@ -1,4 +1,5 @@
 @echo off
+title servesite
 echo This requires Python 3 to be installed in order to run.
 echo Auto IP detection might not work on older devices. Sorry!
 if [%1] equ [localhost] goto :localhost

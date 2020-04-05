@@ -29,12 +29,12 @@ let mobile = setInterval(function(){
      * checks if the cookies contain darkmode=true.
      * If it does, then the dark mode image will be applied instead.
      */
-    let darkMode = document.cookie.includes("darkmode=true") ? 1 : 0;
+    let numMode = darkMode ? 1 : 0;
     
     if (bigness || bigness2) {
-        logo.src = `/img/ladysnake_icon_${darkMode}.png`;
+        logo.src = `/img/ladysnake_icon_${numMode}.png`;
     } else {
-        logo.src = `/img/ladysnake_logo_${darkMode}.png`;
+        logo.src = `/img/ladysnake_logo_${numMode}.png`;
     }
 }, 500);
 
