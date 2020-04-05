@@ -32,6 +32,7 @@ const curse = {
 let data;
 let desc;
 let down = document.getElementById("mod-dropdown");
+let flag = false;
 
 /**
  * Gets the ID(s) of a mod based on the list above
@@ -47,11 +48,29 @@ function getID(modname) { return curse[modname]; }
 function getFile(curseID) {
     $.getJSON(`https://curse.nikky.moe/api/addon/${curseID}`, function(a) {data = a;});
     $.get(`https://curse.nikky.moe/api/addon/${curseID}/description`, function(a) {desc = a;});
-    setTimeout(function(){
-        if(/versions:/i.test(desc)) {
-            desc = desc.slice(desc.indexOf("ersions:"), desc.indexOf("ersions:") + 250);    
-            let reg = /[0-9]\.[0-9]+(\.[0-9]*)*/g;
-            let versions = desc.match(reg);
+    let attempt = setInterval(function(){
+        if (desc != undefined && data != undefined && !flag) {
+            let versions;
+            if(/versions:/i.test(desc)) {
+                desc = desc.slice(desc.indexOf("ersions:"), desc.indexOf("ersions:") + 250);    
+                let reg = /[0-9]\.[0-9]+(\.[0-9]*)*/g;
+                versions = desc.match(reg);
+            } else {
+                versions = [];
+                let files = data.gameVersionLatestFiles;
+                for (let i in files) {
+                    if (!versions.includes(files[i].gameVersion)) {
+                        versions.push(files[i].gameVersion);
+                    }
+                }
+                let li = document.createElement("li");
+                let a = document.createElement("a");
+                a.href = '#';
+                a.innerHTML = "WARNING: Not all versions<br />may be supported.";
+                li.appendChild(a);
+                down.appendChild(li);
+            }
+            versions.sort().reverse();
             for (let v in versions) {
                 let li = document.createElement("li");
                 let a = document.createElement("a");
@@ -60,8 +79,10 @@ function getFile(curseID) {
                 li.appendChild(a);
                 down.appendChild(li);
             }
+            clearInterval(attempt);
+            flag = true;
         }
-    }, 500);
+    }, 50);
 }
 
 let i = 0;
