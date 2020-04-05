@@ -81,7 +81,7 @@ function getFile(curseID) {
             }
             clearInterval(attempt);
             flag = true;
-        }
+        } else if (flag) { clearInterval(attempt); }
     }, 50);
 }
 
