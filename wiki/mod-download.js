@@ -63,9 +63,16 @@ function getFile(curseID) {
                         versions.push(files[i].gameVersion);
                     }
                 }
+                files = data.latestFiles;
+                for (let i in files) {
+                    for (let j in files[i].gameVersion) {
+                        if (/[0-9].*/.test(files[i].gameVersion[j])) {
+                            if (!versions.includes(files[i].gameVersion[j])) { versions.push(files[i].gameVersion[j]); }
+                        }
+                    }
+                }
                 let li = document.createElement("li");
                 let a = document.createElement("a");
-                a.href = '#';
                 a.innerHTML = "WARNING: Not all versions<br />may be supported.";
                 li.appendChild(a);
                 down.appendChild(li);
