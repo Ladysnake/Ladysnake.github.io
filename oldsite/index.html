@@ -1,99 +1,79 @@
+
 <!DOCTYPE html>
-<html lang="en-US">
+<html>
 
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ladysnake 🐍</title>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700" rel="stylesheet" type="text/css">
-    <!-- Font Awesome -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
-        type="text/css">
-    <!-- Style -->
-    <link href="/style.css" rel="stylesheet" type="text/css">
-    <meta property="og:title" content="Ladysnake 🐍" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ladysnake.github.io" />
-    <meta property="og:image" content="https://ladysnake.github.io/img/colored-ladysnake-icon.png" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="300" />
-    <meta property="og:image:height" content="300" />
-    <meta property="og:image:alt" content="The Colored Ladysnake Logo" />
-    <meta property="og:description" content="Home of a small group of developers called Ladysnake" />
-    <meta name="description" content="Home of the Minecraft mod developers known as Ladysnake." />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Ladysnake</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
-<body>
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/"><img src="/img/ladysnake_logo_0.png" id="ladysnake_logo"></a>
+<body style="background-color: rgb(225,225,225);">
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color: rgb(30,35,40);">
+            <div class="container"><a class="navbar-brand" href="/oldsite/"><img src="assets/img/ls-logo-with-text.png" style="width: 250px;margin: -35px;margin-top: -40px;margin-left: 0;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="/oldsite/dissolution">Dissolution</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="/oldsite/gaspunk">Gaspunk</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="/oldsite/lumen">Lumen</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="/oldsite/about">About</a></li>
+                    </ul>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a onclick="setDarkMode()"><img id="preload-darkmodeicon" src="/img/placeholder.png" /></a></li>
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="/about.html">About Us</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mods <b class="caret"></b></a>
-                        <ul id="dropdown" class="dropdown-menu">
-                            <li><a href="/wiki/requiem.html">Requiem</a></li>
-                            <li><a href="/wiki/illuminations.html">Illuminations</a></li>
-                            <li><a href="/wiki/creeperspores.html">Creeper Spores</a></li>
-                            <li><a href="/wiki/nomadbooks.html">Nomad Books</a></li>
-                            <li><a href="/wiki/blast.html">BLAST</a></li>
-                            <li><a href="/wiki/impersonate.html">Impersonate</a></li>
-                            <li><a href="/wiki/beem.html">Beem</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="https://oldladysnake.glitch.me">Old Site</a></li>
-                    <li><a href="https://discordapp.com/invite/RBHY26t"><img src="/img/DiscordWord_0.svg" /></a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div>
+    </div>
     </nav>
-
-    <!-- START SECTION -->
-    <div class="container">
-        Under construction! <sub>Why did you come here in the first place?</sub>
     </div>
-    <!--/.section -->
-    <div class="container">
-        <!-- This is the footer! Created by sschr15... -->
-        <div class="row text-center">
-            Site owned and operated by Ladysnake.&nbsp;
-            <span><a href="https://github.com/Ladysnake"><img src="/img/GitHub_0.png" class="p-wiki-icon" ></a></span>
+    <div data-bs-parallax-bg="true" style="height: auto;background-position: bottom;background-size: contain;background-repeat: repeat-x;">
+        <div class="container" style="padding-top: 30px;">
+            <div class="row" style="margin-right: -15px;margin-top: 15px;">
+                <div class="col-sm-6 col-lg-4 mb-4">
+                    <div class="card h-100"><a href="/oldsite/dissolution"><img class="img-fluid" src="assets/img/dissolution.png"></a>
+                        <div class="card-body">
+                            <h4 class="card-title">Dissolution</h4>
+                            <h6 class="text-muted card-subtitle mb-2">Death system redone</h6>
+                            <p class="card-text">Completely changes the vanilla death system by adding new mechanics like souls and undead possession.<br></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 mb-4">
+                    <div class="card h-100"><a href="/oldsite/gaspunk"><img class="img-fluid" src="assets/img/gaspunk.png"></a>
+                        <div class="card-body">
+                            <h4 class="card-title">Gaspunk</h4>
+                            <h6 class="text-muted card-subtitle mb-2">Simple gas grenades</h6>
+                            <p class="card-text">Small but gameplay effective mod that adds a multitude of gas grenades along with additional related gear.<br></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 mb-4">
+                    <div class="card h-100"><a href="/oldsite/lumen"><img class="img-fluid" src="assets/img/lumen.png"></a>
+                        <div class="card-body">
+                            <h4 class="card-title">Lumen</h4>
+                            <h6 class="text-muted card-subtitle mb-2">Fireflies and light orbs</h6>
+                            <p class="card-text">Adds various fireflies in order to bring more ambiance to the world during night time.<br></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Bootstrap JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-        crossorigin="anonymous"></script>
-    <!-- Custom Night mode Option -->
-    <script src="/darkmode.js"></script>
-    <!-- Test if mobile to change a thing -->
-    <script src="/mobile.js" ></script>
-
+    <div class="footer-basic" style="background-color: rgba(255,255,255,0);padding-top: 20px;padding-bottom: 6px;">
+        <footer>
+            <div class="social"><a href="https://github.com/Ladysnake"><i class="fab fa-github"></i></a><a href="/oldsite/discord"><i class="fab fa-discord"></i></a></div>
+            <p class="copyright" style="margin-top: 0px;">Ladysnake © 2018</p>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
 </body>
 
 </html>
