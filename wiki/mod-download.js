@@ -52,8 +52,9 @@ function getFile(curseID) {
         if (desc != undefined && data != undefined && !flag) {
             let versions;
             if(/versions:/i.test(desc)) {
-                desc = desc.slice(desc.indexOf("ersions:"), desc.indexOf("ersions:") + 250);    
-                let reg = /[0-9]\.[0-9]+(\.[0-9]*)*/g;
+                desc = desc.slice(desc.indexOf("ersions:"), desc.indexOf("ersions:") + 250);
+                desc = desc.replace(/ /g, '-');
+                let reg = /[0-9]\.[0-9]+(\.[0-9]*)*(-Snapshot)?/gi;
                 versions = desc.match(reg);
             } else {
                 versions = [];
