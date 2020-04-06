@@ -2,24 +2,25 @@
 
 // alright here we go
 
-let tmp = jQuery.getJSON("http://ladysnake.github.io/hissiemotes.json");
+
+let json = {
+    "1": "2",
+    "3": "4"
+};
+$.getJSON("http://ladysnake.github.io/hissiemotes.json", function(data) {json = data;});
 let def = setInterval(changeImage, 2500);
 let hissiemote = document.getElementById("hissiemotes");
-let json;
 
-setTimeout(setJSON, 1000);
-
-function setJSON() {
-    json = tmp.responseJSON;
-}
 
 function changeImage() {
-    //TODO make this do a thing
+    /**@param {Object} obj */
     var randomProperty = function (obj) {
-        var keys = Object.keys(obj);
-        return obj[keys[ keys.length * Math.random() << 0]];
+        const keys = Object.keys(obj);
+        const randIntex = Math.floor(Math.random() * keys.length);
+        const randKey = keys[randIntex];
+        const name = obj[randKey];
+        return name;
     };
 
     hissiemote.src = randomProperty(json);
-    console.log(json);
 }
