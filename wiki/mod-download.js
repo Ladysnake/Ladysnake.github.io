@@ -51,11 +51,13 @@ function getFile(curseID) {
     let attempt = setInterval(function(){
         if (desc != undefined && data != undefined && !flag) {
             let versions;
+            let flag2;
             if(/versions:/i.test(desc)) {
                 desc = desc.slice(desc.indexOf("ersions:"), desc.indexOf("ersions:") + 250);
                 desc = desc.replace(/ /g, '-');
                 let reg = /[0-9]\.[0-9]+(\.[0-9]*)*(-Snapshot)?/gi;
                 versions = desc.match(reg);
+                flag2 = true;
             } else {
                 versions = [];
                 let files = data.gameVersionLatestFiles;
@@ -82,8 +84,30 @@ function getFile(curseID) {
             for (let v in versions) {
                 let li = document.createElement("li");
                 let a = document.createElement("a");
-                a.href = `https://curse.nikky.moe/api/url/${curseID}?version=${versions[v]}`;
-                a.innerHTML = versions[v];
+                let span = document.createElement("span");
+//                let p = document.createElement("p");
+                let img = document.createElement("img");
+
+                let version = versions[v];
+
+                a.href = `https://curse.nikky.moe/api/url/${curseID}?version=${version}`;
+                span.innerHTML += versions[v];
+                img.src = `/img/download_${darkMode ? 1 : 0}.svg`;
+                if (darkMode) { img.classList.add("darkmode"); }
+                img.classList.add("download-icon");
+
+//                span.appendChild(p);
+                span.appendChild(img);
+//                span.innerHTML += versions[v];
+                a.appendChild(span);
+                li.appendChild(a);
+                down.appendChild(li);
+            }
+            if (flag2) {
+                let li = document.createElement("li");
+                let a = document.createElement("a");
+                a.href = data.websiteUrl;
+                a.innerHTML = "More Versions...";
                 li.appendChild(a);
                 down.appendChild(li);
             }

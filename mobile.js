@@ -8,6 +8,8 @@ It does this by changing the shown logo when the screen size is too small.
 oh also this happens on other small browsing windows as well
 
 */
+let last;
+let uhm;
 
 /**
  * This was originally only run once at the time of webpage load.
@@ -25,16 +27,23 @@ let mobile = setInterval(function(){
     let bigness = (768 < width && width < 992);
     let bigness2 = (width < 430);
 
-    /**
-     * checks if the cookies contain darkmode=true.
-     * If it does, then the dark mode image will be applied instead.
-     */
-    let numMode = darkMode ? 1 : 0;
-    
-    if (bigness || bigness2) {
-        logo.src = `/img/ladysnake_icon_${numMode}.png`;
-    } else {
-        logo.src = `/img/ladysnake_logo_${numMode}.png`;
+    uhm = bigness || bigness2;
+
+
+    if (last != darkMode || uhm) {
+        last = darkMode;
+
+        /**
+         * checks if the cookies contain darkmode=true.
+         * If it does, then the dark mode image will be applied instead.
+         */
+        let numMode = darkMode ? 1 : 0;
+        
+        if (uhm) {
+            logo.src = `/img/ladysnake_icon_${numMode}.png`;
+        } else {
+            logo.src = `/img/ladysnake_logo_${numMode}.png`;
+        }
     }
 }, 500);
 

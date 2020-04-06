@@ -91,6 +91,14 @@ span {
 .container img.wiki {
 	max-width: 500px;
 }
+li a span img.download-icon {
+	float: right;
+	height: 20px;
+}
+li ul li a span {
+	padding: 0 0 0 0;
+}
+
 
 /* ok back to your regularly scheduled content */
 
