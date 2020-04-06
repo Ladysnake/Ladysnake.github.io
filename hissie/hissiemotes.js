@@ -8,7 +8,7 @@ let json = {
     "3": "4"
 };
 $.getJSON("http://ladysnake.github.io/hissiemotes.json", function(data) {json = data;});
-let def = setInterval(changeImage, 2500);
+//let def = setInterval(changeImage, 2500);
 let hissiemote = document.getElementById("hissiemotes");
 
 
