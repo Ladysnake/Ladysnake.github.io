@@ -7,20 +7,29 @@ let json = {
     "1": "2",
     "3": "4"
 };
-$.getJSON("http://ladysnake.github.io/hissiemotes.json", function(data) {json = data;});
-//let def = setInterval(changeImage, 2500);
+let text = [];
+let hissiemotes = [];
+//$.getJSON("http://ladysnake.github.io/hissiemotes.json", function(data) {json = data;});
+let link = location.origin + "/hissiemotes.json";
+$.get(link, function (data) {text = JSON.stringify(data).split(",");});
+let def = setInterval(changeImage, 2500);
 let hissiemote = document.getElementById("hissiemotes");
 
-
+/**
+ * Runs a function that constantly changes the 
+ */
 function changeImage() {
-    /**@param {Object} obj */
-    var randomProperty = function (obj) {
-        const keys = Object.keys(obj);
-        const randIntex = Math.floor(Math.random() * keys.length);
-        const randKey = keys[randIntex];
-        const name = obj[randKey];
-        return name;
-    };
 
-    hissiemote.src = randomProperty(json);
+    if (hissiemotes.length == 0) {
+        for (let i = 0; i < text.length; i++) {
+//            let line = "text";
+            let line = text[i];
+            if (line.includes('":"')) hissiemotes.push(line.split("\"")[3]);
+        }
+    }
+
+    let item = Math.floor(Math.random() * hissiemotes.length);
+    let lnk = hissiemotes[item];
+
+    hissiemote.src = lnk;
 }
