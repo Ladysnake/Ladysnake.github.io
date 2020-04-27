@@ -101,9 +101,29 @@ li ul li a span {
 div.itemThing div {
 	cursor: pointer;
 	width: auto;
+	position: relative;
 }
-:not(div).itemThing {
-	cursor: pointer;
+.hissiemote {
+	opacity: 1;
+	transition: 0.5s ease;
+	backface-visibility: hidden;
+	height: auto;
+}
+.overlayCopy {
+	transition: 0.5s ease;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -400%);
+	text-align: center;
+	font-weight: bold;
+}
+div.itemThing div:hover .hissiemote {
+	opacity: 0.2;
+}
+div.itemThing div:hover .overlayCopy {
+	opacity: 1;
 }
 
 
