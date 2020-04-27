@@ -15,9 +15,10 @@ let link = location.origin + "/hissiemotes.json";
 $.get(link, function (data) {text = JSON.stringify(data).split(",");});
 let def = setInterval(changeImage, 2500);
 let hissiemote = document.getElementById("hissiemotes");
+let imgSrc;
 
 /**
- * Runs a function that constantly changes the 
+ * Runs a function that constantly changes the shown Hissiemote
  */
 function changeImage() {
 
@@ -34,4 +35,5 @@ function changeImage() {
     let lnk = hissiemotes[item];
 
     hissiemote.src = lnk;
+    setTimeout(function(){imgSrc = hissiemote.src;}, 100);
 }

@@ -27,14 +27,11 @@ function doTheCopy(cpTxt) {
 
 function indexCopy() {
     if (!setup) {
-        console.warn("Unable to copy the image because I don't have images yet. Trying again in 0.5s");
-        setTimeout(indexCopy(), 500);
+        console.warn("Unable to copy the image because I don't have images yet. Try again shortly...");
         return;
     }
 
-    let img = document.getElementById("hissiemotes").src;
-
     for (let i = 0; i < text.length; i++) {
-        if (text[i].includes(img)) doTheCopy(":" + text[i].split('"')[1] + "!");
+        if (text[i].includes(imgSrc)) doTheCopy(":" + text[i].split('"')[1] + "!");
     }
 }
