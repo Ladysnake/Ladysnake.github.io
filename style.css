@@ -98,6 +98,13 @@ li a span img.download-icon {
 li ul li a span {
 	padding: 0 0 0 0;
 }
+div.itemThing div {
+	cursor: pointer;
+	width: auto;
+}
+:not(div).itemThing {
+	cursor: pointer;
+}
 
 
 /* ok back to your regularly scheduled content */

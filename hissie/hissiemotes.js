@@ -9,6 +9,7 @@ let json = {
 };
 let text = [];
 let hissiemotes = [];
+let setup = false;
 //$.getJSON("http://ladysnake.github.io/hissiemotes.json", function(data) {json = data;});
 let link = location.origin + "/hissiemotes.json";
 $.get(link, function (data) {text = JSON.stringify(data).split(",");});
@@ -26,6 +27,7 @@ function changeImage() {
             let line = text[i];
             if (line.includes('":"')) hissiemotes.push(line.split("\"")[3]);
         }
+        setup = true;
     }
 
     let item = Math.floor(Math.random() * hissiemotes.length);
