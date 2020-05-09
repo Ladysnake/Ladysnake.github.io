@@ -13,6 +13,8 @@ function print() {
         header: header,
         css: [
             "/bootstrap.css",
+            "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css",
+            "https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700",
             "/style.css"
         ]
     });
