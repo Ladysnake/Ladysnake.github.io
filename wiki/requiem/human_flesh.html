@@ -71,9 +71,12 @@
 
     <div class="container wiki">
         <h4><a href="javascript:window.history.back()">Back</a></h4>
-        <h1>Human flesh</h1><img class="h1-wiki-icon" src="img/items/human_flesh_big.png">
-		<p>Human flesh is a food item dropped by Players, Villagers and Illagers upon being killed by a Zombie.</p>
-		<p>Human flesh can be eaten by Zombie players to regenerate 6 health points (3 hearts).</p>
+        <h4><a href="javascript:print()">Print</a></h4>
+        <div id="printJS-Content">
+            <h1>Human flesh</h1><img class="h1-wiki-icon" src="img/items/human_flesh_big.png">
+            <p>Human flesh is a food item dropped by Players, Villagers and Illagers upon being killed by a Zombie.</p>
+            <p>Human flesh can be eaten by Zombie players to regenerate 6 health points (3 hearts).</p>
+        </div>
     </div>
     <div class="container">
         <!-- This is the footer! Created by sschr15... -->
@@ -93,5 +96,8 @@
     <script src="/darkmode.js"></script>
     <!-- Test if mobile to change a thing -->
     <script src="/mobile.js" ></script></body>
+    <!-- adding the ability to print the pages out -->
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+    <script src="/print.js"></script>
 
 </html>

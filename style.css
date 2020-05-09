@@ -125,6 +125,11 @@ div.itemThing div:hover .hissiemote {
 div.itemThing div:hover .overlayCopy {
 	opacity: 1;
 }
+#printLogo {
+	position: relative;
+	width: 25px;
+	height: 25px;
+}
 
 
 /* ok back to your regularly scheduled content */

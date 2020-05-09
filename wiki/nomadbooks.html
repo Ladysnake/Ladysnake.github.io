@@ -77,7 +77,11 @@
 
     <!-- START SECTION -->
     <div class="container">
-        <h1><img src="/img/nomadbooks.png" class="h1-wiki-icon" />&nbsp;Nomad Books</h1>
+        <h1>
+            <img src="/img/nomadbooks.png" class="h1-wiki-icon" />
+            &nbsp;Nomad Books&nbsp;
+            <img id="printLogo" src="/img/print-icon_0.svg" onclick="print()" data-modName="Requiem" />
+        </h1>
         <br />
         <h3>
             <a href="https://www.curseforge.com/minecraft/mc-mods/nomadbooks"><img src="/img/curseforge_0.svg" class="h3-wiki-icon" />&nbsp;Curseforge Page</a>
@@ -154,6 +158,9 @@
     <script src="/mobile.js" ></script>
     <!-- Mod downloading dropdown, (almost) direct from our site! -->
     <script src="mod-download.js"></script>
+    <!-- adding the ability to print the pages out -->
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+    <script src="/print.js"></script>
 
 </body>
 

@@ -21,7 +21,6 @@ goto :eof
 
 :neq
 echo Using provided IP address %1
-echo 
 python -m http.server 80 --bind %1
 goto :eof
 
