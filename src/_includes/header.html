@@ -20,16 +20,14 @@
     <link href='/style.css' rel='stylesheet' type='text/css'>
     <!-- Syntax Highlighting -->
     <link id="syntax-stylesheet" rel="stylesheet" href="/syntax-github.css">
-    {% if page.slug or page.og %}
     <meta property="og:title" content="{{ full_title }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ladysnake.github.io" />
-    <meta property="og:image" content="https://ladysnake.github.io/img/{% if page.og.img %}{{ page.og.img }}{% else %}{{ page.slug }}.png{% endif %}" />
+    <meta property="og:image" content="https://ladysnake.github.io/img/{% if page.og.img %}{{ page.og.img }}{% elsif page.slug %}{{ page.slug }}.png{% else %}colored-ladysnake-icon.png{% endif %}" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="300" />
     <meta property="og:image:height" content="300" />
     <meta property="og:image:alt" content="Logo" />
-    <meta property="og:description" content="{% if page.og.desc %}{{ page.og.desc }}{% else %}The {{ page.title }} Mod: Download it from our site!{% endif %}" />
-    {% endif %}
+    <meta property="og:description" content="{% if page.og.desc %}{{ page.og.desc }}{% elsif page.slug %}The {{ page.title }} Mod: Download it from our site!{% else %}Home of a small group of developers called Ladysnake{% endif %}" />
     <meta name="description" content="Home of the Minecraft mod developers known as Ladysnake." />
 </head>
