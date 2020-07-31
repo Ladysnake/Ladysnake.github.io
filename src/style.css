@@ -75,9 +75,8 @@ body.dark-mode {
 .navbar-default .navbar-brand.dark-mode {
 	color: #eee;
 }
-code.dark-mode {
+code.dark-mode.language-plaintext {
 	background-color: #0a0a0a;
-	color: #b7153e;
 }
 
 /* other stuff that sschr15 made and things */
@@ -87,6 +86,9 @@ code.dark-mode {
 }
 span {
 	padding: 0 8px 0 8px;
+}
+code span {
+	padding: 0;
 }
 .container img.wiki {
 	max-width: 500px;
