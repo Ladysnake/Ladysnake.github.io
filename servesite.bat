@@ -16,18 +16,18 @@ for /f "usebackq tokens=2 delims=:" %%f in (`ipconfig ^| findstr /c:%ip_address_
 echo Using assumed IP address %foundip%
 echo If you are unable to access this site from other computers on the LAN,
 echo please find the correct IP with ipconfig and add that to the command instead.
-python -m http.server 80 --bind%foundip%
+python -m http.server 80 --directory src --bind%foundip%
 goto :eof
 
 :neq
 echo Using provided IP address %1
-python -m http.server 80 --bind %1
+python -m http.server 80 --directory src --bind %1
 goto :eof
 
 :localhost
 echo Using localhost. You will not be able to access
 echo the page from other devices on the network.
-python -m http.server 80
+python -m http.server 80 --directory src
 goto :eof
 
 :eof

@@ -75,6 +75,7 @@ function setDarkMode(firstRun) {
                 }
             }
         }
+	document.getElementById("syntax-stylesheet").setAttribute("href", darkMode ? "/syntax-monokai.css" : "/syntax-github.css");
         icon.src = `/img/darkmode${a.toString()}.svg`;
 /*         
         let ladysnake = document.getElementById("ladysnake_logo");

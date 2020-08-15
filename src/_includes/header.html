@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% capture full_title %}{% if page.title %}{{page.title}} - {% endif %}Ladysnake 🐍{% endcapture %}
+    <title>{{ full_title }}</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/bootstrap.css">
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700' rel='stylesheet' type='text/css'>
+    <!-- Font Awesome -->
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet'
+        type='text/css'>
+    <!-- Style -->
+    <link href='/style.css' rel='stylesheet' type='text/css'>
+    <!-- Syntax Highlighting -->
+    <link id="syntax-stylesheet" rel="stylesheet" href="/syntax-github.css">
+    <meta property="og:title" content="{{ full_title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ladysnake.github.io" />
+    <meta property="og:image" content="https://ladysnake.github.io/img/{% if page.og.img %}{{ page.og.img }}{% elsif page.slug %}{{ page.slug }}.png{% else %}colored-ladysnake-icon.png{% endif %}" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:image:alt" content="Logo" />
+    <meta property="og:description" content="{% if page.og.desc %}{{ page.og.desc }}{% elsif page.slug %}The {{ page.title }} Mod: Download it from our site!{% else %}Home of a small group of developers called Ladysnake{% endif %}" />
+    <meta name="description" content="Home of the Minecraft mod developers known as Ladysnake." />
+</head>
