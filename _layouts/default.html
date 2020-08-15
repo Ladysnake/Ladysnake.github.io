@@ -20,6 +20,14 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    {% if page.slug %}
+                    <li class="dropdown">
+                        <a href class="dropdown-toggle" data-toggle="dropdown" onclick="doTheThing()">Download <b class="caret"></b></a>
+                        <ul id="mod-dropdown" class="dropdown-menu">
+                            <!-- uhhhhhhhhhhh -->
+                        </ul>
+                    </li>
+                    {% endif %}
                     <li><a onclick="setDarkMode()"><img id="preload-darkmodeicon" src="/img/placeholder.png" /></a></li>
                     <li><a href="/index.html">Home</a></li>
                     <li><a href="/about.html">About Us</a></li>
@@ -62,9 +70,15 @@
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
     <!-- Custom Night mode Option -->
-    <script src="/darkmode.js"></script>
+    <script src="/scripts/darkmode.js"></script>
+    {% if page.slug %}
+    <!-- Mod downloading dropdown, (almost) direct from our site! -->
+    <script src="/scripts/mod-download.js"></script>
+    <!-- adding the ability to print the pages out -->
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+    {% endif %}
     <!-- Test if mobile to change a thing -->
-    <script src="/mobile.js" ></script>
+    <script src="/scripts/mobile.js" ></script>
 
 </body>
 
