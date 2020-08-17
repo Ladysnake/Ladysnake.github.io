@@ -1,194 +1,100 @@
-<!DOCTYPE html>
-<html lang="en-US">
+---
+layout: default
+---
+<!-- START SECTION -->
+<div class="wiki">
+	<h4><a href="javascript:window.history.back()">Back</a></h4>
+	<h4><a href="javascript:print()">Print</a></h4>
+	<div id="printJS-Content">
+		<h1>Gameplay Mechanics</h1>
+		<h2>First Death</h2>
+		<p>
+		Upon dying for the first time in a world, a dialogue will be prompted to the player. In this menu, the
+		player can select whether or not he wants to become a demon, and activate the mod for himself or not.
+		After choosing, the player obtains the "A Devilish Conundrum" and the dialogue will not be prompted anymore. <br />
+		However, the player can still change their mind by using an <a href="opus_daemonium.html">Opus Daemonium</a> at a later time.
+		</p>
+		<h2>Soul State</h2>
+		<p>
+		If the player is a demon and dies, their demon souls splits from the host's and escapes the destroyed body. <br />
+		In this state, the player can easily fly and navigate the world in search of a new host to possess. The player is granted creative 
+		fly and can use the sprint key to navigate in the air (similarly to how a player would swim ) and go through one block tall holes. <br />
+		To possess a new body and leave the soul state, the player must find an undead mob with an inventory and interact with them
+		(a crimson eye should render upon placing the cursor on an entity). The list of the valid undead Vanilla Minecraft mobs is as follows:
+		<ul>
+			<li>Skeleton</li>
+			<li>Stray</li>
+			<li>Wither Skeleton</li>
+			<li>Zombie</li>
+			<li>Husk</li>
+			<li>Zombie Villager</li>
+			<li>Zombie Pigman</li>
+			<li>Drowned</li>
+		</ul>
+		</p>
+		<h2>Body Transformation after Death</h2>
+		<p>
+		In some cases, the player's body might transform after death, giving birth to an undead creature. In those few situations,
+		the player's soul is not expelled from the dying body, and keeps full control of it. <br >
+		The list of events that lead to a body transformation after death is as follows:
+		<ul>
+			<li>Dying from a Zombie or a Drowned will turn the player into a Zombie</li>
+			<li>Dying in lava while being in the Nether will turn the player into a Wither Skeleton</li>
+			<li>Dying from suffocation by sand will turn the player into a Husk</li>
+			<li>As Vanilla game behaviour guarantees, staying too long underwater as a Zombie will turn the player into a Drowned</li>
+		</ul>
+		</p>
+		<h2>Undead Gameplay</h2>
+		<p>
+		After finding a new host or transforming after death, the player is forced to play as an undead creature. Undead players behave
+		very similarly to undead mobs, meaning they both have their strengths and weaknesses. For instance, a Stray player will shoot
+		slowness arrows, but will also burn if exposed to sunlight. <br />
+		All undead players:
+		<ul>
+			<li>Are slower than human players</li>
+			<li>Do not have hunger, but can sprint nonetheless</li>
+			<li>Do not suffocate underwater</li>
+			<li>Cannot swim (unless possessing a Drowned).</li>
+			<li>Do not naturally regenerate health. Please read the "Special item uses for Undead" section for information on how to heal in other ways.</li>
+			<li>Are ignored by hostile mobs, unless the player attacks them, but will be targeted by golems.</li>
+			<li>Do not receive any experience from combat, but will still be able to obtain some from other sources (such as mining, fishing and breeding animals).</li>
+			<li>Do not have the strength to swing their sword in a manner to do area damage.</li>
+			<li>Receive damage from instant health potion and health from instant damage potions.</li>
+		</ul>
+		</p>
+		<h2>Special Item Uses for Undead</h2>
+		<p>Depending on the undead possessed, the player is able to use items differently from how he would if he was human.</p>
+		<p>
+		Raw meat ("Zombie Snack") <br />
+		Raw meat can be eaten by Zombie players (all sub-types included) to regenerate health. 
+		A piece of meat regenerates as much health as it would recover food for a human player.
+		</p>
+		<p>
+		Raw fish ("Drowned Delicacy") <br />
+		Raw fish can eaten by Drowned exclusively, and serves the same purpose raw meat does.
+		</p>
+		<p>
+		Bones ("Bony Prosthesis") <br />
+		Skeletons (all sub-types included) can replace their damaged bones by new ones. To do so, just use a bone and it will regenerate 4 health points (2 hearts).
+		</p>
+		<p>
+		Milk buckets ("Calcium Goodness") <br />
+		Skeletons (all sub-types included) can drink milk for extra bone resistance. Drinking a milk bucket grants the player Resistance for 30 seconds.
+		</p>
+		<p>
+		Bows ("Skeletal Efficiency") <br />
+		Using a bow as a Skeleton (all sub-types included) has a chance to not consume an arrow when shooting. Resulting arrows are not recoverable.
+		</p>
+		<p>
 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gameplay - Requiem | Ladysnake 🐍</title>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/bootstrap.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700" rel="stylesheet" type="text/css">
-    <!-- Font Awesome -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
-        type="text/css">
-    <!-- Style -->
-    <link href="/style.css" rel="stylesheet" type="text/css">
-    <meta property="og:title" content="Ladysnake 🐍" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ladysnake.github.io" />
-    <meta property="og:image" content="https://ladysnake.github.io/img/colored-ladysnake-icon.png" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="300" />
-    <meta property="og:image:height" content="300" />
-    <meta property="og:image:alt" content="The Colored Ladysnake Logo" />
-    <meta property="og:description" content="Home of a small group of developers called Ladysnake" />
-    <meta name="description" content="Home of the Minecraft mod developers known as Ladysnake." />
-
-</head>
-
-<body>
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/"><img src="/img/ladysnake_logo_0.png" id="ladysnake_logo"></a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a onclick="setDarkMode()"><img id="preload-darkmodeicon" src="/img/placeholder.png" /></a></li>
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="/about.html">About Us</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mods <b class="caret"></b></a>
-                        <ul id="dropdown" class="dropdown-menu">
-                            <li><a href="/wiki/requiem.html">Requiem</a></li>
-                            <li><a href="/wiki/illuminations.html">Illuminations</a></li>
-                            <li><a href="/wiki/creeperspores.html">Creeper Spores</a></li>
-                            <li><a href="/wiki/nomadbooks.html">Nomad Books</a></li>
-                            <li><a href="/wiki/blast.html">BLAST</a></li>
-                            <li><a href="/wiki/impersonate.html">Impersonate</a></li>
-                            <li><a href="/wiki/beem.html">Beem</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="https://oldladysnake.glitch.me">Old Site</a></li>
-                    <li><a href="https://discordapp.com/invite/RBHY26t"><img src="/img/DiscordWord_0.svg" /></a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div>
-    </nav>
-
-    <!-- START SECTION -->
-    <div class="container wiki">
-        <h4><a href="javascript:window.history.back()">Back</a></h4>
-        <h4><a href="javascript:print()">Print</a></h4>
-        <div id="printJS-Content">
-            <h1>Gameplay Mechanics</h1>
-            <h2>First Death</h2>
-            <p>
-                Upon dying for the first time in a world, a dialogue will be prompted to the player. In this menu, the
-                player can select whether or not he wants to become a demon, and activate the mod for himself or not.
-                After choosing, the player obtains the "A Devilish Conundrum" and the dialogue will not be prompted anymore. <br />
-                However, the player can still change their mind by using an <a href="opus_daemonium.html">Opus Daemonium</a> at a later time.
-            </p>
-            <h2>Soul State</h2>
-            <p>
-                If the player is a demon and dies, their demon souls splits from the host's and escapes the destroyed body. <br />
-                In this state, the player can easily fly and navigate the world in search of a new host to possess. The player is granted creative 
-                fly and can use the sprint key to navigate in the air (similarly to how a player would swim ) and go through one block tall holes. <br />
-                To possess a new body and leave the soul state, the player must find an undead mob with an inventory and interact with them
-                (a crimson eye should render upon placing the cursor on an entity). The list of the valid undead Vanilla Minecraft mobs is as follows:
-                <ul>
-                    <li>Skeleton</li>
-                    <li>Stray</li>
-                    <li>Wither Skeleton</li>
-                    <li>Zombie</li>
-                    <li>Husk</li>
-                    <li>Zombie Villager</li>
-                    <li>Zombie Pigman</li>
-                    <li>Drowned</li>
-                </ul>
-            </p>
-            <h2>Body Transformation after Death</h2>
-            <p>
-                In some cases, the player's body might transform after death, giving birth to an undead creature. In those few situations,
-                the player's soul is not expelled from the dying body, and keeps full control of it. <br >
-                The list of events that lead to a body transformation after death is as follows:
-                <ul>
-                    <li>Dying from a Zombie or a Drowned will turn the player into a Zombie</li>
-                    <li>Dying in lava while being in the Nether will turn the player into a Wither Skeleton</li>
-                    <li>Dying from suffocation by sand will turn the player into a Husk</li>
-                    <li>As Vanilla game behaviour guarantees, staying too long underwater as a Zombie will turn the player into a Drowned</li>
-                </ul>
-            </p>
-            <h2>Undead Gameplay</h2>
-            <p>
-                After finding a new host or transforming after death, the player is forced to play as an undead creature. Undead players behave
-                very similarly to undead mobs, meaning they both have their strengths and weaknesses. For instance, a Stray player will shoot
-                slowness arrows, but will also burn if exposed to sunlight. <br />
-                All undead players:
-                <ul>
-                    <li>Are slower than human players</li>
-                    <li>Do not have hunger, but can sprint nonetheless</li>
-                    <li>Do not suffocate underwater</li>
-                    <li>Cannot swim (unless possessing a Drowned).</li>
-                    <li>Do not naturally regenerate health. Please read the "Special item uses for Undead" section for information on how to heal in other ways.</li>
-                    <li>Are ignored by hostile mobs, unless the player attacks them, but will be targeted by golems.</li>
-                    <li>Do not receive any experience from combat, but will still be able to obtain some from other sources (such as mining, fishing and breeding animals).</li>
-                    <li>Do not have the strength to swing their sword in a manner to do area damage.</li>
-                    <li>Receive damage from instant health potion and health from instant damage potions.</li>
-                </ul>
-            </p>
-            <h2>Special Item Uses for Undead</h2>
-            <p>Depending on the undead possessed, the player is able to use items differently from how he would if he was human.</p>
-            <p>
-                Raw meat ("Zombie Snack") <br />
-                Raw meat can be eaten by Zombie players (all sub-types included) to regenerate health. 
-                A piece of meat regenerates as much health as it would recover food for a human player.
-            </p>
-            <p>
-                Raw fish ("Drowned Delicacy") <br />
-                Raw fish can eaten by Drowned exclusively, and serves the same purpose raw meat does.
-            </p>
-            <p>
-                Bones ("Bony Prosthesis") <br />
-                Skeletons (all sub-types included) can replace their damaged bones by new ones. To do so, just use a bone and it will regenerate 4 health points (2 hearts).
-            </p>
-            <p>
-                Milk buckets ("Calcium Goodness") <br />
-                Skeletons (all sub-types included) can drink milk for extra bone resistance. Drinking a milk bucket grants the player Resistance for 30 seconds.
-            </p>
-            <p>
-                Bows ("Skeletal Efficiency") <br />
-                Using a bow as a Skeleton (all sub-types included) has a chance to not consume an arrow when shooting. Resulting arrows are not recoverable.
-            </p>
-            <p>
-
-                Tridents ("Drowned Grip") <br />
-                Throwing a trident as a Drowned has a chance to keep it in hand and duplicate it. Resulting tridents are not recoverable.
-            </p>
-            <h2>Becoming Human Again</h2>
-            <p>
-                To recover their humanity and get rid of their rotting body, an undead player has to go through the purification
-                progress every Zombie Villager must. By getting the Weakness effect, undead players are able to eat Golden Apples.
-                Doing so results in the player turning back into human form.
-            </p>
-        </div>
-    </div>
-    <!--/.section -->
-    <div class="container">
-        <!-- This is the footer! Created by sschr15... -->
-        <div class="row text-center">
-            Site owned and operated by Ladysnake.&nbsp;
-            <span><a href="https://github.com/Ladysnake"><img src="/img/GitHub_0.png" class="p-wiki-icon" ></a></span>
-        </div>
-    </div>
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Bootstrap JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-        crossorigin="anonymous"></script>
-    <!-- Custom Night mode Option -->
-    <script src="/darkmode.js"></script>
-    <!-- Test if mobile to change a thing -->
-    <script src="/mobile.js" ></script>
-    <!-- adding the ability to print the pages out -->
-    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
-    <script src="/print.js"></script>
-
-</body>
-
-</html>
+		Tridents ("Drowned Grip") <br />
+		Throwing a trident as a Drowned has a chance to keep it in hand and duplicate it. Resulting tridents are not recoverable.
+		</p>
+		<h2>Becoming Human Again</h2>
+		<p>
+		To recover their humanity and get rid of their rotting body, an undead player has to go through the purification
+		progress every Zombie Villager must. By getting the Weakness effect, undead players are able to eat Golden Apples.
+		Doing so results in the player turning back into human form.
+		</p>
+	</div>
+</div>
