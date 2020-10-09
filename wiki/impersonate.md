@@ -19,7 +19,7 @@ will:
 
 They will however not fool the impersonated player's pets, if any.
 
-To avoid moderation chaos, server logs will always display the actual player's name, alongside their fake identity.
+To avoid moderation chaos, server logs will always display the actual player's name, alongside their fake identity. Server operators will have ongoing impersonations revealed in the same way.
 
 ### Commands  
 Impersonate adds the `/impersonate` command, allowing server operators and mapmakers to interact with the API through
@@ -35,7 +35,8 @@ commands.
     
 ### Gamerules
 - `impersonate:fakeCapes` : Whether impersonators should get the cape and elytra of impersonated players. Defaults to `false`.  
-- `impersonate:opRevealImpersonations` : Whether impersonations should be revealed to online server operators like they get revealed in the server logs. Defaults to `true`.  
+- `impersonate:opRevealImpersonations` : Whether ongoing impersonations should be revealed to online server operators. Defaults to `true`.  
+- `impersonate:logRevealImpersonations` : Whether ongoing impersonations should be revealed in the server logs. Defaults to `true`.  
 
 ## Using Impersonate (for developers)
 
