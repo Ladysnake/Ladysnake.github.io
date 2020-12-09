@@ -5,4 +5,4 @@ exclude: [README.md, servesite, servesite.bat]
 collections:
     requiem_wiki:
         output: true
-        permalink: /wiki/:collection/:name
+        permalink: /wiki/requiem/:name
