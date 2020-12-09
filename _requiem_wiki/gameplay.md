@@ -1,6 +1,6 @@
 ---
 title: Gameplay Mechanics
-icon: img/heart.png
+icon: /img/requiem_icon_0.png
 layout: requiem_wiki
 ---
 ## First Death

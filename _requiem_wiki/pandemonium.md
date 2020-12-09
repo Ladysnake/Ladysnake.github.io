@@ -1,6 +1,6 @@
 ---
 title: Pandemonium
-icon: img/heart.png
+icon: /img/requiem_icon_0.png
 layout: default
 ---
 <div class="wiki">
