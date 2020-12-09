@@ -23,6 +23,7 @@ layout: default
 <div class="row">
 {%- for col in (0..col_max) -%}
 {%- assign i = row | times: nb_cols | plus: col -%}
+{%- if i >= len -%} {%- break -%} {%- endif -%}
 {%- assign page = site.mods[i] -%}
 <!-- row: {{row}}; col: {{col}}; i: {{i}}; page: {{page.title}}-->
 	<div class="col-md-4">
@@ -37,6 +38,7 @@ layout: default
 <div class="row">
 {% for col in (0..col_max) %}
 {%- assign i = row | times: nb_cols | plus: col -%}
+{%- if i >= len -%} {%- break -%} {%- endif -%}
 {%- assign page = site.mods[i] -%}
 <!-- row: {{row}}; col: {{col}}; i: {{i}}; page: {{page.title}}-->
 	<div class="col-md-4">
