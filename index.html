@@ -14,28 +14,35 @@ layout: default
 	<p class="section-description home">Our current maintained and up-to-date Minecraft mods</p>
     </div>
 </div>
-{% assign len = site.mods | size %}
-{% for i in (0..len) %}
-{% assign col = i | modulo: 3 %}
-{% assign page = site.mods[i] %}
-{% if col == 0 %}
+{%- assign len = site.mods | size | minus: 1 -%}
+{%- assign nb_rows = len | divide_by: 3 -%}
+{%- assign nb_cols = len | modulo: 3 -%}
+{%- for row in (0..nb_rows) -%}
 <div class="row">
-{% endif %}
-{% if i == len %}
-</div>
-{% break %}
-{%endif%}
+{%- for col in (0..nb_cols) -%}
+{%- assign i = row | times: 3 | plus: col -%}
+{%- assign page = site.mods[i] -%}
 	<div class="col-md-4">
 		<div class="service-block text-center">
 			<img src="{{ page.icon }}" class="mod_icon">
 			<h2 class="home">{{ page.title }}</h2>
-			<p class="home">{{ page.content | markdownify}}</p><a href="{{ page.link }}" title="{{ page.title }}" class="btn btn-sm btn-primary">Learn More</a>
+			<p class="home">{{ page.content }}</p>
 		</div>
 	</div>
-{% if col == 2 %}
+{%- endfor -%}
 </div>
-{% endif %}
-{% endfor %}
+<div class="row">
+{%- for col in (0..nb_cols) -%}
+{%- assign i = row | times: 3 | plus: col -%}
+{%- assign page = site.mods[i] -%}
+	<div class="col-md-4">
+		<div class="service-block text-center">
+			<a href="{{ page.link }}" title="{{ page.title }}" class="btn btn-sm btn-primary">Learn More</a>
+		</div>
+	</div>
+{%- endfor -%}
+</div>
+{%- endfor -%}
 <div class="row">
     <div class="col-md-12 text-center">
 	<h2 class="section-title home">Our Other Projects</h2>
