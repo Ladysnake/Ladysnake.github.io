@@ -15,12 +15,12 @@ layout: default
     </div>
 </div>
 {%- assign len = site.mods | size | minus: 1 -%}
-{%- assign nb_rows = len | divide_by: 3 -%}
-{%- assign nb_cols = len | modulo: 3 -%}
+{%- assign nb_cols = 3 -%}
+{%- assign nb_rows = len | divide_by: nb_cols -%}
 {% for row in (0..nb_rows) %}
 <div class="row">
 {%- for col in (0..nb_cols) -%}
-{%- assign i = row | times: 3 | plus: col -%}
+{%- assign i = row | times: nb_cols | plus: col -%}
 {%- assign page = site.mods[i] -%}
 	<div class="col-md-4">
 		<div class="service-block text-center">
@@ -33,7 +33,7 @@ layout: default
 </div>
 <div class="row">
 {% for col in (0..nb_cols) %}
-{%- assign i = row | times: 3 | plus: col -%}
+{%- assign i = row | times: nb_cols | plus: col -%}
 {%- assign page = site.mods[i] -%}
 	<div class="col-md-4">
 		<div class="service-block text-center">
