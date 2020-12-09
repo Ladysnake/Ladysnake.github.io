@@ -17,7 +17,7 @@ layout: default
 {%- assign len = site.mods | size | minus: 1 -%}
 {%- assign nb_rows = len | divide_by: 3 -%}
 {%- assign nb_cols = len | modulo: 3 -%}
-{%- for row in (0..nb_rows) -%}
+{% for row in (0..nb_rows) %}
 <div class="row">
 {%- for col in (0..nb_cols) -%}
 {%- assign i = row | times: 3 | plus: col -%}
@@ -26,13 +26,13 @@ layout: default
 		<div class="service-block text-center">
 			<img src="{{ page.icon }}" class="mod_icon">
 			<h2 class="home">{{ page.title }}</h2>
-			<p class="home">{{ page.content }}</p>
+			<p class="home">{{ page.content | markdownify }}</p>
 		</div>
 	</div>
-{%- endfor -%}
+{% endfor %}
 </div>
 <div class="row">
-{%- for col in (0..nb_cols) -%}
+{% for col in (0..nb_cols) %}
 {%- assign i = row | times: 3 | plus: col -%}
 {%- assign page = site.mods[i] -%}
 	<div class="col-md-4">
@@ -40,9 +40,9 @@ layout: default
 			<a href="{{ page.link }}" title="{{ page.title }}" class="btn btn-sm btn-primary">Learn More</a>
 		</div>
 	</div>
-{%- endfor -%}
+{% endfor %}
 </div>
-{%- endfor -%}
+{% endfor %}
 <div class="row">
     <div class="col-md-12 text-center">
 	<h2 class="section-title home">Our Other Projects</h2>
