@@ -6,3 +6,12 @@ collections:
     requiem_wiki:
         output: true
         permalink: /wiki/requiem/:name
+    mods:
+        order:
+            - requiem.md
+            - illuminations.md
+            - creeper_spores.md
+            - blast.md
+            - nomad_books.md
+            - impersonate.md
+            - beem.md
