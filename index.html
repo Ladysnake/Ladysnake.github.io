@@ -21,11 +21,15 @@ layout: default
 {% if col == 0 %}
 <div class="row">
 {% endif %}
+{% if i == len %}
+</div>
+{% break %}
+{%endif%}
 	<div class="col-md-4">
 		<div class="service-block text-center">
 			<img src="{{ page.icon }}" class="mod_icon">
 			<h2 class="home">{{ page.title }}</h2>
-			<p class="home">{{ page.content | markdownify}}</p><a href="{% link page.link %}" title="{{ page.title }}" class="btn btn-sm btn-primary">Learn More</a>
+			<p class="home">{{ page.content | markdownify}}</p><a href="{{ page.link }}" title="{{ page.title }}" class="btn btn-sm btn-primary">Learn More</a>
 		</div>
 	</div>
 {% if col == 2 %}
