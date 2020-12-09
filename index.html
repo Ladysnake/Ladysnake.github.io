@@ -17,7 +17,7 @@ layout: default
 {%- assign len = site.mods | size -%}
 {%- assign nb_cols = 3 -%}
 {%- assign col_max = nb_cols | minus: 1 -%}
-{%- assign row_max = len | divided_by: nb_cols | minus: 1 -%}
+{%- assign row_max = len | divided_by: nb_cols -%}
 <!-- Len: {{len}}; nb_cols: {{nb_cols}}; col_max: {{col_max}}; row_max: {{row_max}} -->
 {% for row in (0..row_max) %}
 <div class="row">
