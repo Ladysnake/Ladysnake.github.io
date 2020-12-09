@@ -1,44 +1,23 @@
 ---
-layout: default
+title: Welcome to the Requiem Wiki!
+layout: requiem_wiki
 ---
-<!-- START SECTION -->
-<div class="wiki">
-	<h4><a href="javascript:window.history.back()">Back</a></h4>
-	<h1>Welcome to the Requiem Wiki!</h1>
-	<div class="row">
-		<div class="col-md-4">
-			<a href="human_flesh.html">
-				<div class="service-block text-center">
-					<img src="img/items/human_flesh_big.png" class="mod_icon">
-					<h2 class="home">Human Flesh</h2>
-				</div>
-			</a>
-		</div>
-		<div class="col-md-4">
-			<a href="opus_daemonium.html">
-				<div class="service-block text-center">
-					<img src="img/items/opus_daemonium.gif" class="mod_icon">
-					<h2 class="home">Opus Daemonium</h2>
-				</div>
-			</a>
-		</div>
-		<div class="col-md-4">
-			<a href="gameplay.html">
-				<div class="service-block text-center">
-					<img src="img/heart.png" class="mod_icon">
-					<h2 class="home">Gameplay Mechanics</h2>
-				</div>
-			</a>
-		</div>
+{% assign len = site.requiem_wiki | size %}
+{% for i in (1..len) %}
+{% assign col = i | modulo: 3 %}
+{% assign page = site.requiem_wiki[page] %}
+{% if col == 0 %}
+<div class="row">
+{% endif %}
+	<div class="col-md-4">
+		<a href="{{ page.url }}">
+			<div class="service-block text-center">
+				<img src="{{ page.icon }}" class="mod_icon">
+				<h2 class="home">{{ page.title }}</h2>
+			</div>
+		</a>
 	</div>
-	<div class="row">
-		<div class="col-md-4">
-			<a href="pandemonium.html">
-				<div class="service-block text-center">
-					<img src="img/heart.png" class="mod_icon">
-					<h2 class="home">Pandemonium</h2>
-				</div>
-			</a>
-		</div>
-	</div>
+{% if col == 2 %}
 </div>
+{% endif %}
+{% endfor %}

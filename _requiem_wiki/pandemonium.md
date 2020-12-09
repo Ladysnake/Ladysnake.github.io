@@ -1,4 +1,6 @@
 ---
+title: Pandemonium
+icon: img/heart.png
 layout: default
 ---
 <div class="wiki">

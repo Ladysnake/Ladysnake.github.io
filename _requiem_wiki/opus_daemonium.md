@@ -1,4 +1,6 @@
 ---
+title: Opus Daemonium
+icon: img/items/opus_daemonium.gif
 layout: default
 ---
 <div class="wiki">

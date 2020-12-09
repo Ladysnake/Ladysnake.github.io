@@ -1,4 +1,6 @@
 ---
+title: Human flesh
+icon: img/items/human_flesh_big.png
 layout: default
 ---
 <div class="wiki">

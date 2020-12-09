@@ -1,5 +1,6 @@
 ---
 title: Gameplay Mechanics
+icon: img/heart.png
 layout: requiem_wiki
 ---
 ## First Death
@@ -10,24 +11,38 @@ After choosing, the player obtains the "A Devilish Conundrum" and the dialogue w
 However, the player can still change their mind by using an [Opus Daemonium](opus_daemonium) at a later time.
 
 ### Origins Compatibility
-With the [Origins](https://www.curseforge.com/minecraft/mc-mods/origins) mod installed, the choice is made through its selection screen when first joining the world.
+With the [Origins](https://www.curseforge.com/minecraft/mc-mods/origins) mod installed, the choice is made through its selection screen when first joining the world. This does not replace the actual origin choice, players choose both a soul type and an origin.
 
 ## Soul State
 
-If the player is a demon and dies, their demon souls splits from the host's and escapes the destroyed body. <br />
-In this state, the player can easily fly and navigate the world in search of a new host to possess. The player is granted creative 
-fly and can use the sprint key to navigate in the air (similarly to how a player would swim ) and go through one block tall holes. <br />
-To possess a new body and leave the soul state, the player must find an undead mob with an inventory and interact with them
-(a crimson eye should render upon placing the cursor on an entity). The list of the valid undead Vanilla Minecraft mobs is as follows:
+If the player is a demon and dies, their demon souls splits from the host's and escapes the destroyed body. 
 
-- Skeleton
-- Stray
-- Wither Skeleton
-- Zombie
-- Husk
-- Zombie Villager
-- Zombie Pigman
-- Drowned
+In this state, the player can easily fly and navigate the world in search of a new host to possess. The player is granted creative 
+fly and can use the sprint key to navigate in the air (similarly to how a player would swim ) and go through one block tall holes. 
+
+To possess a new body and leave the soul state, the player must find a soulless mob and interact with them
+(a crimson eye should render upon placing the cursor on an entity). The list of valid Vanilla Minecraft mobs is as follows:
+
+- Undead mobs
+
+  - Skeleton
+  - Stray
+  - Wither Skeleton
+  - Skeleton Horse
+
+  - Zombie
+  - Drowned
+  - Husk
+  - Zombie Villager
+  - Zombified Piglin
+  - Zombie  Horse
+  - Zoglins
+
+- Golems
+
+  - Iron Golem
+  - Snow Golem
+  - Shulker
 
 ## Body Transformation after Death
 
@@ -41,25 +56,32 @@ The list of events that lead to a body transformation after death is as follows:
 - Dying from suffocation by sand will turn the player into a Husk
 - As Vanilla game behaviour guarantees, staying too long underwater as a Zombie will turn the player into a Drowned
 
-## Undead Gameplay
+## Possessor Gameplay
 
-After finding a new host or transforming after death, the player is forced to play as an undead creature. Undead players behave
-very similarly to undead mobs, meaning they both have their strengths and weaknesses. For instance, a Stray player will shoot
+After finding a new host or transforming after death, the player is forced to play as a soulless creature. Possessor players behave
+very similarly to their mobs, meaning they have both their strengths and weaknesses. For instance, a Stray player will shoot
 slowness arrows, but will also burn if exposed to sunlight.
 
-Undead players:
+Possessed mobs :
 
-- Are generally slower than human players
-- Do not have hunger, but can sprint nonetheless
-- Do not suffocate underwater
-- Cannot swim (unless possessing a Drowned).
-- Do not naturally regenerate health. Please read the "Special item uses for Undead" section for information on how to heal in other ways.
-- Are ignored by hostile mobs, unless the player attacks them, but will be targeted by golems.
-- Do not receive any experience from combat, but will still be able to obtain some from other sources (such as mining, fishing and breeding animals).
+- Are generally slower than human players.
+- Do not have hunger, but can sprint nonetheless.
+- Do not naturally regenerate health. Please read the [Special item uses](#Special-Item-Uses) section for information on how to heal in other ways.
+- Do not receive any experience from combat unless wielding a Humanity enchanted weapon, but will still be able to obtain some from other sources (such as mining, fishing and breeding animals).
 - Do not have the strength to swing their sword in a manner to do area damage.
+
+Additionally, any passive behaviour from the possessed mob will be preserved.
+
+For example, players possessing an undead mob :
+
+- Do not suffocate underwater (but may convert if possessing a zombie).
+- Cannot swim (unless possessing a Drowned).
+- Are ignored by hostile mobs, unless the player attacks them, but will be targeted by golems.
 - Receive damage from instant health potion and health from instant damage potions.
 
-## Special Item Uses for Undead
+
+
+## Special Item Uses
 
 Depending on the undead possessed, the player is able to use items differently from how he would if he was human.
 
@@ -92,6 +114,5 @@ Throwing a trident as a Drowned has a chance to keep it in hand and duplicate it
 
 To recover their humanity and get rid of their rotting body, an undead player has to go through the purification
 progress every Zombie Villager must. By getting the Weakness effect, undead players are able to eat Golden Apples.
-Doing so results in the player turning back into human form.
-</div>
-</div>
+Doing so results in the player turning back into human form. Note that only humanoid undead can be converted to player bodies.
+
