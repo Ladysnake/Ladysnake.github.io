@@ -1,5 +1,9 @@
-body:not(.dark-mode) {
+body {
 	font-family: 'Poppins', sans-serif;
+	text-align: justify;
+}
+
+body:not(.dark-mode) {
 	color: #2c3e50;
 	background: #f6f8f9;
 }
@@ -27,7 +31,6 @@ This section will be all about DARK MODE
 	vertical-align: middle;
 }
 body.dark-mode {
-	font-family: 'Poppins', sans-serif;
 	color: #f6f8f9;
 	background: #171717;
 }
@@ -587,12 +590,6 @@ h2.section-title + p {
 	display: inline-block;
 	vertical-align: middle;
 }
-
-/*
-p {
-	text-align: justify;
-}
-*/
 
 .home {
 	border-bottom: 0px;
