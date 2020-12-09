@@ -1,6 +1,5 @@
 ---
 title: Pandemonium
-icon: /img/requiem_icon_0.png
 layout: default
 ---
 <div class="wiki">
@@ -10,7 +9,7 @@ layout: default
 		<h1 id="pandemonium">Pandemonium</h1>
 		<p>A WIP Requiem expansion, upgrading soul capabilities.</p>
 		<h3 id="changes-to-requiem">Changes to Requiem</h3>
-		<p>Most living entities can be possessed. Notable exceptions are the Enderdragon, the Wither boss, and otherplayers.</p>
+		<p>Most living entities can be possessed. Notable exceptions are the Enderdragon, the Wither boss, and other players.</p>
 		<h3 id="passive-behaviours">Passive behaviours</h3>
 		<p>
 		Every entity behaviour that does not depend on its AI works by default during possession. Some changes have

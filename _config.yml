@@ -3,9 +3,6 @@ markdown: kramdown
 exclude: [README.md, servesite, servesite.bat]
 # note that the source attribute is hardcoded by github pages
 collections:
-    requiem_wiki:
-        output: true
-        permalink: /wiki/requiem/:name
     mods:
         order:
             - requiem.md
