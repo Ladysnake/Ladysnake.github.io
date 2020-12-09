@@ -588,9 +588,11 @@ h2.section-title + p {
 	vertical-align: middle;
 }
 
+/*
 p {
 	text-align: justify;
 }
+*/
 
 .home {
 	border-bottom: 0px;
