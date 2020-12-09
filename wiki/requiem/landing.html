@@ -2,7 +2,7 @@
 title: Welcome to the Requiem Wiki!
 layout: requiem_wiki
 ---
-{% assign len = site.requiem_wiki | size %}
+{% assign len = site.requiem_wiki | size | minus: 1 %}
 {% for i in (0..len) %}
 {% assign col = i | modulo: 3 %}
 {% assign page = site.requiem_wiki[i] %}
