@@ -1,14 +1,7 @@
 ---
-layout: default
+title: Gameplay Mechanics
+layout: requiem_wiki
 ---
-<div class="wiki">
-
-#### <a href="javascript:window.history.back()">Back</a>
-#### <a href="javascript:print()">Print</a>
-
-<div id="printJS-Content">
-
-# Gameplay Mechanics
 ## First Death
 
 Upon dying for the first time in a world, a dialogue will be prompted to the player. In this menu, the
