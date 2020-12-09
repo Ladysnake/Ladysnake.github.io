@@ -14,12 +14,13 @@ layout: default
 	<p class="section-description home">Our current maintained and up-to-date Minecraft mods</p>
     </div>
 </div>
-{%- assign len = site.mods | size | minus: 1 -%}
+{%- assign len = site.mods | size -%}
 {%- assign nb_cols = 3 -%}
-{%- assign nb_rows = len | divide_by: nb_cols -%}
-{% for row in (0..nb_rows) %}
+{%- assign col_max = nb_cols | minus: 1 -%}
+{%- assign row_max = len | divide_by: nb_cols | minus: 1 -%}
+{% for row in (0..row_max) %}
 <div class="row">
-{%- for col in (0..nb_cols) -%}
+{%- for col in (0..col_max) -%}
 {%- assign i = row | times: nb_cols | plus: col -%}
 {%- assign page = site.mods[i] -%}
 	<div class="col-md-4">
@@ -32,7 +33,7 @@ layout: default
 {% endfor %}
 </div>
 <div class="row">
-{% for col in (0..nb_cols) %}
+{% for col in (0..col_max) %}
 {%- assign i = row | times: nb_cols | plus: col -%}
 {%- assign page = site.mods[i] -%}
 	<div class="col-md-4">
