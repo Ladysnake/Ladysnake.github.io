@@ -12,7 +12,7 @@ layout: wiki
 Requiem is a Minecraft (Java Edition) mod aiming at removing the continuity break resulting from death. <br />
 In vanilla Minecraft, dying is bland and can be frustrating: you lose all your items and get redirected
 to a menu where you can choose to reappear at your spawn point or quit the game.<br />
-With Requiem installed however, this menu breaking immersion is removed and dying gives place to various gameplay elements.
+With Requiem installed however, this immersion-breaking menu is removed and dying gives place to various gameplay elements.
 
 ## Why would you want to use it?
 
@@ -29,8 +29,17 @@ Additionally, Requiem has other benefits and features that other players can enj
 
 ## Mod Interactions
 
-Most mods that render the player (eg. Paper Doll) will display the possessed entity as expected.  
-Known Incompatibilities:
+- **Origins**: 
+  - when installed, the choice between mortal and demon is done through the Origins selection screen instead of through a dialogue at first death
+  - when outside of a regular player body, origin powers are all disabled
+- **Eldritch Mobs**:
+  - Eldritch mobs cannot be possessed
+- **Golems Galore**:
+  - All modded golems can be possessed by default
+- **Better Nether**:
+  - Jungle skeletons can be possessed by default
+
+### Known Incompatibilities
 
  - First Person Mod: Makes the possessed mob appear in first person, blocking the sight.
  - Optifine/Optifabric: Incompatible with Requiem.
