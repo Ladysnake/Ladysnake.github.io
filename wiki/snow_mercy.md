@@ -2,6 +2,7 @@
 layout: wiki
 title: Snow Mercy
 slug: snow-mercy
+mod_logo: snow_mercy.png
 ---
 # Snow Mercy
 
@@ -24,27 +25,27 @@ To start a Snow Mercy invasion, the player can either use a command or a Frozen 
 
 To start a Snow Mercy invasion in survival, the player will need to acquire both a Frozen Compass and a Lodestone. By surrounding a Compass with three pieces of Blue Ice and a Snow Block on top in a crafting table, the player can obtain the Frozen Compass.
 
-![image-20201223151631687](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223151631687.png)
+![image-20201223151631687](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223151631687.png){: .wiki}
 
 After crafting a Frozen Compass, the player can then use it on a Lodestone in order to start a Snow Mercy invasion; this action consuming the compass. The Lodestone will then turn into a Frozen Lodestone, and breaking it will stop the invasion, along with dropping a Lodestone.
 
-![image-20201223151930549](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223151930549.png)
+![image-20201223151930549](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223151930549.png){: .wiki}
 
 ## Gallery
 
-![image-20201223175227545](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175227545.png)
+![image-20201223175227545](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175227545.png){: .wiki}
 
-![image-20201223175232875](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175232875.png)
+![image-20201223175232875](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175232875.png){: .wiki}
 
-![image-20201223175235954](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175235954.png)
+![image-20201223175235954](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175235954.png){: .wiki}
 
-![image-20201223175238968](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175238968.png)
+![image-20201223175238968](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175238968.png){: .wiki}
 
-![image-20201223175243141](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175243141.png)
+![image-20201223175243141](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175243141.png){: .wiki}
 
-![image-20201223175245704](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175245704.png)
+![image-20201223175245704](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175245704.png){: .wiki}
 
-![image-20201223175249418](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175249418.png)
+![image-20201223175249418](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175249418.png){: .wiki}
 
 ## FAQ
 
