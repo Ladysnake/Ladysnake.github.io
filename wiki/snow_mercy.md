@@ -1,7 +1,7 @@
 ---
 layout: wiki
 title: Snow Mercy
-slug: snow_mercy
+slug: snow-mercy
 ---
 # Snow Mercy
 
