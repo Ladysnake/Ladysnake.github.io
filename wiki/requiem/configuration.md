@@ -76,8 +76,8 @@ The `requiem_resurrections` data directory contains the files defining that beha
 ### Entity Movement
 Entities in Minecraft can move in a number of ways. Requiem attempts to capture the movement characteristics of each entity through the `requiem:entity_mobility` JSON data file.
 Each entry in this file represents a mob, and contains the following fields (all optional):
-- `flightMode`(DISABLED|ENABLED|FORCED|UNSPECIFIED): whether an entity can fly, and whether it can stop flying. If not specified, auto-detection will be attempted based on the entity's class.
-- `swimMode`(DISABLED|ENABLED|FORCED|UNSPECIFIED): whether an entity can swim, and whether it can stop swimming. If not specified, auto-detection will be attempted based on the entity's class.
+- `flightMode`(DISABLED/ENABLED/FORCED/UNSPECIFIED): whether an entity can fly, and whether it can stop flying. If not specified, auto-detection will be attempted based on the entity's class.
+- `swimMode`(DISABLED/ENABLED/FORCED/UNSPECIFIED): whether an entity can swim, and whether it can stop swimming. If not specified, auto-detection will be attempted based on the entity's class.
 - `flopsOnLand`(bool): if `true`, the entity will consistently autojump when on land, like a fish.
 - `climbsWalls`(bool): if `true`, the entity will be able to climb walls, like a spider.
 - `phasesThroughWalls`(bool): if `true`, the entity will be able to phase through walls, like a vex.
