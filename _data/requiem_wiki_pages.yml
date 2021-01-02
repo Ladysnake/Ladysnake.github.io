@@ -11,5 +11,5 @@
   ref: opus_daemonium
   
 - title: Configuration
-  icon: /img/configuration_icon_0
+  icon: /img/configuration_icon_0.svg
   ref: configuration
