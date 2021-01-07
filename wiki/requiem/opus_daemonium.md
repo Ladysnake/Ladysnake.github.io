@@ -9,7 +9,7 @@ Requiem's death mechanics, by respectively awakening or destroying a
 Player's demon.
 
 {: .section-description}
-There are 3 variants of Opus Daemoniums: Neutral, Curse and Cure.
+There are 4 variants of Opus Daemoniums: Neutral, Curse, Cure, and Banishment.
 
 ## Variants
 
@@ -40,7 +40,7 @@ when used, they deactivate the mod's death mechanics.</p>
 vitam mortale" inside it and sign it.</p>
 </div>
 <div>
-<h3 class="h3-wiki">Cure</h3><img class="h3-wiki-icon" src="img/items/opus_daemonium_banishment.png">
+<h3 class="h3-wiki">Banishment</h3><img class="h3-wiki-icon" src="img/items/opus_daemonium_banishment.png">
 <p class="section-description">Banishment Opus Daemoniums allow a Player to cast aside their physical appearance and become a Wandering Spirit.</p>
 <p class="section-description">To convert a Neutral Opus Daemonium into a Banishment one, one must write "Ad
 vitam vagrate" inside it and sign it.</p>
