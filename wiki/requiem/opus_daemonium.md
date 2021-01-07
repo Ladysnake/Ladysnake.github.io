@@ -31,7 +31,7 @@ Curse Opus Daemoniums allow a Player to wake their demon. Therefore, when
 used, they activate the mod's death mechanics.</p>
 <p class="section-description">To convert a Neutral Opus Daemonium into a Curse one, one must write "Ad
 vitam aeternam" inside it and sign it.</p>
-</div>
+
 <div>
 <h3 class="h3-wiki">Cure</h3><img class="h3-wiki-icon" src="img/items/opus_daemonium_cure.png">
 <p class="section-description">Cure Opus Daemoniums allow a Player to destroy their demon. Therefore,
@@ -39,7 +39,15 @@ when used, they deactivate the mod's death mechanics.</p>
 <p class="section-description">To convert a Neutral Opus Daemonium into a Cure one, one must write "Ad
 vitam mortale" inside it and sign it.</p>
 </div>
+<div>
+<h3 class="h3-wiki">Cure</h3><img class="h3-wiki-icon" src="img/items/opus_daemonium_banishment.png">
+<p class="section-description">Banishment Opus Daemoniums allow a Player to cast aside their physical appearance and become a Wandering Spirit.</p>
+<p class="section-description">To convert a Neutral Opus Daemonium into a Banishment one, one must write "Ad
+vitam vagrate" inside it and sign it.</p>
 </div>
+
+
+
 <div>
 <h2>Recipe</h2><img class="recipe" src="img/recipes/opus_daemonium.png">
 </div>
