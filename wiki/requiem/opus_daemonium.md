@@ -17,7 +17,7 @@ There are 4 variants of Opus Daemoniums: Neutral, Curse, Cure, and Banishment.
 ### Neutral <img src="img/items/opus_daemonium.png" class="h3-wiki-icon">
 
 {: .section-description}
-Neutral Opus Daemoniums are the base to obtain the Curse and Cure variants.
+Neutral Opus Daemoniums are the base to obtain the other variants.
 Using one allows a Player to write a phrase inside it. If the phrase is
 correct, the book can be signed in exchange of 5 experience levels, and
 converted into one of the two variants, depending on the content
