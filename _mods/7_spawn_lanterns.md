@@ -1,7 +1,7 @@
 ---
-title: Snow Mercy
-link: /wiki/snow_mercy.html
-icon: /img/snow_mercy.png
+title: Spawn Lanterns
+link: /wiki/spawn-lanterns.html
+icon: /img/spawn-lanterns.png
 ---
 
-Invade your world with ruthless modified combat snowmen, and make your own!
+Introduces a solution for regulating hostile mob spawn rates.
