@@ -1,5 +1,5 @@
 ---
-title: BLAST
+title: Rat's Mischief
 link: /wiki/mischief.html
 icon: /img/mischief.png
 ---
