@@ -2,8 +2,6 @@
 layout: wiki
 title: Snow Mercy
 slug: snow-mercy
-mod_logo: snow_mercy.png
-og.img: snow_mercy.png
 ---
 # Snow Mercy
 

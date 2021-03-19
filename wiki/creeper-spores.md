@@ -1,6 +1,6 @@
 ---
 title: Creeper Spores
-slug: creeperspores
+slug: creeper-spores
 layout: wiki
 ---
 
