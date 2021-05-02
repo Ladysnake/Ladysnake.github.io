@@ -8,6 +8,7 @@ Requiem adds a few gamerules to help customize a server's gameplay:
  - `requiem:showPossessorNameTag`: if set to `true`, shows the name of the possessor above the head of possessed entities. (default: `false`)
  - `requiem:disableCure`: if set to `true`, the cure mechanic will be disabled entirely. (default: `false`)
  - `requiem:startingRemnantType`: can be set to `FORCE_REMNANT` or `FORCE_VANILLA` to enforce all players to be respectively a demon or a normal player at the start of the game. (default: `CHOOSE`)
+ - `requiem:possessionKeepInventory`: can be set to `LIVING` or `ALWAYS` to respectively keep the inventory on your soul when you split while your possessed entity is still living, or to always keep the inventory on your soul when possession stops for any reason. (default: `NEVER`)
 
 
 ## Datapacks
