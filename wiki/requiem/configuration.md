@@ -60,11 +60,30 @@ Most entity type tags control aspects of possession.
 	- `raw_meats.json`: Items that can be eaten by zombies.
 	- `undead_cures.json`: Items that can be eaten to cure a possessed undead entity.
 
+### Changes to Predicates
+
+To support more functionality in the following systems, Requiems adds its own predicates to vanilla ones.
+
+#### Entity Predicates
+
+- `requiem:can_be_cured`: can be `true` or `false`. If left unspecified, will not affect the predicate in any way. If `true`, only entities that are possessed and can currently be cured will be matched. If `false`, only entities that *cannot* be cured will be matched.
+- `requiem:health_fraction`: a float range between 0 and 1, that will be applied to the quotient of the current health over the entity's max health.
+
+#### Item Predicates
+
+- `requiem:food`: a JSON object representing a food component predicate. If left unspecified, will not affect the item predicate in any way. Otherwise, will only match food items. All attributes below are ignored if left unspecified.
+  - `hunger`: an int range for the food's hunger value
+  - `saturation_modifier`: a float range for the food's saturation modifier
+  - `meat`: a boolean compared with the food's `meat` attribute
+  - `always_edible`: a boolean compared with the food's `alwaysEdible` attribute
+  - `snack`: a boolean compared with the food's `snack` attribute
+
 ### Resurrections
+
 When a player or a possessed entity dies in specific conditions, it may resurrect as a new entity.
 The `requiem_resurrections` data directory contains the files defining that behavior. Each resurrection scenario is written as a JSON file with the following attributes :
 
-- `schema_version`(int): the version of the data format being used. As of 2.4.3, must be 0.
+- `schema_version`(int): the version of the data format being used. As of 1.4.3, must be 0.
 - `priority`(int, optional): the priority of the scenario. Higher priority scenarios are tested first. Defaults to 100.
 - `killing_blow`(damage predicate, optional): a predicate for the damage that killed the entity.
 - `player`(entity predicate, optional): a predicate for the player being resurrected, or the player possessing the entity being resurrected.
@@ -85,3 +104,23 @@ Each entry in this file represents a mob, and contains the following fields (all
 - `gravity`(float): this number will be subtracted from the entity's vertical velocity each tick. Stacks with regular minecraft gravity. May be negative for inverted gravity.
 - `fallSpeedModifier`(float): each tick the entity is falling, its vertical velocity will be multiplied by this amount.
 - `inertia`(float, \[0,1\] range): every tick, the movement input is interpolated with the previous speed according to this value. An inertia of 1 means it is impossible to change direction or speed.
+
+### Mob Item Overrides
+
+Requiem allows one to override the behavior of an item when it is used by a possessed mob. This is done through files in the `requiem/mob_items` directory. Each file describes a single override, and contains the following fields:
+
+- `schema_version`(int): the version of the data format being used. As of 1.7.0, must be 0.
+- `priority`(int, optional): the priority of the scenario. Higher priority scenarios are tested first. Defaults to 100.
+- `enabled`(bool, optional): whether this override is enabled or not. Mainly used to disable existing overrides through datapacks. Defaults to `true`.
+- `tooltip`(text, optional): the text to display in the item's tooltip when the conditions are fulfilled. If unspecified, no tooltip will be displayed.
+- `possessed`(entity predicate, optional): a predicate for the possessed entity "using" the item.
+- `used_item`(item predicate, optional): a predicate for the item stack being used
+- `use_time`(int, optional): the time to play a use animation for. Defaults to 0.
+- `result`:
+  - `action`(string): as of 1.7.0, with no add-on, can be one of the following:
+    - `requiem:pass`: lets the default item behavior take place
+    - `requiem:fail`: prevents the item from being used
+    - `requiem:cure`: attempts to start a curing process
+    - `requiem:eat_to_heal`: available only for food items; converts the food's hunger value to HP
+    - `requiem:replace_bone`: available only for skeleton entities; heals 2 hearts
+  - `cooldown`(int, optional): the cooldown before another item of the same type can be used
