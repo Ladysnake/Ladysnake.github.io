@@ -6,7 +6,7 @@ slug: rats-mischief
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 [![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_rats-rats_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/rats-mischief)[![img](http://cf.way2muchnoise.eu/versions/minecraft_rats-rats_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/rats-mischief)[![img](https://img.shields.io/github/last-commit/ladysnake/rats-mischief)](https://github.com/ladysnake/rats-mischief/commits/main)
 
-**Rat's Mischief** (also known as "Rat's Rats" or just "Mischief") is a Minecraft mod introducing a new mob, the rat, as well as mechanics revolving around these new possible pets.
+**Rat's Mischief** (also known as "Rat's Rats" or just "Mischief") is a Minecraft mod introducing a new mob, the rat, as well as mechanics revolving around these new possible pets. There is no rattapult yet but we are confident it will be introduced in the near future
 
 ## Gallery
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It ain&#39;t much but it&#39;s honest work <a href="https://t.co/vILMVJ3mBn">pic.twitter.com/vILMVJ3mBn</a></p>&mdash; RAT (@doctor4t_) <a href="https://twitter.com/doctor4t_/status/1358888046435958791?ref_src=twsrc%5Etfw">February 8, 2021</a></blockquote>
