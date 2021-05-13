@@ -45,7 +45,7 @@ Rats can spawn in eight different variants and also have a few special variants 
 - **Black**
 - **Golden** (spawn chance of 1 in 150)
 
-![NaturalRatVariants](https://user-images.githubusercontent.com/83953120/117954718-95932400-b317-11eb-847f-8b326bd2f8f4.png)
+![NaturalRatVariants](https://user-images.githubusercontent.com/83953120/117954718-95932400-b317-11eb-847f-8b326bd2f8f4.png){: .wiki}
 
 
 ##### Special Variants
@@ -60,20 +60,20 @@ Rats can spawn in eight different variants and also have a few special variants 
 - **Rateline** (Madeline, Celeste)
 - **Rat Kid** (with 16 variants for each minecraft dye, can be redyed just like sheep, A Hat in Time)
 
-![SpecialRatVariants](https://user-images.githubusercontent.com/83953120/117954735-9b890500-b317-11eb-8cc4-383f550f1a71.png)
+![SpecialRatVariants](https://user-images.githubusercontent.com/83953120/117954735-9b890500-b317-11eb-8cc4-383f550f1a71.png){: .wiki}
 
-![RatKidVariants](https://user-images.githubusercontent.com/83953120/117954763-a04db900-b317-11eb-8ce1-02ab109df7b6.png)
+![RatKidVariants](https://user-images.githubusercontent.com/83953120/117954763-a04db900-b317-11eb-8ce1-02ab109df7b6.png){: .wiki}
 
 #### Elytrats
 
 Elytrats are a special rat variant, acquired by equipping rats with the elytrat item, crafted as shown below. Equip/unequip a rat by simply shift-using the rat with the elytrat/bare fist. Normal rats will also equip elytrats upon picking them up from the floor.
 
-![ElytratRecipe](https://user-images.githubusercontent.com/83953120/117955672-924c6800-b318-11eb-9c03-5f0d704d1f16.png)
+![ElytratRecipe](https://user-images.githubusercontent.com/83953120/117955672-924c6800-b318-11eb-9c03-5f0d704d1f16.png){: .wiki}
 
 Elytrats can and will fly to attack enemies and to follow you on your airborne adventures! Just as any other rat they can be picked up with rat pouches. Elytrats also feature custom elytra textures for special rat variants and the golden rat.
 
-![Elytrat](https://user-images.githubusercontent.com/83953120/117953145-25d06980-b316-11eb-8da7-719b824ff8a8.png)
-![ElytratFormation](https://user-images.githubusercontent.com/83953120/117954803-ab084e00-b317-11eb-8a0d-07002855a6a1.png)
+![Elytrat](https://user-images.githubusercontent.com/83953120/117953145-25d06980-b316-11eb-8da7-719b824ff8a8.png){: .wiki}
+![ElytratFormation](https://user-images.githubusercontent.com/83953120/117954803-ab084e00-b317-11eb-8a0d-07002855a6a1.png){: .wiki}
 
 ### Accessories
 
@@ -92,11 +92,11 @@ Rat pouches can be used to quickly gather rats back. Using a pouch on a rat will
 Pouches can be crafted like bundles with leather, twisted vines and popped chorus fruit, to produce respectively pouches with a capacity of 5, 10 and 20 rats.
 Rats stored in Pouches won't age, meaning they will keep status effects, health, their variant and names.
 
-![LeatherPouchRecipe](https://user-images.githubusercontent.com/83953120/117955697-98424900-b318-11eb-91c9-40ee74895ab7.png)
+![LeatherPouchRecipe](https://user-images.githubusercontent.com/83953120/117955697-98424900-b318-11eb-91c9-40ee74895ab7.png){: .wiki}
 
-![TwistedPouchRecipe](https://user-images.githubusercontent.com/83953120/117955711-9c6e6680-b318-11eb-874d-9222bd07bc94.png)
+![TwistedPouchRecipe](https://user-images.githubusercontent.com/83953120/117955711-9c6e6680-b318-11eb-874d-9222bd07bc94.png){: .wiki}
 
-![PurpurPouchRecipe](https://user-images.githubusercontent.com/83953120/117955733-a1331a80-b318-11eb-9bc9-4feb6685430b.png)
+![PurpurPouchRecipe](https://user-images.githubusercontent.com/83953120/117955733-a1331a80-b318-11eb-9bc9-4feb6685430b.png){: .wiki}
 
 
 #### Mask of Rat
@@ -107,7 +107,7 @@ The person wearing this mask will not be able to harm wild or tamed rats and all
 
 This item can be repaired in an anvil using phantom membranes.
 
-![MaskOfRat](https://user-images.githubusercontent.com/83953120/117954957-d25f1b00-b317-11eb-8957-735d11520d15.png)
+![MaskOfRat](https://user-images.githubusercontent.com/83953120/117954957-d25f1b00-b317-11eb-8957-735d11520d15.png){: .wiki}
 
 ## Gallery
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It ain&#39;t much but it&#39;s honest work <a href="https://t.co/vILMVJ3mBn">pic.twitter.com/vILMVJ3mBn</a></p>&mdash; RAT (@doctor4t_) <a href="https://twitter.com/doctor4t_/status/1358888046435958791?ref_src=twsrc%5Etfw">February 8, 2021</a></blockquote>
