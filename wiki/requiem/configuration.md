@@ -60,6 +60,14 @@ Most entity type tags control aspects of possession.
 	- `raw_meats.json`: Items that can be eaten by zombies.
 	- `undead_cures.json`: Items that can be eaten to cure a possessed undead entity.
 
+
+
+### Loot Tables
+
+Requiem adds the ability to configure what loot a player gets when first possessing a mob by adding loot table files to `<namespace>:loot_tables/requiem/possession/<mob_id>.json`. Those loot tables must have the `requiem:possession` type. For examples, see [possession loot tables for vanilla mobs](https://github.com/Ladysnake/Requiem/tree/1.16/src/main/resources/data/minecraft/loot_tables/requiem/possession).
+
+
+
 ### Changes to Predicates
 
 To support more functionality in the following systems, Requiems adds its own predicates to vanilla ones.
