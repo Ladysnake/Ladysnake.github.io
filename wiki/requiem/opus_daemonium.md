@@ -11,6 +11,8 @@ Player's demon.
 {: .section-description}
 There are 4 variants of Opus Daemoniums: Neutral, Curse, Cure, and Banishment.
 
+Those books can only be used while in a regular player's body, with one exception: if used while possessing a mob and after having started a curing process (with weakness potion and a golden apple), they will expedite the process and turn the player into the desired type.
+
 ## Variants
 
 {: .h3-wiki}
