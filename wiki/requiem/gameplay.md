@@ -80,6 +80,16 @@ For example, players possessing an undead mob :
 
 
 
+## Diets
+
+Some mobs do have a hunger bar when possessed, letting them regenerate more easily, but have some eating restrictions.
+
+- Regular villagers are vegetarian, and cannot eat any meat.
+- Illagers are carnist, and can only eat stuff with meat in it.
+- Witches are weirdly picky, and will only eat stuff no one reasonable would. Also mushrooms.
+- All the above can also eat baked goods like bread and pumpkin pies.
+- Piglins can only eat pork and golden food.
+
 ## Special Item Uses
 
 Depending on the undead possessed, the player is able to use items differently from how he would if he was human.
