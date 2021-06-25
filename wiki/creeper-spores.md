@@ -20,7 +20,7 @@ In Creative Mode, clicking an adult Creeper or a Creeperling with a Creeper Spaw
 
 ![Creeperlings](https://user-images.githubusercontent.com/83953120/123487499-4aef1200-d60e-11eb-92fd-44753171a502.png){: .wiki}
 
-### Creeperling's Attributes
+### Creeperlings' Attributes
 
 Creeperlings have only half the health of a normal Creeper and are, just as them, scared of Cats and Ocelots. However they will also flee from the player.
 
