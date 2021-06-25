@@ -8,7 +8,7 @@ A Minecraft mod for the Fabric Mod Loader, adding new creeper mechanics based on
 
 ## Wiki
 
-### Creeperling's Appearance
+### Creeperlings' Appearance
 
 This mod changes the usual Creeper explosion from blowing up your world to infesting it! Creeper explosions will cast the "Creeper Spores" effect on all entities caught in the explosion. When this effect runs out, the affected entity is hit or dies there is a chance for a Creeperling to spawn.
 
