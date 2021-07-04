@@ -50,10 +50,10 @@ the player's soul is not expelled from the dying body, and keeps full control of
 
 The list of events that lead to a body transformation after death is as follows:
 
-- Dying from a Zombie or a Drowned will turn the player into a Zombie
+- Dying from a Zombie or a Drowned *while in the dark* will turn the player into a Zombie
 - Dying in lava while being in the Nether will turn the player into a Wither Skeleton
 - Dying from suffocation by sand will turn the player into a Husk
-- As Vanilla game behaviour guarantees, staying too long underwater as a Zombie will turn the player into a Drowned
+- As Vanilla game behavior guarantees, staying too long underwater as a Zombie will turn the player into a Drowned
 
 ## Possessor Gameplay
 
@@ -80,6 +80,16 @@ For example, players possessing an undead mob :
 
 
 
+## Diets
+
+Some mobs do have a hunger bar when possessed, letting them regenerate more easily, but have some eating restrictions.
+
+- Regular villagers are vegetarian, and cannot eat any meat.
+- Illagers are carnist, and can only eat stuff with meat in it.
+- Witches are weirdly picky, and will only eat stuff no one reasonable would. Also mushrooms.
+- All the above can also eat baked goods like bread and pumpkin pies.
+- Piglins can only eat pork and golden food.
+
 ## Special Item Uses
 
 Depending on the undead possessed, the player is able to use items differently from how he would if he was human.
@@ -104,7 +114,11 @@ Skeletons (all sub-types included) can replace their damaged bones by new ones. 
 Skeletons (all sub-types included) can drink milk for extra bone resistance. Drinking a milk bucket grants the player Resistance for 30 seconds.
 
 ### Bows ("Skeletal Efficiency")
-Using a bow as a Skeleton (all sub-types included) has a chance to not consume an arrow when shooting. Resulting arrows are not recoverable.
+Using a bow as a Skeleton (all sub-types included) has a chance to not consume an arrow when shooting. This ability only applies to regular arrows. Resulting arrows are not recoverable.
+
+### Crossbows ("Bolt Hoarder")
+
+Using a crossbow as a piglin or a pillager has a chance to not consume ammunition when shooting. This ability applies to all kinds of crossbow ammunition, but with a lower chance than that of Skeletal Efficiency. Resulting arrows are not recoverable.
 
 ### Tridents ("Drowned Grip")
 Throwing a trident as a Drowned has a chance to keep it in hand and duplicate it. Resulting tridents are not recoverable.
@@ -112,6 +126,6 @@ Throwing a trident as a Drowned has a chance to keep it in hand and duplicate it
 ## Becoming Human Again
 
 To recover their humanity and get rid of their rotting body, an undead player has to go through the purification
-progress every Zombie Villager must. By getting the Weakness effect, undead players are able to eat Golden Apples.
+process every Zombie Villager must. By getting the Weakness effect, undead players are able to eat Golden Apples.
 Doing so results in the player turning back into human form. Note that only humanoid undead can be converted to player bodies.
 

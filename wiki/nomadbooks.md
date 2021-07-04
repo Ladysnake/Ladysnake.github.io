@@ -91,4 +91,6 @@ The Mycelium Page is a special page granting the Fungi Support upgrade. Fungi su
 
 By combining the Nomad Book with a netherite ingot in an usual crafting grid the dropped item won't be destroyed in lava and instead swims up in it, similar to netherite ingots, tools and armour.
 
+
 ![NetherNomadBookRecipe](https://user-images.githubusercontent.com/83953120/122669340-2550ab80-d1bd-11eb-826d-113af5ce1d42.png){: .wiki}
+
