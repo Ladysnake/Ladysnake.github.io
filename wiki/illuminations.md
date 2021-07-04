@@ -9,7 +9,7 @@ layout: wiki
 **Illuminations** is a client sided Minecraft Fabric mod that adds multiple ambient particles in order to make your world more enjoyable at night or in dark places.
 This mod is compatible with the [Canvas Renderer](https://www.curseforge.com/minecraft/mc-mods/canvas-renderer).
 
-*(All screenshots with a bloom effect were taken with [Canvas Renderer](https://www.curseforge.com/minecraft/mc-mods/canvas-renderer))*
+*(All screenshots with a bloom effect were taken with Canvas installed)*
 
 ## Ambience
 
