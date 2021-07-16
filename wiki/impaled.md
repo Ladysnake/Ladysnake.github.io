@@ -53,7 +53,7 @@ This Trident uses the ancient Guardian magic to home for mobs if it does not hit
 
 If a Riptide-Elder Trident is used it will create 1 Guardian Trident per Riptide level that will copy the Elder Trident's behavior of homing for mobs and returning items.
 
-A Channelling-Elder Trident will not only hit its enemies with a lightning bolt but also give them the Apparition and the Mining Fatigue Effect.
+In addition to the normal behaviour of Channelling during storms, hitting a player with an Elder Trident will affect them like an Elder Guardian, appearing before them and affecting them with Mining Fatigue. This feature is, unlike the thunderstrike, not limited to thunderstorms.
 
 ![Elder Trident](impaled/ElderTrident.png){: .wiki}
 
@@ -99,6 +99,6 @@ The Atlan is obtained by combining an Enchanted Golden Apple with a Trident in a
 
 #### Maelstrom
 
-The Maelstrom is a (currently creative-only) item that allows you to launch Tridents from your inventory without charging time but instead a cooldown afterwards, allowing for faster reactions. It can be enchanted with Unbreaking, Mending and Efficiency, the latter to reduce the cooldown.
+The Maelstrom is an (currently creative-only) item that allows you to launch Tridents from your inventory without charging time but instead a cooldown afterwards, allowing for faster reactions. It can be enchanted with Unbreaking, Mending and Efficiency, the latter to reduce the cooldown.
 
 ![Maelstrom](impaled/Maelstrom.png){: .wiki}
