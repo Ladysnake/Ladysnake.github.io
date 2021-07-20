@@ -6,10 +6,14 @@ layout: wiki
 
 # Illuminations
 
+*[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_illuminations_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/illuminations)[![img](http://cf.way2muchnoise.eu/versions/minecraft_illuminations_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/illuminations)[![img](https://img.shields.io/github/last-commit/ladysnake/illuminations)](https://github.com/ladysnake/illuminations/commits/main)*
+
 **Illuminations** is a client sided Minecraft Fabric mod that adds multiple ambient particles in order to make your world more enjoyable at night or in dark places.
 This mod is compatible with the [Canvas Renderer](https://www.curseforge.com/minecraft/mc-mods/canvas-renderer).
 
-*(All screenshots with a bloom effect were taken with Canvas installed)*
+*(All screenshots with a bloom effect were taken with Canvas Renderer installed)*
+
+[![Showcase Video](https://img.youtube.com/vi/OwmCX_COS8I/0.jpg)](https://www.youtube.com/watch?v=OwmCX_COS8I)
 
 ## Ambience
 
@@ -62,6 +66,20 @@ Also during the month of October, you may come across glowing eyes in absolutely
 Appearing near Chorus flowers, these beautiful petals will twirl down to the ground, to the winds of the End, transitioning from a beautiful white to a majestic purple. The younger the flower is, the more petals will appear, and breaking a Chorus flower will provoke a burst of petals (again, the younger the flower, the more petals will burst).
 
 ![Chorus Petals](illuminations/ChorusPetals.png){: .wiki}
+
+
+
+## Special Features
+
+### Jeb Easter Egg Expansion
+
+*(Requires Satin API, feature disabled with Canvas and Iris because of compatibility issues)*
+
+Renaming any mob in the game to jeb_ will apply a rainbow effect to it. This feature varies the colour values of the mobs and will work better on colourful mobs such as Creepers, Piglins and Shulkers and will barely make a difference on Skeletons or Wither Skeletons. However, even mobs with fewer colours will glow after being renamed
+
+![More Colourful Mobs](illuminations/Jeb_Mobs+.gif){: .wiki}
+
+![Less Colourful Mobs](illuminations/Jeb_Mobs-.gif){: .wiki}
 
 ## Cosmetics
 
@@ -123,7 +141,7 @@ A whirl of orange Leaves following your footsteps to bring that cosy autumn feel
 
 Overheads are different hats that tier 2 donators can decide to wear.
 
-![Overheads](illuminations/OverheadsNames.png){: .wiki}
+<img src="illuminations/Overheads.png" alt="Overheads" style="zoom:125%;" />
 
 ### Pets
 
@@ -200,3 +218,11 @@ In order to get an aura, you will need to make a PayPal donation by following [t
 #### I want to change my aura / the color of my prismatic auras / disable it, what do I do?
 
 If you have donated multiple times, you may have multiple auras and may want to select a specific one. Or you may just simply want to change your prismatic color or disable your aura. **You can do all this via the [Illuminations dashboard](https://illuminations.glitch.me/)** with no restrictions whatsoever.
+
+## Gallery
+
+![Shrine](illuminations/Shrine.png){: .wiki}
+
+![Castle](illuminations/Castle.png){: .wiki}
+
+![Jeb_ Mobs](illuminations/Jeb_Mobs.png){: .wiki}
