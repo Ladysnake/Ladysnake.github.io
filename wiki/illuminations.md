@@ -141,7 +141,7 @@ A whirl of orange Leaves following your footsteps to bring that cosy autumn feel
 
 #### Confetti Aura
 
-This Aura will provide the perfect ambience for your celebrations.
+This Aura will provide the perfect ambience for your celebrations. The Confetti pieces will stay on the ground for up to 20 seconds, marking your way through the world!
 
 ![Confetti Aura](illuminations/ConfettiAura.gif){: .wiki}
 
