@@ -73,13 +73,15 @@ Appearing near Chorus flowers, these beautiful petals will twirl down to the gro
 
 ### Jeb Easter Egg Expansion
 
-*(Requires Satin API, feature disabled with Canvas and Iris because of compatibility issues)*
+*(Requires [Satin API](https://www.curseforge.com/minecraft/mc-mods/satin-api/), feature disabled with Canvas and Iris because of compatibility issues*
 
 Renaming any mob in the game to jeb_ will apply a rainbow effect to it. This feature varies the colour values of the mobs and will work better on colourful mobs such as Creepers, Piglins and Shulkers and will barely make a difference on Skeletons or Wither Skeletons. However, even mobs with fewer colours will glow after being renamed
 
 ![More Colourful Mobs](illuminations/Jeb_Mobs+.gif){: .wiki}
 
 ![Less Colourful Mobs](illuminations/Jeb_Mobs-.gif){: .wiki}
+
+![Jeb_ Axolotl and Glowsquid](illuminations/Jeb_MobsNew.gif){: .wiki}
 
 ## Cosmetics
 
@@ -137,11 +139,25 @@ A whirl of orange Leaves following your footsteps to bring that cosy autumn feel
 
 ![Autumn Leaves Aura](illuminations/AutumnLeavesAura.gif){: .wiki}
 
+#### Confetti Aura
+
+This Aura will provide the perfect ambience for your celebrations.
+
+![Confetti Aura](illuminations/ConfettiAura.gif){: .wiki}
+
+
+
+#### Prismatic Confetti Aura
+
+A variation of the Confetti Aura that can be adjusted to only be of one colour of your choice.
+
+![Prismatic Confetti Aura](illuminations/PrismaticConfettiAura.gif){: .wiki}
+
 ### Overheads
 
 Overheads are different hats that tier 2 donators can decide to wear.
 
-<img src="illuminations/Overheads.png" alt="Overheads" style="zoom:125%;" />
+<img src="illuminations/Overheads.png" alt="Overheads" style="zoom:112%;" />
 
 ### Pets
 
@@ -214,6 +230,8 @@ Enable to see your cosmetics in first person! Disabled by default to not block y
 #### I wish to support the mod and get an aura. What steps do I need to follow?
 
 In order to get an aura, you will need to make a PayPal donation by following [this link](https://www.paypal.com/donate/?token=khJOtftVs9CuPqxETbT8q2MyRlCrQXkpw-iOaI9NOPJSOpQouUb2Xg1uOifF8ZZDkSoi-W&Z3JncnB0) or via the Curse Forge donate button available on the project page. **When making your donation, please include your Minecraft UUID as well as a valid email address (so I may contact you in case of any problem) in your message.** All donations and aura attributions are manually processed and done as soon as possible, but may take up to a day so please be patient.
+
+***Cosmetics only work on the fabric version of this mod!*** *The forge version is no longer maintained.*
 
 #### I want to change my aura / the color of my prismatic auras / disable it, what do I do?
 
