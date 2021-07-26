@@ -5,7 +5,11 @@ slug: impaled
 ---
 # Impaled
 
-**Impaled** is a fabric 1.17 mod that adds a few new tridents to the game and reworks some of the mechanics evolving around them.
+*[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_impaled_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/impaled)[![img](http://cf.way2muchnoise.eu/versions/minecraft_impaled_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/impaled)[![img](https://img.shields.io/github/last-commit/ladysnake/impaled)](https://github.com/ladysnake/impaled/commits/main)*
+
+**Impaled** is a fabric 1.17 mod that adds a few new tridents to the game and reworks some of the mechanics revolving around them. This mod is compatible with the [Canvas Renderer](https://www.curseforge.com/minecraft/mc-mods/canvas-renderer).
+
+[![Showcase Video](https://img.youtube.com/vi/9JhblcRTRu8/0.jpg)](https://www.youtube.com/watch?v=9JhblcRTRu8)
 
 ## Wiki
 
@@ -39,13 +43,11 @@ There are 4 new Tridents added by Impaled:
 
 The Pitchfork is an early-game version of the Trident. It has reduced durability compared to the actual Trident and does not work properly underwater. Nonetheless it can be thrown and used in melee combat, enchanted with all the Trident-Enchantments and even be used to convert dirt to farmland.
 
-![Pitchfork](impaled/Pitchfork.png){: .wiki}
-
 ##### Obtaining
 
 The Pitchfork can be crafted using 3 Iron Bars and 2 Sticks:
 
-![Pitchfork Recipe](impaled/PitchforkRecipe.png){: .wiki}
+![Pitchfork](impaled/Pitchfork.png){: .wiki}
 
 #### Elder Trident
 
@@ -55,13 +57,11 @@ If a Riptide-Elder Trident is used it will create 1 Guardian Trident per Riptide
 
 In addition to the normal behaviour of Channelling during storms, hitting a player with an Elder Trident will affect them like an Elder Guardian, appearing before them and affecting them with Mining Fatigue. This feature is, unlike the thunderstrike, not limited to thunderstorms.
 
-![Elder Trident](impaled/ElderTrident.png){: .wiki}
-
 ##### Obtaining
 
 And Elder Trident is obtained by combining a normal Trident with an Elder Guardian Eye in the Smithing Table. Elder Guardian Eyes are obtained by killing an Elder Guardian using a Trident in a melee attack or a Loyalty III- or Loyalty IV-Trident.
 
-![Elder Trident Recipe](impaled/ElderTridentRecipe.png){: .wiki}
+![Elder Trident Recipe](impaled/ElderTrident.png){: .wiki}
 
 #### Hellfork
 
@@ -73,27 +73,21 @@ Riptide-Hellforks are based on fire instead of water: To use Riptide the player 
 
 Impaling-Hellforks deal 1 more damage to fire resistant mobs per level, including those with the Fire Resistance Effect, instead of wet mobs.
 
-![Hellfork](impaled/Hellfork.png){: .wiki}
-
 ##### Obtaining
 
 To obtain a Hellfork, combine a Trident and an Ancient Trident in a Smithing Table. Ancient Tridents are immune to fire and lava and can be found in Treasure Bastion Remnants with a 60% chance.
 
-![Hellfork Recipe](impaled/HellforkRecipe.png){: .wiki}
+![Hellfork Recipe](impaled/Hellfork.png){: .wiki}
 
 #### Atlan
 
 The Atlan is a golden Trident with a high enchantability. It accepts not only Trident-Enchantments but also all Sword-Enchantments like Fire Aspect, Sweeping Edge or Smite.
 
-![Atlan](impaled/Atlan.png){: .wiki}
-
-![Atlan Enchantments](impaled/AtlanEnchantments.png){: .wiki}
-
 ##### Obtaining
 
 The Atlan is obtained by combining an Enchanted Golden Apple with a Trident in a Smithing Table.
 
-![Atlan Recipe](impaled/AtlanRecipe.png){: .wiki}
+![Atlan Recipe](impaled/Atlan.png){: .wiki}
 
 ### Experimental
 
@@ -102,3 +96,23 @@ The Atlan is obtained by combining an Enchanted Golden Apple with a Trident in a
 The Maelstrom is an (currently creative-only) item that allows you to launch Tridents from your inventory without charging time but instead a cooldown afterwards, allowing for faster reactions. It can be enchanted with Unbreaking, Mending and Efficiency, the latter to reduce the cooldown.
 
 ![Maelstrom](impaled/Maelstrom.png){: .wiki}
+
+## FAQ
+
+#### Can I include this mod in a modpack?
+
+**Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to both the GitHub repository and  Curse Forge project page.
+
+#### Will you be making a Forge version? Does a Forge version exist?
+
+**No**, I will not be making a Forge version of this mod. We do welcome third-party ports however, so feel free to [come chat with us](https://ladysnake.glitch.me) about it if you feel like doing one.
+
+
+
+## Gallery
+
+![Hellforks](impaled/Hellforks.jpg){: .wiki}
+
+![Atlans](impaled/Atlans.jpg){: .wiki}
+
+![Atlan Enchantments](impaled/AtlanEnchantmentsRAT.png){: .wiki}
