@@ -105,7 +105,7 @@ The Maelstrom is an (currently creative-only) item that allows you to launch Tri
 
 #### Will you be making a Forge version? Does a Forge version exist?
 
-**No**, I will not be making a Forge version of this mod. We do welcome third-party ports however, so feel free to [come chat with us](https://ladysnake.glitch.me) about it if you feel like doing one.
+**No**, we will not be making a Forge version of this mod. We do welcome third-party ports however, so feel free to [come chat with us](https://ladysnake.glitch.me) about it if you feel like doing one.
 
 
 
