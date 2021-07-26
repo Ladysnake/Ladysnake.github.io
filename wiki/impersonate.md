@@ -36,7 +36,8 @@ commands.
         - `[<targets>]` (optional) : If specified, must be either a player's username or a target selector. If unspecified, defaults to the player using the command. When used in a command block, `[<targets>]` is not optional.  
         - `[<key>]` (optional) : If specified, must be a valid identifier that was previously used as a key to start an impersonation. If left unspecified, the command will clear every active impersonation.  
 ### Gamerules
-- `impersonate:fakeCapes` : Whether impersonators should get the cape and elytra of impersonated players. Defaults to `false`.  
+- `impersonate:fakeCapes` : Whether impersonators should get the cape and elytra of impersonated players. Defaults to `false`.
+  - If [Illuminations](illuminations) is installed, this option also controls whether a player's cosmetics are mimicked during impersonation
 - `impersonate:opRevealImpersonations` : Whether ongoing impersonations should be revealed to online server operators. Defaults to `true`.  
 - `impersonate:logRevealImpersonations` : Whether ongoing impersonations should be revealed in the server logs. Defaults to `true`.  
 
@@ -46,10 +47,17 @@ If you are a developer, you can use Impersonate as a library for your own projec
 
 ```gradle
 repositories {
-    jcenter()
-    maven { 
-        name = "Ladysnake Libs"
-        url = 'https://dl.bintray.com/ladysnake/libs'
+	maven { 
+        name = "Ladysnake Mods"
+        url = "https://ladysnake.jfrog.io/artifactory/mods"
+        content {
+            includeGroup 'io.github.ladysnake'
+            includeGroupByRegex 'io\\.github\\.onyxstudios.*'
+        }
+    }
+    maven {
+        name = "Nexus Repository Manager"
+        url = 'https://oss.sonatype.org/content/repositories/snapshots'
     }
 }
 
@@ -57,6 +65,7 @@ dependencies {
     modImplementation "io.github.ladysnake:Impersonate:${impersonate_version}"
     include "io.github.ladysnake:Impersonate:${impersonate_version}"
     // Impersonate dependencies
+    include "me.lucko:fabric-permissions-api:${fpa_version}"
     include "com.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${cca_version}"
     include "com.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${cca_version}"
 }
@@ -67,6 +76,8 @@ You can then add the library version to your `gradle.properties`file:
 ```properties
 # Impersonate
 impersonate_version = 1.x.y
+# Fabric Permissions API
+fpa_version = 0.1-SNAPSHOT
 # Cardinal Components
 cca_version = 2.x.y
 ```
