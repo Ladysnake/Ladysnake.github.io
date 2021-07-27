@@ -3,26 +3,31 @@ layout: wiki
 title: BLAST
 slug: blast
 ---
-## BLAST is a Fabric mod about bombs.
-That's it, just bombs. But why? Because:
 
-- Blowing stuff up is probably one of the most entertaining things in Minecraft.
-- TNT is way too expensive, and gets boring quickly.
-- Mining with explosives takes less time, is more enjoyable, and allows you to roleplay a dwarf demolitionist.
+
+*[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_blast_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/blast)[![img](http://cf.way2muchnoise.eu/versions/minecraft_blast_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/blast)[![img](https://img.shields.io/github/last-commit/ladysnake/blast)](https://github.com/ladysnake/blast/commits/main)*
+
+BLAST is a Minecraft fabric mod adding multiple explosives for use in survival or for messing around in creative to the game.
 
 ## Wiki
 
 Blast bombs will drop all lootable blocks and do not destroy dropped items; these items however are submitted to the bomb shockwaves (meaning items can go flying if you throw multiple bombs into a single spot).
 
-### Standard Bombs
+### Bombs
 
-![Grid](https://user-images.githubusercontent.com/83953120/122656197-a75ab900-d158-11eb-8851-7e113ba17153.png){: .wiki}
+![Bombs](blast/Grid.png){: .wiki}
 
 #### Naval Mines
 
 Naval Mines are bombs that trigger on impact, can destroy blocks and will not sink when thrown underwater. Other than standard bombs the naval mine has an explosion power of 4.
 
-![NavalMineRecipe](https://user-images.githubusercontent.com/83953120/122655642-4335f600-d154-11eb-83d4-774c4ec91a17.png){: .wiki}
+![Naval Mine Recipe](blast/NavalMineRecipe.png){: .wiki}
+
+#### Confetti Bombs
+
+Confetti Bombs come, as most other bombs, in 2 variation: As a trigger bomb and as a timed bomb. Instead of blowing your world up however, Confetti bombs make it prettier: They will spread confetti particles upon exploding! Those particles come in multiple different colours and remain on the ground for 1 minute after the explosion. Confetti Bombs are crafted shapelessly with 7 Paper, 1 Gunpowder and either 1 String (timed, top) or 1 Redstone Dust (trigger, bottom).
+
+![Confetti Bombs](blast/ConfettiBombs.png){: .wiki}
 
 
 ### Blocks
@@ -31,24 +36,39 @@ Naval Mines are bombs that trigger on impact, can destroy blocks and will not si
 
 The Gunpowder Block is a compact way of storing gunpowder. When placed it is highly sensitive to explosions and fire and will explode allmost instantly when in contact with them. The explosion it creates is fiery and has a power of 4.
 
-![GunpowderBlockRecipe](https://user-images.githubusercontent.com/83953120/122655907-88f3be00-d156-11eb-8c71-f8d503f23027.png){: .wiki}
+![Gunpowder Block](blast/GunpowderBlock.png){: .wiki}
 
 #### Stripminer
 
 The Stripminer is triggered like TNT and focuses the explosion in one direction. It creates a 3x3+ wide tunnel and usually points the way the player is looking upon placing it down, this, however, is inverted while sneaking. When the stripminer is set off by other explosives the direction can get misaligned and the fuse time varies slightly.
 
-![StripminerRecipe](https://user-images.githubusercontent.com/83953120/122656042-99f0ff00-d157-11eb-9e23-5592d8ff6901.png){: .wiki}
+![Stripminer](blast/Stripminer.png){: .wiki}
 
 #### Cold Digger
 
-The Cold Digger is an upgrade to the Stripminer that keeps the functionality of creating a 3x3 wide tunnel but replaces additional blocks around it with Dry Ice and, in the case of lava, Basalt.
-
-![ColdDiggerRecipe](https://user-images.githubusercontent.com/83953120/122656165-75e1ed80-d158-11eb-9f07-51dd7191732d.png){: .wiki}
+The Cold Digger is an upgrade to the Stripminer that keeps the functionality of creating a 3x3 wide tunnel but replaces additional blocks around it with Dry Ice and, in the case of lava, Basalt. It is crafted by surrounding the Stripminer with 4 Packed Ice Blocks.
 
 ##### Dry Ice
 
-Dry Ice is a kind of ice that does not melt or create water upon breaking. It emits particles and can be mined using silk touch.
+Dry Ice is a kind of ice that does not melt or create water upon breaking. It emits particles and can be mined using silk touch. 
+
+![Cold Digger](blast/ColdDigger.png){: .wiki}
 
 ## FAQ
-### Forge?
-Nope, sorry, no Forge, so don't bother asking.
+#### Can I include this mod in a modpack?
+
+**Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to both the GitHub repository and  Curse Forge project page.
+
+#### Forge?
+
+**No**, sorry, no Forge, so don't bother asking.
+
+
+
+## Gallery
+
+![Mining Tunnel](blast/MiningTunnel.png){: .wiki}
+
+![Naval Mines](blast/NavalMines.png){: .wiki}
+
+![Confetti Rain](blast/ConfettiRain.png){: .wiki}
