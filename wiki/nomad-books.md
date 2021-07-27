@@ -1,10 +1,11 @@
 ---
 title: Nomad Books
-slug: nomadbooks
+slug: nomad-books
 layout: wiki
 ---
-**Nomad Books** is a Minecraft Fabric mod that introduces a solution 
-for players that are always adventuring around their world. Nomad books 
+*[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_nomad-books_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/nomad-books)[![img](http://cf.way2muchnoise.eu/versions/minecraft_nomad-books_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/nomad-books)[![img](https://img.shields.io/github/last-commit/ladysnake/nomad-books)](https://github.com/ladysnake/nomad-books/commits/main)*
+
+**Nomad Books** is a Minecraft Fabric mod that introduces a solution for players that are always adventuring around their world. Nomad books 
 allow these players to store their camp in form of an item and redeploy it 
 whenever and wherever they wish.
 
@@ -15,7 +16,7 @@ whenever and wherever they wish.
 
 A nomad book is an item that can store a 3x1x3 sized camp. The book displays a campfire as indicator if the camp is deployed (campfire absent) or not (campfire visible).
 
-![CampfireIndicator](https://user-images.githubusercontent.com/83953120/121961233-700a9780-cd67-11eb-89a1-0a8febe0c533.png){: .wiki}
+![Campfire Indicator](nomad-books/CampfireIndicator.png){: .wiki}
 
 
 To **deploy** a camp simply find a flat spot with sufficient space blocked by nothing but plants (grass, flowers, vines,...) and snow and use the nomad book where you want the centre of your camp to be.
@@ -25,7 +26,7 @@ To **retrieve** a camp the player needs to be in a 10 block radius to the centre
 
 Shift-using with the nomad books will reveal the boundaries of the camp.
 
-![CampBoundaries](https://user-images.githubusercontent.com/83953120/121962532-2622b100-cd69-11eb-956b-0243b1ac366e.png){: .wiki}
+![Camp Boundaries](nomad-books/CampBoundaries.png){: .wiki}
 
 Default camp setup with boundaries toggled on.
 
@@ -35,7 +36,7 @@ Default camp setup with boundaries toggled on.
 
 Nomad Books can be crafted using three grass pages and a campfire.
 
-![NomadBookRecipe](https://user-images.githubusercontent.com/83953120/121963651-b6adc100-cd6a-11eb-8351-d6ba0a5cdd83.png){: .wiki}
+![Nomad Book Recipe](nomad-books/NomadBookRecipe.png){: .wiki}
 
 There will always be a Nomad Book appearing in the bonus chest (if enabled) at the start of the game.
 
@@ -65,7 +66,7 @@ A book's width can be upgraded by using itinerant ink. Itinerant ink can be appl
 
 Upon application, a goal will be decided depending on the current width size. Progress towards this goal is made by visiting biomes that the book hasn't been to yet. Note that it does **not** have to be a new **kind** of biome.
 
-![ItinerantInkRecipe](https://user-images.githubusercontent.com/83953120/122669328-1964e980-d1bd-11eb-8d9c-a8afb516bcd5.png){: .wiki}
+![Itinerant Ink Recipe](nomad-books/ItinerantInkRecipe.png){: .wiki}
 
 #### Special Upgrades
 
@@ -77,20 +78,36 @@ Special upgrades are upgrades that only have to be applied once to a book and ad
 
 The Aquatic Membrane page (crafted as seen below) adds a membrane to your camp that will stop fluids from entering but lets the player as well as other entities pass, opening up the possibility to place your camp underwater!
 
-![AquaticMembraneRecipe](https://user-images.githubusercontent.com/83953120/121964948-91ba4d80-cd6c-11eb-93b0-c2df2f64022b.png){: .wiki}
+![Aquatic Membrane Recipe](nomad-books/AquaticMembraneRecipe.png){: .wiki}
 
 ##### Mycelium Page
 
 
 The Mycelium Page is a special page granting the Fungi Support upgrade. Fungi support allows the camp to be deployed on rough surfaces, as long as no obstacles interfere, by growing a special mushroom to fill up the missing floor blocks.
 
-![MyceliumPage](https://user-images.githubusercontent.com/83953120/121965215-fb3a5c00-cd6c-11eb-842f-719bc7cf46e6.png){: .wiki}
+![Mycelium Page](nomad-books/MyceliumPage.png){: .wiki}
 
 ##### Nether Nomad Book
 
 
 By combining the Nomad Book with a netherite ingot in an usual crafting grid the dropped item won't be destroyed in lava and instead swims up in it, similar to netherite ingots, tools and armour.
 
+![Nether Nomad Book Recipe](nomad-books/NetherNomadBookRecipe.png){: .wiki}
 
-![NetherNomadBookRecipe](https://user-images.githubusercontent.com/83953120/122669340-2550ab80-d1bd-11eb-826d-113af5ce1d42.png){: .wiki}
+## FAQ
 
+    #### Can I include this mod in a modpack?
+
+**Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to both the GitHub repository and  Curse Forge project page.
+
+#### Will you be making a Forge version? Does a Forge version exist?
+
+**No**, we will not be making a Forge version of this mod. We do welcome third-party ports however, so feel free to [come chat with us](https://ladysnake.glitch.me) about it if you feel like doing one.
+
+## Gallery
+
+![Underwater Camp Outside](nomad-books/UnderwaterCamp.png){: .wiki}
+
+![Underwater Camp Inside](nomad-books/UnderwaterCamp2.png){: .wiki}
+
+![Mycelium Structure](nomad-books/MyceliumStructure.png){: .wiki}
