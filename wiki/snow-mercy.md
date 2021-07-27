@@ -5,7 +5,9 @@ slug: snow-mercy
 ---
 # Snow Mercy
 
-**Snow Mercy** is a Minecraft mod introducing a new event, the Snow Mercy invasion, in which the player can fight off waves of hostile and heavily modified combat snowmen, as well as new mechanics to fight these snowmen and make them your own.
+*[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_snow-mercy_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/snow-mercy)[![img](http://cf.way2muchnoise.eu/versions/minecraft_snow-mercy_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/snow-mercy)[![img](https://img.shields.io/github/last-commit/ladysnake/snow-mercy)](https://github.com/ladysnake/snow-mercy/commits/main)*
+
+**Snow Mercy** is a Minecraft fabric mod introducing a new event, the Snow Mercy invasion, in which the player can fight off waves of hostile and heavily modified combat snowmen, as well as new mechanics to fight these snowmen and make them your own.
 
 ### Video Showcase
 
@@ -21,15 +23,7 @@ slug: snow-mercy
 
 The Frozen Compass can be used on a Lodestone to turn it into a Frozen Lodestone and start the Snow Mercy Invasion. Breaking the Frozen Lodestone will stop the Invasion as well as dropping the Lodestone.
 
-![Frozen Compass Recipe](snow-mercy/FrozenCompassRecipe.png){: .wiki}
-
-
-
-![Frozen Lodestone](snow-mercy/FrozenLodestone.png){: .wiki}
-
-
-
-
+![Frozen Compass Recipe](snow-mercy/FrozenLodestone+Compass.png){: .wiki}
 
 #### Commands
 
@@ -66,9 +60,19 @@ There are 5 different Snowman Types introduced by Snow Mercy:
 
 
 
+## FAQ
+
+#### Can I include this mod in a modpack?
+
+**Yes**: You can. Go ahead, don't bother asking. Please however provide credit and a link to both the GitHub repository and Curse Forge project page.
+
+#### Will you be making a Forge version? Does a Forge version exist?
+
+**No:** I will not be making a Forge version of this mod. The code being GPL3 however, feel free to do a port if you feel like it.
 
 
-### Gallery
+
+## Gallery
 
 ![image-20201223175232875](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175232875.png){: .wiki}
 
@@ -81,13 +85,3 @@ There are 5 different Snowman Types introduced by Snow Mercy:
 ![image-20201223175245704](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175245704.png){: .wiki}
 
 ![image-20201223175249418](https://raw.githubusercontent.com/Ladysnake/Snow-Mercy/main/README.assets/image-20201223175249418.png){: .wiki}
-
-## FAQ
-
-#### Can I include this mod in a modpack?
-
-**Yes**: You can. Go ahead, don't bother asking. Please however provide credit and a link to both the GitHub repository and Curse Forge project page.
-
-#### Will you be making a Forge version? Does a Forge version exist?
-
-**No:** I will not be making a Forge version of this mod. The code being GPL3 however, feel free to do a port if you feel like it.
