@@ -9,7 +9,7 @@ slug: rats-mischief
 
 [![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_rats-mischief_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/rats-mischief)[![img](http://cf.way2muchnoise.eu/versions/minecraft_rats-mischief_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/rats-mischief)[![img](https://img.shields.io/github/last-commit/ladysnake/rats-mischief)](https://github.com/ladysnake/rats-mischief/commits/main)
 
-**Rat's Mischief** is a fabric mod, introducing the rats, a new mob that can be tamed and interacted with in various different ways!
+**Rat's Mischief** is a Fabric mod, introducing the rats, a new mob that can be tamed and interacted with in various different ways!
 
 [![Showcase Video](https://img.youtube.com/vi/CVZfsPM8Mm4/0.jpg)](https://www.youtube.com/watch?v=CVZfsPM8Mm4)
 
@@ -34,11 +34,11 @@ On April 4th, World Rat Day, all rats will smug dance and the chance of golden r
 
 #### Rat's Mischief's Birthday
 
-On December 28th, wild adult rats will have a 20% chance to be of a fully random type as well as a 20% chance on spawning with a cake in their paws to celebrate the birthday of the mod itself! Rats will also smug dance during this special week and wear randomized party hats.
+On December 28th, wild adult rats will have a 20% chance to be of a fully random type (including special types) as well as a 20% chance on spawning with a cake in their paws to celebrate the birthday of the mod itself! Rats will also smug dance during this special week and wear randomized party hats.
 
 #### RAT's Birthday
 
-On the 19th of July, RAT's (doctor4t) birthday as well as during the following week rats will smug dance, wear party hats and have a 20% chance to spawn with a cake if they are spawned as adults. Additionally, there will be a chance of 10% for wild rats to spawn as the doctor4t type
+On the 19th of July, RAT's (doctor4t) birthday, as well as during the following week rats will smug dance, wear party hats and have a 20% chance to spawn with a cake if they are spawned as adults. Additionally, there will be a chance of 10% for wild rats to spawn as the doctor4t type.
 
 ### Types
 
