@@ -4,8 +4,9 @@ slug: impersonate
 layout: wiki
 ---
 
-Have you ever wanted to impersonate another player ? Be it for making machinimas, roleplaying, playing 5D chess in factions, or just pranking friends, 
-there are lots of (relatively) good reasons to assume the identity of someone else.
+*[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_impersonate_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/impersonate)[![img](http://cf.way2muchnoise.eu/versions/minecraft_impersonate_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/impersonate)[![img](https://img.shields.io/github/last-commit/ladysnake/impersonate)](https://github.com/ladysnake/impersonate/commits/main)*
+
+Have you ever wanted to impersonate another player ? Be it for making machinimas, roleplaying, playing 5D chess in factions, or just pranking friends, there are lots of (relatively) good reasons to assume the identity of someone else.
 
 ## Overview
 Impersonate allows players to take on the name and appearance of other players. When impersonating someone, a player
@@ -36,8 +37,7 @@ commands.
         - `[<targets>]` (optional) : If specified, must be either a player's username or a target selector. If unspecified, defaults to the player using the command. When used in a command block, `[<targets>]` is not optional.  
         - `[<key>]` (optional) : If specified, must be a valid identifier that was previously used as a key to start an impersonation. If left unspecified, the command will clear every active impersonation.  
 ### Gamerules
-- `impersonate:fakeCapes` : Whether impersonators should get the cape and elytra of impersonated players. Defaults to `false`.
-  - If [Illuminations](illuminations) is installed, this option also controls whether a player's cosmetics are mimicked during impersonation
+- `impersonate:fakeCapes` : Whether impersonators should get the cape and elytra of impersonated players. Defaults to `false`.  If [Illuminations](https://www.curseforge.com/minecraft/mc-mods/illuminations) is installed, the gamerule also applies to player cosmetics.
 - `impersonate:opRevealImpersonations` : Whether ongoing impersonations should be revealed to online server operators. Defaults to `true`.  
 - `impersonate:logRevealImpersonations` : Whether ongoing impersonations should be revealed in the server logs. Defaults to `true`.  
 
@@ -47,17 +47,10 @@ If you are a developer, you can use Impersonate as a library for your own projec
 
 ```gradle
 repositories {
-	maven { 
-        name = "Ladysnake Mods"
-        url = "https://ladysnake.jfrog.io/artifactory/mods"
-        content {
-            includeGroup 'io.github.ladysnake'
-            includeGroupByRegex 'io\\.github\\.onyxstudios.*'
-        }
-    }
-    maven {
-        name = "Nexus Repository Manager"
-        url = 'https://oss.sonatype.org/content/repositories/snapshots'
+    jcenter()
+    maven { 
+        name = "Ladysnake Libs"
+        url = 'https://dl.bintray.com/ladysnake/libs'
     }
 }
 
@@ -65,7 +58,6 @@ dependencies {
     modImplementation "io.github.ladysnake:Impersonate:${impersonate_version}"
     include "io.github.ladysnake:Impersonate:${impersonate_version}"
     // Impersonate dependencies
-    include "me.lucko:fabric-permissions-api:${fpa_version}"
     include "com.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${cca_version}"
     include "com.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${cca_version}"
 }
@@ -76,8 +68,6 @@ You can then add the library version to your `gradle.properties`file:
 ```properties
 # Impersonate
 impersonate_version = 1.x.y
-# Fabric Permissions API
-fpa_version = 0.1-SNAPSHOT
 # Cardinal Components
 cca_version = 2.x.y
 ```
