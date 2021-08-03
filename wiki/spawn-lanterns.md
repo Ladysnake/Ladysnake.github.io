@@ -4,9 +4,9 @@ title: Spawn Lanterns
 slug: spawn-lanterns
 ---
 
-*[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_spawn-lanterns_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/spawn-lanterns)[![img](https://img.shields.io/github/last-commit/ladysnake/spawn-lanterns)](https://github.com/ladysnake/spawn-lanterns/commits/main)*
+*[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_spawn-lanterns_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/spawn-lanterns)[![img](http://cf.way2muchnoise.eu/versions/minecraft_spawn-lanterns_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/rats-mischief)[![img](https://img.shields.io/github/last-commit/ladysnake/spawn-lanterns)](https://github.com/ladysnake/spawn-lanterns/commits/main)*
 
-**Spawn Lanterns** is a Minecraft fabric mod that introduces a solution for regulating hostile mob spawn rates.
+**Spawn Lanterns** is a Minecraft Fabric mod that introduces a solution for regulating hostile mob spawn rates.
 
 ## Lantern conversion
 
