@@ -5,8 +5,7 @@ layout: wiki
 ---
 *[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_nomad-books_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/nomad-books)[![img](http://cf.way2muchnoise.eu/versions/minecraft_nomad-books_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/nomad-books)[![img](https://img.shields.io/github/last-commit/ladysnake/nomad-books)](https://github.com/ladysnake/nomad-books/commits/main)*
 
-**Nomad Books** is a Minecraft Fabric mod that introduces a solution for players that are always adventuring around their world. Nomad books 
-allow these players to store their camp in form of an item and redeploy it 
+**Nomad Books** is a Minecraft Fabric mod that introduces a solution for players that are always adventuring around their world. Nomad books allow these players to store their camp in form of an item and redeploy it 
 whenever and wherever they wish.
 
 ## Wiki
@@ -42,11 +41,11 @@ There will always be a Nomad Book appearing in the bonus chest (if enabled) at t
 
 #### Grass Pages
 
-Grass pages - which allow the player to craft and upgrade nomad books - can be found with a **50%** chance in the loot chests of buried treasures, cartographer villagers,  dungeons, jungle temples, mineshafts and pillager outposts.
+Grass pages - which allow the player to craft and upgrade nomad books - can be found with a **50%** chance in the **loot chests** of buried treasures, cartographer villagers,  dungeons, jungle temples, mineshafts and pillager outposts.
 
-They can also be found in stronghold library chests in stacks of **0-3**.
+They can also be found in **stronghold library chests** in stacks of **0-3**.
 
-Another way of obtaining grass pages is by dismantling Nomad Books in a crafting grid while the camp is deployed. For dismantling a Nomad Book the player will receive 3 grass pages for the book itself, 1 page per height upgrade and 2 pages per width upgrade as well as 1 page per special upgrade.
+Another way of obtaining grass pages is by **dismantling Nomad Books** in a crafting grid while the camp is deployed. For dismantling a Nomad Book the player will receive 3 grass pages for the book itself, 1 page per height upgrade and 2 pages per width upgrade as well as 1 page per special upgrade.
 
 
 ### Upgrading
@@ -57,12 +56,12 @@ Upgrades to the book can only be done while the camp is undeployed.
 ##### Height
 
 
-A book's height can be upgraded by shapelessly combining it with grass pages in a crafting inventory. Despite there being no limit to the height of a camp, the higher it gets the more difficult the search for a good spot may be since not only space that is actually used must be emptied of obstacles.
+A book's height can be upgraded by shapelessly **combining it with grass pages** in a crafting inventory. Despite there being no limit to the height of a camp, the higher it gets the more difficult the search for a good spot may be since not only space that is actually used must be emptied of obstacles.
 
 ##### Width
 
 
-A book's width can be upgraded by using itinerant ink. Itinerant ink can be applied to a book by shapelessly combining it with a ghast tear, blue dye and charcoal.
+A book's width can be upgraded by using itinerant ink. **Itinerant ink** can be applied to a book by shapelessly combining it with a ghast tear, blue dye and charcoal.
 
 Upon application, a goal will be decided depending on the current width size. Progress towards this goal is made by visiting biomes that the book hasn't been to yet. Note that it does **not** have to be a new **kind** of biome.
 
@@ -96,7 +95,7 @@ By combining the Nomad Book with a netherite ingot in an usual crafting grid the
 
 ## FAQ
 
-    #### Can I include this mod in a modpack?
+#### Can I include this mod in a modpack?
 
 **Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to both the GitHub repository and  Curse Forge project page.
 
