@@ -69,9 +69,7 @@ The Hellfork is the Trident of the Nether, being invulnerable to lava and fire j
 
 Riptide-Hellforks are based on fire instead of water: To use Riptide the player needs to be in lava or on fire. But the Trident can be heated to ignite the user while holding it by using it on a lava cauldron, enabling the owner to fly as long as it does not rain or the player lands in water. To cool the Trident down it can be used on a water cauldron or a powdered snow cauldron.
 
-![Heated Hellfork](impaled/HellforkHeated.png){: .wiki}
-
-Impaling-Hellforks deal 1 more damage to fire resistant mobs per level, including those with the Fire Resistance Effect, instead of wet mobs.
+Impaling-Hellforks deal 1 more damage to fire resistant mobs (Magma Cubes, Ghasts,..) per level, including those with the Fire Resistance Effect (Witches), instead of wet mobs.
 
 ##### Obtaining
 
