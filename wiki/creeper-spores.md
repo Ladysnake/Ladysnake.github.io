@@ -34,13 +34,13 @@ Since Creepers are considered plants in this mod, both adult Creepers and Creepe
 
 There are currently 2 Gamerules to configure your experience with this mod:
 
-***creeper-spores:creeperGrief*** can be set to:
+``creeper-spores:creeperGrief`` can be set to:
 
-- **charged**: Only charged Creepers destroy terrain. This is the **default setting**.
-- **never**: Creepers can not destroy terrain under any circumstances.
-- **vanilla**: Creepers will destroy terrain just as usual.
+- ``charged``: Only charged Creepers destroy terrain. This is the **default setting**.
+- ``never``: Creepers can not destroy terrain under any circumstances.
+- ``vanilla``: Creepers will destroy terrain just as usual.
 
-***creeper-spores:creeperReplaceChance*** is used to configure the rate at which Creepers are replaced with Creeperlings when naturally spawning.
+``creeper-spores:creeperReplaceChance`` is used to configure the rate at which Creepers are replaced with Creeperlings when naturally spawning.
 
 
 
