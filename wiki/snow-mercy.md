@@ -7,7 +7,7 @@ slug: snow-mercy
 
 *[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_snow-mercy_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/snow-mercy)[![img](http://cf.way2muchnoise.eu/versions/minecraft_snow-mercy_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/snow-mercy)[![img](https://img.shields.io/github/last-commit/ladysnake/snow-mercy)](https://github.com/ladysnake/snow-mercy/commits/main)*
 
-**Snow Mercy** is a Minecraft fabric mod introducing a new event, the Snow Mercy invasion, in which the player can fight off waves of hostile and heavily modified combat snowmen, as well as new mechanics to fight these snowmen and make them your own.
+**Snow Mercy** is a Minecraft Fabric mod introducing a new event, the Snow Mercy invasion, in which the player can fight off waves of hostile and heavily modified combat snowmen, as well as new mechanics to fight these snowmen and make them your own.
 
 ### Video Showcase
 
