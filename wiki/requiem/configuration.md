@@ -1,14 +1,15 @@
 ---
 title: Requiem Configuration
 layout: requiem_wiki
+datapack_editor: true
 ---
 ## Gamerules
 
 Requiem adds a few gamerules to help customize a server's gameplay:
- - `requiem:showPossessorNameTag`: if set to `true`, shows the name of the possessor above the head of possessed entities. (default: `false`)
- - `requiem:disableCure`: if set to `true`, the cure mechanic will be disabled entirely. (default: `false`)
- - `requiem:startingRemnantType`: can be set to `FORCE_REMNANT` or `FORCE_VANILLA` to enforce all players to be respectively a demon or a normal player at the start of the game. (default: `CHOOSE`)
- - `requiem:possessionKeepInventory`: can be set to `LIVING` or `ALWAYS` to respectively keep the inventory on your soul when you split while your possessed entity is still living, or to always keep the inventory on your soul when possession stops for any reason. (default: `NEVER`)
+ - {%include gamerule.html name="requiem:showPossessorNameTag"%}: if set to `true`, shows the name of the possessor above the head of possessed entities. (default: `false`)
+ - {%include gamerule.html name="requiem:disableCure"%}: if set to `true`, the cure mechanic will be disabled entirely. (default: `false`)
+ - {%include gamerule.html name="requiem:startingRemnantType"%}: can be set to `FORCE_REMNANT` or `FORCE_VANILLA` to enforce all players to be respectively a demon or a normal player at the start of the game. (default: `CHOOSE`)
+ - {%include gamerule.html name="requiem:possessionKeepInventory"%}: can be set to `LIVING` or `ALWAYS` to respectively keep the inventory on your soul when you split while your possessed entity is still living, or to always keep the inventory on your soul when possession stops for any reason. (default: `NEVER`)
 
 
 ## Datapacks
@@ -16,73 +17,23 @@ Requiem adds a few gamerules to help customize a server's gameplay:
 ### Tags
 The lists below represent a file tree taking root in the `tags` directory of a datapack.
 
+**New: Edit tags directly in this section, then click "Export" at the end to generate your datapack!**
+
 #### Blocks
-- [`requiem:tags/blocks`](https://github.com/Ladysnake/Requiem/tree/1.16/src/main/resources/data/requiem/tags/blocks)
-	- `soul_impermeable.json`: specifies which blocks **cannot** be phased through by incorporeal players
+
+{%include tag_list.html type="block" modid="requiem" tags=site.data.requiem.block_tags%}
 
 #### Entity Types
 Most entity type tags control aspects of possession.
 
-- [`requiem:tags/entity_types`](https://github.com/Ladysnake/Requiem/tree/1.16/src/main/resources/data/requiem/tags/entity_types)
-	- `behavior`
-	  - `arrow_generators.json`: Entities that generate arrows out of thin air when using a bow or crossbow. This tag is empty in vanilla requiem.
-	  - `immovable.json`: Entities that cannot move normally, like shulkers in vanilla. Those are also included by default in `frictionless_hosts`.
-	  - `regular_eaters.json`: Entities that should use a regular hunger bar when possessed.
-	- `inventory`
-		- `armor_banned.json`: Entities that cannot use armor when possessed, overrides the automatic detection of armor users.
-		- `armor_users.json`: Entities that can use armor when possessed.
-		- `inventory_carriers.json`: Entities that can use the whole player inventory when possessed.
-		- `item_users.json`: Entities that can hold items in their hands and use them when possessed. An entity must currently have this tag to be curable.
-		- `supercrafters.json`: Entities that give access to a portable 3x3 crafting inventory when possessed.
-	- `possession`
-		- `frictionless_hosts.json`: Entities that can be dissociated from at any time, like golems in the base mod.
-		- `possessables.json`: Entities that can be possessed. Irrelevant when pandemonium is installed.
-		- `possession_blacklist.json`: Entities that can never be possessed, like the Wither and the Ender Dragon.
-	- `tranformation`
-		- `replaceable_skeletons.json`: Skeletons that will be swapped with a regular vanilla skeleton after replacing enough bones, like wither skeletons in the base mod.
-		- `skeletonizable.json`: Mobs that can use the totem of skeletonization when possessed.
-	- `vision`
-		- `dichromats.json`: Mobs that use the dichromatic shader in first person.
-		- `tetrachromats.json`: Mobs that use the "tetrachromatic" (not very tetrachromatic) shader in first person.
-	- `golems.json`: Golems are by default included in the `frictionless_hosts` tag.
-	- `humanoid_skeletons.json`: Humanoid skeletons are by default included in the `armor_users`, `item_users`, `inventory_carriers`, `skeletonizable`, and `skeletons` tags.
-	- `humanoid_zombies.json`: Humanoid zombies are by default included in the `armor_users`, `item_users`, `inventory_carriers`, `skeletonizable`, and `zombies` tags.
-	- `humans.json`: Humans are by default included in the `armor_users`, `inventory_carriers`, `item_users`, and `skeletonizable` tags.
-	- `illagers.json`: Illagers get the carnist diet and are by default included in the `villager_folk` tag.
-	- `mushroom_folk.json`: Mushroom people get the mushroom diet by default. This tag is empty in vanilla requiem.
-	- `piglins.json`: Piglins get the piglin diet and are by default included in the `item_users` and `skeletonizable` tags.
-	- `skeletons.json`: Skeletons are by default included in the `undead` tag.
-	- `undead.json`: Undead mobs are by default included in the `possessables` tag.
-	- `villager_folk.json`: The Villager family of mobs get the village food diet and are included in the `humans` tag by default.
-	- `villagers.json`: Villagers get the vegetarian diet and are included in the `villager_folk` tag by default.
-	- `witches.json`: Witches get the witch diet and are included in the `villager_folk` tag by default.
-	- `zombies.json`: Zombies are by default included in the `undead` tag. Players killed by them may resurrect as zombies.
-
+{%include tag_list.html type="entity_type" modid="requiem" tags=site.data.requiem.entity_type_tags%}
 
 #### Items
-- [`requiem:tags/items`](https://github.com/Ladysnake/Requiem/tree/1.16/src/main/resources/data/requiem/tags/items)
-	- `food`
-	  - `baked_goods.json`: included by default in the `villager_base_diet` tag.
-	  - `cooked_fishes.json`: included by default in the `meat_based` tag.
-	  - `cooked_meats.json`: included by default in the `meat_based` tag.
-	  - `dairy_products.json`: currently unused.
-	  - `golden.json`: included by default in the `piglin_diet` tag.
-	  - `illager_diet.json`: Food that can be eaten by illagers.
-	  - `meat_based.json`: included by default in the `illager_diet` tag.
-	  - `mushroom_based.json`: included by default in the `mushroom_diet` and `witch_diet` tags.
-	  - `piglin_diet.json`: Food that can be eaten by piglins.
-	  - `plant_based.json`: included by default in the `vegetarian` tag.
-	  - `vegetarian.json`: included by default in the `villager_diet` tag.
-	  - `villager_base_diet`: Food that can be eaten by any mob of the villager family.
-	  - `villager_diet`: Food that can be eaten by regular villagers.
-	  - `witch_diet`: Food that can be eaten by witches.
-	- `bones.json`: Items that can be used by skeletons to regenerate health.
-	- `pork.json`: included by default in the `piglin_diet` tag.
-	- `raw_fishes.json`: Items that can be eaten by drowneds.
-	- `raw_meats.json`: Items that can be eaten by zombies.
-	- `undead_cures.json`: Items that can be eaten to cure a possessed undead entity.
 
+{%include tag_list.html type="item" modid="requiem" tags=site.data.requiem.item_tags%}
 
+<button id="export-btn" class="btn-info btn-lg">EXPORT</button>
+<p class="lead" id="export-log"></p>
 
 ### Loot Tables
 

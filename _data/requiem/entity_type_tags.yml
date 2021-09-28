@@ -1,0 +1,66 @@
+- name: behavior
+  children:
+    - name: arrow_generators
+      description: Entities that generate arrows out of thin air when using a bow or crossbow. This tag is empty in vanilla requiem.
+    - name: immovable
+      description: Entities that cannot move normally, like shulkers in vanilla. Those are also included by default in frictionless_hosts.
+    - name: regular_eaters
+      description: Entities that should use a regular hunger bar when possessed.
+- name: inventory
+  children:
+    - name: armor_banned.json
+      description: Entities that cannot use armor when possessed, overrides the automatic detection of armor users.
+    - name: armor_users.json
+      description: Entities that can use armor when possessed.
+    - name: inventory_carriers.json
+      description: Entities that can use the whole player inventory when possessed.
+    - name: item_users.json
+      description: Entities that can hold items in their hands and use them when possessed. An entity must currently have this tag to be curable.
+    - name: supercrafters.json
+      description: Entities that give access to a portable 3x3 crafting inventory when possessed.
+- name: possession
+  children:
+    - name: frictionless_hosts.json
+      description: Entities that can be dissociated from at any time, like golems in the base mod.
+    - name: possessables.json
+      description: Entities that can be possessed. Irrelevant when pandemonium is installed.
+    - name: possession_blacklist.json
+      description: Entities that can never be possessed, like the Wither and the Ender Dragon.
+- name: transformation
+  children:
+    - name: replaceable_skeletons.json
+      description: Skeletons that will be swapped with a regular vanilla skeleton after replacing enough bones, like wither skeletons in the base mod.
+    - name: skeletonizable.json
+      description: Mobs that can use the totem of skeletonization when possessed.
+- name: vision
+  children:
+    - name: dichromats.json
+      description: Mobs that use the dichromatic shader in first person.
+    - name: tetrachromats.json
+      description: Mobs that use the "tetrachromatic" (not very tetrachromatic) shader in first person.
+- name: golems.json
+  description: Golems are by default included in the `frictionless_hosts` tag.
+- name: humanoid_skeletons.json
+  description: Humanoid skeletons are by default included in the `armor_users`, `item_users`, `inventory_carriers`, `skeletonizable`, and `skeletons` tags.
+- name: humanoid_zombies.json
+  description: Humanoid zombies are by default included in the `armor_users`, `item_users`, `inventory_carriers`, `skeletonizable`, and `zombies` tags.
+- name: humans.json
+  description: Humans are by default included in the `armor_users`, `inventory_carriers`, `item_users`, and `skeletonizable` tags.
+- name: illagers.json
+  description: Illagers get the carnist diet and are by default included in the `villager_folk` tag.
+- name: mushroom_folk.json
+  description: Mushroom people get the mushroom diet by default. This tag is empty in vanilla requiem.
+- name: piglins.json
+  description: Piglins get the piglin diet and are by default included in the `item_users` and `skeletonizable` tags.
+- name: skeletons.json
+  description: Skeletons are by default included in the `undead` tag.
+- name: undead.json
+  description: Undead mobs are by default included in the `possessables` tag.
+- name: villager_folk.json
+  description: The Villager family of mobs get the village food diet and are included in the `humans` tag by default.
+- name: villagers.json
+  description: Villagers get the vegetarian diet and are included in the `villager_folk` tag by default.
+- name: witches.json
+  description: Witches get the witch diet and are included in the `villager_folk` tag by default.
+- name: zombies.json
+  description: Zombies are by default included in the `undead` tag. Players killed by them may resurrect as zombies.

@@ -1,0 +1,30 @@
+{%capture editor-id%}{{include.type | replace: "_", "-"}}-editor-{{include.name | slugify }}{%endcapture%}
+<a href="{{include.path}}/{{include.name}}">
+    <code>{{include.name}}</code>
+</a>: {{include.description | markdownify | remove: "<p>" | remove: "</p>"}}<button class="btn btn-sm" type="button" data-toggle="collapse" data-target="#{{editor-id}}" aria-expanded="false" aria-controls="{{editor-id}}">
+    Toggle editor
+</button>
+<div id="{{editor-id}}" class="tag-editor collapse" data-tag-path="{{include.folder}}/{{include.name}}" data-tag-modid="{{include.modid}}">
+    <!-- Editable table -->
+    <div class="card">
+        <h3 class="card-header text-center font-weight-bold py-4">
+            {{include.name}}
+            <span class="table-add float-right mb-3 mr-2"><button type="button" class="btn-success btn-rounded btn-sm my-0">New entry</button></span>
+        </h3>
+        <div class="card-body">
+            <div class="table-editable">
+                <table class="table table-bordered table-responsive-md table-striped text-center">
+                    <thead>
+                    <tr>
+                        <th class="text-center">{{include.type | replace: "_", " " | capitalize}} Identifier</th>
+                        <th class="text-center table-buttons">Sort</th>
+                        <th class="text-center table-buttons">Remove</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -69,6 +69,12 @@
         crossorigin="anonymous"></script>
     <!-- Custom Night mode Option -->
     <script src="/scripts/darkmode.js"></script>
+    <!--Datapack editing-->
+    {% if page.datapack_editor %}
+    <script src="/scripts/jszip.min.js"></script>
+    <script src="/scripts/FileSaver.min.js"></script>
+    <script src="/scripts/datapack-editing.js"></script>
+    {% endif %}
     {% if page.slug %}
     <!-- Mod downloading dropdown, (almost) direct from our site! -->
     <script src="/scripts/mod-download.js"></script>

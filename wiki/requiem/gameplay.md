@@ -53,7 +53,8 @@ The list of events that lead to a body transformation after death is as follows:
 - Dying from a Zombie or a Drowned *while in the dark* will turn the player into a Zombie
 - Dying in lava while being in the Nether will turn the player into a Wither Skeleton
 - Dying from suffocation by sand will turn the player into a Husk
-- As Vanilla game behavior guarantees, staying too long underwater as a Zombie will turn the player into a Drowned
+- Drowning in an ocean far enough from the surface 
+  - As Vanilla game behavior guarantees, staying too long underwater as a Zombie will turn the player into a Drowned
 
 ## Possessor Gameplay
 

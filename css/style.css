@@ -567,6 +567,18 @@ h2.section-title + p {
 	vertical-align: bottom;
 }
 
+.gamerule-name {
+    text-decoration: underline dotted;
+    background-color: #f9e9c7;
+    color: #a5382a;
+}
+
+.pt-3-half { padding-top: 1.4rem; }
+
+.table-buttons {
+	width: 12rem;
+}
+
 .recipe {
 	height: 160px;
 	image-rendering: crisp-edges;
