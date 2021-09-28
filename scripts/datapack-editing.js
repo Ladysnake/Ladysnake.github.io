@@ -39,13 +39,14 @@ $('#export-btn').on('click', function () {
     log.text('Generating your datapack...');
 
     $(".tag-editor").each(function () {
+        const replace = $(this).find('.tag-replace').is(':checked');
         const $rows = $(this).find('tr:not(:hidden) td:first');
         const values = $rows.toArray().map(function (row) {
             return row.textContent;
         });
-        if (values.length) { // Output the result
+        if (values.length || replace) { // Output the result
             data.file($(this).attr('data-tag-modid') + "/tags/" + $(this).attr('data-tag-path'), JSON.stringify({
-                replace: false,
+                replace,
                 values
             }));
             dirty = true;

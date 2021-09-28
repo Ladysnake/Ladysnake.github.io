@@ -9,7 +9,9 @@
     <div class="card">
         <h3 class="card-header text-center font-weight-bold py-4">
             {{include.name}}
-            <span class="table-add float-right mb-3 mr-2"><button type="button" class="btn-success btn-rounded btn-sm my-0">New entry</button></span>
+            <span class="table-add float-right mb-3 mr-2"><button type="button" class="btn btn-success btn-rounded btn-sm my-0">New entry</button></span>
+            <input type="checkbox" hidden class="btn-check tag-replace" name="options-outlined" id="{{editor-id}}-replace" autocomplete="off">
+            <label class="btn btn-xs" title="Delete previous values" for="{{editor-id}}-replace">Replace existing</label>
         </h3>
         <div class="card-body">
             <div class="table-editable">

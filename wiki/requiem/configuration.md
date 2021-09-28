@@ -19,6 +19,8 @@ The lists below represent a file tree taking root in the `tags` directory of a d
 
 **New: Edit tags directly in this section, then click "Export" at the end to generate your datapack!**
 
+*Checking "Replace Existing" deletes default values.*
+
 #### Blocks
 
 {%include tag_list.html type="block" modid="requiem" tags=site.data.requiem.block_tags%}

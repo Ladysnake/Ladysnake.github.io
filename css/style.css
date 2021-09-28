@@ -323,6 +323,16 @@ a {
 	background-color: #c0392b;
 }
 
+.tag-replace:not(:checked) + label {
+	outline: solid #d9534f;
+	color: #d9534f;
+}
+
+.tag-replace:checked + label {
+	background-color: #d9534f;
+	color: white;
+}
+
 /*	NAVBAR	*/
 .navbar-default:not(.dark-mode) {
 	background-color: #f6f8f9;
