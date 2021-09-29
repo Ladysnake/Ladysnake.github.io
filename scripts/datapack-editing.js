@@ -11,7 +11,7 @@ $(".tag-editor").each(function () {
     `;
     $(this).on('click', '.table-add', function () {
         $tableBody.append(newTr);
-        $tableBody.find("tr:last > td:first").focus();
+        $tableBody.find("tr:last > td:first-child").focus();
     });
     $tableID.on('click', '.table-remove', function () {
         $(this).parents('tr').detach();
