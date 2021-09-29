@@ -26,45 +26,42 @@ $(".tag-editor").each(function () {
         const $row = $(this).parents('tr');
         $row.next().after($row.get(0));
     });
-    // A few jQuery helpers for exporting only
-    jQuery.fn.pop = [].pop;
-    jQuery.fn.shift = [].shift;
 });
-$('#export-btn').on('click', function () {
+$('#export-btn').on('click', async function () {
     const zip = new JSZip();
+    const logElement = document.querySelector('#export-log');
+    const log = (msg) => logElement.textContent = msg;
+
     const data = zip.folder("data");
-    const log = $('#export-log');
     let dirty = false;
 
-    log.text('Generating your datapack...');
+    log('Generating your datapack...');
 
-    $(".tag-editor").each(function () {
-        const replace = $(this).find('.tag-replace').is(':checked');
-        const $rows = $(this).find('tr:not(:hidden) td:first');
-        const values = $rows.toArray().map(function (row) {
-            return row.textContent;
-        });
-        if (values.length || replace) { // Output the result
-            data.file($(this).attr('data-tag-modid') + "/tags/" + $(this).attr('data-tag-path'), JSON.stringify({
-                replace,
-                values
-            }));
-            dirty = true;
-        }
-    });
-    if (dirty) {
-        zip.file('pack.mcmeta', JSON.stringify({
-            pack: {
-                description: 'Custom datapack for Requiem configuration',
-                pack_format: 4
+    try {
+        document.querySelectorAll('.tag-editor').forEach((editor) => {
+            const replace = editor.querySelector('.tag-replace').checked;
+            const values = Array.from(editor.querySelectorAll('tr td:first-child'), (row) => row.textContent);
+            if (values.length || replace) { // Output the result
+                data.file(`${editor.dataset.tagModid}/tags/${editor.dataset.tagPath}`, JSON.stringify({
+                    replace,
+                    values
+                }));
+                dirty = true;
             }
-        }));
-        zip.generateAsync({type: "blob"}).then(function (content) {
-            // see FileSaver.js
-            saveAs(content, "my_datapack.zip");
-            log.text('Done!');
-        }).catch(e => log.text('Uh oh [' + e + ']'));
-    } else {
-        log.text('There is nothing to export!');
+        });
+        if (dirty) {
+            zip.file('pack.mcmeta', JSON.stringify({
+                pack: {
+                    description: 'Custom datapack for Requiem configuration',
+                    pack_format: 4
+                }
+            }));
+            saveAs(await zip.generateAsync({type: "blob"}), "my_datapack.zip");
+            log('Done!');
+        } else {
+            log('There is nothing to export!');
+        }
+    } catch (e) {
+        log(`Uh oh [${e}]`);
     }
 });
