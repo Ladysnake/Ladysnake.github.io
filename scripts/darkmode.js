@@ -18,15 +18,14 @@ if (document.cookie.includes("darkmode=true")) {
 
 /**
  * ok so apparently you can do this
- * 
+ *
  * DARK MODE!
  * This function is called when you click the icon, which will make all elements go to dark mode...
- * 
+ *
  * @author sschr15
  */
 function setDarkMode(firstRun) {
     let cookies = document.cookie;
-    let allElements = document.getElementsByTagName("*");
     let cookeConsent;
     let cookie = cookies.includes("darkmode=true");
     let prevDark = darkMode;
@@ -35,9 +34,9 @@ function setDarkMode(firstRun) {
 //    if (shift) {document.cookie = "a=a"}
 //    ded = shift ? function(){document.cookie="a=a"} : ded;
     /* jshint +W033 */
-    if (firstRun == undefined) {
+    if (firstRun === undefined) {
         if (cookies.length === 0) {
-            cookeConsent = (uhh != undefined) ? uhh : confirm(
+            cookeConsent = (uhh !== undefined) ? uhh : confirm(
                 "Do you want to save this as a cookie?\n" +
                 "This will save the state of your option for a year at a time.\n" +
                 "If you press cancel, dark mode will not persist from this page.\n" +
@@ -61,28 +60,25 @@ function setDarkMode(firstRun) {
     } else if (cookie) {
         darkMode = true;
     }
-    if (darkMode != prevDark) {
+    if (darkMode !== prevDark) {
         a = (a + 1) % 2;
-        for (let i = 0; i < allElements.length; i++) {
-            allElements[i].classList.toggle("dark-mode");
-            let currentElement = allElements[i];
-            if (currentElement.hasAttribute("src")) {
-                let srcPrev = currentElement.src.toString();
-                if (srcPrev.endsWith("_0.svg") || srcPrev.endsWith("_1.svg")) {
-                    currentElement.src = srcPrev.substring(0, srcPrev.length - 5) + a.toString() + ".svg";
-                } else if (srcPrev.endsWith("_0.png") || srcPrev.endsWith("_1.png")) {
-                    currentElement.src = srcPrev.substring(0, srcPrev.length - 5) + a.toString() + ".png";
-                }
+        document.body.classList.toggle("dark-mode");
+        for (let img of document.querySelectorAll('img')) {
+            let srcPrev = img.src.toString();
+            if (srcPrev.endsWith("_0.svg") || srcPrev.endsWith("_1.svg")) {
+                img.src = srcPrev.substring(0, srcPrev.length - 5) + a.toString() + ".svg";
+            } else if (srcPrev.endsWith("_0.png") || srcPrev.endsWith("_1.png")) {
+                img.src = srcPrev.substring(0, srcPrev.length - 5) + a.toString() + ".png";
             }
         }
 	document.getElementById("syntax-stylesheet").setAttribute("href", darkMode ? "/css/syntax-monokai.css" : "/css/syntax-github.css");
         icon.src = `/img/darkmode${a.toString()}.svg`;
-/*         
+/*
         let ladysnake = document.getElementById("ladysnake_logo");
         ladysnake.src = `/img/ladysnake_logo_${a.toString()}.png`;
         if (document.getElementById("requiem") != null) {
             document.getElementById("requiem").src = `/img/requiem_icon_${a.toString()}.png`;
-        } 
+        }
 */
     }
 }
@@ -102,21 +98,16 @@ function getExpiryDate() {
  * This refreshes the cookie expiry date...
  */
 function refreshCookie() {
-    let temp;
-    if (document.cookie.includes("darkmode=true")) {
-        temp = true;
-    } else {
-        temp = false;
-    }
+    let temp = document.cookie.includes("darkmode=true");
     document.cookie = "darkmode=0; path=/";
     document.cookie = `darkmode=${temp.toString()}; Expires=${getExpiryDate()}; path=/`;
 }
 
 /**
  * Tests if a key is pressed, using JQuery.
- * 
+ *
  * See https://stackoverflow.com/a/3781360 for a list of character codes.
- * @param {Number} keycode 
+ * @param {Number} keycode
  */
 function isKeyPressed(keycode) {
     let temp;

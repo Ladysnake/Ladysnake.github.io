@@ -11,7 +11,7 @@ body:not(.dark-mode) {
 /*
 This section will be all about DARK MODE
 */
-#dropdown.dark-mode > li > a, #mod-dropdown.dark-mode > li > a {
+.dark-mode #dropdown > li > a, .dark-mode #mod-dropdown > li > a {
 	display: block;
 	padding: 3px 20px;
 	clear: both;
@@ -20,8 +20,8 @@ This section will be all about DARK MODE
 	color: #aaa;
 	white-space: nowrap;
 }
-#dropdown.dark-mode > li > a:hover, #mod-dropdown.dark-mode > li > a:hover,
-#dropdown.dark-mode > li > a:focus, #mod-dropdown.dark-mode > li > a:focus {
+.dark-mode #dropdown > li > a:hover, .dark-mode #mod-dropdown > li > a:hover,
+.dark-mode #dropdown > li > a:focus, .dark-mode #mod-dropdown > li > a:focus {
 	color: #fff;
 	text-decoration: none;
 	background-color: #0a0a0a;
@@ -30,11 +30,11 @@ This section will be all about DARK MODE
 	height: 25px;
 	vertical-align: middle;
 }
-body.dark-mode {
+.dark-mode {
 	color: #f6f8f9;
 	background: #171717;
 }
-.navbar-default.dark-mode {
+.dark-mode .navbar-default {
 	background-color: #171717;
 	border: none;
 	margin-bottom: 0;
@@ -43,13 +43,15 @@ body.dark-mode {
 /* a.dark-mode {
 	color: #f6f8f9;
 } */
-.navbar-default .navbar-nav>li>a .dark-mode {
+.dark-mode .navbar-default .navbar-nav>li>a {
 	color: #fff;
 }
-.navbar-default .navbar-nav>.open>a.dark-mode, .navbar-default .navbar-nav>.open>a:focus.dark-mode, .navbar-default .navbar-nav>.open>a:hover.dark-mode {
+.dark-mode .navbar-default .navbar-nav>.open>a,
+.dark-mode .navbar-default .navbar-nav>.open>a:focus,
+.dark-mode .navbar-default .navbar-nav>.open>a:hover {
 	background-color: #171717;
 }
-.dropdown-menu.dark-mode {
+.dark-mode .dropdown-menu {
 	background: #171717;
 	border: none;
 	border-radius: 0;
@@ -58,27 +60,27 @@ body.dark-mode {
 	font-size: 13px;
 	color: #777;
 }
-.btn-default.dark-mode {
+.dark-mode .btn-default {
 	background-color: #fff;
 	color: #171717;
 }
-.btn-default:hover.dark-mode {
+.dark-mode .btn-default:hover {
 	background-color: #ddd;
 	color: #171717;
 }
-.navbar-default .navbar-toggle.dark-mode {
+.dark-mode .navbar-default .navbar-toggle {
 	border-color: #eee;
 }
-.navbar-default .navbar-toggle .icon-bar.dark-mode {
+.dark-mode .navbar-default .navbar-toggle .icon-bar {
 	background-color: #eee;
 }
-.navbar-default .navbar-toggle:focus.dark-mode, .navbar-default .navbar-toggle:hover.dark-mode {
+.dark-mode .navbar-default .navbar-toggle:focus, .dark-mode .navbar-default .navbar-toggle:hover {
 	background-color: #333;
 }
-.navbar-default .navbar-brand.dark-mode {
+.dark-mode .navbar-default .navbar-brand {
 	color: #eee;
 }
-code.dark-mode.language-plaintext {
+.dark-mode code.language-plaintext {
 	background-color: #0a0a0a;
 }
 
@@ -145,7 +147,7 @@ a {
 }
 
 /*	FORMS */
-.form-control:not(.dark-mode) {
+body:not(.dark-mode) .form-control {
 	border: 2px solid #cbd0d3;
 	border-radius: 0;
 	padding: 0 25px;
@@ -279,11 +281,11 @@ a {
 	font-size: 14px;
 }
 
-.btn-default:not(.dark-mode) {
+body:not(.dark-mode) .btn-default {
 	background-color: #34495e;
 	color: #FFF;
 }
-.btn-default:hover:not(.dark-mode) {
+body:not(.dark-mode) .btn-default:hover {
 	background-color: #2c3e50;
 	color: #FFF;
 }
@@ -334,13 +336,13 @@ a {
 }
 
 /*	NAVBAR	*/
-.navbar-default:not(.dark-mode) {
+body:not(.dark-mode) .navbar-default {
 	background-color: #f6f8f9;
 	border: none;
 	margin-bottom: 0;
 	margin-top: 20px;
 }
-.navbar-default .navbar-brand:not(.dark-mode) {
+body:not(.dark-mode) .navbar-default .navbar-brand {
 	color: #2c3e50;
 }
 .navbar-toggle {
@@ -348,13 +350,13 @@ a {
 	margin-top: 22px;
 	transition: all .3s;
 }
-.navbar-default .navbar-toggle:not(.dark-mode) {
+body:not(.dark-mode) .navbar-default .navbar-toggle {
 	border-color: #2c3e50;
 }
-.navbar-default .navbar-toggle .icon-bar:not(.dark-mode) {
+body:not(.dark-mode) .navbar-default .navbar-toggle .icon-bar {
 	background-color: #2c3e50;
 }
-.navbar-default .navbar-toggle:focus:not(.dark-mode), .navbar-default .navbar-toggle:hover:not(.dark-mode) {
+body:not(.dark-mode) .navbar-default .navbar-toggle:focus, body:not(.dark-mode) .navbar-default .navbar-toggle:hover {
 	background-color: #bdc3c7;
 }
 .navbar-brand, .navbar-nav>li>a {
@@ -373,15 +375,17 @@ a {
 	font-size: 12px;
 	text-transform: none;
 }
-.navbar-default .navbar-nav>li>a:not(.dark-mode) {
+body:not(.dark-mode) .navbar-default .navbar-nav>li>a {
 	color: #2c3e50;
 }
-.navbar-default .navbar-nav>.open>a:not(.dark-mode), .navbar-default .navbar-nav>.open>a:focus:not(.dark-mode), .navbar-default .navbar-nav>.open>a:hover:not(.dark-mode) {
+body:not(.dark-mode) .navbar-default .navbar-nav>.open>a,
+body:not(.dark-mode) .navbar-default .navbar-nav>.open>a:focus,
+body:not(.dark-mode) .navbar-default .navbar-nav>.open>a:hover {
 	background-color: #FFF;
 }
 
 /*	DROPDOWN */
-.dropdown-menu:not(.dark-mode) {
+body:not(.dark-mode) .dropdown-menu {
 	background: #FFF;
 	border: none;
 	border-radius: 0;
