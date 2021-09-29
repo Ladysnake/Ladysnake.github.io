@@ -1,18 +1,20 @@
-{% unless include.name %}<ul><li>{% endunless %}
+{% unless include.name %}<ul class="directory-list"><li class="folder">{% endunless %}
     {%capture folder%}{%if include.folder%}{{include.folder}}{%if include.name%}/{{include.name}}{%endif%}{%else%}{{include.type}}s{%endif%}{%endcapture%}
     {%capture path%}https://github.com/Ladysnake/Requiem/tree/1.16/src/main/resources/data/requiem/tags/{{folder}}{%endcapture%}
     <a href="{{path}}"><code class="tag-name">{%if include.name%}{{include.name}}{%else%}{{include.modid}}:tags/{{folder}}{%endif%}</code></a><ul>
         {% for tag in include.tags %}
-        <li>
             {%comment%}Need to recompute this otherwise it gets set by the children{%endcomment%}
             {%capture folder%}{%if include.folder%}{{include.folder}}{%if include.name%}/{{include.name}}{%endif%}{%else%}{{include.type}}s{%endif%}{%endcapture%}
             {% if tag.children %}
+                <li class="folder">
                 {%include tag_list.html modid=include.modid type=include.type name=tag.name folder=folder tags=tag.children%}
+                </li>
             {% else %}
+                <li>
                 {%capture name%}{{tag.name}}.json{%endcapture%}
                 {%include mctag.html modid=include.modid type=include.type name=name description=tag.description path=path folder=folder%}
+                </li>
             {% endif %}
-        </li>
         {% endfor %}
     </ul>
 {% unless include.name %}</li></ul>{% endunless %}
