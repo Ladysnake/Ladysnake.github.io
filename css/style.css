@@ -325,16 +325,6 @@ body:not(.dark-mode) .btn-default:hover {
 	background-color: #c0392b;
 }
 
-.tag-replace:not(:checked) + label {
-	outline: solid #d9534f;
-	color: #d9534f;
-}
-
-.tag-replace:checked + label {
-	background-color: #d9534f;
-	color: white;
-}
-
 /*	NAVBAR	*/
 body:not(.dark-mode) .navbar-default {
 	background-color: #f6f8f9;
@@ -364,7 +354,7 @@ body:not(.dark-mode) .navbar-default .navbar-toggle:focus, body:not(.dark-mode) 
 	font-weight: bold;
 	height: 80px;
 	padding: 0 15px;
-	letter-spacing: -0.025eml
+	letter-spacing: -0.025em
 }
 .navbar-brand {
 	font-size: 24px;
@@ -618,6 +608,72 @@ h2.section-title + p {
 }
 
 .home {
-	border-bottom: 0px;
+	border-bottom: 0;
+	text-align: center;
+}
+
+/* DATAPACK GENERATION */
+
+.dark-mode .table-striped > tbody > tr:nth-of-type(2n+1) {
+	background-color: #2f2f2f;
+}
+
+.table > tbody > tr > td.input-cell {
+	padding: 0 0 0 0;
+}
+
+.dark-mode .table-bordered,
+.dark-mode .table-bordered > thead > tr > th,
+.dark-mode .table-bordered > tbody > tr > th,
+.dark-mode .table-bordered > tfoot > tr > th,
+.dark-mode .table-bordered > thead > tr > td,
+.dark-mode .table-bordered > tbody > tr > td,
+.dark-mode .table-bordered > tfoot > tr > td {
+	border-color: #333;
+}
+
+.tag-replace:not(:checked) + label {
+	outline: solid #d9534f;
+	color: #d9534f;
+}
+
+.tag-replace:checked + label {
+	background-color: #d9534f;
+	color: white;
+}
+
+.tag-editor .table {
+	max-width: 53rem;
+}
+
+.tag-editor-toggle {
+	display: none;
+}
+
+.tag-editor-toggle.hidden + label {
+	display: none;
+}
+
+.tag-editor-toggle + label {
+	margin-left: 1rem;
+	cursor: pointer;
+}
+
+.tag-editor-toggle:not(:checked) + label {
+	filter: grayscale(1) brightness(70%) contrast(3);
+}
+
+.tag-export {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.input-cell > input {
+	border: none;
+	display: block;
+	width: 100%;
+	height: 45px;
+	background-color: transparent;
 	text-align: center;
 }

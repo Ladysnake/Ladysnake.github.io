@@ -1,17 +1,26 @@
-$(".tag-editor").each(function () {
+$('.tag-editor-toggle').removeClass('hidden');  // poggies, we have JS
+$('.tag-export').removeClass('hidden');
+$('.tag-editor').each(function () {
     const $tableID = $(this).find('.table-editable');
     const $tableBody = $tableID.find('tbody');
 
     const newTr = `
     <tr>
-      <td class="pt-3-half" contenteditable="true"></td>
-      <td class="pt-3-half table-buttons"><span class="table-up"><button>🔼</button></span><span class="table-down"><button>🔽</button></span></td>
+      <td class="input-cell"><input type="text"/></td>
+      <td class="table-buttons"><span class="table-up"><button>🔼</button></span><span class="table-down"><button>🔽</button></span></td>
       <td class="table-buttons"><span class="table-remove"><button type="button">❌</button></span></td>
     </tr>
     `;
     $(this).on('click', '.table-add', function () {
         $tableBody.append(newTr);
-        $tableBody.find("tr:last > td:first-child").focus();
+        const input = $tableBody.find("tr:last input:first");
+        input.focus();
+        // Stop editing when pressing enter
+        input.keypress(function(e) {
+            if (e.keyCode === 13) {
+                $(this).blur();
+            }
+        });
     });
     $tableID.on('click', '.table-remove', function () {
         $(this).parents('tr').detach();

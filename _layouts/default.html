@@ -73,6 +73,11 @@
     {% if page.datapack_editor %}
     <script src="/scripts/jszip.min.js"></script>
     <script src="/scripts/FileSaver.min.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+    </script>
     <script src="/scripts/datapack-editing.js"></script>
     {% endif %}
     {% if page.slug %}

@@ -34,8 +34,10 @@ Most entity type tags control aspects of possession.
 
 {%include tag_list.html type="item" modid="requiem" tags=site.data.requiem.item_tags%}
 
-<button id="export-btn" class="btn-info btn-lg">EXPORT</button>
-<p class="lead" id="export-log"></p>
+<div class="tag-export hidden"><!--No JS === no export-->
+<button id="export-btn" class="btn btn-info btn-lg">EXPORT</button>
+<p id="export-log" class="lead"></p>
+</div>
 
 ### Loot Tables
 
