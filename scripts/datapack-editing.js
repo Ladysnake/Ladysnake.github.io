@@ -49,7 +49,7 @@ $('#export-btn').on('click', async function () {
     try {
         document.querySelectorAll('.tag-editor').forEach((editor) => {
             const replace = editor.querySelector('.tag-replace').checked;
-            const values = Array.from(editor.querySelectorAll('tr td:first-child'), (row) => row.textContent);
+            const values = Array.from(editor.querySelectorAll('input[type=text]'), (input) => input.value);
             if (values.length || replace) { // Output the result
                 data.file(`${editor.dataset.tagModid}/tags/${editor.dataset.tagPath}`, JSON.stringify({
                     replace,
