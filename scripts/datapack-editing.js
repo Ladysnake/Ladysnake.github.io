@@ -6,7 +6,7 @@ $('.tag-editor').each(function () {
 
     const newTr = `
     <tr>
-      <td class="input-cell"><input type="text"/></td>
+      <td class="input-cell"><input type="text" placeholder="#mod-id:tag, mod-id:thingy" pattern="#?([a-z0-9_.-]+:)?[a-z0-9/._-]*"/><span class="error-message">Not a valid identifier!</span></td>
       <td class="table-buttons"><span class="table-up"><button>🔼</button></span><span class="table-down"><button>🔽</button></span></td>
       <td class="table-buttons"><span class="table-remove"><button type="button">❌</button></span></td>
     </tr>

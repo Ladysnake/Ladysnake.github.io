@@ -677,3 +677,23 @@ h2.section-title + p {
 	background-color: transparent;
 	text-align: center;
 }
+
+input:invalid {
+	border: #d9534f solid 3px;
+}
+
+.error-message {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+	position: absolute;
+	z-index: 1;
+}
+
+input:invalid + .error-message {
+	visibility: visible;
+}
