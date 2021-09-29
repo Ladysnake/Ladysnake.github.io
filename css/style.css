@@ -81,7 +81,8 @@ This section will be all about DARK MODE
 	color: #eee;
 }
 .dark-mode code.language-plaintext {
-	background-color: #0a0a0a;
+	background-color: #2c292d;
+	color: #ff6188;
 }
 
 /* other stuff that sschr15 made and things */
@@ -573,8 +574,23 @@ h2.section-title + p {
 
 .gamerule-name {
     text-decoration: underline dotted;
-    background-color: #f9e9c7;
-    color: #a5382a;
+    background-color: #faf4f2;
+    color: #c73e26;
+}
+
+.dark-mode .gamerule-name {
+	background-color: #262525;
+	color: #e6472c;
+}
+
+.tag-name {
+	background-color: #f6f2f9;
+	color: #8126c7;
+}
+
+.dark-mode .tag-name {
+	background-color: #262526;
+	color: #a530ff;
 }
 
 .pt-3-half { padding-top: 1.4rem; }

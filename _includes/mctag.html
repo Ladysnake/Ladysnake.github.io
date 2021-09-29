@@ -1,6 +1,6 @@
 {%capture editor-id%}{{include.type | replace: "_", "-"}}-editor-{{include.name | slugify }}{%endcapture%}
 <a href="{{include.path}}/{{include.name}}">
-    <code>{{include.name}}</code>
+    <code class="tag-name">{{include.name}}</code>
 </a>: {{include.description | markdownify | remove: "<p>" | remove: "</p>"}}<input id="{{editor-id}}-toggle" class="tag-editor-toggle hidden" type="checkbox" data-toggle="collapse" data-target="#{{editor-id}}" aria-expanded="false" aria-controls="{{editor-id}}"/>
 <label for="{{editor-id}}-toggle" data-toggle="tooltip" title="Toggle Editor">📝</label>
 <div id="{{editor-id}}" class="tag-editor collapse" data-tag-path="{{include.folder}}/{{include.name}}" data-tag-modid="{{include.modid}}">
