@@ -1,31 +1,38 @@
 <ul>
-{% for gamerule in include.gamerules %}
-    {% capture editor-id %}gamerule-editor-{{gamerule.name | slugify }}{% endcapture %}
-    {% capture name %}{{ include.modid }}:{{ gamerule.name }}{% endcapture %}
-    <li>
-        <code title="/gamerule {{ name }}" data-toggle="tooltip" class="gamerule-name">{{name}}</code>: {{gamerule.description | markdownify | remove: "<p>" | remove: "</p>"}}
-        <input id="{{editor-id}}-toggle" class="data-editor-toggle hidden" type="checkbox" data-toggle="collapse"
-               data-target="#{{editor-id}}" aria-expanded="false" aria-controls="{{editor-id}}"/>
-        <label for="{{editor-id}}-toggle" data-toggle="tooltip" title="Toggle Editor">📝</label>
-        <div id="{{editor-id}}" class="gamerule-editor collapse">
-            {% for value in gamerule.values %}
-            <div class="form-check form-check-inline">
-                <input
-                        class="form-check-input"
-                        type="radio"
-                        name="{{ editor-id }}"
-                        id="{{ editor-id }}-{{ value }}"
-                        value="{{ value }}"
-                        data-gamerule-name="{{ name }}"
-                        {% if value == gamerule.default %}checked data-default{% endif %}
-                />
-                <label class="form-check-label" for="{{ editor-id }}-{{ value }}">
-                    <code>{{ value }}</code>{% if value == gamerule.default %}(default){% endif %}
-                </label>
+    {% for gamerule in include.gamerules %}
+        {% capture editor-id %}gamerule-editor-{{ gamerule.name | slugify }}{% endcapture %}
+        {% capture name %}{{ include.modid }}:{{ gamerule.name }}{% endcapture %}
+        <li class="gamerule-entry">
+            <div class="data-info-entry">
+                <span class="data-editor-toggle hidden">
+                    <input id="{{ editor-id }}-toggle" type="checkbox" data-toggle="collapse"
+                           data-target="#{{ editor-id }}" aria-expanded="false" aria-controls="{{ editor-id }}"/>
+                    <label for="{{ editor-id }}-toggle" data-toggle="tooltip" title="Toggle Editor"><span>📝</span></label>
+                </span>
+                <div>
+                    <h5 title="/gamerule {{ name }}" class="gamerule-name">{{ name }}</h5>
+                    <p class="data-description">{{ gamerule.description | markdownify | remove: "<p>" | remove: "</p>" | capitalize }}</p>
+                </div>
             </div>
-            {% endfor %}
-            <pre><code>/gamerule {{ name }} <span class="gamerule-value">&lt;value&gt;</span></code></pre>
-        </div>
-    </li>
+            <div id="{{ editor-id }}" class="gamerule-editor collapse">
+                {% for value in gamerule.values %}
+                    <div class="form-check form-check-inline">
+                        <input
+                                class="form-check-input"
+                                type="radio"
+                                name="{{ editor-id }}"
+                                id="{{ editor-id }}-{{ value }}"
+                                value="{{ value }}"
+                                data-gamerule-name="{{ name }}"
+                                {% if value == gamerule.default %}checked data-default{% endif %}
+                        />
+                        <label class="form-check-label" for="{{ editor-id }}-{{ value }}">
+                            <code>{{ value }}</code>{% if value == gamerule.default %}(default){% endif %}
+                        </label>
+                    </div>
+                {% endfor %}
+                <pre><code>/gamerule {{ name }} <span class="gamerule-value">&lt;value&gt;</span></code></pre>
+            </div>
+        </li>
     {% endfor %}
 </ul>

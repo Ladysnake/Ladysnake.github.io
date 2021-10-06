@@ -1,23 +1,26 @@
-{%capture editor-id%}{{include.type | replace: "_", "-"}}-editor-{{include.name | slugify }}{%endcapture%}
-{%comment%}Certifiably awful way to style stuff{%endcomment%}
-<span><span>
-    <a href="{{include.path}}/{{include.name}}"><code class="tag-name">{{include.name}}</code></a>:
-    {{include.description | markdownify | remove: "<p>" | remove: "</p>"}}
-    <input id="{{editor-id}}-toggle" class="data-editor-toggle hidden" type="checkbox" data-toggle="collapse"
-           data-target="#{{editor-id}}" aria-expanded="false" aria-controls="{{editor-id}}"/>
-    <label for="{{editor-id}}-toggle" data-toggle="tooltip" title="Toggle Editor">📝</label>
-</span></span>
-<div id="{{editor-id}}" class="tag-editor collapse" data-tag-path="{{include.folder}}/{{include.name}}"
-     data-tag-modid="{{include.modid}}">
+{% capture editor-id %}{{ include.type | replace: "_", "-" }}-editor-{{ include.name | slugify }}{% endcapture %}
+<div class="data-info-entry">
+    <span class="data-editor-toggle hidden">
+        <input id="{{ editor-id }}-toggle" type="checkbox"
+               data-target="#{{ editor-id }}" aria-expanded="false" aria-controls="{{ editor-id }}"/>
+        <label for="{{ editor-id }}-toggle" data-toggle="tooltip" title="Toggle Editor"><span>📝</span></label>
+    </span>
+    <div>
+        <h5><a href="{{ include.path }}/{{ include.name }}" class="tag-name">{{ include.name }}</a></h5>
+        <p class="data-description">{{ include.description | markdownify | remove: "<p>" | remove: "</p>" | capitalize }}</p>
+    </div>
+</div>
+<div id="{{ editor-id }}" class="tag-editor collapse" data-tag-path="{{ include.folder }}/{{ include.name }}"
+     data-tag-modid="{{ include.modid }}">
     <!-- Editable table -->
     <div class="card">
         <h3 class="card-header text-center font-weight-bold py-4">
-            {{include.name}}
+            {{ include.name }}
             <span class="table-add float-right mb-3 mr-2"><button type="button"
                                                                   class="btn btn-success btn-rounded btn-sm my-0">New entry</button></span>
             <input type="checkbox" hidden class="btn-check tag-replace" name="options-outlined"
-                   id="{{editor-id}}-replace" autocomplete="off">
-            <label class="btn btn-xs" title="Delete previous values" for="{{editor-id}}-replace">Replace
+                   id="{{ editor-id }}-replace" autocomplete="off">
+            <label class="btn btn-xs" title="Delete previous values" for="{{ editor-id }}-replace">Replace
                 existing</label>
         </h3>
         <div class="card-body">
@@ -25,7 +28,7 @@
                 <table class="table table-bordered table-responsive-md table-striped text-center">
                     <thead>
                     <tr>
-                        <th class="text-center">{{include.type | replace: "_", " " | capitalize}} Identifier</th>
+                        <th class="text-center">{{ include.type | replace: "_", " " | capitalize }} Identifier</th>
                         <th class="text-center table-buttons">Sort</th>
                         <th class="text-center table-buttons">Remove</th>
                     </tr>

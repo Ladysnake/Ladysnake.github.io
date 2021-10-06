@@ -1,0 +1,176 @@
+$code-font: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+:root {
+  --gamerule-name-color: #c73e26;
+  --tag-name-color: #6610f2;
+  --tag-name-hover-color: #8126c7;
+  .dark-mode {
+    --gamerule-name-color: #e6472c;
+    --tag-name-color: #a530ff;
+    --tag-name-hover-color: #b550ff;
+  }
+}
+
+.gamerule-name {
+  color: var(--gamerule-name-color);
+  font-family: $code-font;
+}
+
+.tag-name {
+  color: var(--tag-name-color);
+  font-family: $code-font;
+
+  &:hover, &:focus {
+    color: var(--tag-name-hover-color);
+  }
+}
+
+.tag-replace:not(:checked) + label {
+  outline: solid #d9534f;
+  color: #d9534f;
+}
+
+.tag-replace:checked + label {
+  background-color: #d9534f;
+  color: white;
+}
+
+.tag-editor .table {
+  max-width: 53rem;
+}
+
+.gamerule-entry {
+  margin: 0.5rem 0 0.5rem;
+  list-style: none;
+}
+
+.data-info-entry {
+  margin-top: 1px;
+  padding: 0;
+  display: flex;
+  & > div {
+    display:flex;
+    flex-direction: column;
+    & > h5 {
+      margin: 0;
+    }
+  }
+}
+
+
+.data-editor-toggle {
+  align-items: center;
+  display: flex;
+  margin-right: 0.5rem;
+
+  label {
+    border: solid 1.75px #636e72;
+    border-radius: 15%;
+    font-size: 110%;
+    background-color: #dfe6e9;
+    padding: 1px;
+    margin: 0;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      border-color: #2d3436;
+    }
+  }
+
+  input {
+    display: none;
+
+    &:not(:checked) + label > span {
+      filter: grayscale(1) brightness(70%) contrast(3);
+    }
+
+    &:checked + label {
+      border-color: #0984e3;
+    }
+  }
+}
+
+.data-description {
+  margin: 0 0 0 1rem;
+  color: #636e72;
+}
+
+.gamerule-editor div {
+  display: inline-block;
+}
+
+.input-cell > input {
+  border: none;
+  display: block;
+  width: 100%;
+  height: 45px;
+  background-color: transparent;
+  text-align: center;
+}
+
+input:invalid {
+  border: #d9534f solid 3px;
+}
+
+.error-message {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+
+  input:invalid + & {
+    visibility: visible;
+  }
+}
+
+/* Directory list (by Alex Raven, from https://codepen.io/asraven/pen/qbrQMX)
+-------------------------------------------------------------- */
+
+.directory-list {
+  padding-left: 18px;
+
+  ul {
+    margin-left: 10px;
+    padding-left: 20px;
+    border-left: 1px dashed #ddd;
+
+    .dark-mode & {
+      border-color: #333;
+    }
+  }
+
+  li {
+    list-style: none;
+    margin: 0.5rem 0 0.5rem;
+
+    /* Directory list: icons
+    -------------------------------------------------------------- */
+    & > *:first-child {
+      margin-top: 1px;
+      padding: 0;
+    }
+
+    &.folder > *:first-child:before {
+      margin-right: 5px;
+      content: "";
+      height: 20px;
+      vertical-align: middle;
+      width: 20px;
+      background-repeat: no-repeat;
+      display: inline-block;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='lightblue' d='M96.429,37.5v39.286c0,3.423-1.228,6.361-3.684,8.817c-2.455,2.455-5.395,3.683-8.816,3.683H16.071 c-3.423,0-6.362-1.228-8.817-3.683c-2.456-2.456-3.683-5.395-3.683-8.817V23.214c0-3.422,1.228-6.362,3.683-8.817 c2.455-2.456,5.394-3.683,8.817-3.683h17.857c3.422,0,6.362,1.228,8.817,3.683c2.455,2.455,3.683,5.395,3.683,8.817V25h37.5 c3.422,0,6.361,1.228,8.816,3.683C95.201,31.138,96.429,34.078,96.429,37.5z' /></svg>");
+      background-position: center top;
+      background-size: 75% auto;
+
+      .dark-mode & {
+        filter: hue-rotate(120deg);
+      }
+    }
+  }
+}

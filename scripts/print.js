@@ -9,7 +9,7 @@ function print() {
 
     printJS({
         printable: 'printJS-Content',
-        type: 'html', 
+        type: 'html',
         header: header,
         css: [
             "/bootstrap.css",

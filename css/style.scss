@@ -1,3 +1,6 @@
+---
+---
+
 body {
 	font-family: 'Poppins', sans-serif;
 	text-align: justify;
@@ -572,27 +575,6 @@ h2.section-title + p {
 	vertical-align: bottom;
 }
 
-.gamerule-name {
-    text-decoration: underline dotted;
-    background-color: #faf4f2;
-    color: #c73e26;
-}
-
-.dark-mode .gamerule-name {
-	background-color: #262525;
-	color: #e6472c;
-}
-
-.tag-name {
-	background-color: #f6f2f9;
-	color: #8126c7;
-}
-
-.dark-mode .tag-name {
-	background-color: #262526;
-	color: #a530ff;
-}
-
 .pt-3-half { padding-top: 1.4rem; }
 
 .table-buttons {
@@ -648,128 +630,4 @@ h2.section-title + p {
 	border-color: #333;
 }
 
-.tag-replace:not(:checked) + label {
-	outline: solid #d9534f;
-	color: #d9534f;
-}
-
-.tag-replace:checked + label {
-	background-color: #d9534f;
-	color: white;
-}
-
-.tag-editor .table {
-	max-width: 53rem;
-}
-
-.data-editor-toggle {
-	display: none;
-}
-
-.data-editor-toggle.hidden + label {
-	display: none;
-}
-
-.data-editor-toggle + label {
-	margin-left: 1rem;
-	cursor: pointer;
-}
-
-.data-editor-toggle:not(:checked) + label {
-	filter: grayscale(1) brightness(70%) contrast(3);
-}
-
-.gamerule-editor div {
-	display: inline-block;
-}
-
-.input-cell > input {
-	border: none;
-	display: block;
-	width: 100%;
-	height: 45px;
-	background-color: transparent;
-	text-align: center;
-}
-
-input:invalid {
-	border: #d9534f solid 3px;
-}
-
-.error-message {
-	visibility: hidden;
-	width: 120px;
-	background-color: black;
-	color: #fff;
-	text-align: center;
-	padding: 5px 0;
-	border-radius: 6px;
-	position: absolute;
-	z-index: 1;
-}
-
-input:invalid + .error-message {
-	visibility: visible;
-}
-
-/* Directory list (by Alex Raven, from https://codepen.io/asraven/pen/qbrQMX)
--------------------------------------------------------------- */
-
-.directory-list {
-	padding-left: 18px;
-}
-
-.directory-list ul {
-	margin-left: 10px;
-	padding-left: 20px;
-	border-left: 1px dashed #ddd;
-}
-
-.dark-mode .directory-list ul {
-	border-color: #333;
-}
-
-.directory-list li {
-	list-style: none;
-}
-
-
-/* Directory list: icons
--------------------------------------------------------------- */
-.directory-list li > span {
-	display: flex;
-	padding: 0;
-}
-
-.directory-list li > span > span {
-	padding: 0;
-}
-
-.directory-list li > *:first-child:before {
-	margin-right: 5px;
-	content: "";
-	height: 20px;
-	vertical-align: middle;
-	width: 20px;
-	background-repeat: no-repeat;
-	display: inline-block;
-	/* file icon by default */
-	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='lightgrey' d='M85.714,42.857V87.5c0,1.487-0.521,2.752-1.562,3.794c-1.042,1.041-2.308,1.562-3.795,1.562H19.643 c-1.488,0-2.753-0.521-3.794-1.562c-1.042-1.042-1.562-2.307-1.562-3.794v-75c0-1.487,0.521-2.752,1.562-3.794 c1.041-1.041,2.306-1.562,3.794-1.562H50V37.5c0,1.488,0.521,2.753,1.562,3.795s2.307,1.562,3.795,1.562H85.714z M85.546,35.714 H57.143V7.311c3.05,0.558,5.505,1.767,7.366,3.627l17.41,17.411C83.78,30.209,84.989,32.665,85.546,35.714z' /></svg>");
-	background-position: center 2px;
-	background-size: 60% auto;
-}
-
-.dark-mode .directory-list li > *:first-child:before {
-	filter: brightness(25%) sepia(1) hue-rotate(180deg);
-}
-
-.directory-list li.folder > *:first-child:before {
-	/* folder icon if folder class is specified */
-	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='lightblue' d='M96.429,37.5v39.286c0,3.423-1.228,6.361-3.684,8.817c-2.455,2.455-5.395,3.683-8.816,3.683H16.071 c-3.423,0-6.362-1.228-8.817-3.683c-2.456-2.456-3.683-5.395-3.683-8.817V23.214c0-3.422,1.228-6.362,3.683-8.817 c2.455-2.456,5.394-3.683,8.817-3.683h17.857c3.422,0,6.362,1.228,8.817,3.683c2.455,2.455,3.683,5.395,3.683,8.817V25h37.5 c3.422,0,6.361,1.228,8.816,3.683C95.201,31.138,96.429,34.078,96.429,37.5z' /></svg>");
-	background-position: center top;
-	background-size: 75% auto;
-}
-
-.dark-mode .directory-list li.folder > *:first-child:before {
-	filter: hue-rotate(120deg);
-}
+@import 'datapack';

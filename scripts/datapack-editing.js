@@ -1,4 +1,18 @@
-$('.data-editor-toggle').removeClass('hidden');  // poggies, we have JS
+document.querySelectorAll('.data-editor-toggle').forEach(toggle => {
+    toggle.classList.remove('hidden');  // poggies, we have JS
+    const input = toggle.querySelector('input');
+    const target = $(input.dataset.target);
+    input.addEventListener('change', function() {
+        target.collapse(input.checked ? 'show' : 'hide');
+    });
+    // The CSS transition can be a bit slow compared to a furious clicker, so things may get out of sync
+    target.on('hidden.bs.collapse', function() {
+        input.checked = false;
+    });
+    target.on('shown.bs.collapse', function() {
+        input.checked = true;
+    });
+});
 $('.gamerule-editor').each(function() {
     const output = $(this).find('.gamerule-value');
     $(this).on('click', 'input', function() {
