@@ -1,4 +1,4 @@
 - name: derelict_obelisk_locations
   description: specifies which biomes the derelict obelisk structure can spawn in
-  since: 2.0.0-alpha.13
+  since: 2.0.0
   upcoming: true

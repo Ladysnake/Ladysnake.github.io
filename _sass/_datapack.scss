@@ -1,13 +1,23 @@
 $code-font: Menlo, Monaco, Consolas, "Courier New", monospace;
 
 :root {
+  --text-description-color: #636e72;
   --gamerule-name-color: #c73e26;
   --tag-name-color: #6610f2;
   --tag-name-hover-color: #8126c7;
+  --button-background: #dfe6e9;
+  --button-outline: #636e72;
+  --button-hover-outline: #2d3436;
+  --button-selected-outline: #0984e3;
   .dark-mode {
+    --text-description-color: #b2bec3;
     --gamerule-name-color: #e6472c;
     --tag-name-color: #a530ff;
     --tag-name-hover-color: #b550ff;
+    --button-background: #2d3436;
+    --button-outline: #b2bec3;
+    --button-hover-outline: #dfe6e9;
+    --button-selected-outline: #74b9ff;
   }
 }
 
@@ -25,14 +35,23 @@ $code-font: Menlo, Monaco, Consolas, "Courier New", monospace;
   }
 }
 
-.tag-replace:not(:checked) + label {
-  outline: solid #d9534f;
-  color: #d9534f;
-}
+.tag-replace {
+  & + label {
+    outline: solid #d9534f;
 
-.tag-replace:checked + label {
-  background-color: #d9534f;
-  color: white;
+    &:active {
+      outline: solid 1px #d9534f;
+    }
+  }
+
+  &:not(:checked) + label {
+    color: #d9534f;
+  }
+
+  &:checked + label {
+    background-color: #d9534f;
+    color: white;
+  }
 }
 
 .tag-editor .table {
@@ -64,17 +83,17 @@ $code-font: Menlo, Monaco, Consolas, "Courier New", monospace;
   margin-right: 0.5rem;
 
   label {
-    border: solid 1.75px #636e72;
+    border: solid 1.75px var(--button-outline);
     border-radius: 15%;
     font-size: 110%;
-    background-color: #dfe6e9;
+    background-color: var(--button-background);
     padding: 1px;
     margin: 0;
     cursor: pointer;
     user-select: none;
 
     &:hover {
-      border-color: #2d3436;
+      border-color: var(--button-hover-outline);
     }
   }
 
@@ -86,14 +105,14 @@ $code-font: Menlo, Monaco, Consolas, "Courier New", monospace;
     }
 
     &:checked + label {
-      border-color: #0984e3;
+      border-color: var(--button-selected-outline);
     }
   }
 }
 
 .data-description {
   margin: 0 0 0 1rem;
-  color: #636e72;
+  color: var(--text-description-color);
 }
 
 .gamerule-editor div {

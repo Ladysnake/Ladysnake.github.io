@@ -87,6 +87,11 @@ This section will be all about DARK MODE
 	background-color: #2c292d;
 	color: #ff6188;
 }
+.dark-mode pre {
+	background-color: #2c292d;
+	color: #ddd;
+	border-color: #333;
+}
 
 /* other stuff that sschr15 made and things */
 
@@ -150,6 +155,13 @@ a {
 	transition: all .3s;
 }
 
+.dark-mode a {
+	color: #0fbcf9;
+	&:hover {
+		color: #48dbfb;
+	}
+}
+
 /*	FORMS */
 body:not(.dark-mode) .form-control {
 	border: 2px solid #cbd0d3;
@@ -201,6 +213,17 @@ body:not(.dark-mode) .form-control {
 
 /*	COLORS */
 
+:root {
+	--color-primary: #1abc9c;
+	--color-success: #2ecc71;
+	--color-info: #2ecc71;
+	--color-warning: #e67e22;
+	--color-danger: #e74c3c;
+
+	.dark-mode {
+		--color-warning: #f39c12;
+	}
+}
 .color-grey {
 	color: #bdc3c7;
 }
@@ -211,19 +234,27 @@ body:not(.dark-mode) .form-control {
 	color: #333;
 }
 .color-primary {
-	color: #1abc9c;
+	color: var(--color-primary);
 }
 .color-success {
-	color: #2ecc71;
+	color: var(--color-success);
 }
 .color-info {
-	color: #2ecc71;
+	color: var(--color-info);
 }
 .color-warning {
-	color: #e67e22;
+	color: var(--color-warning);
 }
 .color-danger {
-	color: #e74c3c;
+	color: var(--color-danger);
+}
+
+.badge-danger {
+	background-color: var(--color-danger);
+}
+
+.badge-warning {
+	background-color: var(--color-warning);
 }
 
 /*	BACKGROUNDS */

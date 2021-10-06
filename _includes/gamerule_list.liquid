@@ -11,8 +11,8 @@
                            title="Toggle Editor"><span>📝</span></label>
                 </span>
                 <div>
-                    <h5 title="/gamerule {{ name }}" class="gamerule-name">
-                        {{ name }}
+                    <h5 title="/gamerule {{ name }}">
+                        <span class="gamerule-name">{{ name }}</span>
                         {% if gamerule.since %}<span class="badge badge-secondary">&gt; {{ gamerule.since }}</span>{% endif %}
                         {% if gamerule.removed %}<span class="badge badge-error">&lt; {{ gamerule.removed }}</span>{% endif %}
                         {% if gamerule.upcoming %}<span class="badge badge-warning">Upcoming</span>{% endif %}

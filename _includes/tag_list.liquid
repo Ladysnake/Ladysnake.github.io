@@ -1,7 +1,8 @@
 {% unless include.name %}<ul class="directory-list"><li class="folder">{% endunless %}
     {%capture folder%}{%if include.folder%}{{include.folder}}{%if include.name%}/{{include.name}}{%endif%}{%else%}{{include.type}}s{%endif%}{%endcapture%}
     {%capture path%}https://github.com/Ladysnake/Requiem/tree/1.16/src/main/resources/data/requiem/tags/{{folder}}{%endcapture%}
-    <a href="{{path}}"><code class="tag-name">{%if include.name%}{{include.name}}{%else%}{{include.modid}}:tags/{{folder}}{%endif%}</code></a><ul>
+    <a href="{{path}}" class="tag-name">{%if include.name%}{{include.name}}{%else%}{{include.modid}}:tags/{{folder}}{%endif%}</a>
+    <ul>
         {% for tag in include.tags %}
             {%comment%}Need to recompute this otherwise it gets set by the children{%endcomment%}
             {%capture folder%}{%if include.folder%}{{include.folder}}{%if include.name%}/{{include.name}}{%endif%}{%else%}{{include.type}}s{%endif%}{%endcapture%}
