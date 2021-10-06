@@ -46,8 +46,11 @@ Most entity type tags control aspects of possession.
 
 ### Loot Tables
 
-Requiem adds the ability to configure what loot a player gets when first possessing a mob by adding loot table files to `<namespace>:loot_tables/requiem/possession/<mob_id>.json`. Those loot tables must have the `requiem:possession` type. For examples, see [possession loot tables for vanilla mobs](https://github.com/Ladysnake/Requiem/tree/1.16/src/main/resources/data/minecraft/loot_tables/requiem/possession).
+Requiem adds the ability to configure what loot a player gets when first possessing a mob by adding loot table files to 
+`<namespace>:loot_tables/requiem/possession/<mob_id>.json`. Those loot tables must have the `requiem:possession` type.
+For examples, see [possession loot tables for vanilla mobs](https://github.com/Ladysnake/Requiem/tree/1.16/src/main/resources/data/minecraft/loot_tables/requiem/possession).
 
+Loot table generator: [https://minecraft.tools/en/loots.php](https://minecraft.tools/en/loots.php)
 
 
 ### Changes to Predicates
