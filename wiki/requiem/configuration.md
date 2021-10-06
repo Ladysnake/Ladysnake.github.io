@@ -23,16 +23,19 @@ The lists below represent a file tree taking root in the `tags` directory of a d
 
 #### Blocks
 
-{%include tag_list.html type="block" modid="requiem" tags=site.data.requiem.block_tags%}
+{%include tag_list.liquid type="block" modid="requiem" tags=site.data.requiem.block_tags%}
+
+#### Biomes
+{%include tag_list.liquid type="biome" modid="requiem" tags=site.data.requiem.biome_tags%}
 
 #### Entity Types
 Most entity type tags control aspects of possession.
 
-{%include tag_list.html type="entity_type" modid="requiem" tags=site.data.requiem.entity_type_tags%}
+{%include tag_list.liquid type="entity_type" modid="requiem" tags=site.data.requiem.entity_type_tags%}
 
 #### Items
 
-{%include tag_list.html type="item" modid="requiem" tags=site.data.requiem.item_tags%}
+{%include tag_list.liquid type="item" modid="requiem" tags=site.data.requiem.item_tags%}
 
 <div class="tag-export hidden"><!--No JS === no export-->
 <button id="export-btn" class="btn btn-info btn-lg">EXPORT</button>

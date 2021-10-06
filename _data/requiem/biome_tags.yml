@@ -1,0 +1,2 @@
+- name: derelict_obelisk_locations
+  description: specifies which biomes the derelict obelisk structure can spawn in

@@ -7,12 +7,12 @@
             {%capture folder%}{%if include.folder%}{{include.folder}}{%if include.name%}/{{include.name}}{%endif%}{%else%}{{include.type}}s{%endif%}{%endcapture%}
             {% if tag.children %}
                 <li class="folder">
-                {%include tag_list.html modid=include.modid type=include.type name=tag.name folder=folder tags=tag.children%}
+                {%include tag_list.liquid modid=include.modid type=include.type name=tag.name folder=folder tags=tag.children%}
                 </li>
             {% else %}
                 <li>
                 {%capture name%}{{tag.name}}.json{%endcapture%}
-                {%include mctag.html modid=include.modid type=include.type name=name description=tag.description path=path folder=folder%}
+                {%include mctag.liquid modid=include.modid type=include.type name=name description=tag.description path=path folder=folder%}
                 </li>
             {% endif %}
         {% endfor %}
