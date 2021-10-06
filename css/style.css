@@ -662,27 +662,25 @@ h2.section-title + p {
 	max-width: 53rem;
 }
 
-.tag-editor-toggle {
+.data-editor-toggle {
 	display: none;
 }
 
-.tag-editor-toggle.hidden + label {
+.data-editor-toggle.hidden + label {
 	display: none;
 }
 
-.tag-editor-toggle + label {
+.data-editor-toggle + label {
 	margin-left: 1rem;
 	cursor: pointer;
 }
 
-.tag-editor-toggle:not(:checked) + label {
+.data-editor-toggle:not(:checked) + label {
 	filter: grayscale(1) brightness(70%) contrast(3);
 }
 
-.tag-export {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+.gamerule-editor div {
+	display: inline-block;
 }
 
 .input-cell > input {

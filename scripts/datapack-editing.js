@@ -1,5 +1,11 @@
-$('.tag-editor-toggle').removeClass('hidden');  // poggies, we have JS
-$('.tag-export').removeClass('hidden');
+$('.data-editor-toggle').removeClass('hidden');  // poggies, we have JS
+$('.gamerule-editor').each(function() {
+    const output = $(this).find('.gamerule-value');
+    $(this).on('click', 'input', function() {
+        output.text($(this).val());
+        $('.gamerule-export').removeClass('hidden');
+    });
+});
 $('.tag-editor').each(function () {
     const $tableID = $(this).find('.table-editable');
     const $tableBody = $tableID.find('tbody');
@@ -21,6 +27,7 @@ $('.tag-editor').each(function () {
                 $(this).blur();
             }
         });
+        $('.tag-export').removeClass('hidden');
     });
     $tableID.on('click', '.table-remove', function () {
         $(this).parents('tr').detach();
@@ -36,41 +43,79 @@ $('.tag-editor').each(function () {
         $row.next().after($row.get(0));
     });
 });
-$('#export-btn').on('click', async function () {
-    const zip = new JSZip();
-    const logElement = document.querySelector('#export-log');
-    const log = (msg) => logElement.textContent = msg;
-
-    const data = zip.folder("data");
-    let dirty = false;
-
-    log('Generating your datapack...');
-
-    try {
-        document.querySelectorAll('.tag-editor').forEach((editor) => {
-            const replace = editor.querySelector('.tag-replace').checked;
-            const values = Array.from(editor.querySelectorAll('input[type=text]'), (input) => input.value);
-            if (values.length || replace) { // Output the result
-                data.file(`${editor.dataset.tagModid}/tags/${editor.dataset.tagPath}`, JSON.stringify({
-                    replace,
-                    values
-                }));
-                dirty = true;
+(() => {
+    function writeDatapackMeta(zip) {
+        zip.file('pack.mcmeta', JSON.stringify({
+            pack: {
+                description: 'Custom datapack for Requiem configuration',
+                pack_format: 4
             }
-        });
-        if (dirty) {
-            zip.file('pack.mcmeta', JSON.stringify({
-                pack: {
-                    description: 'Custom datapack for Requiem configuration',
-                    pack_format: 4
-                }
-            }));
-            saveAs(await zip.generateAsync({type: "blob"}), "my_datapack.zip");
-            log('Done!');
-        } else {
-            log('There is nothing to export!');
-        }
-    } catch (e) {
-        log(`Uh oh [${e}]`);
+        }));
     }
-});
+
+    $('#gamerule-export-btn').on('click', async function () {
+        const zip = new JSZip();
+        const logElement = document.querySelector('#gamerule-export-log');
+        const log = (msg) => logElement.textContent = msg;
+        log('Generating your datapack...');
+
+        try {
+            const commands = Array.from(document.querySelectorAll('.gamerule-editor'), (editor) => {
+                return editor.querySelector('input:checked:not([data-default])');
+            }).filter(it => it).map(it => `gamerule ${it.dataset.gameruleName} ${it.value}`);
+
+            if (commands.length) {
+                zip.file("data/requiem-cfg/functions/gamerule-init.mcfunction", commands.join("\n"));
+                zip.file("data/minecraft/tags/functions/load.json", JSON.stringify({
+                    replace: false,
+                    values: ["requiem-cfg:gamerule-init"]
+                }));
+                writeDatapackMeta(zip);
+                saveAs(await zip.generateAsync({type: "blob"}), "requiem-gamerule-config.zip");
+                log('Done!');
+            } else {
+                log('There is nothing to export!');
+            }
+        } catch (e) {
+            log(`Uh oh [${e}]`);
+        }
+    });
+    $('#export-btn').on('click', async function () {
+        const zip = new JSZip();
+        const logElement = document.querySelector('#export-log');
+        const log = (msg) => logElement.textContent = msg;
+
+        const data = zip.folder("data");
+        let dirty = false;
+
+        log('Generating your datapack...');
+
+        try {
+            document.querySelectorAll('.tag-editor').forEach((editor) => {
+                const replace = editor.querySelector('.tag-replace').checked;
+                const values = Array.from(editor.querySelectorAll('input[type=text]'), (input) => input.value);
+                if (values.length || replace) { // Output the result
+                    data.file(`${editor.dataset.tagModid}/tags/${editor.dataset.tagPath}`, JSON.stringify({
+                        replace,
+                        values
+                    }));
+                    dirty = true;
+                }
+            });
+            if (dirty) {
+                zip.file('pack.mcmeta', JSON.stringify({
+                    pack: {
+                        description: 'Custom datapack for Requiem configuration',
+                        pack_format: 4
+                    }
+                }));
+                saveAs(await zip.generateAsync({type: "blob"}), "requiem-tag-config.zip");
+                log('Done!');
+            } else {
+                log('There is nothing to export!');
+            }
+        } catch (e) {
+            log(`Uh oh [${e}]`);
+        }
+    });
+})();

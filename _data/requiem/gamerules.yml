@@ -1,0 +1,16 @@
+- name: showPossessorNameTag
+  description: if set to `true`, shows the name of the possessor above the head of possessed entities.
+  values: [true, false]
+  default: false
+- name: disableCure
+  description: if set to `true`, the cure mechanic will be disabled entirely.
+  values: [true, false]
+  default: false
+- name: startingRemnantType
+  description: can be set to `FORCE_REMNANT` or `FORCE_VANILLA` to enforce all players to be respectively a demon or a normal player at the start of the game.
+  values: [CHOOSE, FORCE_REMNANT, FORCE_VANILLA]
+  default: CHOOSE
+- name: possessionKeepInventory
+  description: can be set to `LIVING` or `ALWAYS` to respectively keep the inventory on your soul when you split while your possessed entity is still living, or to always keep the inventory on your soul when possession stops for any reason.
+  values: [NEVER, LIVING, ALWAYS]
+  default: NEVER

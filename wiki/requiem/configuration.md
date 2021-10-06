@@ -6,11 +6,13 @@ datapack_editor: true
 ## Gamerules
 
 Requiem adds a few gamerules to help customize a server's gameplay:
- - {%include gamerule.html name="requiem:showPossessorNameTag"%}: if set to `true`, shows the name of the possessor above the head of possessed entities. (default: `false`)
- - {%include gamerule.html name="requiem:disableCure"%}: if set to `true`, the cure mechanic will be disabled entirely. (default: `false`)
- - {%include gamerule.html name="requiem:startingRemnantType"%}: can be set to `FORCE_REMNANT` or `FORCE_VANILLA` to enforce all players to be respectively a demon or a normal player at the start of the game. (default: `CHOOSE`)
- - {%include gamerule.html name="requiem:possessionKeepInventory"%}: can be set to `LIVING` or `ALWAYS` to respectively keep the inventory on your soul when you split while your possessed entity is still living, or to always keep the inventory on your soul when possession stops for any reason. (default: `NEVER`)
 
+{%include gamerule_list.liquid modid="requiem" gamerules=site.data.requiem.gamerules%}
+
+<div class="gamerule-export hidden"><!--No JS === no export-->
+<button id="gamerule-export-btn" class="btn btn-info btn-lg">Export to datapack</button>
+<p id="gamerule-export-log" class="lead"></p>
+</div>
 
 ## Datapacks
 
@@ -38,7 +40,7 @@ Most entity type tags control aspects of possession.
 {%include tag_list.liquid type="item" modid="requiem" tags=site.data.requiem.item_tags%}
 
 <div class="tag-export hidden"><!--No JS === no export-->
-<button id="export-btn" class="btn btn-info btn-lg">EXPORT</button>
+<button id="export-btn" class="btn btn-info btn-lg">Export to datapack</button>
 <p id="export-log" class="lead"></p>
 </div>
 
