@@ -14,3 +14,9 @@
   description: can be set to `LIVING` or `ALWAYS` to respectively keep the inventory on your soul when you split while your possessed entity is still living, or to always keep the inventory on your soul when possession stops for any reason.
   values: [NEVER, LIVING, ALWAYS]
   default: NEVER
+- name: possessionDetection
+  description: can be set to `DISABLED` or `HARD` to respectively disable hostiles detecting possessed mobs, or to make you more suspicious to them.
+  values: [DISABLED, NORMAL, HARD]
+  default: NORMAL
+  since: 2.0.0
+  upcoming: true
