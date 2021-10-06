@@ -12,7 +12,7 @@
             {% if include.tag.removed %}<span class="badge badge-error">&lt; {{ include.tag.removed }}</span>{% endif %}
             {% if include.tag.upcoming %}<span class="badge badge-warning">Upcoming</span>{% endif %}
         </h5>
-        <p class="data-description">{{ include.tag.description | markdownify | remove: "<p>" | remove: "</p>" | capitalize }}</p>
+        <p class="data-description">{{ include.tag.description | markdownify | remove: "<p>" | remove: "</p>" }}</p>
     </div>
 </div>
 <div id="{{ editor-id }}" class="tag-editor collapse" data-tag-path="{{ include.folder }}/{{ include.name }}"

@@ -17,7 +17,7 @@
                         {% if gamerule.removed %}<span class="badge badge-error">&lt; {{ gamerule.removed }}</span>{% endif %}
                         {% if gamerule.upcoming %}<span class="badge badge-warning">Upcoming</span>{% endif %}
                     </h5>
-                    <p class="data-description">{{ gamerule.description | markdownify | remove: "<p>" | remove: "</p>" | capitalize }}</p>
+                    <p class="data-description">{{ gamerule.description | markdownify | remove: "<p>" | remove: "</p>" }}</p>
                 </div>
             </div>
             <div id="{{ editor-id }}" class="gamerule-editor collapse">

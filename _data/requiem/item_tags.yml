@@ -1,27 +1,27 @@
 - name: food
   children:
     - name: baked_goods
-      description: included by default in the `villager_base_diet` tag.
+      description: Included by default in the `villager_base_diet` tag.
     - name: cooked_fishes
-      description: included by default in the `meat_based` tag.
+      description: Included by default in the `meat_based` tag.
     - name: cooked_meats
-      description: included by default in the `meat_based` tag.
+      description: Included by default in the `meat_based` tag.
     - name: dairy_products
-      description: currently unused.
+      description: Currently unused.
     - name: golden
-      description: included by default in the `piglin_diet` tag.
+      description: Included by default in the `piglin_diet` tag.
     - name: illager_diet
       description: Food that can be eaten by illagers.
     - name: meat_based
-      description: included by default in the `illager_diet` tag.
+      description: Included by default in the `illager_diet` tag.
     - name: mushroom_based
-      description: included by default in the `mushroom_diet` and `witch_diet` tags.
+      description: Included by default in the `mushroom_diet` and `witch_diet` tags.
     - name: piglin_diet
       description: Food that can be eaten by piglins.
     - name: plant_based
-      description: included by default in the `vegetarian` tag.
+      description: Included by default in the `vegetarian` tag.
     - name: vegetarian
-      description: included by default in the `villager_diet` tag.
+      description: Included by default in the `villager_diet` tag.
     - name: villager_base_diet
       description: Food that can be eaten by any mob of the villager family.
     - name: villager_diet
@@ -31,7 +31,7 @@
 - name: bones
   description: Items that can be used by skeletons to regenerate health.
 - name: pork
-  description: included by default in the `piglin_diet` tag.
+  description: Included by default in the `piglin_diet` tag.
 - name: raw_fishes
   description: Items that can be eaten by drowneds.
 - name: raw_meats
