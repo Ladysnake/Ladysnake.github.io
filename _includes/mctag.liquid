@@ -9,6 +9,7 @@
         <h5>
             <a href="{{ include.path }}/{{ include.name }}" class="tag-name">{{ include.name }}</a>
             {% if include.tag.since %}<span class="badge badge-secondary">{{ include.tag.since }}</span>{% endif %}
+            {% if include.tag.removed %}<span class="badge badge-error">&lt; {{ include.tag.removed }}</span>{% endif %}
             {% if include.tag.upcoming %}<span class="badge badge-warning">Upcoming</span>{% endif %}
         </h5>
         <p class="data-description">{{ include.tag.description | markdownify | remove: "<p>" | remove: "</p>" | capitalize }}</p>
