@@ -12,7 +12,7 @@
             {% else %}
                 <li>
                 {%capture name%}{{tag.name}}.json{%endcapture%}
-                {%include mctag.liquid modid=include.modid type=include.type name=name description=tag.description path=path folder=folder%}
+                {%include mctag.liquid modid=include.modid type=include.type name=name tag=tag path=path folder=folder%}
                 </li>
             {% endif %}
         {% endfor %}

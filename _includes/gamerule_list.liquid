@@ -7,10 +7,15 @@
                 <span class="data-editor-toggle hidden">
                     <input id="{{ editor-id }}-toggle" type="checkbox" data-toggle="collapse"
                            data-target="#{{ editor-id }}" aria-expanded="false" aria-controls="{{ editor-id }}"/>
-                    <label for="{{ editor-id }}-toggle" data-toggle="tooltip" title="Toggle Editor"><span>📝</span></label>
+                    <label for="{{ editor-id }}-toggle" data-toggle="tooltip"
+                           title="Toggle Editor"><span>📝</span></label>
                 </span>
                 <div>
-                    <h5 title="/gamerule {{ name }}" class="gamerule-name">{{ name }}</h5>
+                    <h5 title="/gamerule {{ name }}" class="gamerule-name">
+                        {{ name }}
+                        {% if gamerule.since %}<span class="badge badge-secondary">{{ gamerule.since }}</span>{% endif %}
+                        {% if gamerule.upcoming %}<span class="badge badge-warning">Upcoming</span>{% endif %}
+                    </h5>
                     <p class="data-description">{{ gamerule.description | markdownify | remove: "<p>" | remove: "</p>" | capitalize }}</p>
                 </div>
             </div>
