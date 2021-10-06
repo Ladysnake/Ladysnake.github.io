@@ -1,2 +1,13 @@
 - name: soul_impermeable
-  description: specifies which blocks **cannot** be phased through by incorporeal players
+  description: Specifies which blocks **cannot** be phased through by incorporeal players.
+- name: soul_interactable
+  description: Specifies which blocks can be interacted with (right-clicked) by incorporeal players.
+  since: 2.0.0
+- name: obelisk
+  children:
+    - name: frame
+      description: Specifies which blocks can be used as part of an obelisk's frame.
+      since: 2.0.0
+    - name: core
+      description: Specifies which blocks can be used as part of an obelisk's core - **must be runestone blocks.**
+      since: 2.0.0
