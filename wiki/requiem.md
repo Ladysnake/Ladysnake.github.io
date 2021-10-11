@@ -6,7 +6,7 @@ layout: wiki
 curse_project: 265729
 ---
 
-<strong style="font-size: x-large;">Requiem has a [wiki](requiem/landing.html)!</strong>
+<strong style="font-size: x-large;">Requiem has a [wiki](requiem/landing.md)!</strong>
 
 ## What is Requiem?
 

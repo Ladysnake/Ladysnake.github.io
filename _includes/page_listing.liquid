@@ -1,0 +1,19 @@
+{% assign len = include.pages | size | minus: 1 %}
+{% for i in (0..len) %}
+{% assign col = i | modulo: 3 %}
+{% assign page = include.pages[i] %}
+{% if col == 0 %}
+<div class="row">
+{% endif %}
+<div class="col-md-4">
+    <a href="{{ include.root_url }}/{{ page.ref }}">
+        <div class="service-block text-center">
+            <img alt="{{ page.ref }} Icon" src="{{ page.icon }}" class="mod_icon">
+            <h2 class="home">{{ page.title }}</h2>
+        </div>
+    </a>
+</div>
+{% if col == 2 %}
+</div>
+{% endif %}
+{% endfor %}
