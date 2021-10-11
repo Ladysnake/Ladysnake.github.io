@@ -661,4 +661,15 @@ h2.section-title + p {
 	border-color: #333;
 }
 
+.project-links {
+	font-size: 150%;
+	font-weight: bold;
+	img {
+		width: 3rem;
+		height: 3rem;
+		margin-right: 1rem;
+	}
+	margin-bottom: 3rem;
+}
+
 @import 'datapack';

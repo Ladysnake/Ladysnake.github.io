@@ -2,15 +2,12 @@
 layout: default
 ---
 <h1>
-	<img src="/img/{% if page.mod_logo %}{{ page.mod_logo }}{% else %}{{ page.slug }}.png{% endif %}" class="h1-wiki-icon">
+	<img alt="{{ page.name }} logo" src="/img/{% if page.mod_logo %}{{ page.mod_logo }}{% else %}{{ page.slug }}.png{% endif %}" class="h1-wiki-icon">
 	&nbsp;{{ page.title }}&nbsp;
-	<img id="printLogo" src="/img/print-icon_0.svg" onclick="print()" data-modName="{{ page.title }}" />
+	<img alt="print" id="printLogo" src="/img/print-icon_0.svg" onclick="print()" data-modName="{{ page.title }}" />
 </h1>
-<br />
-<h3>
-	<a href="https://www.curseforge.com/minecraft/mc-mods/{{ page.slug }}"><img src="/img/curseforge_0.svg" class="h3-wiki-icon" />&nbsp;Curseforge Page</a>
-</h3><h6></h6>
-<h3>
-	<a href="https://www.github.com/Ladysnake/{{ page.slug }}"><img src="/img/GitHubWord_0.png" class="h3-wiki-icon" /></a>
-</h3><h6></h6>
+<div class="project-links">
+	<a href="https://www.curseforge.com/minecraft/mc-mods/{{ page.slug }}"><img alt="CF Icon" src="/img/curseforge_0.svg" class="h3-wiki-icon" />&nbsp;Curseforge Page</a><br/>
+	<a href="https://www.github.com/Ladysnake/{{ page.slug }}"><img alt="GH Icon" src="/img/GitHub_0.svg" class="h3-wiki-icon" />&nbsp;Github Project</a>
+</div>
 {{ content }}
