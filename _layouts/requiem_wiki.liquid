@@ -3,12 +3,11 @@ layout: default
 ---
 <div class="wiki">
 
-<h4><a href="javascript:window.history.back()">Back</a></h4>
-<h4><a href="javascript:print()">Print</a></h4>
+<h4><a href="./landing">Back</a></h4>
 
 <div id="printJS-Content">
 
-<h1>{{ page.title }}&nbsp;</h1>{% if page.icon %} <img class="h1-wiki-icon" src="{{ page.icon }}">{% endif %}
+<h1>{{ page.title }}&nbsp;</h1>{% if page.icon %} <img alt="Icon" class="h1-wiki-icon" src="{{ page.icon }}">{% endif %}
 
 {{ content }}
 
