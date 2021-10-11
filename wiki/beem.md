@@ -2,6 +2,7 @@
 layout: wiki
 title: Beem
 slug: beem
+curse_project: 358105
 ---
 Beem is a simple client sided mod that marks bee nests with a light beam in order to help players in finding them.
 

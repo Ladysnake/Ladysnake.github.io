@@ -2,6 +2,7 @@
 title: Illuminations
 slug: illuminations
 layout: wiki
+curse_project: 292908
 ---
 
 # Illuminations

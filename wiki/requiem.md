@@ -3,6 +3,7 @@ title: Requiem
 slug: requiem
 mod_logo: requiem_icon_0.png
 layout: wiki
+curse_project: 265729
 ---
 
 <strong style="font-size: x-large;">Requiem has a [wiki](requiem/landing.html)!</strong>

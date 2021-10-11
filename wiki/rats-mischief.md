@@ -2,6 +2,7 @@
 layout: wiki
 title: Rat's Mischief
 slug: rats-mischief
+curse_project: 431787
 ---
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 

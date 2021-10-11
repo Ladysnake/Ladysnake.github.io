@@ -2,6 +2,7 @@
 title: Impersonate
 slug: impersonate
 layout: wiki
+curse_project: 360333
 ---
 
 Have you ever wanted to impersonate another player ? Be it for making machinimas, roleplaying, playing 5D chess in factions, or just pranking friends, 
