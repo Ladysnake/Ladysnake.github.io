@@ -6,22 +6,122 @@
 body {
 	font-family: "Poppins", sans-serif;
 	text-align: justify;
-}
 
-body:not(.dark-mode) {
 	color: #2c3e50;
 	background: #f6f8f9;
+
+	&.dark-mode {
+		color: #f6f8f9;
+		background: #171717;
+	}
 }
 
-/*
-This section will be all about DARK MODE
-*/
-.dark-mode {
-	color: #f6f8f9;
-	background: #171717;
+// Navbar
+/*	NAVBAR	*/
+.navbar-default {
+	background-color: #f6f8f9;
+	border: none;
+	margin-bottom: 0;
+	margin-top: 20px;
 
-	#dropdown,
-	#mod-dropdown {
+	@include darkMode {
+		background-color: #171717;
+		margin-bottom: 0;
+		margin-top: 20px;
+	}
+
+	.navbar-nav {
+		& > li > a {
+			font-weight: 600;
+			font-size: 12px;
+			text-transform: none;
+			color: #2c3e50;
+
+			@include darkMode {
+				color: #fff;
+			}
+		}
+
+		& > .open > a {
+			&,
+			&:focus,
+			&:hover {
+				background-color: #fff;
+
+				@include darkMode {
+					background-color: #171717;
+				}
+			}
+		}
+	}
+
+	.navbar-toggle {
+		border-radius: 0;
+		margin-top: 22px;
+		transition: all 0.3s;
+
+		border-color: #2c3e50;
+
+		@include darkMode {
+			border-color: #eee;
+		}
+
+		&:focus,
+		&:hover {
+			background-color: #bdc3c7;
+
+			@include darkMode {
+				background-color: #333;
+			}
+		}
+
+		.icon-bar {
+			background-color: #2c3e50;
+
+			@include darkMode {
+				background-color: #eee;
+			}
+		}
+	}
+
+	.navbar-brand {
+		color: #2c3e50;
+		&,
+		.navbar-nav > li > a {
+			line-height: 80px;
+			font-weight: bold;
+			height: 80px;
+			padding: 0 15px;
+			letter-spacing: -0.025em;
+		}
+
+		font-size: 24px;
+		letter-spacing: -0.05em;
+
+		@include darkMode {
+			color: #eee;
+		}
+	}
+}
+
+/*	DROPDOWN */
+.dropdown-menu {
+	background: #fff;
+	border: none;
+	border-radius: 0;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-size: 13px;
+
+	@include darkMode {
+		background: #171717;
+		color: #777;
+	}
+}
+
+#dropdown,
+#mod-dropdown {
+	@include darkMode {
 		& > li > a {
 			display: block;
 			padding: 3px 20px;
@@ -39,65 +139,32 @@ This section will be all about DARK MODE
 			}
 		}
 	}
+}
 
-	.navbar-default {
-		background-color: #171717;
-		border: none;
-		margin-bottom: 0;
-		margin-top: 20px;
+.btn-default {
+	background-color: #34495e;
+	color: #fff;
 
-		.navbar-nav {
-			& > li > a {
-				color: #fff;
-			}
-
-			& > .open > a {
-				&,
-				&:focus,
-				&:hover {
-					background-color: #171717;
-				}
-			}
-		}
-
-		.navbar-toggle {
-			border-color: #eee;
-
-			&:focus,
-			&:hover {
-				background-color: #333;
-			}
-
-			.icon-bar {
-				background-color: #eee;
-			}
-		}
-
-		.navbar-brand {
-			color: #eee;
-		}
-	}
-
-	.dropdown-menu {
-		background: #171717;
-		border: none;
-		border-radius: 0;
-		padding-top: 15px;
-		padding-bottom: 15px;
-		font-size: 13px;
-		color: #777;
-	}
-
-	.btn-default {
+	@include darkMode {
 		background-color: #fff;
 		color: #171717;
+	}
 
-		&:hover {
+	&:hover {
+		background-color: #2c3e50;
+		color: #fff;
+
+		@include darkMode {
 			background-color: #ddd;
 			color: #171717;
 		}
 	}
+}
 
+/*
+This section will be all about DARK MODE
+*/
+.dark-mode {
 	code.language-plaintext {
 		background-color: #2c292d;
 		color: #ff6188;
@@ -294,19 +361,19 @@ body:not(.dark-mode) .form-control {
 	background-color: #2c3e50;
 }
 .background-primary {
-	background-color: #1abc9c;
+	background-color: var(--color-primary);
 }
 .background-success {
-	background-color: #2ecc71;
+	background-color: var(--color-success);
 }
 .background-info {
-	background-color: #2ecc71;
+	background-color: var(--color-info);
 }
 .background-warning {
-	background-color: #e67e22;
+	background-color: var(--color-warning);
 }
 .background-danger {
-	background-color: #e74c3c;
+	background-color: var(--color-danger);
 }
 
 .dark-bg {
@@ -347,18 +414,6 @@ body:not(.dark-mode) .form-control {
 	font-size: 14px;
 }
 
-body:not(.dark-mode) {
-	.btn-default {
-		background-color: #34495e;
-		color: #fff;
-
-		&:hover {
-			background-color: #2c3e50;
-			color: #fff;
-		}
-	}
-}
-
 .btn-primary {
 	background-color: #1abc9c;
 
@@ -396,85 +451,6 @@ body:not(.dark-mode) {
 
 	&:hover {
 		background-color: #c0392b;
-	}
-}
-
-/*	NAVBAR	*/
-body:not(.dark-mode) .navbar-default {
-	background-color: #f6f8f9;
-	border: none;
-	margin-bottom: 0;
-	margin-top: 20px;
-
-	.navbar-brand {
-		color: #2c3e50;
-	}
-
-	.navbar-toggle {
-		border-color: #2c3e50;
-
-		&:focus,
-		&:hover {
-			background-color: #bdc3c7;
-		}
-
-		.icon-bar {
-			background-color: #2c3e50;
-		}
-	}
-}
-
-.navbar-toggle {
-	border-radius: 0;
-	margin-top: 22px;
-	transition: all 0.3s;
-}
-
-.navbar-brand {
-	&,
-	.navbar-nav > li > a {
-		line-height: 80px;
-		font-weight: bold;
-		height: 80px;
-		padding: 0 15px;
-		letter-spacing: -0.025em;
-	}
-
-	font-size: 24px;
-	letter-spacing: -0.05em;
-}
-
-.navbar-nav > li > a {
-	font-weight: 600;
-	font-size: 12px;
-	text-transform: none;
-}
-
-body:not(.dark-mode) {
-	.navbar-default {
-		.navbar-nav {
-			& > li > a {
-				color: #2c3e50;
-			}
-
-			& > .open > a {
-				&,
-				&:focus,
-				&:hover {
-					background-color: #fff;
-				}
-			}
-		}
-	}
-
-	/*	DROPDOWN */
-	.dropdown-menu {
-		background: #fff;
-		border: none;
-		border-radius: 0;
-		padding-top: 15px;
-		padding-bottom: 15px;
-		font-size: 13px;
 	}
 }
 
@@ -731,15 +707,14 @@ h1 {
 
 /* DATAPACK GENERATION */
 
-.dark-mode .table-striped > tbody > tr:nth-of-type(2n + 1) {
-	background-color: #2f2f2f;
+.table-striped > tbody > tr:nth-of-type(odd) {
+	@include darkMode {
+		background-color: #2f2f2f;
+	}
 }
 
 .table > tbody > tr > td.input-cell {
-	padding: 0 0 0 0;
-}
-
-.table-bordered {
+	padding: 0;
 }
 
 .table-bordered {
