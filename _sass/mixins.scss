@@ -1,0 +1,6 @@
+/// Apply styles only for dark mode
+@mixin darkMode {
+	@at-root .dark-mode & {
+		@content;
+	}
+}
