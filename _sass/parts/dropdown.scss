@@ -1,0 +1,35 @@
+.dropdown-menu {
+	background: #fff;
+	border: none;
+	border-radius: 0;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-size: 13px;
+
+	@include darkMode {
+		background: #171717;
+		color: #777;
+	}
+}
+
+#dropdown,
+#mod-dropdown {
+	@include darkMode {
+		& > li > a {
+			display: block;
+			padding: 3px 20px;
+			clear: both;
+			font-weight: normal;
+			line-height: 1.42857143;
+			color: #aaa;
+			white-space: nowrap;
+
+			&:hover,
+			&:focus {
+				color: #fff;
+				text-decoration: none;
+				background-color: #0a0a0a;
+			}
+		}
+	}
+}

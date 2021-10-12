@@ -1,0 +1,35 @@
+.hero {
+	padding-top: 200px;
+	padding-bottom: 200px;
+
+	h2 {
+		font-size: 36px;
+		text-transform: uppercase;
+		letter-spacing: 10px;
+		font-weight: bold;
+		display: inline-block;
+		padding: 30px 60px;
+		border: 1px solid;
+	}
+
+	p.lead {
+		margin: 30px 0;
+		margin-bottom: 40px;
+		max-width: 70%;
+	}
+
+	&.text-center {
+		p.lead {
+			margin-left: auto;
+			margin-right: auto;
+			font-size: 24px;
+		}
+	}
+
+	&.text-right {
+		p.lead {
+			margin-right: 0;
+			margin-left: auto;
+		}
+	}
+}

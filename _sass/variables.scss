@@ -1,0 +1,11 @@
+:root {
+	--color-primary: #1abc9c;
+	--color-success: #2ecc71;
+	--color-info: #2ecc71;
+	--color-warning: #e67e22;
+	--color-danger: #e74c3c;
+
+	.dark-mode {
+		--color-warning: #f39c12;
+	}
+}
