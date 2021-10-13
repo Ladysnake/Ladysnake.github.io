@@ -19,7 +19,7 @@ Requiem adds a few gamerules to help customize a server's gameplay:
 ### Tags
 The lists below represent a file tree taking root in the `tags` directory of a datapack.
 
-**New: Edit tags directly in this section, then click "Export" at the end to generate your datapack!**
+**New: Edit tags directly in this section by clicking on the 📝 buttons, then click "Export" at the end to generate your datapack!**
 
 *Checking "Replace Existing" deletes default values.*
 

@@ -31,16 +31,21 @@ $('.tag-editor').each(function () {
       <td class="table-buttons"><span class="table-remove"><button type="button">❌</button></span></td>
     </tr>
     `;
-    $(this).on('click', '.table-add', function () {
+    const appendRow = () => {
         $tableBody.append(newTr);
-        const input = $tableBody.find("tr:last input:first");
-        input.focus();
+        const $input = $tableBody.find("tr:last input:first");
+        $input.focus();
         // Stop editing when pressing enter
-        input.keypress(function(e) {
+        $input.keypress(function(e) {
             if (e.keyCode === 13) {
                 $(this).blur();
             }
         });
+        $(this).off('shown.bs.collapse', appendRow);
+    }
+    $(this).on('shown.bs.collapse', appendRow);
+    $(this).on('click', '.table-add', function () {
+        appendRow();
         $('.tag-export').removeClass('hidden');
     });
     $tableID.on('click', '.table-remove', function () {
@@ -98,6 +103,7 @@ $('.tag-editor').each(function () {
         const zip = new JSZip();
         const logElement = document.querySelector('#export-log');
         const log = (msg) => logElement.textContent = msg;
+        const errors = [];
 
         const data = zip.folder("data");
         let dirty = false;
@@ -107,7 +113,13 @@ $('.tag-editor').each(function () {
         try {
             document.querySelectorAll('.tag-editor').forEach((editor) => {
                 const replace = editor.querySelector('.tag-replace').checked;
-                const values = Array.from(editor.querySelectorAll('input[type=text]'), (input) => input.value);
+
+                if (editor.querySelector('input[type=text]:invalid')) {
+                    errors.push(`Invalid identifiers in ${editor.dataset.tagModid}:${editor.dataset.tagPath}`);
+                    return;
+                }
+
+                const values = Array.from(editor.querySelectorAll('input[type=text]'), (input) => input.value).filter(it => it);
                 if (values.length || replace) { // Output the result
                     data.file(`${editor.dataset.tagModid}/tags/${editor.dataset.tagPath}`, JSON.stringify({
                         replace,
@@ -116,7 +128,12 @@ $('.tag-editor').each(function () {
                     dirty = true;
                 }
             });
-            if (dirty) {
+            if (errors.length) {
+                logElement.innerHTML = `There were errors preventing the creation of your datapack:
+<ol>
+    ${errors.map(err => `<li>${err}</li>`).join('\n')}
+</ol>`
+            } else if (dirty) {
                 zip.file('pack.mcmeta', JSON.stringify({
                     pack: {
                         description: 'Custom datapack for Requiem configuration',

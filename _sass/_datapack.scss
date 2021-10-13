@@ -110,6 +110,25 @@ $code-font: Menlo, Monaco, Consolas, "Courier New", monospace;
   }
 }
 
+.tag-editor-header {
+  display: flow;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.help-btn {
+  border-radius: 100%;
+  margin-left: 1rem;
+  border: none;
+  outline: 2px solid var(--button-outline);
+  height: 3rem;
+  width: 3rem;
+
+  &:hover, &:focus {
+    outline-color: var(--button-hover-outline);
+  }
+}
+
 .data-description {
   margin: 0 0 0 1rem;
   color: var(--text-description-color);

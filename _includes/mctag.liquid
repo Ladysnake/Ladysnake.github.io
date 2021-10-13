@@ -19,7 +19,7 @@
      data-tag-modid="{{ include.modid }}">
     <!-- Editable table -->
     <div class="card">
-        <h3 class="card-header text-center font-weight-bold py-4">
+        <h3 class="card-header font-weight-bold py-4 tag-editor-header">
             {{ include.name }}
             <span class="table-add float-right mb-3 mr-2"><button type="button"
                                                                   class="btn btn-success btn-rounded btn-sm my-0">New entry</button></span>
@@ -27,6 +27,7 @@
                    id="{{ editor-id }}-replace" autocomplete="off">
             <label class="btn btn-xs" title="Delete previous values" for="{{ editor-id }}-replace">Replace
                 existing</label>
+            <button class="help-btn" data-toggle="tooltip" data-placement="right" title="Each row can refer to either another tag (looking like '#example:test'), or a single entry (looking like 'example:test'). Note that two tags cannot simultaneously refer to each other.">?</button>
         </h3>
         <div class="card-body">
             <div class="table-editable">
