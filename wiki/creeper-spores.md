@@ -4,8 +4,6 @@ slug: creeper-spores
 layout: wiki
 ---
 
-*[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_creeper-spores_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/creeper-spores)[![img](http://cf.way2muchnoise.eu/versions/minecraft_creeper-spores_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/creeper-spores)[![img](https://img.shields.io/github/last-commit/ladysnake/creeper-spores)](https://github.com/ladysnake/creeper-spores/commits/main)*
-
 A Minecraft mod for the Fabric Mod Loader, adding new creeper mechanics based on the theory of them being plants.
 
 ## Wiki
@@ -48,7 +46,7 @@ There are currently 2 Gamerules to configure your experience with this mod:
 
 #### Can I include this mod in a modpack?
 
-**Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to both the GitHub repository and  Curse Forge project page.
+**Yes**, you can. Go ahead, don't bother asking. Please however provide credit and a link to both the GitHub repository and CurseForge project page.
 
 #### Will you be making a Forge version? Does a Forge version exist?
 
