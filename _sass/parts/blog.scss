@@ -1,0 +1,61 @@
+/*	BLOG */
+.entry {
+	margin-bottom: 30px;
+
+	p {
+		margin-bottom: 20px;
+		font-size: 13px;
+		line-height: 1.8;
+	}
+
+	&-media {
+		position: relative;
+		margin-bottom: 30px;
+		overflow: hidden;
+		height: 150px;
+
+		a {
+			display: block;
+		}
+
+		.absolute-wrapper {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			visibility: hidden;
+			display: none;
+			opacity: 0;
+			transition: all 0.5s;
+			background-color: rgba(255, 255, 255, 0.5);
+			z-index: 1;
+		}
+
+		&:hover {
+			.absolute-wrapper {
+				visibility: visible;
+				display: block;
+				opacity: 1;
+				background-color: rgba(255, 255, 255, 0.5);
+			}
+		}
+	}
+
+	&-title {
+		font-size: 15px;
+		font-weight: bold;
+		text-transform: uppercase;
+		margin: 0;
+		margin-bottom: 20px;
+		line-height: 1;
+
+		a {
+			color: initial;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}

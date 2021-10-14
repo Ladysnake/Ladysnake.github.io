@@ -1,0 +1,37 @@
+/*	SERVICE BLOCK */
+.service-block {
+	display: block;
+	margin: 30px 0 30px 0;
+
+	i {
+		width: 80px;
+		height: 80px;
+		display: inline-block;
+		line-height: 80px;
+		text-align: center;
+		border-radius: 40px;
+		font-size: 25px;
+		background: #fff;
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+	}
+
+	h3 {
+		text-transform: uppercase;
+		font-size: 15px;
+		font-weight: bolder;
+		margin: 30px 0;
+		line-height: 1;
+	}
+
+	&.text-center {
+		p {
+			width: 80%;
+			margin-left: 10%;
+			margin-right: 10%;
+
+			& + a.btn {
+				margin-top: 10px;
+			}
+		}
+	}
+}

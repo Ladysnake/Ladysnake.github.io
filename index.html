@@ -9,10 +9,10 @@ layout: default
 <!-- START SECTION -->
 
 <div class="row">
-    <div class="col-md-12 text-center">
-	<h2 class="section-title home">Our Minecraft Mods</h2>
-	<p class="section-description home">Our current maintained and up-to-date Minecraft mods</p>
-    </div>
+	<div class="col-md-12 text-center">
+		<h2 class="section-title home">Our Minecraft Mods</h2>
+		<p class="section-description home">Our current maintained and up-to-date Minecraft mods</p>
+	</div>
 </div>
 {%- assign len = site.mods | size -%}
 {%- assign nb_cols = 3 -%}
@@ -21,11 +21,11 @@ layout: default
 <!-- Len: {{len}}; nb_cols: {{nb_cols}}; col_max: {{col_max}}; row_max: {{row_max}} -->
 {% for row in (0..row_max) %}
 <div class="row">
-{%- for col in (0..col_max) -%}
-{%- assign i = row | times: nb_cols | plus: col -%}
-{%- if i >= len -%} {%- break -%} {%- endif -%}
-{%- assign page = site.mods[i] -%}
-<!-- row: {{row}}; col: {{col}}; i: {{i}}; page: {{page.title}}-->
+	{%- for col in (0..col_max) -%}
+	{%- assign i = row | times: nb_cols | plus: col -%}
+	{%- if i >= len -%} {%- break -%} {%- endif -%}
+	{%- assign page = site.mods[i] -%}
+	<!-- row: {{row}}; col: {{col}}; i: {{i}}; page: {{page.title}}-->
 	<div class="col-md-4">
 		<div class="service-block text-center">
 			<img src="{{ page.icon }}" class="mod_icon">
@@ -33,29 +33,29 @@ layout: default
 			<div class="home">{{ page.content | markdownify }}</div>
 		</div>
 	</div>
-{% endfor %}
+	{% endfor %}
 </div>
 <div class="row">
-{% for col in (0..col_max) %}
-{%- assign i = row | times: nb_cols | plus: col -%}
-{%- if i >= len -%} {%- break -%} {%- endif -%}
-{%- assign page = site.mods[i] -%}
-<!-- row: {{row}}; col: {{col}}; i: {{i}}; page: {{page.title}}-->
+	{% for col in (0..col_max) %}
+	{%- assign i = row | times: nb_cols | plus: col -%}
+	{%- if i >= len -%} {%- break -%} {%- endif -%}
+	{%- assign page = site.mods[i] -%}
+	<!-- row: {{row}}; col: {{col}}; i: {{i}}; page: {{page.title}}-->
 	<div class="col-md-4">
 		<div class="text-center" style="margin-bottom:30px">
 			<a href="{{ page.link }}" title="{{ page.title }}" class="btn btn-sm btn-primary">Learn More</a>
 		</div>
 	</div>
-{% endfor %}
+	{% endfor %}
 </div>
 {% endfor %}
 <div class="row">
-    <div class="col-md-12 text-center">
-	<h2 class="section-title home">Our Other Projects</h2>
-	<p class="section-description home">The other stuff we made that aren't Minecraft mods</p>
-    </div>
-    <div class="col-md-4">
-	<!-- <div class="service-block text-center">
+	<div class="col-md-12 text-center">
+		<h2 class="section-title home">Our Other Projects</h2>
+		<p class="section-description home">The other stuff we made that aren't Minecraft mods</p>
+	</div>
+	<div class="col-md-4">
+		<!-- <div class="service-block text-center">
 	    <img src="img/pfp/hissie.png">
 	    <h2 class="home">Hissie</h2>
 	    <p class="home">Our Discord bot made by us, for us.</p>
@@ -65,13 +65,13 @@ layout: default
 	🦀 hissie is dead 🦀
 
 	-->
-    </div>
-    <div class="col-md-4">
-	<div class="service-block text-center">
-	    <img>
-	    <h2 class="home">Old Site</h2>
-	    <p class="home">Our long outdated version of the Ladysnake website, created by the talented Voltra</p>
-	    <a href="oldsite/" title="Old Site" class="btn btn-sm btn-primary">Go there now!</a>
 	</div>
-    </div>
+	<div class="col-md-4">
+		<div class="service-block text-center">
+			<!-- <img> -->
+			<h2 class="home">Old Site</h2>
+			<p class="home">Our long outdated version of the Ladysnake website, created by the talented Voltra</p>
+			<a href="oldsite/" title="Old Site" class="btn btn-sm btn-primary">Go there now!</a>
+		</div>
+	</div>
 </div>
