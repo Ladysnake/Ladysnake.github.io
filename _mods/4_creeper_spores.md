@@ -1,6 +1,6 @@
 ---
 title: Creeper Spores
-link: /wiki/creeper-spores.html
+link: /wiki/creeper-spores
 icon: /img/creeper-spores.png
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Snow Mercy
-link: /wiki/snow-mercy.html
+link: /wiki/snow-mercy
 icon: /img/snow-mercy.png
 ---
 

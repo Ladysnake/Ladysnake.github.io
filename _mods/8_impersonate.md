@@ -1,6 +1,6 @@
 ---
 title: Impersonate
-link: /wiki/impersonate.html
+link: /wiki/impersonate
 icon: /img/impersonate.png
 ---
 

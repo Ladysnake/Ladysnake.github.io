@@ -1,6 +1,6 @@
 ---
 title: Rat's Mischief
-link: /wiki/rats-mischief.html
+link: /wiki/rats-mischief
 icon: /img/rats-mischief.png
 ---
 

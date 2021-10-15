@@ -1,6 +1,6 @@
 ---
 title: Requiem
-link: /wiki/requiem.html
+link: /wiki/requiem
 icon: /img/requiem_icon_0.png
 ---
 

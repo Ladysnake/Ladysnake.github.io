@@ -1,6 +1,6 @@
 ---
 title: Impaled
-link: /wiki/impaled.html
+link: /wiki/impaled
 icon: /img/impaled.png
 ---
 

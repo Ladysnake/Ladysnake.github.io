@@ -1,6 +1,6 @@
 ---
 title: Spawn Lanterns
-link: /wiki/spawn-lanterns.html
+link: /wiki/spawn-lanterns
 icon: /img/spawn-lanterns.png
 ---
 

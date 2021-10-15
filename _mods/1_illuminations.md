@@ -1,6 +1,6 @@
 ---
 title: Illuminations
-link: /wiki/illuminations.html
+link: /wiki/illuminations
 icon: /img/illuminations.png
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: BLAST
-link: /wiki/blast.html
+link: /wiki/blast
 icon: /img/blast.png
 ---
 

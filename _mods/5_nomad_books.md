@@ -1,6 +1,6 @@
 ---
 title: Nomad Books
-link: /wiki/nomad-books.html
+link: /wiki/nomad-books
 icon: /img/nomad-books.png
 ---
 

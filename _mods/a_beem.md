@@ -1,6 +1,6 @@
 ---
 title: Beem
-link: /wiki/beem.html
+link: /wiki/beem
 icon: /img/beem.png
 ---
 
