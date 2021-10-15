@@ -124,6 +124,11 @@ Using a crossbow as a piglin or a pillager has a chance to not consume ammunitio
 ### Tridents ("Drowned Grip")
 Throwing a trident as a Drowned has a chance to keep it in hand and duplicate it. Resulting tridents are not recoverable.
 
+### Water Bottles ("Witch's Brew Base")
+
+Witches can brew potions on the fly: when they are holding a water bottle, witches will
+automatically brew the potion they need to survive certain situations.
+
 ## Becoming Human Again
 
 To recover their humanity and get rid of their rotting body, an undead player has to go through the purification
