@@ -26,9 +26,9 @@ current:
     icon: /img/configuration_icon_0.svg
     ref: configuration
 
-  - title: Pandemonium
+  - title: Addons
     icon: /img/puzzle-icon_0.svg
-    ref: pandemonium
+    ref: addons
 
 removed:
   - title: Opus Daemonium
