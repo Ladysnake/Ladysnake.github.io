@@ -1,107 +1,108 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-	{% include header.liquid %}
+{% include header.liquid %}
 
-	<body>
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target=".navbar-ex1-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="/">
-						<img alt="Ladysnake Logo" src="/img/ladysnake_logo_0.png" id="ladysnake_logo">
-					</a>
-				</div>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img alt="Ladysnake Logo" src="/img/ladysnake_logo_0.png" id="ladysnake_logo">
+            </a>
+        </div>
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse navbar-ex1-collapse">
-					<ul class="nav navbar-nav navbar-right">
-						{% if page.curse_project %}
-						<li class="dropdown">
-							<a href class="dropdown-toggle" data-toggle="dropdown">Download <b class="caret"></b></a>
-							<!--Filled by JS-->
-							<ul id="mod-dropdown" class="dropdown-menu"></ul>
-						</li>
-						{% endif %}
-						<li><a onclick="setDarkMode()"><img alt="Dark Mode Icon" id="preload-darkmodeicon"
-									src="/img/placeholder.png" /></a></li>
-						<li><a href="/index.html">Home</a></li>
-						<li><a href="/about.html">About Us</a></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mods <b class="caret"></b></a>
-							<ul id="dropdown" class="dropdown-menu">
-								{% for mod in site.mods %}
-								<li><a href="{{ mod.link }}" title="{{ mod.title }}">{{ mod.title }}</a></li>
-								{% endfor %}
-								<li>
-									<hr />
-								</li>
-								<!-- Will be adding Fabric libraries here "shortly" -->
-							</ul>
-						</li>
-						<li><a href="https://ladysnake.github.io/oldsite/">Old Site</a></li>
-						<li>
-							<a href="https://discordapp.com/invite/RBHY26t" title="Discord">
-								<img alt="Discord Logo" src="/img/DiscordWord_0.svg" />
-							</a>
-						</li>
-					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div>
-		</nav>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                {% if page.curse_project %}
+                    <li class="dropdown">
+                        <a href class="dropdown-toggle" data-toggle="dropdown">Download <b class="caret"></b></a>
+                        <!--Filled by JS-->
+                        <ul id="mod-dropdown" class="dropdown-menu"></ul>
+                    </li>
+                {% endif %}
+                <li><a onclick="setDarkMode()"><img alt="Dark Mode Icon" id="preload-darkmodeicon"
+                                                    src="/img/placeholder.png"/></a></li>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about.html">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mods <b class="caret"></b></a>
+                    <ul id="dropdown" class="dropdown-menu">
+                        {% for mod in site.mods %}
+                            <li><a href="{{ mod.link }}" title="{{ mod.title }}">{{ mod.title }}</a></li>
+                        {% endfor %}
+                        <li>
+                            <hr/>
+                        </li>
+                        <!-- Will be adding Fabric libraries here "shortly" -->
+                    </ul>
+                </li>
+                <li><a href="https://ladysnake.github.io/oldsite/">Old Site</a></li>
+                <li>
+                    <a href="https://discordapp.com/invite/RBHY26t" title="Discord">
+                        <img alt="Discord Logo" src="/img/DiscordWord_0.svg"/>
+                    </a>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div>
+</nav>
 
-		<!-- START SECTION -->
-		<div class="container">
-			{{ content }}
-		</div>
-		<!--/.section -->
-		<footer class="container">
-			<!-- This is the footer! Created by sschr15... -->
-			<div class="row text-center">
-				<p>
-					Site owned and operated by Ladysnake.&nbsp;
-					<span><a href="https://github.com/Ladysnake"><img alt="Github Logo" src="/img/GitHub_0.svg"
-								class="p-wiki-icon"></a></span>
-				</p>
-			</div>
-		</footer>
+<!-- START SECTION -->
+<div class="container">
+    {{ content }}
+</div>
+<!--/.section -->
+<footer class="container">
+    <!-- This is the footer! Created by sschr15... -->
+    <div class="row text-center">
+        <p>
+            Site owned and operated by Ladysnake.&nbsp;
+            <span><a href="https://github.com/Ladysnake"><img alt="Github Logo" src="/img/GitHub_0.svg"
+                                                              class="p-wiki-icon"></a></span>
+        </p>
+    </div>
+</footer>
 
-		<!-- jQuery -->
-		<script src="https://code.jquery.com/jquery.js"></script>
-		<!-- Bootstrap JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-			integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-			crossorigin="anonymous"></script>
-		<!-- Custom Night mode Option -->
-		<script src="/scripts/darkmode.js"></script>
-		<!--Datapack editing-->
-		{% if page.datapack_editor %}
-		<script src="/scripts/jszip.min.js"></script>
-		<script src="/scripts/FileSaver.min.js"></script>
-		<script>
-			$(function () {
-				$('[data-toggle="tooltip"]').tooltip()
-			});
-		</script>
-		<script src="/scripts/datapack-editing.js"></script>
-		{% endif %}
-		{% if page.slug %}
-		<!-- Mod downloading dropdown, (almost) direct from our site! -->
-		<script src="/scripts/mod-download.js"></script>
-		<script>mountModDownloads('{{ page.curse_project }}');</script>
-		<!-- adding the ability to print the pages out -->
-		<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
-		{% endif %}
-		<!-- Test if mobile to change a thing -->
-		<script src="/scripts/mobile.js"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+<!-- Custom Night mode Option -->
+<script src="/scripts/darkmode.js"></script>
+<script src="/scripts/effects.js"></script>
+<!--Datapack editing-->
+{% if page.datapack_editor %}
+    <script src="/scripts/jszip.min.js"></script>
+    <script src="/scripts/FileSaver.min.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+    </script>
+    <script src="/scripts/datapack-editing.js"></script>
+{% endif %}
+{% if page.slug %}
+    <!-- Mod downloading dropdown, (almost) direct from our site! -->
+    <script src="/scripts/mod-download.js"></script>
+    <script>mountModDownloads('{{ page.curse_project }}');</script>
+    <!-- adding the ability to print the pages out -->
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+{% endif %}
+<!-- Test if mobile to change a thing -->
+<script src="/scripts/mobile.js"></script>
 
-	</body>
+</body>
 
 </html>

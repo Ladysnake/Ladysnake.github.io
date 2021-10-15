@@ -16,6 +16,15 @@ if (document.cookie.includes("darkmode=true")) {
     setDarkMode(1);
 }
 
+function setImgDarkMode(img) {
+    let srcPrev = img.src.toString();
+    if (srcPrev.endsWith("_0.svg") || srcPrev.endsWith("_1.svg")) {
+        img.src = srcPrev.substring(0, srcPrev.length - 5) + a.toString() + ".svg";
+    } else if (srcPrev.endsWith("_0.png") || srcPrev.endsWith("_1.png")) {
+        img.src = srcPrev.substring(0, srcPrev.length - 5) + a.toString() + ".png";
+    }
+}
+
 /**
  * ok so apparently you can do this
  *
@@ -64,12 +73,7 @@ function setDarkMode(firstRun) {
         a = (a + 1) % 2;
         document.body.classList.toggle("dark-mode");
         for (let img of document.querySelectorAll('img')) {
-            let srcPrev = img.src.toString();
-            if (srcPrev.endsWith("_0.svg") || srcPrev.endsWith("_1.svg")) {
-                img.src = srcPrev.substring(0, srcPrev.length - 5) + a.toString() + ".svg";
-            } else if (srcPrev.endsWith("_0.png") || srcPrev.endsWith("_1.png")) {
-                img.src = srcPrev.substring(0, srcPrev.length - 5) + a.toString() + ".png";
-            }
+            setImgDarkMode(img);
         }
 	document.getElementById("syntax-stylesheet").setAttribute("href", darkMode ? "/css/syntax-monokai.css" : "/css/syntax-github.css");
         icon.src = `/img/darkmode${a.toString()}.svg`;

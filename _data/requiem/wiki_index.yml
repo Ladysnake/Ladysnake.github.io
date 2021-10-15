@@ -1,17 +1,38 @@
 current:
   - title: Gameplay Mechanics
     icon: /img/requiem_icon_0.png
+    hover_icon: /img/requiem_icon_hover_0.png
     ref: gameplay
 
-  - title: Pandemonium
-    icon: /img/requiem_icon_0.png
-    ref: pandemonium
+  - title: Effects
+    icon: img/effects/attrition.png
+    hover_icon: img/effects/reclamation.png
+    pixel_art: true
+    ref: effects
+
+  - title: Soul Vessels
+    icon: img/items/soul_vessel.png
+    hover_icon: img/items/soul_vessel_filled.png
+    pixel_art: true
+    ref: soul-vessels
+
+  - title: Obelisks
+    icon: img/obelisk_icon.png
+    hover_icon: img/active_obelisk_icon.png
+    pixel_art: true
+    ref: obelisks
 
   - title: Configuration
     icon: /img/configuration_icon_0.svg
     ref: configuration
 
+  - title: Pandemonium
+    icon: /img/puzzle-icon_0.svg
+    ref: pandemonium
+
 removed:
   - title: Opus Daemonium
-    icon: img/items/opus_daemonium.gif
+    icon: img/items/opus_daemonium.png
+    hover_icon: img/items/opus_daemonium_curse.png
+    pixel_art: true
     ref: opus_daemonium

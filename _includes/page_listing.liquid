@@ -6,9 +6,10 @@
 <div class="row">
 {% endif %}
 <div class="col-md-4">
-    <a href="{{ include.root_url }}/{{ page.ref }}">
+    <a class="hoverable-card" href="{{ include.root_url }}/{{ page.ref }}">
         <div class="service-block text-center">
-            <img alt="{{ page.ref }} Icon" src="{{ page.icon }}" class="mod_icon">
+            {% capture img_id %}{{ include.root_url | slugify }}-{{ page.ref | slugify }}{% endcapture %}
+            <img id="{{ img_id }}" alt="{{ page.ref }} Icon" src="{{ page.icon }}" class="mod_icon{% if page.pixel_art %} pixel-art{% endif %}" {% if page.hover_icon %} data-hover-icon="{{ page.hover_icon }}" {%endif%}>
             <h2 class="home">{{ page.title }}</h2>
         </div>
     </a>
@@ -17,3 +18,6 @@
 </div>
 {% endif %}
 {% endfor %}
+{% if col != 2 %}
+</div>
+{% endif %}
