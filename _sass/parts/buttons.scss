@@ -51,8 +51,12 @@
 	background-color: #1abc9c;
 
 	&:hover {
-		background-color: #16a085;
+		background-color: #55efc4;
 	}
+}
+
+.dark-mode a.btn-primary {
+	color: #0e6d5a;
 }
 
 .btn-success {
