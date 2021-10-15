@@ -1,5 +1,6 @@
 ---
-title: Addons
+title: Requiem Addons
+breadcrumb: Addons
 layout: requiem_wiki
 ---
 

@@ -22,6 +22,10 @@ current:
     pixel_art: true
     ref: obelisks
 
+  - title: Commands
+    icon: /img/terminal-icon_0.svg
+    ref: commands
+
   - title: Configuration
     icon: /img/configuration_icon_0.svg
     ref: configuration

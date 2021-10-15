@@ -1,5 +1,6 @@
 ---
 title: Requiem Configuration
+breadcrumb: Configuration
 layout: requiem_wiki
 datapack_editor: true
 ---
