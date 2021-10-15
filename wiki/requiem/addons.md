@@ -1,5 +1,5 @@
 ---
-title: Requiem Addons
+title: Addons
 layout: requiem_wiki
 ---
 

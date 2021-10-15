@@ -31,6 +31,13 @@ This section will be all about DARK MODE
 			color: #e9ebee;
 		}
 	}
+
+	.breadcrumb {
+		background-color: #0b0b0b;
+		.active {
+			color: #888;
+		}
+	}
 }
 
 #darkmode-icon {
