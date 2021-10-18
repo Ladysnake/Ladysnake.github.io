@@ -34,8 +34,8 @@ Any command that can target entities can use this argument to select entities ba
 The argument uses the name of the possessor, or empty string to match entities that are not possessed.
 It can be negated by prepending the `'!'` character.
 
-Example:
-```mcfunction
+_Example:_
+```bash
 # Makes every possessed entity say "Hello, World!"
 execute as @e["requiem:possessor"=!] run say Hello, World!
 ```
