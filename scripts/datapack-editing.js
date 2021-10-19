@@ -42,12 +42,10 @@ $('.tag-editor').each(function () {
             }
         });
         $(this).off('shown.bs.collapse', appendRow);
+        $('.tag-export').removeClass('hidden');
     }
     $(this).on('shown.bs.collapse', appendRow);
-    $(this).on('click', '.table-add', function () {
-        appendRow();
-        $('.tag-export').removeClass('hidden');
-    });
+    $(this).on('click', '.table-add', appendRow);
     $tableID.on('click', '.table-remove', function () {
         $(this).parents('tr').detach();
     });
