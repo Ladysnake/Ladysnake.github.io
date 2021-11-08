@@ -1,6 +1,26 @@
+@import 'variables';
+
 /// Apply styles only for dark mode
 @mixin darkMode {
 	@at-root .dark-mode & {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media only screen and (max-width: $screen-mobile-max) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media only screen and (min-width: $screen-tablet-min) and (max-width: $screen-tablet-max) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media only screen and (min-width: $screen-desktop-min) {
 		@content;
 	}
 }
