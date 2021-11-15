@@ -42,7 +42,9 @@ These beautiful glowing shards will **spawn around sea lanterns**, with more app
 
 ![Prismarine Crystals](illuminations/PrismarineCrystals.png){: .wiki}
 
-### Halloween (October Specials)
+### Halloween Features
+
+These spooky features only appear during the month of October by default.
 
 #### Autumnflies
 
@@ -104,7 +106,7 @@ In addition to the ambience changes, Illuminations also features **cosmetics**, 
 
 ### Pride Hearts
 
-Every Illuminations Account automatically has access to these **11 spinning Pride Hearts** that will follow you as pets, hovering next to your head!
+Every Illuminations Account automatically has **free access** to these **11 spinning Pride Hearts** that will follow you as pets, hovering and spinning next to your head! More information [here](https://illuminations.uuid.gg/pride).
 
 <img src="illuminations/PrideHeartCollection.png" alt="Pride Heart Collection" style="zoom:150%;" />
 
@@ -238,7 +240,7 @@ Illuminations possesses a few config options you can use to change how the mod b
 
 They are split into general settings and biome specific customization. 
 
-It is recommended to use [mod menu](https://www.curseforge.com/minecraft/mc-mods/modmenu) for the configuration, although it is possible to use the configuration files in your ".minecraft" folder.
+It is recommended to use [mod menu](https://www.curseforge.com/minecraft/mc-mods/modmenu) for the configuration, although it is possible to use the configuration files in your ".minecraft" folder too.
 
 ### General Settings
 
@@ -298,7 +300,7 @@ If turned on, Fireflies are assigned an **individual random colour** on spawn.
 
 Yes/**No**
 
-<img src="illuminations/FireflyRainbowMode.png" alt="Rainbow Mode" style="zoom:70%;" />
+<img src="illuminations/FireflyRainbowMode.png" alt="Rainbow Mode" style="zoom:60%;" />
 
 #### Auto-Update
 
@@ -329,44 +331,6 @@ The Biome Settings allow you to customize the **Firefly Spawn Rate**, **Firefly 
 ![Biome Settings (Forest)](illuminations/SettingsBiomes.png){: .wiki}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### Halloween Features
-
-Enable the different Halloween features being the Eyes in the Dark, the Poltergeists and the Pumpkin Spirits. Set on ENABLE by default.
-- ENABLE: Halloween features will appear during October
-- DISABLE: Halloween features will never appear
-- ALWAYS: Halloween features will appear no matter the date
-
-### Spawn Density
-
-The spawn rate percentage multiplier. Does not affect eyes in the dark.
-0% Disables illuminations, 1000% Multiplies the amount of illuminations appearing by 10.
-
-### Firefly White Alpha
-
-Changes the Alphachannel of the Firefly centre glow.
-
-### First Person Cosmetics
-
-Enable to see your cosmetics in first person! Disabled by default to not block your view.
 
 ## FAQ
 
