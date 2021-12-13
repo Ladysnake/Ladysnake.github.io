@@ -1,19 +1,31 @@
 ---
 layout: default
 ---
-<h1 id="{{ page.slug }}">
-	<img alt="{{ page.name }} logo"
-		src="/img/{% if page.mod_logo %}{{ page.mod_logo }}{% else %}{{ page.slug }}.png{% endif %}"
-		class="h1-wiki-icon">
-	&nbsp;{{ page.title }}&nbsp;
-	<img alt="print" id="printLogo" src="/img/print-icon_0.svg" onclick="print()" data-modName="{{ page.title }}" />
-</h1>
-<div class="project-links">
-	<a href="https://www.curseforge.com/minecraft/mc-mods/{{ page.slug }}">
-		<img alt="CF Icon" src="/img/curseforge_0.svg" class="h3-wiki-icon" />&nbsp;Curseforge Page
-	</a><br />
-	<a href="https://www.github.com/Ladysnake/{{ page.slug }}">
-		<img alt="GH Icon" src="/img/GitHub_0.svg" class="h3-wiki-icon" />&nbsp;Github Project
-	</a>
+<div class="wiki-container">
+	<div class="toc-pane">
+		<h3>{{ page.title }}</h3>
+		<nav class="toc">
+			<ul>
+				<li class="cf-link"><a href="https://www.curseforge.com/minecraft/mc-mods/{{ page.slug }}">
+						{% include svg/cf-logo.svg %}
+						{% include svg/external-link.svg %}
+					</a></li>
+				<li class="gh-link"><a href="https://www.github.com/Ladysnake/{{ page.slug }}">
+						<img src="/img/GitHubWord_0.png" alt="GitHub"/>
+						{% include svg/external-link.svg %}
+					</a></li>
+				{% include toc.liquid html=content %}
+			</ul>
+		</nav>
+	</div>
+	<div class="main">
+		<h1 id="{{ page.slug }}" class="wiki-title">
+			<img alt="{{ page.name }} logo"
+				src="/img/{% if page.mod_logo %}{{ page.mod_logo }}{% else %}{{ page.slug }}.png{% endif %}"
+				class="h1-wiki-icon">
+			&nbsp;{{ page.title }}&nbsp;
+			<img alt="print" id="printLogo" src="/img/print-icon_0.svg" onclick="print()" data-modName="{{ page.title }}" />
+		</h1>
+		{{ content }}
+	</div>
 </div>
-{{ content }}

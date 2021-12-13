@@ -2,11 +2,13 @@ body {
 	font-family: "Poppins", sans-serif;
 	text-align: justify;
 
-	color: #2c3e50;
-	background: #f6f8f9;
+	--base-text-color: #2c3e50;
+	--base-background-color: #f6f8f9;
+	color: var(--base-text-color);
+	background: var(--base-background-color);
 
 	&.dark-mode {
-		color: #f6f8f9;
-		background: #171717;
+		--base-text-color: #f6f8f9;
+		--base-background-color: #171717;
 	}
 }

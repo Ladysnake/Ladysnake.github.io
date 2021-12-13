@@ -60,7 +60,7 @@ code span {
 	padding: 0;
 }
 .container img.wiki {
-	max-width: 500px;
+	max-width: 100%;
 }
 li a span img.download-icon {
 	float: right;
@@ -142,6 +142,7 @@ body:not(.dark-mode) .form-control {
 @import "./parts/service.scss";
 @import "./parts/blog.scss";
 @import "./parts/menu_grid.scss";
+@import "./parts/toc.scss";
 
 .mod_icon {
 	height: 150px;

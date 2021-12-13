@@ -5,12 +5,9 @@ slug: blast
 curse_project: 349938
 ---
 
-
-*[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_blast_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/blast)[![img](http://cf.way2muchnoise.eu/versions/minecraft_blast_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/blast)[![img](https://img.shields.io/github/last-commit/ladysnake/blast)](https://github.com/ladysnake/blast/commits/main)*
-
 BLAST is a Minecraft fabric mod adding multiple explosives for use in survival or for messing around in creative to the game.
 
-## Wiki
+## Features
 
 Blast bombs will drop all lootable blocks and do not destroy dropped items; these items however are submitted to the bomb shockwaves (meaning items can go flying if you throw multiple bombs into a single spot).
 
