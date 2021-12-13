@@ -1,3 +1,5 @@
+@import '../mixins';
+
 body {
 	font-family: "Poppins", sans-serif;
 	text-align: justify;
@@ -11,4 +13,10 @@ body {
 		--base-text-color: #f6f8f9;
 		--base-background-color: #171717;
 	}
+}
+
+.container {
+    @include desktop {
+        width: 97.5%;
+    }
 }
