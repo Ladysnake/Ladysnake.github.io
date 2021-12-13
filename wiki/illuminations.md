@@ -178,7 +178,7 @@ A **variation** of the **Confetti Aura** that can be adjusted to only be of one 
 
 **Overheads** are different hats that **tier 2 donators** can decide to wear:
 
-<img src="illuminations/Overheads.png" alt="Overheads" style="zoom:112%;" />
+![Overheads](illuminations/Overheads.png){: .wiki}
 
 ### Pets
 
