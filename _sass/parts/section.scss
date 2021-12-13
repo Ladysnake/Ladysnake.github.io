@@ -29,3 +29,15 @@ h2.section-title + p {
 	margin-top: -70px;
 	margin-bottom: 20px;
 }
+
+h1, h2, h3,
+h4, h5, h6 {
+	@extend %headings !optional;
+}
+
+.header-anchor {
+	opacity: 0;
+	%headings:hover & {
+		opacity: 100%;
+	}
+}

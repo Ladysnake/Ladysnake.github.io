@@ -59,7 +59,8 @@
 
 <!-- START SECTION -->
 <div class="container">
-    {{ content }}
+    {% capture icon %}{% include svg/octicon-link.svg %}{% endcapture %}
+    {% include anchor_headings.liquid html=content anchorBody=icon anchorClass="header-anchor" %}
 </div>
 <!--/.section -->
 <footer class="container">

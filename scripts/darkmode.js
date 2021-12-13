@@ -76,7 +76,7 @@ function setDarkMode(firstRun) {
             setImgDarkMode(img);
         }
 	document.getElementById("syntax-stylesheet").setAttribute("href", darkMode ? "/css/syntax-monokai.css" : "/css/syntax-github.css");
-        icon.src = `/img/darkmode${a.toString()}.svg`;
+    icon.src = `/img/darkmode${a.toString()}.svg`;
 /*
         let ladysnake = document.getElementById("ladysnake_logo");
         ladysnake.src = `/img/ladysnake_logo_${a.toString()}.png`;
