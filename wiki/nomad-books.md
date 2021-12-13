@@ -4,12 +4,11 @@ slug: nomad-books
 layout: wiki
 curse_project: 356921
 ---
-*[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_nomad-books_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/nomad-books)[![img](http://cf.way2muchnoise.eu/versions/minecraft_nomad-books_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/nomad-books)[![img](https://img.shields.io/github/last-commit/ladysnake/nomad-books)](https://github.com/ladysnake/nomad-books/commits/main)*
 
 **Nomad Books** is a Minecraft Fabric mod that introduces a solution for players that are always adventuring around their world. Nomad books allow these players to store their camp in form of an item and redeploy it 
 whenever and wherever they wish.
 
-## Wiki
+## Features
 
 ### Nomad Books
 

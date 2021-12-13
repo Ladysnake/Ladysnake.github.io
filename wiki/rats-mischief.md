@@ -6,15 +6,13 @@ curse_project: 431787
 ---
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
-
-[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_rats-mischief_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/rats-mischief)[![img](http://cf.way2muchnoise.eu/versions/minecraft_rats-mischief_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/rats-mischief)[![img](https://img.shields.io/github/last-commit/ladysnake/rats-mischief)](https://github.com/ladysnake/rats-mischief/commits/main)
-
 **Rat's Mischief** is a Fabric mod, introducing the rats, a new mob that can be tamed and interacted with in various different ways!
+
+### Video Showcase
 
 [![Showcase Video](https://img.youtube.com/vi/CVZfsPM8Mm4/0.jpg)](https://www.youtube.com/watch?v=CVZfsPM8Mm4)
 
-## Wiki
+## Features
 
 ### Rats
 

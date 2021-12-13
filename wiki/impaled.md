@@ -3,15 +3,11 @@ layout: wiki
 title: Impaled
 slug: impaled
 ---
-# Impaled
-
-*[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_impaled_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/impaled)[![img](http://cf.way2muchnoise.eu/versions/minecraft_impaled_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/impaled)[![img](https://img.shields.io/github/last-commit/ladysnake/impaled)](https://github.com/ladysnake/impaled/commits/main)*
-
 **Impaled** is a fabric 1.17 mod that adds a few new tridents to the game and reworks some of the mechanics revolving around them. This mod is compatible with the [Canvas Renderer](https://www.curseforge.com/minecraft/mc-mods/canvas-renderer).
 
 [![Showcase Video](https://img.youtube.com/vi/9JhblcRTRu8/0.jpg)](https://www.youtube.com/watch?v=9JhblcRTRu8)
 
-## Wiki
+## Features
 
 ### Mechanics
 

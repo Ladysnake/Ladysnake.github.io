@@ -7,7 +7,7 @@ curse_project: 360333
 
 Have you ever wanted to impersonate another player ? Be it for making machinimas, roleplaying, playing 5D chess in factions, or just pranking friends, there are lots of (relatively) good reasons to assume the identity of someone else.
 
-## Overview
+## Features
 Impersonate allows players to take on the name and appearance of other players. When impersonating someone, a player
 will:
 
