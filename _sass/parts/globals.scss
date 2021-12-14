@@ -4,15 +4,8 @@ body {
 	font-family: "Poppins", sans-serif;
 	text-align: justify;
 
-	--base-text-color: #2c3e50;
-	--base-background-color: #f6f8f9;
 	color: var(--base-text-color);
 	background: var(--base-background-color);
-
-	&.dark-mode {
-		--base-text-color: #f6f8f9;
-		--base-background-color: #171717;
-	}
 }
 
 .container {
