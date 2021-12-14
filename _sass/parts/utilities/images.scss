@@ -1,3 +1,6 @@
-img.pixel-art {
-  image-rendering: crisp-edges;
+img {
+    .pixel-art {
+        image-rendering: crisp-edges;
+        max-width: 100%;
+    }
 }
