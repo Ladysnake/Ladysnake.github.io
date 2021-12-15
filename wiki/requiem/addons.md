@@ -20,7 +20,7 @@ It can enter and leave other bodies as it wishes, but cannot make a human body o
 The following sections describe content that has been removed from pandemonium as it has been
 integrated into the main mod.
 
-{% capture summary %}<h4>Before v2.0.0</h4>{% endcapture %}
+{% capture summary %}<h4 id="before-v2">Before v2.0.0</h4>{% endcapture %}
 {% capture content %}
 ##### Changes to Requiem
 
