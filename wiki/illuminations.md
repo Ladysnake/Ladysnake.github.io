@@ -192,7 +192,7 @@ A lost soul that escaped the horrors of the Nether and is now searching for reve
 
 #### Golden Wisp
 
-You are going for the **shiny look**? In that case this pet might be the perfect match for your style, also looks great in combination with the [Golden Rod Aura](https://ladysnake.github.io/wiki/illuminations#golden-rod-aura)!
+You are going for the **shiny look**? In that case this pet might be the perfect match for your style, also looks great in combination with the [Golden Rod Aura](#golden-rod-aura)!
 
 ![Golden Wisp Pet](illuminations/GoldenWispPet.gif){: .wiki}
 
