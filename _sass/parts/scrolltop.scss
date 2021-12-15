@@ -3,11 +3,12 @@
   bottom: 0.8rem;
   z-index: 1;
   float: right;
-  margin: -2.8rem 0.4rem 0.4rem;
+  margin: -2.8rem 1rem 0.4rem;
   padding: 0.4rem;
-  background: var(--button-background);
+  background: var(--button-selected-outline);
   border-radius: 100%;
   outline: none;
+  border: none;
   box-shadow:
           0 0.4rem   1rem    hsla(0, 0%, 0%, 0.1),
           0 0.05rem  0.1rem  hsla(0, 0%, 0%, 0.1);
@@ -32,14 +33,12 @@
   // Back-to-top button on focus/hover
   &:focus,
   &:hover {
-    background: var(--button-outline);
     transform: scale(1.1);
   }
 
-  svg {
-    width: 2.2rem;
-    height: 2.2rem;
+  img {
+    width: 3rem;
+    height: 3rem;
     display: block;
-    fill: currentColor;
   }
 }

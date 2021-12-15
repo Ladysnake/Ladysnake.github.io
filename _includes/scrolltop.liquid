@@ -1,4 +1,5 @@
-<button onclick="topFunction()" data-btn-state="hidden" id="scrolltop" title="Go to top">{% include svg/arrow-up.svg %}</button>
+{% comment %} Can't include the SVG directly because embedded SVG reacts very poorly to CSS scaling :( {% endcomment %}
+<button onclick="topFunction()" data-btn-state="hidden" id="scrolltop" title="Go to top"><img src="/img/arrow-up_0.svg" alt="⬆"/></button>
 
 <script>
 (() => {
@@ -28,5 +29,6 @@ function topFunction() {
     // When the user clicks on the button, scroll to the top of the document
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    document.getElementById('scrolltop').blur();
 }
 </script>
