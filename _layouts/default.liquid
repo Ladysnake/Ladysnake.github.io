@@ -51,7 +51,7 @@
                 <li><a href="https://ladysnake.github.io/oldsite/">Old Site</a></li>
                 <li>
                     <a href="https://discordapp.com/invite/RBHY26t" title="Discord">
-                        <img alt="Discord Logo" src="/img/DiscordWord_0.svg"/>
+                        {% include svg/discord-word.svg %}
                     </a>
                 </li>
             </ul>
@@ -73,8 +73,7 @@
     <div class="row text-center">
         <p>
             Site owned and operated by Ladysnake.&nbsp;
-            <span><a href="https://github.com/Ladysnake"><img alt="Github Logo" src="/img/GitHub_0.svg"
-                                                              class="p-wiki-icon"></a></span>
+            <span><a href="https://github.com/Ladysnake" class="p-wiki-icon">{% include svg/github-logo.svg %}</a></span>
         </p>
     </div>
 </footer>
@@ -104,7 +103,7 @@
 {% if page.slug %}
     <!-- Mod downloading dropdown, (almost) direct from our site! -->
     <script src="/scripts/mod-download.js"></script>
-    <script>mountModDownloads('{{ page.curse_project }}');</script>
+    <script>mountModDownloads('{{ page.curse_project }}', `{% include svg/download-icon.svg %}`);</script>
     <!-- adding the ability to print the pages out -->
     <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
 {% endif %}

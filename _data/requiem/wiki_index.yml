@@ -23,15 +23,15 @@ current:
     ref: obelisks
 
   - title: Commands
-    icon: /img/terminal-icon_0.svg
+    svg_icon: terminal-icon
     ref: commands
 
   - title: Configuration
-    icon: /img/configuration_icon_0.svg
+    svg_icon: configuration-icon
     ref: configuration
 
   - title: Addons
-    icon: /img/puzzle-icon_0.svg
+    svg_icon: puzzle-icon
     ref: addons
 
 removed:

@@ -31,7 +31,7 @@ layout: default
 				src="/img/{% if page.mod_logo %}{{ page.mod_logo }}{% else %}{{ page.slug }}.png{% endif %}"
 				class="h1-wiki-icon">
 			&nbsp;{{ page.title }}&nbsp;
-			<img alt="print" id="printLogo" src="/img/print-icon_0.svg" onclick="print()" data-modName="{{ page.title }}" />
+			<span onclick="print()" id="printLogo" data-modName="{{ page.title }}">{% include svg/print-icon.svg %}</span>
 		</h1>
 		{{ content }}
 	</div>
