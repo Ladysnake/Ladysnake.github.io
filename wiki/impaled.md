@@ -5,7 +5,9 @@ slug: impaled
 ---
 **Impaled** is a fabric 1.17 mod that adds a few new tridents to the game and reworks some of the mechanics revolving around them. This mod is compatible with the [Canvas Renderer](https://www.curseforge.com/minecraft/mc-mods/canvas-renderer).
 
-[![Showcase Video](https://img.youtube.com/vi/9JhblcRTRu8/0.jpg)](https://www.youtube.com/watch?v=9JhblcRTRu8)
+<div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9JhblcRTRu8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## Features
 

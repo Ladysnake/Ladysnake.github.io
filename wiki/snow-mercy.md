@@ -7,7 +7,9 @@ slug: snow-mercy
 
 ### Video Showcase
 
+<div>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NDRtmo62U4E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## Features
 

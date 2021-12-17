@@ -10,7 +10,9 @@ This mod is compatible with the [Canvas Renderer](https://www.curseforge.com/min
 
 *(All screenshots with a bloom effect were taken with Canvas Renderer installed)*
 
-[![Showcase Video](https://img.youtube.com/vi/OwmCX_COS8I/0.jpg)](https://www.youtube.com/watch?v=OwmCX_COS8I)
+<div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OwmCX_COS8I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## Ambience
 

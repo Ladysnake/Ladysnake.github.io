@@ -15,10 +15,14 @@ visual and sound effects.
 ## Showcase Videos
 
 ### Water Splashes
-[![Splash youtube thumbnail](https://img.youtube.com/vi/gx4mNQHiOUc/0.jpg)](https://www.youtube.com/watch?v=gx4mNQHiOUc)
+<div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gx4mNQHiOUc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ### Cascades and Lava Splashes
-[![Cascade youtube thumbnail](https://img.youtube.com/vi/AnwoxryEn2g/0.jpg)](https://www.youtube.com/watch?v=AnwoxryEn2g)
+<div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AnwoxryEn2g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## FAQ
 
