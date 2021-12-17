@@ -4,6 +4,8 @@
 {% include header.liquid %}
 
 <body>
+<!-- Custom Night mode Option -->
+<script src="/scripts/darkmode.js"></script>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,7 +32,7 @@
                         <ul id="mod-dropdown" class="dropdown-menu"></ul>
                     </li>
                 {% endif %}
-                <li><a onclick="setDarkMode()"><img alt="Dark Mode Icon" id="preload-darkmodeicon"
+                <li><a onclick="toggleDarkMode()"><img alt="Dark Mode Icon" id="preload-darkmodeicon"
                                                     src="/img/placeholder.png"/></a></li>
                 <li><a href="/index.html">Home</a></li>
                 <li><a href="/about.html">About Us</a></li>
@@ -83,8 +85,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
-<!-- Custom Night mode Option -->
-<script src="/scripts/darkmode.js"></script>
+<!-- Dark mode image loading -->
+<script>
+    setupDarkModeButton()
+</script>
 <script src="/scripts/effects.js"></script>
 <!--Datapack editing-->
 {% if page.datapack_editor %}
