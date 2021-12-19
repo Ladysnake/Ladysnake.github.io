@@ -57,9 +57,9 @@ Dry Ice is a kind of ice that does not melt or create water upon breaking. It em
 
 **Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to both the GitHub repository and  Curse Forge project page.
 
-#### Forge?
+#### Can you port to Forge please? Backport to version X?
 
-**No**, sorry, no Forge, so don't bother asking.
+We don't port our mods to forge or backport them for various reasons. If you want to make a port yourself however feel free to [come chat with us about it](https://ladysnake.glitch.me)!
 
 
 

@@ -33,3 +33,7 @@ visual and sound effects.
 #### Can I use this mod on a vanilla server?
 
 **Yes**: If you have installed this mod on your Minecraft client, you will  be able to connect to vanilla Minecraft servers and the ambient effects  will work as intended.
+
+#### Can you port to Forge please? Backport to version X?
+
+We don't port our mods to forge or backport them for various reasons. If you want to make a port yourself however feel free to contact us!

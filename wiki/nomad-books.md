@@ -99,9 +99,9 @@ By combining the Nomad Book with a netherite ingot in an usual crafting grid the
 
 **Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to both the GitHub repository and  Curse Forge project page.
 
-#### Will you be making a Forge version? Does a Forge version exist?
+#### Can you port to Forge please? Backport to version X?
 
-**No**, we will not be making a Forge version of this mod. We do welcome third-party ports however, so feel free to [come chat with us](https://ladysnake.glitch.me) about it if you feel like doing one.
+We don't port our mods to forge or backport them for various reasons. If you want to make a port yourself however feel free to [come chat with us about it](https://ladysnake.glitch.me)!
 
 ## Gallery
 
