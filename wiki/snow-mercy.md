@@ -5,7 +5,7 @@ slug: snow-mercy
 ---
 **Snow Mercy** is a Minecraft Fabric mod introducing a new event, the Snow Mercy invasion, in which the player can fight off waves of hostile and heavily modified combat snowmen, as well as new mechanics to fight these snowmen and make them your own.
 
-### Video Showcase
+## Video Showcase
 
 <div>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NDRtmo62U4E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
