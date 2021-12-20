@@ -6,15 +6,15 @@ curse_project: 431787
 ---
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
-
-[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_rats-mischief_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/rats-mischief)[![img](http://cf.way2muchnoise.eu/versions/minecraft_rats-mischief_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/rats-mischief)[![img](https://img.shields.io/github/last-commit/ladysnake/rats-mischief)](https://github.com/ladysnake/rats-mischief/commits/main)
-
 **Rat's Mischief** is a Fabric mod, introducing the rats, a new mob that can be tamed and interacted with in various different ways!
 
-[![Showcase Video](https://img.youtube.com/vi/CVZfsPM8Mm4/0.jpg)](https://www.youtube.com/watch?v=CVZfsPM8Mm4)
+## Video Showcase
 
-## Wiki
+<div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CVZfsPM8Mm4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+## Features
 
 ### Rats
 
@@ -130,9 +130,9 @@ This item can be repaired in an anvil using phantom membranes.
 
 **No**: I have no ties  with Rats, and this mod is a completely different one with a completely  different vision. Rats are amazing creatures, and I'm not of a fan of  how "modded" "Rats" looks and feels, so I went with a more summoner  styled approach as well as aiming to feel Vanilla+. The two mods differ  hugely, and I didn't draw any inspiration from "Rats" as I never played  it and only ever heard of it and the memes. This isn't a Fabric version  of "Rats", nor is this a rip-off. 
 
-#### Forge?
+#### Can you port to Forge please? Backport to version X?
 
-**No, sorry, so don't bother asking.**
+We don't port our mods to forge or backport them for various reasons. If you want to make a port yourself however feel free to contact us!
 
 
 

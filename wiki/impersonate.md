@@ -7,7 +7,7 @@ curse_project: 360333
 
 Have you ever wanted to impersonate another player ? Be it for making machinimas, roleplaying, playing 5D chess in factions, or just pranking friends, there are lots of (relatively) good reasons to assume the identity of someone else.
 
-## Overview
+## Features
 Impersonate allows players to take on the name and appearance of other players. When impersonating someone, a player
 will:
 
@@ -36,7 +36,7 @@ commands.
         - `[<targets>]` (optional) : If specified, must be either a player's username or a target selector. If unspecified, defaults to the player using the command. When used in a command block, `[<targets>]` is not optional.  
         - `[<key>]` (optional) : If specified, must be a valid identifier that was previously used as a key to start an impersonation. If left unspecified, the command will clear every active impersonation.  
 ### Gamerules
-- `impersonate:fakeCapes` : Whether impersonators should get the cape and elytra of impersonated players. Defaults to `false`.  If [Illuminations](https://www.curseforge.com/minecraft/mc-mods/illuminations) is installed, the gamerule also applies to player cosmetics.
+- `impersonate:fakeCapes` : Whether impersonators should get the cape and elytra of impersonated players. Defaults to `false`.  If [Illuminations](illuminations) is installed, the gamerule also applies to player cosmetics.
 - `impersonate:opRevealImpersonations` : Whether ongoing impersonations should be revealed to online server operators. Defaults to `true`.  
 - `impersonate:logRevealImpersonations` : Whether ongoing impersonations should be revealed in the server logs. Defaults to `true`.  
 

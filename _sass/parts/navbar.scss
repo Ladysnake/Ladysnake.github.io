@@ -1,3 +1,5 @@
+@import '../mixins';
+
 .navbar-default {
 	background-color: #f6f8f9;
 	border: none;
@@ -82,4 +84,17 @@
 			color: #eee;
 		}
 	}
+}
+
+#ladysnake_logo {
+    content: url('/img/ladysnake_logo_0.png');
+    .dark-mode & {
+        content: url('/img/ladysnake_logo_1.png');
+    }
+    @include mobile {
+        content: url('/img/ladysnake_icon_0.png');
+        .dark-mode & {
+            content: url('/img/ladysnake_icon_1.png');
+        }
+    }
 }

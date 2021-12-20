@@ -4,6 +4,8 @@
 {% include header.liquid %}
 
 <body>
+<!-- Custom Night mode Option -->
+<script src="/scripts/darkmode.js"></script>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,7 +32,7 @@
                         <ul id="mod-dropdown" class="dropdown-menu"></ul>
                     </li>
                 {% endif %}
-                <li><a onclick="setDarkMode()"><img alt="Dark Mode Icon" id="preload-darkmodeicon"
+                <li><a onclick="toggleDarkMode()"><img alt="Dark Mode Icon" id="preload-darkmodeicon"
                                                     src="/img/placeholder.png"/></a></li>
                 <li><a href="/index.html">Home</a></li>
                 <li><a href="/about.html">About Us</a></li>
@@ -49,7 +51,7 @@
                 <li><a href="https://ladysnake.github.io/oldsite/">Old Site</a></li>
                 <li>
                     <a href="https://discordapp.com/invite/RBHY26t" title="Discord">
-                        <img alt="Discord Logo" src="/img/DiscordWord_0.svg"/>
+                        {% include svg/discord-word.svg %}
                     </a>
                 </li>
             </ul>
@@ -59,16 +61,19 @@
 
 <!-- START SECTION -->
 <div class="container">
-    {{ content }}
+    {% capture icon %}{% include svg/octicon-link.svg %}{% endcapture %}
+    {% include anchor_headings.liquid html=content anchorBody=icon anchorClass="header-anchor" %}
 </div>
+
+{% include scrolltop.liquid %}
+
 <!--/.section -->
 <footer class="container">
     <!-- This is the footer! Created by sschr15... -->
     <div class="row text-center">
         <p>
             Site owned and operated by Ladysnake.&nbsp;
-            <span><a href="https://github.com/Ladysnake"><img alt="Github Logo" src="/img/GitHub_0.svg"
-                                                              class="p-wiki-icon"></a></span>
+            <span><a href="https://github.com/Ladysnake" class="p-wiki-icon">{% include svg/github-logo.svg %}</a></span>
         </p>
     </div>
 </footer>
@@ -79,8 +84,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
-<!-- Custom Night mode Option -->
-<script src="/scripts/darkmode.js"></script>
+<!-- Dark mode image loading -->
+<script>
+    setupDarkModeButton()
+</script>
 <script src="/scripts/effects.js"></script>
 <!--Datapack editing-->
 {% if page.datapack_editor %}
@@ -96,7 +103,7 @@
 {% if page.slug %}
     <!-- Mod downloading dropdown, (almost) direct from our site! -->
     <script src="/scripts/mod-download.js"></script>
-    <script>mountModDownloads('{{ page.curse_project }}');</script>
+    <script>mountModDownloads('{{ page.curse_project }}', `{% include svg/download-icon.svg %}`);</script>
     <!-- adding the ability to print the pages out -->
     <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
 {% endif %}

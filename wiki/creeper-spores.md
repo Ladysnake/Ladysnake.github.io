@@ -7,7 +7,7 @@ curse_project: 331636
 
 A Minecraft mod for the Fabric Mod Loader, adding new creeper mechanics based on the theory of them being plants.
 
-## Wiki
+## Features
 
 ### Creeperlings' Appearance
 

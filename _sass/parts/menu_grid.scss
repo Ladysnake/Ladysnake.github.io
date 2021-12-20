@@ -1,0 +1,42 @@
+@import '../mixins';
+
+.menu-grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: [descriptions] auto [buttons] auto;
+  column-gap: 3rem;
+  margin-bottom: 30px;
+
+  .menu-grid-desc {
+    grid-row: descriptions;
+    display: block;
+    margin: 30px 0 20px;
+    text-align: center;
+
+    p {
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+  }
+
+  .menu-grid-btn {
+    grid-row: buttons;
+    text-align: center;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, [descriptions] auto [buttons] auto);
+
+    @for $i from 1 through 3 {
+      .menu-grid-desc:nth-child(0n + #{$i*2-1}) {
+        grid-row: descriptions $i;
+      }
+
+      .menu-grid-btn:nth-child(0n + #{$i*2}) {
+        grid-row: buttons $i;
+      }
+    }
+  }
+}

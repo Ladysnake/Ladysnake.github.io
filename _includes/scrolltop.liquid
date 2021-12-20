@@ -1,0 +1,34 @@
+{% comment %} Can't include the SVG directly because embedded SVG reacts very poorly to CSS scaling :( {% endcomment %}
+<button onclick="topFunction()" data-btn-state="hidden" id="scrolltop" title="Go to top"><img src="/img/arrow-up_0.svg" alt="⬆"/></button>
+
+<script>
+(() => {
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        // When the user scrolls down 20px from the top of the document, and either is scrolling up or has reached the bottom,
+        // show the button
+        const scrollTop = document.documentElement.scrollTop ?? document.body.scrollTop;
+        const canScrollUp = scrollTop > 20;
+        const hasScrolledUp = lastScroll > scrollTop;
+        lastScroll = scrollTop;
+
+        if (canScrollUp) {
+            const scrollTopMax = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const closeToBottom = scrollTop > scrollTopMax - 100;
+            if (hasScrolledUp || closeToBottom) {
+                document.getElementById("scrolltop").dataset.btnState = "shown";
+                return;
+            }
+        }
+
+        document.getElementById("scrolltop").dataset.btnState = "hidden";
+    });
+})();
+
+function topFunction() {
+    // When the user clicks on the button, scroll to the top of the document
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    document.getElementById('scrolltop').blur();
+}
+</script>

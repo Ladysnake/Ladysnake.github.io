@@ -19,4 +19,3 @@
   values: [DISABLED, NORMAL, HARD]
   default: NORMAL
   since: 2.0.0
-  upcoming: true

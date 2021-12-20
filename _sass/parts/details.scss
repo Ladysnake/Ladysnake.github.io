@@ -9,7 +9,7 @@ details {
     cursor: pointer;
     padding: 0.1rem;
 
-    * {
+    > * {
       margin-left: 1rem;
       display: list-item;
       list-style-position: inside;

@@ -4,12 +4,11 @@ slug: nomad-books
 layout: wiki
 curse_project: 356921
 ---
-*[![img](https://img.shields.io/discord/292744693803122688?color=informational&label=Ladysnake&logo=Discord)](https://ladysnake.glitch.me)[![img](http://cf.way2muchnoise.eu/full_nomad-books_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/nomad-books)[![img](http://cf.way2muchnoise.eu/versions/minecraft_nomad-books_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/nomad-books)[![img](https://img.shields.io/github/last-commit/ladysnake/nomad-books)](https://github.com/ladysnake/nomad-books/commits/main)*
 
 **Nomad Books** is a Minecraft Fabric mod that introduces a solution for players that are always adventuring around their world. Nomad books allow these players to store their camp in form of an item and redeploy it 
 whenever and wherever they wish.
 
-## Wiki
+## Features
 
 ### Nomad Books
 
@@ -100,9 +99,9 @@ By combining the Nomad Book with a netherite ingot in an usual crafting grid the
 
 **Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to both the GitHub repository and  Curse Forge project page.
 
-#### Will you be making a Forge version? Does a Forge version exist?
+#### Can you port to Forge please? Backport to version X?
 
-**No**, we will not be making a Forge version of this mod. We do welcome third-party ports however, so feel free to [come chat with us](https://ladysnake.glitch.me) about it if you feel like doing one.
+We don't port our mods to forge or backport them for various reasons. If you want to make a port yourself however feel free to [come chat with us about it](https://ladysnake.glitch.me)!
 
 ## Gallery
 

@@ -4,8 +4,19 @@
 	--color-info: #2ecc71;
 	--color-warning: #e67e22;
 	--color-danger: #e74c3c;
+	--base-text-color: #2c3e50;
+	--base-background-color: #f6f8f9;
 
 	.dark-mode {
 		--color-warning: #f39c12;
+		--base-text-color: #f6f8f9;
+		--base-background-color: #171717;
 	}
 }
+
+$screen-mobile-min: 480px;
+$screen-tablet-min: 768px;
+$screen-desktop-min: 1024px;
+
+$screen-mobile-max: $screen-tablet-min - 1;
+$screen-tablet-max: $screen-desktop-min - 1;

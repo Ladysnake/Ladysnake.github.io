@@ -15,8 +15,9 @@
  * Requires the CurseForge description to contain the version list prefixed with
  * <code>Versions:</code>
  * @param {String} curseID Project ID, probably gotten from the above function
+ * @param {String} downloadIcon the HTML code for the download icon
  */
-async function mountModDownloads(curseID) {
+async function mountModDownloads(curseID, downloadIcon) {
     const down = document.getElementById("mod-dropdown");
     const dataPromise = fetch(`https://curse.nikky.moe/api/addon/${curseID}`).then(it => it.ok && it.json());
     const descPromise = fetch(`https://curse.nikky.moe/api/addon/${curseID}/description`).then(it => it.ok && it.text());
@@ -31,7 +32,7 @@ async function mountModDownloads(curseID) {
     }
     let flag = false;
 
-    let attempt = setInterval(function() {
+    let attempt = setInterval(async function() {
         if (desc !== undefined && data !== undefined && !flag) {
             let versions;
             let flag2;
@@ -54,18 +55,12 @@ async function mountModDownloads(curseID) {
                 let li = document.createElement("li");
                 let a = document.createElement("a");
                 let span = document.createElement("span");
-//                let p = document.createElement("p");
-                let img = document.createElement("img");
 
                 a.href = `https://curse.nikky.moe/api/url/${curseID}?version=${version}`;
                 span.innerHTML += version;
-                img.src = `/img/download_${darkMode ? 1 : 0}.svg`;
-                if (darkMode) { img.classList.add("darkmode"); }
-                img.classList.add("download-icon");
+                span.innerHTML += downloadIcon;
+                span.querySelector("svg").classList.add("download-icon");
 
-//                span.appendChild(p);
-                span.appendChild(img);
-//                span.innerHTML += versions[v];
                 a.appendChild(span);
                 li.appendChild(a);
                 down.appendChild(li);
