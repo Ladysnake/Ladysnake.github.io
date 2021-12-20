@@ -41,3 +41,7 @@ h4, h5, h6 {
 		opacity: 100%;
 	}
 }
+
+.panel-body, .panel-footer {
+    background-color: var(--base-background-color);
+}
