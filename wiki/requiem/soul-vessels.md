@@ -3,13 +3,13 @@ title: Soul Vessels
 layout: requiem_wiki
 ---
 
-# Soul Vessels
+{% include wip.liquid %}
 
 ## ![Shattered Soul Vessel](img/shattered_soul_vessel.png)Shattered Soul Vessel 
 
 Shattered Soul Vessels can be found with a 20% chance (with an additional 10% per fortune level) by mining **[Derelict Tachylite](obelisks#derelict-tachylite)**. Despite not being useful on their own, they can be **repaired by the [Mortician](obelisks#mortician)** for the small fee of a Gold Ingot.
 
-![Shattered Soul Vessel Trade](img/ShatteredSoulVesselTrade.png){: .wiki}
+![Shattered Soul Vessel Trade](img/ShatteredSoulVesselTrade.png)
 
 
 
@@ -26,7 +26,7 @@ innate soul defense.
 
 **You can _not_ start a soul removal if your Attrition level is 4.**
 
-![Soul Stealing](img/SoulStealing.png){: .wiki}
+![Soul Stealing](img/SoulStealing.png)
 
 ### ![Filled Soul Vessel](img/soul_vessel_filled.png)Filled Soul Vessel
 
@@ -34,7 +34,7 @@ Once a Soul Vessel is filled it can either be used for **trading with the Mortic
 or the Soul **can be released** again, in case of which it will return to the original mob
 it was removed from, reviving said mob. If that mob is dead, the Soul will collapse upon release.
 
-![Soul](img/Soul.png){: .wiki}![Collapsing Soul](img/CollapsingSoul.png){: .wiki}
+![Soul](img/Soul.png)![Collapsing Soul](img/CollapsingSoul.png)
 
 
 
@@ -48,7 +48,7 @@ The Creative Soul Vessel is a **creative exclusive** version of the Soul Vessel 
 
 The Sealed Remnant Vessel is an item sold by the [Mortician](obelisks#mortician) which will turn the **player into a remnant** upon usage.
 
-![Remnant Release](img/RemnantRelease.png){: .wiki}
+![Remnant Release](img/RemnantRelease.png)
 
 
 
@@ -56,25 +56,25 @@ The Sealed Remnant Vessel is an item sold by the [Mortician](obelisks#mortician)
 
 Ichor Vessels can be used similarly to potions, consuming the Ichor and casting a [Soul Effect](effects) on you.
 
-### ![Emancipation Vessel](img/ichor_vessel_emancipation.png){: .wiki}Emancipation Vessel
+### ![Emancipation Vessel](img/ichor_vessel_emancipation.png)Emancipation Vessel
 
 Emancipation Vessels can be bought from the **[Mortician](obelisks#mortician)** for **5 Gold Ingots** and a Soul Vessel with either a **Villager Soul** when in the **Overworld** or a **Piglin Soul** in the **Nether**.
 
 Emancipation Vessels will grant you the **[Emancipation Soul Effect](effects#emancipation)** for **10 minutes** upon usage and will leave you with an **Empty Soul Vessel**.
 
-### ![Reclamation Vessel](img/ichor_vessel_reclamation.png){: .wiki}Reclamation Vessel
+### ![Reclamation Vessel](img/ichor_vessel_reclamation.png)Reclamation Vessel
 
 Reclamation Vessels are available at the **[Mortician](obelisks#mortician)**'s Shop for a Soul Vessel with **Axolotl Soul** and **5 Gold Ingots**.
 
 Reclamation Vessels will grant you the **[Reclamation Soul Effect](effects#reclamation)** for **10 minutes** upon Usage and will leave you with an **Empty Soul Vessel**.
 
-### ![Attrition Vessel](img/ichor_vessel_attrition.png){: .wiki}Attrition Vessel
+### ![Attrition Vessel](img/ichor_vessel_attrition.png)Attrition Vessel
 
 Attrition Vessels can be obtained from the **[Mortician](obelisks#mortician)** at the cost of a Soul Vessel containing a **Ghast Soul** and **5 Gold Ingots**.
 
 Attrition Vessels will curse you with the **[Attrition Soul Effect](effects#attrition)** for **10 minutes** upon usage and will leave you with an **Empty Soul Vessel**.
 
-### ![Penance Vessel](img/ichor_vessel_penance.png){: .wiki}Penance Vessel
+### ![Penance Vessel](img/ichor_vessel_penance.png)Penance Vessel
 
 Penance Vessels can be traded from the **[Mortician](obelisks#mortician)** for a Soul Vessel with a **Pillager Soul** and **5 Gold Ingots**.
 

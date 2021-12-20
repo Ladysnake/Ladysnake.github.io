@@ -3,7 +3,7 @@ title: Soul Effects
 layout: requiem_wiki
 ---
 
-# Soul Effects
+{% include wip.liquid %}
 
 Soul effects are special status effects that are **bound to your very self**.
 They are **kept with you when leaving a body**, and **cannot be cleared through normal means**.
