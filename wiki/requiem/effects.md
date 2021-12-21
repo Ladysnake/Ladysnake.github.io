@@ -40,7 +40,5 @@ with stronger attrition, your **hosts will become weaker and weaker**, as each l
 
 In order to keep the Hardcore Mode challenging **Attrition increases twice as quickly** as usual, for example going from level 0 directly to level II. In addition to that, **dying with a host under the Attrition IV effect** will make you **lose your world**. Good luck!
 
-
-
 ![Attrition Effect](img/AttritionEffect.png)
 

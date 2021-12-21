@@ -1,16 +1,22 @@
 ---
 layout: default
 ---
-<div class="wiki">
-	<nav aria-label="breadcrumb">
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="/">Home</a></li>
-			<li class="breadcrumb-item"><a href="/wiki/requiem">Requiem</a></li>
-			<li class="breadcrumb-item"><a href="/wiki/requiem/landing">Wiki</a></li>
-			<li class="breadcrumb-item active" aria-current="page">{% if page.breadcrumb %}{{ page.breadcrumb }}{% else %}{{ page.title }}{% endif %}</li>
-		</ol>
-	</nav>
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="/">Home</a></li>
+		<li class="breadcrumb-item"><a href="/wiki/requiem">Requiem</a></li>
+		<li class="breadcrumb-item"><a href="/wiki/requiem/landing">Wiki</a></li>
+		<li class="breadcrumb-item active" aria-current="page">{% if page.breadcrumb %}{{ page.breadcrumb }}{% else %}{{ page.title }}{% endif %}</li>
+	</ol>
+</nav>
 
+<div class="wiki-container">
+	<div class="toc-pane">
+		<h3>{% if page.breadcrumb %}{{ page.breadcrumb }}{% else %}{{ page.title }}{% endif %}</h3>
+		<nav class="toc">
+			<ul>{% include toc.liquid html=content sanitize=true %}</ul>
+		</nav>
+	</div>
 	<div id="printJS-Content">
 
 		<h1>{{ page.title }}&nbsp;</h1>

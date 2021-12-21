@@ -31,6 +31,7 @@ An Obelisk will effect remnant players in a square shaped area of `10*width+10` 
 
 Tachylite Runestones are the **defining factor** of an Obelisk.
 The basic Tachylite Runestone can be crafted using 8 Tachylite and 1 Crying Obsidian.
+
 It can then be **imbued using [Ichors](soul-vessels#ichor-vessels)** and will adopt the respective **[Soul Effect](effects)**.
 Once they are imbued they can not be changed but will **grant their Soul Effect** to remnant players once included in an Obelisk.
 
