@@ -114,6 +114,7 @@ Requiem allows one to override the behavior of an item when it is used by a poss
   - `type`: the type of the overriding behavior. As of Requiem 1.7.8, can be `requiem:diet`, `requiem:healing`, or `requiem:cure`. The other fields in this object depend on the chosen type and are described below.
 
 ##### `requiem:diet`
+{: .no_toc }
 
  Specifies one or more items that can exclusively be eaten by the targeted mobs. If multiple diet overrides target the same mob, they will be able to eat any item that is accepted by at least one of them.
 
@@ -123,6 +124,7 @@ Fields:
 - `filter` (string, optional): a filter that will be applied when eating the food. As of 1.7.8, can be `"none"` or `"remove_harmful_effects"`.
 
 ##### `requiem:healing`
+{: .no_toc }
 
 Specifies one or more items that can be consumed by the targeted mobs for restoring some health.
 
@@ -134,6 +136,7 @@ Fields:
 - `usage` (string, required): a consumption action. As of 1.7.8, can be `"eat_to_heal"` or `"replace_bone"`.
 
 ##### `requiem:cure`
+{: .no_toc }
 
 Specifies one or more items that can be consumed by the targeted mobs to initiate the curing process.
 
