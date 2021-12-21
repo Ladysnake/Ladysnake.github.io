@@ -28,10 +28,11 @@ Golems can also be dissociated from at any given time.
 
 
 
-In this dissociated state, the player can **easily fly** and navigate the world in search of a new host to possess. The player is granted **creative flight and night vision** and can use the sprint key to navigate in the air (similarly to how a player would swim ) and **go through one block tall holes** as well as **phasing through most blocks** by walking against walls. Mobs will also be **highlighted** to make finding a new host easier while phasing.
+While dissociated, the player has **creative flight** and **night vision**, can **glide through the air** (similarly to how a player would swim) and **phase through most blocks**. 
 
-**To possess a new body** and leave the soul state, the player **must find a mob and interact** with them
-(a crimson eye should render upon placing the cursor on an entity).
+In order to phase, the player must walk into the wall they want to phase through for a few seconds. Then, soul particles will appear and the player can enter the phasing state, slowly moving through solid blocks. While phasing, **mobs will be highlighted** to guarantee orientation and make finding hosts a lot easier. 
+
+Once a host is found, [it can be **possessed**](possession) **by clicking it** (a soul icon should render upon placing the cursor on an entity).
 
 ![Soul State and Phasing](img/SoulState.png)
 
