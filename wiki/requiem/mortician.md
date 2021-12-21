@@ -30,7 +30,7 @@ This trade is essential to Requiem as it allows to **repair [Shattered Soul Vess
 
 #### Humanity Trade
 
-The Humanity Trade can be used to **upgrade a [Humanity I](gameplay#loot-mechanics)** book to a level II enchantment for 20 Gold Ingots.
+The Humanity Trade can be used to **upgrade a [Humanity I](possession#loot-mechanics)** book to a level II enchantment for 20 Gold Ingots.
 
 #### Ichor Trades
 
