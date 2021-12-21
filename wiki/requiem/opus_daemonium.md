@@ -11,6 +11,8 @@ There are 4 variants of Opus Daemoniums: Neutral, Curse, Cure, and Banishment.
 
 Those books can only be used while in a regular player's body, with one exception: if used while possessing a mob and after having started a curing process (with weakness potion and a golden apple), they will expedite the process and turn the player into the desired type.
 
+In the Requiem 2.0 version (1.17 and above), the Opus Daemonium has been replaced with the [Mortician's Conversion Trade](mortician#conversion-trade).
+
 ## Variants
 
 {: .h3-wiki}

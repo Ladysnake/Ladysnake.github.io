@@ -3,15 +3,13 @@ title: Soul Effects
 layout: requiem_wiki
 ---
 
-{% include wip.liquid %}
-
 Soul effects are special status effects that are **bound to your very self**.
 They are **kept with you when leaving a body**, and **cannot be cleared through normal means**.
 
 ## ![Emancipation Icon](img/emancipation.png)Emancipation
 
 The Emancipation Soul Effect is the key to the Requiem gameplay as it allows remnant players to **leave their body without having to die**, avoiding Attrition and an unnecessary loss of hosts.
-While under this Effect, players can use the Dissociation key to leave any mob they are possessing, if used to dissociate as a regular player, you will **leave behind a player shell**.
+While under this Effect, players can use the Dissociation key to leave any mob they are possessing. If used to dissociate as a regular player, you will **leave behind a player shell**.
 
 ![Emancipation Effect](img/EmancipationEffect.png)
 
