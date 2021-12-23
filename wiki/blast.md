@@ -25,7 +25,7 @@ Dirt Bombs can be crafted by surrounding normal bombs with 8 Dirt Blocks. Instea
 
 ### Pearl Bombs
 
-Crafted like normal bombs with an Enderpearl as base material, this bomb has a **silk touch effect on all block in the explosion** radius. As a side effect, it will also **randomly teleport entities** that get caught in the explosion.
+Crafted like normal bombs with an Enderpearl as base material, this bomb has a **silk touch effect on all blocks in the explosion** radius. As a side effect, it will also **randomly teleport entities** that get caught in the explosion.
 
 ![Pearl Bombs](blast/PearlBombs.png)
 
@@ -59,7 +59,7 @@ Bombards can be upgraded to Slime Bombards using a Slime Block on a Bombard in t
 
 ### Amethyst Bombard
 
-Crafted by applying an Amethyst Block to a Bombard in the Smithing Table, the Amethyst Bombard **adds amethyst shards to your explosion**, at the **cost of the explosion damage**. These shards will spread in all directions and **deal 2 (1 heart) damage per shard**.
+Crafted by applying an Amethyst Block to a Bombard in the Smithing Table, the Amethyst Bombard **adds amethyst shards to your explosion**, at the **cost of the normal explosion damage**. These shards will spread in all directions and **deal 2 damage (1 heart) per shard**.
 
 <img src="blast/AmethystBombard.png" alt="Amethyst Bombard" style="zoom:80%;" />
 
