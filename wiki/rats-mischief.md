@@ -48,13 +48,13 @@ On the 19th of July, RAT's (doctor4t) birthday, as well as during the following 
 Naturally spawning rats will always be either a Wild Rat or a Golden Rat.
 
 - **Wild Rat**
-- **Golden** (spawn chance of 1 in 150)
+- **Golden Rat** (spawn chance of 1 in 150)
 
 ![Natural Rat Types](rats-mischief/NaturalRatTypes.png) 
 
 ##### Pet Rat Types
 
-Pet rats can only be obtained by breeding wild rats. Their offsprings will then be 1 of the 7 pet rat types:
+Pet rats can be obtained by breeding wild rats. Their offsprings will then be 1 of the 7 pet rat types:
 
 - **Albine**
 - **Grey**
@@ -94,7 +94,7 @@ Renaming rats with the following names will give them a new, special appearance 
 
   Rat Kids are a special rat type as they can be dyed just like sheep in order to variate their skins, resulting in 16 different versions. Breeding 2 Rat Kids will also spawn a new, unnamed Rat Kid instead of a normal pet rat.
 
-![Special Rat Types](rats-mischief/SpecialRatTypes.png)
+![Special Rat Types](rats-mischief/SpecialRatTypes.png) 
 
 ![Rat Kid Types](rats-mischief/RatKidTypes.png)
 
