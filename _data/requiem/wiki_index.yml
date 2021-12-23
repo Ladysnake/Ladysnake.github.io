@@ -4,6 +4,12 @@ current:
     hover_icon: /img/requiem_icon_hover_0.png
     ref: gameplay
 
+  - title: Possession
+    icon: img/PossessionIcon.png
+    hover_icon: img/PossessionIconActive.png
+    pixel_art: true
+    ref: possession
+
   - title: Effects
     icon: img/effects/attrition.png
     hover_icon: img/effects/reclamation.png
@@ -21,6 +27,12 @@ current:
     hover_icon: img/active_obelisk_icon.png
     pixel_art: true
     ref: obelisks
+
+  - title: Mortician
+    icon: img/MorticianIcon.png
+    hover_icon: img/EtherealMorticianIcon.png
+    pixel_art: true
+    ref: mortician
 
   - title: Commands
     svg_icon: terminal-icon

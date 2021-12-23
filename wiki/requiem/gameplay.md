@@ -4,31 +4,48 @@ layout: requiem_wiki
 ---
 ## First Death
 
-Upon dying for the first time in a world, a dialogue will be prompted to the player. In this menu, the
-player can select whether or not he wants to become a demon, and activate the mod for himself or not.
-After choosing, the player obtains the "A Devilish Conundrum" and the dialogue will not be prompted anymore.
-However, the player can still change their mind by using an [Opus Daemonium](opus_daemonium) at a later time.
+Upon dying for the first time in a world, a **dialogue** will be prompted to the player. In this menu, the
+player can select **whether or not they want to become a demon**, and **activate the mod for themselves or not**.
+After choosing, the player obtains the "A Devilish Conundrum" and **the dialogue will not be prompted anymore**.
+However, the player can still **change their mind** by using the [**Mortician's conversion trade**](mortician#conversion-trade) at a later time.
 
-### Origins Compatibility
-With the [Origins](https://www.curseforge.com/minecraft/mc-mods/origins) mod installed, the choice is made through its selection screen when first joining the world. This does not replace the actual origin choice, players choose both a soul type and an origin.
+![Death Dialogue](img/DeathDialogue.png)
+
+#### Hardcore Mode
+
+In order to keep the challenge of Hardcore mode, this dialogue will **not** appear. Instead, you will have to use the [**Mortician**](mortician) to become a remnant.
+
+#### Origins Compatibility
+With the [**Origins**](https://www.curseforge.com/minecraft/mc-mods/origins) mod installed, the choice is made through its **selection screen** when first joining the world. This does **not replace the actual origin choice**, players choose both a soul type and an origin.
 
 ## Soul State
 
-If the player is a demon and dies, their demon souls splits from the host's and escapes the destroyed body. 
+**If the player is a demon and dies**, their **demon soul dissociates from the host** and escapes the destroyed body. 
 
-In this state, the player can easily fly and navigate the world in search of a new host to possess. The player is granted creative 
-fly and can use the sprint key to navigate in the air (similarly to how a player would swim ) and go through one block tall holes. 
+Later, this dissociation process can be done using the corresponding keybind ( "," by default) if the player has the [**Emancipation Soul Effect**](effects#emancipation), leaving behind the body **without killing it**. 
 
-To possess a new body and leave the soul state, the player must find a soulless mob and interact with them
-(a crimson eye should render upon placing the cursor on an entity). The list of valid Vanilla Minecraft mobs is as follows:
+Golems can also be dissociated from at any given time.
 
-- Undead mobs
 
+
+While dissociated, the player has **creative flight** and **night vision**, can **glide through the air** (similarly to how a player would swim) and **phase through most blocks**. 
+
+In order to phase, the player must walk into the wall they want to phase through for a few seconds. Then, soul particles will appear and the player can enter the phasing state, slowly moving through solid blocks. While phasing, **mobs will be highlighted** to guarantee orientation and make finding hosts a lot easier. 
+
+Once a host is found, [it can be **possessed**](possession) **by clicking it** (a soul icon should render upon placing the cursor on an entity).
+
+![Soul State and Phasing](img/SoulState.png)
+
+**Remnant players can only possess soulless mobs!** Some mobs are **soulless by default**, such as undead mobs and golems. Others, like pigs, goats or axolotls must have their **soul removed before they can be possessed**. This is done using the [**Soul Vessel**](soul-vessels#empty-soul-vessel).
+
+The list of **soulless** Vanilla Minecraft mobs is as follows:
+
+- **Undead Mobs**
   - Skeleton
   - Stray
   - Wither Skeleton
   - Skeleton Horse
-
+  
   - Zombie
   - Drowned
   - Husk
@@ -36,102 +53,34 @@ To possess a new body and leave the soul state, the player must find a soulless 
   - Zombified Piglin
   - Zombie  Horse
   - Zoglins
-
-- Golems
-
+- **Golems**
   - Iron Golem
   - Snow Golem
   - Shulker
 
+![Zombie Possession](img/ZombiePossession.png)
+
 ## Body Transformation after Death
 
-In some cases, the player's body might transform after death, giving birth to an undead creature. In those few situations,
-the player's soul is not expelled from the dying body, and keeps full control of it.
+In some cases, the player's **body might transform after death**, giving birth to an undead creature. In those few situations,
+the player's **soul is not expelled** from the dying body and **keeps full control and inventory** of it.
 
 The list of events that lead to a body transformation after death is as follows:
 
-- Dying from a Zombie or a Drowned *while in the dark* will turn the player into a Zombie
-- Dying in lava while being in the Nether will turn the player into a Wither Skeleton
-- Dying from suffocation by sand will turn the player into a Husk
-- Drowning in an ocean far enough from the surface 
-  - As Vanilla game behavior guarantees, staying too long underwater as a Zombie will turn the player into a Drowned
-
-## Possessor Gameplay
-
-After finding a new host or transforming after death, the player is forced to play as a soulless creature. Possessor players behave
-very similarly to their mobs, meaning they have both their strengths and weaknesses. For instance, a Stray player will shoot
-slowness arrows, but will also burn if exposed to sunlight.
-
-Possessed mobs :
-
-- Are generally slower than human players.
-- Do not have hunger, but can sprint nonetheless.
-- Do not naturally regenerate health. Please read the [Special item uses](#Special-Item-Uses) section for information on how to heal in other ways.
-- Do not receive any experience from combat unless wielding a Humanity enchanted weapon, but will still be able to obtain some from other sources (such as mining, fishing and breeding animals).
-- Do not have the strength to swing their sword in a manner to do area damage.
-
-Additionally, any passive behaviour from the possessed mob will be preserved.
-
-For example, players possessing an undead mob :
-
-- Do not suffocate underwater (but may convert if possessing a zombie).
-- Cannot swim (unless possessing a Drowned).
-- Are ignored by hostile mobs, unless the player attacks them, but will be targeted by golems.
-- Receive damage from instant health potion and health from instant damage potions.
-
-
-
-## Diets
-
-Some mobs do have a hunger bar when possessed, letting them regenerate more easily, but have some eating restrictions.
-
-- Regular villagers are vegetarian, and cannot eat any meat.
-- Illagers are carnist, and can only eat stuff with meat in it.
-- Witches are weirdly picky, and will only eat stuff no one reasonable would. Also mushrooms.
-- All the above can also eat baked goods like bread and pumpkin pies.
-- Piglins can only eat pork and golden food.
-
-## Special Item Uses
-
-Depending on the undead possessed, the player is able to use items differently from how he would if he was human.
-
-
-### Raw meat ("Zombie Snack")
-
-Raw meat can be eaten by Zombie players (all sub-types included) to regenerate health. 
-A piece of meat regenerates as much health as it would recover food for a human player.
-
-### Raw fish ("Drowned Delicacy")
-
-Raw fish can eaten by Drowned exclusively, and serves the same purpose raw meat does.
-
-
-### Bones ("Bony Prosthesis")
-
-Skeletons (all sub-types included) can replace their damaged bones by new ones. To do so, just use a bone and it will regenerate 4 health points (2 hearts).
-
-### Milk buckets ("Calcium Goodness")
-
-Skeletons (all sub-types included) can drink milk for extra bone resistance. Drinking a milk bucket grants the player Resistance for 30 seconds.
-
-### Bows ("Skeletal Efficiency")
-Using a bow as a Skeleton (all sub-types included) has a chance to not consume an arrow when shooting. This ability only applies to regular arrows. Resulting arrows are not recoverable.
-
-### Crossbows ("Bolt Hoarder")
-
-Using a crossbow as a piglin or a pillager has a chance to not consume ammunition when shooting. This ability applies to all kinds of crossbow ammunition, but with a lower chance than that of Skeletal Efficiency. Resulting arrows are not recoverable.
-
-### Tridents ("Drowned Grip")
-Throwing a trident as a Drowned has a chance to keep it in hand and duplicate it. Resulting tridents are not recoverable.
-
-### Water Bottles ("Witch's Brew Base")
-
-Witches can brew potions on the fly: when they are holding a water bottle, witches will
-automatically brew the potion they need to survive certain situations.
+- Dying from a **Zombie or a Drowned *while in the dark*** will turn the player into a **Zombie**
+- Dying in **lava** while being in the **Nether** will turn the player into a **Wither Skeleton**
+- Dying from **suffocation by sand** will turn the player into a **Husk**
+- Drowning in an **ocean far enough from the surface** will turn the player into a **Drowned**
+  - As Vanilla game behavior guarantees, **staying too long underwater as a Zombie will turn the player into a Drowned**
 
 ## Becoming Human Again
 
 To recover their humanity and get rid of their rotting body, an undead player has to go through the purification
-process every Zombie Villager must. By getting the Weakness effect, undead players are able to eat Golden Apples.
-Doing so results in the player turning back into human form. Note that only humanoid undead can be converted to player bodies.
+process every Zombie Villager must. By getting the **Weakness effect**, undead players are able to **eat Golden Apples**. After eating the Golden Apple, the weakness will turn into strength. As soon as the strength runs out, the **player turns back into human** form. This process **can even be done by others**, similar to how players can cure Zombie Villagers.
 
+**Note that only humanoid undead can be converted to player bodies.**
+
+There are also some special conversions for certain mobs:
+
+- **Zombie Villagers will turn into Villagers after being cured**. These Villagers will be **possessable** without the need of removing their soul.
+- **Zombified Piglins will turn into Piglins or Piglin Brutes**, depending on their previous life. Cured Piglins **won't zombify in the Overworld**.
