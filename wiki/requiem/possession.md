@@ -1,3 +1,8 @@
+---
+title: Possession
+layout: requiem_wiki
+---
+
 ## Mob Attributes
 
 After finding a new host or transforming after death, the player is forced to play as a mob. **Possessor players behave**
@@ -17,7 +22,7 @@ After finding a new host or transforming after death, the player is forced to pl
 - Axolotls can play dead, Goats can ram mobs
 - Pillagers can ride Ravagers, Zombified Piglins can ride Striders
 
-![Pillager riding Ravager](img\PillagerRavager.png)
+![Pillager riding Ravager](img/PillagerRavager.png)
 
 ## Mob Interactions
 
@@ -27,7 +32,9 @@ This Mechanic **can be configured using [gamerules](configuration#gamerules)**.
 
 ## Loot Mechanics
 
-Possessed mobs also **do not receive any experience from combat** and **won't be able to obtain rare drops** like Spider Eyes or Blaze Rods. To bypass that problem, **Humanity I** books can be found in **Nether Fortresses** and upgraded to **Humanity II** by a [**Mortician**](mortician#humanity-trade).
+Possessed mobs also **do not receive any experience from combat** and **won't be able to obtain rare drops** 
+like Spider Eyes or Blaze Rods. To bypass that problem, **Humanity I** books can be found in **Nether Fortresses**
+and upgraded to **Humanity II** by a [**Mortician**](mortician#humanity-trade).
 
 **Humanity I**-enchanted swords allow players to get the **rarer drops**, 
 
@@ -43,7 +50,7 @@ Some mobs do have a hunger bar when possessed, letting them regenerate more easi
 - **All the above** can also eat **baked goods** like bread and pumpkin pies.
 - **Piglins** can only eat **pork** and **golden food**.
 
-![Witch Diet](img\WitchDiet.png)
+![Witch Diet](img/WitchDiet.png)
 
 ## Special Item Mechanics
 
@@ -98,6 +105,6 @@ Using a **crossbow as a piglin or a pillager** has a **chance to not consume amm
 
 This ability, **not being assigned to any entity** by default, completely removes the need for ammunition.
 
-#### ![Totem of Skeletonizations](img\totem_of_skeletonization.png)Totem of Skeletonization
+#### ![Totem of Skeletonizations](img/totem_of_skeletonization.png)Totem of Skeletonization
 
 This variant of the Totem of Undying will **revive you as a Skeleton** once you die. It must be held just like the Totem of Undying and works independent from hosts. **The Totem of Skeletonization is currently unobtainable**.
