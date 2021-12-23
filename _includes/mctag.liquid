@@ -6,7 +6,7 @@
         <label for="{{ editor-id }}-toggle" data-toggle="tooltip" title="Toggle Editor"><span>📝</span></label>
     </span>
     <div>
-        <h5 class="no_toc">
+        <h5 id="{{ include.type }}-tag-{{ include.name | remove: ".json" | slugify }}" class="no_toc">
             <a href="{{ include.path }}/{{ include.name }}" class="tag-name">{{ include.name }}</a>
             {% if include.tag.since %}<span class="badge badge-secondary">&gt; {{ include.tag.since }}</span>{% endif %}
             {% if include.tag.removed %}<span class="badge badge-danger">&lt; {{ include.tag.removed }}</span>{% endif %}
