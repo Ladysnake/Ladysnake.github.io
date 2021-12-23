@@ -5,8 +5,9 @@ current:
     ref: gameplay
 
   - title: Possession
-    icon: /img/PossessionIcon.png
-    hover_icon: /img/PossessionIconActive.png
+    icon: img/PossessionIcon.png
+    hover_icon: img/PossessionIconActive.png
+    pixel_art: true
     ref: possession
 
   - title: Effects
