@@ -9,7 +9,7 @@ The Mortician is a dead Piglin Trader selling items that are crucial to remnant 
 
 By default, Morticians won't attack but once provoked they will **remove souls** from mobs and **curse the player** with [**Penance**](effects#penance) in order to defend themselves.
 
-If you manage to kill a Mortician it will always drop a **Soul Vessel**.
+If you manage to kill a Mortician, it will always drop a **Soul Vessel**.
 
 ![Fighting Mortician](img/FightingMortician.png)
 
@@ -39,9 +39,9 @@ The Humanity Trade can be used to **upgrade a [Humanity I](possession#loot-mecha
 
 #### Ichor Trades
 
-The Ichor Trades allow to trade in [filled Soul Vessels](soul-vessels#filled-soul-vessel) with different Souls for the [4 different Ichors](soul-vessels#ichor-vessels).
+The Ichor Trades allow trading in [filled Soul Vessels](soul-vessels#filled-soul-vessel) with different Souls for the [4 different Ichors](soul-vessels#ichor-vessels).
 
-![Emancipation Vessel](img/ichor_vessel_emancipation.png)A **Villager** Soul can be traded into **Emancipation** in the Overworld, replaced by a **Pigling** Soul in the Nether.
+![Emancipation Vessel](img/ichor_vessel_emancipation.png)A **Villager** Soul can be traded into **Emancipation** in the Overworld, replaced with a **Piglin** Soul in the Nether.
 
 ![Reclamation Vessel](img/ichor_vessel_reclamation.png)**Reclamation** Ichor requires an **Axolotl** Soul,
 
@@ -53,6 +53,6 @@ The Ichor Trades allow to trade in [filled Soul Vessels](soul-vessels#filled-sou
 
 #### Ethereal Mortician
 
-Morticians spawning due to [Soul Rifts](obelisks#soul-rift) will have a **varied appearance** an be slightly **translucent**.
+Morticians spawning due to [Soul Rifts](obelisks#soul-rift) will have a **varied appearance** and be slightly **translucent**.
 
 ![Ethereal Mortician](img/EtherealMortician.png)

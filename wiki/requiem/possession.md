@@ -64,7 +64,7 @@ A piece of meat regenerates as much health as it would recover food for a human 
 
 #### Raw fish ("Drowned Delicacy")
 
-**Raw fish can eaten by Drowned** exclusively, and serves the same purpose raw meat does.
+**Raw fish can be eaten by Drowned** exclusively, and serves the same purpose raw meat does.
 
 
 #### Bones ("Bony Prosthesis")
@@ -107,4 +107,7 @@ This ability, **not being assigned to any entity** by default, completely remove
 
 #### ![Totem of Skeletonizations](img/totem_of_skeletonization.png)Totem of Skeletonization
 
-This variant of the Totem of Undying will **revive you as a Skeleton** once you die. It must be held just like the Totem of Undying and works independent from hosts. **The Totem of Skeletonization is currently unobtainable**.
+This variant of the Totem of Undying will **revive you as a Skeleton** once you die.
+It must be held just like the Totem of Undying and works independent of hosts.
+
+**The Totem of Skeletonization is currently unobtainable**.

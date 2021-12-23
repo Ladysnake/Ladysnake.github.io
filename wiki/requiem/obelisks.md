@@ -17,7 +17,7 @@ An Obelisk also requires **Soul Sand or Soul Soil** in order to **power** up wit
 Soul Sand and Soul Soil must be placed **below** the Obelisk with a clear **line of sight** in between block and structure.
 The valid area to place your Soul blocks is a square with the side length `10*width of the core` with the Obelisk in its center.
 
-An Obelisk will effect remnant players in a square shaped area of `10*width+10` blocks radius.
+An Obelisk will affect remnant players in a square shaped area of `10*width+10` blocks radius.
 
 ![Obelisk Tutorial](img/ObeliskTutorial.png)
 
@@ -41,7 +41,7 @@ Once they are imbued they can not be changed but will **grant their Soul Effect*
 
 The Soul Rift can be crafted using 4 Tachylite Runestones, 4 Crying Obisian and 1 Enderpearl.
 They will allow **dissociated remnant players** to **teleport** between different Soul Rifts as long as they **do not have [Attrition IV](effects#attrition)**.
-Rifts will also **increase the level of Attrition** upon teleport.
+Rifts will also **increase the level of Attrition** upon teleportation.
 
 Active Soul Rifts also have the side effect of attracting [**Ethereal Morticians**](mortician#ethereal-mortician) to roam around their Obelisk.
 
