@@ -358,7 +358,7 @@ In order to get an aura, please **follow the instructions [here](https://illumin
 
 #### I want to change my aura / the color of my prismatic auras / disable it, what do I do?
 
-If you have donated multiple times, you may have multiple auras and may want to select a specific one. Or you may just simply want to change your prismatic color or disable your aura. **You can do all this via the [Illuminations dashboard](https://illuminations.glitch.me/)** with no restrictions whatsoever.
+If you have donated multiple times, you may have multiple auras and may want to select a specific one. Or you may just simply want to change your prismatic color or disable your aura. **You can do all this via the [Illuminations dashboard](https://illuminations.uuid.gg)** with no restrictions whatsoever.
 
 ## Gallery
 
