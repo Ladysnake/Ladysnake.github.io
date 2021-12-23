@@ -1,3 +1,8 @@
+---
+name: Mortician
+layout: requiem_wiki
+---
+
 ## Mortician
 
 The Mortician is a dead Piglin Trader selling items that are crucial to remnant gameplay such as [Soul Vessels](soul-vessels#empty-soul-vessel). Their prices usually include a **base item** and some **Gold Ingots**, a fee for the processing of the base item. 
@@ -6,7 +11,7 @@ By default, Morticians won't attack but once provoked they will **remove souls**
 
 If you manage to kill a Mortician it will always drop a **Soul Vessel**.
 
-![Fighting Mortician](img\FightingMortician.png)
+![Fighting Mortician](img/FightingMortician.png)
 
 ### Trades
 
@@ -14,13 +19,13 @@ If you manage to kill a Mortician it will always drop a **Soul Vessel**.
 
 Using this trade as a mortal player allows you to obtain a [**Sealed Remnant Vessel**](soul-vessels#sealed-remnant-vessel) for **1 Netherite Ingot** and **32 Gold Ingots**, which, upon using, will release the remnant caught inside and change your **Soul Type to remnant**.
 
-![Mortal Trade](img\MorticianMortal.png)
+![Mortal Trade](img/MorticianMortal.png)
 
 
 
 Remnants will be able to bring a [**Soul Vessel**](soul-vessels#empty-soul-vessel) as well as a **Netherite Ingot** to the Mortician in order to let it trap their remnant inside the Soul Vessel, **turning them back to a mortal**.
 
-![Remnant Trade](img\MorticianRemnant.png)
+![Remnant Trade](img/MorticianRemnant.png)
 
 
 
@@ -36,18 +41,18 @@ The Humanity Trade can be used to **upgrade a [Humanity I](possession#loot-mecha
 
 The Ichor Trades allow to trade in [filled Soul Vessels](soul-vessels#filled-soul-vessel) with different Souls for the [4 different Ichors](soul-vessels#ichor-vessels).
 
-![Emancipation Vessel](img\ichor_vessel_emancipation.png)A **Villager** Soul can be traded into **Emancipation** in the Overworld, replaced by a **Pigling** Soul in the Nether.
+![Emancipation Vessel](img/ichor_vessel_emancipation.png)A **Villager** Soul can be traded into **Emancipation** in the Overworld, replaced by a **Pigling** Soul in the Nether.
 
-![Reclamation Vessel](img\ichor_vessel_reclamation.png)**Reclamation** Ichor requires an **Axolotl** Soul,
+![Reclamation Vessel](img/ichor_vessel_reclamation.png)**Reclamation** Ichor requires an **Axolotl** Soul,
 
-![Attrition Vessel](img\ichor_vessel_attrition.png)**Attrition** uses **Ghast** Souls and
+![Attrition Vessel](img/ichor_vessel_attrition.png)**Attrition** uses **Ghast** Souls and
 
-![Penance Vessel](img\ichor_vessel_penance.png)**Penance** Ichor can be bought with **Pillager** Souls.
+![Penance Vessel](img/ichor_vessel_penance.png)**Penance** Ichor can be bought with **Pillager** Souls.
 
-![Mortician Menu](img\MorticianMenu.png)
+![Mortician Menu](img/MorticianMenu.png)
 
 #### Ethereal Mortician
 
 Morticians spawning due to [Soul Rifts](obelisks#soul-rift) will have a **varied appearance** an be slightly **translucent**.
 
-![Ethereal Mortician](img\EtherealMortician.png)
+![Ethereal Mortician](img/EtherealMortician.png)
