@@ -5,7 +5,7 @@ layout: requiem_wiki
 
 ## ![Shattered Soul Vessel](img/shattered_soul_vessel.png)Shattered Soul Vessel 
 
-Shattered Soul Vessels can be found with a 20% chance (with an additional 10% per fortune level) by mining **[Derelict Tachylite](obelisks#derelict-tachylite----)**. Despite not being useful on their own, they can be **repaired by the [Mortician](#mortician)** for the small fee of a Gold Ingot.
+Shattered Soul Vessels can be found with a 20% chance (with an additional 10% per fortune level) by mining **[Derelict Tachylite](obelisks#derelict-tachylite----)**. Despite not being useful on their own, they can be **repaired by the [Mortician](mortician)** for the small fee of a Gold Ingot.
 
 ![Shattered Soul Vessel Trade](img/ShatteredSoulVesselTrade.png)
 
