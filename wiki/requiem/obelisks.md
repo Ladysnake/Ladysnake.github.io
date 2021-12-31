@@ -21,8 +21,6 @@ An Obelisk will affect remnant players in a square shaped area of `10*width+10` 
 
 ![Obelisk Tutorial](img/ObeliskTutorial.png)
 
-![Obelisks](img/ObeliskPreview.png)
-
 
 
 ### Runestones
