@@ -3,6 +3,10 @@
 - name: soul_interactable
   description: Specifies which blocks can be interacted with (right-clicked) by incorporeal players.
   since: 2.0.0
+- name: wandering_soul_traversable
+  description: Specifies which blocks wandering souls (souls released from a vessel) can just fly through.
+  since: 2.0.0
+  upcoming: true
 - name: obelisk
   children:
     - name: frame
