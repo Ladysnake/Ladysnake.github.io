@@ -1,6 +1,7 @@
 ---
 title: Requiem Wiki
 layout: default
+no_anchor_headings: true
 ---
 
 <nav aria-label="breadcrumb">

@@ -62,7 +62,11 @@
 <!-- START SECTION -->
 <div class="container">
     {% capture icon %}{% include svg/octicon-link.svg %}{% endcapture %}
+    {% if page.no_anchor_headings %}
+    {{ content }}
+    {% else %}
     {% include anchor_headings.liquid html=content anchorBody=icon anchorClass="header-anchor" %}
+    {% endif %}
 </div>
 
 {% include scrolltop.liquid %}
