@@ -3,6 +3,7 @@ title: Impersonate
 slug: impersonate
 layout: wiki
 curse_project: 360333
+modrinth: true
 ---
 
 Have you ever wanted to impersonate another player ? Be it for making machinimas, roleplaying, playing 5D chess in factions, or just pranking friends, there are lots of (relatively) good reasons to assume the identity of someone else.

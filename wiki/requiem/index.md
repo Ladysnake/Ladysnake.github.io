@@ -4,6 +4,7 @@ slug: requiem
 mod_logo: requiem_icon_0.png
 layout: wiki
 curse_project: 265729
+modrinth: true
 ---
 
 <strong style="font-size: x-large;">Requiem has a [wiki](landing)!</strong>
