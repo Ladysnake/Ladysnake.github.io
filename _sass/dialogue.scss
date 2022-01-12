@@ -1,0 +1,143 @@
+#new_dialogue_state {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.5rem;
+  width: 95%;
+  padding-top: 2rem;
+  border-top: 2px solid var(--button-hover-outline);
+
+  input {
+    width: 99%;
+    margin-left: 2px;
+  }
+
+  &_name {
+    border: none;
+    display: block;
+    height: 45px;
+    background-color: var(--button-background);
+    text-align: left;
+    margin-bottom: 2px;
+    padding-left: 1rem;
+  }
+}
+
+#dialogue-state-properties {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-auto-rows: minmax(3.1rem, max-content);
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+  background-color: var(--button-background);
+  padding: 1rem;
+  align-items: center;
+
+  input {
+    background-color: transparent;
+    border: 1px solid var(--button-outline);
+    padding: 0.5rem;
+
+    &[type="radio"] + label {
+      margin-right: 3rem;
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.dialogue-global-properties {
+  h3 {
+    display: block;
+  }
+
+  input, select {
+    margin-left: 0.5rem;
+    margin-right: 2rem;
+  }
+
+  select {
+    background-color: var(--base-background-color);
+    border: 1px solid var(--button-outline);
+    &:hover {
+      border-color: var(--button-hover-outline);
+    }
+  }
+}
+
+.dialogue-state-flex {
+  display: flex;
+}
+
+#dialogue-state-action-value {
+  flex-grow: 2;
+  &:disabled {
+    border-color: transparent;
+    color: transparent;
+  }
+}
+
+.dialogue-footer {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+}
+
+.dialogue-import-export {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  background-color: var(--base-background-color);
+  border-top: 1px solid var(--button-outline);
+  outline: 2px solid var(--base-background-color);
+
+  svg {
+    margin-right: 1rem;
+  }
+}
+
+#dialogue-import {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+
+  & + label {
+    display: flex;
+    align-items: center;
+  }
+}
+
+#dialogue-export {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+#dialogue-state-text {
+  width: 100%;
+  &:disabled {
+    border-color: transparent;
+    color: transparent;
+  }
+}
+
+.dialogue-choice-editor select, #dialogue-state-properties > *:nth-child(even) {
+  width: 100%;
+}
+
+.dialogue-choice-editor select, #dialogue-state-action-type {
+  background-color: transparent;
+  border: none;
+  padding: 1rem;
+  option {
+    background-color: var(--base-background-color);
+  }
+}
+
+.dialogue-choice-editor th select {
+  padding: 0 0 0 2rem;
+  text-align: center;
+}

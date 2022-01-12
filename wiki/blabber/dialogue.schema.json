@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ladysnake.github.io/wiki/blabber/dialogue.schema.json",
+  "title": "Dialogue",
+  "description": "A dialogue to be given to a player",
+  "type": "object",
+  "properties": {
+    "start_at": {
+      "description": "The entrypoint for this dialogue",
+      "type": "string"
+    },
+    "unskippable": {
+      "description": "If true, players will not be able to leave the dialogue screen before completion",
+      "type": "boolean"
+    },
+    "states": {
+      "description": "Available states for the dialogue",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "The type of the current state",
+            "type": "string"
+          },
+          "action": {
+            "description": "The action to run when arriving to this state",
+            "type": "object",
+            "properties": {
+              "type": {
+                "description": "The type of action to run",
+                "type": "string"
+              },
+              "value": {
+                "description": "Optional value used to configure the action; depends on the type of action"
+              }
+            },
+            "required": ["type"]
+          },
+          "text": {
+            "description": "The heading text to be displayed before the choices",
+            "$ref": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/text_component.json"
+          },
+          "choices": {
+            "description": "Available choices for the player",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "description": "The line of text corresponding to the given choice item",
+                  "$ref": "https://raw.githubusercontent.com/Levertion/minecraft-json-schema/master/java/shared/text_component.json"
+                },
+                "next": {
+                  "description": "The id of the state to switch to when selecting this choice",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "required": ["text"]
+      }
+    }
+  },
+  "required": [ "start_at", "states" ]
+}

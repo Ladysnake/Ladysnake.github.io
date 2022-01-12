@@ -1,0 +1,92 @@
+---
+layout: default
+no_anchor_headings: true
+---
+<div class="dialogue-properties">
+    <h1>Blabber Dialogue Editor</h1>
+    <div class="dialogue-global-properties">
+        <h3>Global Properties</h3>
+        <label for="dialogue-unskippable">Unskippable</label><input type="checkbox" id="dialogue-unskippable"/>
+        <label for="dialogue-start-at">Start at: </label><select id="dialogue-start-at"></select>
+        <label for="dialogue-text-format">Text Format: </label><select id="dialogue-text-format">
+        <option value="literal">📃 Literal Text</option>
+        <option value="translate">🌐 Translation Key</option>
+        <option value="json">💻 Raw JSON</option>
+    </select>
+    </div>
+</div>
+<div class="wiki-container">
+    <div class="toc-pane">
+        <h3>Dialogue States</h3>
+        <nav class="toc">
+            <ul id="dialogue-state-list">
+
+            </ul>
+            <div id="new_dialogue_state">
+                <label for="new_dialogue_state_name">New Dialogue State:</label>
+                <input id="new_dialogue_state_name" type="text" placeholder="first_steps, goodbyes, ..."/>
+                <input id="new_dialogue_state_submit" type="submit" class="btn btn-success btn-sm" value="New State">
+                <p id="new_dialogue_state_log"></p>
+            </div>
+        </nav>
+    </div>
+    <div class="main">
+        <h3>State Properties</h3>
+        <fieldset id="dialogue-state-properties">
+            <label>Type</label>
+            <span>
+                <input type="radio" value="default" checked id="dialogue-state-default-type" name="dialogue-state-type"><label for="dialogue-state-default-type">Default</label>
+                <input type="radio" value="ask_confirmation" id="dialogue-state-confirm-type" name="dialogue-state-type"><label for="dialogue-state-confirm-type">Confirm</label>
+                <input type="radio" value="end_dialogue" id="dialogue-state-ending-type" name="dialogue-state-type"><label for="dialogue-state-ending-type">Ending</label>
+            </span>
+            <label for="dialogue-state-action">Action</label>
+            <span class="dialogue-state-flex" id="dialogue-state-action">
+                <select id="dialogue-state-action-type">
+                    <option selected value="">No Action</option>
+                    <option value="blabber:command">Command</option>
+                    <option value="requiem:remnant_choice">[Requiem] Remnant Choice</option>
+                </select>
+                <input type="text" id="dialogue-state-action-value"/>
+            </span>
+            <label for="dialogue-state-text">Text</label>
+            <span class="dialogue-state-flex">
+                <input type="text" class="mc-text-input" id="dialogue-state-text"/>
+            </span>
+        </fieldset>
+        <!-- Editable table -->
+        <div class="card dialogue-choice-editor">
+            <h3 class="no_toc card-header font-weight-bold py-4 dialogue-editor-header">
+                Available Choices
+                <span class="table-add float-right mb-3 mr-2"><button type="button"
+                                                                      class="btn btn-success btn-rounded btn-sm my-0">New choice</button></span>
+            </h3>
+            <div class="card-body">
+                <div class="table-editable">
+                    <table class="table table-bordered table-responsive-md table-striped text-center">
+                        <thead>
+                        <tr>
+                            <th class="text-center">Text</th>
+                            <th class="text-center table-buttons">Next State</th>
+                            <th class="text-center table-buttons">Sort</th>
+                            <th class="text-center table-buttons">Remove</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dialogue-footer">
+    <div class="dialogue-import-export">
+        <input id="dialogue-import" type="file" accept="application/json"><label class="btn btn-info" for="dialogue-import">{% include svg/octicon-upload.svg %} Upload JSON dialogue file</label>
+        <button class="btn btn-warning" id="dialogue-export">{% include svg/octicon-download.svg %} Download JSON dialogue file</button>
+    </div>
+    <p id="dialogue-global-log"></p>
+</div>
+
+<script src="/scripts/FileSaver.min.js"></script>
+<script src="/scripts/editable-table.js"></script>
+<script src="/scripts/dialogue-editing.js"></script>
