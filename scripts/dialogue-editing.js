@@ -1,31 +1,5 @@
-let data = {
-    start_at: 'a',
-    states: {
-        a: {
-            text: 'aaa',
-            choices: [
-                {
-                    'text': 'bbb',
-                    'next': 'b',
-                },
-                {
-                    'text': 'ccc',
-                    'next': 'c',
-                }
-            ]
-        },
-        b: {
-            text: 'bbb',
-            choices: []
-        },
-        c: {
-            text: 'ccc',
-            choices: []
-        }
-    }
-};
-
 (() => {
+    let data = {};
 
     const choiceEditor = document.querySelector('.dialogue-choice-editor');
     const startInput = document.getElementById('dialogue-start-at');

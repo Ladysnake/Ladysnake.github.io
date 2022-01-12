@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ladysnake.github.io/wiki/blabber/dialogue.schema.json",
+  "start_at": "start",
+  "states": {
+    "start": {
+      "text": "Do you want potatoes?",
+      "choices": [
+        { "text": "Yes please!", "next": "accept" },
+        { "text": "No thanks.", "next": "refuse" }
+      ]
+    },
+    "accept": {
+      "text": "Alright, have potatoes",
+      "choices": [
+        { "text": "ok", "next": "end_success" }
+      ]
+    },
+    "refuse": {
+      "text": "Are you sure?",
+      "choices": [
+        { "text": "I changed my mind.", "next": "accept" },
+        { "text": "yes", "next": "end_failure" }
+      ]
+    },
+    "end_success": {
+      "type": "end_dialogue",
+      "action": { "type": "blabber:command", "value": "/give @s potato 12" }
+    },
+    "end_failure": {
+      "type": "end_dialogue"
+    }
+  }
+}
