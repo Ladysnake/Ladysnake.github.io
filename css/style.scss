@@ -101,6 +101,9 @@ div.itemThing div:hover .overlayCopy {
 	opacity: 1;
 }
 #printLogo {
+	@media print {
+		visibility: collapse;
+	}
 	position: relative;
 	cursor: pointer;
 	svg {
@@ -239,6 +242,12 @@ h1 {
 .home {
 	border-bottom: 0;
 	text-align: center;
+}
+
+.breadcrumb {
+	@media print {
+		visibility: collapse;
+	}
 }
 
 /* DATAPACK GENERATION */

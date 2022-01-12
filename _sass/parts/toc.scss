@@ -9,6 +9,10 @@
 }
 
 .toc-pane {
+  @media print {
+    visibility: collapse;
+  }
+
   overflow: auto;
   width: 33rem;
   flex-shrink: 0.3;
