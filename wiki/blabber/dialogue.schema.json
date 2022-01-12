@@ -21,7 +21,8 @@
         "properties": {
           "type": {
             "description": "The type of the current state",
-            "type": "string"
+            "type": "string",
+            "enum": ["default", "ask_confirmation", "end_dialogue"]
           },
           "action": {
             "description": "The action to run when arriving to this state",
@@ -29,7 +30,8 @@
             "properties": {
               "type": {
                 "description": "The type of action to run",
-                "type": "string"
+                "type": "string",
+                "pattern": "^[a-z0-9_-]+:[a-z0-9/_-]+$"
               },
               "value": {
                 "description": "Optional value used to configure the action; depends on the type of action"
@@ -59,7 +61,7 @@
             }
           }
         },
-        "required": ["text"]
+        "required": []
       }
     }
   },
