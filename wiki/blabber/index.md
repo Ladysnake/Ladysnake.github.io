@@ -2,7 +2,7 @@
 layout: wiki
 title: Blabber
 slug: blabber
-curse_project: 483059
+curse_project: 565396
 ---
 
 Are you a modpack maker who wants their players to talk to more than a quest book?
@@ -67,7 +67,7 @@ Here's the JSON file corresponding to what we just described:
 
 ### Online Dialogue Maker
 
-If you are allergic to code, try this online tool: [blabber dialogue generator](dialogue_generator.html)
+If you are allergic to code, try this online tool: [blabber dialogue editor](dialogue_generator.html)
 
 ## Using Blabber (for developers)
 

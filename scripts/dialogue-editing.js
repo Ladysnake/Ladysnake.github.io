@@ -31,13 +31,18 @@
     }
 
     function initDialogueEditor() {
-        for (const state in data.states) {
-            appendStateToSelect(startInput, state);
+        if (data.states) {
+            document.getElementById('dialogue-state-pane').hidden = false;
+            for (const state in data.states) {
+                appendStateToSelect(startInput, state);
+            }
+            const textFormat = detectTextFormat();
+            document.getElementById('dialogue-text-format').querySelectorAll('option').forEach(el => el.selected = el.value === textFormat);
+        } else {
+            document.getElementById('dialogue-state-pane').hidden = true;
         }
         document.getElementById('dialogue-unskippable').checked = data.unskippable;
         document.getElementById('dialogue-start-at').value = data.start_at;
-        const textFormat = detectTextFormat();
-        document.getElementById('dialogue-text-format').querySelectorAll('option').forEach(el => el.selected = el.value === textFormat);
     }
 
     initDialogueEditor();
@@ -67,7 +72,15 @@
         }
     });
 
+    function refreshStateType() {
+        const endsDialogue = data.states[selectedState].type === 'end_dialogue';
+        document.getElementById('dialogue-state-text').disabled = endsDialogue;
+        document.querySelectorAll('.not-dialogue-ending').forEach(el => el.hidden = endsDialogue);
+    }
+
     function initTable(newState) {
+        if (!data.states) return;
+
         selectedState = newState;
 
         for (let choice of data.states[selectedState].choices ?? []) {
@@ -81,9 +94,8 @@
             el.checked = selectedType === el.value;
         });
 
-        const stateTextField = document.getElementById('dialogue-state-text');
-        stateTextField.disabled = data.states[selectedState].type === 'end_dialogue';
-        stateTextField.value = importDialogueText(data.states[selectedState].text);
+        refreshStateType();
+        document.getElementById('dialogue-state-text').value = importDialogueText(data.states[selectedState].text);
         const actionTypeField = document.getElementById('dialogue-state-action-type');
         actionTypeField.querySelectorAll('option').forEach(el => el.selected = el.value === (data.states[selectedState].action?.type ?? ''));
         const actionValueField = document.getElementById('dialogue-state-action-value');
@@ -101,7 +113,7 @@
     document.querySelectorAll('input[name="dialogue-state-type"]').forEach(el => {
         el.addEventListener('change', e => {
             data.states[selectedState].type = e.target.value;
-            document.getElementById('dialogue-state-text').disabled = e.target.value === 'end_dialogue';
+            refreshStateType();
         });
     });
     document.getElementById('dialogue-state-action-type').addEventListener('change', e => {
@@ -131,6 +143,13 @@
 
         li.append(a);
         stateList.append(li);
+
+        if (!selectedState) {
+            selectedState = state;
+            document.getElementById('dialogue-state-pane').hidden = false;
+            document.getElementById('dialogue-export').disabled = false;
+            document.getElementById('dialogue-start-at').disabled = false;
+        }
     }
 
     function appendStateToSelect(select, state) {
@@ -164,6 +183,7 @@
     const submitNewState = () => {
         const input = document.getElementById('new_dialogue_state_name');
         const log = document.getElementById('new_dialogue_state_log');
+        if (!data.states) data.states = {};
 
         if (!input.value) {
             log.textContent = 'Enter a name for the new state';
@@ -221,9 +241,11 @@
     });
 
     window.addEventListener('beforeunload', function (e) {
-        // Cancel the event
-        e.preventDefault(); // If you prevent default behavior in Mozilla Firefox prompt will always be shown
-        // Chrome requires returnValue to be set
-        e.returnValue = '';
+        if (data.states) {
+            // Cancel the event
+            e.preventDefault(); // If you prevent default behavior in Mozilla Firefox prompt will always be shown
+            // Chrome requires returnValue to be set
+            e.returnValue = '';
+        }
     });
 })();
