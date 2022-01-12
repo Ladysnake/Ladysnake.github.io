@@ -2,14 +2,19 @@
     let data = {};
 
     document.getElementById('dialogue-editor').hidden = false;
-    document.getElementById('dialogue-export').disabled = true;
-    document.getElementById('dialogue-start-at').disabled = true;
 
-    const choiceEditor = document.querySelector('.dialogue-choice-editor');
+    const exportButton = document.getElementById('dialogue-export');
     const startInput = document.getElementById('dialogue-start-at');
+    const unskippableInput = document.getElementById('dialogue-unskippable');
+    const choiceEditor = document.querySelector('.dialogue-choice-editor');
     const stateList = document.getElementById('dialogue-state-list');
 
     let selectedState = data.start_at;
+
+    exportButton.disabled = true;
+    startInput.disabled = true;
+    startInput.addEventListener('change', e => data.start_at = e.target.value);
+    unskippableInput.addEventListener('change', e => data.unskippable = e.target.value);
 
     function importDialogueText(text) {
         if (!text) return '';
@@ -45,8 +50,8 @@
         } else {
             document.getElementById('dialogue-state-pane').hidden = true;
         }
-        document.getElementById('dialogue-unskippable').checked = data.unskippable;
-        document.getElementById('dialogue-start-at').value = data.start_at;
+        unskippableInput.checked = data.unskippable;
+        startInput.value = data.start_at;
     }
 
     initDialogueEditor();
@@ -55,7 +60,7 @@
         element: choiceEditor,
         rowTemplate: `
           <td class="input-cell"><input class="dialogue-choice-text-input mc-text-input" type="text" placeholder="bla bla bla"/></td>
-          <td class="input-cell"><select class="dialogue-next-input"></td>
+          <td class="input-cell"><select class="dialogue-choice-next-input"></td>
           <td class="table-buttons"><span class="table-up"><button>🔼</button></span><span class="table-down"><button>🔽</button></span></td>
           <td class="table-buttons"><span class="table-remove"><button type="button">❌</button></span></td>
         `,
@@ -64,7 +69,8 @@
             row.querySelector('.dialogue-choice-text-input').addEventListener('change', e => {
                 data.states[selectedState].choices[row.rowIndex - 1].text = exportDialogueText(e.target.value);
             });
-            const select = row.querySelector('.dialogue-next-input');
+            const select = row.querySelector('.dialogue-choice-next-input');
+            select.addEventListener('change', e => data.states[selectedState].choices[row.rowIndex - 1].next = e.target.value);
             for (const state in data.states) {
                 appendStateToSelect(select, state);
             }
@@ -151,8 +157,8 @@
         if (!selectedState) {
             selectedState = state;
             document.getElementById('dialogue-state-pane').hidden = false;
-            document.getElementById('dialogue-export').disabled = false;
-            document.getElementById('dialogue-start-at').disabled = false;
+            exportButton.disabled = false;
+            startInput.disabled = false;
         }
     }
 
@@ -213,7 +219,7 @@
     document.getElementById('new_dialogue_state_submit').addEventListener('click', submitNewState);
 
     function loadData() {
-        document.getElementById('dialogue-start-at').textContent = '';
+        startInput.textContent = '';
         selectedState = data.start_at;
         initDialogueEditor();
         resetStateList();
@@ -240,7 +246,7 @@
         }
     });
 
-    document.getElementById('dialogue-export').addEventListener('click', () => {
+    exportButton.addEventListener('click', () => {
         saveAs(new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'}), 'my-dialogue.json');
     });
 
