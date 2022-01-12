@@ -10,24 +10,41 @@ no_anchor_headings: true
     </ol>
 </nav>
 
-<div class="dialogue-properties">
-    <h1>Blabber Dialogue Editor</h1>
-    <div class="dialogue-global-properties">
-        <h3>Global Properties</h3>
-        <label for="dialogue-unskippable">Unskippable</label><input type="checkbox" id="dialogue-unskippable"/>
-        <label for="dialogue-start-at">Start at: </label><select id="dialogue-start-at"></select>
-        <label for="dialogue-text-format">Text Format: </label><select id="dialogue-text-format">
-        <option value="literal">📃 Literal Text</option>
-        <option value="translate">🌐 Translation Key</option>
-        <option value="json">💻 Raw JSON</option>
-    </select>
+<h1>Blabber Dialogue Editor</h1>
+
+<noscript>
+    <p>
+        Sorry, this page requires Javascript to function. Here's a few options for you:
+    </p>
+
+    <ul>
+        <li><a href="https://www.whatismybrowser.com/guides/how-to-enable-javascript/auto">Try enabling Javascript on your browser</a></li>
+        <li><a href="index">Go back to Blabber's description</a></li>
+        <li><a href="dialogue.schema.json">Look at the Dialogue Schema specification</a></li>
+    </ul>
+</noscript>
+
+<div id="dialogue-editor" hidden>
+    <div class="dialogue-properties">
+        <div class="dialogue-global-properties">
+            <h3>Global Properties</h3>
+            <div>
+                <span><label for="dialogue-unskippable">Unskippable</label><input type="checkbox" id="dialogue-unskippable"/></span>
+                <span><label for="dialogue-start-at">Start at: </label><select id="dialogue-start-at"></select></span>
+                <span><label for="dialogue-text-format">Text Format: </label>
+                <select id="dialogue-text-format">
+                    <option value="literal">📃 Literal Text</option>
+                    <option value="translate">🌐 Translation Key</option>
+                    <option value="json">💻 Raw JSON</option>
+                </select></span>
+            </div>
+        </div>
     </div>
-</div>
-<div class="wiki-container">
-    <div class="toc-pane">
-        <h3>Dialogue States</h3>
-        <nav class="toc">
-            <ul id="dialogue-state-list">
+    <div class="wiki-container">
+        <div class="toc-pane">
+            <h3>Dialogue States</h3>
+            <nav class="toc">
+                <ul id="dialogue-state-list">
 
                 </ul>
                 <div id="new_dialogue_state">

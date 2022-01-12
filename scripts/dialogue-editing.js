@@ -1,6 +1,10 @@
 (() => {
     let data = {};
 
+    document.getElementById('dialogue-editor').hidden = false;
+    document.getElementById('dialogue-export').disabled = true;
+    document.getElementById('dialogue-start-at').disabled = true;
+
     const choiceEditor = document.querySelector('.dialogue-choice-editor');
     const startInput = document.getElementById('dialogue-start-at');
     const stateList = document.getElementById('dialogue-state-list');

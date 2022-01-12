@@ -51,9 +51,18 @@
     display: block;
   }
 
+  div {
+    display: flex;
+    justify-content: space-around;
+  }
+
   input, select {
     margin-left: 0.5rem;
     margin-right: 2rem;
+
+    &:disabled {
+      background-color: var(--button-background);
+    }
   }
 
   select {
