@@ -16,7 +16,7 @@ Just write your dialogue description files, then start them on demand!
 
 Like that:
 
-(image pending)
+![Example Dialogue Screen](example-dialogue-screen.png)
 
 ## How it works
 
