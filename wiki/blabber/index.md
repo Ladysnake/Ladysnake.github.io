@@ -3,6 +3,7 @@ layout: wiki
 title: Blabber
 slug: blabber
 curse_project: 565396
+extra_toc_links: extra/blabber_editor_link.liquid
 ---
 
 Are you a modpack maker who wants their players to talk to more than a quest book?
