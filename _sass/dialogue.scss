@@ -49,6 +49,7 @@
 .dialogue-global-properties {
   h3 {
     display: block;
+    margin-bottom: 1rem;
   }
 
   div {
@@ -56,12 +57,20 @@
     justify-content: space-around;
   }
 
-  input, select {
-    margin-left: 0.5rem;
-    margin-right: 2rem;
+  span {
+    display: flex;
+    flex-direction: column;
+  }
 
+  input, select {
     &:disabled {
       background-color: var(--button-background);
+      border-color: var(--button-background);
+      cursor: not-allowed;
+
+      &:hover {
+        border-color: var(--color-danger);
+      }
     }
   }
 
@@ -71,6 +80,30 @@
     &:hover {
       border-color: var(--button-hover-outline);
     }
+  }
+}
+
+.yes-no-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  & + label, & + label + label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      position: absolute;
+      left: 0.5rem;
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+  &:checked + label {
+    visibility: collapse;
+  }
+  &:not(:checked) + label + label {
+    visibility: collapse;
   }
 }
 

@@ -59,11 +59,12 @@
 	color: #0e6d5a;
 }
 
-.btn-success {
+.btn-success, .btn-yes {
 	background-color: #2ecc71;
 
 	&:hover {
 		background-color: #27ae60;
+		color: #fff;
 	}
 }
 
@@ -83,10 +84,12 @@
 	}
 }
 
-.btn-danger {
+.btn-danger, .btn-no {
 	background-color: #e74c3c;
+	color: #fff;
 
 	&:hover {
 		background-color: #c0392b;
+		color: #fff;
 	}
 }

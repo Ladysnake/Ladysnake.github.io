@@ -29,9 +29,9 @@ no_anchor_headings: true
         <div class="dialogue-global-properties">
             <h3>Global Properties</h3>
             <div>
-                <span><label for="dialogue-unskippable">Unskippable</label><input type="checkbox" id="dialogue-unskippable"/></span>
-                <span><label for="dialogue-start-at">Start at: </label><select id="dialogue-start-at"></select></span>
-                <span><label for="dialogue-text-format">Text Format: </label>
+                <span><label for="dialogue-unskippable">Can this dialogue be skipped?</label><input type="checkbox" class="yes-no-input" id="dialogue-unskippable"/><label for="dialogue-unskippable" class="btn btn-xs btn-success">{% include svg/checked-box.svg %} Yes</label><label for="dialogue-unskippable" class="btn btn-xs btn-no">{% include svg/unchecked-box.svg %} No</label></span>
+                <span><label for="dialogue-start-at">At which state should this dialogue start? </label><select id="dialogue-start-at"></select></span>
+                <span><label for="dialogue-text-format">Which format should this editor use for texts? </label>
                 <select id="dialogue-text-format">
                     <option value="literal">📃 Literal Text</option>
                     <option value="translate">🌐 Translation Key</option>

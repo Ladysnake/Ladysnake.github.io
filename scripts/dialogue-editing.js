@@ -118,8 +118,6 @@
         initTable(newState);
     }
 
-    initTable(selectedState);
-
     document.querySelectorAll('input[name="dialogue-state-type"]').forEach(el => {
         el.addEventListener('change', e => {
             data.states[selectedState].type = e.target.value;
@@ -155,7 +153,7 @@
         stateList.append(li);
 
         if (!selectedState) {
-            selectedState = state;
+            initTable(selectedState);
             document.getElementById('dialogue-state-pane').hidden = false;
             exportButton.disabled = false;
             startInput.disabled = false;

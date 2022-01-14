@@ -47,12 +47,15 @@
     }
   }
 
+  .toc-highlighted-link, .toc-external-link {
+    border-left: 5px solid var(--button-hover-outline);
+  }
+
   .toc-external-link {
     font-weight: bold;
     padding-top: 0;
     padding-bottom: 0;
     margin: 0.4rem 0;
-    border-left: 5px solid var(--button-hover-outline);
     height: 1.6em;
     svg {
       margin-right: 0.5em;
