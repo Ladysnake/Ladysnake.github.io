@@ -153,7 +153,7 @@
         stateList.append(li);
 
         if (!selectedState) {
-            initTable(selectedState);
+            initTable(state);
             document.getElementById('dialogue-state-pane').hidden = false;
             exportButton.disabled = false;
             startInput.disabled = false;
