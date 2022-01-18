@@ -6,7 +6,6 @@ function initEditor({ element, rowTemplate, rowInitializer = () => {}, rowSwapLi
         newTr.innerHTML = rowTemplate;
         $tableBody.append(newTr);
         const $input = newTr.querySelector("input");
-        $input.focus();
         // Stop editing when pressing enter
         $input.addEventListener('keydown', function(e) {
             if (e.code === 'Enter') {
@@ -33,6 +32,8 @@ function initEditor({ element, rowTemplate, rowInitializer = () => {}, rowSwapLi
         rowInitializer(newTr);
         return newTr;
     }
-    element.querySelectorAll('.table-add').forEach(a => a.addEventListener('click', appendRow));
+    element.querySelectorAll('.table-add').forEach(a => a.addEventListener('click', () => {
+        appendRow().querySelector('input[type=text]')?.focus();
+    }));
     return appendRow;
 }

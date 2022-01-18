@@ -16,9 +16,17 @@
     startInput.addEventListener('change', e => data.start_at = e.target.value);
     unskippableInput.addEventListener('change', e => data.unskippable = e.target.value);
 
+    const textFormatSelect = document.getElementById('dialogue-text-format');
+
+    function refreshMcTextPlaceholders(parent = document) {
+        parent.querySelectorAll('.mc-text-input').forEach(el => {
+            el.placeholder = (el.dataset[`placeholder${textFormatSelect.value.charAt(0).toUpperCase()}${textFormatSelect.value.substring(1)}`] ?? '').replaceAll('{state}', selectedState);
+        });
+    }
+
     function importDialogueText(text) {
         if (!text) return '';
-        switch (document.getElementById('dialogue-text-format').value) {
+        switch (textFormatSelect.value) {
             case 'literal': return text;
             case 'translate': return text.translate;
             default: return JSON.stringify(text);
@@ -27,7 +35,7 @@
 
     function exportDialogueText(text) {
         if (!text) return undefined;
-        switch (document.getElementById('dialogue-text-format').value) {
+        switch (textFormatSelect.value) {
             case 'literal': return text;
             case 'translate': return {translate: text};
             default: return JSON.parse(text);
@@ -46,10 +54,11 @@
                 appendStateToSelect(startInput, state);
             }
             const textFormat = detectTextFormat();
-            document.getElementById('dialogue-text-format').querySelectorAll('option').forEach(el => el.selected = el.value === textFormat);
+            textFormatSelect.querySelectorAll('option').forEach(el => el.selected = el.value === textFormat);
         } else {
             document.getElementById('dialogue-state-pane').hidden = true;
         }
+
         unskippableInput.checked = data.unskippable;
         startInput.value = data.start_at;
     }
@@ -59,7 +68,7 @@
     const appendRow = initEditor({
         element: choiceEditor,
         rowTemplate: `
-          <td class="input-cell"><input class="dialogue-choice-text-input mc-text-input" type="text" placeholder="bla bla bla"/></td>
+          <td class="input-cell"><input class="dialogue-choice-text-input mc-text-input" type="text" data-placeholder-literal="bla bla bla" data-placeholder-translate="mymod:dialogue.my_dialogue.{state}.bla"/></td>
           <td class="input-cell"><select class="dialogue-choice-next-input"></td>
           <td class="table-buttons"><span class="table-up"><button>🔼</button></span><span class="table-down"><button>🔽</button></span></td>
           <td class="table-buttons"><span class="table-remove"><button type="button">❌</button></span></td>
@@ -74,6 +83,7 @@
             for (const state in data.states) {
                 appendStateToSelect(select, state);
             }
+            refreshMcTextPlaceholders(row);
         },
         rowSwapListener: (row, prevIdx, idx) => {
             const swap = data.states[selectedState].choices[idx];
@@ -91,7 +101,13 @@
     function initTable(newState) {
         if (!data.states) return;
 
+        if (selectedState) {
+            document.querySelector(`li[data-state=${selectedState}]`).classList.remove('toc-highlighted-link');
+        }
+
         selectedState = newState;
+
+        document.querySelector(`li[data-state=${newState}]`).classList.add('toc-highlighted-link');
 
         for (let choice of data.states[selectedState].choices ?? []) {
             const tr = appendRow();
@@ -105,12 +121,12 @@
         });
 
         refreshStateType();
+        refreshMcTextPlaceholders();
         document.getElementById('dialogue-state-text').value = importDialogueText(data.states[selectedState].text);
         const actionTypeField = document.getElementById('dialogue-state-action-type');
         actionTypeField.querySelectorAll('option').forEach(el => el.selected = el.value === (data.states[selectedState].action?.type ?? ''));
-        const actionValueField = document.getElementById('dialogue-state-action-value');
-        actionValueField.value = data.states[selectedState].action?.value ?? '';
-        actionValueField.disabled = !actionTypeField.value;
+        document.getElementById('dialogue-state-action-value').value = data.states[selectedState].action?.value ?? '';
+        actionTypeField.dispatchEvent(new Event('change'));
     }
 
     function resetTable(newState) {
@@ -128,7 +144,10 @@
         data.states[selectedState].action = {
             type: e.target.value
         };
-        document.getElementById('dialogue-state-action-value').disabled = !e.target.value;
+        const actionValueField = document.getElementById('dialogue-state-action-value');
+        const placeholder = e.target.querySelector('option:checked').dataset.placeholder;
+        actionValueField.disabled = !placeholder;
+        actionValueField.placeholder = placeholder;
     });
     document.getElementById('dialogue-state-action-value').addEventListener('change', e => {
         const action = data.states[selectedState].action;
@@ -137,10 +156,16 @@
     document.getElementById('dialogue-state-text').addEventListener('change', e =>
         data.states[selectedState].text = exportDialogueText(e.target.value)
     );
-    document.getElementById('dialogue-text-format').addEventListener('change', () => document.querySelectorAll('.mc-text-input').forEach(el => el.dispatchEvent(new Event('change'))));
+    textFormatSelect.addEventListener('change', () => {
+        document.querySelectorAll('.mc-text-input').forEach(el => {
+            el.dispatchEvent(new Event('change'));
+        });
+        refreshMcTextPlaceholders();
+    });
 
     function appendStateToList(state) {
         const li = document.createElement('li');
+        li.dataset.state = state;
         const a = document.createElement('a');
         a.href = `#${state}`;
         a.textContent = state;

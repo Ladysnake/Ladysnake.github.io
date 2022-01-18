@@ -48,7 +48,7 @@ no_anchor_headings: true
 
                 </ul>
                 <div id="new_dialogue_state">
-                    <label for="new_dialogue_state_name">New Dialogue State:</label>
+                    <label for="new_dialogue_state_name">Pick an internal ID for a new dialogue state:</label>
                     <input id="new_dialogue_state_name" type="text" placeholder="first_steps, goodbyes, ..."/>
                     <input id="new_dialogue_state_submit" type="submit" class="btn btn-success btn-sm" value="New State">
                     <p id="new_dialogue_state_log"></p>
@@ -68,14 +68,14 @@ no_anchor_headings: true
                 <span class="dialogue-state-flex" id="dialogue-state-action">
                     <select autocomplete="off" id="dialogue-state-action-type">
                         <option selected value="">No Action</option>
-                        <option value="blabber:command">Command</option>
-                        <option value="requiem:remnant_choice">[Requiem] Remnant Choice</option>
+                        <option value="blabber:command" data-placeholder="/say hi, /effect give @s strength, ...">Command</option>
+                        <option value="requiem:remnant_choice" data-placeholder="requiem:remnant, ratsmischief:ratified, ...">[Requiem] Remnant Choice</option>
                     </select>
                     <input type="text" id="dialogue-state-action-value"/>
                 </span>
                 <label for="dialogue-state-text" class="not-dialogue-ending">Text</label>
                 <span class="dialogue-state-flex not-dialogue-ending">
-                    <input type="text" class="mc-text-input" id="dialogue-state-text"/>
+                    <input type="text" class="mc-text-input" id="dialogue-state-text" data-placeholder-literal="Welcome traveller, ..." data-placeholder-translate="mymod:dialogue.my_dialogue.{state}.text"/>
                 </span>
             </fieldset>
             <!-- Editable table -->

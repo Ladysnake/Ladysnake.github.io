@@ -6,6 +6,10 @@
   padding-top: 2rem;
   border-top: 2px solid var(--button-hover-outline);
 
+  label {
+    white-space: normal;
+  }
+
   input {
     width: 99%;
     margin-left: 2px;
@@ -44,6 +48,10 @@
       margin-left: 0.5rem;
     }
   }
+}
+
+#dialogue-state-pane {
+  width: 100%;
 }
 
 .dialogue-global-properties {
