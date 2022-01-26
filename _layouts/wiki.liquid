@@ -41,9 +41,8 @@ header_preprocessor: mod_header_preprocessor.liquid
 	</div>
 	<div class="main">
 		<h1 id="{{ page.slug }}" class="wiki-title">
-			<img alt="{{ page.name }} logo"
-				src="/img/{% if page.mod_logo %}{{ page.mod_logo }}{% else %}{{ page.slug }}.png{% endif %}"
-				class="h1-wiki-icon">
+			<img src="/img/{% if page.mod_logo %}{{ page.mod_logo }}{% else %}{{ page.slug }}.png{% endif %}"
+				alt="{{ page.name }} logo" class="h1-wiki-icon">
 			&nbsp;{{ page.title }}&nbsp;
 			<span onclick="print()" id="printLogo" data-modName="{{ page.title }}">{% include svg/print-icon.svg %}</span>
 		</h1>

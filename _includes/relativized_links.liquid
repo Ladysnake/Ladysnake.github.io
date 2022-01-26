@@ -1,0 +1,31 @@
+{% comment %}Big brain liquid script to replace every absolute link with a relative version for subdomain support.{% endcomment %}
+{% comment %}What? No I'm not parsing HTML with regex. It's way worse than that! hahahahahahahahahahahahaha{% endcomment%}
+{% capture src_attr %} {{ include.src_attr }}="{% endcapture %}
+{% capture tag_opening %}<{{ include.tag }}{% endcapture %}
+
+{% assign chunks = include.html | split: tag_opening %}
+{% comment %}First chunk is definitely not a script tag{% endcomment %}
+{% capture edited_html %}{{ chunks[0] }}{% endcapture %}
+{% assign chunks = chunks | shift %}
+
+{% for chunk in chunks %}
+    {% assign node = chunk | split: '>' | first %}
+    {% capture after %}{{ chunk | remove_first: node }}{% endcapture %}
+    {% assign workspace = node | split: src_attr %}{% comment %}[misc_node_attrs, src+misc_node_attrs]{% endcomment %}
+
+    {% assign workspace_size = workspace | size %}
+    {% unless workspace_size > 1 %}{% comment %}No src attribute = no processing required for this chunk{% endcomment %}
+        {% capture edited_html %}{{ edited_html }}{{ tag_opening }}{{ chunk }}{% endcapture %}
+        {% continue %}
+    {% endunless %}
+
+    {% capture before %}{{ tag_opening }}{{ workspace[0] }}{{ src_attr }}{% endcapture %}
+    {% comment %} Only one src attribute per tag, so we can assume the array has only length 2 {%endcomment%}
+    {% assign url = workspace[1] | split: '"' | first %}
+    {% capture after %}{{ workspace[1] | remove_first: url }}{{ after }}{% endcapture %}
+    {% assign first_char = url | slice: 0, 1 %}
+    {% comment %}it's actually easier to just remove the possibly existing base url than to check for its existence first{% endcomment %}
+    {% if first_char == '/' %}{% assign url=url | remove_first: site.baseurl | relative_url %}{% endif %}
+    {% capture edited_html %}{{ edited_html }}<!--detected {{ tag }}: {{ node }}-->{{ before }}{{ url }}{{ after }}{% endcapture %}
+{% endfor %}
+{{ edited_html }}
