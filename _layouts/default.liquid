@@ -1,8 +1,7 @@
+{% capture html %}
 <!DOCTYPE html>
 <html lang="en-US">
-
 {% include header.liquid %}
-
 <body>
 <!-- Custom Night mode Option -->
 <script src="/scripts/darkmode.js"></script>
@@ -62,11 +61,10 @@
 <!-- START SECTION -->
 <div class="container">
     {% capture icon %}{% include svg/octicon-link.svg %}{% endcapture %}
-    {% if page.no_anchor_headings %}
+    {% unless page.no_anchor_headings %}
+    {% capture content %}{% include anchor_headings.liquid html=content anchorBody=icon anchorClass="header-anchor" %}{% endcapture %}
+    {% endunless %}
     {{ content }}
-    {% else %}
-    {% include anchor_headings.liquid html=content anchorBody=icon anchorClass="header-anchor" %}
-    {% endif %}
 </div>
 
 {% include scrolltop.liquid %}
@@ -93,8 +91,8 @@
     setupDarkModeButton()
 </script>
 <script src="/scripts/effects.js"></script>
-<!--Datapack editing-->
 {% if page.datapack_editor %}
+    <!--Datapack editing-->
     <script src="/scripts/jszip.min.js"></script>
     <script src="/scripts/FileSaver.min.js"></script>
     <script>
@@ -117,3 +115,8 @@
 </body>
 
 </html>
+{% endcapture %}
+{% capture html %}{% include relativized_links.liquid html=html src_attr="src" tag="script" %}{% endcapture %}
+{% capture html %}{% include relativized_links.liquid html=html src_attr="src" tag="img" %}{% endcapture %}
+{% capture html %}{% include relativized_links.liquid html=html src_attr="href" tag="a" %}{% endcapture %}
+{{ html | strip }}
