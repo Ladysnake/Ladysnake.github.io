@@ -1,0 +1,3 @@
+{% unless og_img %}{% if page.mod_slug %}{% capture og_img %}/img/{{page.mod_slug}}.png{% endcapture %}{% endif %}{% endunless %}
+{% unless og_img_alt %}{% capture og_img_alt %}{{ page.mod_name }} Logo{% endcapture %}{% endunless %}
+{% unless meta_desc %}{% capture meta_desc %}Information about the {{ page.mod_name }} mod{% endcapture %}{% endunless %}

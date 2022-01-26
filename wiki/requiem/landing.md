@@ -2,6 +2,10 @@
 title: Requiem Wiki
 layout: default
 no_anchor_headings: true
+og:
+    desc: All* the information you need about Requiem
+    img: /img/requiem.png
+    img_alt: Requiem Logo
 ---
 
 <nav aria-label="breadcrumb">

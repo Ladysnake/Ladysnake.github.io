@@ -1,0 +1,3 @@
+{% unless og_img %}{% if page.slug %}{% capture og_img %}/img/{{page.slug}}.png{% endcapture %}{% endif %}{% endunless %}
+{% unless og_img_alt %}{% capture og_img_alt %}{{ page.title }} Logo{% endcapture %}{% endunless %}
+{% unless meta_desc %}{% capture meta_desc %}The {{ page.title }} Mod: Download it from our site!{% endcapture %}{% endunless %}
