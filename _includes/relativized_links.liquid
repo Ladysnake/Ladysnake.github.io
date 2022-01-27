@@ -25,10 +25,9 @@
     {% assign url_workspace = workspace[1] | split: '"' %}{% comment %}[src, ...misc_node_attrs]{% endcomment %}
     {% assign url = url_workspace[0] %}
     {% assign first_char = url | slice: 0, 1 %}
-    {% if first_char == '/' %}{% assign resolved_url = url | relative_url %}
-    {% else %}resolved_url = url{% endif %}
+    {% if first_char == '/' %}{% assign url = url | relative_url %}{% endif %}
     {% assign workspace_size = url_workspace |  size %}
     {% capture after %}{{ workspace[1] | remove_first: url }}{{ after }}{% endcapture %}
-    {% capture edited_html %}{{ edited_html }}{{ before }}{{ resolved_url }}{{ after }}{% endcapture %}
+    {% capture edited_html %}{{ edited_html }}{{ before }}{{ url }}{{ after }}{% endcapture %}
 {% endfor %}
 {{ edited_html }}
