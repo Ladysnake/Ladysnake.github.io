@@ -60,9 +60,9 @@ no_anchor_headings: true
             <fieldset id="dialogue-state-properties">
                 <label>Type</label>
                 <span>
-                    <input type="radio" autocomplete="off" value="default" checked id="dialogue-state-default-type" name="dialogue-state-type"><label for="dialogue-state-default-type">Default</label>
-                    <input type="radio" autocomplete="off" value="ask_confirmation" id="dialogue-state-confirm-type" name="dialogue-state-type"><label for="dialogue-state-confirm-type">Confirm</label>
-                    <input type="radio" autocomplete="off" value="end_dialogue" id="dialogue-state-ending-type" name="dialogue-state-type"><label for="dialogue-state-ending-type">Ending</label>
+                    <input type="radio" autocomplete="off" class="layout-selection" value="default" checked id="dialogue-state-default-type" name="dialogue-state-type"><label for="dialogue-state-default-type"><span>Default</span>{% include_relative default-dialogue-layout.svg %}</label>
+                    <input type="radio" autocomplete="off" class="layout-selection" value="ask_confirmation" id="dialogue-state-confirm-type" name="dialogue-state-type"><label for="dialogue-state-confirm-type"><span>Confirm</span>{% include_relative confirm-dialogue-layout.svg %}</label>
+                    <input type="radio" autocomplete="off" class="layout-selection" value="end_dialogue" id="dialogue-state-ending-type" name="dialogue-state-type"><label for="dialogue-state-ending-type"><span>Ending</span>{% include_relative end-dialogue-layout.svg %}</label>
                 </span>
                 <label for="dialogue-state-action">Action</label>
                 <span class="dialogue-state-flex" id="dialogue-state-action">
