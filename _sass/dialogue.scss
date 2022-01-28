@@ -1,7 +1,10 @@
+#dialogue-state-list {
+  padding-bottom: 2.5rem;
+}
+
 #new_dialogue_state {
   display: flex;
   flex-direction: column;
-  margin-top: 2.5rem;
   width: 95%;
   padding-top: 2rem;
   border-top: 2px solid var(--button-hover-outline);
@@ -101,11 +104,14 @@
   div {
     display: flex;
     justify-content: space-around;
-  }
 
-  span {
-    display: flex;
-    flex-direction: column;
+    & > span {
+      display: flex;
+      flex-direction: column;
+      & > span {
+        margin-top: 0.2rem;
+      }
+    }
   }
 
   input, select {

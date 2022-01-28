@@ -174,6 +174,7 @@ import {validateDialogue} from "./dialogue-validation.js";
     })();
 
     textFormatSelect.addEventListener('change', () => {
+        document.getElementById('raw-text-tip').hidden = textFormatSelect.value !== 'json';
         document.querySelectorAll('.mc-text-input').forEach(el => {
             el.dispatchEvent(new Event('change'));
         });
