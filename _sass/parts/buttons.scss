@@ -61,6 +61,7 @@
 
 .btn-success, .btn-yes {
 	background-color: #2ecc71;
+	color: #fff;
 
 	&:hover {
 		background-color: #27ae60;
@@ -93,3 +94,34 @@
 		color: #fff;
 	}
 }
+
+.yes-no-input {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	&:focus + label.btn-yes, &:focus + label + label.btn-yes {
+		background-color: #449d44;
+	}
+	&:focus + label.btn-no, &:focus + label + label.btn-no {
+		background-color: #c9302c;
+	}
+	& + label, & + label + label {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		svg {
+			position: absolute;
+			left: 0.5rem;
+			height: 2rem;
+			width: 2rem;
+		}
+	}
+	&:checked + label {
+		visibility: collapse;
+	}
+	&:not(:checked) + label + label {
+		visibility: collapse;
+	}
+}
+

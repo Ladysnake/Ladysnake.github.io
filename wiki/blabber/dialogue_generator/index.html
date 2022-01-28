@@ -20,7 +20,7 @@ no_anchor_headings: true
     <ul>
         <li><a href="https://www.whatismybrowser.com/guides/how-to-enable-javascript/auto">Try enabling Javascript on your browser</a></li>
         <li><a href="index">Go back to Blabber's description</a></li>
-        <li><a href="dialogue.schema.json">Look at the Dialogue Schema specification</a></li>
+        <li><a href="../dialogue.schema.json">Look at the Dialogue Schema specification</a></li>
     </ul>
 </noscript>
 
@@ -29,8 +29,8 @@ no_anchor_headings: true
         <div class="dialogue-global-properties">
             <h3>Global Properties</h3>
             <div>
-                <span><label for="dialogue-unskippable">Can this dialogue be skipped?</label><input type="checkbox" class="yes-no-input" id="dialogue-unskippable"/><label for="dialogue-unskippable" class="btn btn-xs btn-success">{% include svg/checked-box.svg %} Yes</label><label for="dialogue-unskippable" class="btn btn-xs btn-no">{% include svg/unchecked-box.svg %} No</label></span>
-                <span><label for="dialogue-start-at">At which state should this dialogue start? </label><select id="dialogue-start-at"></select></span>
+                <span><label for="dialogue-unskippable">Can this dialogue be skipped?</label><input type="checkbox" class="yes-no-input" id="dialogue-unskippable"/><label for="dialogue-unskippable" class="btn btn-xs btn-yes">{% include svg/checked-box.svg %} Yes</label><label for="dialogue-unskippable" class="btn btn-xs btn-no">{% include svg/unchecked-box.svg %} No</label></span>
+                <span><label for="dialogue-start-at">At which state should this dialogue start? </label><select title="Starting state selector; requires at least one state to exist" id="dialogue-start-at"></select></span>
                 <span><label for="dialogue-text-format">Which format should this editor use for texts? </label>
                 <select id="dialogue-text-format">
                     <option value="literal">📃 Literal Text</option>
@@ -47,17 +47,17 @@ no_anchor_headings: true
                 <ul id="dialogue-state-list">
 
                 </ul>
-                <div id="new_dialogue_state">
+                <form id="new_dialogue_state">
                     <label for="new_dialogue_state_name">Pick an internal ID for a new dialogue state:</label>
-                    <input id="new_dialogue_state_name" type="text" placeholder="first_steps, goodbyes, ..."/>
+                    <input id="new_dialogue_state_name" pattern="[a-z0-9_-]+" type="text" placeholder="first_steps, goodbyes, ..."/>
                     <input id="new_dialogue_state_submit" type="submit" class="btn btn-success btn-sm" value="New State">
                     <p id="new_dialogue_state_log"></p>
-                </div>
+                </form>
             </nav>
         </div>
         <div class="main" id="dialogue-state-pane">
             <h3>State Properties</h3>
-            <fieldset id="dialogue-state-properties">
+            <form id="dialogue-state-properties">
                 <label>Type</label>
                 <span>
                     <input type="radio" autocomplete="off" class="layout-selection" value="default" checked id="dialogue-state-default-type" name="dialogue-state-type"><label for="dialogue-state-default-type"><span>Default</span>{% include_relative default-dialogue-layout.svg %}</label>
@@ -68,8 +68,8 @@ no_anchor_headings: true
                 <span class="dialogue-state-flex" id="dialogue-state-action">
                     <select autocomplete="off" id="dialogue-state-action-type">
                         <option selected value="">No Action</option>
-                        <option value="blabber:command" data-placeholder="/say hi, /effect give @s strength, ...">Command</option>
-                        <option value="requiem:remnant_choice" data-placeholder="requiem:remnant, ratsmischief:ratified, ...">[Requiem] Remnant Choice</option>
+                        <option value="blabber:command" data-pattern=".+" data-placeholder="say hi, /effect give @s strength, ...">Command</option>
+                        <option value="requiem:remnant_choice" data-pattern="[a-z0-9_-]+:[a-z0-9_/-]+" data-error-message="Must be a valid namespaced identifier (modid:name)" data-placeholder="requiem:remnant, ratsmischief:ratified, ...">[Requiem] Remnant Choice</option>
                     </select>
                     <input type="text" id="dialogue-state-action-value"/>
                 </span>
@@ -77,7 +77,7 @@ no_anchor_headings: true
                 <span class="dialogue-state-flex not-dialogue-ending">
                     <input type="text" class="mc-text-input" id="dialogue-state-text" data-placeholder-literal="Welcome traveller, ..." data-placeholder-translate="mymod:dialogue.my_dialogue.{state}.text"/>
                 </span>
-            </fieldset>
+            </form>
             <!-- Editable table -->
             <div class="card dialogue-choice-editor not-dialogue-ending">
                 <h3 class="no_toc card-header font-weight-bold py-4 dialogue-editor-header">
@@ -106,14 +106,16 @@ no_anchor_headings: true
     </div>
     <div class="dialogue-footer">
         <div id="dialogue-import-export">
-            <input id="dialogue-import" type="file" accept="application/json"><label class="btn btn-info" for="dialogue-import">{% include svg/octicon-upload.svg %} Upload JSON dialogue file</label>
-            <button class="btn btn-warning" id="dialogue-export">{% include svg/octicon-download.svg %} Download JSON dialogue file</button>
+            <input id="dialogue-import" type="file" accept="application/json"><label class="btn btn-info" for="dialogue-import">{% include svg/octicon-upload.svg %} Import JSON dialogue file</label>
+            <button class="btn btn-warning" id="dialogue-export">{% include svg/octicon-download.svg %} Export JSON dialogue file</button>
             <div class="drop-zone">{%include svg/octicon-upload.svg%} Drop a dialogue file <strong class="drop-zone">here</strong> to import</div>
         </div>
-        <p id="dialogue-global-log"></p>
+        <p class="dialogue-io-log info-log"></p>
+        <p class="dialogue-io-log warning-log"></p>
+        <p class="dialogue-io-log error-log"></p>
     </div>
 </div>
 
 <script src="/scripts/FileSaver.min.js"></script>
 <script src="/scripts/editable-table.js"></script>
-<script src="/scripts/dialogue-editing.js"></script>
+<script src="dialogue-editing.js" type="module"></script>

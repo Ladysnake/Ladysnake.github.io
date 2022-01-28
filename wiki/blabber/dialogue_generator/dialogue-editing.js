@@ -1,3 +1,5 @@
+import {validateDialogue} from "./dialogue-validation.js";
+
 (() => {
     let data = {};
 
@@ -50,7 +52,7 @@
     function initDialogueEditor() {
         if (data.states) {
             document.getElementById('dialogue-state-pane').hidden = false;
-            for (const state in data.states) {
+            for (const state of Object.keys(data.states)) {
                 appendStateToSelect(startInput, state);
             }
             const textFormat = detectTextFormat();
@@ -80,7 +82,7 @@
             });
             const select = row.querySelector('.dialogue-choice-next-input');
             select.addEventListener('change', e => data.states[selectedState].choices[row.rowIndex - 1].next = e.target.value);
-            for (const state in data.states) {
+            for (const state of Object.keys(data.states)) {
                 appendStateToSelect(select, state);
             }
             refreshMcTextPlaceholders(row);
@@ -98,6 +100,9 @@
         document.querySelectorAll('.not-dialogue-ending').forEach(el => el.hidden = endsDialogue);
     }
 
+    const actionTypeField = document.getElementById('dialogue-state-action-type');
+    const actionValueField = document.getElementById('dialogue-state-action-value');
+
     function initTable(newState) {
         if (!data.states) return;
 
@@ -109,7 +114,12 @@
 
         document.querySelector(`li[data-state=${newState}]`).classList.add('toc-highlighted-link');
 
-        for (let choice of data.states[selectedState].choices ?? []) {
+        // Reset choice table content
+        choiceEditor.querySelector('tbody').textContent = '';
+
+        if (!data.states[selectedState].choices) data.states[selectedState].choices = [];
+
+        for (let choice of data.states[selectedState].choices) {
             const tr = appendRow();
             tr.querySelector('.dialogue-choice-text-input').value = importDialogueText(choice.text);
             if (choice.next) tr.querySelector('.dialogue-choice-next-input').value = choice.next;
@@ -123,39 +133,46 @@
         refreshStateType();
         refreshMcTextPlaceholders();
         document.getElementById('dialogue-state-text').value = importDialogueText(data.states[selectedState].text);
-        const actionTypeField = document.getElementById('dialogue-state-action-type');
         actionTypeField.querySelectorAll('option').forEach(el => el.selected = el.value === (data.states[selectedState].action?.type ?? ''));
-        document.getElementById('dialogue-state-action-value').value = data.states[selectedState].action?.value ?? '';
+        actionValueField.value = data.states[selectedState].action?.value ?? '';
         actionTypeField.dispatchEvent(new Event('change'));
     }
 
-    function resetTable(newState) {
-        choiceEditor.querySelector('tbody').textContent = '';
-        initTable(newState);
-    }
-
-    document.querySelectorAll('input[name="dialogue-state-type"]').forEach(el => {
-        el.addEventListener('change', e => {
-            data.states[selectedState].type = e.target.value;
-            refreshStateType();
+    (function setupStatePropertiesForm() {
+        let patternErrorMessage;
+        document.querySelectorAll('input[name="dialogue-state-type"]').forEach(el => {
+            el.addEventListener('change', e => {
+                data.states[selectedState].type = e.target.value;
+                refreshStateType();
+            });
         });
-    });
-    document.getElementById('dialogue-state-action-type').addEventListener('change', e => {
-        data.states[selectedState].action = {
-            type: e.target.value
-        };
-        const actionValueField = document.getElementById('dialogue-state-action-value');
-        const placeholder = e.target.querySelector('option:checked').dataset.placeholder;
-        actionValueField.disabled = !placeholder;
-        actionValueField.placeholder = placeholder;
-    });
-    document.getElementById('dialogue-state-action-value').addEventListener('change', e => {
-        const action = data.states[selectedState].action;
-        if (action) action.value = e.target.value;
-    });
-    document.getElementById('dialogue-state-text').addEventListener('change', e =>
-        data.states[selectedState].text = exportDialogueText(e.target.value)
-    );
+        actionTypeField.addEventListener('change', e => {
+            if (!data.states[selectedState].action) data.states[selectedState].action = {};
+            data.states[selectedState].action.type = e.target.value;
+            const dataset = e.target.querySelector('option:checked').dataset;
+            const placeholder = dataset.placeholder;
+            actionValueField.disabled = !placeholder;
+            actionValueField.placeholder = placeholder;
+            actionValueField.pattern = dataset.pattern;
+            patternErrorMessage = dataset.errorMessage;
+        });
+        actionValueField.addEventListener('change', e => {
+            const action = data.states[selectedState].action;
+            if (action) action.value = e.target.value;
+        });
+        actionValueField.addEventListener('input', () => {
+            if (actionValueField.validity.patternMismatch && patternErrorMessage) {
+                actionValueField.setCustomValidity(patternErrorMessage);
+                actionValueField.reportValidity();
+            } else {
+                actionValueField.setCustomValidity('');
+            }
+        });
+        document.getElementById('dialogue-state-text').addEventListener('change', e =>
+            data.states[selectedState].text = exportDialogueText(e.target.value)
+        );
+    })();
+
     textFormatSelect.addEventListener('change', () => {
         document.querySelectorAll('.mc-text-input').forEach(el => {
             el.dispatchEvent(new Event('change'));
@@ -171,18 +188,11 @@
         a.textContent = state;
 
         a.addEventListener('click', () => {
-            resetTable(state);
+            initTable(state);
         });
 
         li.append(a);
         stateList.append(li);
-
-        if (!selectedState) {
-            initTable(state);
-            document.getElementById('dialogue-state-pane').hidden = false;
-            exportButton.disabled = false;
-            startInput.disabled = false;
-        }
     }
 
     function appendStateToSelect(select, state) {
@@ -198,67 +208,102 @@
             appendStateToSelect(select, state);
         }
         appendStateToSelect(startInput, state);
-    }
 
-    function initStateList() {
-        for (const state in data.states) {
-            appendStateToList(state);
+        if (!selectedState) {
+            initTable(state);
+            document.getElementById('dialogue-state-pane').hidden = false;
+            exportButton.disabled = false;
+            startInput.disabled = false;
+            startInput.dispatchEvent(new Event('change'));
         }
     }
 
     function resetStateList() {
         stateList.textContent = '';
-        initStateList();
+        for (const state of Object.keys(data.states)) {
+            appendState(state);
+        }
     }
 
-    initStateList();
+    (function setupNewStateForm() {
+        const stateNameField = document.getElementById('new_dialogue_state_name');
 
-    const submitNewState = () => {
-        const input = document.getElementById('new_dialogue_state_name');
-        const log = document.getElementById('new_dialogue_state_log');
-        if (!data.states) data.states = {};
+        stateNameField.addEventListener('input', e => {
+            if (e.target.validity.patternMismatch) {
+                e.target.setCustomValidity('Must be a valid non-namespaced identifier (lowercase letters, numbers and dashes/underscores only)');
+            } else if (data.states && stateNameField.value in data.states) {
+                stateNameField.setCustomValidity('A state with that name already exists');
+            } else {
+                e.target.setCustomValidity('');
+            }
+            e.target.reportValidity();
+        });
 
-        if (!input.value) {
-            log.textContent = 'Enter a name for the new state';
-        } else if (input.value in data.states) {
-            log.textContent = 'A state with that name already exists';
-        } else {
-            log.textContent = '';
-            const newState = input.value;
-            data.states[newState] = {
-                text: '',
-                choices: [],
-            };
-            appendState(newState);
-            input.value = '';
-        }
-    };
+        document.getElementById('new_dialogue_state').addEventListener('submit', e => {
+            const log = document.getElementById('new_dialogue_state_log');
+            if (!data.states) data.states = {};
 
-    document.getElementById('new_dialogue_state_name').addEventListener('keydown', e => {
-        if (e.code === 'Enter') {
-            submitNewState();
-        }
-    });
-    document.getElementById('new_dialogue_state_submit').addEventListener('click', submitNewState);
+            if (!stateNameField.value) {
+                stateNameField.setCustomValidity('Please enter a valid non-namespaced identifier');
+                stateNameField.reportValidity();
+            } else if (stateNameField.value in data.states) {
+                stateNameField.setCustomValidity('A state with that name already exists');
+                stateNameField.reportValidity();
+            } else {
+                log.textContent = '';
+                const newState = stateNameField.value;
+                data.states[newState] = {
+                    text: '',
+                    choices: [],
+                };
+                appendState(newState);
+                stateNameField.value = '';
+            }
+            e.preventDefault();
+        });
+    })();
 
     function loadData() {
+        selectedState = undefined;
         startInput.textContent = '';
         initDialogueEditor();
         resetStateList();
-        resetTable(data.start_at);
+        initTable(data.start_at);
     }
 
-    const log = document.getElementById('dialogue-global-log');
+    const ioInfoElement = document.querySelector('.dialogue-io-log.info-log');
+    const ioWarningElement = document.querySelector('.dialogue-io-log.warning-log');
+    const ioErrorElement = document.querySelector('.dialogue-io-log.error-log');
+    const logIoInfo = text => ioInfoElement.textContent = text;
+    const logIoWarning = text => ioWarningElement.textContent = text;
+    const logIoError = text => ioErrorElement.textContent = text;
+    const clearIoLogs = () => {
+        ioErrorElement.textContent = '';
+        ioInfoElement.textContent = '';
+        ioWarningElement.textContent = '';
+    }
 
     function loadDialogueFile(file) {
         if (!file.type.startsWith('application/json')) {
-            log.textContent = `${file.name} is not a valid JSON file`;
+            logIoError(`${file.name} is not a valid JSON file`);
             return;
         }
         const reader = new FileReader();
         reader.addEventListener('load', le => {
-            data = JSON.parse(le.target.result);
-            loadData();
+            try {
+                clearIoLogs();
+                const d = JSON.parse(le.target.result);
+                if (!d.states) {
+                    logIoError(`${file.name} is missing dialogue state data`);
+                } else {
+                    data = d;
+                    loadData();
+                    logIoInfo(`Loaded dialogue from ${file.name}`);
+                }
+            } catch (err) {
+                console.error(err);
+                logIoError(`Failed to read ${file.name}: ${err.message}`);
+            }
         });
         reader.readAsText(file);
     }
@@ -266,13 +311,13 @@
     document.getElementById('dialogue-import').addEventListener('change', e => {
         const curFiles = e.target.files;
         if(curFiles.length === 0) {
-            log.textContent = 'No files currently selected for upload';
+            logIoError('No files currently selected for upload');
         } else {
             loadDialogueFile(curFiles[0]);
         }
     });
 
-    (function () {
+    (function setupDragAndDrop() {
         const importArea = document.querySelector('#dialogue-import-export');
         const importAreaDropZone = importArea.querySelector('.drop-zone');
 
@@ -317,7 +362,10 @@
     })();
 
     exportButton.addEventListener('click', () => {
-        saveAs(new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'}), 'my-dialogue.json');
+        clearIoLogs();
+        if (validateDialogue(data, logIoError, logIoWarning)) {
+            saveAs(new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'}), 'my-dialogue.json');
+        }
     });
 
     window.addEventListener('beforeunload', function (e) {

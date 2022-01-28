@@ -68,7 +68,7 @@ Here's the JSON file corresponding to what we just described:
 
 ### Online Dialogue Maker
 
-If you are allergic to code, try this online tool: [blabber dialogue editor](dialogue_generator.html)
+If you are allergic to code, try this online tool: [blabber dialogue editor](dialogue_generator)
 
 ## Using Blabber (for developers)
 
