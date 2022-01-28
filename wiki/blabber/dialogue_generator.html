@@ -105,9 +105,10 @@ no_anchor_headings: true
         </div>
     </div>
     <div class="dialogue-footer">
-        <div class="dialogue-import-export">
+        <div id="dialogue-import-export">
             <input id="dialogue-import" type="file" accept="application/json"><label class="btn btn-info" for="dialogue-import">{% include svg/octicon-upload.svg %} Upload JSON dialogue file</label>
             <button class="btn btn-warning" id="dialogue-export">{% include svg/octicon-download.svg %} Download JSON dialogue file</button>
+            <div class="drop-zone">{%include svg/octicon-upload.svg%} Drop a dialogue file <strong class="drop-zone">here</strong> to import</div>
         </div>
         <p id="dialogue-global-log"></p>
     </div>

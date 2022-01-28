@@ -9,7 +9,7 @@
     const choiceEditor = document.querySelector('.dialogue-choice-editor');
     const stateList = document.getElementById('dialogue-state-list');
 
-    let selectedState = data.start_at;
+    let selectedState;
 
     exportButton.disabled = true;
     startInput.disabled = true;
@@ -112,7 +112,7 @@
         for (let choice of data.states[selectedState].choices ?? []) {
             const tr = appendRow();
             tr.querySelector('.dialogue-choice-text-input').value = importDialogueText(choice.text);
-            if (choice.next) tr.querySelector('.dialogue-next-input').value = choice.next;
+            if (choice.next) tr.querySelector('.dialogue-choice-next-input').value = choice.next;
         }
 
         document.querySelectorAll('input[name="dialogue-state-type"]').forEach(el => {
@@ -243,31 +243,78 @@
 
     function loadData() {
         startInput.textContent = '';
-        selectedState = data.start_at;
         initDialogueEditor();
         resetStateList();
-        resetTable(selectedState);
+        resetTable(data.start_at);
+    }
+
+    const log = document.getElementById('dialogue-global-log');
+
+    function loadDialogueFile(file) {
+        if (!file.type.startsWith('application/json')) {
+            log.textContent = `${file.name} is not a valid JSON file`;
+            return;
+        }
+        const reader = new FileReader();
+        reader.addEventListener('load', le => {
+            data = JSON.parse(le.target.result);
+            loadData();
+        });
+        reader.readAsText(file);
     }
 
     document.getElementById('dialogue-import').addEventListener('change', e => {
         const curFiles = e.target.files;
-        const log = document.getElementById('dialogue-global-log');
         if(curFiles.length === 0) {
             log.textContent = 'No files currently selected for upload';
         } else {
-            const file = curFiles[0];
-            if (!file.type.startsWith('application/json')) {
-                log.textContent = `${file.name} is not a valid JSON file`;
-                return;
-            }
-            const reader = new FileReader();
-            reader.addEventListener('load', le => {
-                data = JSON.parse(le.target.result);
-                loadData();
-            });
-            reader.readAsText(file);
+            loadDialogueFile(curFiles[0]);
         }
     });
+
+    (function () {
+        const importArea = document.querySelector('#dialogue-import-export');
+        const importAreaDropZone = importArea.querySelector('.drop-zone');
+
+        let draggingInWindow = 0;
+        let draggingInDropZone = 0;
+
+        importArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            try {
+                if (e.dataTransfer.items && e.dataTransfer.items.length) {
+                    // If dropped items aren't files, reject them
+                    if (e.dataTransfer.items[0].kind === 'file') {
+                        loadDialogueFile(e.dataTransfer.items[0].getAsFile());
+                    }
+                } else if (e.dataTransfer.files.length) {
+                    // Use DataTransfer interface to access the file(s)
+                    loadDialogueFile(e.dataTransfer.files[0])
+                }
+            } finally {
+                importAreaDropZone.classList.remove('active', 'hovered');
+                draggingInWindow = 0;
+                draggingInDropZone = 0;
+            }
+        });
+        document.body.addEventListener('dragenter', (e) => {
+            if (!(draggingInWindow++)) {
+                importAreaDropZone.classList.add('active');
+            }
+            if (e.target.classList.contains('drop-zone') && !(draggingInDropZone++)) {
+                importAreaDropZone.classList.add('hovered');
+            }
+        });
+        document.body.addEventListener('dragleave', (e) => {
+            if (!(--draggingInWindow)) {
+                importAreaDropZone.classList.remove('active');
+            }
+            if (e.target.classList.contains('drop-zone') && !(--draggingInDropZone)) {
+                importAreaDropZone.classList.remove('hovered');
+            }
+        });
+        importAreaDropZone.addEventListener('dragover', (e) => e.preventDefault());
+    })();
 
     exportButton.addEventListener('click', () => {
         saveAs(new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'}), 'my-dialogue.json');
