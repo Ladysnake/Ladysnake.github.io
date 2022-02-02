@@ -78,7 +78,10 @@ import {hsvToRgbString} from "./color-transform.js";
         const networkOptions = {
             edges: {
                 arrows: 'to',
-            }
+            },
+            interaction: {
+                zoomView: false,
+            },
         }
         const network = new Network(container, networkData, networkOptions);
         network.on('doubleClick', e => {
@@ -90,6 +93,11 @@ import {hsvToRgbString} from "./color-transform.js";
                 a.click();
             }
         });
+        network.on('select', e => network.setOptions({
+            interaction: {
+                zoomView: !!(e.nodes?.length || e.edges?.length),
+            }
+        }));
     }
 
     function loadDialogueData(newData, restoreSelectedState) {

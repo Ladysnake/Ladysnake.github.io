@@ -291,7 +291,7 @@ import BlabberDialogue from "./blabber-dialogue.js";
         storeDialogueToSession(dialogue, selectedState);
         dialogue.data.states = null;
         const a = document.createElement('a');
-        a.href = './graph-view#display';
+        a.href = './graph-view';
         a.click();
     });
 
