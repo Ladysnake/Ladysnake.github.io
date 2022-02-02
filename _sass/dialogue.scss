@@ -216,7 +216,7 @@
   }
 }
 
-#dialogue-export {
+#dialogue-import-export button {
   display: flex;
   align-items: center;
   margin-left: 1rem;
@@ -261,4 +261,8 @@
 .dialogue-choice-editor th select {
   padding: 0 0 0 2rem;
   text-align: center;
+}
+
+#dialogue-graph {
+  height: 85vh;
 }

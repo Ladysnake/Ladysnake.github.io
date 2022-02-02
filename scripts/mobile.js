@@ -30,14 +30,14 @@ let mobile = setInterval(function(){
     uhm = bigness || bigness2;
 
 
-    if (last != darkMode || uhm) {
-        last = darkMode;
+    if (last != darkMode.enabled || uhm) {
+        last = darkMode.enabled;
 
         /**
          * checks if the cookies contain darkmode=true.
          * If it does, then the dark mode image will be applied instead.
          */
-        let numMode = darkMode ? 1 : 0;
+        let numMode = darkMode.enabled ? 1 : 0;
 
         if (uhm) {
             logo.src = `/img/ladysnake_icon_${numMode}.png`;

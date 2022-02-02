@@ -1,16 +1,16 @@
-function validateStructure(data, logWarning, logError) {
+function validateStructure(dialogue, logWarning, logError) {
     const ancestors = {};
     const waitList = new Set();
     const unvalidated = new Set();
 
-    for (const state of Object.keys(data.states)) {
-        if (data.states[state].type === 'end_dialogue') {
+    for (const state of dialogue.states()) {
+        if (dialogue.stateData(state).type === 'end_dialogue') {
             waitList.add(state);
-        } else if (!data.states[state].choices) {
+        } else if (!dialogue.stateData(state).choices) {
             logError(`${state} has no available choices but is not an end state`);
         } else {
             unvalidated.add(state);
-            for (const {next} of data.states[state].choices) {
+            for (const {next} of dialogue.stateData(state).choices) {
                 if (!ancestors[next]) ancestors[next] = new Set();
                 ancestors[next].add(state);
             }
@@ -27,14 +27,14 @@ function validateStructure(data, logWarning, logError) {
                     waitList.add(ancestor);
                 }
             }
-        } else if (state !== data.start_at) {
+        } else if (state !== dialogue.startAt()) {
             logWarning(`${state} is unreachable`);
         }
     }
 
     for (const bad of unvalidated) {
         let log;
-        if (bad !== data.start_at && !ancestors[bad]) {
+        if (bad !== dialogue.startAt() && !ancestors[bad]) {
             // Unreachable states do not cause infinite loops, but we still want to be aware of them
             logWarning(`${bad} is unreachable`);
             log = logWarning;
@@ -45,11 +45,11 @@ function validateStructure(data, logWarning, logError) {
     }
 }
 
-export function validateDialogue(data, logError, logWarning) {
+export function validateDialogue(dialogue, logError, logWarning) {
     let warnings = [];
     let errors = [];
     try {
-        validateStructure(data, w => warnings.push(w), e => errors.push(e));
+        validateStructure(dialogue, w => warnings.push(w), e => errors.push(e));
     } catch (e) {
         console.error(e);
         errors.push(e.message);

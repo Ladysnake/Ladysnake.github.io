@@ -1,0 +1,14 @@
+---
+layout: default
+no_anchor_headings: true
+---
+{% include_relative header.liquid %}
+
+<div id="dialogue-editor" hidden>
+    <a id="display"></a>
+    <div id="dialogue-graph"></div>
+    {% include_relative footer.liquid toggleIcon='svg/view-dashboard-outline.svg' %}
+</div>
+
+<script src="/scripts/FileSaver.min.js"></script>
+<script src="dialogue-graph.js" type="module"></script>

@@ -2,27 +2,7 @@
 layout: default
 no_anchor_headings: true
 ---
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="/wiki/blabber">Blabber</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Dialogue Editor</li>
-    </ol>
-</nav>
-
-<h1>Blabber Dialogue Editor</h1>
-
-<noscript>
-    <p>
-        Sorry, this page requires Javascript to function. Here's a few options for you:
-    </p>
-
-    <ul>
-        <li><a href="https://www.whatismybrowser.com/guides/how-to-enable-javascript/auto">Try enabling Javascript on your browser</a></li>
-        <li><a href="index">Go back to Blabber's description</a></li>
-        <li><a href="../dialogue.schema.json">Look at the Dialogue Schema specification</a></li>
-    </ul>
-</noscript>
+{% include_relative header.liquid %}
 
 <div id="dialogue-editor" hidden>
     <div class="dialogue-properties">
@@ -106,16 +86,7 @@ no_anchor_headings: true
             </div>
         </div>
     </div>
-    <div class="dialogue-footer">
-        <div id="dialogue-import-export">
-            <input id="dialogue-import" type="file" accept="application/json"><label class="btn btn-info" for="dialogue-import">{% include svg/octicon-upload.svg %} Import JSON dialogue file</label>
-            <button class="btn btn-warning" id="dialogue-export">{% include svg/octicon-download.svg %} Export JSON dialogue file</button>
-            <div class="drop-zone">{%include svg/octicon-upload.svg%} Drop a dialogue file <strong class="drop-zone">here</strong> to import</div>
-        </div>
-        <p class="dialogue-io-log info-log"></p>
-        <p class="dialogue-io-log warning-log"></p>
-        <p class="dialogue-io-log error-log"></p>
-    </div>
+    {% include_relative footer.liquid toggleIcon='svg/graph-outline.svg' %}
 </div>
 
 <script src="/scripts/FileSaver.min.js"></script>

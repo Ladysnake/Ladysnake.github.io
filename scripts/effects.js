@@ -8,7 +8,7 @@ document.querySelectorAll('.hoverable-card').forEach(card => {
             refcount += inc;
             if (refcount) icon.src = hoverSrc;
             else icon.src = src;
-            setImgDarkMode(icon);
+            darkMode.setImgDarkMode(icon);
         }
         card.addEventListener('focus', () => update(1));
         card.addEventListener('blur', () => update(-1));
