@@ -264,5 +264,10 @@
 }
 
 #dialogue-graph {
-  height: 85vh;
+  height: 45vh;
+  text-align: center;
+  p {
+    font-weight: bold;
+    padding-top: 10rem;
+  }
 }

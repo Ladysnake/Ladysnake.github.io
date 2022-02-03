@@ -1,4 +1,4 @@
-import {loadDialogueFromSession, setupDialogueIo, storeDialogueToSession} from "./dialogue-common.js";
+import {commonDialogueInit, storeDialogueToSession} from "./dialogue-common.js";
 import BlabberDialogue from "./blabber-dialogue.js";
 
 (() => {
@@ -92,7 +92,10 @@ import BlabberDialogue from "./blabber-dialogue.js";
                 dialogue.stateData(selectedState).choices[row.rowIndex - 1].text = exportDialogueText(e.target.value);
             });
             const select = row.querySelector('.dialogue-choice-next-input');
-            select.addEventListener('change', e => dialogue.stateData(selectedState).choices[row.rowIndex - 1].next = e.target.value);
+            select.addEventListener('change', e => {
+                dialogue.stateData(selectedState).choices[row.rowIndex - 1].next = e.target.value;
+                dialogue.markDirty();
+            });
             for (const state of dialogue.states()) {
                 appendStateToSelect(select, state);
             }
@@ -102,6 +105,7 @@ import BlabberDialogue from "./blabber-dialogue.js";
             const swap = dialogue.stateData(selectedState).choices[idx];
             dialogue.stateData(selectedState).choices[idx] = dialogue.stateData(selectedState).choices[prevIdx];
             dialogue.stateData(selectedState).choices[prevIdx] = swap;
+            dialogue.markDirty();
         }
     });
 
@@ -154,12 +158,14 @@ import BlabberDialogue from "./blabber-dialogue.js";
         document.querySelectorAll('input[name="dialogue-state-type"]').forEach(el => {
             el.addEventListener('change', e => {
                 dialogue.stateData(selectedState).type = e.target.value;
+                dialogue.markDirty();
                 refreshStateType();
             });
         });
         actionTypeField.addEventListener('change', e => {
             if (!dialogue.stateData(selectedState).action) dialogue.stateData(selectedState).action = {};
             dialogue.stateData(selectedState).action.type = e.target.value;
+            dialogue.markDirty();
             const dataset = e.target.querySelector('option:checked').dataset;
             const placeholder = dataset.placeholder;
             actionValueField.disabled = !placeholder;
@@ -169,7 +175,10 @@ import BlabberDialogue from "./blabber-dialogue.js";
         });
         actionValueField.addEventListener('change', e => {
             const action = dialogue.stateData(selectedState).action;
-            if (action) action.value = e.target.value;
+            if (action) {
+                action.value = e.target.value;
+                dialogue.markDirty();
+            }
         });
         actionValueField.addEventListener('input', () => {
             if (actionValueField.validity.patternMismatch && patternErrorMessage) {
@@ -179,8 +188,10 @@ import BlabberDialogue from "./blabber-dialogue.js";
                 actionValueField.setCustomValidity('');
             }
         });
-        document.getElementById('dialogue-state-text').addEventListener('change', e =>
-            dialogue.stateData(selectedState).text = exportDialogueText(e.target.value)
+        document.getElementById('dialogue-state-text').addEventListener('change', e => {
+                dialogue.stateData(selectedState).text = exportDialogueText(e.target.value);
+                dialogue.markDirty();
+            }
         );
     })();
 
@@ -285,16 +296,11 @@ import BlabberDialogue from "./blabber-dialogue.js";
         if (newSelectedState) document.querySelector('.wiki-container').scrollIntoView({behavior: 'smooth'});
     }
 
-    setupDialogueIo(dialogue, loadDialogueData);
-
     document.getElementById('dialogue-view-toggle').addEventListener('click', () => {
         storeDialogueToSession(dialogue, selectedState);
-        dialogue.data.states = null;
-        const a = document.createElement('a');
-        a.href = './graph-view';
-        a.click();
+        dialogue.unload();
+        window.location.replace('./graph-view');
     });
 
-    const sessionDialogue = loadDialogueFromSession();
-    if (sessionDialogue) loadDialogueData(sessionDialogue.data, sessionDialogue.selected);
+    commonDialogueInit(dialogue, loadDialogueData);
 })();

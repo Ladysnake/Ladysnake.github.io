@@ -41,7 +41,10 @@ export default class BlabberDialogue {
      * @returns {string}
      */
     startAt(state) {
-        if (state !== undefined) this.data.start_at = state;
+        if (state !== undefined) {
+            this.data.start_at = state;
+            this.markDirty();
+        }
         return this.data.start_at;
     }
 
@@ -51,7 +54,10 @@ export default class BlabberDialogue {
      * @returns {boolean}
      */
     unskippable(unskippable) {
-        if (unskippable !== undefined) this.data.unskippable = unskippable;
+        if (unskippable !== undefined) {
+            this.data.unskippable = unskippable;
+            this.markDirty();
+        }
         return !!this.data.unskippable;
     }
 
@@ -69,5 +75,18 @@ export default class BlabberDialogue {
      */
     stateData(key) {
         return this.data.states[key];
+    }
+
+    isLoaded() {
+        return this.data.states != null;
+    }
+
+    unload() {
+        this.data = {};
+    }
+
+    markDirty() {
+        const newState = {...(window.history.state ?? {}), data: this.data};
+        window.history.replaceState(newState, '');
     }
 }

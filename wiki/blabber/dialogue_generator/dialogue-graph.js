@@ -1,4 +1,4 @@
-import {loadDialogueFromSession, setupDialogueIo, storeDialogueToSession} from "./dialogue-common.js";
+import {commonDialogueInit, storeDialogueToSession} from "./dialogue-common.js";
 import BlabberDialogue from "./blabber-dialogue.js";
 import {DataSet, Network} from "/scripts/vis-network.min.js";
 import {hsvToRgbString} from "./color-transform.js";
@@ -40,9 +40,11 @@ import {hsvToRgbString} from "./color-transform.js";
     }
 
     function renderGraph() {
+        container.textContent = '';
+
         if (!dialogue.data.states) return;
 
-        container.textContent = '';
+        container.style.height = '85vh';
 
         const nodes = new DataSet();
         const edges = new DataSet();
@@ -88,9 +90,7 @@ import {hsvToRgbString} from "./color-transform.js";
             if (e.nodes?.length) {
                 storeDialogueToSession(dialogue, e.nodes[0]);
                 dialogue.data.states = null;
-                const a = document.createElement('a');
-                a.href = '../dialogue_generator';
-                a.click();
+                window.location.replace('../dialogue_generator');
             }
         });
         network.on('select', e => network.setOptions({
@@ -106,18 +106,14 @@ import {hsvToRgbString} from "./color-transform.js";
         if (!restoreSelectedState) container.scrollIntoView({ behavior: 'smooth' });
     }
 
-    setupDialogueIo(dialogue, loadDialogueData);
 
     darkMode.addListener(renderGraph);
 
     document.getElementById('dialogue-view-toggle').addEventListener('click', () => {
         storeDialogueToSession(dialogue);
-        dialogue.data.states = null;
-        const a = document.createElement('a');
-        a.href = '../dialogue_generator';
-        a.click();
+        dialogue.unload();
+        window.location.replace('../dialogue_generator');
     });
 
-    const sessionDialogue = loadDialogueFromSession();
-    if (sessionDialogue) loadDialogueData(sessionDialogue.data, sessionDialogue.selected);
+    commonDialogueInit(dialogue, loadDialogueData);
 })();

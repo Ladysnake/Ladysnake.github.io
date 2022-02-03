@@ -22,41 +22,81 @@ export function storeDialogueToSession(dialogue, selected) {
     if (selected) sessionStorage.setItem('blabber_selected_state', selected);
 }
 
-/**
- *
- * @returns {{data: ?DialogueData, selected: ?string}}
- */
-export function loadDialogueFromSession() {
+function loadDialogueFromSession(callback) {
     const serialized = sessionStorage.getItem('blabber_open_dialogue');
     const selected = sessionStorage.getItem('blabber_selected_state');
-    if (!serialized) return null;
-    try {
-        return {data: JSON.parse(serialized), selected};
-    } catch (e) {
-        console.error(e);
-        logIoError(`Failed to restore your data: ${e.message}`);
-    } finally {
-        sessionStorage.removeItem('blabber_open_dialogue');
-        sessionStorage.removeItem('blabber_selected_state');
+
+    if (serialized) {
+        try {
+            callback(JSON.parse(serialized), selected);
+            return true;
+        } catch (e) {
+            console.error(e);
+            logIoError(`Failed to restore your data: ${e.message}`);
+        } finally {
+            sessionStorage.removeItem('blabber_open_dialogue');
+            sessionStorage.removeItem('blabber_selected_state');
+        }
     }
+
+    return false;
 }
 
-export function setupDialogueIo(dialogue, loadData) {
+export function commonDialogueInit(dialogue, loadDataCallback) {
+    setupDialogueIo(dialogue, loadDataCallback);
+
+    const historyCallback = ({state}) => {
+        if (state) loadDataCallback(state.data, state.selected);
+    }
+
+    window.onpopstate = historyCallback;
+
+    if (!loadDialogueFromSession(loadDataCallback)) {
+        const pageAccessedByReload = (
+            (window.performance.navigation && window.performance.navigation.type === 1) ||
+            window.performance
+                .getEntriesByType('navigation')
+                .map((nav) => nav.type)
+                .includes('reload')
+        );
+        // Reloading the page should reset the dialogue
+        if (pageAccessedByReload) {
+            if (window.history.state?.data?.states) window.history.pushState({data: {}}, '');
+        } else {
+            historyCallback(history);
+        }
+    }
+
+    window.addEventListener('beforeunload', function (e) {
+        if (dialogue.isLoaded()) {
+            // Cancel the event
+            e.preventDefault(); // If you prevent default behavior in Mozilla Firefox prompt will always be shown
+            // Chrome requires returnValue to be set
+            e.returnValue = '';
+        }
+    });
+}
+
+function setupDialogueIo(dialogue, loadData) {
     function loadDialogueFile(file) {
         if (!file.type.startsWith('application/json')) {
             logIoError(`${file.name} is not a valid JSON file`);
             return;
         }
         const reader = new FileReader();
-        reader.addEventListener('load', le => {
+        reader.addEventListener('load', () => {
             try {
                 clearIoLogs();
                 const d = JSON.parse(reader.result);
                 if (!d.states) {
                     logIoError(`${file.name} is missing dialogue state data`);
                 } else {
+                    // You can go back to the previous dialogue after loading a new one!
+                    if (dialogue.isLoaded()) window.history.pushState(null, '');
+
                     loadData(d);
                     logIoInfo(`Loaded dialogue from ${file.name}`);
+                    dialogue.markDirty();
                 }
             } catch (err) {
                 console.error(err);
@@ -123,15 +163,6 @@ export function setupDialogueIo(dialogue, loadData) {
         clearIoLogs();
         if (validateDialogue(dialogue, logIoError, logIoWarning)) {
             saveAs(new Blob([JSON.stringify(dialogue.data, null, 2)], {type: 'application/json'}), 'my-dialogue.json');
-        }
-    });
-
-    window.addEventListener('beforeunload', function (e) {
-        if (dialogue.data.states) {
-            // Cancel the event
-            e.preventDefault(); // If you prevent default behavior in Mozilla Firefox prompt will always be shown
-            // Chrome requires returnValue to be set
-            e.returnValue = '';
         }
     });
 }
