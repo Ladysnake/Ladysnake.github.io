@@ -40,11 +40,14 @@
     }
   }
 
-  .mr-link {
-    svg {
-      height: 1.6em;
-      margin-left: -1.8em;
-    }
+  .mr-link svg {
+    height: 1.6em;
+    margin-left: -1.8em;
+  }
+
+  .gradle-link svg {
+    height: 2.3em;
+    margin-left: -0.6em;
   }
 
   a:focus {

@@ -14,10 +14,12 @@ header_preprocessor: mod_header_preprocessor.liquid
 		<h3>{{ page.title }}</h3>
 		<nav class="toc">
 			<ul>
+				{% if page.curse_project %}
 				<li class="cf-link toc-external-link"><a href="https://www.curseforge.com/minecraft/mc-mods/{{ page.slug }}">
 						{% include svg/cf-logo.svg %}
 						{% include svg/external-link.svg %}
 					</a></li>
+				{% endif %}
 				{% if page.modrinth %}
 				<li class="mr-link toc-external-link">
 					<a href="https://www.modrinth.com/mod/{{ page.slug }}">
