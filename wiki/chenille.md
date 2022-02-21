@@ -4,7 +4,7 @@ slug: chenille
 layout: wiki
 extra_toc_links: extra/chenille_gradle_link.liquid
 og:
-    img: /img/colored-ladysnake-icon.png
+    img: /img/colored-ladysnake-icon-3.png
     img_alt: Ladysnake Icon
     desc: "The Chenille plugin: Get it from the gradle plugin portal!"
 ---
