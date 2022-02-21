@@ -1,3 +1,10 @@
+---
+title: Charter
+slug: charter
+layout: wiki
+curse_project: 538646
+---
+
 # ![Contract](charter/contract.png)Contract
 
 Contracts are the **starting point** of Charter. Signing them **links your soul to the contract** which can be used in various ways later on.
