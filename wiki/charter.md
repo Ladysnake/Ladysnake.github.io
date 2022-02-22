@@ -32,7 +32,7 @@ Additionally, contact with **water will inflict the wither effect** on them, fur
 
 The Pact Vessel allows to use the link between a contract and its owner in a more constant way than the Merchant's Crest, **adding the connected player to a charter once placed in its range** or, if activated by **placing a soul fire source** (soul fire, soul lantern, soul torch or soul campfire) 2 blocks under the Pact Vessel, **applies the [Soul Strain](#-soul-strain) effect** to the victim. It can also be used with the [**Soul Swapper**](#-soul-swapper) in order to **swap bodies** with another player.
 
-The Pact Vessel can be crafted using 4 Iron Ingots and 3 Deepslate Tiles as frame with 1 Soul Sand or Soul Soil block in the middle and 1 Chiseled Deepslate above.
+The Pact Vessel can be crafted using 4 Iron Ingots, 3 Deepslate Tiles and 1 Chiseled Deepslate as frame with 1 Soul Sand or Soul Soil block in the middle.
 
 ![Pact Vessel applying Soul Strain](charter/PactVessel.png)
 
@@ -46,7 +46,7 @@ Soul Strain is a new status effect meant to punish the player by **doubling the 
 
 The Soul Swapper **swaps the 2 blocks on either end of it** on redstone input, emitting light once activated. If the 2 blocks are **[Pact Vessels](#-pact-vessel) holding [Contracts](#-contract)**, the 2 corresponding players will **switch bodies**, changing positions and bodies.
 
-*Soul Swappers do not have a crafting recipe yet, use datapacks, custom commands or shops to make this content accessible.*
+*Soul Swappers do not have a crafting recipe yet. Use datapacks, custom commands or shops to make this content accessible!*
 
 ![Active Soul Swapper](charter/SoulSwapper.png)
 
@@ -56,7 +56,7 @@ The Soul Swapper **swaps the 2 blocks on either end of it** on redstone input, e
 
 **A Charter is a claim**, centered around the Charter Stone. Only Charter members can **place or break blocks** within its area of influence. 
 
-Charters start off with a **square-shaped area of 64x64 blocks around the Charter Stone** and **infinite height**. Players can be **added as members by placing a [Pact Vessel](#-pact-vessel)** with their contract within the range of the charter, also rendering them **unable to hit the respective Charter owner**.
+Charters start off with a **square-shaped area of 64x64 blocks around the Charter Stone** and **infinite height**. Players can be **added as members by placing a [Pact Vessel](#-pact-vessel)** holding their contract within the range of the charter, also rendering them **unable to hit the respective Charter owner**.
 
 But this claim has a cost: Over time, **the Charter will require sacrifices** in the form of [**Charter Vessels**](#-charter-vessel) to avoid [**Soul Strain**](#-soul-strain) being applied to its members.
 
@@ -73,7 +73,7 @@ Charter Stones are made using 6 Deepslate Tiles on the sides of the crafting gri
 
 #### ![Apex Focus](charter/apex_focus.png) Apex Focus
 
-The Apex Focus is a crafting **ingredient of the Charter Stone**. The only way to obtain one is by **mining a broken Charter Stone**.
+The Apex Focus is a crafting **ingredient for the Charter Stone**. The only way to obtain one is by **mining a broken Charter Stone**.
 
 ***In the current version it is recommended to use datapacks, custom commands or shops to make this content accessible as there is no default way to obtain charters yet!***
 
@@ -88,6 +88,6 @@ Charter Vessels can be placed within the range of a Charter Stone to **prevent t
 Waystones can **increase the size of a Charter** if placed within its range. Its area of influence is **a square of 32x32 blocks** and **infinite height**.
 It can be **destroyed by killing a Charter member** in its range, turning it into a mineable, broken variant.
 
-They can be crafted by combining 8 Deepslate Tiles and 1 Ender Pearl.
+They can be crafted by combining 8 Deepslate Tiles with 1 Ender Pearl.
 
 ![Waystone](charter/WaystonePic.png)
