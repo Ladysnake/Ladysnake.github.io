@@ -5,6 +5,8 @@ layout: requiem_wiki
 curse_project: 538646
 ---
 
+Charter is a Minecraft fabric mod allowing for a more dynamic faction and claiming system without breaking the game immersion.
+
 # ![Contract](charter/contract.png)Contract
 
 Contracts are the **starting point** of Charter. Signing them **links your soul to the contract** which can be used in various ways later on.
