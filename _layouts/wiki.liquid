@@ -37,7 +37,7 @@ header_preprocessor: mod_header_preprocessor.liquid
 				{% if page.extra_toc_links %}
 					{% include {{page.extra_toc_links}} %}
 				{% endif %}
-				{% include toc.liquid html=content %}
+				{% include toc.liquid html=content sanitize=true %}
 			</ul>
 		</nav>
 	</div>
