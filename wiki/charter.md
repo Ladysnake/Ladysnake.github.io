@@ -46,7 +46,7 @@ Soul Strain is a new status effect meant to punish the player by **doubling the 
 
 The Soul Swapper **swaps the 2 blocks on either end of it** on redstone input, emitting light once activated. If the 2 blocks are **[Pact Vessels](#-pact-vessel) holding [Contracts](#-contract)**, the 2 corresponding players will **switch bodies**, changing positions and bodies.
 
-*Soul Swappers do not have a crafting recipe yet. Use datapacks, custom commands or shops to make this content accessible!*
+Soul Swappers can be made using 4 Iron Ingots and 2 Iron Bars for the sides as well as 2 Soul Sand or Soul Soil blocks with 1 Coal Block in between for the middle.
 
 ![Active Soul Swapper](charter/SoulSwapper.png)
 
