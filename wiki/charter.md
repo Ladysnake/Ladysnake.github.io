@@ -15,9 +15,11 @@ Contracts are crafted using 2 Leather, 2 Paper, 1 Wither Rose or Wither Skeleton
 
 ![Contract Recipe](charter/ContractRecipe.png)
 
+
 ### ![Merchant's Crest](charter/merchant_crest.png) Merchant's Crest
 
 A mysterious item, **found in treasure bastions**, that allows you to **teleport to an Indebted** and granting you a **short burst of invisibility** by using it with a contract in your other hand. Use it again to **warp back to your original position**.
+
 
 ### ![Eternal Pact](charter/eternal_pact.png) Eternal Pact ![Eternal Debt](charter/eternal_debt.png)
 
@@ -28,6 +30,7 @@ Additionally, contact with **water will inflict the wither effect** on them, fur
 
 ![Eternal Pact Recipe](charter/EternalPactRecipe.png)
 
+
 ### ![Pact Vessel](charter/pact_vessel.png) Pact Vessel
 
 The Pact Vessel allows to use the link between a contract and its owner in a more constant way than the Merchant's Crest, **adding the connected player to a charter once placed in its range** or, if activated by **placing a soul fire source** (soul fire, soul lantern, soul torch or soul campfire) 2 blocks under the Pact Vessel, **applies the [Soul Strain](#soul_strain) effect** to the victim. It can also be used with the [**Soul Swapper**](#soul_swapper) in order to **swap bodies** with another player.
@@ -36,11 +39,13 @@ The Pact Vessel can be crafted using 4 Iron Ingots and 3 Deepslate Tiles as fram
 
 ![Pact Vessel applying Soul Strain](charter/PactVessel.png)
 
+
 #### ![Soul Strain](charter/soul_strain.png) Soul Strain
 
 Soul Strain is a new status effect meant to punish the player by **doubling the damage taken** and turning **all damage to magic damage**.
 
 ![Soul Strain](charter/SoulStrain.png)
+
 
 #### <img src="charter/soul_swapper.png" alt="Soul Swapper" style="zoom:75%;" /> Soul Swapper
 
@@ -62,6 +67,7 @@ But this claim has a cost: Over time, **the Charter will require sacrifices** in
 
 A Charter can **only be destroyed by breaking the central Charter Stone**.
 
+
 ### ![Charter Stone](charter/charter_stone.png) Charter Stone
 
 The Charter Stone is the heart of each Charter. Every player can **only place down a single one of these** - which will make them the owner of the newly created charter and apply Resistance 1 to them while near it - and **only the owner dying near the Charter Stone can destroy it**.
@@ -71,17 +77,20 @@ Charter Stones are made using 6 Deepslate Tiles on the sides of the crafting gri
 
 ![Charter Stone](charter/CharterStonePic.png)
 
+
 #### ![Apex Focus](charter/apex_focus.png) Apex Focus
 
 The Apex Focus is a crafting **ingredient of the Charter Stone**. The only way to obtain one is by **mining a broken Charter Stone**.
 
 ***In the current version it is recommended to use datapacks, custom commands or shops to make this content accessible as there is no default way to obtain charters yet!***
 
+
 ### ![Charter Vessel](charter/charter_vessel.png) Charter Vessel
 
 Charter Vessels can be placed within the range of a Charter Stone to **prevent the members of the respective Charter to get the [Soul Strain effect](#soul_strain)**.
 
 ![Charter Vessel Recipe](charter/CharterVesselRecipe.png)
+
 
 ### ![Waystone](charter/waystone.png) Waystone
 
