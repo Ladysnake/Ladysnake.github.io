@@ -1,7 +1,7 @@
 ---
 title: Charter
 slug: charter
-layout: wiki
+layout: requiem_wiki
 curse_project: 538646
 ---
 
