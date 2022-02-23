@@ -17,7 +17,7 @@ If you are a developer, you can use Chenille in your own project by inserting th
 
 ```gradle
 plugins {
-	id 'io.github.ladysnake.chenille' version '0.1-SNAPSHOT'
+	id 'io.github.ladysnake.chenille' version '0.2.0'
 }
 ```
 
@@ -27,7 +27,7 @@ You can apply the plugins you care about before Chenille to have them configured
 
 ```gradle
 plugins {
-	id 'io.github.ladysnake.chenille' version '0.1-SNAPSHOT' apply false
+	id 'io.github.ladysnake.chenille' version '0.2.0' apply false
 }
 
 apply plugin: 'com.github.breadmoirai.github-release'
@@ -58,17 +58,18 @@ Changelog for version x y 1
 
 ### Default Repositories
 Chenille lets you quickly add some common repositories to your project
-by calling the following methods in your `repositories` block :
+by calling the following methods in a `chenille.repositories` block :
 
 - `cotton()`
 - `cursemaven()`
+- `jamieswhiteshirt()`
 - `jitpack()`
 - `ladysnake()`
 - `lucko()`
 - `modrinth()`
 - `terraformers()`
 
-To get all these in one shot, you can also call `chenille.defaultRepositories()` in your `repositories` block.
+To get all these in one shot, you can also call `chenille.repositories.allCommonRepositories()`.
 
 ### Dependency Configurations
 Chenille adds dependency configurations for common use cases :
