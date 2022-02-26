@@ -2,6 +2,7 @@
 layout: wiki
 title: Spawn Lanterns
 slug: spawn-lanterns
+curse_project: 418565
 ---
 
 **Spawn Lanterns** is a Minecraft Fabric mod that introduces a solution for regulating hostile mob spawn rates.
