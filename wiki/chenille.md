@@ -17,7 +17,7 @@ If you are a developer, you can use Chenille in your own project by inserting th
 
 ```gradle
 plugins {
-	id 'io.github.ladysnake.chenille' version '0.2.0'
+	id 'io.github.ladysnake.chenille' version '0.5.0'
 }
 ```
 
@@ -27,7 +27,7 @@ You can apply the plugins you care about before Chenille to have them configured
 
 ```gradle
 plugins {
-	id 'io.github.ladysnake.chenille' version '0.2.0' apply false
+	id 'io.github.ladysnake.chenille' version '0.5.0' apply false
 }
 
 apply plugin: 'com.github.breadmoirai.github-release'
@@ -67,6 +67,7 @@ by calling the following methods in a `chenille.repositories` block :
 - `ladysnake()`
 - `lucko()`
 - `modrinth()`
+- `shedaniel()`
 - `terraformers()`
 
 To get all these in one shot, you can also call `chenille.repositories.allCommonRepositories()`.
@@ -75,7 +76,7 @@ To get all these in one shot, you can also call `chenille.repositories.allCommon
 Chenille adds dependency configurations for common use cases :
 - `modIncludeImplementation` : short for `modImplementation include`
 - `modIncludeApi` : short for `modApi include`
-- `modOptionalImplementation` : short for `modCompileOnly modLocalRuntime`
+- `modLocalImplementation` : short for `modCompileOnly modLocalRuntime`
 
 ### Test Mod setup
 
@@ -88,14 +89,29 @@ This will configure a `testmod` sourceset, as well as the following run configs 
 - Game Test : runs your automated testing and shuts down immediately afterward
 
 Game tests will automatically be run as part of the `check` task, preventing you from building if you got an error.
-Finally, you get a new `modTestImplementation` dependency configuration for this new source set :
+Finally, you can also get a new `modTestImplementation` dependency configuration for this new source set :
 
 ```gradle
 chenille {
-    configureTestmod()
+    configureTestmod {
+        withDependencyConfiguration()
+    }
 }
 
 dependencies {
     modTestImplementation("io.github.ladysnake:elmendorf:${elmendorf_version}")
+}
+```
+
+### Publishing setup
+
+Chenille can configure publications for a standard minecraft mod, and additionally configure JFrog's Artifactory if you
+so choose.
+
+```gradle
+chenille {
+    configurePublishing {
+        withArtifactory()
+    }
 }
 ```
