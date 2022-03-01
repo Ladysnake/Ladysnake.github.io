@@ -17,30 +17,36 @@ If you are a developer, you can use Chenille in your own project by inserting th
 
 ```gradle
 plugins {
-	id 'io.github.ladysnake.chenille' version '0.5.0'
+	id 'io.github.ladysnake.chenille' version '0.6.0'
 }
 ```
 
 For the latest version snippet, refer to the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/io.github.ladysnake.chenille).
 
-You can apply the plugins you care about before Chenille to have them configured :
-
-```gradle
-plugins {
-	id 'io.github.ladysnake.chenille' version '0.5.0' apply false
-}
-
-apply plugin: 'com.github.breadmoirai.github-release'
-apply plugin: 'com.matthewprenger.cursegradle'
-apply plugin: 'com.jfrog.artifactory'
-apply plugin: 'org.cadixdev.licenser'
-apply plugin: 'maven-publish'
-apply plugin: 'io.github.ladysnake.chenille'
-```
-
 ## Features
 
-### Changelog
+### Publishing
+
+Chenille can setup publishing to various platforms :
+
+```gradle
+chenille {
+    configurePublishing {
+        withArtifactory()
+        withCurseforgeRelease()
+        withGithubRelease()
+        withModrinthRelease()
+    }
+}
+```
+
+- Artifactory publishing requires the `artifactory_user` and `artifactory_api_key` user-level gradle properties
+- Curseforge publishing requires the `curseforge_api_key` user-level property and the `curseforge_id` project-level property
+- Github publishing requires the `github_api_key` user-level property
+- Modrinth publishing requires the `modrinth_api_key` user-level property and the `modrinth_id` project-level property
+
+#### Changelog
+
 Chenille configures your automated github, curseforge, and modrinth releases to use
 a changelog file from your project repository (defaulting to `/changelog.md`). The expected format is as follows :
 ```md
