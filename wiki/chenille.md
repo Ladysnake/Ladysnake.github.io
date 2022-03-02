@@ -40,10 +40,10 @@ chenille {
 }
 ```
 
-- Artifactory publishing requires the `artifactory_user` and `artifactory_api_key` user-level gradle properties
-- Curseforge publishing requires the `curseforge_api_key` user-level property and the `curseforge_id` project-level property
-- Github publishing requires the `github_api_key` user-level property
-- Modrinth publishing requires the `modrinth_api_key` user-level property and the `modrinth_id` project-level property
+- [Artifactory](https://jfrog.com/artifactory/) publishing requires the `artifactory_user` and `artifactory_api_key` user-level gradle properties
+- [Curseforge](https://curseforge.com/) publishing requires the `curseforge_api_key` user-level property and the `curseforge_id` project-level property
+- [Github](https://github.com) publishing requires the `github_api_key` user-level property
+- [Modrinth](https://modrinth.com) publishing requires the `modrinth_api_key` user-level property and the `modrinth_id` project-level property
 
 #### Changelog
 
@@ -106,18 +106,5 @@ chenille {
 
 dependencies {
     modTestImplementation("io.github.ladysnake:elmendorf:${elmendorf_version}")
-}
-```
-
-### Publishing setup
-
-Chenille can configure publications for a standard minecraft mod, and additionally configure JFrog's Artifactory if you
-so choose.
-
-```gradle
-chenille {
-    configurePublishing {
-        withArtifactory()
-    }
 }
 ```
