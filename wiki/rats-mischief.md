@@ -76,7 +76,7 @@ Renaming rats with the following names will give them a new, special appearance 
 
 - **Astron/Astronyu** (artist)
 
-- **Remy** (Ratatouille)
+- **Remy** (Ratatouille, needs to be a Russian Blue Type)
 
 - **Ratater** (Botania)
 
@@ -86,7 +86,7 @@ Renaming rats with the following names will give them a new, special appearance 
 
 - **Jerma** (Jermas Rat Movie)
 
-- **Biggie Cheese**
+- **Biggie Cheese** (Barnyard)
 
 - **Rateline** (Madeline, Celeste)
 
@@ -107,6 +107,7 @@ Elytrats are a special rat variant, acquired by equipping rats with the elytrat 
 Elytrats can and will fly to attack enemies and to follow you on your airborne adventures! Just as any other rat they can be picked up with rat pouches. Elytrats also feature custom elytra textures for special rat variants and the golden rat.
 
 ![Elytrat](rats-mischief/Elytrat.png)
+
 ![Elytrat Formation](rats-mischief/ElytratFormation.png)
 
 ### Accessories
