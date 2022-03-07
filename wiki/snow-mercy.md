@@ -56,9 +56,9 @@ These gifts contain various drops like **valuables** (coal, iron, gold, emeralds
 
 
 
-**The Hammersledge**, a ridable sledge with firework rockets moving quickly on snow and ice, both up- and downhill, ramming entities for damage and destroying Powdered Snow in its path. Just like with boats, 2 players can ride a Hammersledge together.
+- **The Hammersledge**, a ridable sledge with firework rockets moving quickly on snow and ice, both up- and downhill, ramming entities for damage and destroying Powdered Snow in its path. Just like with boats, 2 players can ride a Hammersledge together.
 
- <img src="snow-mercy/Hammersledge.png" alt="Hammersledge" style="zoom:80%;" />
+  <img src="snow-mercy/Hammersledge.png" alt="Hammersledge" style="zoom:80%;" />
 
 ![Hammersledge](snow-mercy/HammersledgePic.png)
 
