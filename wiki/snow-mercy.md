@@ -30,7 +30,7 @@ Snow Mercy offers 10 uniquely composed waves of snowmen, initiated by hitting th
 
 <img src="snow-mercy/gifts.png" alt="Gifts" style="zoom:80%;" />
 
-These gifts contain various drops like **valuables, food or spawn eggs for pets**. There is also a chance to get 1 out of 5 special items:
+These gifts contain various drops like **valuables** (coal, iron, gold, emeralds, diamonds), **food** (cookies, cakes, stews) or **spawn eggs for pets** (parrots, wolves, cats, rabbits). There is also a chance to get 1 out of 5 special items:
 
 - A crossbow called "Firework Launcher" enchanted with Quick Charge 3 and Multishot 
 
@@ -90,17 +90,17 @@ There are 10 different Snowman Types introduced by Snow Mercy:
 
 - **Ice Mortar:** The Ice Mortar launches large numbers of icicles into the air that will slowly rain down, being especially dangerous when combined with other snowmen or when appearing in large numbers. The Ice Mortar drops 0-1 Packed Ice.
 
-- **Aftermarket Snowman:** This snowman features a long cooldown but strong firepower, shooting fireworks from a distance and dealing damage to multiple entities. The Aftermarket Snowman has a 25% chance to drop 1-3 of its firework rockets.
+- **Aftermarket Snowman:** This snowman features a long cooldown but strong firepower, shooting fireworks from a distance and dealing damage to multiple entities. The Aftermarket Snowman drops 1-3 of its firework rockets.
 
 - **Polar Bearer:** An Aftermarket Snowman riding an aggressive Polar Bear.
 
 - **Iceboombox:** Iceboomboxes do not attack players but instead follow them around playing christmas music on their jukeboxes!
 
-- **Headmaster:** This giant snowman and deadly **miniboss** has 2 phases: 
+- **Headmaster:** This giant snowman and deadly **miniboss** has 200hp and 2 phases: 
 
   In the first phase, it will **launch heads** from its back and **cast resurrection spells** giving all beheaded snowmen in the area a new body. In this phase it is also not able to deal any direct damage and will follow the player around without attacking itself.
 
-  Once the Headmaster lost enough health it will turn into a mobile snow canon, freezing all entities in front of it.
+  Once the Headmaster lost 2/3 health it will turn into a mobile snow canon, freezing all entities in front of it.
 
 ![Snowman Types](snow-mercy/EnemyTypes.png)
 
