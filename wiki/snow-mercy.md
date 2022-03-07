@@ -105,11 +105,10 @@ There are 10 different Snowman Types introduced by Snow Mercy:
 ![Snowman Types](snow-mercy/EnemyTypes.png)
 
 
-
-## Wave Configuration (Spoilers)
+{% capture summary %}<h2 id="wave-configuration">Wave Configuration (Spoilers)</h2>{% endcapture %}
+{% capture content %}
 
 - **Wave 1:** Sawman, Tundrabid, Iceball
-
 - **Wave 2:** Sawman, Tundrabid, Aftermarket Snowman, Ice Mortar
 - **Wave 3:** Sawman, Tundrabid, Aftermarket Snowman, Mister Snuggles, Iceboombox, Iceball
 - **Wave 4:** Sawman, Ice Mortar, Aftermarket Snowman, Mister Snuggles, Iceboombox
@@ -120,7 +119,8 @@ There are 10 different Snowman Types introduced by Snow Mercy:
 - **Wave 9:** Sawman, Headmaster, Mister Snuggles
 - **Wave 10:** All enemies
 
-
+{% endcapture %}
+{% include details.liquid summary=summary content=content%}
 
 ## FAQ
 
