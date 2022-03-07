@@ -34,7 +34,7 @@ At **level III**, it **prevents** you from getting a **physical body entirely**.
 ## ![Attrition Icon](img/attrition.png)Attrition
 
 Attrition is primarily gained through the **deaths of your bodies**. As your ethereal self gets afflicted
-with stronger attrition, your **hosts will become weaker and weaker**, as each level will decrease your host's health by 20%, **capped at level IV** with an 80% decrease in health. Attrition does not run out in mob hosts. Instead, to get rid of Attrition you can either get yourself a **player body and wait for the effect to run out** or use the **Reclamation Soul Effect**.
+with stronger attrition, your **hosts will become weaker and weaker**, as each level will decrease your host's health by 20%, **capped at level IV** with an 80% decrease in health. Attrition does not run out in mob hosts. Instead, to get rid of Attrition you can either get yourself a **player body**, instantly removing the Attrition on cure, or use the **Reclamation Soul Effect**.
 
 ### Hardcore Mode
 
