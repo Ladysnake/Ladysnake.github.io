@@ -28,8 +28,8 @@ innate soul defense.
 
 ### ![Filled Soul Vessel](img/soul_vessel_filled.png)Filled Soul Vessel
 
-Once a Soul Vessel is filled it can either be used for **trading with the [Mortician](mortician#trades)**,
-or the Soul **can be released** again, in case of which it will return to the original mob
+Once a Soul Vessel is filled it can either be used for **trading with the [Mortician](mortician#trades)**
+or the Soul **can be released**, either by hand or with the use of dispensers, in case of which it will return to the original mob
 it was removed from, reviving said mob. If that mob is dead, the Soul will collapse upon release.
 
 ![Soul](img/Soul.png)![Collapsing Soul](img/CollapsingSoul.png)
