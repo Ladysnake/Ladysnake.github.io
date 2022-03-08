@@ -33,7 +33,7 @@ The basic Tachylite Runestone can be crafted using 8 Tachylite and 1 Crying Obsi
 It can then be **imbued using [Ichors](soul-vessels#ichor-vessels)** and will adopt the respective **[Soul Effect](effects)**.
 Once they are imbued they will **grant their Soul Effect** to remnant players when included in an Obelisk.
 
-The Ichors can be changed by using dispensers, for example activating a dispenser containing an [empty Soul Vessel](soul-vessels#empty-soul-vessel) and facing a Tachylite Runestone with Attrition will render the Obelisk neutral and fill the Soul Vessel) with Ichor.
+The Ichors can be changed by using dispensers, for example activating a dispenser containing an [empty Soul Vessel](soul-vessels#empty-soul-vessel) and facing a Tachylite Runestone with Attrition will render the Obelisk neutral and fill the Soul Vessel with Ichor.
 
 ![Runestones](img/RunestonesIcons.png)
 
