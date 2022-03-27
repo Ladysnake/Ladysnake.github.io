@@ -63,11 +63,17 @@ Tachylite is the **base material for Obelisks**. It can be made from 4 Obsidian,
 
 In addition to **Tachylite stairs and slabs**, there are multiple other versions of this block type.
 
+![Tachylite Recipe](img/tachylite-recipe.png)
+
 #### Chiseled Tachylite    ![Chiseled Tachylite](img/ChiseledTachylite.png)
 
 Chiseled Tachylite can be crafted by putting 2 Tachylite blocks on top of each other in a crafting grid. Just like normal Tachylite, chiseled Tachylite can be used to **build Obelisks** and has **stair and slab variants** of the block.
 
+![Chiseled Tachylite Recipe](img/chiseled-tachylite-recipe.png)
+
 There is also a **Chiseled Tachylite Pillar** made by putting 2 Chiseled Tachylite blocks on top of each other.
+
+![Chiseled Tachylite Pillar Recipe](img/chiseled-tachylite-pillar-recipe.png)
 
 #### Scraped Tachylite    ![Scraped Tachylite](img/ScrapedTachylite.png)
 
