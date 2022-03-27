@@ -15,13 +15,13 @@ Pick Your Poison is a Minecraft fabric mod bringing poison dart frogs and 6 new 
 
 ## Poison Dart Frogs
 
-Poison Dart Frogs can be found spawning in 7 different types in the **various jungle variants**. They can be **picked up by using a bowl** on them and will give the player their **respective effect when hit or licked**. Licking a Poison Dart Frog can be done by **"eating" the picked up version** and will not consume the frog. Poison Dart Frogs themselves are immune to their effects.
+Poison Dart Frogs can be found spawning in 7 different types in the **various jungle variants**. They can be **picked up by using a bowl** on them and will give the player their **respective effect when hit or licked**. Licking a Poison Dart Frog can be done by **"eating" the picked up version** and will not consume the frog. You can **not lick** a Poison Dart Frog **while you have its effect**.  Poison Dart Frogs themselves are immune to their effects.
 
 
 
-### Advancement
+### Advancements
 
-Pick Your Poison features 2 special advancement:
+Pick Your Poison features 2 special advancements:
 
 - **Taste Test** - Lick a poison dart frog in a bowl
 
@@ -45,6 +45,8 @@ Comatose **renders the player unable to see or do anything**, including pausing 
 
 ![Comatose effect](pick-your-poison/comatose.png)
 
+
+
 #### ![Golden Poison Dart Frog](pick-your-poison/golden_poison_dart_frog_bowl.png) Golden 
 
 Golden Poison Dart Frogs will apply the **Batrachotoxin** effect for **30 seconds**.
@@ -54,6 +56,8 @@ Golden Poison Dart Frogs will apply the **Batrachotoxin** effect for **30 second
 Batrachotoxin is a **stronger version of the vanilla poison, ignoring armor enchantments** such as protection.
 
 ![Batrachotoxin effect](pick-your-poison/batrachotoxin.png)
+
+
 
 #### ![Green Poison Dart Frog](pick-your-poison/green_poison_dart_frog_bowl.png) Green
 
@@ -65,6 +69,8 @@ Numbness **prevents the player from taking any damage** while the effect lasts. 
 
 ![Numbness effect](pick-your-poison/numbness.png)
 
+
+
 #### ![Orange Poison Dart Frog](pick-your-poison/orange_poison_dart_frog_bowl.png) Orange
 
 Orange Poison Dart Frogs will give the **Vulnerability** effect for **30 seconds**.
@@ -74,6 +80,8 @@ Orange Poison Dart Frogs will give the **Vulnerability** effect for **30 seconds
 Being the counterpart to Resistance, players will **suffer increased damage** while under the Vulnerability effect.
 
 ![Vulnerability effect](pick-your-poison/vulnerability.png)
+
+
 
 #### ![Crimson Poison Dart Frog](pick-your-poison/crimson_poison_dart_frog_bowl.png) Crimson
 
@@ -85,6 +93,8 @@ Torpor **blocks all health regeneration** but slowly **refills the hunger bar** 
 
 ![Torpor effect](pick-your-poison/torpor.png)
 
+
+
 #### ![Red Poison Dart Frog](pick-your-poison/red_poison_dart_frog_bowl.png) Red
 
 Red Poison Dart Frogs will apply the **Stimulation** effect for **20 seconds**.
@@ -95,6 +105,8 @@ Stimulation gives a **speed boost and removes the limit of only being able to sp
 
 ![Stimulation effect](pick-your-poison/stimulation.png)
 
+
+
 #### ![Luxalamander](pick-your-poison/luxalamander_bowl.png) Luxalamander
 
 The Luxalamander is a rare frog type appearing only **once in 100 spawns**. Licking or hitting this Poison Dart Frog will apply **Blindness for 1 minute**.
@@ -103,7 +115,7 @@ The Luxalamander is a rare frog type appearing only **once in 100 spawns**. Lick
 
 ## Throwing Darts
 
-Throwing Darts can be **crafted in bunches of 4 using 1 Iron Nugget, 1 Bamboo and 1 Feather**. They can be stacked and thrown by hand, **dealing as much damage and knockback as a fist punch**. When used on a placed down frog they will be **imbued with the respective poison**, applying it to hit targets for a few seconds. Imbued Poison Darts are not stackable.
+Throwing Darts can be **crafted in a bunch of 4 using 1 Iron Nugget, 1 Bamboo and 1 Feather**. They can be stacked and thrown by hand, **dealing as much damage and knockback as a fist punch**. When used on a placed down frog they will be **imbued with the respective poison**, applying it to hit targets for a few seconds. Imbued Poison Darts are not stackable.
 
 ![Throwing Darts](pick-your-poison/throwing-darts.png)
 
