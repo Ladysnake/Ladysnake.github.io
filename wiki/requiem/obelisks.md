@@ -31,14 +31,16 @@ Tachylite Runestones are the **defining factor** of an Obelisk.
 The basic Tachylite Runestone can be crafted using 8 Tachylite and 1 Crying Obsidian.
 
 It can then be **imbued using [Ichors](soul-vessels#ichor-vessels)** and will adopt the respective **[Soul Effect](effects)**.
-Once they are imbued they can not be changed but will **grant their Soul Effect** to remnant players once included in an Obelisk.
+Once they are imbued they will **grant their Soul Effect** to remnant players when included in an Obelisk.
+
+The Ichors can be changed by using dispensers, for example activating a dispenser containing an [empty Soul Vessel](soul-vessels#empty-soul-vessel) and facing a Tachylite Runestone with Attrition will render the Obelisk neutral and fill the Soul Vessel with Ichor.
 
 ![Runestones](img/RunestonesIcons.png)
 
 #### Soul Rift
 
 The Soul Rift can be crafted using 4 Tachylite Runestones, 4 Crying Obisian and 1 Enderpearl.
-They will allow **dissociated remnant players** to **teleport** between different Soul Rifts as long as they **do not have [Attrition IV](effects#attrition)**.
+Once implemented into an Obelisk, it will allow **dissociated remnant players** to **teleport** between different Soul Rifts as long as they **do not have [Attrition IV](effects#attrition)**.
 Rifts will also **increase the level of Attrition** upon teleportation.
 
 Active Soul Rifts also have the side effect of attracting [**Ethereal Morticians**](mortician#ethereal-mortician) to roam around their Obelisk.
@@ -61,11 +63,17 @@ Tachylite is the **base material for Obelisks**. It can be made from 4 Obsidian,
 
 In addition to **Tachylite stairs and slabs**, there are multiple other versions of this block type.
 
+![Tachylite Recipe](img/tachylite-recipe.png)
+
 #### Chiseled Tachylite    ![Chiseled Tachylite](img/ChiseledTachylite.png)
 
 Chiseled Tachylite can be crafted by putting 2 Tachylite blocks on top of each other in a crafting grid. Just like normal Tachylite, chiseled Tachylite can be used to **build Obelisks** and has **stair and slab variants** of the block.
 
+![Chiseled Tachylite Recipe](img/chiseled-tachylite-recipe.png)
+
 There is also a **Chiseled Tachylite Pillar** made by putting 2 Chiseled Tachylite blocks on top of each other.
+
+![Chiseled Tachylite Pillar Recipe](img/chiseled-tachylite-pillar-recipe.png)
 
 #### Scraped Tachylite    ![Scraped Tachylite](img/ScrapedTachylite.png)
 
