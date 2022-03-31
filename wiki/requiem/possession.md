@@ -26,9 +26,15 @@ After finding a new host or transforming after death, the player is forced to pl
 
 ## Mob Interactions
 
+### Possession Detection
+
 Even while possessing other mobs, **some aggressive mobs** might become suspicious of you and **attack you if you move too close.**
 
 This Mechanic **can be configured using [gamerules](configuration#gamerules)**.
+
+### Enderporting
+
+Trying to possess Endermen without removing their soul first will make them teleport, dragging the player with them.
 
 ## Loot Mechanics
 
