@@ -113,7 +113,7 @@ Stimulation gives a **speed boost and removes the limit of only being able to sp
 
 #### ![Luxalamander](pick-your-poison/luxalamander_bowl.png) Luxalamander
 
-The Luxalamander is a rare frog type appearing only **once in 100 spawns**. Licking or hitting this Poison Dart Frog will apply **Blindness for 1 minute**.
+The Luxalamander is a rare frog type appearing only **once in 100 spawns** and referencing the main texture artist for this mod, **Luxintrus**. Licking or hitting this Poison Dart Frog will anger it into punching your eyes and inflict **Blindness for 1 minute**. For some mysterious reason, the Blindness effect can also be applied to a [poison dart](#poison-darts).
 
 
 
