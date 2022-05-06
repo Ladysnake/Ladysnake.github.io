@@ -117,6 +117,12 @@ The Luxalamander is a rare frog type appearing only **once in 100 spawns**. Lick
 
 
 
+#### ![Rana Frog](pick-your-poison/rana_bowl.png) Rana Frog
+
+The Rana Frog is a special frog type only obtainable by **renaming another Poison Dart Frog to "Rana"** using a Name Tag. It does **not have a poison** and **no Throwing Darts** can be coated using this frog. Also note it can not be converted back to a normal Poison Dart Frog.
+
+
+
 ## Throwing Darts
 
 Throwing Darts can be **crafted in a bunch of 4 using 1 Iron Nugget, 1 Bamboo and 1 Feather**. They can be stacked and thrown by hand, **dealing as much damage and knockback as a fist punch**. When used on a placed down frog they will be **imbued with the respective poison**, applying it to hit targets for a few seconds. Imbued Poison Darts are not stackable.
