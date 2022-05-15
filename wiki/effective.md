@@ -19,10 +19,17 @@ visual and sound effects.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gx4mNQHiOUc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-### Cascades and Lava Splashes
+### Cascades
 <div>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AnwoxryEn2g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
+*Lava Splashes have been removed in more recent versions*
+
+#### Lapis Lazuli Block Updates
+
+**Additional cascade effects** can be created by **updating Lapis Lazuli Blocks** near the source of a water stream (for example by moving, placing or breaking them). The effects will then appear **along the entire stream** instead of solely the end.
+
+
 
 ## FAQ
 
