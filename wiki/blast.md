@@ -9,7 +9,15 @@ BLAST is a Minecraft fabric mod adding multiple explosives for use in survival o
 
 # Features
 
-Blast bombs will **drop all lootable blocks** and do **not destroy dropped items**; these items however are submitted to the bomb shockwaves (meaning items can go flying if you throw multiple bombs into a single spot).
+BLAST mainly focuses on various types of bombs with some common attributes:
+
+- BLAST bombs **drop all lootable blocks** they destroy
+
+- **Items are not destroyed** by explosions but **can be knocked back** by the blasts
+
+- Bombs make **stacks of 16** and have a **1 second cooldown** outside of creative mode
+
+  
 
 ## Bombs
 
@@ -35,39 +43,33 @@ Confetti Bombs come, as most other bombs, in 2 variation: As a trigger bomb and 
 
 ![Confetti Bombs](blast/ConfettiBombs.png)
 
+
+
+### Slime Bombs
+
+Slime Bombs can be crafted using **1 gunpowder, 1 Slimeball and 1 String/Redstone Dust**. Slime Bombs do **not deal any damage** to entities but have **increased knockback!**
+
+<img src="blast/SlimeBomb.png" alt="Slime Bomb" style="zoom:80%;" />
+
+### Amethyst Bombs
+
+Crafted like any other bomb with an **Amethyst Block as base material**, the Amethyst Bomb **adds 70 amethyst shards to your explosion**, at the **cost of the normal explosion damage**. These shards will spread in all directions and **deal 8 damage (4 heart) per shard**.
+
+<img src="blast/AmethystBomb.png" alt="Amethyst Bomb" style="zoom:80%;" />
+
+### Frost Bombs
+
+Being an alternative to Amethyst Bombs, Frost Bombs are crafted by adding **Packed Ice as base material** and **replaces the amethyst shards with icicles.** These icicles deal only **0.01 damage ** but **apply freezing effects** to their targets, bypassing armor without damaging it.
+
+<img src="blast/FrostBomb.png" alt="Frost Bomb" style="zoom:80%;" />
+
 ### Naval Mines
 
-Naval Mines are bombs that trigger on impact, **can destroy blocks underwater** and **will not sink** when thrown in water. Other than standard bombs the naval mine has an explosion power of 4.
+Naval Mines are bombs that trigger on impact, **can destroy blocks underwater** and **will not sink** when thrown in water. Other than standard bombs the naval mine has an explosion power of 4 and only exists as a trigger bomb variant.
 
 ![Naval Mine Recipe](blast/NavalMineRecipe.png)
 
-## Bombards
 
-Bombards can be used to **launch [normal Bombs and Trigger Bombs](#basic-bombs)** a **lot further** and will **negate their destructive capabilities** but **keep their damage to entities**. They have a **small cooldown** and will transform your bombs to **add special effects** to the explosion.
-
-### Bombard
-
-This most basic Bombard can be crafted using 6 Iron Ingots, 1 Cauldron, 1 Piston and 1 Lever. It doesn't add new effects to the bombs but is the **base item for the other Bombards**.
-
-<img src="blast/Bombard.png" alt="Bombard" style="zoom:80%;" />
-
-### Slime Bombard
-
-Bombards can be upgraded to Slime Bombards using a Slime Block on a Bombard in the Smithing Table. Bombs launched using the Slime Bombard do **not deal any damage** to entities but have **increased knockback!**
-
-<img src="blast/SlimeBombard.png" alt="Slime Bombard" style="zoom:80%;" />
-
-### Amethyst Bombard
-
-Crafted by applying an Amethyst Block to a Bombard in the Smithing Table, the Amethyst Bombard **adds amethyst shards to your explosion**, at the **cost of the normal explosion damage**. These shards will spread in all directions and **deal 2 damage (1 heart) per shard**.
-
-<img src="blast/AmethystBombard.png" alt="Amethyst Bombard" style="zoom:80%;" />
-
-### Frost Bombard
-
-Being an upgrade to the Amethyst Bombard, the Frost Bombard is crafted by adding Blue Ice to it in the Smithing Table and **replaces the amethyst shards with icicles.** These icicles deal only **0.5 damage (1/4 of a heart)** but **apply freezing effects** to their targets.
-
-<img src="blast/FrostBombard.png" alt="Frost Bombard" style="zoom:80%;" />
 
 ## Blocks
 
@@ -79,7 +81,7 @@ The Gunpowder Block is a compact way of storing gunpowder. When placed it is **h
 
 ### Stripminer
 
-The Stripminer is **triggered like TNT** and **focuses the explosion in one direction.** It creates a 3x3+ wide tunnel and usually points the way the player is looking upon placing it down, this, however, is inverted while sneaking. When the stripminer is set off by other explosives the direction can get misaligned and the fuse time varies slightly.
+The Stripminer is **triggered like TNT** and **focuses the explosion in one direction.** It creates a 3x3+ wide tunnel and usually points the way the player is looking upon placing it down, this, however, is inverted while sneaking. When the stripminer is set off by other explosives the direction can get misaligned and the fuse time varies slightly. In the recipe, the **Gunpowder Block can be replaced with TNT**.
 
 ![Stripminer](blast/Stripminer.png)
 
@@ -111,6 +113,4 @@ We don't port our mods to forge or backport them for various reasons. If you wan
 ![Naval Mines](blast/NavalMines.png)
 
 ![Confetti Rain](blast/ConfettiRain.png)
-
-![Frost and Amethyst Bombard](blast/FrostandAmethyst.png)
 
