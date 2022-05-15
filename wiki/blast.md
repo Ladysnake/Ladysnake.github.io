@@ -53,19 +53,19 @@ Slime Bombs can be crafted using **1 gunpowder, 1 Slimeball and 1 String/Redston
 
 ### Amethyst Bombs
 
-Crafted like any other bomb with an **Amethyst Block as base material**, the Amethyst Bomb **adds 70 amethyst shards to your explosion**, at the **cost of the normal explosion damage**. These shards will spread in all directions and **deal 8 damage (4 heart) per shard**.
+Crafted like any other bomb with an **Amethyst Block as base material**, the Amethyst Bomb **adds 70 amethyst shards to your explosion**, at the **cost of the normal explosion damage**. These shards will spread in all directions and **deal 8 damage (4 hearts) per shard**.
 
 <img src="blast/AmethystBomb.png" alt="Amethyst Bomb" style="zoom:80%;" />
 
 ### Frost Bombs
 
-Being an alternative to Amethyst Bombs, Frost Bombs are crafted by adding **Packed Ice as base material** and **replaces the amethyst shards with icicles.** These icicles deal only **0.01 damage ** but **apply freezing effects** to their targets, bypassing armor without damaging it.
+Being an alternative to Amethyst Bombs, Frost Bombs are crafted by adding **Packed Ice as base material** and **replace the amethyst shards with icicles.** These icicles deal only **0.01 damage** but **apply freezing effects** to their targets, bypassing armor without damaging it.
 
 <img src="blast/FrostBomb.png" alt="Frost Bomb" style="zoom:80%;" />
 
 ### Naval Mines
 
-Naval Mines are bombs that trigger on impact, **can destroy blocks underwater** and **will not sink** when thrown in water. Other than standard bombs the naval mine has an explosion power of 4 and only exists as a trigger bomb variant.
+Naval Mines are bombs that trigger on impact, **can destroy blocks underwater** and **will not sink** when thrown in water. Other than standard bombs the naval mine has an explosion power of 4 and **only** exists as a **trigger bomb** variant.
 
 ![Naval Mine Recipe](blast/NavalMineRecipe.png)
 
