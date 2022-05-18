@@ -1,0 +1,138 @@
+- type: text
+  text: https://cdn.discordapp.com/attachments/477579958068183075/479402266395279361/ladysnake_discord.png
+
+- type: embed
+  embeds:
+    - title: Welcome to the Ladysnake Discord server!
+      description: >
+        Before doing anything else, please read attentively this "read me".
+        It contains most of the information you'll need for your stay, including rules,
+        channel and role description. Please note that if you do not read this
+        and ask a question that is answered here, you'll be redirected to this page
+        and asked to read it.
+
+- type: rules
+  rules:
+    Follow Discord's rules: >
+      Follow Discord's [Community Guidelines](https://discord.com/guidelines) and
+      [Terms of Service](https://discord.com/terms).
+    
+    Follow the moderators: >
+      Please follow the spirit of the rules rather than just the actual words - act in good faith.
+
+      If you have any questions or concerns, please contact an Admin or Moderator - they have the final say.
+
+    Be respectful: >
+      Insults, slurs, and hate towards any individual or group are not tolerated.
+
+      Your profile must not have an offensive profile picture, or an offensive name or nickname. 
+
+      Constant antagonistic behavior is considered uncivil and therefore not accepted. Sarcasm is not a toxicity permit.
+
+      Swearing is tolerated, but do not abuse it.
+
+      Keep your posts PG-13. Please also avoid controversial subjects.
+
+    Respect the server: >
+      The primary language of this server is English.
+      Limited moderation is available for other languages, so please refrain from using them.
+
+      Before posting in a channel for the first time, read the channel topic.
+
+      Using the bots in a way to do prohibited stuff for normal users is naturally prohibited.
+
+      Promotion, advertising and Discord server invitations are forbidden, unless you are given a specific authorization by one of the Overseers.
+      You may post discord server invitations if prompted by another user.
+
+      Talking in another channel to circumvent a lockdown will earn you a timeout.
+
+- type: embed
+  embeds:
+    - title: Channel Map
+      fields:
+        - name: Information
+          description: >
+            <#477579958068183075>: You are here!
+
+            <#477574136596791321>: Server-wide or future project announcements. Please discuss in <#477579058369134593>.
+
+            <#761920708762140673>: Announcements regarding this server's moderation.
+        - name: General
+          description: >
+            <#477579058369134593>: General channel for all things Ladysnake.
+
+            <#477596941757317121>: Anything not related to Ladysnake, like the fact your kitten just ate soap,
+            or that your current game is charging money to unlock special grass skins.
+
+            <#477582372598972426>: Whether you want to post high quality memes or shitpost, please use this dumpster fire of a channel.
+            Memes don't have to relate to Ladysnake, but please keep following the rules.
+
+            <#486522594221228038>: A channel for working with ~~<@&311414905360351234>~~ <@!935588869808738304>. ~~Hissie is dead.~~
+        - name: Minecraft Mods
+          description: >
+            <#477596814862974997>: Sneak peeks at what's to come! Not for stuff that RAT posts, see Rattiest Gang for that.
+
+            <#477596862031855621>: If you need support for our mods, ask here. We'd love to help.
+
+            <#477596847129624591>: Suggest new stuff or changes for our mods. New mod suggestions are likely for someone else, please don't post here.
+
+            <#899956486183198770>: Have something cool to show with our mods? Post it here!
+    - title: Frequently Asked Questions
+      fields:
+        - name: What is this server? I joined from RAT's channel, is this RAT's discord?
+          description: >
+            Welcome to the Ladysnake Discord! Ladysnake is a modding group that makes high quality mods for Minecraft.
+            RAT has a special server now, so check it out in the links below! If you're interested in RAT's content,
+            join the Rattiest Gang server instead. Feel free to check what Ladysnake has to offer,
+            we have quite a bit of modded content if you're into that!
+        - name: Can you port X to forge, bedrock, etc. please? Backport to some other version?
+          description: >
+          We don't port our mods to forge, bedrock or backport them for various reasons.
+          If you want to make a port of one of the Ladysnake mods yourself however feel free to contact us!
+        - name: How do I install fabric mods?
+          description: >
+            Fabric has a [guide](https://fabricmc.net/wiki/start#tutorials) for how to get started.
+
+            Additionally, you will need to put the [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) in your mods folder.
+        - name: Where can I find information and download links for all of the mods?
+          description: >
+            You can find wikis and download links for Curseforge and Modrinth on [our website](https://ladysnake.github.io).
+            If you cannot find the mod, it's most likely the mod isn't released yet or won't be released.
+        - name: When can we expect game-nights / RAT streams / community events?
+          description: >
+            Watch [RAT's Twitter](https://twitter.com/doctor4t_) and join the Rattiest Gang server for information.
+
+- type: embed
+  embeds:
+    - title: Non-redeemable Roles
+      description: >
+        These roles cannot be added by yourself. They require someone with power to add them.
+
+        <@&308579843749183489>: Hopefully self-explanatory.
+
+        <@&477604399141748746>: Moderators but with a cooler name.
+
+        <@&824612078098317346>: Core members of Ladysnake.
+
+        <@&825417082572242994> (and any roles that these people have which aren't ping roles):
+        People who have contributed in various ways to Ladysnake mods.
+
+- type: roles
+  id: ladysnake-roles
+
+  title: Redeemable Roles
+  desciption: Click the button to assign or remove any of the mod ping roles below.
+  template: "{EMOJI} **{NAME}**\n"
+
+  roles:
+    831487926914908200:
+      emoji: "💀"
+    831488059786002473:
+      emoji: "<:illuminations:533061422637252609>"
+    831488094971887656:
+      emoji: "🐀"
+    853970159982215229:
+      emoji: "💣"
+    889451160065429544:
+      emoji: "🧊"
+    831488130896101376
