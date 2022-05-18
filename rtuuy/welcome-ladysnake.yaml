@@ -68,6 +68,8 @@
             Memes don't have to relate to Ladysnake, but please keep following the rules.
 
             <#486522594221228038>: A channel for working with ~~<@&311414905360351234>~~ <@!935588869808738304>. ~~Hissie is dead.~~
+
+            <#508294383909732352>: Where you go when you're in a voice chat but you forget about the "voice" part of "voice chat".
         - name: Minecraft Mods
           value: >
             <#477596814862974997>: Sneak peeks at what's to come! Not for stuff that RAT posts, see Rattiest Gang for that.
@@ -143,3 +145,10 @@
     831488130896101376:
       emoji: "<:ratkid:811987606530293790>"
       description: ""
+
+- type: links
+  title: Useful Links
+  links:
+    Rattiest Gang: https://discord.gg/rattiestgang
+    Ladysnake Website: https://ladysnake.github.io
+    Ladysnake's GitHub: https://github.com/Ladysnake
