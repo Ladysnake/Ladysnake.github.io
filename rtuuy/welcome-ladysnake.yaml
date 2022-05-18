@@ -51,14 +51,14 @@
     - title: Channel Map
       fields:
         - name: Information
-          description: >
+          value: >
             <#477579958068183075>: You are here!
 
             <#477574136596791321>: Server-wide or future project announcements. Please discuss in <#477579058369134593>.
 
             <#761920708762140673>: Announcements regarding this server's moderation.
         - name: General
-          description: >
+          value: >
             <#477579058369134593>: General channel for all things Ladysnake.
 
             <#477596941757317121>: Anything not related to Ladysnake, like the fact your kitten just ate soap,
@@ -69,7 +69,7 @@
 
             <#486522594221228038>: A channel for working with ~~<@&311414905360351234>~~ <@!935588869808738304>. ~~Hissie is dead.~~
         - name: Minecraft Mods
-          description: >
+          value: >
             <#477596814862974997>: Sneak peeks at what's to come! Not for stuff that RAT posts, see Rattiest Gang for that.
 
             <#477596862031855621>: If you need support for our mods, ask here. We'd love to help.
@@ -80,26 +80,26 @@
     - title: Frequently Asked Questions
       fields:
         - name: What is this server? I joined from RAT's channel, is this RAT's discord?
-          description: >
+          value: >
             Welcome to the Ladysnake Discord! Ladysnake is a modding group that makes high quality mods for Minecraft.
             RAT has a special server now, so check it out in the links below! If you're interested in RAT's content,
             join the Rattiest Gang server instead. Feel free to check what Ladysnake has to offer,
             we have quite a bit of modded content if you're into that!
         - name: Can you port X to forge, bedrock, etc. please? Backport to some other version?
-          description: >
+          value: >
             We don't port our mods to forge, bedrock or backport them for various reasons.
             If you want to make a port of one of the Ladysnake mods yourself however feel free to contact us!
         - name: How do I install fabric mods?
-          description: >
+          value: >
             Fabric has a [guide](https://fabricmc.net/wiki/start#tutorials) for how to get started.
 
             Additionally, you will need to put the [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) in your mods folder.
         - name: Where can I find information and download links for all of the mods?
-          description: >
+          value: >
             You can find wikis and download links for Curseforge and Modrinth on [our website](https://ladysnake.github.io).
             If you cannot find the mod, it's most likely the mod isn't released yet or won't be released.
         - name: When can we expect game-nights / RAT streams / community events?
-          description: >
+          value: >
             Watch [RAT's Twitter](https://twitter.com/doctor4t_) and join the Rattiest Gang server for information.
 
 - type: embed
