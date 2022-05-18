@@ -87,8 +87,8 @@
             we have quite a bit of modded content if you're into that!
         - name: Can you port X to forge, bedrock, etc. please? Backport to some other version?
           description: >
-          We don't port our mods to forge, bedrock or backport them for various reasons.
-          If you want to make a port of one of the Ladysnake mods yourself however feel free to contact us!
+            We don't port our mods to forge, bedrock or backport them for various reasons.
+            If you want to make a port of one of the Ladysnake mods yourself however feel free to contact us!
         - name: How do I install fabric mods?
           description: >
             Fabric has a [guide](https://fabricmc.net/wiki/start#tutorials) for how to get started.
