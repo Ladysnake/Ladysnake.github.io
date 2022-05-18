@@ -121,7 +121,7 @@
   id: ladysnake-roles
 
   title: Redeemable Roles
-  desciption: Click the button to assign or remove any of the mod ping roles below.
+  description: Click the button to assign or remove any of the mod ping roles below.
   template: "{EMOJI} **{NAME}**\n"
 
   roles:
