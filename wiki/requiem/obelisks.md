@@ -81,7 +81,7 @@ Scraped Tachylite can be found as parts of [**derelict Obelisks**](#derelict-obe
 
 #### Derelict Tachylite    ![Derelict Tachylite](img/DerelictTachylite.png)
 
-Derelict Tachylite can only be found as a part of a [Derelict Obelisk](#derelict-obelisks). Breaking it will grant **large amounts of experience** and has a **20% chance on dropping a [Shattered Soul Vessel](soul-vessels/shattered-soul-vessel)**. The Fortune enchantment increases this chance by 10% per level.
+Derelict Tachylite can only be found as a part of a [Derelict Obelisk](#derelict-obelisks). Breaking it will grant **large amounts of experience** and has a **20% chance on dropping a [Shattered Soul Vessel](soul-vessels#shattered-soul-vessel)**. The Fortune enchantment increases this chance by 10% per level.
 
 Derelict Tachylite is the only Tachylite variant that can **not** be used as an Obelisk frame block.
 
