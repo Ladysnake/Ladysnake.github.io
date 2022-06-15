@@ -17,13 +17,17 @@ If you are a developer, you can use Chenille in your own project by inserting th
 
 ```gradle
 plugins {
-	id 'io.github.ladysnake.chenille' version '0.6.0'
+	id 'io.github.ladysnake.chenille' version '0.9.0'
 }
 ```
 
 For the latest version snippet, refer to the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/io.github.ladysnake.chenille).
 
 ## Features
+
+### Quilt Setup
+
+Chenille applies the `quilt-loom` plugin to your project, unless `fabric-loom` was applied first.
 
 ### Publishing
 
@@ -32,6 +36,7 @@ Chenille can setup publishing to various platforms :
 ```gradle
 chenille {
     configurePublishing {
+        mainArtifact = remapStandaloneJar.archiveFile
         withArtifactory()
         withCurseforgeRelease()
         withGithubRelease()
@@ -40,10 +45,15 @@ chenille {
 }
 ```
 
+The `mainArtifact` option determines the main jar to upload.
+If left unspecified, it will default to `remapJar.archiveFile`.
+
 - [Artifactory](https://jfrog.com/artifactory/) publishing requires the `artifactory_user` and `artifactory_api_key` user-level gradle properties
 - [Curseforge](https://curseforge.com/) publishing requires the `curseforge_api_key` user-level property and the `curseforge_id` project-level property
 - [Github](https://github.com) publishing requires the `github_api_key` user-level property
 - [Modrinth](https://modrinth.com) publishing requires the `modrinth_api_key` user-level property and the `modrinth_id` project-level property
+
+On curseforge and modrinth, the launcher setting will be set to `fabric` if `fabric-loom` is applied, otherwise it will be set to `quilt`.
 
 #### Changelog
 
@@ -91,20 +101,7 @@ You can setup such a test mod with automated test cases by calling `chenille.con
 This will configure a `testmod` sourceset, as well as the following run configs :
 - Testmod Client : starts a minecraft client with your mod and your test mod
 - Testmod Server : starts a minecraft server with your mod and your test mod
-- Auto Test Server : starts a minecraft server with your mod and your test mod, which also runs your test cases
+- Auto Test Server : starts a minecraft server with your mod and your test mod, which shuts down after loading every mixin
 - Game Test : runs your automated testing and shuts down immediately afterward
 
 Game tests will automatically be run as part of the `check` task, preventing you from building if you got an error.
-Finally, you can also get a new `modTestImplementation` dependency configuration for this new source set :
-
-```gradle
-chenille {
-    configureTestmod {
-        withDependencyConfiguration()
-    }
-}
-
-dependencies {
-    modTestImplementation("io.github.ladysnake:elmendorf:${elmendorf_version}")
-}
-```
