@@ -29,7 +29,7 @@ The lists below represent a file tree taking root in the `tags` directory of a d
 {%include tag_list.liquid type="block" modid="requiem" tags=site.data.requiem.block_tags%}
 
 #### Biomes
-{%include tag_list.liquid type="biome" modid="requiem" tags=site.data.requiem.biome_tags%}
+{%include tag_list.liquid type="biome" folder="worldgen/biome" modid="requiem" tags=site.data.requiem.biome_tags%}
 
 #### Entity Types
 Most entity type tags control aspects of possession.

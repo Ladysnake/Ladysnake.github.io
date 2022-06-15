@@ -6,7 +6,6 @@
 - name: wandering_soul_traversable
   description: Specifies which blocks wandering souls (souls released from a vessel) can just fly through.
   since: 2.0.0
-  upcoming: true
 - name: obelisk
   children:
     - name: frame
