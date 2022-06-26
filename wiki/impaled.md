@@ -16,13 +16,19 @@ curse_project: 478843
 
 Impaled changes, fixes and adds a few features for tridents:
 
+
+
 #### Impaling
 
 Impaling now **deals damage to wet mobs** (underwater or in rain) instead of aquatic mobs only. To balance this change, Impaling only increases the damage by 0.75 per level instead of 1.25.
 
+
+
 #### Loyalty
 
 Tridents with the Loyalty enchantment will **always return to the inventory slot** they were launched from, including the Offhand. Should the player picks up new items blocking said slot, the trident will return to a free slot just as usual.
+
+
 
 #### Sincere Loyalty
 
@@ -38,6 +44,8 @@ Sincere Loyalty can be obtained by combining a Loyalty III-Trident with a Heart 
 
 There are 4 new Tridents added by Impaled:
 
+
+
 #### ![Pitchfork](impaled/pitchfork_item.png) Pitchfork
 
 The Pitchfork is an **early-game version of the Trident**. It has reduced durability compared to the actual Trident and does not work properly underwater. Nonetheless it can be thrown and used in melee combat, enchanted with all the Trident-Enchantments and even be used to convert Dirt to Farmland.
@@ -47,6 +55,8 @@ The Pitchfork is an **early-game version of the Trident**. It has reduced durabi
 The Pitchfork can be crafted using 3 Iron Bars and 2 Sticks:
 
 ![Pitchfork](impaled/Pitchfork.png)
+
+
 
 
 
@@ -66,6 +76,8 @@ An Elder Trident is obtained by **combining a normal Trident with an Elder Guard
 
 
 
+
+
 #### ![Hellfork](impaled/hellfork_item.png) Hellfork
 
 The Hellfork is the Trident of the Nether, being invulnerable to lava and fire just as Netherite, having increased durability and setting mobs on fire.
@@ -80,11 +92,15 @@ To obtain a Hellfork, **combine a Trident and an Ancient Trident** in a Smithing
 
 
 
+
+
 #### ![Soulfork](impaled/soulfork.png) Soulfork variant
 
 A **Hellfork can absorb Soul Lanterns, Soul Campfires or Soul Torches**, making it a Soulfork. This process will turn the used block into its normal variant (for example make the Soul Campfire a Campfire) and is reversible.
 
 **Soulforks with Riptide** can be used at any time at the cost of 1 level of experience or, in case the player runs out of experience, 1 heart of health. Using Riptide will also put the player on fire without hurting them (as long as they were not on fire before).
+
+
 
 
 
@@ -100,13 +116,17 @@ The Atlan is obtained by **combining an Enchanted Golden Apple with a Trident** 
 
 
 
+
+
 ### Experimental
 
-#### Maelstrom
+
+
+#### ![Maelstrom](impaled/maelstrom.png) Maelstrom
 
 The Maelstrom is a creative-only item that allows you to launch Tridents from your inventory without charging time but instead a cooldown afterwards, allowing for faster reactions. It can be enchanted with Unbreaking, Mending and Efficiency, the latter to reduce the cooldown.
 
-![Maelstrom](impaled/Maelstrom.png)
+
 
 ## FAQ
 
