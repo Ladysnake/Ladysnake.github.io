@@ -38,7 +38,7 @@ Sincere Loyalty can be obtained by combining a Loyalty III-Trident with a Heart 
 
 There are 4 new Tridents added by Impaled:
 
-#### Pitchfork
+#### ![Pitchfork](impaled/pitchfork_item.png) Pitchfork
 
 The Pitchfork is an **early-game version of the Trident**. It has reduced durability compared to the actual Trident and does not work properly underwater. Nonetheless it can be thrown and used in melee combat, enchanted with all the Trident-Enchantments and even be used to convert Dirt to Farmland.
 
@@ -50,7 +50,7 @@ The Pitchfork can be crafted using 3 Iron Bars and 2 Sticks:
 
 
 
-#### Elder Trident
+#### ![Elder Trident](impaled/elder_trident.png) Elder Trident
 
 This Trident uses the ancient Guardian magic to home for mobs if it does not hit its target first time. It will also store the items dropped by killed mobs and give them to the player when being picked up or retrieved with Loyalty. 
 
@@ -66,21 +66,13 @@ An Elder Trident is obtained by **combining a normal Trident with an Elder Guard
 
 
 
-#### Hellfork
+#### ![Hellfork](impaled/hellfork_item.png) Hellfork
 
 The Hellfork is the Trident of the Nether, being invulnerable to lava and fire just as Netherite, having increased durability and setting mobs on fire.
 
-**Riptide-Hellforks** are based on fire instead of water: The player needs to be in lava or burning for it to work, but will also conveniently be put on fire without being hurt when using Riptide.
+**Riptide-Hellforks** are based on fire instead of water, meaning The player needs to be in lava or burning for it to work.
 
 **Impaling-Hellforks** deal 1 more damage to fire resistant mobs (Magma Cubes, Ghasts,..) per level instead of wet mobs. This also works for targets with the Fire Resistance potion effect such as players or Witches.
-
-##### Soulfork variant
-
-A Hellfork can absorb Soul Lanterns, Soul Campfires or Soul Torches, making it a Soulfork. This process will turn the used block into its normal variant (for example make the Soul Campfire a Campfire) and is reversible.
-
-**Soulforks with Riptide** can be used at any time at the cost of 1 level of experience or, in case the player runs out of experience, 1 heart of health.
-
-
 
 To obtain a Hellfork, **combine a Trident and an Ancient Trident** in a Smithing Table. Ancient Tridents are immune to fire and lava and can be found in Treasure Bastion Remnants with a 60% chance.
 
@@ -88,7 +80,15 @@ To obtain a Hellfork, **combine a Trident and an Ancient Trident** in a Smithing
 
 
 
-#### Atlan
+#### ![Soulfork](impaled/soulfork.png) Soulfork variant
+
+A **Hellfork can absorb Soul Lanterns, Soul Campfires or Soul Torches**, making it a Soulfork. This process will turn the used block into its normal variant (for example make the Soul Campfire a Campfire) and is reversible.
+
+**Soulforks with Riptide** can be used at any time at the cost of 1 level of experience or, in case the player runs out of experience, 1 heart of health. Using Riptide will also put the player on fire without hurting them (as long as they were not on fire before).
+
+
+
+#### ![Atlan](impaled/atlan_item.png) Atlan
 
 The Atlan is a golden Trident with a **high enchantability**. It accepts not only Trident-Enchantments but also **all Sword-Enchantments** like Fire Aspect, Sweeping Edge or Smite.
 
