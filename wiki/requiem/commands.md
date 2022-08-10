@@ -8,7 +8,8 @@ Requiem adds a few admin commands to make testing the mod or helping clueless pl
 All Requiem commands start with `/requiem`. Most of them take an optional player argument. If that argument is not given, the target of the command will be the command executor.
 
 - `/requiem remnant`
-    - `/requiem remnant set <true|false> [player]`: sets the remnant status of a player. (Remnants are called demons in the lore, they turn into ghosts when they die)
+    - `/requiem remnant set <true|false> [player]`: sets the remnant status of a player (Remnants are also called demons in the lore, they turn into ghosts when they die).
+      This command by itself does not prevent the choice menu from appearing on next death.
     - `/requiem remnant query [player]`: queries the remnant status of a player.
 - `/requiem vagrant` <span class="badge badge-secondary">&gt; 2.0.0</span>
     - `/requiem vagrant set <true|false> [player]`: sets the vagrant status of a remnant player. If `true`, the player will become an ethereal ghost.
@@ -27,6 +28,11 @@ All Requiem commands start with `/requiem`. Most of them take an optional player
 - `/requiem soul` <span class="badge badge-danger">&lt; 2.0.0</span>
     - `/requiem soul set <true|false> [player]`: sets the soul status of a remnant player.
     - `/requiem soul query [player]`: queries the soul status of a player
+
+### Remnant choice screen
+The remnant choice screen is based on [Blabber](../blabber) and can as such be interacted with through the mod's commands.
+It normally appears when a player dies without the `requiem:adventure/the_choice` advancement and with the 
+[`requiem:startingRemnantType`](configuration#requiem-startingremnanttype) gamerule set to `DEFAULT`.
 
 ### Target Selector Arguments
 Requiem also adds a new [Target Selector Argument](https://minecraft.gamepedia.com/Commands#Target_selector_arguments) - `"requiem:possessor"`.
