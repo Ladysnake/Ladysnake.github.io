@@ -35,7 +35,11 @@ commands.
         - `[<key>]` (optional) : If specified, must be a valid identifier serving as a key for the impersonation.  
     - `/impersonate disguise clear [<targets>] [<key>]` : stops the impersonation of one or more players  
         - `[<targets>]` (optional) : If specified, must be either a player's username or a target selector. If unspecified, defaults to the player using the command. When used in a command block, `[<targets>]` is not optional.  
-        - `[<key>]` (optional) : If specified, must be a valid identifier that was previously used as a key to start an impersonation. If left unspecified, the command will clear every active impersonation.  
+        - `[<key>]` (optional) : If specified, must be a valid identifier that was previously used as a key to start an impersonation. If left unspecified, the command will clear every active impersonation.
+  - `/impersonate disguise query [<target>] [<key>]` : queries the ongoing impersonation for a given player.
+      - `[<target>]` (optional) : If specified, must be either a player's username or a target selector. If unspecified, defaults to the player using the command. When used in a command block, player is not optional.
+      - `[<key>]` (optional) : If specified, must be a valid identifier. In that case, the command will display the specific impersonation using that key, otherwise it will display the currently visible (most recent) impersonation.
+
 ### Gamerules
 - `impersonate:fakeCapes` : Whether impersonators should get the cape and elytra of impersonated players. Defaults to `false`.  If [Illuminations](illuminations) is installed, the gamerule also applies to player cosmetics.
 - `impersonate:opRevealImpersonations` : Whether ongoing impersonations should be revealed to online server operators. Defaults to `true`.  
