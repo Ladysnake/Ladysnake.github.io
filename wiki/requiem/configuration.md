@@ -53,6 +53,22 @@ For examples, see [possession loot tables for vanilla mobs](https://github.com/L
 
 Loot table generator: [https://minecraft.tools/en/loots.php](https://minecraft.tools/en/loots.php)
 
+#### Loot table conditions
+
+- `requiem:bound_shell`: checks properties of a vagrant player's bound shell (i.e. the last player body they dissociated from). Fails if the checked entity is not a player.
+    - `entity`: The entity to check. Set to `this` to use the entity that invoked this condition, `killer` for the killer of the `this` entity, `killer_player` to only select the killer if they are a player, or `direct_killer` for the direct entity that killed this entity.
+    - `predicate`: a predicate for the entity's bound shell. Composed of the following optional sub-predicates:
+      - `distance`: a [distance predicate](https://minecraft.fandom.com/wiki/Advancement/Conditions/distance) applied to the distance between the player and its shell. Does not require the shell to be in a loaded chunk.
+      - `location`: a [location predicate](https://minecraft.fandom.com/wiki/Advancement/Conditions/location) applied to the shell's location. Some sub-checks may fail if the shell is not in a loaded chunk.
+      - `entity`: an [entity predicate](https://minecraft.fandom.com/wiki/Advancement/Conditions/entity) applied to the shell itself. Will fail if the shell is not in a loaded chunk.
+- `requiem:host`: checks properties of a vagrant player's host (i.e. the entity they are currently possessing).
+  - `entity`: The entity to check. Set to `this` to use the entity that invoked this condition, `killer` for the killer of the `this` entity, `killer_player` to only select the killer if they are a player, or `direct_killer` for the direct entity that killed this entity.
+  - `predicate`: an [entity predicate](https://minecraft.fandom.com/wiki/Advancement/Conditions/entity) applied to the possessed mob.
+- `requiem:possessor`: checks properties of a mob's possessor (i.e. the vagrant player controlling them).
+  - `entity`: The entity to check. Set to `this` to use the entity that invoked this condition, `killer` for the killer of the `this` entity, `killer_player` to only select the killer if they are a player, or `direct_killer` for the direct entity that killed this entity.
+  - `predicate`: an [entity predicate](https://minecraft.fandom.com/wiki/Advancement/Conditions/entity) applied to the possessing player.
+- `requiem:rift_mortician`: checks whether a mortician is spawned from a rift. Invokable from any context.
+    - `entity`: The entity to check. Set to `this` to use the entity that invoked this condition, `killer` for the killer of the `this` entity, `killer_player` to only select the killer if they are a player, or `direct_killer` for the direct entity that killed this entity.
 
 ### Changes to Predicates
 

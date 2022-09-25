@@ -34,6 +34,23 @@ The remnant choice screen is based on [Blabber](../blabber) and can as such be i
 It normally appears when a player dies without the `requiem:adventure/the_choice` advancement and with the 
 [`requiem:startingRemnantType`](configuration#requiem-startingremnanttype) gamerule set to `DEFAULT`.
 
+### Predicates
+
+Requiem adds 2 new [predicates](https://minecraft.fandom.com/wiki/Predicate). More advanced predicates can also be created
+in datapacks using the new [loot conditions](./configuration#loot-table-conditions).
+
+{% capture predicate_src %}{{site.data.requiem.links.data}}/predicates{% endcapture %}
+
+- [`requiem:live_shell`]({{predicate_src}}/live_shell.json): checks if an entity is a vagrant player with a live player shell bound to it.
+- [`requiem:possessing`]({{predicate_src}}/possessing.json): checks if an entity is a vagrant player currently possessing a mob.
+- [`requiem:possessed`]({{predicate_src}}/possessed.json): checks if an entity is a mob possessed by a vagrant player.
+
+_Example:_
+```bash
+# Makes every vagrant player with a live shell say "Hello, World!"
+execute as @e[predicate="requiem:live_shell"] run say Hello, World!
+```
+
 ### Target Selector Arguments
 Requiem also adds a new [Target Selector Argument](https://minecraft.gamepedia.com/Commands#Target_selector_arguments) - `"requiem:possessor"`.
 Any command that can target entities can use this argument to select entities based on their possessor.
