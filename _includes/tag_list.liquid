@@ -1,6 +1,6 @@
 {% unless include.name %}<ul class="directory-list"><li class="folder">{% endunless %}
     {%capture folder%}{%if include.folder%}{{include.folder}}{%if include.name%}/{{include.name}}{%endif%}{%else%}{{include.type}}s{%endif%}{%endcapture%}
-    {%capture path%}{{site.data.requiem.links.github}}/tags/{{folder}}{%endcapture%}
+    {%capture path%}{{site.data.requiem.links.data_src}}/tags/{{folder}}{%endcapture%}
     <a href="{{path}}" class="tag-name">{%if include.name%}{{include.name}}{%else%}{{include.modid}}:tags/{{folder}}{%endif%}</a>
     <ul>
         {% for tag in include.tags %}

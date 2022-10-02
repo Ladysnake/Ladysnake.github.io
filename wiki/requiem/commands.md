@@ -39,7 +39,7 @@ It normally appears when a player dies without the `requiem:adventure/the_choice
 Requiem adds 3 new [predicates](https://minecraft.fandom.com/wiki/Predicate). More advanced predicates can also be created
 in datapacks using the new [loot conditions](./configuration#loot-table-conditions).
 
-{% capture predicate_src %}{{site.data.requiem.links.data}}/predicates{% endcapture %}
+{% capture predicate_src %}{{site.data.requiem.links.data_src}}/predicates{% endcapture %}
 
 - [`requiem:live_shell`]({{predicate_src}}/live_shell.json): checks if an entity is a vagrant player with a live player shell bound to it.
 - [`requiem:possessing`]({{predicate_src}}/possessing.json): checks if an entity is a vagrant player currently possessing a mob.
