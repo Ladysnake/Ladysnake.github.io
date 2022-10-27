@@ -119,6 +119,10 @@
         <@&825417082572242994> (and any roles that these people have which aren't ping roles):
         People who have contributed in various ways to Ladysnake mods.
 
+        <@&831488059786002473>: Retired role for Illuminations. [Illuminations](https://ladysnake.github.io/wiki/illuminations/)
+        will be included in future versions of [Effective](https://ladysnake.github.io/wiki/effective), and so this role has been
+        taken out of use. Cool people still get to keep this role, until it's deleted, though.
+
 - type: roles
   id: ladysnake-roles
 
@@ -131,8 +135,8 @@
       emoji: "💀"
       description: ""
     924399121270472744:
-      emoji: "<:illuminations:533061422637252609>"
-      description: "(Illuminations will be included in future versions)"
+      emoji: "💦"
+      description: ""
     831488094971887656:
       emoji: "🐀"
       description: ""
