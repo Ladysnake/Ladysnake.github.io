@@ -63,6 +63,7 @@
 - type: embed
   embeds:
     - title: Advice
+      color: 0xe91e63
       description: >
         Not sure what a channel is for? Every channel has a topic, so please read it to make sure you're in the right place.
         Some channels are not designed for chatting, but for posting content. Discussions can be held in threads.
