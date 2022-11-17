@@ -29,7 +29,7 @@ layout: default
 	<div class="menu-grid-desc">
 		<img src="{{ page.icon }}" class="mod_icon">
 		<h2 class="home">{{ page.title }}</h2>
-		<div class="home">{{ page.content | markdownify }}</div>
+		{{ page.content | markdownify }}
 	</div>
 	<div class="menu-grid-btn">
 		<a href="{{ page.link }}" title="{{ page.title }}" class="btn btn-sm btn-primary">Learn More</a>
@@ -42,17 +42,20 @@ layout: default
 		<h2 class="section-title home">Our Other Projects</h2>
 		<p class="section-description home">The other stuff we made that aren't Minecraft mods</p>
 	</div>
-	<div class="col-md-4">
-		<!--
-			🦀 hissie is dead 🦀
-		-->
+</div>
+<div class="menu-grid-row">
+	<div class="menu-grid-desc">
+        <h2 class="home">Chenille</h2>
+        <p class="home">Gradle plugin to facilitate mod development.</p>
 	</div>
-	<div class="col-md-4">
-		<div class="service-block text-center">
-			<!-- <img> -->
-			<h2 class="home">Old Site</h2>
-			<p class="home">Our long outdated version of the Ladysnake website, created by the talented Voltra</p>
-			<a href="oldsite/" title="Old Site" class="btn btn-sm btn-primary">Go there now!</a>
-		</div>
+    <div class="menu-grid-btn">
+        <a href="wiki/chenille/" title="Chenille" class="btn btn-sm btn-primary">Learn More</a>
+    </div>
+	<div class="menu-grid-desc">
+        <h2 class="home">Old Site</h2>
+        <p>Our long outdated version of the Ladysnake website, created by the talented Voltra</p>
 	</div>
+    <div class="menu-grid-btn">
+        <a href="oldsite/" title="Old Site" class="btn btn-sm btn-primary">Go there now!</a>
+    </div>
 </div>
