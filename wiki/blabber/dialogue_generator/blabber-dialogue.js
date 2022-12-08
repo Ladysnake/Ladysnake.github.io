@@ -89,4 +89,10 @@ export default class BlabberDialogue {
         const newState = {...(window.history.state ?? {}), data: this.data};
         window.history.replaceState(newState, '');
     }
+
+    prune() {
+        for (const v of Object.values(this.data.states)) {
+            if (v.action?.type === '') delete v.action;
+        }
+    }
 }

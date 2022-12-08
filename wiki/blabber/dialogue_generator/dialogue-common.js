@@ -162,6 +162,7 @@ function setupDialogueIo(dialogue, loadData) {
     document.getElementById('dialogue-export').addEventListener('click', () => {
         clearIoLogs();
         if (validateDialogue(dialogue, logIoError, logIoWarning)) {
+            dialogue.prune();
             saveAs(new Blob([JSON.stringify(dialogue.data, null, 2)], {type: 'application/json'}), 'my-dialogue.json');
         }
     });
