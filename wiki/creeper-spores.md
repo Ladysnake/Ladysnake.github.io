@@ -6,7 +6,7 @@ curse_project: 331636
 modrinth: true
 ---
 
-A Minecraft mod for the Fabric Mod Loader, adding new creeper mechanics based on the theory of them being plants.
+A Minecraft mod for the [Quilt Mod Loader](https://quiltmc.org), adding new creeper mechanics based on the theory of them being plants.
 
 ## Features
 
