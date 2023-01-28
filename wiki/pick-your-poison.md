@@ -17,9 +17,9 @@ Pick Your Poison is a Minecraft fabric mod bringing poison dart frogs and 6 new 
 
 Poison Dart Frogs can be found spawning in 7 different types in the **various jungle variants**. They can be **picked up by using a bowl** on them and will give the player their **respective effect when hit or licked**.
 
-Licking a Poison Dart Frog can be done by **"eating" the picked up version** and will not consume the frog. You can **not lick** a Poison Dart Frog **while you have its effect**. 
+Licking a Poison Dart Frog can be done by **"eating" the picked up version** and will not consume the frog. You can **not lick** a Poison Dart Frog **while you have its effect** and the frogs themselves are immune to their effects.
 
-Poison Dart Frogs themselves are immune to their effects.
+Putting a picked up Poison Dart Frog back down requires **sneaking while right-clicking**.
 
 
 
@@ -45,7 +45,9 @@ Blue Poison Dart Frogs give the **Comatose** effect for **20 seconds**.
 
 ##### Comatose
 
-Comatose **renders the player unable to see or do anything**, including pausing the game or opening the inventory **until the effect runs out or the player is attacked**. Being a regenerative sleep however, Comatose will cause the player to **gain back some health** while under the effect.
+Comatose **renders the player unable to see or do anything**, including pausing the game or opening the inventory **until the effect runs out or the player is attacked**.
+
+Being a regenerative sleep however, Comatose will cause the player to **gain back some health** while under the effect. Additionally, the **first damage** received by a comatosed player **will be negated**.
 
 ![Comatose effect](pick-your-poison/comatose.png)
 
@@ -131,13 +133,20 @@ Throwing Darts can be **crafted in a bunch of 4 using 1 Iron Nugget, 1 Bamboo an
 
 ### Poison Darts
 
- ![Comatose Dart](pick-your-poison/comatose-dart.png) ![Batrachotoxin Dart](pick-your-poison/batrachotoxin-dart.png)
+ ![Comatose Dart](pick-your-poison/comatose-dart.png)
 
- ![Numbness Dart](pick-your-poison/numbness-dart.png) ![Vulnerability Dart](pick-your-poison/vulnerability-dart.png)
+ ![Batrachotoxin Dart](pick-your-poison/batrachotoxin-dart.png)
 
- ![Torpor Dart](pick-your-poison/torpor-dart.png)  ![Blindness Dart](pick-your-poison/blindness-dart.png) 
+ ![Numbness Dart](pick-your-poison/numbness-dart.png)
+
+ ![Vulnerability Dart](pick-your-poison/vulnerability-dart.png)
+
+ ![Torpor Dart](pick-your-poison/torpor-dart.png)
+
+ ![Blindness Dart](pick-your-poison/blindness-dart.png)
 
  ![Stimulation Dart](pick-your-poison/stimulation-dart.png)
+
 
 
 
