@@ -96,7 +96,7 @@ To obtain a Hellfork, **combine a Trident and an Ancient Trident** in a Smithing
 
 #### ![Soulfork](impaled/soulfork.png) Soulfork variant
 
-A **[Hellfork](#-hellfork) can absorb Soul Lanterns, Soul Campfires or Soul Torches**, making it a Soulfork. This process will turn the used block into its normal variant (for example make the Soul Campfire a Campfire) and is **reversible**.
+A **Hellfork can absorb Soul Lanterns, Soul Campfires or Soul Torches**, making it a Soulfork. This process will turn the used block into its normal variant (for example make the Soul Campfire a Campfire) and is **reversible**.
 
 **Soulforks with Riptide** can be used at any time at the cost of 1 level of experience or, in case the player runs out of experience, 1 heart of health. Using Riptide will also put the player on fire without hurting them (as long as they were not on fire before).
 
