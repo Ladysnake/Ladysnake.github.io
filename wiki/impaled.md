@@ -44,7 +44,7 @@ Sincere Loyalty can be obtained by combining a Loyalty III-Trident with a Heart 
 
 ### Tridents
 
-Impaled adds a total of 5 new tridents with unique behavior to your world:
+Impaled adds a total of 5 new tridents with unique behavior:
 
  
 
@@ -68,11 +68,11 @@ This Trident uses the ancient Guardian magic to home for mobs if it does not hit
 
 Using **Riptide on an Elder Trident** will create 1 Guardian Trident per Riptide level that will copy the Elder Trident's behavior of homing for mobs and returning items.
 
-In addition to the normal behavior of **Channeling** during storms, hitting a player with an Elder Trident will affect them like an Elder Guardian, appearing in front of them and affecting them with Mining Fatigue. This feature is, unlike the thunderstrike, not limited to thunderstorms.
+In addition to the normal behavior of **Channeling** during storms, hitting a player with an Elder Trident will affect them like an Elder Guardian, appearing in front of them and affecting them with 10 seconds of Mining Fatigue. This feature is, unlike the thunderstrike, not limited to thunderstorms.
 
  
 
-An Elder Trident is obtained by **combining a normal Trident with an Elder Guardian Eye** in the Smithing Table. Elder Guardian Eyes are obtained by killing an Elder Guardian using a Trident in a melee attack or a Loyalty III- or Loyalty IV-Trident.
+An Elder Trident is obtained by **combining a normal Trident with an Elder Guardian Eye** in the Smithing Table. Elder Guardian Eyes are obtained by killing an Elder Guardian using a Trident in a melee attack or a Loyalty III/IV-Trident.
 
 ![Elder Trident Recipe](impaled/ElderTrident.png)
 
@@ -84,9 +84,9 @@ An Elder Trident is obtained by **combining a normal Trident with an Elder Guard
 
 The Hellfork is the Trident of the Nether, being invulnerable to lava and fire just as Netherite, having increased durability and setting mobs on fire.
 
-**Riptide-Hellforks** are based on fire instead of water, meaning The player needs to be in lava or burning for it to work.
+**Riptide-Hellforks** are based on fire instead of water, meaning the player needs to be in lava or burning for it to work.
 
-**Impaling-Hellforks** deal 1 more damage to fire resistant mobs (Magma Cubes, Ghasts,..) per level instead of wet mobs. This also works for targets with the Fire Resistance potion effect such as players or Witches.
+**Impaling-Hellforks** deal 1 more damage to fire resistant mobs (Magma Cubes, Ghasts,..) per level instead of wet mobs. This also works for targets with the Fire Resistance buff such as players or Witches.
 
 To obtain a Hellfork, **combine a Trident and an Ancient Trident** in a Smithing Table. Ancient Tridents are immune to fire and lava and can be found in Treasure Bastion Remnants with a 60% chance.
 
@@ -98,7 +98,7 @@ To obtain a Hellfork, **combine a Trident and an Ancient Trident** in a Smithing
 
 #### ![Soulfork](impaled/soulfork.png) Soulfork variant
 
-A **Hellfork can absorb Soul Lanterns, Soul Campfires or Soul Torches**, making it a Soulfork. This process will turn the used block into its normal variant (for example make the Soul Campfire a Campfire) and is reversible.
+A **Hellfork can absorb Soul Lanterns, Soul Campfires or Soul Torches**, making it a Soulfork. This process will turn the used block into its normal variant (for example make the Soul Campfire a Campfire) and is **reversible**.
 
 **Soulforks with Riptide** can be used at any time at the cost of 1 level of experience or, in case the player runs out of experience, 1 heart of health. Using Riptide will also put the player on fire without hurting them (as long as they were not on fire before).
 
@@ -124,7 +124,7 @@ The Atlan is obtained by **combining an Enchanted Golden Apple with a Trident** 
 
  
 
-#### ![Maelstrom](impaled/maelstrom.png) Maelstrom
+#### ![Maelstrom](impaled/Maelstrom.png) Maelstrom
 
 The Maelstrom is a creative-only item that allows you to launch Tridents from your inventory without charging time but instead a cooldown afterwards, allowing for faster reactions. It can be enchanted with Unbreaking, Mending and Efficiency, the latter to reduce the cooldown.
 
@@ -138,8 +138,7 @@ The Maelstrom is a creative-only item that allows you to launch Tridents from yo
 
 #### Will you be making a Forge version? Does a Forge version exist?
 
-**No**, we will not be making a Forge version of this mod. We do welcome third-party ports however, so feel free to [come chat with us](https://ladysnake.glitch.me) about it if you feel like doing one.
-
+**No**, we will not be making a Forge version of this mod.
  
 
 ## Gallery
