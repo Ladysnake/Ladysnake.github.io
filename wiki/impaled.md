@@ -90,11 +90,9 @@ The Hellfork is the Trident of the Nether, being invulnerable to lava and fire j
 
 To obtain a Hellfork, **combine a Trident and an Ancient Trident** in a Smithing Table. Ancient Tridents are immune to fire and lava and can be found in Treasure Bastion Remnants with a 60% chance.
 
-![Hellfork Recipe](impaled/Hellfork.png)
-
  
 
- 
+
 
 #### ![Soulfork](impaled/soulfork.png) Soulfork variant
 
@@ -102,6 +100,7 @@ A **[Hellfork](#-hellfork) can absorb Soul Lanterns, Soul Campfires or Soul Torc
 
 **Soulforks with Riptide** can be used at any time at the cost of 1 level of experience or, in case the player runs out of experience, 1 heart of health. Using Riptide will also put the player on fire without hurting them (as long as they were not on fire before).
 
+![Hellfork Recipe](impaled/Hellfork.png)
  
 
  
