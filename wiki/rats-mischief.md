@@ -29,7 +29,7 @@ Rats will pick up any item stack on the floor they come across, and bring it bac
 
 ### Requiem Compatibility
 
-If [Requiem](https://ladysnake.org/wiki/requiem/) is installed, a '/ratify' command will be available which converts the targeted player into a random Rat type, acting similarly to [possessing](https://ladysnake.org/wiki/requiem/possession) one.
+If [Requiem](https://www.curseforge.com/minecraft/mc-mods/requiem) is installed, a '/ratify' command will be available which converts the targeted player into a random Rat type, acting similarly to [possessing](https://ladysnake.org/wiki/requiem/possession) one.
 
 This feature is not available on all versions, as both mods must be updated and available on the same launcher.
 
@@ -58,13 +58,13 @@ This feature is not available on all versions, as both mods must be updated and 
 
 On April 4th, World Rat Day, all rats will smug dance and the chance of golden rats spawning increases from 1 in 150 to 1 in 30!
 
-#### Rat's Mischief's Birthday
-
-On December 28th, wild adult rats will have a 20% chance to be of a fully random type (including special types) as well as a 20% chance on spawning with a cake in their paws to celebrate the birthday of the mod itself! Rats will also smug dance during this special week and wear randomized party hats.
-
 #### RAT's Birthday
 
 On the 19th of July, RAT's (doctor4t) birthday, as well as during the following week rats will smug dance, wear party hats and have a 20% chance to spawn with a cake if they are spawned as adults. Additionally, there will be a chance of 10% for wild rats to spawn as the doctor4t type.
+
+#### Rat's Mischief's Birthday
+
+On December 28th, wild adult rats will have a 20% chance to be of a fully random type (including special types) as well as a 20% chance on spawning with a cake in their paws to celebrate the birthday of the mod itself! Rats will also smug dance during this special week and wear randomized party hats.
 
 ### Types
 
