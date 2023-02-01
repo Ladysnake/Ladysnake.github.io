@@ -27,6 +27,31 @@ Rats take fall damage starting from 15 blocks, can breathe five times longer tha
 
 Rats will pick up any item stack on the floor they come across, and bring it back to their owner if they are tamed. If they are hurt and the item is edible, they will consume it and restore an amount of health equivalent to the amount of saturation the food gives as well as apply any effects the food provides. No matter their state, if rats come across a drinkable potion, they will consume it and get its effects and, once again, convert saturation to regeneration.
 
+### Requiem Compatibility
+
+If [Requiem](https://ladysnake.org/wiki/requiem/) is installed, a '/ratify' command will be available which converts the targeted player into a random Rat type, acting similarly to [possessing](https://ladysnake.org/wiki/requiem/possession) one.
+
+This feature is not available on all versions, as both mods must be updated and available on the same launcher.
+
+{% capture summary %}<h2 id="ratify-versions">List of compatible versions</h2>{% endcapture %}
+{% capture content %}
+
+- **Wave 1:** Sawman, Tundrabid, Iceball
+- **Wave 2:** Sawman, Tundrabid, Aftermarket Snowman, Ice Mortar
+- **Wave 3:** Sawman, Tundrabid, Aftermarket Snowman, Mister Snuggles, Iceboombox, Iceball
+- **Wave 4:** Sawman, Ice Mortar, Aftermarket Snowman, Mister Snuggles, Iceboombox
+- **Wave 5:** Headmaster
+- **Wave 6:** Sawman, Aftermarket Snowman, Ice Mortar, Mister Snuggles, Mister Chill Snuggles, Iceball
+- **Wave 7:** All enemies except Iceboombox
+- **Wave 8:** Mister Chill Snuggles, Iceball
+- **Wave 9:** Sawman, Headmaster, Mister Snuggles
+- **Wave 10:** All enemies
+
+{% endcapture %}
+{% include details.liquid summary=summary content=content%}
+
+![Ratified Player](rats-mischief/Ratify.png)
+
 ### Special Events
 
 #### World Rat Day
@@ -43,7 +68,7 @@ On the 19th of July, RAT's (doctor4t) birthday, as well as during the following 
 
 ### Types
 
-##### Natural Rat Types
+#### Natural Rat Types
 
 Naturally spawning rats will always be either a Wild Rat or a Golden Rat.
 
@@ -52,7 +77,7 @@ Naturally spawning rats will always be either a Wild Rat or a Golden Rat.
 
 ![Natural Rat Types](rats-mischief/NaturalRatTypes.png) 
 
-##### Pet Rat Types
+#### Pet Rat Types
 
 Pet rats can be obtained by breeding wild rats. Their offsprings will then be 1 of the 7 pet rat types:
 
@@ -66,7 +91,7 @@ Pet rats can be obtained by breeding wild rats. Their offsprings will then be 1 
 
 ![Pet Rat Types](rats-mischief/PetRatTypes.png)
 
-##### Special Rat Types
+#### Special Rat Types
 
 Renaming rats with the following names will give them a new, special appearance both with and without [elytrat](#elytrats).
 
