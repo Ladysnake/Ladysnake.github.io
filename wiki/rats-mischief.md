@@ -33,7 +33,7 @@ If [Requiem](https://ladysnake.org/wiki/requiem/) is installed, a '/ratify' comm
 
 This feature is not available on all versions, as both mods must be updated and available on the same launcher.
 
-{% capture summary %}<h2 id="ratify-versions">List of compatible versions</h2>{% endcapture %}
+{% capture summary %}List of compatible versions{% endcapture %}
 {% capture content %}
 
 - **Wave 1:** Sawman, Tundrabid, Iceball
