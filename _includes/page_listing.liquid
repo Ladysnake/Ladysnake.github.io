@@ -3,23 +3,21 @@
 {% assign col = i | modulo: 3 %}
 {% assign page = include.pages[i] %}
 {% if col == 0 %}
-<div class="row">
+<div class="page_listing_row">
 {% endif %}
-<div class="col-md-4">
-    <a class="hoverable-card" href="{{ include.root_url }}/{{ page.ref }}">
-        <div class="service-block text-center">
-            {% capture img_id %}{{ include.root_url | slugify }}-{{ page.ref | slugify }}{% endcapture %}
-            {% if page.svg_icon %}
-                <div id="{{ img_id }}" class="mod_icon">
-                {% include svg/{{page.svg_icon}}.svg %}
-                </div>
-            {% else %}
-               <img id="{{ img_id }}" alt="{{ page.ref }} Icon" src="{{ page.icon }}" class="mod_icon{% if page.pixel_art %} pixel-art{% endif %}" {% if page.hover_icon %} data-hover-icon="{{ page.hover_icon }}" {%endif%}>
-            {% endif %}
-            <h2 class="home no_toc no_anchor">{{ page.title }}</h2>
-        </div>
-    </a>
-</div>
+<a class="hoverable-card" href="{{ include.root_url }}/{{ page.ref }}">
+    <div class="page_listing_item">
+        {% capture img_id %}{{ include.root_url | slugify }}-{{ page.ref | slugify }}{% endcapture %}
+        {% if page.svg_icon %}
+            <div id="{{ img_id }}" class="mod_icon">
+            {% include svg/{{page.svg_icon}}.svg %}
+            </div>
+        {% else %}
+           <img id="{{ img_id }}" alt="{{ page.ref }} Icon" src="{{ page.icon }}" class="mod_icon{% if page.pixel_art %} pixel-art{% endif %}" {% if page.hover_icon %} data-hover-icon="{{ page.hover_icon }}" {%endif%}>
+        {% endif %}
+        <h2 class="home no_toc no_anchor">{{ page.title }}</h2>
+    </div>
+</a>
 {% if col == 2 %}
 </div>
 {% endif %}
