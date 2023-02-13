@@ -26,13 +26,13 @@ Impaling now **deals damage to wet mobs** (underwater or in rain) instead of aqu
 
 #### Loyalty
 
-Tridents with the Loyalty enchantment will **always return to the inventory slot** they were launched from, including the Offhand. Should the player picks up new items blocking said slot, the trident will return to a free slot just as usual.
+Tridents with the Loyalty enchantment will **always return to the inventory slot they were launched from**, including the Offhand. Should the player pick up new items blocking said slot, the trident will return to a free slot just as usual.
 
  
 
 #### Sincere Loyalty
 
-Impaled also adds a **new level to Loyalty**, Sincere Loyalty or Loyalty IV, giving you the ability to **retain your Trident from anywhere in the world** by right-clicking with an empty slot. Tridents with Sincere Loyalty will drop as entity instead of as an item when dropped and will even return to you when in another player's inventory. In addition to that, Tridents with Sincere Loyalty **can be enchanted with Riptide**.
+Impaled also adds a **new level to Loyalty**, Sincere Loyalty or Loyalty IV, giving you the ability to **retain your Trident from anywhere in the world** by holding down the right mouse button with an empty slot selected. Tridents with Sincere Loyalty will drop as entity instead of as an item when dropped and will even return to you when in another player's inventory. In addition to that, Tridents with Sincere Loyalty **can be enchanted with Riptide**.
 
  
 
@@ -64,15 +64,15 @@ The Pitchfork can be crafted using 3 Iron Bars and 2 Sticks:
 
 #### ![Elder Trident](impaled/elder_trident.png) Elder Trident
 
-This Trident uses the ancient Guardian magic to home for mobs if it does not hit its target first time. It will also store the items dropped by killed mobs and give them to the player when being picked up or retrieved with Loyalty. 
+This Trident uses ancient Guardian magic to home for mobs if it does not hit its target first time. It will also store the items dropped by killed mobs and give them to the player when being picked up or retrieved with Loyalty. 
 
 Using **Riptide on an Elder Trident** will create 1 Guardian Trident per Riptide level that will copy the Elder Trident's behavior of homing for mobs and returning items.
 
-In addition to the normal behavior of **Channeling** during storms, hitting a player with an Elder Trident will affect them like an Elder Guardian, appearing in front of them and affecting them with 10 seconds of Mining Fatigue. This feature is, unlike the thunderstrike, not limited to thunderstorms.
+Hitting something with a **Channeling**-Elder Trident will, even outside of thunderstorms, cast Mining Fatigue on the target for 10 seconds. Thunderstrikes can still be summoned during thunderstorms.
 
- 
 
-An Elder Trident is obtained by **combining a normal Trident with an Elder Guardian Eye** in the Smithing Table. Elder Guardian Eyes are obtained by killing an Elder Guardian using a Trident in a melee attack or a Loyalty III/IV-Trident.
+
+An Elder Trident is obtained by **combining a normal Trident with an Elder Guardian Eye** in the Smithing Table. Elder Guardian Eyes are dropped by Elder Guardians killed using a Trident in a melee attack or a Loyalty III/IV-Trident.
 
 ![Elder Trident Recipe](impaled/ElderTrident.png)
 
@@ -82,7 +82,7 @@ An Elder Trident is obtained by **combining a normal Trident with an Elder Guard
 
 #### ![Hellfork](impaled/hellfork_item.png) Hellfork
 
-The Hellfork is the Trident of the Nether, being invulnerable to lava and fire just as Netherite, having increased durability and setting mobs on fire.
+The Hellfork is the Trident of the Nether, being invulnerable to lava and fire just like Netherite, having increased durability and setting mobs on fire.
 
 **Riptide-Hellforks** are based on fire instead of water, meaning the player needs to be in lava or burning for it to work.
 
