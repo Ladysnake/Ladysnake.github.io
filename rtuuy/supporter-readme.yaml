@@ -16,16 +16,13 @@
     Da Rulez: >
       - All discord rules apply in the Minecraft server.
 
-      - No major griefing without permission. Minor griefing is allowed for small pranks that can be easily fixed.
-        No griefing of natural landscapes just for the sake of griefing.
+      - No major griefing without permission. Minor griefing is allowed for small pranks that can be easily fixed. No griefing of natural landscapes just for the sake of griefing.
 
-      - No major stealing. Minor stealing may be tolerated for characters who are mischief-makers, but important items
-        must not be stolen unless intentions are to return them.
+      - No major stealing. Minor stealing may be tolerated for characters who are mischief-makers, but important items must not be stolen unless intentions are to return them.
 
       - No stealing major items for any reason if the owner is offline.
 
-      - No hacking or cheating of any kind. No abusing glitches or mods that give an advantage. This includes (but is not
-        limited to) minimaps, fullbright, x-ray, and auto-clickers. If in doubt, ask Rat.
+      - No hacking or cheating of any kind. No abusing glitches or mods that give an advantage. This includes (but is not limited to) minimaps, fullbright, x-ray, and auto-clickers. If in doubt, ask Rat.
 
       - No using end crystal, respawn anchor, or bed explosions for PvP purposes.
 
@@ -39,8 +36,7 @@
     Airship Rules: >
       - There is one airship on the SMP. It is like the one from the [expedition video](https://www.youtube.com/watch?v=jfjs0MNpf8c).
 
-      - It is free for all, and griefing rules are largely relaxed in the airship. If you take it from someone, you may change
-        the interior as you wish.
+      - It is free for all, and griefing rules are largely relaxed in the airship. If you take it from someone, you may change the interior as you wish.
 
       - You are free to do what you want with it: fight, negotiate, trade, etc. It is yours to win just as it is to lose.
 
@@ -56,14 +52,14 @@
         2. Send your IGN / Minecraft username in <#1074031375172247602>
 
         3. Log in at `rat-supporters.nodecraft.gg` and enjoy!
-        
+
         4. (optional) Get the role below for updates and announcements.
 
 - type: roles
   id: ladysnake-roles
 
   title: Redeemable Roles
-  description: Click the button to assign or remove any of the mod ping roles below.
+  description: clic for cool
   template: "{EMOJI} **{NAME}**\n"
 
   roles:
