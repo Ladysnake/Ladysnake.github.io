@@ -1,65 +1,64 @@
 - type: embed
   embeds:
-    - title: Thanks for supporting RAT!
-      color: 0x00ff00
+    - title: Thank you for supporting RAT!
       description: >
-        Thank you for supporting RAT! You are now a supporter of RAT's content and are eligible for the following perks:
+        You are now a supporter of RAT's content and are eligible to access the following **supporter only** perks:
 
-        - Access to the supporter-only channels here and elsewhere
+        • Private channels
 
-        - Access to the supporter-only role on the Rattiest Gang Discord server
+        • Special roles
+        
+        • Exclusive Minecraft SMP
 
-        - Access to the supporter Minecraft server
+        We really appreciate your support!
 
 - type: rules
   rules:
     Server Rules: >
-      - All discord rules apply in the Minecraft server.
+      • All discord rules apply in the Minecraft server.
 
-      - No major griefing without permission. Minor griefing is allowed for small pranks that can be easily fixed. No griefing of natural landscapes just for the sake of griefing.
+      • No major griefing without permission. Minor griefing is allowed for small pranks that can be easily fixed. No griefing of natural landscapes just for the sake of griefing.
 
-      - No major stealing. Minor stealing may be tolerated for characters who are mischief-makers, but important items must not be stolen unless intentions are to return them.
+      • No major stealing. Minor stealing may be tolerated for characters who are mischief-makers, but important items must not be stolen unless intentions are to return them.
 
-      - No stealing major items for any reason if the owner is offline.
+      • No stealing major items for any reason if the owner is offline.
 
-      - No hacking or cheating of any kind. No abusing glitches or mods that give an advantage. This includes (but is not limited to) minimaps, fullbright, x-ray, and auto-clickers. If in doubt, ask RAT.
+      • No hacking or cheating of any kind. No abusing glitches or mods that give an advantage. This includes (but is not limited to) minimaps, fullbright, x-ray, and auto-clickers. If in doubt, ask RAT.
 
-      - No using end crystal, respawn anchor, or bed explosions for PvP purposes.
+      • No using end crystal, respawn anchor, or bed explosions for PvP purposes.
 
-      - Recordings are allowed as long as everyone involved is okay with it.
+      • Recordings are allowed as long as everyone involved is okay with it.
 
-      - No using eyes of ender. Eyes of ender in one's hands will be automatically removed.
+      • Ender eyes have been disabled. They can still be crafted, but they can't be thrown.
 
-      - **Failure to follow these rules will result in revocation of your server access, even if you remain a supporter.**
+      • **Failure to follow these rules will result in revocation of your server access, even if you remain a supporter.**
 
-      - Maid outfit: not required, but highly encouraged.
+      • Maid outfit: not required, but highly encouraged.
     Airship Rules: >
-      - There is one airship on the SMP. It is like the one from the [expedition video](https://www.youtube.com/watch?v=jfjs0MNpf8c).
+      • There is one airship on the SMP. It is like the one from the [expedition video](https://www.youtube.com/watch?v=jfjs0MNpf8c).
 
-      - It is free for all, and griefing rules are largely relaxed in the airship. If you take it from someone, you may change the interior as you wish.
+      • It is free for all, and griefing rules are largely relaxed in the airship. If you take it from someone, you may change the interior as you wish.
 
-      - You are free to do what you want with it: fight, negotiate, trade, etc. It is yours to win just as it is to lose.
-
-      - Think of it as the hill in King of the Hill, or some territory in a faction server.
+      • You are free to do what you want with it: fight, negotiate, trade, etc. It is yours to win just as it is to lose; think of it as a game of King of the Hill, or a territory in a faction server.
 
 - type: embed
   embeds:
     - title: How do I join?
       color: 0x00ff00
       description: >
-        1. Create a new Minecraft 1.19.2 instance and copy all files from the pack zip below into the instance's folder.
+        1. Create a new Minecraft 1.19.2 Quilt instance and copy all the mods and configs from the zip file below into the instance's proper folders.
 
-        2. Send your IGN / Minecraft username in <#1074031375172247602>
+        2. Send your IGN / Minecraft username in <#1074031375172247602>.
 
         3. Log in at `rat-supporters.nodecraft.gg` and enjoy!
 
-        4. (optional) Get the role below for updates and announcements.
+        4. If you are having any problems feel free to ping <@&926214810637586492>.
 
 - type: roles
   id: ladysnake-roles
 
   title: Redeemable Roles
-  description: Click the below button to be able to get the supporter announcements ping role.
+  description: Click the button below to get the supporter announcements ping role.
   template: ""
 
   roles:
@@ -68,4 +67,4 @@
       description: "Get pinged for updates and announcements about the supporter server."
 
 - type: text
-  text: <a:ratspin:924749326310309959> <:ratmaidplush:1048622137050669056>
+  text: https://cdn.discordapp.com/attachments/1074017809316728852/1074044703860871268/Rat_supporter_mods__config.zip
