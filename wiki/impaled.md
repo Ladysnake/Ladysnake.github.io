@@ -38,7 +38,7 @@ In addition to that, Tridents with Sincere Loyalty **can be enchanted with Ripti
 
 Sincere Loyalty can be obtained by combining a Loyalty III-Trident with a **Heart of the Sea** in a **Smithing Table**.
 
-<img src="impaled/SincereLoyaltyRecipe.png" alt="Sincere Loyalty" style="zoom:50%;" />
+![Sincere Loyalty](impaled/SincereLoyaltyRecipe.png)
  
  
 ### Tridents
@@ -54,7 +54,7 @@ Nonetheless it can be thrown and used in melee combat, enchanted with all the Tr
 The Pitchfork can be crafted using 3 Iron Bars and 2 Sticks:
 
  
-<img src="impaled/Pitchfork.png" alt="Pitchfork" style="zoom:75%;" />
+![Pitchfork](impaled/Pitchfork.png)
 
  
 #### ![Elder Trident](impaled/elder_trident.png) Elder Trident
@@ -71,7 +71,7 @@ An Elder Trident is obtained by **combining a normal Trident with an Elder Guard
 Elder Guardian Eyes are dropped by Elder Guardians killed using a Trident in a melee attack or a Loyalty III/IV-Trident.
 
  
-<img src="impaled/ElderTrident.png" alt="Elder Trident Recipe" style="zoom:75%;" />
+![Elder Trident Recipe](impaled/ElderTrident.png)
  
 #### ![Hellfork](impaled/hellfork_item.png) Hellfork
 
@@ -106,7 +106,7 @@ The Atlan is a golden Trident with a **high enchantability**. It accepts not onl
 The Atlan is obtained by **combining an Enchanted Golden Apple with a Trident** in a Smithing Table.
 
  
-<img src="impaled/Atlan.png" alt="Atlan Recipe" style="zoom:75%;" />
+![Atlan Recipe](impaled/Atlan.png)
  
  
 ### Experimental
