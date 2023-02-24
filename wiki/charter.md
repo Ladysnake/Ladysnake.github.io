@@ -8,6 +8,10 @@ modrinth: true
 
 Charter is a Minecraft fabric mod allowing for a more dynamic faction and claiming system without breaking the game immersion.
 
+´THIS MOD IS CURRENTLY UNDERGOING A COMPLETE REWRITE
+
+A preview is available but stripped down in comparison to the current in-development mod and may contain bugs. It is recommended to wait for the full release on Quilt´
+
 # ![Contract](charter/contract.png) Contract
 
 Contracts are the starting point of Charter. Signing them **links your soul to the contract** which can be used in various ways later on.
@@ -84,7 +88,7 @@ Charter Stones are made using 6 Deepslate Tiles on the sides of the crafting gri
 
 The Apex Focus is a crafting **ingredient for the Charter Stone**. The only way to obtain one is by **mining a broken Charter Stone**.
 
-`***In the current version it is recommended to use datapacks, custom commands or shops to make this content accessible as there is no default way to obtain charters yet!***`
+***In the current version it is recommended to use datapacks, custom commands or shops to make this content accessible as there is no default way to obtain charters yet!***
 
 
 ### ![Charter Vessel](charter/charter_vessel.png) Charter Vessel
