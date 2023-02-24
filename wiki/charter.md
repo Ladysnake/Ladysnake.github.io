@@ -46,7 +46,7 @@ The Pact Vessel can be crafted using 4 Iron Ingots, 3 Deepslate Tiles and 1 Chis
 
 #### ![Soul Strain](charter/soul_strain.png) Soul Strain
 
-Soul Strain is a new status effect meant to punish the player by **doubling the damage taken** and turning **all damage to magic damage**, bypassing armor.
+Soul Strain is a new status effect meant to punish the player by **doubling damage taken** and turning **all damage to magic damage**, bypassing armor.
 
 ![Soul Strain](charter/SoulStrain.png)
 
