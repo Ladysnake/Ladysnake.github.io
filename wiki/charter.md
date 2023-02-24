@@ -8,9 +8,9 @@ modrinth: true
 
 Charter is a Minecraft fabric mod allowing for a more dynamic faction and claiming system without breaking the game immersion.
 
-´THIS MOD IS CURRENTLY UNDERGOING A COMPLETE REWRITE
+´THIS MOD IS CURRENTLY UNDERGOING A COMPLETE REWRITE´
 
-A preview is available but stripped down in comparison to the current in-development mod and may contain bugs. It is recommended to wait for the full release on Quilt´
+´A preview is available but stripped down in comparison to the current in-development mod and may contain bugs. It is recommended to wait for the full re-release on Quilt´
 
 # ![Contract](charter/contract.png) Contract
 
