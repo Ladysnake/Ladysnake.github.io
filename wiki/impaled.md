@@ -19,24 +19,26 @@ Impaled changes, fixes and adds a few features for tridents:
  
 #### Impaling
 
-Impaling now **deals damage to wet mobs** (underwater or in rain) instead of aquatic mobs only. To balance this change, Impaling only increases the damage by 0.75 per level instead of 1.25.
+Impaling now **deals damage to wet mobs** (underwater or in rain) instead of aquatic mobs only.
+To balance this change, Impaling only increases the damage by 0.75 per level instead of 1.25.
 
  
 #### Loyalty
 
-Tridents with the Loyalty enchantment will **always return to the inventory slot they were launched from**, including the Offhand. Should the player pick up new items blocking said slot, the trident will return to a free slot just as usual.
+Tridents with the Loyalty enchantment will **always return to the inventory slot they were launched from**, including the Offhand.
+Should the player pick up new items blocking said slot, the trident will return to a free slot just as usual.
 
  
 #### Sincere Loyalty
 
 Impaled also adds a **new level to Loyalty**, Sincere Loyalty or Loyalty IV, giving you the ability to **retain your Trident from anywhere in the world** by holding down the right mouse button with an empty slot selected.
 Tridents with Sincere Loyalty will drop as entity instead of as an item when dropped and will even return to you when in another player's inventory.
+
 In addition to that, Tridents with Sincere Loyalty **can be enchanted with Riptide**.
 
 Sincere Loyalty can be obtained by combining a Loyalty III-Trident with a **Heart of the Sea** in a **Smithing Table**.
 
-![Sincere Loyalty](impaled/SincereLoyaltyRecipe.png)
-
+<img src="impaled/SincereLoyaltyRecipe.png" alt="Sincere Loyalty" style="zoom:50%;" />
  
  
 ### Tridents
@@ -52,7 +54,7 @@ Nonetheless it can be thrown and used in melee combat, enchanted with all the Tr
 The Pitchfork can be crafted using 3 Iron Bars and 2 Sticks:
 
  
-![Pitchfork](impaled/Pitchfork.png)
+<img src="impaled/Pitchfork.png" alt="Pitchfork" style="zoom:75%;" />
 
  
 #### ![Elder Trident](impaled/elder_trident.png) Elder Trident
@@ -69,8 +71,7 @@ An Elder Trident is obtained by **combining a normal Trident with an Elder Guard
 Elder Guardian Eyes are dropped by Elder Guardians killed using a Trident in a melee attack or a Loyalty III/IV-Trident.
 
  
-![Elder Trident Recipe](impaled/ElderTrident.png)
-
+<img src="impaled/ElderTrident.png" alt="Elder Trident Recipe" style="zoom:75%;" />
  
 #### ![Hellfork](impaled/hellfork_item.png) Hellfork
 
@@ -105,8 +106,7 @@ The Atlan is a golden Trident with a **high enchantability**. It accepts not onl
 The Atlan is obtained by **combining an Enchanted Golden Apple with a Trident** in a Smithing Table.
 
  
-![Atlan Recipe](impaled/Atlan.png)
-
+<img src="impaled/Atlan.png" alt="Atlan Recipe" style="zoom:75%;" />
  
  
 ### Experimental
@@ -116,6 +116,7 @@ The Atlan is obtained by **combining an Enchanted Golden Apple with a Trident** 
 #### ![Maelstrom](impaled/Maelstrom.png) Maelstrom
 
 The Maelstrom is a creative-only item which allows you to launch Tridents from your inventory without charging time but instead a cooldown afterwards, allowing for a faster reaction time and better handling of multiple tridents.
+
 It can be enchanted with Unbreaking, Mending and Efficiency, the latter to reduce its cooldown.
 
  
