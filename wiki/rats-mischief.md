@@ -6,12 +6,13 @@ curse_project: 431787
 ---
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-**Rat's Mischief** is a Fabric mod, introducing the rats, a new mob that can be tamed and interacted with in various different ways!
+**Rat's Mischief** is a Fabric mod introducing the rats, a new mob that can be tamed and interacted with in various different ways!
 
-## Video Showcase
+## Video Showcases
 
 <div>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CVZfsPM8Mm4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QNQkrJz0cnM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## Features
@@ -19,33 +20,27 @@ curse_project: 431787
 ### Rats
 
 Rats can be found in previously inhabited villages that are now abandoned. Once a natural village no longer has tenants, rats will start spawning in small groups of up to 5 rats if a player is near that empty village and the village still has beds.
+***This does not work with the [Abandoned/Zombie Village structure](https://minecraft.fandom.com/wiki/Village#Abandoned_villages), only with abandoned, once normal Villages***
 
 #### Behaviours
 
-Rats will behave in a very similar manner to wolves, attacking what the player targets or what harms the player or themselves. They have 8 health points (4 hearts) and deal 1 point of damage but ignore invulnerability ticks, making a mischief stronger the bigger it becomes.
+Rats will behave in a very similar manner to wolves, attacking what the player targets or what harms the player or themselves. They have 8 health points (4 hearts) and deal 1 point of damage but ignore invulnerability ticks, making a mischief (meaning a group of rats) stronger the bigger it becomes.
 Rats take fall damage starting from 15 blocks, can breathe five times longer than the player, ignore damage from cacti and berry bushes and can be tamed with any food, the better the food though, the higher the chance of success. Once tamed you will be able to sit them down and or let them follow you. If they see a cat while following you around they will be distracted chasing it away.
 
-Rats will pick up any item stack on the floor they come across, and bring it back to their owner if they are tamed. If they are hurt and the item is edible, they will consume it and restore an amount of health equivalent to the amount of saturation the food gives as well as apply any effects the food provides. No matter their state, if rats come across a drinkable potion, they will consume it and get its effects and, once again, convert saturation to regeneration.
+Rats will pick up any item stack on the floor they come across, and bring it back to their owner if they are tamed. If they are hurt and the item is edible, they will consume it and restore an amount of health equivalent to the amount of saturation the food gives as well as be applied any effects the food provides. No matter their state, if rats come across any drinkable potion, they will consume it and get its effects, good or bad, and convert saturation to regeneration.
 
 ### Requiem Compatibility
 
 If [Requiem](https://www.curseforge.com/minecraft/mc-mods/requiem) is installed, a '/ratify' command will be available which converts the targeted player into a random Rat type, acting similarly to [possessing](https://ladysnake.org/wiki/requiem/possession) one.
 
-This feature is not available on all versions, as both mods must be updated and available on the same launcher.
-
 {% capture summary %}List of compatible versions{% endcapture %}
 {% capture content %}
 
-- **Wave 1:** Sawman, Tundrabid, Iceball
-- **Wave 2:** Sawman, Tundrabid, Aftermarket Snowman, Ice Mortar
-- **Wave 3:** Sawman, Tundrabid, Aftermarket Snowman, Mister Snuggles, Iceboombox, Iceball
-- **Wave 4:** Sawman, Ice Mortar, Aftermarket Snowman, Mister Snuggles, Iceboombox
-- **Wave 5:** Headmaster
-- **Wave 6:** Sawman, Aftermarket Snowman, Ice Mortar, Mister Snuggles, Mister Chill Snuggles, Iceball
-- **Wave 7:** All enemies except Iceboombox
-- **Wave 8:** Mister Chill Snuggles, Iceball
-- **Wave 9:** Sawman, Headmaster, Mister Snuggles
-- **Wave 10:** All enemies
+<table>
+<th>Minecraft Version</th><th>Rat's Mischief</th><th>Requiem</th>
+<tr>1.17.1</tr><tr>[1.3](https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/3519134)</tr><tr>[Beta 1](https://www.curseforge.com/minecraft/mc-mods/requiem/files/3524350)</tr>
+<tr></tr><tr></tr><tr></tr>
+</table>
 
 {% endcapture %}
 {% include details.liquid summary=summary content=content%}
@@ -117,7 +112,7 @@ Renaming rats with the following names will give them a new, special appearance 
 
 - **Rat Kid** (A Hat in Time)
 
-  Rat Kids are a special rat type as they can be dyed just like sheep in order to variate their skins, resulting in 16 different versions. Breeding 2 Rat Kids will also spawn a new, unnamed Rat Kid instead of a normal pet rat.
+  Rat Kids are an especially special rat type as they can be dyed just like sheep in order to variate their skins, resulting in 16 different versions. Breeding 2 Rat Kids will also spawn a new, unnamed Rat Kid instead of a normal pet rat.
 
 ![Special Rat Types](rats-mischief/SpecialRatTypes.png) 
 
@@ -129,7 +124,7 @@ Elytrats are a special rat variant, acquired by equipping rats with the elytrat 
 
 ![Elytrat Recipe](rats-mischief/ElytratRecipe.png)
 
-Elytrats can and will fly to attack enemies and to follow you on your airborne adventures! Just as any other rat they can be picked up with rat pouches. Elytrats also feature custom elytra textures for special rat variants and the golden rat.
+Elytrats can and will fly to attack enemies and to follow you on your airborne adventures! Just as any other rat they can be picked up with rat pouches. Elytrats also feature custom elytra textures for special rat types and the golden rat.
 
 ![Elytrat](rats-mischief/Elytrat.png)
 
@@ -173,7 +168,8 @@ This item can be repaired in an anvil using phantom membranes.
 
 #### Can I include this mod in a modpack?
 
-**Yes**: You can. Go  ahead, don't bother asking. Please however provide credit and a link to  either the GitHub repository or Curse Forge project page.
+**Yes**: You can. Go  ahead, don't bother asking.
+Please however provide credit and a link to  either the [GitHub repository](https://github.com/Ladysnake/Rats-Mischief) or [Curse Forge project page](https://www.curseforge.com/minecraft/mc-mods/rats-mischief).
 
 #### ISN'T THis jUST a RAtS rIp-OFF??
 
@@ -181,7 +177,7 @@ This item can be repaired in an anvil using phantom membranes.
 
 #### Can you port to Forge please? Backport to version X?
 
-We don't port our mods to forge or backport them for various reasons. If you want to make a port yourself however feel free to contact us!
+Sorry, we **don't** port our mods to forge or backport them for various reasons.
 
 
 
@@ -189,8 +185,7 @@ We don't port our mods to forge or backport them for various reasons. If you wan
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It ain&#39;t much but it&#39;s honest work <a href="https://t.co/vILMVJ3mBn">pic.twitter.com/vILMVJ3mBn</a></p>&mdash; RAT (@doctor4t_) <a href="https://twitter.com/doctor4t_/status/1358888046435958791?ref_src=twsrc%5Etfw">February 8, 2021</a></blockquote>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Rats make fine herbalists too! <a href="https://t.co/OxESLzNmhX">pic.twitter.com/OxESLzNmhX</a></p>&mdash; RAT (@doctor4t_) <a href="https://twitter.com/doctor4t_/status/1359138165672583169?ref_src=twsrc%5Etfw">February 9, 2021</a></blockquote>
-![Flat Rat](https://pbs.twimg.com/media/EskfSUXXMAEmYeG?format=jpg&name=large)
-![Rat Offering](https://pbs.twimg.com/media/EtNNZRyWYAA5CTZ?format=jpg&name=medium)
-![Ratater](https://pbs.twimg.com/media/EttS3IpXMAEv5g2?format=png&name=large)
-
+![Flat Rat](rats-mischief/FlatRat.png)
+![Rat Offering](rats-mischief/RatOffering.png)
+![Ratater](rats-mischief/Ratater.png)
 ![Rat Party](rats-mischief/RatParty.png)
