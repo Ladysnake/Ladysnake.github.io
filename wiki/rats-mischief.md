@@ -20,6 +20,7 @@ curse_project: 431787
 ### Rats
 
 Rats can be found in previously inhabited villages that are now abandoned. Once a natural village no longer has tenants, rats will start spawning in small groups of up to 5 rats if a player is near that empty village and the village still has beds.
+
 ***This does not work with the [Abandoned/Zombie Village structure](https://minecraft.fandom.com/wiki/Village#Abandoned_villages), only with abandoned, once normal Villages***
 
 #### Behaviours
@@ -37,9 +38,15 @@ If [Requiem](https://www.curseforge.com/minecraft/mc-mods/requiem) is installed,
 {% capture content %}
 
 <table>
+<tr>
 <th>Minecraft Version</th><th>Rat's Mischief</th><th>Requiem</th>
-<tr>1.17.1</tr><tr>[1.3](https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/3519134)</tr><tr>[Beta 1](https://www.curseforge.com/minecraft/mc-mods/requiem/files/3524350)</tr>
-<tr></tr><tr></tr><tr></tr>
+</tr>
+<tr>
+<td>1.17.1</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/3519134">1.3</a></td><td>[Beta 1](https://www.curseforge.com/minecraft/mc-mods/requiem/files/3524350)</td>
+</tr>
+<tr>
+<td></td><td></td><td></td>
+</tr>
 </table>
 
 {% endcapture %}
