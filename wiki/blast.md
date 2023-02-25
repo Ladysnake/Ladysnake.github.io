@@ -5,7 +5,7 @@ slug: blast
 curse_project: 349938
 ---
 
-BLAST is a Minecraft fabric mod adding multiple explosives for use in survival or for messing around in creative to the game.
+BLAST is a Minecraft fabric mod adding multiple explosives for use in survival or for messing around in creative.
 
 # Features
 
@@ -39,33 +39,31 @@ Crafted like normal bombs with an Enderpearl as base material, this bomb has a *
 
 ### Confetti Bombs
 
-Confetti Bombs come, as most other bombs, in 2 variation: As a trigger bomb and as a timed bomb. Instead of blowing your world up however, Confetti bombs make it prettier: **They will spread confetti particles upon exploding!** Those particles come in multiple different colours and **remain on the ground for 1 minute** after the explosion. Confetti Bombs are crafted shapelessly with 7 Paper, 1 Gunpowder and either 1 String (timed, top) or 1 Redstone Dust (trigger, bottom).
+Confetti Bombs come, as most other bombs, in 2 variants: As a trigger bomb and as a timed bomb. Instead of blowing your world up however, Confetti bombs make it prettier: **They will spread confetti particles upon exploding!** Those particles come in multiple different colours and **remain on the ground for 1 minute** after the explosion. Confetti Bombs are crafted shapelessly with 7 Paper, 1 Gunpowder and either 1 String (timed) or 1 Redstone Dust (trigger).
 
 ![Confetti Bombs](blast/ConfettiBombs.png)
-
-
 
 ### Slime Bombs
 
 Slime Bombs can be crafted using **1 gunpowder, 1 Slimeball and 1 String/Redstone Dust**. Slime Bombs do **not deal any damage** to entities but have **increased knockback!**
 
-<img src="blast/SlimeBomb.png" alt="Slime Bomb" style="zoom:80%;" />
+![Slime Bomb](blast/SlimeBomb.png)
 
 ### Amethyst Bombs
 
 Crafted like any other bomb with an **Amethyst Block as base material**, the Amethyst Bomb **adds 70 amethyst shards to your explosion**, at the **cost of the normal explosion damage**. These shards will spread in all directions and **deal 8 damage (4 hearts) per shard**.
 
-<img src="blast/AmethystBomb.png" alt="Amethyst Bomb" style="zoom:80%;" />
+![Amethyst Bomb](blast/AmethystBomb.png)
 
 ### Frost Bombs
 
 Being an alternative to Amethyst Bombs, Frost Bombs are crafted by adding **Packed Ice as base material** and **replace the amethyst shards with icicles.** These icicles deal only **0.01 damage** but **apply freezing effects** to their targets, bypassing armor without damaging it.
 
-<img src="blast/FrostBomb.png" alt="Frost Bomb" style="zoom:80%;" />
+![Frost Bomb](blast/FrostBomb.png)
 
 ### Naval Mines
 
-Naval Mines are bombs that trigger on impact, **can destroy blocks underwater** and **will not sink** when thrown in water. Other than standard bombs the naval mine has an explosion power of 4 and **only** exists as a **trigger bomb** variant.
+Naval Mines are bombs that trigger on impact and **can destroy blocks underwater**. In comparison to standard bombs the naval mine has an explosion power of 4 and **only** exists as a **trigger bomb** variant.
 
 ![Naval Mine Recipe](blast/NavalMineRecipe.png)
 
@@ -81,7 +79,8 @@ The Gunpowder Block is a compact way of storing gunpowder. When placed it is **h
 
 ### Stripminer
 
-The Stripminer is **triggered like TNT** and **focuses the explosion in one direction.** It creates a 3x3+ wide tunnel and usually points the way the player is looking upon placing it down, this, however, is inverted while sneaking. When the stripminer is set off by other explosives the direction can get misaligned and the fuse time varies slightly. In the recipe, the **Gunpowder Block can be replaced with TNT**.
+The Stripminer is **triggered similarly to TNT** and **focuses its explosion power in one direction.** It creates a 3x3+ wide tunnel and usually points the way the player is looking upon placing it down, this, however, is inverted while sneaking.
+When the stripminer is set off by other explosives the direction can get misaligned and the fuse time varies slightly.
 
 ![Stripminer](blast/Stripminer.png)
 
@@ -91,18 +90,18 @@ The Cold Digger is an upgrade to the Stripminer that keeps the functionality of 
 
 #### Dry Ice
 
-Dry Ice is a kind of ice that **does not melt or create water** upon breaking. It emits particles and can be mined using silk touch. 
+Dry Ice is a kind of ice that **does not melt or create water** upon breaking. It emits particles and can be mined using silk touch.
 
 ![Cold Digger](blast/ColdDigger.png)
 
 # FAQ
 #### Can I include this mod in a modpack?
 
-**Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to both the GitHub repository and  Curse Forge project page.
+**Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to both the [GitHub repository](https://github.com/Ladysnake/BLAST) and  [Curse Forge project page](https://www.curseforge.com/minecraft/mc-mods/blast).
 
 #### Can you port to Forge please? Backport to version X?
 
-We don't port our mods to forge or backport them for various reasons. If you want to make a port yourself however feel free to [come chat with us about it](https://ladysnake.glitch.me)!
+Sorry, we **don't** port our mods to forge or backport them for various reasons.
 
 
 
