@@ -71,17 +71,17 @@ Naval Mines are bombs that trigger on impact and **can destroy blocks underwater
 
 ## Blocks
 
-### Gunpowder Block
-
-The Gunpowder Block is a compact way of storing gunpowder. When placed it is **highly sensitive to explosions and fire** and will explode allmost instantly when in contact with them. The explosion it creates is fiery and has a power of 4.
-
-![Gunpowder Block](blast/GunpowderBlock.png)
-
 ### Remote Detonator
 
 The Remote Detonator is a technical device with the power to activate adjacent explosives instantaneously when triggered. To trigger it, simply look into its direction and throw an Ender Eye. The Ender Eye will teleport into the Remote Detonator, triggering it, and can be retrieved by placing a hopper beneath it. This also works through walls and on large distances.
 
 ![Remote Detonator](blast/RemoteDetonator.png)
+
+### Gunpowder Block
+
+The Gunpowder Block is a compact way of storing gunpowder. When placed it is **highly sensitive to explosions and fire** and will explode allmost instantly when in contact with them. The explosion it creates is fiery and has a power of 4.
+
+![Gunpowder Block](blast/GunpowderBlock.png)
 
 ### Stripminer
 
@@ -111,7 +111,7 @@ The Bonesburrier is an explosive specifically developed for the [destruction of 
 
 Folly Red Paint spawns only in the occasion of a Bonesburrier explosion, is similarly sticky to honey blocks and dries into Dried Folly Red Paint.
 
-Both the normal and dried variant can be converted to Fresh Folly Red Paint, which will not dry out at all, using honey bottles either directly on the block on in crafting.
+Both the normal and dried variant can be converted to Fresh Folly Red Paint, which will not dry out at all, using honey bottles either directly on the block or in crafting.
 
 Both the normal and fresh variant can be converted to Dried Folly Red Paint, which is the only non-sticky variant, by heating them up in a furnace.
 
