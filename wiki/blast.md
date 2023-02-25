@@ -77,6 +77,12 @@ The Gunpowder Block is a compact way of storing gunpowder. When placed it is **h
 
 ![Gunpowder Block](blast/GunpowderBlock.png)
 
+### Remote Detonator
+
+The Remote Detonator is a technical device with the power to activate adjacent explosives instantaneously when triggered. To trigger it, simply look into its direction and throw an Ender Eye. The Ender Eye will teleport into the Remote Detonator, triggering it, and can be retrieved by placing a hopper beneath it. This also works through walls and on large distances.
+
+![Remote Detonator](blast/RemoteDetonator.png)
+
 ### Stripminer
 
 The Stripminer is **triggered similarly to TNT** and **focuses its explosion power in one direction.** It creates a 3x3+ wide tunnel and usually points the way the player is looking upon placing it down, this, however, is inverted while sneaking.
@@ -93,6 +99,23 @@ The Cold Digger is an upgrade to the Stripminer that keeps the functionality of 
 Dry Ice is a kind of ice that **does not melt or create water** upon breaking. It emits particles and can be mined using silk touch.
 
 ![Cold Digger](blast/ColdDigger.png)
+
+
+### Bonesburrier
+
+The Bonesburrier is an explosive specifically developed for the [destruction of Bonesburrow](https://www.youtube.com/watch?v=RJwjw8IHMG4). It knocks around blocks upon exploding and spreads Folly Red Paint around the blast area.
+
+![Bonesburrier](blast/Bonesburrier.png)
+
+#### Folly Red Paint
+
+Folly Red Paint spawns only in the occasion of a Bonesburrier explosion, is similarly sticky to honey blocks and dries into Dried Folly Red Paint.
+
+Both the normal and dried variant can be converted to Fresh Folly Red Paint, which will not dry out at all, using honey bottles either directly on the block on in crafting.
+
+Both the normal and fresh variant can be converted to Dried Folly Red Paint, which is the only non-sticky variant, by heating them up in a furnace.
+
+![Folly Red Paint Crafting](blast/FollyRedPaint.png)
 
 # FAQ
 #### Can I include this mod in a modpack?
