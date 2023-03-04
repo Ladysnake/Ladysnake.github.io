@@ -34,6 +34,15 @@ The remnant choice screen is based on [Blabber](../blabber) and can as such be i
 It normally appears when a player dies without the `requiem:adventure/the_choice` advancement and with the 
 [`requiem:startingRemnantType`](configuration#requiem-startingremnanttype) gamerule set to `DEFAULT`.
 
+### NBT data
+In order to summon a soulless entity via commands, attach the `{cardinal_components:{"requiem:soul_holder":{"removed_soul": 1b}}}` tag to the mob within the command structure.
+
+_Example:_
+```bash
+# Summons a soulless blaze
+summon minecraft:blaze ~ ~ ~ {cardinal_components:{"requiem:soul_holder":{"removed_soul": 1b}}}
+```
+
 ### Predicates
 
 Requiem adds 3 new [predicates](https://minecraft.fandom.com/wiki/Predicate). More advanced predicates can also be created
