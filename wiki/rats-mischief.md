@@ -39,8 +39,9 @@ If [Requiem](https://www.curseforge.com/minecraft/mc-mods/requiem) is installed,
 
 <table>
 <style>
-table, th {border: 2px solid dimgrey; border-collapse: collapse}
-td {border: 1px solid dimgrey}
+table {border: 2px solid dimgrey; border-collapse: collapse}
+th {border: 2px solid dimgrey; border-collapse: collapse; padding: 20px}
+td {border: 1px solid dimgrey; padding: 20px}
 </style>
 <tr>
 <th>Minecraft Version</th><th>Rat's Mischief</th><th>Requiem</th>
@@ -49,7 +50,7 @@ td {border: 1px solid dimgrey}
 <td>1.17.1</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/3519134" >1.3</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/3524350" >Beta 1</a></td>
 </tr>
 <tr>
-<td></td><td></td><td></td>
+<td>[game version]</td>[<a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/" >[mischief version]</a>]<td></td>[<a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/" >[requiem version]</a>]<td></td>
 </tr>
 </table>
 
