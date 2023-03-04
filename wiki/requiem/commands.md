@@ -29,12 +29,7 @@ All Requiem commands start with `/requiem`. Most of them take an optional player
     - `/requiem soul set <true|false> [player]`: sets the soul status of a remnant player.
     - `/requiem soul query [player]`: queries the soul status of a player
 
-### Remnant choice screen
-The remnant choice screen is based on [Blabber](../blabber) and can as such be interacted with through the mod's commands.
-It normally appears when a player dies without the `requiem:adventure/the_choice` advancement and with the 
-[`requiem:startingRemnantType`](configuration#requiem-startingremnanttype) gamerule set to `DEFAULT`.
-
-### NBT data
+### Other useful commands
 In order to summon a soulless entity via commands, attach the `{cardinal_components:{"requiem:soul_holder":{"removed_soul": 1b}}}` tag to the mob within the command structure.
 
 _Example:_
@@ -42,6 +37,11 @@ _Example:_
 # Summons a soulless blaze
 summon minecraft:blaze ~ ~ ~ {cardinal_components:{"requiem:soul_holder":{"removed_soul": 1b}}}
 ```
+
+### Remnant choice screen
+The remnant choice screen is based on [Blabber](../blabber) and can as such be interacted with through the mod's commands.
+It normally appears when a player dies without the `requiem:adventure/the_choice` advancement and with the 
+[`requiem:startingRemnantType`](configuration#requiem-startingremnanttype) gamerule set to `DEFAULT`.
 
 ### Predicates
 
