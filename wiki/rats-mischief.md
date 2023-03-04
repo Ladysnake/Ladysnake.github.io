@@ -38,11 +38,15 @@ If [Requiem](https://www.curseforge.com/minecraft/mc-mods/requiem) is installed,
 {% capture content %}
 
 <table>
+<style>
+table, th {border: 2px solid dimgrey; border-collapse: collapse}
+td {border: 1px solid dimgrey}
+</style>
 <tr>
 <th>Minecraft Version</th><th>Rat's Mischief</th><th>Requiem</th>
 </tr>
 <tr>
-<td>1.17.1</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/3519134">1.3</a></td><td>[Beta 1](https://www.curseforge.com/minecraft/mc-mods/requiem/files/3524350)</td>
+<td>1.17.1</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/3519134" >1.3</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/3524350" >Beta 1</a></td>
 </tr>
 <tr>
 <td></td><td></td><td></td>
