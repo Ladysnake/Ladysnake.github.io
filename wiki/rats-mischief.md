@@ -40,8 +40,8 @@ If [Requiem](https://www.curseforge.com/minecraft/mc-mods/requiem) is installed,
 <table>
 <style>
 table {border: 2px solid dimgrey; border-collapse: collapse}
-th {border: 2px solid dimgrey; border-collapse: collapse; padding: 20px}
-td {border: 1px solid dimgrey; padding: 20px}
+th {border: 2px solid dimgrey; border-collapse: collapse; padding: 5px}
+td {border: 1px solid dimgrey; padding: 5px}
 </style>
 <tr>
 <th>Minecraft Version</th><th>Rat's Mischief</th><th>Requiem</th>
