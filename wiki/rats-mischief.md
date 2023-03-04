@@ -50,7 +50,7 @@ td {border: 1px solid dimgrey; padding: 5px}
 <td>1.17.1</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/3519134" >1.3</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/3524350" >Beta 1</a></td>
 </tr>
 <tr>
-<td>[game version]</td>[<a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/" >[mischief version]</a>]<td></td>[<a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/" >[requiem version]</a>]<td></td>
+<td>[game version]</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/" >[mischief version]</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/" >[requiem version]</a></td>
 </tr>
 </table>
 
