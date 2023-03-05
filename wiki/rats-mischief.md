@@ -32,7 +32,7 @@ Rats will pick up any item stack on the floor they come across, and bring it bac
 
 ### Requiem Compatibility
 
-If [Requiem](https://www.curseforge.com/minecraft/mc-mods/requiem) is installed, a '/ratify' command will be available which converts the targeted player into a random Rat type, acting similarly to [possessing](https://ladysnake.org/wiki/requiem/possession) one.
+If [Requiem](https://www.curseforge.com/minecraft/mc-mods/requiem) is installed, a `/ratify` command will be available which converts the targeted player into a random Rat type, acting similarly to [possessing](https://ladysnake.org/wiki/requiem/possession) one.
 
 {% capture summary %}List of compatible versions{% endcapture %}
 {% capture content %}
@@ -47,10 +47,10 @@ td {border: 1px solid dimgrey; padding: 5px}
 <th>Minecraft Version</th><th>Rat's Mischief</th><th>Requiem</th>
 </tr>
 <tr>
-<td>1.17.1</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/3519134" >1.3</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/3524350" >Beta 1</a></td>
+<th>1.17.1</th><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/3519134" >1.3</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/3524350" >Beta 1</a></td>
 </tr>
 <tr>
-<td>[game version]</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/" >[mischief version]</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/" >[requiem version]</a></td>
+<th>[game version]</th><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/" >[mischief version]</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/" >[requiem version]</a></td>
 </tr>
 </table>
 
