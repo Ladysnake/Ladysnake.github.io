@@ -74,12 +74,16 @@ td {border: 1px solid dimgrey; padding: 5px}
 {% endcapture %}
 {% include details.liquid summary=summary content=content%}
 
+{% capture summary %}Ratify Clip{% endcapture %}
+{% capture content %}
+
 <video width="720" height="450" controls muted>
     <source src="rats-mischief/Ratification.mp4" type="video/mp4" />
     Your browser does not support the video tag.
 </video>
 
-
+{% endcapture %}
+{% include details.liquid summary=summary content=content%}
 
 ### Special Events
 
