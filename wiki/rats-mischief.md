@@ -44,22 +44,34 @@ th {border: 2px solid dimgrey; border-collapse: collapse; padding: 5px}
 td {border: 1px solid dimgrey; padding: 5px}
 </style>
 <tr>
-<th>Minecraft Version</th><th>Rat's Mischief</th><th>Requiem</th>
+ <th>Minecraft Version</th>
+ <th>Rat's Mischief</th>
+ <th>Requiem</th>
 </tr>
 <tr>
-<td>1.19.2</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/" >1.4.0</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/" >[requiem version]</a></td>
+ <td>1.19.2</td>
+ <td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/4007572" >1.4.0</a></td>
+ <td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/4285704" >Beta 16</a></td>
 </tr>
 <tr>
-<td>1.18.2 <br> 1.18.1</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/" >1.3.7</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/" >[requiem version]</a></td>
+ <td>1.18.2 <br> 1.18.1 <br> 1.18</td>
+ <td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/3778759" >1.3.7</a><br><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/3689024" >1.3.5</a></td>
+ <td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/3852823" >Beta 9</a><br><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/3639233" >Beta 7</a></td>
 </tr>
 <tr>
-<td>1.17.1 <br> 1.17</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/3519134" >1.3</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/3524350" >Beta 1</a></td>
+ <td>1.17.1 <br> 1.17</td>
+ <td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/3519134" >1.3</a></td>
+ <td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/3524350" >Beta 1</a></td>
 </tr>
 <tr>
-<td>1.16.5</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/" >1.1.2</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/" >[requiem version]</a></td>
+ <td>1.16.5 <br> 1.16.4 <br> 1.16.3</td>
+ <td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/3360089" >1.1.2</a></td>
+ <td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/3435470" >1.7.14</a></td>
 </tr>
 <tr>
-<td>[game version]</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/" >[mischief version]</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/" >[requiem version]</a></td>
+ <td>[game version]</td>
+ <td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/" >[mischief version]</a></td>
+ <td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/" >[requiem version]</a></td>
 </tr>
 </table>
 
