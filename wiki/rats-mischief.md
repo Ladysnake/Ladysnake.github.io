@@ -32,7 +32,7 @@ Rats will pick up any item stack on the floor they come across, and bring it bac
 
 ### Requiem Compatibility
 
-If [Requiem](https://www.curseforge.com/minecraft/mc-mods/requiem) is installed, a `/ratify` command will be available which converts the targeted player into a random Rat type, acting similarly to [possessing](https://ladysnake.org/wiki/requiem/possession) one.
+If [Requiem](https://www.curseforge.com/minecraft/mc-mods/requiem) is installed, a `/ratify` command will be available which converts the targeted player into a random Rat type, acting similarly to [possessing](https://ladysnake.org/wiki/requiem/possession) one, meaning the player has the respective properties such as being able to fit through even the tiniest gaps or not receiving damage from less than 15 block falls.
 
 {% capture summary %}List of compatible versions{% endcapture %}
 {% capture content %}
@@ -74,7 +74,10 @@ td {border: 1px solid dimgrey; padding: 5px}
 {% endcapture %}
 {% include details.liquid summary=summary content=content%}
 
-![Ratified Player](rats-mischief/Ratify.png)
+<video width="1440" height="900" controls muted>
+    <source src="rats-mischief/Ratification.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+</video>
 
 ### Special Events
 
