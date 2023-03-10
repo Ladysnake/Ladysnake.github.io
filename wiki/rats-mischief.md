@@ -25,7 +25,7 @@ Rats can be found in previously inhabited villages that are now abandoned. Once 
 
 #### Behaviours
 
-Rats will behave in a very similar manner to wolves, attacking what the player targets or what harms the player or themselves. They have 8 health points (4 hearts) and deal 1 point of damage but ignore invulnerability ticks, making a mischief (meaning a group of rats) stronger the bigger it becomes.
+Rats will behave in a very similar manner to wolves, attacking what the player targets or what harms the player or themselves. They have 8 health points (4 hearts) and deal 1 point of damage but ignore invulnerability ticks, making a mischief (a group of rats) stronger the bigger it becomes.
 Rats take fall damage starting from 15 blocks, can breathe five times longer than the player, ignore damage from cacti and berry bushes and can be tamed with any food, the better the food though, the higher the chance of success. Once tamed you will be able to sit them down and or let them follow you. If they see a cat while following you around they will be distracted chasing it away.
 
 Rats will pick up any item stack on the floor they come across, and bring it back to their owner if they are tamed. If they are hurt and the item is edible, they will consume it and restore an amount of health equivalent to the amount of saturation the food gives as well as be applied any effects the food provides. No matter their state, if rats come across any drinkable potion, they will consume it and get its effects, good or bad, and convert saturation to regeneration.
@@ -47,10 +47,19 @@ td {border: 1px solid dimgrey; padding: 5px}
 <th>Minecraft Version</th><th>Rat's Mischief</th><th>Requiem</th>
 </tr>
 <tr>
-<th>1.17.1</th><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/3519134" >1.3</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/3524350" >Beta 1</a></td>
+<td>1.19.2</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/" >1.4.0</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/" >[requiem version]</a></td>
 </tr>
 <tr>
-<th>[game version]</th><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/" >[mischief version]</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/" >[requiem version]</a></td>
+<td>1.18.2 <br> 1.18.1</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/" >1.3.7</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/" >[requiem version]</a></td>
+</tr>
+<tr>
+<td>1.17.1 <br> 1.17</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/3519134" >1.3</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/3524350" >Beta 1</a></td>
+</tr>
+<tr>
+<td>1.16.5</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/" >1.1.2</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/" >[requiem version]</a></td>
+</tr>
+<tr>
+<td>[game version]</td><td><a href="https://www.curseforge.com/minecraft/mc-mods/rats-mischief/files/" >[mischief version]</a></td><td><a href="https://www.curseforge.com/minecraft/mc-mods/requiem/files/" >[requiem version]</a></td>
 </tr>
 </table>
 
