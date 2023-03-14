@@ -32,7 +32,7 @@ Should the player pick up new items blocking said slot, the trident will return 
 #### Sincere Loyalty
 
 Impaled also adds a **new level to Loyalty**, Sincere Loyalty or Loyalty IV, giving you the ability to **retain your Trident from anywhere in the world** by holding down the right mouse button with an empty slot selected.
-Tridents with Sincere Loyalty will drop as entity instead of as an item when dropped and will even return to you when in another player's inventory.
+Tridents with Sincere Loyalty will drop as entity instead of as an item **when dropped** and will even return to you when in another player's inventory.
 
 In addition to that, Tridents with Sincere Loyalty **can be enchanted with Riptide**.
 
