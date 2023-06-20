@@ -152,6 +152,6 @@ Throwing Darts can be **crafted in a bunch of 4 using 1 Iron Nugget, 1 Bamboo an
 
 ## Supporter Features
 
-Players [that **support** the mod](https://ko-fi.com/s/c3991a73b3) can **wear the Poison Dart Frog bowls on their head to display the respective frog type**. Consider installing [the **Trinkets** mod](https://www.curseforge.com/minecraft/mc-mods/trinkets-fabric) for an additional slot. More info can be found [**here**](https://doctor4t.uuid.gg/donators).
+Players [that **support** the mod](https://ko-fi.com/s/c3991a73b3) can **wear the Poison Dart Frog bowls on their head to display the respective frog type**. Consider installing [the **Trinkets** mod](https://www.curseforge.com/minecraft/mc-mods/trinkets-fabric) for an additional slot. More info can be found [**here**](https://doctor4t.ladysnake.org/donators).
 
 ![Frog Cosmetic](pick-your-poison/supporter-frogs.png)

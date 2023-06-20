@@ -52,7 +52,7 @@ There are currently 2 Gamerules to configure your experience with this mod:
 
 #### Will you be making a Forge version? Does a Forge version exist?
 
-**No**, we will not be making a Forge version of this mod. We do welcome third-party ports however, so feel free to [come chat with us](https://ladysnake.glitch.me) about it if you feel like doing one.
+**No**, we will not be making a Forge version of this mod. We do welcome third-party ports however, so feel free to [come chat with us](https://discord.ladysnake.org) about it if you feel like doing one.
 
 ## Gallery
 

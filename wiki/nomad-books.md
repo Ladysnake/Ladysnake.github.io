@@ -101,7 +101,7 @@ By combining the Nomad Book with a netherite ingot in an usual crafting grid the
 
 #### Can you port to Forge please? Backport to version X?
 
-We don't port our mods to forge or backport them for various reasons. If you want to make a port yourself however feel free to [come chat with us about it](https://ladysnake.glitch.me)!
+We don't port our mods to forge or backport them for various reasons.
 
 ## Gallery
 

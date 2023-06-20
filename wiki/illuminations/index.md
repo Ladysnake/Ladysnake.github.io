@@ -102,11 +102,11 @@ Renaming any mob in the game to **jeb_** will apply a **rainbow effect** to it. 
 
 ## Cosmetics
 
-In addition to the ambience changes, Illuminations also features **cosmetics**, primarily for those who **donated and contributed** to the project, with the exception of the **Pride Heart Collection** that is available for all [Accounts](https://doctor4t.uuid.gg/register). Cosmetics can be switched and customised using the [Illuminations Dashboard](https://doctor4t.uuid.gg/). Since Illuminations is client-side you can use these cosmetics even on servers. Other players with Illuminations will be able to see your cosmetics.
+In addition to the ambience changes, Illuminations also features **cosmetics**, primarily for those who **donated and contributed** to the project, with the exception of the **Pride Heart Collection** that is available for all [Accounts](https://doctor4t.ladysnake.org/register). Cosmetics can be switched and customised using the [Illuminations Dashboard](https://doctor4t.uuid.gg/). Since Illuminations is client-side you can use these cosmetics even on servers. Other players with Illuminations will be able to see your cosmetics.
 
 ### Pride Hearts
 
-Every Illuminations Account automatically has **free access** to these **11 spinning Pride Hearts** that will follow you as pets, hovering and spinning next to your head! More information [here](https://doctor4t.uuid.gg/pride).
+Every Illuminations Account automatically has **free access** to these **11 spinning Pride Hearts** that will follow you as pets, hovering and spinning next to your head! More information [here](https://doctor4t.ladysnake.org/pride).
 
 ![Pride Heart Collection](PrideHeartCollection.png)
 
@@ -352,13 +352,13 @@ The Biome Settings allow you to customize the **Firefly Spawn Rate**, **Firefly 
 
 #### I wish to support the mod and get an aura. What steps do I need to follow?
 
-In order to get an aura, please **follow the instructions [here](https://doctor4t.uuid.gg/donators).**
+In order to get an aura, please **follow the instructions [here](https://doctor4t.ladysnake.org/donators).**
 
 ***Cosmetics only work on the up-to-date fabric versions of this mod!*** *The forge version is no longer maintained, some cosmetics might not work on older fabric versions.*
 
 #### I want to change my aura / the color of my prismatic auras / disable it, what do I do?
 
-If you have donated multiple times, you may have multiple auras and may want to select a specific one. Or you may just simply want to change your prismatic color or disable your aura. **You can do all this via the [Illuminations dashboard](https://doctor4t.uuid.gg)** with no restrictions whatsoever.
+If you have donated multiple times, you may have multiple auras and may want to select a specific one. Or you may just simply want to change your prismatic color or disable your aura. **You can do all this via the [Illuminations dashboard](https://doctor4t.ladysnake.org)** with no restrictions whatsoever.
 
 ## Gallery
 
