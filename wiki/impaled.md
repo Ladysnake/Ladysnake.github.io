@@ -125,11 +125,11 @@ It can be enchanted with Unbreaking, Mending and Efficiency, the latter to reduc
 
 #### Can I include this mod in a modpack?
 
-**Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to both the [GitHub repository](https://github.com/Ladysnake/Impaled) and [Curse Forge project page](https://www.curseforge.com/minecraft/mc-mods/Impaled).
+**Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to both the [GitHub repository](https://github.com/ladysnake/impaled) and [Curse Forge project page](https://www.curseforge.com/minecraft/mc-mods/impaled).
 
 #### Will you be making a Forge version? Does a Forge version exist?
 
-**No**, we will not be making a Forge version of this mod.
+Sorry, we **don't** allow backports or ports to other modloaders for this mod.
  
 
 ## Gallery

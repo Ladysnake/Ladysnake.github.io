@@ -207,7 +207,7 @@ This item can be repaired in an anvil using phantom membranes.
 #### Can I include this mod in a modpack?
 
 **Yes**: You can. Go  ahead, don't bother asking.
-Please however provide credit and a link to  either the [GitHub repository](https://github.com/Ladysnake/Rats-Mischief) or [Curse Forge project page](https://www.curseforge.com/minecraft/mc-mods/rats-mischief).
+Please however provide credit and a link to  either the [GitHub repository](https://github.com/ladysnake/rats-mischief) or [Curse Forge project page](https://www.curseforge.com/minecraft/mc-mods/rats-mischief).
 
 #### ISN'T THis jUST a RAtS rIp-OFF??
 
@@ -215,7 +215,7 @@ Please however provide credit and a link to  either the [GitHub repository](http
 
 #### Can you port to Forge please? Backport to version X?
 
-Sorry, we **don't** port our mods to forge or backport them for various reasons.
+Sorry, we **don't** allow backports or ports to other modloaders for this mod.
 
 
 

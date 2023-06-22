@@ -155,3 +155,14 @@ Throwing Darts can be **crafted in a bunch of 4 using 1 Iron Nugget, 1 Bamboo an
 Players [that **support** the mod](https://ko-fi.com/s/c3991a73b3) can **wear the Poison Dart Frog bowls on their head to display the respective frog type**. Consider installing [the **Trinkets** mod](https://www.curseforge.com/minecraft/mc-mods/trinkets-fabric) for an additional slot. More info can be found [**here**](https://doctor4t.ladysnake.org/donators).
 
 ![Frog Cosmetic](pick-your-poison/supporter-frogs.png)
+
+
+## FAQ
+
+#### Can I include this mod in a modpack?
+
+**Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to either the [GitHub repository](https://github.com/ladysnake/pick-your-poison) or [Curse Forge project page](https://www.curseforge.com/minecraft/mc-mods/pick-your-poison).
+
+#### Will you be making a Forge version? Does a Forge version exist?
+
+Sorry, we **don't** allow backports or ports to other modloaders for this mod.

@@ -18,34 +18,34 @@ Soul lanterns can be converted into spawn lanterns depending on the ingredient u
 Using a honey bottle on a soul lantern will transform it into a Soothing lantern (along with giving you back an empty bottle).
 Soothing lanterns grant the Soothing effect in a 20x20x20 block radius around the lantern. 
 
-![Soothing Lantern](spawn-lanterns/SoothingLantern.png){: .wiki}
+![Soothing Lantern](spawn-lanterns/SoothingLantern.png)
 
 #### Soothing
 
 Soothing avoids hostile mob spawns if the light level is above 0, meaning mobs won't spawn on the surface, even during the night.
 However, Soothing doesn't decrease the mob spawn cap, meaning you may find more mobs in caves during nighttime.
 
-![Soothing Effect](spawn-lanterns/Soothing.png){: .wiki}
+![Soothing Effect](spawn-lanterns/Soothing.png)
 
 ### Crying Lantern
 
 Using a crying obsidian block on a soul lantern will transform it into a Crying lantern (along with giving you back an obsidian block).
 Crying lanterns grant the Provocation effect in a 20x20x20 block radius around the lantern. 
 
-![Crying Lantern](spawn-lanterns/CryingLantern.png){: .wiki}
+![Crying Lantern](spawn-lanterns/CryingLantern.png)
 
 #### Provocation
 
 Provocation multiplies the mob spawn limit by two, meaning more hostiles will be present at the same moment.
 Provocation also makes neutral mobs (wolves, bears...) and neutral-hostile mobs (endermen, zombified piglins...) target you automatically.
 
-![Provocation Effect](spawn-lanterns/Provocation.png){: .wiki}
+![Provocation Effect](spawn-lanterns/Provocation.png)
 
 ## FAQ
 
 #### Can I include this mod in a modpack?
 
-**Yes**: You can. Go  ahead, don't bother asking. Please however provide credit and a link to  either the GitHub repository or Curse Forge project page.
+**Yes**: You can. Go  ahead, don't bother asking. Please however provide credit and a link to  either the [GitHub repository](https://github.com/ladysnake/spawn-lanterns) or [Curse Forge project page](https://www.curseforge.com/minecraft/mc-mods/spawn-lanterns).
 
 #### Forge?
 
@@ -53,7 +53,7 @@ Provocation also makes neutral mobs (wolves, bears...) and neutral-hostile mobs 
 
 ## Gallery
 
-![Soothing](spawn-lanterns/SoothingScreenshot.png){: .wiki}
+![Soothing](spawn-lanterns/SoothingScreenshot.png)
 
-![Provocation](spawn-lanterns/ProvocationScreenshot.png){: .wiki}
+![Provocation](spawn-lanterns/ProvocationScreenshot.png)
 

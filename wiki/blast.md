@@ -120,11 +120,11 @@ Both the normal and fresh variant can be converted to Dried Folly Red Paint, whi
 # FAQ
 #### Can I include this mod in a modpack?
 
-**Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to both the [GitHub repository](https://github.com/Ladysnake/BLAST) and  [Curse Forge project page](https://www.curseforge.com/minecraft/mc-mods/blast).
+**Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to both the [GitHub repository](https://github.com/ladysnake/blast) and [Curse Forge project page](https://www.curseforge.com/minecraft/mc-mods/blast).
 
 #### Can you port to Forge please? Backport to version X?
 
-Sorry, we **don't** port our mods to forge or backport them for various reasons.
+Sorry, we **don't** allow backports or ports to other modloaders for this mod.
 
 
 

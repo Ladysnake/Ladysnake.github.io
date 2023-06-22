@@ -48,7 +48,7 @@ There are currently 2 Gamerules to configure your experience with this mod:
 
 #### Can I include this mod in a modpack?
 
-**Yes**, you can. Go ahead, don't bother asking. Please however provide credit and a link to both the GitHub repository and CurseForge project page.
+**Yes**, you can. Go ahead, don't bother asking. Please however provide credit and a link to both the [GitHub repository](https://github.com/ladysnake/creeper-Spores) and [CurseForge project page](https://www.curseforge.com/minecraft/mc-mods/creeper-spores).
 
 #### Will you be making a Forge version? Does a Forge version exist?
 

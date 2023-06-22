@@ -15,7 +15,7 @@ whenever and wherever they wish.
 
 A nomad book is an item that can store a 3x1x3 sized camp. The book displays a campfire as indicator if the camp is deployed (campfire absent) or not (campfire visible).
 
-![Campfire Indicator](nomad-books/CampfireIndicator.png){: .wiki}
+![Campfire Indicator](nomad-books/CampfireIndicator.png)
 
 
 To **deploy** a camp simply find a flat spot with sufficient space blocked by nothing but plants (grass, flowers, vines,...) and snow and use the nomad book where you want the centre of your camp to be.
@@ -25,7 +25,7 @@ To **retrieve** a camp the player needs to be in a 10 block radius to the centre
 
 Shift-using with the nomad books will reveal the boundaries of the camp.
 
-![Camp Boundaries](nomad-books/CampBoundaries.png){: .wiki}
+![Camp Boundaries](nomad-books/CampBoundaries.png)
 
 Default camp setup with boundaries toggled on.
 
@@ -35,7 +35,7 @@ Default camp setup with boundaries toggled on.
 
 Nomad Books can be crafted using three grass pages and a campfire.
 
-![Nomad Book Recipe](nomad-books/NomadBookRecipe.png){: .wiki}
+![Nomad Book Recipe](nomad-books/NomadBookRecipe.png)
 
 There will always be a Nomad Book appearing in the bonus chest (if enabled) at the start of the game.
 
@@ -65,7 +65,7 @@ A book's width can be upgraded by using itinerant ink. **Itinerant ink** can be 
 
 Upon application, a goal will be decided depending on the current width size. Progress towards this goal is made by visiting biomes that the book hasn't been to yet. Note that it does **not** have to be a new **kind** of biome.
 
-![Itinerant Ink Recipe](nomad-books/ItinerantInkRecipe.png){: .wiki}
+![Itinerant Ink Recipe](nomad-books/ItinerantInkRecipe.png)
 
 #### Special Upgrades
 
@@ -77,36 +77,36 @@ Special upgrades are upgrades that only have to be applied once to a book and ad
 
 The Aquatic Membrane page (crafted as seen below) adds a membrane to your camp that will stop fluids from entering but lets the player as well as other entities pass, opening up the possibility to place your camp underwater!
 
-![Aquatic Membrane Recipe](nomad-books/AquaticMembraneRecipe.png){: .wiki}
+![Aquatic Membrane Recipe](nomad-books/AquaticMembraneRecipe.png)
 
 ##### Mycelium Page
 
 
 The Mycelium Page is a special page granting the Fungi Support upgrade. Fungi support allows the camp to be deployed on rough surfaces, as long as no obstacles interfere, by growing a special mushroom to fill up the missing floor blocks.
 
-![Mycelium Page](nomad-books/MyceliumPage.png){: .wiki}
+![Mycelium Page](nomad-books/MyceliumPage.png)
 
 ##### Nether Nomad Book
 
 
 By combining the Nomad Book with a netherite ingot in an usual crafting grid the dropped item won't be destroyed in lava and instead swims up in it, similar to netherite ingots, tools and armour.
 
-![Nether Nomad Book Recipe](nomad-books/NetherNomadBookRecipe.png){: .wiki}
+![Nether Nomad Book Recipe](nomad-books/NetherNomadBookRecipe.png)
 
 ## FAQ
 
 #### Can I include this mod in a modpack?
 
-**Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to both the GitHub repository and  Curse Forge project page.
+**Yes**, you can. Go ahead, don't bother asking. Please  however provide credit and a link to both the [GitHub repository](https://github.com/ladysnake/nomad-books) and [Curse Forge project page](https://www.curseforge.com/minecraft/mc-mods/nomad-books).
 
 #### Can you port to Forge please? Backport to version X?
 
-We don't port our mods to forge or backport them for various reasons.
+Sorry, we **don't** allow backports or ports to other modloaders for this mod.
 
 ## Gallery
 
-![Underwater Camp Outside](nomad-books/UnderwaterCamp.png){: .wiki}
+![Underwater Camp Outside](nomad-books/UnderwaterCamp.png)
 
-![Underwater Camp Inside](nomad-books/UnderwaterCamp2.png){: .wiki}
+![Underwater Camp Inside](nomad-books/UnderwaterCamp2.png)
 
-![Mycelium Structure](nomad-books/MyceliumStructure.png){: .wiki}
+![Mycelium Structure](nomad-books/MyceliumStructure.png)
