@@ -1,0 +1,23 @@
+{%- assign len = include.mods | size -%}
+{%- assign nb_cols = 3 -%}
+{%- assign col_max = nb_cols | minus: 1 -%}
+{%- assign row_max = len | divided_by: nb_cols -%}
+<!-- Len: {{len}}; nb_cols: {{nb_cols}}; col_max: {{col_max}}; row_max: {{row_max}} -->
+{% for row in (0..row_max) %}
+<div class="menu-grid-row">
+	{%- for col in (0..col_max) -%}
+	{%- assign i = row | times: nb_cols | plus: col -%}
+	{%- if i >= len -%} {%- break -%} {%- endif -%}
+	{%- assign page = include.mods[i] -%}
+	<!-- row: {{row}}; col: {{col}}; i: {{i}}; page: {{page.title}}-->
+	<div class="menu-grid-desc">
+		<img src="{{ page.icon }}" class="mod_icon">
+		<h2 class="home">{{ page.title }}</h2>
+		{{ page.content | markdownify }}
+	</div>
+	<div class="menu-grid-btn">
+		<a href="{{ page.link }}" title="{{ page.title }}" class="btn btn-sm btn-primary">Learn More</a>
+	</div>
+	{% endfor %}
+</div>
+{% endfor %}

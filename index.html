@@ -2,41 +2,22 @@
 layout: default
 ---
 
-<!-- START SECTION -->
-
-<!--/.section -->
-
-<!-- START SECTION -->
-
 <div class="row">
 	<div class="col-md-12 text-center">
 		<h2 class="section-title home">Our Minecraft Mods</h2>
 		<p class="section-description home">Our current maintained and up-to-date Minecraft mods</p>
 	</div>
 </div>
-{%- assign len = site.mods | size -%}
-{%- assign nb_cols = 3 -%}
-{%- assign col_max = nb_cols | minus: 1 -%}
-{%- assign row_max = len | divided_by: nb_cols -%}
-<!-- Len: {{len}}; nb_cols: {{nb_cols}}; col_max: {{col_max}}; row_max: {{row_max}} -->
-{% for row in (0..row_max) %}
-<div class="menu-grid-row">
-	{%- for col in (0..col_max) -%}
-	{%- assign i = row | times: nb_cols | plus: col -%}
-	{%- if i >= len -%} {%- break -%} {%- endif -%}
-	{%- assign page = site.mods[i] -%}
-	<!-- row: {{row}}; col: {{col}}; i: {{i}}; page: {{page.title}}-->
-	<div class="menu-grid-desc">
-		<img src="{{ page.icon }}" class="mod_icon">
-		<h2 class="home">{{ page.title }}</h2>
-		{{ page.content | markdownify }}
+{%- assign mods = site.mods | where_exp: "mod", "mod.discontinued != true" -%}
+{% include mod_listing.liquid mods=mods %}
+<div class="row">
+	<div class="col-md-12 text-center">
+		<h2 class="section-title home">Discontinued Mods</h2>
+		<p class="section-description home">Minecraft mods that we no longer maintain for various reasons</p>
 	</div>
-	<div class="menu-grid-btn">
-		<a href="{{ page.link }}" title="{{ page.title }}" class="btn btn-sm btn-primary">Learn More</a>
-	</div>
-	{% endfor %}
 </div>
-{% endfor %}
+{%- assign mods = site.mods | where_exp: "mod", "mod.discontinued" -%}
+{% include mod_listing.liquid mods=mods %}
 <div class="row">
 	<div class="col-md-12 text-center">
 		<h2 class="section-title home">Our Other Projects</h2>
