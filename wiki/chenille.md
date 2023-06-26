@@ -17,7 +17,7 @@ If you are a developer, you can use Chenille in your own project by inserting th
 
 ```gradle
 plugins {
-	id 'io.github.ladysnake.chenille' version '0.9.0'
+	id 'io.github.ladysnake.chenille' version '0.11.3'
 }
 ```
 
@@ -37,7 +37,7 @@ Chenille can setup publishing to various platforms :
 chenille {
     configurePublishing {
         mainArtifact = remapStandaloneJar.archiveFile
-        withArtifactory()
+        withLadysnakeMaven()
         withCurseforgeRelease()
         withGithubRelease()
         withModrinthRelease()
@@ -48,12 +48,19 @@ chenille {
 The `mainArtifact` option determines the main jar to upload.
 If left unspecified, it will default to `remapJar.archiveFile`.
 
-- [Artifactory](https://jfrog.com/artifactory/) publishing requires the `artifactory_user` and `artifactory_api_key` user-level gradle properties
-- [Curseforge](https://curseforge.com/) publishing requires the `curseforge_api_key` user-level property and the `curseforge_id` project-level property
-- [Github](https://github.com) publishing requires the `github_api_key` user-level property
-- [Modrinth](https://modrinth.com) publishing requires the `modrinth_api_key` user-level property and the `modrinth_id` project-level property
+- [Artifactory](https://jfrog.com/artifactory/) \[`withArtifactory`] publishing requires the `artifactory_user` and `artifactory_api_key` user-level gradle properties
+  - This method is now deprecated as Jfrog ended their free tier for Open Source projects
+- [Curseforge](https://curseforge.com/) \[`withCurseforgeRelease`] publishing requires the `curseforge_api_key` user-level property and the `curseforge_id` project-level property
+- [Github](https://github.com) \[`withGithubRelease`] publishing requires the `github_api_key` user-level property
+- [Ladysnake Maven](https://maven.ladysnake.org) \[`withLadysnakeMaven`] publishing requires the `ladysnake_maven_username` and `ladysnake_maven_password` user-level property
+- [Modrinth](https://modrinth.com) \[`withModrinthRelease`] publishing requires the `modrinth_api_key` user-level property and the `modrinth_id` project-level property
 
-On curseforge and modrinth, the launcher setting will be set to `fabric` if `fabric-loom` is applied, otherwise it will be set to `quilt`.
+On Curseforge and Modrinth, the loader setting will be set to `fabric` **and** `quilt` if `fabric-loom` is applied, otherwise it will be set to just `quilt`.
+
+Setting up at least one publication method with Chenille will trigger the creation of a `release` task, which will:
+- build and test the project
+- verify that the local Git repository is in a state suitable for a release
+- trigger all the publishing
 
 #### Changelog
 
