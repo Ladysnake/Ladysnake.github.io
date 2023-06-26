@@ -57,9 +57,14 @@ If left unspecified, it will default to `remapJar.archiveFile`.
 
 On Curseforge and Modrinth, the loader setting will be set to `fabric` **and** `quilt` if `fabric-loom` is applied, otherwise it will be set to just `quilt`.
 
-Setting up at least one publication method with Chenille will trigger the creation of a `release` task, which will:
+Setting up at least one publication method with Chenille will trigger the creation of a `release` task, which will :
 - build and test the project
 - verify that the local Git repository is in a state suitable for a release
+  1. no uncommitted files
+  2. on a branch that is named either `main` or after a semantic version (e.g. `1.20` or `1.19.4`)
+  3. on a branch that is up-to-date with its remote
+  4. no existing git tag for the current version (ineffective without GitHub releases)
+- parse the changelog file (see below)
 - trigger all the publishing
 
 #### Changelog
