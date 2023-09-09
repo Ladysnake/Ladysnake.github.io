@@ -1,0 +1,38 @@
+---
+layout: default
+header_preprocessor: wiki_header_preprocessor.liquid
+---
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/wiki/cardinal-components-api">Cardinal Components API</a></li>
+        <li class="breadcrumb-item"><a href="/wiki/cardinal-components-api/landing">Wiki</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{% if page.breadcrumb %}{{ page.breadcrumb }}{% else %}{{ page.title }}{% endif %}</li>
+    </ol>
+</nav>
+
+<div class="wiki-container">
+    {%- unless page.notoc %}
+    <div class="toc-pane">
+        <h3>{% if page.breadcrumb %}{{ page.breadcrumb }}{% else %}{{ page.title }}{% endif %}</h3>
+        <nav class="toc">
+            <ul>{% include toc.liquid html=content sanitize=true %}</ul>
+        </nav>
+    </div>
+    {%- endunless %}
+    <div id="printJS-Content" class="main-wiki-content">
+
+        <h1>{{ page.title | markdownify }}&nbsp;</h1>
+        {% if page.icon %}
+            <img alt="Icon" class="h1-wiki-icon" src="{{ page.icon }}">
+        {% endif %}
+
+        {{ content }}
+
+    </div>
+    <div class="toc-pane">
+        <nav class="sidebar">
+            <ul>{% capture sidebar %}{% include cca_sidebar.md %}{% endcapture %}{{ sidebar | markdownify }}</ul>
+        </nav>
+    </div>
+</div>
