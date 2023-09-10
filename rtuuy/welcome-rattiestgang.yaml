@@ -12,72 +12,73 @@
 - type: rules
   rules:
     General Housekeeping: >
-      Follow Discord's [Community Guidelines](https://discord.com/guidelines) and
-      [Terms of Service](https://discord.com/terms).
+      - Follow Discord's [Community Guidelines](https://discord.com/guidelines) and
+        [Terms of Service](https://discord.com/terms).
+        They will be enforced as rules, even if the indiviual clauses aren't spelled out here.
+        - By extention, follow the spirit of our rules, rather than the actual words.
 
-      Please follow the spirit of the rules rather than just the actual words - act in good faith.
+      - Don't be the reason these rules have to be edited or explained further, as noted above.
 
-      The primary language of this server is English.
-      Limited moderation is available for other languages, so please refrain from using them.
+      - Please communicate in legible english, as other languages are hard to moderate.
 
-      If you have any questions or concerns, please contact an Admin or Moderator - they have the final say.
+      - Please keep every channel's intended purpose in mind, and read the channel descriptions if you're unsure.
+        - If you have any questions or concerns, please **contact an Admin or Moderator - they always have the final say**.
 
     Be Civil: >
-      Insults, slurs, and hate towards any individual or group are not tolerated.
-
-      Your profile must not have an offensive profile picture, or an offensive name or nickname. 
-
-      Constant antagonistic behavior is considered uncivil and therefore not accepted. Sarcasm is not a toxicity permit.
-
-      Swearing is tolerated, but do not abuse it.
-
-      Keep your posts PG-13. Please also avoid controversial subjects, unless there is a specific moderator-designated channel for it.
+      - Insults, slurs, and hate towards any individual or group are not tolerated.
+        - Your profile must not have an offensive profile picture, or an offensive name or nickname. 
+      
+      - Constant antagonistic behaviour is considered uncivil and therefore not accepted. Sarcasm is not a toxicity permit.
+      
+      - Swearing is tolerated, but do not abuse it.
+      
+      - Keep your posts PG-13. Please also avoid controversial subjects, unless there is a specific moderator-designated channel for it.
 
     Be Considerate: >
-      **Before posting in a channel for the first time, read the channel topic.**
-      Channel topics often contain important information about the channel and extra rules that must be followed
-      as if they were part of the server-wide rules. Disrespecting channel-specific rules are equivalent to
-      breaking server-wide rules.
-
-      Using the bots in a way to do prohibited stuff for normal users is naturally prohibited.
-
-      Please do not spam, flood, or excessively ping people. Particularly important users or roles may cause automatic
-      moderation actions to be taken against you, unless prior whitelisting has been granted.
-       - Check if a reply ends up pinging by accident - those count as pings too.
+      - **Before posting in a channel for the first time, read the channel topic.**
+        -  Channel topics often contain important information about the channel and extra rules that must be followed as if they were part of the server-wide rules. 
+        - Disrespecting channel-specific rules are equivalent to breaking server-wide rules.
+      
+      - Using the bots in a way to do prohibited stuff for normal users is naturally prohibited.
+      
+      - Please do not spam, flood, or excessively ping people. Particularly important users or roles may cause automatic moderation actions to be taken against you, unless prior whitelisting has been granted.
+        - Check if a reply ends up pinging by accident - those count as pings too.
+      
+      - Consider the other users around you, and don't annoy them. Moderators hold to right to judge this accordingly.
 
     Have Etiquette: >
-      Promotion, advertising and Discord server invitations are forbidden, unless you are given a specific authorization by one of the moderators.
-      You may post discord server invitations if prompted by another user.
-
-      Talking in another channel to circumvent a lockdown will earn you a timeout, and may result in that channel being locked down for everyone.
-
-      Hoisting (using special characters to make your nickname appear at the top of the user list) is forbidden.
-
-      Repost "memes" (ex. "Post this to another server", "Repost this to get a free cookie", etc.) are not welcome here.
-
-      Do not act as or impersonate another user or nick yourself in a way that is confusing or misleading.
-
-      Spreading misinformation will not be tolerated. You must have an up-to-date, reliable source for any information you share.
-      Using an invalid source or using justification like "so-and-so told me" counts as spreading misinformation.
+      - Promotion, advertising and Discord server invitations are forbidden, unless you are given a specific authorization by one of the moderators. Exceptions apply.
+      
+      - Talking in another channel to circumvent a lockdown will earn you a timeout, and may result in that channel being locked down for everyone.
+      
+      - Hoisting (using special characters to make your nickname appear at the top of the user list) is forbidden.
+      
+      - Repost "memes" (ex. "Post this to another server", "Repost this to get a free cookie", etc.) are not welcome here.
+      
+      - Do not act as or impersonate another user or nick yourself in a way that is confusing or misleading.
+      
+      - Spreading misinformation will not be tolerated. You must have an up-to-date, reliable source for any information you share. Using an invalid source or using justification like "so-and-so told me" counts as spreading misinformation.
 
     Keep Note: >
-      Do not ping <@251798331536310273>, <@484072044787400736>, or other members of <@&924382019742474300> without prior permission.
-      In some cases, automatic action may be taken against you.
-
-      Joining Content SMP is very rare and exclusive to only particular chosen people. Asking to join will not get you anywhere.
+      - Do not ping <@251798331536310273>, <@484072044787400736>, or other members of <@&924382019742474300> without prior permission. In some cases, automatic action may be taken against you.
+      
+      - Joining Content SMP is very rare and exclusive to only particular chosen people. 
+        - Asking to join will not get you anywhere.
 
 - type: embed
   embeds:
     - title: Advice
       color: 0xe91e63
       description: >
-        Not sure what a channel is for? Every channel has a topic, so please read it to make sure you're in the right place.
-        Some channels are not designed for chatting, but for posting content. Discussions can be held in threads.
+        - Not sure what a channel is for? Every channel has a topic, so please read it to make sure you're in the right place.
+          Some channels are not designed for chatting, but for posting content. Discussions can be held in threads.
 
-        Before asking a question, checking pinned messages and searching the channel history is a good idea.
+        - Before asking a question, checking pinned messages and searching the channel history is a good idea.
 
-        If you think someone is breaking the rules, don't hesitate to ping <@&926214810637586492>. Please do not ping
-        this role for requesting general answers, only for reporting rule-breaking behavior or when you feel there is a problem.
+        - If you think someone is breaking the rules, don't hesitate to ping <@&926214810637586492>.
+          - Please do not ping this role for requesting general answers, only for reporting rule-breaking behaviour or when you feel there is a problem.
+        
+        - For general questions, feel free to ask in <#924374894085566475> or <#924695867783536690>, Our users would be glad to help you.
 
 - type: roles
   id: ladysnake-roles
