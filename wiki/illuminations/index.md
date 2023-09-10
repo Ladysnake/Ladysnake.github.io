@@ -102,7 +102,7 @@ Renaming any mob in the game to **jeb_** will apply a **rainbow effect** to it. 
 
 ## Cosmetics
 
-In addition to the ambience changes, Illuminations also features **cosmetics**, primarily for those who **donated and contributed** to the project, with the exception of the **Pride Heart Collection** that is available for all [Accounts](https://doctor4t.ladysnake.org/register). Cosmetics can be switched and customised using thse [Illuminations Dashboard](https://doctor4t.ladysnake.org/). Since Illuminations is client-side you can use these cosmetics even on servers. Other players with Illuminations will be able to see your cosmetics.
+In addition to the ambience changes, Illuminations also features **cosmetics**, primarily for those who **donated and contributed** to the project, with the exception of the **Pride Heart Collection** that is available for all [Accounts](https://doctor4t.ladysnake.org/register). Cosmetics can be switched and customised using the [Illuminations Dashboard](https://doctor4t.ladysnake.org/). Since Illuminations is client-side you can use these cosmetics even on servers. Other players with Illuminations will be able to see your cosmetics.
 
 ### Pride Hearts
 
