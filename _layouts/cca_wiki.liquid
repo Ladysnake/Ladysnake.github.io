@@ -31,6 +31,17 @@ header_preprocessor: wiki_header_preprocessor.liquid
 
     </div>
     <div class="toc-pane">
+        <div id="search-bar" hidden="">
+            <form id="search_bar" action="/wiki/cardinal-components-api/search" method="get">
+                <label for="cca-wiki-search">Search</label>
+                <input id="cca-wiki-search" name="query"/>
+                <input type="submit" value="🔎" class="search-submit">
+            </form>
+        </div>
+        <script>
+            // Search is currently client-only, so only display it when javascript is enabled
+            document.getElementById('search-bar').hidden = false
+        </script>
         <nav class="sidebar">
             <ul>{% capture sidebar %}{% include cca_sidebar.md %}{% endcapture %}{{ sidebar | markdownify }}</ul>
         </nav>

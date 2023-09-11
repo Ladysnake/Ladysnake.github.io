@@ -1,0 +1,32 @@
+<form action="" method="get">
+    <label for="search-box">Search</label>
+    <input type="text" id="search-box" name="query">
+    <input type="submit" value="search">
+</form>
+
+<ul id="search-results"></ul>
+
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script type="module">
+    import search from "/scripts/search.mjs";
+
+    search({
+        {%- for page in site.pages %}
+        {%- unless page.exclude_from_search %}
+        {%- assign checkArray = page.dir | split: include.rootDir %}
+        {%- if checkArray[0] == '' %}
+        "{{ page.url | slugify }}": {
+            "display_title": {{ page.title | markdownify | strip_newlines | jsonify }},
+            "display_content": {{ page.content | markdownify | strip_html | truncate: 150 | jsonify }},
+            "title": "{{ page.title | xml_escape }}",
+            "content": {{ page.content | markdownify | strip_html | strip_newlines | jsonify }},
+            "url": "{{ page.url | xml_escape }}",
+            "tags": {{ page.tags | jsonify }},
+            "boost": {{ page.search_boost | jsonify }},
+        }
+        {%- unless forloop.last %},{% endunless %}
+        {%- endif %}
+        {%- endunless %}
+        {%- endfor %}
+    });
+</script>

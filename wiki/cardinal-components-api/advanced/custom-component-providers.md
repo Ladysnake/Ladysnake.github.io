@@ -1,6 +1,7 @@
 ---
 title: Making Custom Component Providers
 layout: cca_wiki
+search_boost: 0.5
 ---
 
 ## Barebones Implementation
