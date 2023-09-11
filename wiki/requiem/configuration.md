@@ -3,6 +3,7 @@ title: Requiem Configuration
 breadcrumb: Configuration
 layout: requiem_wiki
 datapack_editor: true
+extra_css: /css/datapack.css
 ---
 ## Gamerules
 
