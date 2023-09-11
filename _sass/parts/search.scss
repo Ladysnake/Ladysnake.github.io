@@ -1,4 +1,4 @@
-#search-bar {
+.search-bar {
   form {
     display: flex;
     flex-direction: column;
@@ -16,4 +16,8 @@
     top: 3.3em;
     left: 85%;
   }
+}
+
+#search-results {
+  list-style: square;
 }

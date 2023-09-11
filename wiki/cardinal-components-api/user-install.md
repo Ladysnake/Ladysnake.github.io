@@ -18,4 +18,4 @@ Cardinal Components is also [available on Curseforge](https://www.curseforge.com
 
 Built jars can be found for every version in the [Releases tab on GitHub](https://github.com/Ladysnake/Cardinal-Components-API/releases). Just find the version you need, then click on the `Cardinal-Components-API-<VERSION>` link in the `assets` drop-down.
 
-![Guide to download from github](img/github-download.png)
+![Guide to download from github](img/github-download.png){:.wiki}

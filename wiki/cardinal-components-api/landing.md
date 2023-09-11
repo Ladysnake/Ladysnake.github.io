@@ -16,11 +16,22 @@ layout: default
 
 ## Description
 
-Cardinal Components API is a Fabric library that allows Minecraft mods to attach custom data to game objects in the form of components. Its goals are to offer an accessible API that is just as fast as direct mixins attachments, as well as to promote interoperability between mods using it.
+Cardinal Components API is a Quilt and Fabric library that allows Minecraft mods to attach custom data to game objects in the form of components. Its goals are to offer an accessible API that is just as fast as direct mixins attachments, as well as to promote interoperability between mods using it.
 
-For a short description and associated examples, see the repository's [README](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/README.md).
+For a short description and associated examples, see the repository's [README](https://github.com/OnyxStudios/Cardinal-Components-API#readme).
 
-<!--For some reason, github removes the 'wiki-' part from homepage links, then fails to find the generated anchor-->
+<div id="search-bar" hidden="">
+    <form action="search" method="get">
+        <h2><label for="search-box" style="font-weight: inherit">Search a page</label></h2>
+        <input type="text" id="search-box" name="query">
+        <input type="submit" value="search">
+    </form>
+</div>
+<script>
+    // Search is currently client-only, so only display it when javascript is enabled
+    document.getElementById('search-bar').hidden = false
+</script>
+
 ## Wiki structure
 ### Setup
 
