@@ -13,14 +13,24 @@
 	}
 
 	.navbar-nav {
-		& > li > a {
+		& > li > a, & > li > button {
+			position: relative;
+			display: block;
+			padding: 10px 15px;
 			font-weight: 600;
 			font-size: 12px;
 			text-transform: none;
-			color: #2c3e50;
+			color: var(--base-text-color);
+			background-color: transparent;
+			border: none;
 
-			@include darkMode(&) {
-				color: #fff;
+			@media (min-width: 768px) {
+				padding-top: 15px;
+				padding-bottom: 15px;
+			}
+
+			img, svg {
+				height: 30px;
 			}
 		}
 

@@ -65,6 +65,7 @@ This section will be all about DARK MODE
 #darkmode-icon {
 	height: 25px;
 	vertical-align: middle;
+	cursor: pointer;
 }
 /* a.dark-mode {
 	color: #f6f8f9;
@@ -72,11 +73,6 @@ This section will be all about DARK MODE
 
 /* other stuff that sschr15 made and things */
 
-.nav li a {
-	img, svg {
-		height: 30px;
-	}
-}
 span {
 	padding: 0 8px 0 8px;
 }
@@ -274,18 +270,3 @@ h1 {
 	}
 }
 
-/* DATAPACK GENERATION */
-
-@import "./parts/tables.scss";
-
-.project-links {
-	margin-bottom: 3rem;
-	font-size: 150%;
-	font-weight: bold;
-
-	img {
-		width: 3rem;
-		height: 3rem;
-		margin-right: 1rem;
-	}
-}
