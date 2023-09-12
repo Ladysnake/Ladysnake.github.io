@@ -1,8 +1,10 @@
+@import "../mixins";
+
 .btn-default {
 	background-color: #34495e;
 	color: #fff;
 
-	@include darkMode {
+	@include darkMode(&) {
 		background-color: #fff;
 		color: #171717;
 	}
@@ -11,7 +13,7 @@
 		background-color: #2c3e50;
 		color: #fff;
 
-		@include darkMode {
+		@include darkMode(&) {
 			background-color: #ddd;
 			color: #171717;
 		}
@@ -55,8 +57,10 @@
 	}
 }
 
-.dark-mode a.btn-primary {
-	color: #0e6d5a;
+a.btn-primary {
+	@include darkMode(&) {
+		color: #0e6d5a;
+	}
 }
 
 .btn-success, .btn-yes {
@@ -125,3 +129,23 @@
 	}
 }
 
+:root {
+	--button-background: #dfe6e9;
+	--button-outline: #636e72;
+	--button-hover-outline: #2d3436;
+	--button-selected-outline: #0984e3;
+	@include darkMode(null) {
+		--button-background: #2d3436;
+		--button-outline: #b2bec3;
+		--button-hover-outline: #dfe6e9;
+		--button-selected-outline: #74b9ff;
+	}
+}
+
+input {
+	border-radius: 0.4em;
+	background-color: var(--button-background);
+	border-color: var(--button-outline);
+	margin: 0.2rem;
+	padding: 0.4rem;
+}

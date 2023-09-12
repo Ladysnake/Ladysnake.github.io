@@ -1,9 +1,30 @@
 @import 'variables';
 
 /// Apply styles only for dark mode
-@mixin darkMode {
-	@at-root .dark-mode & {
+/// $target should generally be either & or null (null for global, & for local)
+@mixin darkMode($target) {
+	// When the user did not touch the button: use the browser preferences
+	@media(prefers-color-scheme: dark) {
+		@at-root body:not(.light-mode) #{$target} {
+			@content
+		}
+	}
+	// When the user touched the button: use the JS-set class
+	@at-root body.dark-mode #{$target} {
 		@content;
+	}
+}
+
+/// Apply styles only for light mode
+/// $target should generally be either & or null (null for global, & for local)
+@mixin lightMode($target) {
+	@media(prefers-color-scheme: light) {
+		@at-root body:not(.dark-mode) #{$target} {
+			@content
+		}
+	}
+	@at-root body.light-mode #{$target} {
+		@content
 	}
 }
 

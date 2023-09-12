@@ -6,7 +6,7 @@
 	padding-bottom: 15px;
 	font-size: 13px;
 
-	@include darkMode {
+	@include darkMode(&) {
 		background: #171717;
 		color: #777;
 	}
@@ -14,7 +14,7 @@
 
 #dropdown,
 #mod-dropdown {
-	@include darkMode {
+	@include darkMode(&) {
 		& > li > a {
 			display: block;
 			padding: 3px 20px;

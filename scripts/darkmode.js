@@ -2,7 +2,7 @@
 
 class DarkMode {
     constructor() {
-        this.enabled = false;
+        this.enabled = undefined;
         this.acceptLocalStorage = undefined;
         this.listeners = [];
     }
@@ -13,7 +13,7 @@ class DarkMode {
     }
 
     setImgDarkMode(img) {
-        const mode = (+this.enabled).toString();
+        const mode = (+!!this.enabled).toString();
         const srcPrev = img.src.toString();
 
         if (srcPrev.endsWith("_0.svg") || srcPrev.endsWith("_1.svg")) {
@@ -61,10 +61,12 @@ class DarkMode {
      * @author sschr15
      */
     applyDarkMode() {
-        if (this.enabled) {
+        if (this.enabled === true) {
+            document.body.classList.remove("light-mode");
             document.body.classList.add("dark-mode");
-        } else {
-            document.body.classList.remove("dark-mode")
+        } else if (this.enabled === false) {
+            document.body.classList.remove("dark-mode");
+            document.body.classList.add("light-mode");
         }
 
         for (let img of document.querySelectorAll('img')) {
@@ -81,12 +83,8 @@ class DarkMode {
             // If there is already stuff in the local storage, it means the user consented earlier
             this.acceptLocalStorage = true;
 
-            if (darkModeSetting === "true") {
-                this.enabled = true;
-                this.applyDarkMode();
-            }
-        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            this.enabled = true;
+            this.enabled = (darkModeSetting === "true");
+            this.applyDarkMode();
         }
     }
 }

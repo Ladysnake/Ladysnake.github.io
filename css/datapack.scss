@@ -1,5 +1,7 @@
 ---
 ---
+@import "mixins";
+
 $code-font: Menlo, Monaco, Consolas, "Courier New", monospace;
 
 :root {
@@ -7,19 +9,11 @@ $code-font: Menlo, Monaco, Consolas, "Courier New", monospace;
   --gamerule-name-color: #c73e26;
   --tag-name-color: #6610f2;
   --tag-name-hover-color: #8126c7;
-  --button-background: #dfe6e9;
-  --button-outline: #636e72;
-  --button-hover-outline: #2d3436;
-  --button-selected-outline: #0984e3;
-  .dark-mode {
+  @include darkMode(null) {
     --text-description-color: #b2bec3;
     --gamerule-name-color: #e6472c;
     --tag-name-color: #a530ff;
     --tag-name-hover-color: #b550ff;
-    --button-background: #2d3436;
-    --button-outline: #b2bec3;
-    --button-hover-outline: #dfe6e9;
-    --button-selected-outline: #74b9ff;
   }
 }
 
