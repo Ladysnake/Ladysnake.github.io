@@ -13,7 +13,7 @@ class DarkMode {
     }
 
     setImgDarkMode(img) {
-        const mode = (+!!this.enabled).toString();
+        const mode = (+this.enabled).toString();
         const srcPrev = img.src.toString();
 
         if (srcPrev.endsWith("_0.svg") || srcPrev.endsWith("_1.svg")) {
@@ -82,7 +82,8 @@ class DarkMode {
             this.acceptLocalStorage = true;
 
             this.enabled = (darkModeSetting === "true");
-            this.applyDarkMode();
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            this.enabled = true;
         }
     }
 }
