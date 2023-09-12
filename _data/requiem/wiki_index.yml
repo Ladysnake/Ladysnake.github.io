@@ -1,7 +1,6 @@
 current:
   - title: Gameplay Mechanics
-    icon: /img/requiem_icon_0.png
-    hover_icon: /img/requiem_icon_hover_0.png
+    svg_icon: requiem-icon
     ref: gameplay
 
   - title: Possession

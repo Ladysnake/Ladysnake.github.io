@@ -15,6 +15,7 @@
 	--color-warning: #e67e22;
 	--color-danger: #e74c3c;
 	--base-text-color: #2c3e50;
+	--accent-text-color: #2d3436;
 	--base-background-color: #f6f8f9;
 	--color-invalid: #d9534f;
 	--dark-mode-display: none;
@@ -23,6 +24,7 @@
 	@include darkMode(null) {
 		--color-warning: #f39c12;
 		--base-text-color: #f6f8f9;
+		--accent-text-color: #dfe6e9;
 		--base-background-color: #171717;
 		--dark-mode-display: unset;
 		--light-mode-display: none;
@@ -173,10 +175,17 @@ body:not(.dark-mode) .form-control {
 @import "./parts/scrolltop.scss";
 @import "./parts/toc.scss";
 
+.page_listing_item:hover, .page_listing_item:focus-visible {
+	.mod_icon {
+		fill: var(--accent-text-color)
+	}
+}
+
 .mod_icon {
 	height: 150px;
 	width: 150px;
 	fill: var(--base-text-color);
+
 	svg {
 		width: 100%;
 		height: 100%;
