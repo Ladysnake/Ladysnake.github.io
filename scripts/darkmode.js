@@ -72,8 +72,6 @@ class DarkMode {
         for (let img of document.querySelectorAll('img')) {
             this.setImgDarkMode(img);
         }
-
-        document.getElementById("syntax-stylesheet").setAttribute("href", this.enabled ? "/css/syntax-monokai.css" : "/css/syntax-github.css");
     }
 
     init() {
