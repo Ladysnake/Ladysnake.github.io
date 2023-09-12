@@ -77,18 +77,17 @@
 	}
 
 	.navbar-brand {
-		color: #2c3e50;
-		&,
-		.navbar-nav > li > a {
+		float: left;
+		color: var(--base-text-color);
+
+		&, .navbar-nav > li > a {
 			line-height: 80px;
 			font-weight: bold;
 			height: 80px;
 			padding: 0 15px;
-			letter-spacing: -0.025em;
 		}
 
 		font-size: 24px;
-		letter-spacing: -0.05em;
 
 		@include darkMode(&) {
 			color: #eee;
@@ -97,14 +96,17 @@
 }
 
 #ladysnake_logo {
-    content: url('/img/ladysnake_logo_0.png');
+	vertical-align: middle;
+	height: 100%;
+
+    content: url('/img/ladysnake-logo-light.png');
     @include darkMode(&) {
-        content: url('/img/ladysnake_logo_1.png');
+        content: url('/img/ladysnake-logo-dark.png');
     }
     @include mobile {
-        content: url('/img/ladysnake_icon_0.png');
+        content: url('/img/ladysnake-icon-light.png');
         @include darkMode(&) {
-            content: url('/img/ladysnake_icon_1.png');
+            content: url('/img/ladysnake-icon-dark.png');
         }
     }
 }
