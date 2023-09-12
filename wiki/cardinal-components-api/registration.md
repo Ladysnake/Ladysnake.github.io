@@ -18,8 +18,7 @@ To register a component, you must first **declare your component's identifier** 
 
 *Note: It is safe to declare a component type that belongs to another mod. It is also safe to declare an id that may not be registered at runtime.*
 
-#### On Quilt
-
+{% capture quilt %}
 Declare your component's identifier in your `quilt.mod.json` at the top level. This is done by adding the identifier to an array of strings with the key `"cardinal-components"`. For more information on the structure of the `quilt.mod.json` file, refer to the [Quilt RFC](https://github.com/QuiltMC/rfcs/blob/master/specification/0002-quilt.mod.json.md#the-entrypoints-field).
 
 For example, if your mod uses a component with the id `"mymod:magik"`, your `quilt.mod.json` should contain the following custom field (in addition to everything else that is already there) :
@@ -34,9 +33,8 @@ For example, if your mod uses a component with the id `"mymod:magik"`, your `qui
     ]
 }
 ```
-
-#### On Fabric
-
+{%- endcapture %}
+{%- capture fabric %}
 Declare your component's identifier in your `fabric.mod.json`'s `custom` properties. This is done by adding the identifier to an array of strings with the key `"cardinal-components"`. For more information on the structure of the `fabric.mod.json` file, refer to the [fabric wiki](https://fabricmc.net/wiki/documentation:fabric_mod_json_spec).
 
 For example, if your mod uses a component with the id `"mymod:magik"`, your `fabric.mod.json` should contain the following custom field (in addition to everything else that is already there) :
@@ -52,6 +50,11 @@ For example, if your mod uses a component with the id `"mymod:magik"`, your `fab
     }
 }
 ```
+{%- endcapture %}
+{%- assign tab_names = "" | split: "," | push: 'On Quilt' | push: 'On Fabric' %}
+{%- assign tabs = "" | split: "," | push: quilt | push: fabric %}
+
+{%- include tabbed.liquid tab_names=tab_names tabs=tabs %}
 
 ### ComponentKey
 
@@ -94,11 +97,10 @@ Where `X` is one of the possible component providers (eg. [`EntityComponentIniti
 
 *Note:`XIntComponent::new` is a [constructor reference](https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html). You can also write `it -> new XIntComponent()` if your constructor does not take parameters.*
 
-The component registrar should then be added as an entrypoint to your mod's metadata.
+The component registrar should then be added as an entrypoint to your mod's metadata:
 
-#### In the `quilt.mod.json` file:
-
-Entrypoint documentation: https://github.com/QuiltMC/rfcs/blob/master/specification/0002-quilt.mod.json.md#the-entrypoints-field
+{% capture quilt %}
+[Entrypoint documentation](https://github.com/QuiltMC/rfcs/blob/master/specification/0002-quilt.mod.json.md#the-entrypoints-field)
 
 ```json
 {
@@ -117,10 +119,9 @@ Entrypoint documentation: https://github.com/QuiltMC/rfcs/blob/master/specificat
     }
 }
 ```
-
-#### In the `fabric.mod.json` file:
-
-Entrypoint documentation: https://fabricmc.net/wiki/documentation:entrypoint
+{%- endcapture %}
+{%- capture fabric %}
+[Entrypoint documentation](https://fabricmc.net/wiki/documentation:entrypoint)
 
 ```json
 {
@@ -140,6 +141,11 @@ Entrypoint documentation: https://fabricmc.net/wiki/documentation:entrypoint
     }
 }
 ```
+{%- endcapture %}
+{%- assign tab_names = "" | split: "," | push: '`quilt.mod.json`' | push: '`fabric.mod.json`' %}
+{%- assign tabs = "" | split: "," | push: quilt | push: fabric %}
+
+{%- include tabbed.liquid tab_names=tab_names tabs=tabs %}
 
 ---
 

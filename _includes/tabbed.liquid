@@ -1,0 +1,10 @@
+<fieldset class="tabbed" style="grid-template-areas: '{% for tab in tabs %}tab{{ forloop.index }} {% endfor %}' '{% for tab in tabs %}content {% endfor %}'">
+    {% capture tabbed_id %}tabbed{% increment tabbed_id %}{% endcapture %}
+    {% for tab in tabs %}
+        <input type="radio" name="{{ tabbed_id }}" id="{{ tabbed_id }}_tab{{ forloop.index }}" tabindex="0" {% if forloop.first %}checked{% endif %}>
+        <label for="{{ tabbed_id }}_tab{{ forloop.index }}" style="grid-area: tab{{ forloop.index }}">{{ tab_names[forloop.index0] | markdownify | remove: '<p>' | remove: '</p>' }}</label>
+        <div>
+        {{ tab | markdownify }}
+        </div>
+    {% endfor %}
+</fieldset>
