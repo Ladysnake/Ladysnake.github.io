@@ -1,7 +1,7 @@
 ---
 title: Requiem
 slug: requiem
-mod_logo: requiem_icon_0.png
+mod_logo: requiem.png
 layout: wiki
 curse_project: 265729
 modrinth: true
