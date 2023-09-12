@@ -36,9 +36,10 @@
     transform: scale(1.1);
   }
 
-  img {
+  svg {
     width: 3rem;
     height: 3rem;
     display: block;
+    fill: var(--base-background-color);
   }
 }
