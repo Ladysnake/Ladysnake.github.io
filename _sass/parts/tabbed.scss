@@ -21,6 +21,16 @@
       margin: 1vh 1rem 1vh 1rem;
     }
   }
+  img {
+    height: 24px;
+    margin: 0 5px 0 5px;
+    display: inline-block;
+    vertical-align: bottom;
+    filter: grayscale(1);
+    transition-property: filter;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+  }
   input[type=radio] {
     display: inline;
     visibility: visible;
@@ -34,6 +44,10 @@
     }
     &:checked + label {
       background-color: var(--button-background);
+
+      img {
+        filter: unset;
+      }
 
       & + div {
         grid-area: content;

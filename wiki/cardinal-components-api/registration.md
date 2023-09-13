@@ -51,7 +51,13 @@ For example, if your mod uses a component with the id `"mymod:magik"`, your `fab
 }
 ```
 {%- endcapture %}
-{%- assign tab_names = "" | split: "," | push: 'On Quilt' | push: 'On Fabric' %}
+{%- capture quilt_title %}
+![Quilt Logo](/img/quilt_logo_transparent.png) On Quilt
+{%- endcapture %}
+{% capture fabric_title %}
+![Fabric Logo](/img/fabric-logo.png) On Fabric
+{% endcapture %}
+{%- assign tab_names = "" | split: "," | push: quilt_title | push: fabric_title %}
 {%- assign tabs = "" | split: "," | push: quilt | push: fabric %}
 
 {%- include tabbed.liquid tab_names=tab_names tabs=tabs %}
@@ -105,6 +111,7 @@ The component registrar should then be added as an entrypoint to your mod's meta
 ```json
 {
     "schema_version": 1,
+
     "quilt_loader": {
         "id": "mymod",
         "entrypoints": {
@@ -112,11 +119,9 @@ The component registrar should then be added as an entrypoint to your mod's meta
         },
     },
 
-    "custom": {
-        "cardinal-components": [
-            "mymod:magik"
-        ]
-    }
+    "cardinal-components": [
+        "mymod:magik"
+    ]
 }
 ```
 {%- endcapture %}
@@ -142,7 +147,13 @@ The component registrar should then be added as an entrypoint to your mod's meta
 }
 ```
 {%- endcapture %}
-{%- assign tab_names = "" | split: "," | push: '`quilt.mod.json`' | push: '`fabric.mod.json`' %}
+{%- capture quilt_title %}
+![Quilt Logo](/img/quilt_logo_transparent.png) `quilt.mod.json`
+{%- endcapture %}
+{% capture fabric_title %}
+![Fabric Logo](/img/fabric-logo.png) `fabric.mod.json`
+{% endcapture %}
+{%- assign tab_names = "" | split: "," | push: quilt_title | push: fabric_title %}
 {%- assign tabs = "" | split: "," | push: quilt | push: fabric %}
 
 {%- include tabbed.liquid tab_names=tab_names tabs=tabs %}
@@ -152,12 +163,8 @@ The component registrar should then be added as an entrypoint to your mod's meta
 Instead of the universal entrypoint, you can also use the component module's name as a key, for example:
 ```json
     "entrypoints": {
-        "cardinal-components-entity": [
-            "a.b.c.MyComponents"
-        ],
-        "cardinal-components-world": [
-            "a.b.c.MyComponents::registerWorldComponents"
-        ]
+        "cardinal-components-entity": "a.b.c.MyComponents",
+        "cardinal-components-world": "a.b.c.MyComponents::registerWorldComponents"
     },
 ```
 Note that this is the only way to use method references as registration entrypoints.
