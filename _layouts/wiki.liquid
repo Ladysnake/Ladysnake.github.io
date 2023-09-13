@@ -14,29 +14,7 @@ header_preprocessor: mod_header_preprocessor.liquid
 		<h3>{{ page.title }}</h3>
 		<nav class="toc">
 			<ul>
-				{% if page.curse_project %}
-				<li class="cf-link toc-external-link"><a href="https://www.curseforge.com/minecraft/mc-mods/{{ page.slug }}">
-						{% include svg/cf-logo.svg %}
-						{% include svg/external-link.svg %}
-					</a></li>
-				{% endif %}
-				{% if page.modrinth %}
-				<li class="mr-link toc-external-link">
-					<a href="https://www.modrinth.com/mod/{{ page.slug }}">
-						{% include svg/modrinth-logo.svg %}
-						{% include svg/external-link.svg %}
-					</a>
-				</li>
-				{% endif %}
-				<li class="gh-link toc-external-link">
-					<a href="https://www.github.com/Ladysnake/{{ page.slug }}">
-						<img src="/img/GitHubWord_0.png" alt="GitHub"/>
-						{% include svg/external-link.svg %}
-					</a>
-				</li>
-				{% if page.extra_toc_links %}
-					{% include {{page.extra_toc_links}} %}
-				{% endif %}
+				{% include mod_links.liquid %}
 				{% include toc.liquid html=content sanitize=true %}
 			</ul>
 		</nav>

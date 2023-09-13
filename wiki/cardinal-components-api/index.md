@@ -2,7 +2,7 @@
 title: Cardinal Components API
 slug: cardinal-components-api
 custom_title: true
-layout: wiki
+layout: cca_wiki
 curse_project: 318449
 modrinth: true
 ---
