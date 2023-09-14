@@ -77,7 +77,7 @@ dependencies {
 {%- assign tab_names = "" | split: "," | push: groovy_title | push: kts_title | push: catalogue_title %}
 {%- assign tabs = "" | split: "," | push: groovy | push: kts | push: catalogue %}
 
-{%- include tabbed.liquid tab_names=tab_names tabs=tabs %}
+{%- include tabbed.liquid key="buildscript" tab_names=tab_names tabs=tabs %}
 
 
 ## Ladysnake Reposilite

@@ -60,7 +60,7 @@ For example, if your mod uses a component with the id `"mymod:magik"`, your `fab
 {%- assign tab_names = "" | split: "," | push: quilt_title | push: fabric_title %}
 {%- assign tabs = "" | split: "," | push: quilt | push: fabric %}
 
-{%- include tabbed.liquid tab_names=tab_names tabs=tabs %}
+{%- include tabbed.liquid key="modloader" tab_names=tab_names tabs=tabs %}
 
 ### ComponentKey
 
@@ -148,15 +148,15 @@ The component registrar should then be added as an entrypoint to your mod's meta
 ```
 {%- endcapture %}
 {%- capture quilt_title %}
-![Quilt Logo](/img/quilt_logo_transparent.png) `quilt.mod.json`
+![Quilt Logo](/img/quilt_logo_transparent.png) On Quilt
 {%- endcapture %}
 {% capture fabric_title %}
-![Fabric Logo](/img/fabric-logo.png) `fabric.mod.json`
+![Fabric Logo](/img/fabric-logo.png) On Fabric
 {% endcapture %}
 {%- assign tab_names = "" | split: "," | push: quilt_title | push: fabric_title %}
 {%- assign tabs = "" | split: "," | push: quilt | push: fabric %}
 
-{%- include tabbed.liquid tab_names=tab_names tabs=tabs %}
+{%- include tabbed.liquid key="modloader" tab_names=tab_names tabs=tabs %}
 
 ---
 
