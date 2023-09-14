@@ -8,6 +8,7 @@ There are several ways of getting Cardinal Components into your workspace, most 
 
 Unless specified otherwise, the following block must be added to your `build.gradle` **after** the relevant `repositories` block:
 
+{% capture groovy %}
 ```gradle
 dependencies {
     // Replace modImplementation with modApi if you expose components in your own API
@@ -16,6 +17,55 @@ dependencies {
     include "dev.onyxstudios.cardinal-components-api:<MODULE>:<VERSION>"
 }
 ```
+{% endcapture %}
+{% capture kts %}
+```kotlin
+dependencies {
+    // Replace modImplementation with modApi if you expose components in your own API
+    modImplementation("dev.onyxstudios.cardinal-components-api:<MODULE>:<VERSION>")
+    // Includes Cardinal Components API as a Jar-in-Jar dependency (optional but recommended)
+    include("dev.onyxstudios.cardinal-components-api:<MODULE>:<VERSION>")
+}
+```
+{% endcapture %}
+{% capture catalogue %}
+`libs.versions.toml`:
+```toml
+[versions]
+cca = '<VERSION>'
+
+[libraries]
+cca-base = { module = "dev.onyxstudios.cardinal-components-api:cardinal-components-base", version.ref = "cca" }
+cca-<MODULE> = { module = "dev.onyxstudios.cardinal-components-api:<MODULE>", version.ref = "cca" }
+
+[bundles]
+cca = [ "cca-base", "cca-<MODULE>" ]
+```
+
+`build.gradle` or `build.gradle.kts`:
+```kotlin
+dependencies {
+    // Replace modImplementation with modApi if you expose components in your own API
+    modImplementation(libs.bundles.cca)
+    // Includes Cardinal Components API as a Jar-in-Jar dependency (optional but recommended)
+    include(libs.bundles.cca)
+}
+```
+{% endcapture %}
+{%- capture groovy_title %}
+{% include svg/groovy-logo.svg %} build.gradle
+{%- endcapture %}
+{% capture kts_title %}
+{% include svg/kotlin-logo.svg %} build.gradle.kts
+{% endcapture %}
+{% capture catalogue_title %}
+{% include svg/gradle-logo.svg %} Version Catalogues
+{% endcapture %}
+{%- assign tab_names = "" | split: "," | push: groovy_title | push: kts_title | push: catalogue_title %}
+{%- assign tabs = "" | split: "," | push: groovy | push: kts | push: catalogue %}
+
+{%- include tabbed.liquid tab_names=tab_names tabs=tabs %}
+
 
 ## Ladysnake Reposilite
 
