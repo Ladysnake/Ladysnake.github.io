@@ -9,22 +9,35 @@ There are several ways of getting Cardinal Components into your workspace, most 
 Unless specified otherwise, the following block must be added to your `build.gradle` **after** the relevant `repositories` block:
 
 {% capture groovy %}
+`gradle.properties`:
+```properties
+cca_version = <VERSION>
+```
+
+`build.gradle`:
 ```gradle
 dependencies {
     // Replace modImplementation with modApi if you expose components in your own API
-    modImplementation "dev.onyxstudios.cardinal-components-api:<MODULE>:<VERSION>"
+    modImplementation "dev.onyxstudios.cardinal-components-api:<MODULE>:${project.cca_version}"
     // Includes Cardinal Components API as a Jar-in-Jar dependency (optional but recommended)
-    include "dev.onyxstudios.cardinal-components-api:<MODULE>:<VERSION>"
+    include "dev.onyxstudios.cardinal-components-api:<MODULE>:${project.cca_version}"
 }
 ```
 {% endcapture %}
 {% capture kts %}
+`gradle.properties`:
+```properties
+cca_version = <VERSION>
+```
+
+`build.gradle`:
 ```kotlin
 dependencies {
+    val ccaVersion = property("cca_version") as String
     // Replace modImplementation with modApi if you expose components in your own API
-    modImplementation("dev.onyxstudios.cardinal-components-api:<MODULE>:<VERSION>")
+    modImplementation("dev.onyxstudios.cardinal-components-api:<MODULE>:$ccaVersion")
     // Includes Cardinal Components API as a Jar-in-Jar dependency (optional but recommended)
-    include("dev.onyxstudios.cardinal-components-api:<MODULE>:<VERSION>")
+    include("dev.onyxstudios.cardinal-components-api:<MODULE>:$ccaVersion")
 }
 ```
 {% endcapture %}
