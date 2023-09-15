@@ -11,11 +11,13 @@ function onTabSelected(e) {
 
 // Note: only called when local storage is updated on another page
 function onStorageUpdated(e) {
-    const tabbedKey = e.key;
     const newValue = e.newValue;
 
-    for (const tabbed of document.querySelectorAll(`.tabbed[data-tabbed-key=${tabbedKey}]`)) {
-        updateTab(tabbed, newValue);
+    if (e.key.startsWith('tabbed-')) {
+        const tabbedKey = e.key.substring(7);
+        for (const tabbed of document.querySelectorAll(`.tabbed[data-tabbed-key=${tabbedKey}]`)) {
+            updateTab(tabbed, newValue);
+        }
     }
 }
 
