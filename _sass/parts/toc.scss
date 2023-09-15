@@ -13,6 +13,7 @@
     visibility: collapse;
   }
 
+  text-align: start;
   overflow: auto;
   width: 33rem;
   flex-shrink: 0.3;
@@ -21,7 +22,14 @@
   position: sticky;
   top: 0;
   max-height: 100vh;
-  margin-right: 1rem;
+  &:first-child {
+    margin-right: 1rem;
+  }
+
+  &:last-child {
+    margin-left: 1rem;
+    max-width: 17em;
+  }
 
   @include mobile {
     position: inherit;
@@ -107,4 +115,25 @@
       vertical-align: middle;
     }
   }
+}
+
+.sidebar {
+  font-size: 12px;
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  h3 {
+    font-size: 1.25em;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.main-wiki-content {
+  flex-grow: 1
 }

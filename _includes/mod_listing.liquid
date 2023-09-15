@@ -11,7 +11,7 @@
 	{%- assign page = include.mods[i] -%}
 	<!-- row: {{row}}; col: {{col}}; i: {{i}}; page: {{page.title}}-->
 	<div class="menu-grid-desc">
-		<img src="{{ page.icon }}" class="mod_icon">
+		<img alt="{{ page.title }} icon" src="{{ page.icon }}" class="mod_icon{% if page.pixel_art %} pixel-art{% endif %}">
 		<h2 class="home">{{ page.title }}</h2>
 		{{ page.content | markdownify }}
 	</div>
