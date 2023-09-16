@@ -4,9 +4,68 @@ breadcrumb: Dev Installation
 layout: cca_wiki
 ---
 
+<script src="/scripts/modrinthVersionCheck.js"></script>
 There are several ways of getting Cardinal Components into your workspace, most involving just a few lines in your Gradle buildscript (`build.gradle` file). To minimize user inconvenience, it is also recommended to use the [Jar-in-Jar](https://fabricmc.net/wiki/tutorial:loader04x#nested_jars) mechanism provided by the Fabric toolchain to include Cardinal Components in your own builds, eliminating the need for manual install.
 
 Unless specified otherwise, the following block must be added to your `build.gradle` **after** the relevant `repositories` block:
+
+<label for="select-mcversion">Select a Minecraft Version:</label>
+<input list="mcversion-list" id="select-mcversion" name="select-mcversion" />
+<datalist id="mcversion-list">
+    <option value="1.20.1" />
+</datalist>
+<script type="application/javascript">
+    const versionList = document.getElementById("mcversion-list");
+    const versionSelect = document.getElementById('select-mcversion');
+    function clearVersions() {
+        versionSelect.value = '';
+        versionSelect.removeEventListener('focus', clearVersions);
+    }
+    function doReplace(version) {
+        if(!version) {
+            version = '<VERSION>';
+        }
+        document.querySelectorAll('.mc-version').forEach(e => {
+            e.innerText = version;
+        });
+    }
+    versionSelect.addEventListener('focus', clearVersions);
+    getVersions("K01OU20C").then(versions => {
+        versionSelect.addEventListener('change', () => {
+            const version = versions.find(v => v.id === versionSelect.value);
+            if (version) {
+                // update the window URL to include the selected version
+                const state = history.state;
+                const title = document.title;
+                const url = new URL(window.location.href);
+                url.searchParams.set('version', version.id);
+                history.replaceState(state, title, url);
+
+                // replace the version in the buildscript
+            }
+            doReplace(version?.versions[0]?.name);
+        });
+
+        function update() {
+            const showPreReleases = document.getElementById('include-prereleases')?.checked || false;
+            const validVersions = versions.filter(v => showPreReleases || !v.isSnapshot);
+
+            versionSelect.value = validVersions.length > 0 && validVersions[0].id || "1.20.1";
+
+            versionList.replaceChildren(...validVersions.map(v => {
+                const option = document.createElement('option');
+                option.value = v.id;
+                option.innerText = `Minecraft ${v.id}`;
+                return option;
+            }));
+        }
+
+        //need this for the checkbox
+        window.cca_mr_update = update;
+
+        update();
+    });
+</script>
 
 {% capture groovy %}
 `gradle.properties`:
