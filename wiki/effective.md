@@ -37,7 +37,7 @@ See also [the Illuminations documentation](illuminations) for more features that
 
 #### Can I include this mod in a modpack?
 
-**Yes**: You can. Go ahead, don't bother asking. Please however provide credit and a link to either the GitHub repository or Curse Forge project page.
+**Yes**: You can. Go ahead, don't bother asking. Please however provide credit and a link to either the [GitHub repository](https://github.com/ladysnake/effective) or [Curse Forge project page](https://www.curseforge.com/minecraft/mc-mods/effective).
 
 #### Can I use this mod on a vanilla server?
 
@@ -45,4 +45,4 @@ See also [the Illuminations documentation](illuminations) for more features that
 
 #### Can you port to Forge please? Backport to version X?
 
-We don't port our mods to forge or backport them for various reasons. If you want to make a port yourself however feel free to contact us!
+Sorry, we **don't** allow backports or ports to other modloaders for this mod.

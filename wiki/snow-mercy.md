@@ -126,11 +126,11 @@ There are 10 different Snowman Types introduced by Snow Mercy:
 
 #### Can I include this mod in a modpack?
 
-**Yes**: You can. Go ahead, don't bother asking. Please however provide credit and a link to both the GitHub repository and Curse Forge project page.
+**Yes**: You can. Go ahead, don't bother asking. Please however provide credit and a link to both the [GitHub repository](https://github.com/ladysnake/snow-mercy) and [Curse Forge project page](https://www.curseforge.com/minecraft/mc-mods/snow-mercy).
 
 #### Will you be making a Forge version? Does a Forge version exist?
 
-**No:** I will not be making a Forge version of this mod. The code being GPL3 however, feel free to do a port if you feel like it.
+Sorry, we **don't** port our mods to other modloaders or backport them for various reasons. The code being GPL3 however, feel free to do a port if you feel like it.
 
 
 

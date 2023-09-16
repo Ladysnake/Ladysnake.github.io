@@ -104,11 +104,11 @@ Renaming any mob in the game to **jeb_** will apply a **rainbow effect** to it. 
 
 ## Cosmetics
 
-In addition to the ambience changes, Illuminations also features **cosmetics**, primarily for those who **donated and contributed** to the project, with the exception of the **Pride Heart Collection** that is available for all [Accounts](https://doctor4t.uuid.gg/register). Cosmetics can be switched and customised using the [Illuminations Dashboard](https://doctor4t.uuid.gg/). Since Illuminations is client-side you can use these cosmetics even on servers. Other players with Illuminations will be able to see your cosmetics.
+In addition to the ambience changes, Illuminations also features **cosmetics**, primarily for those who **donated and contributed** to the project, with the exception of the **Pride Heart Collection** that is available for all [Accounts](https://doctor4t.ladysnake.org/register). Cosmetics can be switched and customised using the [Illuminations Dashboard](https://doctor4t.ladysnake.org/). Since Illuminations is client-side you can use these cosmetics even on servers. Other players with Illuminations will be able to see your cosmetics.
 
 ### Pride Hearts
 
-Every Illuminations Account automatically has **free access** to these **11 spinning Pride Hearts** that will follow you as pets, hovering and spinning next to your head! More information [here](https://doctor4t.uuid.gg/pride).
+Every Illuminations Account automatically has **free access** to these **11 spinning Pride Hearts** that will follow you as pets, hovering and spinning next to your head! More information [here](https://doctor4t.ladysnake.org/pride).
 
 ![Pride Heart Collection](PrideHeartCollection.png)
 
@@ -338,7 +338,11 @@ The Biome Settings allow you to customize the **Firefly Spawn Rate**, **Firefly 
 
 #### Can I include this mod in a modpack?
 
-**Yes**: You can. Go ahead, don't bother asking. Please however provide credit and a link to either the GitHub repository or Curse Forge project page.
+**Yes**: You can. Go ahead, don't bother asking. Please however provide credit and a link to either the [GitHub repository](https://github.com/ladysnake/illuminations/) or [Curse Forge project page](https://www.curseforge.com/minecraft/mc-mods/illuminations).
+
+#### Can you port this mod to forge? Can we get a version XY?
+
+Sorry, we **don't** allow backports or ports to other modloaders for this mod.
 
 #### Can I use this mod on a vanilla server?
 
@@ -346,21 +350,21 @@ The Biome Settings allow you to customize the **Firefly Spawn Rate**, **Firefly 
 
 #### Are auras visible to other players?
 
-**Yes**: If the player has the mod installed on their client, your aura will be visible to them, just like their aura will be visible to you if they possess one.
+**Yes**: If the player has Illuminations installed on their client, your aura will be visible to them, just like their aura will be visible to you if they possess one.
 
-#### How to get an aura?
+#### How to get cosmetics?
 
-**Auras are currently only available to donators**, if they have donated more than 1$.
+Cosmetics are available to donators who donated at least 2$ on [ko-fi](https://ko-fi.com/doctor4t/shop) for tier 1 (Twilight Aura) and 7$ for tier 2.
 
 #### I wish to support the mod and get an aura. What steps do I need to follow?
 
-In order to get an aura, please **follow the instructions [here](https://doctor4t.uuid.gg/donators).**
+In order to get an aura, please **follow the instructions [here](https://doctor4t.ladysnake.org/donators).**
 
 ***Cosmetics only work on the up-to-date fabric versions of this mod!*** *The forge version is no longer maintained, some cosmetics might not work on older fabric versions.*
 
 #### I want to change my aura / the color of my prismatic auras / disable it, what do I do?
 
-If you have donated multiple times, you may have multiple auras and may want to select a specific one. Or you may just simply want to change your prismatic color or disable your aura. **You can do all this via the [Illuminations dashboard](https://doctor4t.uuid.gg)** with no restrictions whatsoever.
+If you have tier 2 cosmetics, you may have multiple cosmetics and may want to select a specific one. Or you may just simply want to change your prismatic color or disable a cosmetic. **You can do all this via the [Illuminations dashboard](https://doctor4t.ladysnake.org)** with no restrictions whatsoever.
 
 ## Gallery
 
