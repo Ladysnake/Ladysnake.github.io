@@ -103,11 +103,12 @@
     margin-bottom: 1rem;
   }
 
-  div {
+  menu {
     display: flex;
     justify-content: space-around;
+    padding-left: 0;
 
-    & > span {
+    & > li {
       display: flex;
       flex-direction: column;
       & > span {

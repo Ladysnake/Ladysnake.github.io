@@ -18,7 +18,7 @@ header_preprocessor: wiki_header_preprocessor.liquid
 			<ul>{% include toc.liquid html=content sanitize=true %}</ul>
 		</nav>
 	</div>
-	<div id="printJS-Content">
+	<main id="printJS-Content">
 
 		<h1>{{ page.title }}&nbsp;</h1>
 		{% if page.icon %}
@@ -27,5 +27,5 @@ header_preprocessor: wiki_header_preprocessor.liquid
 
 		{{ content }}
 
-	</div>
+	</main>
 </div>

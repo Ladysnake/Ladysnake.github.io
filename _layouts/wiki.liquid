@@ -19,7 +19,7 @@ header_preprocessor: mod_header_preprocessor.liquid
 			</ul>
 		</nav>
 	</div>
-	<div class="main">
+	<main id="printJS-Content">
 		{% unless page.custom_title %}
 		<h1 id="{{ page.slug }}" class="wiki-title">
 			<img src="/img/{% if page.mod_logo %}{{ page.mod_logo }}{% else %}{{ page.slug }}.png{% endif %}"
@@ -29,5 +29,5 @@ header_preprocessor: mod_header_preprocessor.liquid
 		</h1>
 		{% endunless %}
 		{{ content }}
-	</div>
+	</main>
 </div>

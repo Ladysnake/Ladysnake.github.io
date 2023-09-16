@@ -25,7 +25,7 @@ header_preprocessor: wiki_header_preprocessor.liquid
         </nav>
     </div>
     {%- endunless %}
-    <div id="printJS-Content" class="main-wiki-content">
+    <main id="printJS-Content">
 
         {% unless page.custom_title %}
         <h1>{{ page.title | markdownify }}&nbsp;</h1>
@@ -33,11 +33,11 @@ header_preprocessor: wiki_header_preprocessor.liquid
 
         {{ content }}
 
-    </div>
+    </main>
     <div class="toc-pane">
         <h2>CCA Dev Wiki</h2>
         <div id="search-bar" class="search-bar" hidden="">
-            <form action="/wiki/cardinal-components-api/search" method="get">
+            <form action="/wiki/cardinal-components-api/search" method="get" role="search">
                 <label for="cca-wiki-search">Search</label>
                 <input id="cca-wiki-search" name="query"/>
                 <input type="submit" value="🔎" class="search-submit">
