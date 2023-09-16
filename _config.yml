@@ -3,7 +3,24 @@ markdown: kramdown
 exclude: [README.md, servesite, servesite.bat]
 # note that the source attribute is hardcoded by github pages
 collections:
-    - mods
+    mods:
+        order:
+            - requiem.md
+            - effective.md
+            - rats_mischief.md
+            - blast.md
+            - creeper_spores.md
+            - impaled.md
+            - snow_mercy.md
+            - charter.md
+            - pick_your_poison.md
+            - impersonate.md
+            - blabber.md
+            - cardinal_components_api.md
+            - illuminations.md
+            - spawn_lanterns.md
+            - nomad_books.md
+            - beem.md
 
 defaults:
     -
