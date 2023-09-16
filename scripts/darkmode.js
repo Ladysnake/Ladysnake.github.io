@@ -13,7 +13,7 @@ class DarkMode {
     }
 
     setImgDarkMode(img) {
-        const mode = (+this.enabled).toString();
+        const mode = (+!!this.enabled).toString();
         const srcPrev = img.src.toString();
 
         if (srcPrev.endsWith("_0.svg") || srcPrev.endsWith("_1.svg")) {
@@ -48,7 +48,7 @@ class DarkMode {
     setupDarkModeButton() {
         document.getElementById("preload-darkmodeicon").id = "darkmode-icon";
         const icon = document.getElementById("darkmode-icon");
-        icon.src = `/img/darkmode_${+this.enabled}.svg`;
+        icon.src = `/img/darkmode_${+!!this.enabled}.svg`;
         this.applyDarkMode();
     }
 
