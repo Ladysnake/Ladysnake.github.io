@@ -6,7 +6,6 @@
 <!-- Custom Night mode Option -->
 <script src="/scripts/darkmode.js"></script>
 <header id="ladysnake-header">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <a id="ladysnake_logo" class="ladysnake-logo" href="/">
         <img alt="Ladysnake Logo" src="/img/ladysnake-logo-light.png">
     </a>
@@ -24,17 +23,21 @@
     <nav id="ladysnake-navbar">
         <ul>
             {% if page.curse_project %}
-                <li class="dropdown">
-                    <a href class="dropdown-toggle" data-toggle="dropdown">Download <b class="caret"></b></a>
+                <li class="ls-dropdown">
+                    <input id="mod-download-dropdown-toggle" type="checkbox"/>
+                    <label for="mod-download-dropdown-toggle">Download <b class="caret"></b></label>
+                    <span class="ls-dropdown-backdrop"></span>
                     <!--Filled by JS-->
-                    <ul id="mod-dropdown" class="dropdown-menu"></ul>
+                    <ul id="mod-download-dropdown" class="ls-dropdown-menu"></ul>
                 </li>
             {% endif %}
             <li><a href="/index.html">Home</a></li>
             <li><a href="/about.html">About Us</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mods <b class="caret"></b></a>
-                <ul id="dropdown" class="dropdown-menu">
+            <li class="ls-dropdown">
+                <input type="checkbox" id="mod-list-dropdown-toggle">
+                <label for="mod-list-dropdown-toggle">Mods <b class="caret"></b></label>
+                <span class="ls-dropdown-backdrop"></span>
+                <ul id="mod-list-dropdown" class="ls-dropdown-menu">
                     {% for mod in site.mods %}
                         <li><a href="{{ mod.link }}" title="{{ mod.title }}">{{ mod.title }}</a></li>
                     {% endfor %}
@@ -44,7 +47,7 @@
                     <!-- Will be adding Fabric libraries here "shortly" -->
                 </ul>
             </li>
-            <li><a href="https://ladysnake.github.io/oldsite/">Old Site</a></li>
+            <li><a href="/oldsite/">Old Site</a></li>
             <li>
                 <a href="https://discord.ladysnake.org" title="Discord" class="discord-invite">
                     {% include svg/discord-word.svg %}

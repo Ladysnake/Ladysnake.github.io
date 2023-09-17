@@ -18,7 +18,7 @@
  * @param {String} downloadIcon the HTML code for the download icon
  */
 async function mountModDownloads(curseID, downloadIcon) {
-    const down = document.getElementById("mod-dropdown");
+    const down = document.getElementById("mod-download-dropdown");
     const dataPromise = fetch(`https://curse.nikky.moe/api/addon/${curseID}`).then(it => it.ok && it.json());
     const descPromise = fetch(`https://curse.nikky.moe/api/addon/${curseID}/description`).then(it => it.ok && it.text());
     let data;

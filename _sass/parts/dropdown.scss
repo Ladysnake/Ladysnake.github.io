@@ -1,4 +1,60 @@
-.dropdown-menu {
+@import "../mixins";
+
+.ls-dropdown-backdrop {
+	display: none;
+}
+
+.ls-dropdown {
+	& > input {
+		@extend .styled-checkbox;
+
+		&:focus-visible + label {
+			outline: 5px auto var(--button-selected-outline);
+		}
+
+		& ~ ul {
+			display: none;
+			list-style: none;
+			position: absolute;
+			z-index: 500;
+			padding: 15px 0;
+		}
+
+		&:checked {
+			width: 100vw;
+			height: 100vh;
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 400;
+
+			& + label {
+				position: relative;
+				z-index: 450;
+			}
+
+			& ~ .ls-dropdown-backdrop {
+				display: block;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 350;
+				content: " ";
+				width: 100vw;
+				height: 100vh;
+				background-color: var(--base-background-color);
+				opacity: 40%;
+			}
+
+			& ~ ul {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+	}
+}
+
+.ls-dropdown-menu {
 	background: #fff;
 	border: none;
 	border-radius: 0;
@@ -12,24 +68,20 @@
 	}
 }
 
-#dropdown,
-#mod-dropdown {
-	@include darkMode(&) {
-		& > li > a {
-			display: block;
-			padding: 3px 20px;
-			clear: both;
-			font-weight: normal;
-			line-height: 1.42857143;
-			color: #aaa;
-			white-space: nowrap;
+#mod-list-dropdown,
+#mod-download-dropdown {
+	& > li > a {
+		display: block;
+		clear: both;
+		font-weight: normal;
+		line-height: 1.42857143;
+		white-space: nowrap;
 
-			&:hover,
-			&:focus {
-				color: #fff;
-				text-decoration: none;
-				background-color: #0a0a0a;
-			}
+		&:hover,
+		&:focus {
+			color: var(--accent-text-color);
+			background-color: var(--button-background);
+			text-decoration: none;
 		}
 	}
 }

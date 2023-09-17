@@ -25,16 +25,26 @@
 		padding-bottom: 1.4ex;
 	}
 
-	li > a, button {
+	li > a, li > label, button {
 		display: block;
 		text-transform: none;
 		color: var(--base-text-color);
 		background-color: transparent;
 		border: none;
 		padding: 15px;
+		font-weight: unset;
+		margin-bottom: 0;
 
 		img, svg {
 			height: 30px;
+		}
+
+		&:hover, &:focus-visible {
+			text-decoration: underline;
+		}
+
+		&:focus-visible {
+			outline: 5px auto var(--button-selected-outline);
 		}
 	}
 }
@@ -79,9 +89,8 @@
 }
 
 #header-mobile-nav-toggle {
+	@extend .styled-checkbox;
 	display: none;
-	opacity: 0;
-	position: absolute;
 
 	// SVG animation adapted from https://blog.logrocket.com/how-to-animate-svg-css-tutorial-examples#hamburger-menu
 	&:checked + label > svg {
@@ -108,9 +117,7 @@
 		justify-self: right;
 		width: 3em;
 		height: 3em;
-		background-color: transparent;
 		display: none;
-		cursor: pointer;
 		margin: 0;
 
 		@include darkMode(&) {
