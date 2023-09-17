@@ -3,7 +3,8 @@
 #ladysnake-header {
 	border: none;
 	display: grid;
-	grid-template-areas: "logo nav";
+	grid-template-columns: 1fr max-content max-content;
+	grid-template-areas: "logo darkmode nav";
 	align-items: center;
 	padding: 0 15px;
 	margin: 2.5ex auto 0;
@@ -17,11 +18,24 @@
 	}
 
 	@include mobile {
-		grid-template-areas: "logo toggle" "nav nav";
+		grid-template-areas: "logo darkmode toggle" "nav nav nav";
 	}
 
 	.discord-invite {
 		padding-bottom: 1.4ex;
+	}
+
+	li > a, button {
+		display: block;
+		text-transform: none;
+		color: var(--base-text-color);
+		background-color: transparent;
+		border: none;
+		padding: 15px;
+
+		img, svg {
+			height: 30px;
+		}
 	}
 }
 
@@ -33,7 +47,7 @@
 		font-size: medium;
 		line-height: 1.5ex;
 		max-height: 0;
-		overflow-y: hidden;
+		overflow-y: scroll;
 		transition: max-height 0.3s;
 		visibility: hidden;
 		width: 100%;
@@ -47,27 +61,11 @@
 		align-items: center;
 		list-style: none;
 		padding: 0;
+		margin: 0;
 
 		@include mobile {
 			flex-direction: column;
 			justify-content: center;
-		}
-
-		a, button {
-			display: block;
-			text-transform: none;
-			color: var(--base-text-color);
-			background-color: transparent;
-			border: none;
-			padding: 15px;
-
-			@include mobile {
-				padding-bottom: 10px;
-			}
-
-			img, svg {
-				height: 30px;
-			}
 		}
 
 		& > .open > a {
@@ -113,6 +111,7 @@
 		background-color: transparent;
 		display: none;
 		cursor: pointer;
+		margin: 0;
 
 		@include darkMode(&) {
 			border-color: #e7e7e7;

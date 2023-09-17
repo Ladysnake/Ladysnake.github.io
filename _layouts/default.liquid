@@ -11,6 +11,9 @@
         <img alt="Ladysnake Logo" src="/img/ladysnake-logo-light.png">
     </a>
 
+    <button onclick="darkMode.toggleDarkMode()"><img alt="Dark Mode Icon" id="preload-darkmodeicon"
+                                                     src="/img/placeholder.png"/></button>
+
     <input id="header-mobile-nav-toggle" type="checkbox"/>
 
     <label for="header-mobile-nav-toggle">
@@ -27,8 +30,6 @@
                     <ul id="mod-dropdown" class="dropdown-menu"></ul>
                 </li>
             {% endif %}
-            <li><button onclick="darkMode.toggleDarkMode()"><img alt="Dark Mode Icon" id="preload-darkmodeicon"
-                                                            src="/img/placeholder.png"/></button></li>
             <li><a href="/index.html">Home</a></li>
             <li><a href="/about.html">About Us</a></li>
             <li class="dropdown">
