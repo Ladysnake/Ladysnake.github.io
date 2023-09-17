@@ -11,6 +11,12 @@ body {
 	background: var(--base-background-color);
 }
 
+* {
+	@media(prefers-reduced-motion: reduce) {
+		transition: none !important;
+	}
+}
+
 .container {
     @include desktop {
         width: 97.5%;
