@@ -5,57 +5,52 @@
 <body>
 <!-- Custom Night mode Option -->
 <script src="/scripts/darkmode.js"></script>
-<header>
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">
-                <img alt="Ladysnake Logo" src="/img/ladysnake-logo-light.png" id="ladysnake_logo">
-            </a>
-        </div>
+<header id="ladysnake-header">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <a id="ladysnake_logo" class="ladysnake-logo" href="/">
+        <img alt="Ladysnake Logo" src="/img/ladysnake-logo-light.png">
+    </a>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <nav class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                {% if page.curse_project %}
-                    <li class="dropdown">
-                        <a href class="dropdown-toggle" data-toggle="dropdown">Download <b class="caret"></b></a>
-                        <!--Filled by JS-->
-                        <ul id="mod-dropdown" class="dropdown-menu"></ul>
-                    </li>
-                {% endif %}
-                <li><button onclick="darkMode.toggleDarkMode()"><img alt="Dark Mode Icon" id="preload-darkmodeicon"
-                                                                src="/img/placeholder.png"/></button></li>
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/about.html">About Us</a></li>
+    <input id="header-mobile-nav-toggle" type="checkbox"/>
+
+    <label for="header-mobile-nav-toggle">
+        {% include svg/hamburger-menu.svg %}
+    </label>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <nav id="ladysnake-navbar">
+        <ul>
+            {% if page.curse_project %}
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mods <b class="caret"></b></a>
-                    <ul id="dropdown" class="dropdown-menu">
-                        {% for mod in site.mods %}
-                            <li><a href="{{ mod.link }}" title="{{ mod.title }}">{{ mod.title }}</a></li>
-                        {% endfor %}
-                        <li>
-                            <hr/>
-                        </li>
-                        <!-- Will be adding Fabric libraries here "shortly" -->
-                    </ul>
+                    <a href class="dropdown-toggle" data-toggle="dropdown">Download <b class="caret"></b></a>
+                    <!--Filled by JS-->
+                    <ul id="mod-dropdown" class="dropdown-menu"></ul>
                 </li>
-                <li><a href="https://ladysnake.github.io/oldsite/">Old Site</a></li>
-                <li>
-                    <a href="https://discordapp.com/invite/RBHY26t" title="Discord">
-                        {% include svg/discord-word.svg %}
-                    </a>
-                </li>
-            </ul>
-        </nav><!-- /.navbar-collapse -->
-    </div>
+            {% endif %}
+            <li><button onclick="darkMode.toggleDarkMode()"><img alt="Dark Mode Icon" id="preload-darkmodeicon"
+                                                            src="/img/placeholder.png"/></button></li>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mods <b class="caret"></b></a>
+                <ul id="dropdown" class="dropdown-menu">
+                    {% for mod in site.mods %}
+                        <li><a href="{{ mod.link }}" title="{{ mod.title }}">{{ mod.title }}</a></li>
+                    {% endfor %}
+                    <li>
+                        <hr/>
+                    </li>
+                    <!-- Will be adding Fabric libraries here "shortly" -->
+                </ul>
+            </li>
+            <li><a href="https://ladysnake.github.io/oldsite/">Old Site</a></li>
+            <li>
+                <a href="https://discordapp.com/invite/RBHY26t" title="Discord">
+                    {% include svg/discord-word.svg %}
+                </a>
+            </li>
+        </ul>
+    </nav><!-- /.navbar-collapse -->
 </header>
 
 <!-- START SECTION -->
