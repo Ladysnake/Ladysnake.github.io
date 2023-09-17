@@ -6,8 +6,10 @@ header_preprocessor: wiki_header_preprocessor.liquid
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item"><a href="/wiki/cardinal-components-api">Cardinal Components API</a></li>
+        {% unless page.path == "wiki/cardinal-components-api/index.md" %}
         <li class="breadcrumb-item"><a href="/wiki/cardinal-components-api/landing">Wiki</a></li>
         <li class="breadcrumb-item active" aria-current="page">{% if page.breadcrumb %}{{ page.breadcrumb }}{% else %}{{ page.title }}{% endif %}</li>
+        {% endunless %}
     </ol>
 </nav>
 
