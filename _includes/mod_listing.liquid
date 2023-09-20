@@ -15,9 +15,7 @@
 		<h2 class="home">{{ page.title }}</h2>
 		{{ page.content | markdownify }}
 	</div>
-	<div class="menu-grid-btn">
-		<a href="{{ page.link }}" title="{{ page.title }}" class="btn btn-sm btn-primary">Learn More</a>
-	</div>
+	<a href="{{ page.link }}" title="{{ page.title }}" class="btn menu-grid-btn btn-sm btn-primary">Learn More</a>
 	{% endfor %}
 </div>
 {% endfor %}

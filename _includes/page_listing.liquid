@@ -3,10 +3,10 @@
 {% assign col = i | modulo: 3 %}
 {% assign page = include.pages[i] %}
 {% if col == 0 %}
-<div class="page_listing_row">
+<div class="wiki-listing menu-grid-row">
 {% endif %}
 <a class="hoverable-card" href="{{ include.root_url }}/{{ page.ref }}">
-    <div class="page_listing_item">
+    <div class="menu-grid-desc">
         {% capture img_id %}{{ include.root_url | slugify }}-{{ page.ref | slugify }}{% endcapture %}
         {% if page.svg_icon %}
             <div id="{{ img_id }}" class="mod_icon">

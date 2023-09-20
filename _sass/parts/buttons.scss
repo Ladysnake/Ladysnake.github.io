@@ -9,9 +9,11 @@
 	& + label {
 		background-color: transparent;
 		cursor: pointer;
+		user-select: none;
 	}
 }
 
+// .btn-* classes adapted from Bootstrap 4 CSS under MIT
 .btn-default {
 	background-color: #34495e;
 	color: #fff;
@@ -33,6 +35,8 @@
 }
 
 .btn {
+	display: inline-block;
+	user-select: none;
 	border-radius: 0;
 	text-transform: uppercase;
 	font-weight: bold;
@@ -40,6 +44,13 @@
 	font-size: 12px;
 	padding: 0 30px;
 	line-height: 50px;
+	color: #fff;
+	cursor: pointer;
+
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 65%;
+	}
 }
 .btn-xs {
 	padding: 0 20px;
@@ -67,9 +78,14 @@
 	&:hover {
 		background-color: #55efc4;
 	}
+
+	&:focus {
+		outline-color: var(--button-selected-outline);
+	}
 }
 
 a.btn-primary {
+	color: #fff;
 	@include darkMode(&) {
 		color: #0e6d5a;
 	}
@@ -155,9 +171,20 @@ a.btn-primary {
 }
 
 input {
+	font: inherit;
 	border-radius: 0.4em;
 	background-color: var(--button-background);
 	border-color: var(--button-outline);
 	margin: 0.2rem;
 	padding: 0.4rem;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	margin: 0;
+	font: inherit;
+	color: inherit;
 }

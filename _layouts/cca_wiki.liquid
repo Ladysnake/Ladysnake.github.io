@@ -30,7 +30,7 @@ header_preprocessor: wiki_header_preprocessor.liquid
     <main id="printJS-Content">
 
         {% unless page.custom_title %}
-        <h1>{{ page.title | markdownify }}&nbsp;</h1>
+        <h1>{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}&nbsp;</h1>
         {% endunless %}
 
         {{ content }}

@@ -1,10 +1,17 @@
 @import "../mixins";
 
-.ls-dropdown-backdrop {
+.dropdown-backdrop {
 	display: none;
 }
 
-.ls-dropdown {
+.dropdown {
+	label svg {
+		width: 1em;
+		height: 2ex;
+		margin-left: -0.2em;
+		vertical-align: middle;
+	}
+
 	& > input {
 		@extend .styled-checkbox;
 
@@ -15,35 +22,44 @@
 		& ~ ul {
 			display: none;
 			list-style: none;
-			position: absolute;
-			z-index: 500;
 			padding: 15px 0;
+
+			@include notMobile {
+                position: absolute;
+                z-index: 500;
+			}
 		}
 
 		&:checked {
-			width: 100vw;
-			height: 100vh;
-			position: fixed;
-			top: 0;
-			left: 0;
-			z-index: 400;
+		    @include notMobile {
+                width: 100vw;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 400;
+		    }
 
 			& + label {
-				position: relative;
-				z-index: 450;
+                @include notMobile {
+                    position: relative;
+                    z-index: 450;
+                }
 			}
 
-			& ~ .ls-dropdown-backdrop {
-				display: block;
-				position: fixed;
-				top: 0;
-				left: 0;
-				z-index: 350;
-				content: " ";
-				width: 100vw;
-				height: 100vh;
-				background-color: var(--base-background-color);
-				opacity: 40%;
+			& ~ .dropdown-backdrop {
+			    @include notMobile {
+                    display: block;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    z-index: 350;
+                    content: " ";
+                    width: 100vw;
+                    height: 100vh;
+                    background-color: var(--base-background-color);
+                    opacity: 40%;
+			    }
 			}
 
 			& ~ ul {
@@ -54,7 +70,7 @@
 	}
 }
 
-.ls-dropdown-menu {
+.dropdown-menu {
 	background: #fff;
 	border: none;
 	border-radius: 0;
@@ -65,6 +81,16 @@
 	@include darkMode(&) {
 		background: #171717;
 		color: #777;
+	}
+}
+
+.dropdown-item {
+	a {
+		padding-left: 1em;
+		padding-right: 1em;
+		padding-top: 0.7ex;
+		color: var(--base-text-color);
+		height: 4ex;
 	}
 }
 

@@ -1,27 +1,35 @@
 @import '../mixins';
 
+$menu-grid-col-max: 3;
+
 .menu-grid-row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: [descriptions] auto [buttons] auto;
   column-gap: 3rem;
   margin-bottom: 30px;
+  justify-items: center;
 
   .menu-grid-desc {
     grid-row: descriptions;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: max-content max-content 1fr;
+    grid-template-columns: 1fr;
     align-items: center;
     margin: 30px 0 10px;
+    justify-items: center;
+
+    .user-listing & {
+		grid-template-rows: max-content max-content max-content 1fr;
+    }
+
+    .wiki-listing & {
+        grid-template-rows: max-content 1fr;
+    }
 
     p {
       width: 80%;
-      margin-left: 10%;
-      margin-right: 10%;
-      flex-grow: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      margin: 0 10% 10px;
       text-align: center;
     }
   }
@@ -29,18 +37,19 @@
   .menu-grid-btn {
     grid-row: buttons;
     text-align: center;
+    width: fit-content;
   }
 
   @include mobile {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, [descriptions] auto [buttons] auto);
+    grid-template-rows: repeat($menu-grid-col-max, [descriptions] auto [buttons] auto);
 
-    @for $i from 1 through 3 {
-      .menu-grid-desc:nth-child(0n + #{$i*2-1}) {
+    @for $i from 1 through $menu-grid-col-max {
+      div.menu-grid-desc:nth-of-type(#{$i}) {
         grid-row: descriptions $i;
       }
 
-      .menu-grid-btn:nth-child(0n + #{$i*2}) {
+      a.menu-grid-btn:nth-of-type(#{$i}) {
         grid-row: buttons $i;
       }
     }

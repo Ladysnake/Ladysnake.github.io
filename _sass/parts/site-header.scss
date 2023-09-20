@@ -25,7 +25,13 @@
 		padding-bottom: 1.4ex;
 	}
 
-	li > a, li > label, button {
+    .nav-item {
+        @include mobile {
+            width: 100%;
+        }
+    }
+
+	.nav-item > a, .nav-item > label, button {
 		display: block;
 		text-transform: none;
 		color: var(--base-text-color);
@@ -34,8 +40,9 @@
 		padding: 15px;
 		font-weight: unset;
 		margin-bottom: 0;
+		text-align: center;
 
-		img, svg {
+		svg {
 			height: 30px;
 		}
 
@@ -185,4 +192,10 @@
 			}
 		}
 	}
+}
+
+#darkmode-icon {
+	height: 25px;
+	vertical-align: middle;
+	cursor: pointer;
 }

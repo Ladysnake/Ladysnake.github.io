@@ -1,10 +1,11 @@
 {% capture tabbed_id %}tabbed{% increment tabbed_id %}-{{ include.key }}{% endcapture %}
-<fieldset id="{{ tabbed_id }}" class="tabbed" data-tabbed-key="{{ include.key }}" style="grid-template-areas: '{% for tab in include.tabs %}tab{{ forloop.index }} {% endfor %}' '{% for tab in include.tabs %}content {% endfor %}'">
+<fieldset id="{{ tabbed_id }}" class="tabbed" role="tablist" data-tabbed-key="{{ include.key }}" style="grid-template-areas: '{% for tab in include.tabs %}tab{{ forloop.index }} {% endfor %}' '{% for tab in include.tabs %}content {% endfor %}'">
     {% for tab in include.tabs %}
         {%- assign tab_name = include.tab_names[forloop.index0] | markdownify | remove: '<p>' | remove: '</p>' %}
-        <input type="radio" name="{{ tabbed_id }}" id="{{ tabbed_id }}-tab{{ forloop.index }}" value="{{ tab_name | strip_html | slugify }}" tabindex="0" {% if forloop.first %}checked{% endif %}>
+        {%- capture panel_id %}{{ tabbed_id }}-panel{{ forloop.index }}{% endcapture %}
+        <input type="radio" name="{{ tabbed_id }}" id="{{ tabbed_id }}-tab{{ forloop.index }}" role="tab" aria-controls="{{ panel_id }}" value="{{ tab_name | strip_html | slugify }}" tabindex="0" {% if forloop.first %}checked{% endif %}>
         <label for="{{ tabbed_id }}-tab{{ forloop.index }}" style="grid-area: tab{{ forloop.index }}">{{ tab_name }}</label>
-        <div>
+        <div id="{{ panel_id }}" role="tabpanel">
         {{ tab | markdownify }}
         </div>
     {% endfor %}

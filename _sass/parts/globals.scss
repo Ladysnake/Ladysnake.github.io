@@ -6,18 +6,30 @@ body {
 	text-align: justify;
 	font-size: 14px;
 	line-height: 1.4;
+	margin: 0;
 
 	color: var(--base-text-color);
 	background: var(--base-background-color);
 }
 
+html {
+	font-size: 10px;
+}
+
 * {
+	box-sizing: border-box;
+
 	@media(prefers-reduced-motion: reduce) {
 		transition: none !important;
 	}
 }
 
 .container {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+
     @include desktop {
         width: 97.5%;
     }
