@@ -1,0 +1,5 @@
+{%- capture srcset %}
+{%- for i in resized %}/{{ i.path }} {{ i.width | divided_by: width }}x, {% endfor %}
+/{{ path }} {{ original.width | divided_by: width }}x
+{%- endcapture %}
+<img src="/{{ path }}" alt="{{ alt }}"{% if width %} width={{ width }} {% endif %}{% if height %} height={{ height }} {% endif %}{% if class %} class="{{ class }}" {% endif %}srcset="{{ srcset | strip_newlines }}" loading="lazy">

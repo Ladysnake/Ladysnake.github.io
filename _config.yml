@@ -31,3 +31,12 @@ defaults:
         values:
             mod_name: Requiem
             mod_slug: requiem
+
+responsive_image:
+    template: _includes/responsive_image.liquid
+    output_path_format: img/resized/%{filename}-%{width}x%{height}.%{extension}
+    save_to_source: false
+    sizes:
+        - width: 150
+        - width: 320
+        - width: 480

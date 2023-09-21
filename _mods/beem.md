@@ -1,7 +1,7 @@
 ---
 title: Beem
 link: /wiki/beem
-icon: /img/beem.png
+icon: img/beem.png
 discontinued: true
 ---
 
