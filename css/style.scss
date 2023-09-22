@@ -11,7 +11,8 @@
 :root {
 	--color-primary: #1abc9c;
 	--color-success: #2ecc71;
-	--color-info: #2ecc71;
+	--color-info: #0969da;
+	--color-important: #8250df;
 	--color-warning: #e67e22;
 	--color-danger: #e74c3c;
 	--base-text-color: #2c3e50;
@@ -146,6 +147,7 @@ body:not(.dark-mode) .form-control {
 	}
 }
 
+@import "./parts/admonitions.scss";
 @import "./parts/breadcrumb.scss";
 @import "./parts/buttons.scss";
 @import "./parts/code.scss";
