@@ -37,6 +37,7 @@ $menu-grid-col-max: 3;
   }
 
   .wiki-listing & {
+    margin-bottom: 10px;
     grid-template-rows: max-content 1fr;
   }
 
