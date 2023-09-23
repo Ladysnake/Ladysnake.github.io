@@ -1,12 +1,7 @@
-{% assign len = include.pages | size | minus: 1 %}
-{% for i in (0..len) %}
-{% assign col = i | modulo: 3 %}
-{% assign page = include.pages[i] %}
-{% if col == 0 %}
-<div class="wiki-listing menu-grid-row">
-{% endif %}
+<div class="menu-grid wiki-listing">
+{% for page in include.pages %}
 <a class="hoverable-card" href="{{ include.root_url }}/{{ page.ref }}">
-    <div class="menu-grid-desc">
+    <div class="menu-grid-item">
         {% capture img_id %}{{ include.root_url | slugify }}-{{ page.ref | slugify }}{% endcapture %}
         {% if page.svg_icon %}
             <div id="{{ img_id }}" class="mod_icon">
@@ -18,10 +13,5 @@
         <h2 class="home no_toc no_anchor">{{ page.title }}</h2>
     </div>
 </a>
-{% if col == 2 %}
-</div>
-{% endif %}
 {% endfor %}
-{% if col != 2 %}
 </div>
-{% endif %}
