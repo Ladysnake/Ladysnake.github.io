@@ -14,13 +14,14 @@ svg {
     position: relative;
     height: 150px;
     width: 150px;
-    fill: var(--base-text-color);
 
     img {
         position: absolute;
     }
 
     svg {
+        fill: var(--base-text-color);
+        transition: fill 100ms ease-in-out;
         width: 100%;
         height: 100%;
     }
@@ -34,5 +35,9 @@ svg {
 .hoverable-card:hover, .hoverable-card:focus {
     .hovered-alt {
         opacity: 100%;
+    }
+
+    svg {
+        fill: var(--accent-text-color);
     }
 }
