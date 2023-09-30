@@ -1,5 +1,8 @@
 .hovered-alt {
   transition: opacity 100ms ease-in-out;
+  @supports (-webkit-hyphens:none) {  // ?????? Safari weird blur when updating opacity
+    transition: none;
+  }
   opacity: 0;
 }
 

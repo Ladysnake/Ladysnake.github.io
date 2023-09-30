@@ -17,6 +17,10 @@ svg {
 
     img {
         position: absolute;
+        will-change: opacity; // ???? Chromium weird 1-pixel shift when updating opacity
+        @supports (-webkit-hyphens:none) {  // ?????? Safari weird blur when updating opacity
+            will-change: unset;
+        }
     }
 
     svg {
