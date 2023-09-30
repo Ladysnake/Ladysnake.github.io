@@ -27,6 +27,10 @@ svg {
     }
 }
 
+.rounded {
+    border-radius: 1.4em;
+}
+
 .hovered-alt {
     transition: opacity 100ms ease-in-out;
     opacity: 0;
