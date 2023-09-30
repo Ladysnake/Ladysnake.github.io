@@ -30,18 +30,3 @@ svg {
 .rounded {
     border-radius: 1.6rem;
 }
-
-.hovered-alt {
-    transition: opacity 100ms ease-in-out;
-    opacity: 0;
-}
-
-.hoverable-card:hover, .hoverable-card:focus {
-    .hovered-alt {
-        opacity: 100%;
-    }
-
-    svg {
-        fill: var(--accent-text-color);
-    }
-}
