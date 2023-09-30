@@ -1,7 +1,7 @@
 <div class="menu-grid wiki-listing">
 {% for page in include.pages %}
 <a class="menu-grid-item hoverable-card" href="{{ include.root_url }}/{{ page.ref }}">
-    <div class="mod-icon">
+    <div class="mod-icon{% if page.class %} {{ page.class }}{% endif %}">
     {%- if page.svg_icon %}
         {% include svg/{{page.svg_icon}}.svg %}
     {%- else %}

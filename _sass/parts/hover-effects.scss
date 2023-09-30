@@ -3,6 +3,10 @@
   opacity: 0;
 }
 
+.rotate-when-hovered {
+  transition: all 400ms cubic-bezier(.42,.08,.3,1.52);
+}
+
 .hoverable-card:hover, .hoverable-card:focus {
   .hovered-alt {
     opacity: 100%;
@@ -27,5 +31,9 @@
     animation-iteration-count: infinite;
     animation-timing-function: steps(2, jump-none);
     animation-direction: alternate-reverse;
+  }
+
+  .rotate-when-hovered {
+    transform: rotate(40deg);
   }
 }
