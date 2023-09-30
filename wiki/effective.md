@@ -12,7 +12,7 @@ visual and sound effects.
 
 See also [the Illuminations documentation](illuminations) for more features that have been integrated into the mod.
 
-![Cascade showcase](effective/cascade_showcase.jpg)
+![Cascade showcase](effective/cascade_showcase.jpg){:.wiki .rounded}
 
 ## Showcase Videos
 
