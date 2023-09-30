@@ -7,7 +7,7 @@
 }
 
 .rotate-when-hovered {
-  transition: all 400ms cubic-bezier(.42,.08,.3,1.52);
+  transition: transform 400ms cubic-bezier(.42,.08,.3,1.52);
 }
 
 .hoverable-card:hover, .hoverable-card:focus {
