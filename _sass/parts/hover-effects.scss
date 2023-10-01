@@ -15,6 +15,33 @@
   transition: transform 400ms cubic-bezier(.42,.08,.3,1.52);
 }
 
+.blinking-when-hovered {
+  opacity: 0;
+
+  @keyframes blinking {
+    0% {
+      opacity: 0;
+    }
+    1% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    51% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  animation-name: blinking;
+  animation-duration: 1.25s;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+}
+
 .hoverable-card:hover, .hoverable-card:focus {
   .hovered-alt {
     opacity: 100%;
@@ -25,20 +52,7 @@
   }
 
   .blinking-when-hovered {
-    @keyframes blinking {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 100%;
-      }
-    }
-
-    animation-name: blinking;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-timing-function: steps(2, jump-none);
-    animation-direction: alternate-reverse;
+    animation-play-state: running;
   }
 
   .rotate-when-hovered {
