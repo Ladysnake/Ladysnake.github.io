@@ -15,7 +15,7 @@ header_preprocessor: mod_header_preprocessor.liquid
 		<nav class="toc">
 			<ul>
 				{% include mod_links.liquid %}
-				{% include toc.liquid html=content sanitize=true %}
+				<li>{% include toc.liquid html=content sanitize=true %}</li>
 			</ul>
 		</nav>
 	</div>

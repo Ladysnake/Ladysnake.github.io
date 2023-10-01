@@ -22,7 +22,7 @@ header_preprocessor: wiki_header_preprocessor.liquid
                 {% if page.slug %}
                 {% include mod_links.liquid %}
                 {% endif %}
-                {% include toc.liquid html=content sanitize=true %}
+                <li>{% include toc.liquid html=content sanitize=true %}</li>
             </ul>
         </nav>
     </div>

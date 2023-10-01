@@ -61,7 +61,7 @@
 <div class="container">
     {% capture icon %}{% include svg/octicon-link.svg %}{% endcapture %}
     {% unless page.no_anchor_headings %}
-    {% capture content %}{% include anchor_headings.liquid html=content anchorBody=icon anchorClass="header-anchor" %}{% endcapture %}
+    {% capture content %}{% include anchor_headings.liquid html=content anchorBody=icon anchorTitle="Permalink" anchorClass="header-anchor" %}{% endcapture %}
     {% endunless %}
     {{ content }}
 </div>

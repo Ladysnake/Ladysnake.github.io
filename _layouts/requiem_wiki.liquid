@@ -15,7 +15,7 @@ header_preprocessor: wiki_header_preprocessor.liquid
 	<div class="toc-pane">
 		<h3>{% if page.breadcrumb %}{{ page.breadcrumb }}{% else %}{{ page.title }}{% endif %}</h3>
 		<nav class="toc">
-			<ul>{% include toc.liquid html=content sanitize=true %}</ul>
+			{% include toc.liquid html=content sanitize=true %}
 		</nav>
 	</div>
 	<main id="printJS-Content">
