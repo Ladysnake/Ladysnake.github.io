@@ -1,23 +1,29 @@
 <ul role="group">
     {% if page.curse_project %}
         <li>
-            <a class="cf-link toc-external-link" href="https://www.curseforge.com/minecraft/mc-mods/{{ page.slug }}" title="CurseForge">
-                {% include svg/cf-logo.svg %}
+            <a class="cf-link toc-external-link" href="https://www.curseforge.com/minecraft/mc-mods/{{ page.slug }}">
+                <span>
+                    {% include svg/cf-logo.svg %} CurseForge Page
+                </span>
                 {% include svg/external-link.svg %}
             </a>
         </li>
     {% endif %}
     {% if page.modrinth %}
         <li>
-            <a class="mr-link toc-external-link" href="https://www.modrinth.com/mod/{{ page.slug }}" title="modrinth">
-                {% include svg/modrinth-logo.svg %}
+            <a class="mr-link toc-external-link" href="https://www.modrinth.com/mod/{{ page.slug }}">
+                <span>
+                    {% include svg/modrinth-logo.svg %} Modrinth Page
+                </span>
                 {% include svg/external-link.svg %}
             </a>
         </li>
     {% endif %}
     <li>
-        <a class="gh-link toc-external-link" href="https://www.github.com/Ladysnake/{{ page.slug }}" title="GitHub">
-            <img src="/img/GitHubWord_0.png" alt="GitHub"/>
+        <a class="gh-link toc-external-link" href="https://www.github.com/Ladysnake/{{ page.slug }}">
+            <span>
+                {% include svg/github-logo.svg %} GitHub Repository
+            </span>
             {% include svg/external-link.svg %}
         </a>
     </li>
