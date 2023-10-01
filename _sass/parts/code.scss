@@ -6,7 +6,7 @@ code {
   background-color: #f9f2f4;
   border-radius: 4px;
 
-  @include darkMode(&) {
+  @include darkMode {
     background-color: #2c292d;
     color: #ff6188;
   }
@@ -41,7 +41,7 @@ pre {
   border: 1px solid #ccc;
   border-radius: 4px;
 
-  @include darkMode(&) {
+  @include darkMode {
     background-color: #2c292d;
     color: #ddd;
     border-color: #333;

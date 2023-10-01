@@ -127,7 +127,7 @@
 		display: none;
 		margin: 0;
 
-		@include darkMode(&) {
+		@include darkMode {
 			border-color: #e7e7e7;
 		}
 
@@ -139,7 +139,7 @@
 		&:hover {
 			background-color: #bdc3c7;
 
-			@include darkMode(&) {
+			@include darkMode {
 				background-color: #333;
 			}
 		}
@@ -147,7 +147,7 @@
 		.icon-bar {
 			background-color: #2c3e50;
 
-			@include darkMode(&) {
+			@include darkMode {
 				background-color: #eee;
 			}
 		}
@@ -182,12 +182,12 @@
 		height: 80px;
 
 		content: url('/img/ladysnake-logo-light.png');
-		@include darkMode(&) {
+		@include darkMode {
 			content: url('/img/ladysnake-logo-dark.png');
 		}
 		@include mobile {
 			content: url('/img/ladysnake-icon-light.png');
-			@include darkMode(&) {
+			@include darkMode {
 				content: url('/img/ladysnake-icon-dark.png');
 			}
 		}

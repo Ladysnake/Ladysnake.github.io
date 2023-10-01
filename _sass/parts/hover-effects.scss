@@ -1,3 +1,5 @@
+@import "../mixins";
+
 .hovered-alt {
   transition: opacity 100ms ease-in-out;
   @supports (-webkit-hyphens:none) {  // ?????? Safari weird blur when updating opacity
@@ -60,7 +62,7 @@
   }
 
   .glow-when-hovered {
-    @include darkMode(&) {
+    @include darkMode {
       opacity: 100%;
     }
   }
