@@ -15,6 +15,13 @@
     background-color: var(--base-background-color);
     margin-bottom: 0;
     font-weight: bold;
+
+    &:hover, &:focus-visible {
+      background-color: var(--accent-background-color);
+      img, svg {
+        filter: unset;
+      }
+    }
   }
   & > div {
     border-radius: 0 0 4px 4px;
@@ -32,9 +39,7 @@
     display: inline-block;
     vertical-align: bottom;
     filter: grayscale(1);
-    transition-property: filter;
-    transition-duration: 0.2s;
-    transition-timing-function: ease-out;
+    transition: filter 0.2s ease-out;
   }
   input[type=radio] {
     display: inline;
