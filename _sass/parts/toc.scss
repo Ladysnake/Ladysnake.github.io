@@ -30,7 +30,10 @@
     padding-left: 1rem;
     padding-right: 1rem;
     margin-right: -1rem;
-    max-width: 18.5em;
+
+    @include notMobile {
+      max-width: 18.5em;
+    }
   }
 
   @include mobile {
@@ -39,6 +42,10 @@
     border-bottom: 1px solid var(--button-hover-outline);
     max-height: 30vh;
     width: 100%;
+  }
+
+  & > h2 {
+    margin-top: 0;
   }
 
   h3 {
