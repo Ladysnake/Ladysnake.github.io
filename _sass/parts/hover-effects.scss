@@ -6,6 +6,11 @@
   opacity: 0;
 }
 
+.glow-when-hovered {
+  transition: opacity 200ms ease-in-out;
+  opacity: 0;
+}
+
 .rotate-when-hovered {
   transition: transform 400ms cubic-bezier(.42,.08,.3,1.52);
 }
@@ -38,5 +43,11 @@
 
   .rotate-when-hovered {
     transform: rotate(40deg);
+  }
+
+  .glow-when-hovered {
+    @include darkMode(&) {
+      opacity: 100%;
+    }
   }
 }
