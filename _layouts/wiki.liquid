@@ -13,10 +13,8 @@ header_preprocessor: mod_header_preprocessor.liquid
 	<div class="toc-pane">
 		<h3>{{ page.title }}</h3>
 		<nav class="toc">
-			<ul>
-				{% include mod_links.liquid %}
-				<li>{% include toc.liquid html=content sanitize=true %}</li>
-			</ul>
+			{% include mod_links.liquid %}
+			{% include toc.liquid html=content sanitize=true submenu_class="toc-subgroup" %}
 		</nav>
 	</div>
 	<main id="printJS-Content">

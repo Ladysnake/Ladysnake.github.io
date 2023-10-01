@@ -38,6 +38,13 @@
     max-height: 30vh;
     width: 100%;
   }
+
+  h3 {
+    width: 100%;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid var(--button-background);
+    margin-bottom: 0.8em;
+  }
 }
 
 .toc {
@@ -59,19 +66,12 @@
     margin-left: -0.6em;
   }
 
-  a:focus {
-    outline: none;
-    color: var(--base-text-color);
-  }
-
   .toc-highlighted-link, .toc-external-link {
     border-left: 5px solid var(--button-hover-outline);
   }
 
   .toc-external-link {
     font-weight: bold;
-    padding-top: 0;
-    padding-bottom: 0;
     margin: 0.4rem 0;
     height: 1.6em;
     svg {
@@ -79,16 +79,23 @@
       color: var(--base-text-color);
       vertical-align: middle;
     }
-    a {
-      text-decoration: none;
-    }
+    text-decoration: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     &:hover, &:focus {
-      border-color: var(--button-outline);
+      border-color: var(--button-selected-outline);
     }
     .external-link-icon {
       color: inherit;
-      float: right;
     }
+  }
+
+  .toc-subgroup {
+    padding-left: 1em;
   }
 
   .gh-link {
@@ -103,17 +110,16 @@
     margin: 0;
   }
 
-  li {
-    display: block;
-    position: relative;
+  a {
     padding: 0.4rem 1rem;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
 
-    a {
-      text-overflow: ellipsis;
-      width: 100%;
-      display: inline-block;
-      overflow: hidden;
-      vertical-align: middle;
+    &:hover, &:focus-visible {
+      background-color: var(--accent-background-color);
     }
   }
 }
