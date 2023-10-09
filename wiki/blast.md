@@ -3,6 +3,7 @@ layout: wiki
 title: BLAST
 slug: blast
 curse_project: 349938
+modrinth: true
 ---
 
 BLAST is a Minecraft fabric mod adding multiple explosives for use in survival or for messing around in creative.
