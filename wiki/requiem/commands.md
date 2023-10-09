@@ -45,7 +45,7 @@ It normally appears when a player dies without the `requiem:adventure/the_choice
 
 ### Predicates
 
-Requiem adds 3 new [predicates](https://minecraft.fandom.com/wiki/Predicate). More advanced predicates can also be created
+Requiem adds 3 new [predicates](https://minecraft.wiki/w/Predicate). More advanced predicates can also be created
 in datapacks using the new [loot conditions](./configuration#loot-table-conditions).
 
 {% capture predicate_src %}{{site.data.requiem.links.data_src}}/predicates{% endcapture %}
@@ -61,7 +61,7 @@ execute as @e[predicate="requiem:live_shell"] run say Hello, World!
 ```
 
 ### Target Selector Arguments
-Requiem also adds a new [Target Selector Argument](https://minecraft.gamepedia.com/Commands#Target_selector_arguments) - `"requiem:possessor"`.
+Requiem also adds a new [Target Selector Argument](https://minecraft.wiki/w/Target_selectors) - `"requiem:possessor"`.
 Any command that can target entities can use this argument to select entities based on their possessor.
 The argument uses the name of the possessor, or empty string to match entities that are not possessed.
 It can be negated by prepending the `'!'` character.

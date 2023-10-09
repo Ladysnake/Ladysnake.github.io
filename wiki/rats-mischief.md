@@ -21,7 +21,7 @@ curse_project: 431787
 
 Rats can be found in previously inhabited villages that are now abandoned. Once a natural village no longer has tenants, rats will start spawning in small groups of up to 5 rats if a player is near that empty village and the village still has beds.
 
-***This does not work with the [Abandoned/Zombie Village structure](https://minecraft.fandom.com/wiki/Village#Abandoned_villages), only with abandoned, once normal Villages***
+***This does not work with the [Abandoned/Zombie Village structure](https://minecraft.wiki/w/Village#Abandoned_villages), only with abandoned, once normal Villages***
 
 #### Behaviours
 
