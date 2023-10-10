@@ -20,12 +20,12 @@ header_preprocessor: wiki_header_preprocessor.liquid
     <div class="toc-pane">
         <h3>{% if page.breadcrumb %}{{ page.breadcrumb }}{% else %}{{ page.title }}{% endif %}</h3>
         <nav class="toc">
-            <ul>
-                {% if page.slug %}
+            {% if page.slug %}
+		    <h4>Available here:</h4>
                 {% include mod_links.liquid %}
-                {% endif %}
-                <li>{% include toc.liquid html=content sanitize=true submenu_class="toc-subgroup" %}</li>
-            </ul>
+            {% endif %}
+			<h4>Page contents:</h4>
+            {% include toc.liquid html=content sanitize=true submenu_class="toc-subgroup" %}
         </nav>
     </div>
     {%- endunless %}
