@@ -20,6 +20,11 @@ $menu-grid-col-max: 3;
   @include mobile {
     grid-template-columns: 1fr;
   }
+
+  .wiki-container & {
+    padding: 0 0 0 1rem;
+    row-gap: 3rem;
+  }
 }
 
 .menu-grid-item {
