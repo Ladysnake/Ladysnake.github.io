@@ -2,6 +2,7 @@
 
 .wiki-container {
   display: flex;
+  font-size: 14px;
 
   @include mobile {
     flex-direction: column;
