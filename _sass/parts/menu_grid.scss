@@ -7,8 +7,8 @@ $menu-grid-col-max: 3;
   grid-template-columns: repeat($menu-grid-col-max, 1fr);
   grid-template-rows: auto;
   column-gap: 3rem;
-  row-gap: 60px;
-  padding: 30px 0;
+  row-gap: 6rem;
+  padding: 3rem 3rem 0 3rem;
   justify-items: center;
 
   .menu-grid-btn {
@@ -24,12 +24,23 @@ $menu-grid-col-max: 3;
 
 .menu-grid-item {
   display: grid;
+  width: 100%;
   grid-template-columns: 1fr;
   align-items: center;
   justify-items: center;
+  padding: 2rem 0;
 
   .mod-listing & {
     grid-template-rows: max-content max-content 1fr max-content;
+    border-radius: 1rem;
+    transition: border-color 0.2s ease-in;
+    border: 0.5rem dotted transparent;
+
+    &:hover {
+      @media(prefers-reduced-motion: no-preference) {
+        border-color: var(--accent-background-color);
+      }
+    }
   }
 
   .member-listing & {
@@ -42,7 +53,7 @@ $menu-grid-col-max: 3;
   }
 
   p {
-    width: 80%;
+    max-width: 80%;
     margin-top: 0;
     text-align: center;
   }
