@@ -1,4 +1,4 @@
-Source repository for https://ladysnake.github.io
+# Source repository for https://ladysnake.github.io
 
 To run the site locally, follow these steps:
 0. Clone this repository
