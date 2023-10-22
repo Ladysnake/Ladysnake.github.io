@@ -1,5 +1,6 @@
 details {
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0, rgba(27, 31, 35, 0.15) 0 0 0 1px;
+  margin-bottom: 2em;
   div {
     padding: 1rem;
   }
@@ -15,5 +16,9 @@ details {
       display: list-item;
       list-style-position: inside;
     }
+  }
+
+  h5, h6 {
+    font-size: inherit;
   }
 }

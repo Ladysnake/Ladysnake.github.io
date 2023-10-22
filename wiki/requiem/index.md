@@ -25,9 +25,10 @@ unlocking special tech to assist them.
 {% assign index = site.data.requiem.wiki_index %}
 {% include page_listing.liquid pages=index.current root_url="/wiki/requiem" %}
 
-### Removed content
-
-The following pages describe content that no longer exists:
+<hgroup>
+<h3>Removed content</h3>
+<p>The following pages describe content that no longer exists:</p>
+</hgroup>
 
 {% include page_listing.liquid pages=index.removed root_url="/wiki/requiem" %}
 

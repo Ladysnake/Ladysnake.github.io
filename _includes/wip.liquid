@@ -3,7 +3,12 @@
         <strong>🚧 This page is still under construction! 🚧</strong>
     </div>
     <div>
-        Some things may not display correctly, and some information may be inaccurate or missing.<br/>
+        {% if include.message %}
+        {{ include.message }}
+        {% else %}
+        Some things may not display correctly, and some information may be inaccurate or missing.
+        {% endif %}
+        <br/>
         Please come back later for the finished product :&gt;
     </div>
 </div>

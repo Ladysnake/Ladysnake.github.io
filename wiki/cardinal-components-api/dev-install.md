@@ -68,19 +68,7 @@ dependencies {
 }
 ```
 {% endcapture %}
-{%- capture groovy_title %}
-{% include svg/groovy-logo.svg %} build.gradle
-{%- endcapture %}
-{% capture kts_title %}
-{% include svg/kotlin-logo.svg %} build.gradle.kts
-{% endcapture %}
-{% capture catalogue_title %}
-{% include svg/gradle-logo.svg %} Version Catalogues
-{% endcapture %}
-{%- assign tab_names = "" | split: "," | push: groovy_title | push: kts_title | push: catalogue_title %}
-{%- assign tabs = "" | split: "," | push: groovy | push: kts | push: catalogue %}
-
-{%- include tabbed.liquid key="buildscript" tab_names=tab_names tabs=tabs %}
+{%- include tabbed_builscript.liquid groovy=groovy kts=kts catalogue=catalogue %}
 
 
 ## Ladysnake Reposilite

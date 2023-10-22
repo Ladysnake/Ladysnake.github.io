@@ -3,6 +3,7 @@ layout: wiki
 title: Blabber
 slug: blabber
 curse_project: 565396
+modrinth: true
 extra_toc_links: extra/blabber_editor_link.liquid
 ---
 
@@ -17,7 +18,7 @@ Just write your dialogue description files, then start them on demand!
 
 Like that:
 
-![Example Dialogue Screen](example-dialogue-screen.png)
+![Example Dialogue Screen](example-dialogue-screen.png){:.rounded}
 
 ## How it works
 
@@ -66,50 +67,219 @@ Here's the JSON file corresponding to what we just described:
 {% endcapture %}
 {% include details.liquid summary=summary content=example_json %}
 
+#### Conditional choices
+
+So what if you want to add requirements for specific dialogue paths? You could always make a separate dialogue file
+for each possible combination and trigger one based on prior conditions, but that becomes quite tedious when you have multiple
+conditions in a single dialogue, and it also does not give players any indication of what choices they may have missed.
+
+To help with that situation, Blabber gives you the ability to lock some dialogue choices behind [predicates](https://minecraft.wiki/w/Predicate).
+Here is what a locked choice may look like:
+
+![Example locked dialogue choice](./example-locked-choice.png){:.rounded}
+
+When you make a choice conditional, you specify when the choice should be available, and how it should be displayed if not.
+The condition is given as an identifier for a [predicate](https://minecraft.wiki/w/Predicate).
+
+Mods can register their own `LootCondition`s to allow virtually any check in said predicates.
+{:.admonition .admonition-note}
+
+As for the display, you can either make it so the choice is *grayed out*, displaying a little lock icon and explanation message when hovered, or
+set it to be *hidden*.
+
+Note that you should avoid the hidden option with choices that can enable or disable themselves mid-dialogue, as it may cause some frustration due to player misclicks.
+{:.admonition .admonition-warning}
+
+Here is an example of conditional choices in JSON:
+
+{% capture summary %}<h5 id="grayed-out-choice-json">Grayed out choice</h5>{% endcapture %}
+{% capture example_json %}
+```json
+{
+  "text": "I have money.",
+  "illustration": "emerald",
+  "next": "barter",
+  "only_if": {
+    "predicate": "babblings:holding_emerald",
+    "when_unavailable": {
+      "display": "gray_out",
+      "message": "You must be holding an emerald to pick this option."
+    }
+  }
+}
+```
+{% endcapture %}
+{% include details.liquid summary=summary content=example_json %}
+{% capture summary %}<h5 id="hidden-choice-json">Hidden choice</h5>{% endcapture %}
+{% capture example_json %}
+```json
+{
+  "text": "I have money.",
+  "illustration": "emerald",
+  "next": "barter",
+  "only_if": {
+    "predicate": "babblings:holding_emerald",
+    "when_unavailable": {
+      "display": "hidden"
+    }
+  }
+}
+```
+{% endcapture %}
+{% include details.liquid summary=summary content=example_json %}
+
 ### Online Dialogue Maker
 
 If you are allergic to code, try this online tool: [blabber dialogue editor](dialogue_generator)
+
+### Validation
+
+To help creators design dialogues, and prevent players from getting stuck in a *(possibly non-skippable)* dialogue with no ending,
+both the online dialogue maker and the mod itself will perform several validation checks on dialogue files.
+
+The validation process checks for the following issues and reports them by either logging a warning or failing with an error:
+
+**Errors:**
+- **States with no choices:** Every non-end state must have at least one choice leading out of it. If any state has no choices defined, an error will be thrown.
+- **Softlock states:** Every state must have a path leading to an ending (no infinite loops). If any state is lacking a path to an end state, an error will be thrown.
+
+**Warnings:**
+- **Conditional softlock states:** Any state that only has *conditional* paths leading to an ending will be reported. Blabber cannot tell whether a condition will necessarily be fulfilled when getting to such a state, and thus cannot prove that the player *will not* be softlocked.
+- **Unreachable states:** Any state that is disconnected from the main dialogue graph will be reported with a warning message. While they do not cause immediate issues for players, you may want to connect or remove such orphan states.
 
 ## Using Blabber (for developers)
 
 If you are a developer, you can use Blabber as a library for your own project by inserting the following in your `build.gradle` :
 
+You can then add the library version to your `gradle.properties`file:
+
+{% capture groovy %}
+`gradle.properties`:
+```properties
+# Blabber
+blabber_version = <BLABBER_VERSION>
+# Fabric Permissions API
+fpa_version = 0.2-SNAPSHOT
+# Cardinal Components
+cca_version = <CCA_VERSION>
+```
+
+`build.gradle`:
 ```gradle
 repositories {
-	maven { 
+    maven { 
         name = "Ladysnake Mods"
-        url = "https://ladysnake.jfrog.io/artifactory/mods"
+        url = "https://maven.ladysnake.org/releases"
         content {
             includeGroup 'io.github.ladysnake'
-            includeGroupByRegex 'io\\.github\\.onyxstudios.*'
+            includeGroup 'org.ladysnake'
+            includeGroupByRegex 'dev\\.onyxstudios.*'
         }
     }
     maven {
         name = "Nexus Repository Manager"
-        url = 'https://oss.sonatype.org/content/repositories/snapshots'
+        url = "https://oss.sonatype.org/content/repositories/snapshots"
     }
 }
 
 dependencies {
-    modImplementation "io.github.ladysnake:blabber:${blabber_version}"
-    include "io.github.ladysnake:blabber:${blabber_version}"
+    modImplementation "org.ladysnake:blabber:${blabber_version}"
+    include "org.ladysnake:blabber:${blabber_version}"
     // Blabber dependencies
     include "me.lucko:fabric-permissions-api:${fpa_version}"
-    include "com.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${cca_version}"
-    include "com.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${cca_version}"
+    include "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cca_version}"
+    include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}"
 }
 ```
-
-You can then add the library version to your `gradle.properties`file:
-
+{% endcapture %}
+{% capture kts %}
+`gradle.properties`:
 ```properties
 # Blabber
-blabber_version = 0.x.y
+blabber_version = <BLABBER_VERSION>
 # Fabric Permissions API
-fpa_version = 0.1-SNAPSHOT
+fpa_version = 0.2-SNAPSHOT
 # Cardinal Components
-cca_version = 2.x.y
+cca_version = <CCA_VERSION>
 ```
+
+`build.gradle.kts`:
+```kotlin
+repositories {
+    maven {
+        name = "Ladysnake Mods"
+        url = "https://maven.ladysnake.org/releases"
+        content {
+            includeGroup("io.github.ladysnake")
+            includeGroup("org.ladysnake")
+            includeGroupByRegex("""dev\.onyxstudios.*""")
+        }
+    }
+    maven {
+        name = "Nexus Repository Manager"
+        url = "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+}
+
+dependencies {
+    val blabberVersion = property("blabber_version") as String
+    val ccaVersion = property("cca_version") as String
+    val fpaVersion = property("fpa_version") as String
+    modImplementation("org.ladysnake:blabber:${blabber_version}")
+    include("org.ladysnake:blabber:${blabber_version}")
+    // Blabber dependencies
+    include("me.lucko:fabric-permissions-api:${fpa_version}")
+    include("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cca_version}")
+    include("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}")
+}
+```
+{% endcapture %}
+{% capture catalogue %}
+`libs.versions.toml`:
+```toml
+[versions]
+blabber = '<BLABBER_VERSION>'
+cardinalComponentsApi = '<CCA_VERSION>'
+fabricPermissionsApi = '0.2-SNAPSHOT'
+
+[libraries]
+cca-base = { module = "dev.onyxstudios.cardinal-components-api:cardinal-components-base", version.ref = "cardinalComponentsApi" }
+cca-entity = { module = "dev.onyxstudios.cardinal-components-api:cardinal-components-entity", version.ref = "cardinalComponentsApi" }
+fpa = { module = "me.lucko:fabric-permissions-api", version.ref = "fabricPermissionsApi" }
+blabber = { module = "org.ladysnake:blabber", version.ref = "blabber" }
+
+[bundles]
+blabber = [ "cca-base", "cca-entity", "fpa", "blabber" ]
+```
+
+`build.gradle` or `build.gradle.kts`:
+```kotlin
+repositories {
+    maven {
+        name = "Ladysnake Mods"
+        url = "https://maven.ladysnake.org/releases"
+        content {
+            includeGroup("io.github.ladysnake")
+            includeGroup("org.ladysnake")
+            includeGroupByRegex("""dev.onyxstudios.*""")
+        }
+    }
+    maven {
+        name = "Nexus Repository Manager"
+        url = "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+}
+
+dependencies {
+    // Replace modImplementation with modApi if you expose Blabber's interfaces in your own API
+    modImplementation(libs.bundles.blabber)
+    // Includes Blabber and its dependencies as a Jar-in-Jar dependency (optional but recommended)
+    include(libs.bundles.blabber)
+}
+```
+{% endcapture %}
+{%- include tabbed_builscript.liquid groovy=groovy kts=kts catalogue=catalogue %}
+
 
 You can find the current version of Blabber in the [releases](https://github.com/Ladysnake/Blabber/releases) tab of the repository on Github,
 and the latest CCA version in the [appropriate repository](https://github.com/OnyxStudios/Cardinal-Components-API/releases).
