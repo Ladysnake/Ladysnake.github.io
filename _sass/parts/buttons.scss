@@ -150,10 +150,10 @@ a.btn-primary {
 		}
 	}
 	&:checked + label {
-		visibility: collapse;
+		display: none;
 	}
 	&:not(:checked) + label + label {
-		visibility: collapse;
+		display: none;
 	}
 }
 
@@ -187,4 +187,8 @@ textarea {
 	margin: 0;
 	font: inherit;
 	color: inherit;
+}
+
+button.rounded {
+	border-radius: 0.6em;
 }

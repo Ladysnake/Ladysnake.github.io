@@ -8,6 +8,15 @@ og:
     img_alt: blabber logo
     desc: Online editor for blabber dialogue
 ---
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/wiki/blabber">Blabber</a></li>
+        <li class="breadcrumb-item"><a href="/wiki/blabber/dialogue_generator">Dialogue Editor</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span id="dialogue-filename" contenteditable="true">untitled</span>.json</li>
+    </ol>
+</nav>
+
 {% include_relative header.liquid %}
 
 <div id="dialogue-editor" hidden>

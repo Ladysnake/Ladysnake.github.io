@@ -100,8 +100,8 @@ import {hsvToRgbString} from "./color-transform.js";
         }));
     }
 
-    function loadDialogueData(newData, restoreSelectedState) {
-        dialogue.data = newData;
+    function loadDialogueData(restoreSelectedState) {
+        document.getElementById('dialogue-filename').textContent = dialogue.filename;
         renderGraph();
         if (!restoreSelectedState) container.scrollIntoView({ behavior: 'smooth' });
     }
@@ -112,7 +112,7 @@ import {hsvToRgbString} from "./color-transform.js";
     document.getElementById('dialogue-view-toggle').addEventListener('click', () => {
         storeDialogueToSession(dialogue);
         dialogue.unload();
-        window.location.replace('../dialogue_generator');
+        window.location.replace('./main-view');
     });
 
     commonDialogueInit(dialogue, loadDialogueData);
