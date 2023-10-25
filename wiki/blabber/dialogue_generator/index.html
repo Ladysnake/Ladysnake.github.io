@@ -8,93 +8,66 @@ og:
     img_alt: blabber logo
     desc: Online editor for blabber dialogue
 ---
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/wiki/blabber">Blabber</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Dialogue Editor</li>
+    </ol>
+</nav>
+
 {% include_relative header.liquid %}
 
-<div id="dialogue-editor" hidden>
-    <div class="dialogue-properties">
-        <div class="dialogue-global-properties">
-            <h3>Global Properties</h3>
-            <menu>
-                <li><label for="dialogue-unskippable">Can this dialogue be skipped?</label><input type="checkbox" class="yes-no-input" id="dialogue-unskippable"/><label for="dialogue-unskippable" class="btn btn-xs btn-yes">{% include svg/checked-box.svg %} Yes</label><label for="dialogue-unskippable" class="btn btn-xs btn-no">{% include svg/unchecked-box.svg %} No</label></li>
-                <li><label for="dialogue-start-at">At which state should this dialogue start? </label><select title="Starting state selector; requires at least one state to exist" id="dialogue-start-at"></select></li>
-                <li><label for="dialogue-text-format">Which format should this editor use for texts? </label>
-                <select id="dialogue-text-format">
-                    <option value="literal">📃 Literal Text</option>
-                    <option value="translate">🌐 Translation Key</option>
-                    <option value="json">💻 Raw JSON</option>
-                </select>
-                <span id="raw-text-tip" hidden>See also <a href="https://minecraft.tools/fr/json_text.php">Minecraft Tools' Text Generator</a></span>
-                </li>
-            </menu>
+<div id="dialogue-editor" class="dialogue-landing" hidden>
+    <form id="new-dialogue">
+        <h3>Create a dialogue</h3>
+        <div>
+            <label for="filename">
+                <span>Pick a file name:</span><i>(it will be part of your dialogue's ID)</i><br/>
+                <span class="dialogue-filename">
+                    <input maxlength="64" id="filename" pattern="[a-z0-9_\-]+" type="text" placeholder="my_awesome_dialogue"/>
+                    <span class="file-extension">.json</span>
+                </span>
+            </label>
         </div>
+        <div class="option">
+            <input type="checkbox" id="dialogue-unskippable" checked/>
+            <label for="dialogue-unskippable">Can this dialogue be skipped? <i>(e.g. with the escape key)</i></label>
+        </div>
+        <fieldset id="dialogue-text-format">
+            <legend>Which format should this editor use for texts? </legend>
+            <span class="option">
+                <input id="literal-text" type="radio" name="text-format" value="literal"/><label for="literal-text"><span aria-hidden="true" class="icon">📃</span>Literal Text <i>(Easier for playing around)</i></label>
+            </span>
+            <span class="option">
+                <input id="translation-keys" type="radio" name="text-format" value="translate"/><label for="translation-keys"><span aria-hidden="true" class="icon">🌐</span>Translation Key <i>(Recommended for public releases)</i></label>
+            </span>
+            <span class="option">
+                <input id="json-text" type="radio" name="text-format" value="json"/><label for="json-text"><span aria-hidden="true" class="icon">💻</span>Raw JSON <i>(See also <a href="https://minecraft.wiki/w/Raw_JSON_text_format">the wiki page {%include svg/external-link.svg%}</a>, or <a href="https://minecraft.tools/en/json_text.php">a generator {%include svg/external-link.svg%}</a>)</i></label>
+            </span>
+        </fieldset>
+        <div class="dialogue-state-name">
+            <label for="start_dialogue_state_name">Pick an internal ID for your first dialogue state:</label>
+            <input id="start_dialogue_state_name" class="name-input" pattern="[a-z0-9_\-]+" type="text" placeholder="start, first_steps, ..." value="start"/>
+        </div>
+        <div class="dialogue-state-name">
+            <label for="end_dialogue_state_name">Pick an internal ID for an end dialogue state: <i>(you can make more later)</i></label>
+            <input id="end_dialogue_state_name" class="name-input" pattern="[a-z0-9_\-]+" type="text" placeholder="end, goodbyes, ..." value="end"/>
+        </div>
+        <button type="submit" class="btn btn-success rounded">Start editing</button>
+    </form>
+    <span class="vertical-separator"></span>
+    <div id="dialogue-import-export">
+        <input id="dialogue-import" type="file" accept="application/json">
+        <label class="btn btn-info" for="dialogue-import">{% include svg/octicon-upload.svg %} Import JSON dialogue file</label>
+        <i>Or drop a dialogue file in this area to import</i>
+        <div class="drop-zone">
+            {% include svg/octicon-upload.svg %} Drop a dialogue file <strong class="drop-zone">here</strong> to import
+        </div>
+        <p class="dialogue-io-log info-log"></p>
+        <p class="dialogue-io-log warning-log"></p>
+        <p class="dialogue-io-log error-log"></p>
     </div>
-    <div class="wiki-container">
-        <div class="toc-pane">
-            <h3>Dialogue States</h3>
-            <nav class="toc">
-                <ul id="dialogue-state-list">
-
-                </ul>
-                <form id="new_dialogue_state">
-                    <label for="new_dialogue_state_name">Pick an internal ID for a new dialogue state:</label>
-                    <input id="new_dialogue_state_name" pattern="[a-z0-9_-]+" type="text" placeholder="first_steps, goodbyes, ..."/>
-                    <input id="new_dialogue_state_submit" type="submit" class="btn btn-success btn-sm" value="New State">
-                    <p id="new_dialogue_state_log"></p>
-                </form>
-            </nav>
-        </div>
-        <div class="main" id="dialogue-state-pane">
-            <h3>State Properties</h3>
-            <form id="dialogue-state-properties">
-                <label>Type</label>
-                <span>
-                    <input type="radio" autocomplete="off" class="layout-selection" value="default" checked id="dialogue-state-default-type" name="dialogue-state-type"><label for="dialogue-state-default-type"><span>Default</span>{% include_relative default-dialogue-layout.svg %}</label>
-                    <input type="radio" autocomplete="off" class="layout-selection" value="ask_confirmation" id="dialogue-state-confirm-type" name="dialogue-state-type"><label for="dialogue-state-confirm-type"><span>Confirm</span>{% include_relative confirm-dialogue-layout.svg %}</label>
-                    <input type="radio" autocomplete="off" class="layout-selection" value="end_dialogue" id="dialogue-state-ending-type" name="dialogue-state-type"><label for="dialogue-state-ending-type"><span>Ending</span>{% include_relative end-dialogue-layout.svg %}</label>
-                </span>
-                <label for="dialogue-state-action">Action</label>
-                <span class="dialogue-state-flex" id="dialogue-state-action">
-                    <select autocomplete="off" id="dialogue-state-action-type">
-                        <option selected value="">No Action</option>
-                        <option value="blabber:command" data-pattern=".+" data-placeholder="say hi, /effect give @s strength, ...">Command</option>
-                        <option value="requiem:remnant_choice" data-pattern="[a-z0-9_-]+:[a-z0-9_/-]+" data-error-message="Must be a valid namespaced identifier (modid:name)" data-placeholder="requiem:remnant, ratsmischief:ratified, ...">[Requiem] Remnant Choice</option>
-                    </select>
-                    <input type="text" id="dialogue-state-action-value"/>
-                </span>
-                <label for="dialogue-state-text" class="not-dialogue-ending">Text</label>
-                <span class="dialogue-state-flex not-dialogue-ending">
-                    <input type="text" class="mc-text-input" id="dialogue-state-text" data-placeholder-literal="Welcome traveller, ..." data-placeholder-translate="mymod:dialogue.my_dialogue.{state}.text"/>
-                </span>
-            </form>
-            <!-- Editable table -->
-            <div class="card dialogue-choice-editor not-dialogue-ending">
-                <h3 class="no_toc card-header font-weight-bold py-4 dialogue-editor-header">
-                    Available Choices
-                    <span class="table-add float-right mb-3 mr-2"><button type="button"
-                                                                          class="btn btn-success btn-rounded btn-sm my-0">New choice</button></span>
-                </h3>
-                <div class="card-body">
-                    <div class="table-editable">
-                        <table class="table table-bordered table-responsive-md table-striped text-center">
-                            <thead>
-                            <tr>
-                                <th class="text-center">Text</th>
-                                <th class="text-center table-buttons">Next State</th>
-                                <th class="text-center table-buttons">Sort</th>
-                                <th class="text-center table-buttons">Remove</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {% include_relative footer.liquid toggleIcon='svg/graph-outline.svg' %}
 </div>
 
-<script src="/scripts/FileSaver.min.js"></script>
-<script src="/scripts/editable-table.js"></script>
-<script src="dialogue-editing.js" type="module"></script>
+<script src="dialogue-init.js" type="module"></script>

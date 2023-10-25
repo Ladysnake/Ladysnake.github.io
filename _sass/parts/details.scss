@@ -16,6 +16,10 @@ details {
       display: list-item;
       list-style-position: inside;
     }
+
+    &:hover {
+      background-color: var(--accent-background-color);
+    }
   }
 
   h5, h6 {

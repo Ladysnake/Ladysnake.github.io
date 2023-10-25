@@ -19,16 +19,26 @@ const clearIoLogs = () => {
  */
 export function storeDialogueToSession(dialogue, selected) {
     sessionStorage.setItem('blabber_open_dialogue', JSON.stringify(dialogue.data));
+    if (dialogue.filename) sessionStorage.setItem('blabber_filename', dialogue.filename);
     if (selected) sessionStorage.setItem('blabber_selected_state', selected);
 }
 
-function loadDialogueFromSession(callback) {
+/**
+ *
+ * @param {BlabberDialogue} dialogue
+ * @param callback
+ * @returns {boolean}
+ */
+function loadDialogueFromSession(dialogue, callback) {
     const serialized = sessionStorage.getItem('blabber_open_dialogue');
     const selected = sessionStorage.getItem('blabber_selected_state');
+    const filename = sessionStorage.getItem('blabber_filename');
 
     if (serialized) {
         try {
-            callback(JSON.parse(serialized), selected);
+            dialogue.data = JSON.parse(serialized);
+            dialogue.filename = filename;
+            callback(selected);
             return true;
         } catch (e) {
             console.error(e);
@@ -42,6 +52,43 @@ function loadDialogueFromSession(callback) {
     return false;
 }
 
+/**
+ *
+ * @param {HTMLInputElement} element
+ * @param {BlabberDialogue} [dialogue]
+ * @param {boolean} [acceptEmpty]
+ * @returns {boolean}
+ */
+export function validateIdentifierField(element, dialogue, acceptEmpty) {
+    if (!(acceptEmpty || element.value)) {
+        element.setCustomValidity('Please enter a valid non-namespaced identifier');
+    } else if (element.validity.patternMismatch) {
+        element.setCustomValidity('Must be a valid non-namespaced identifier (lowercase letters, numbers and dashes/underscores only)');
+    } else if (dialogue && dialogue.data.states && element.value in dialogue.data.states) {
+        element.setCustomValidity('A state with that name already exists');
+    } else {
+        element.setCustomValidity('');
+        element.reportValidity();
+        return true;
+    }
+    element.reportValidity();
+    return false;
+}
+
+/**
+ *
+ * @param {HTMLInputElement} stateNameField
+ * @param {BlabberDialogue} [dialogue]
+ * @param {boolean} [acceptEmpty]
+ */
+export function setupFieldNameValidation(stateNameField, dialogue, acceptEmpty) {
+    stateNameField.addEventListener('input', e => {
+        validateIdentifierField(e.target, dialogue, acceptEmpty);
+    });
+}
+
+export const EDITOR_TEXT_FORMAT_KEY = 'blabber-editor-text-format';
+
 export function commonDialogueInit(dialogue, loadDataCallback) {
     setupDialogueIo(dialogue, loadDataCallback);
 
@@ -49,9 +96,9 @@ export function commonDialogueInit(dialogue, loadDataCallback) {
         if (state) loadDataCallback(state.data, state.selected);
     }
 
-    window.onpopstate = historyCallback;
+    window.addEventListener('popstate', historyCallback);
 
-    if (!loadDialogueFromSession(loadDataCallback)) {
+    if (!loadDialogueFromSession(dialogue, loadDataCallback)) {
         const pageAccessedByReload = (
             (window.performance.navigation && window.performance.navigation.type === 1) ||
             window.performance
@@ -75,8 +122,31 @@ export function commonDialogueInit(dialogue, loadDataCallback) {
             e.returnValue = '';
         }
     });
+
+    const dialogueFilename = document.getElementById('dialogue-filename');
+    dialogueFilename?.addEventListener('keydown', (e) => {
+        if (e.key.indexOf('Enter') >= 0) {
+            e.preventDefault();
+            e.target.blur();
+        }
+    });
+    dialogueFilename?.addEventListener('beforeinput', (e) => {
+        setTimeout(() => {
+            if (e.target.innerHTML !== e.target.textContent) {
+                e.target.innerHTML = e.target.textContent
+            }
+        })
+    });
+    dialogueFilename?.addEventListener('blur', (e) => {
+        dialogue.filename = e.target.textContent;
+    })
 }
 
+/**
+ *
+ * @param {BlabberDialogue} dialogue
+ * @param loadData
+ */
 function setupDialogueIo(dialogue, loadData) {
     function loadDialogueFile(file) {
         if (!file.type.startsWith('application/json')) {
@@ -94,7 +164,9 @@ function setupDialogueIo(dialogue, loadData) {
                     // You can go back to the previous dialogue after loading a new one!
                     if (dialogue.isLoaded()) window.history.pushState(null, '');
 
-                    loadData(d);
+                    dialogue.data = d;
+                    dialogue.filename = file.name.endsWith('.json') ? file.name.substring(0, file.name.length - 5) : file.name;
+                    loadData();
                     logIoInfo(`Loaded dialogue from ${file.name}`);
                     dialogue.markDirty();
                 }
@@ -159,11 +231,11 @@ function setupDialogueIo(dialogue, loadData) {
         importAreaDropZone.addEventListener('dragover', (e) => e.preventDefault());
     })();
 
-    document.getElementById('dialogue-export').addEventListener('click', () => {
+    document.getElementById('dialogue-export')?.addEventListener('click', () => {
         clearIoLogs();
         if (validateDialogue(dialogue, logIoError, logIoWarning)) {
             dialogue.prune();
-            saveAs(new Blob([JSON.stringify(dialogue.data, null, 2)], {type: 'application/json'}), 'my-dialogue.json');
+            saveAs(new Blob([JSON.stringify(dialogue.data, null, 2)], {type: 'application/json'}), dialogue.filename + '.json');
         }
     });
 }
