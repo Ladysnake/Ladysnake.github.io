@@ -120,7 +120,9 @@ Both the normal and fresh variant can be converted to Dried Folly Red Paint, whi
 
 ## Claim / Protection Mod Support
 
-Blast version 1.12 and above has support for Patbox's [Common Protection API](https://github.com/Patbox/common-protection-api). This means BLAST itema and blocks are un-able to bypass claim protections for any mod that implements this common API. This currently includes but is not limited to:
+Blast version 1.12 and above has support for Patbox's [Common Protection API](https://github.com/Patbox/common-protection-api).
+This means BLAST itema and blocks are un-able to bypass claim protections for any mod that implements this common API.
+This currently includes but is not limited to:
 
 - [Cadmus](https://github.com/Patbox/get-off-my-lawn-reserved) 
 - [Flan's Landclaiming Mod](https://modrinth.com/mod/flan)
@@ -128,6 +130,10 @@ Blast version 1.12 and above has support for Patbox's [Common Protection API](ht
 - [FTB Chunks](https://github.com/FTBTeam/FTB-Chunks)
 
 `List last updated: 22/10/23`
+
+Here is that feature in action:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6LrdmD8crsg?si=IyAzMyKRtvkXdLEA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # FAQ
 #### Can I include this mod in a modpack?
