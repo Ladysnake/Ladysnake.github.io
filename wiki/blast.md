@@ -61,13 +61,13 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 
 <p>A version of the golden bomb with a trigger instead of a fuse.</p>
 
-<p>It also expldoes underwater without causing block destruction.</p>
+<p>It also explodes underwater without causing block destruction.</p>
 </td><td>
 <h4>Diamond Trigger Bomb</h4>
 
 <p>A version of the diamond bomb with a trigger instead of a fuse.</p>
 
-<p>It also expldoes underwater without causing block destruction.</p>
+<p>It also explodes underwater without causing block destruction.</p>
 </td></tr>
 <tr>
 <td><img src="/wiki/blast/RecipeTriggerBomb.png" /></td>
