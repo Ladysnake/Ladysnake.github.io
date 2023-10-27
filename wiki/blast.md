@@ -121,7 +121,7 @@ Both the normal and fresh variant can be converted to Dried Folly Red Paint, whi
 ## Claim / Protection Mod Support
 
 Blast version 1.12 and above has support for Patbox's [Common Protection API](https://github.com/Patbox/common-protection-api).
-This means BLAST itema and blocks are un-able to bypass claim protections for any mod that implements this common API.
+This means BLAST items and blocks respect claim protections for any mod that implements this common API.
 This currently includes but is not limited to:
 
 - [Cadmus](https://github.com/Patbox/get-off-my-lawn-reserved) 
