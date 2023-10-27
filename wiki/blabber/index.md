@@ -33,7 +33,7 @@ Blabber adds the `/blabber` command, allowing server operators and mapmakers to 
 
 ### Format
 
-Blabber will automatically load all JSON files in the `data/[namespace]/blabber_dialogues` directory.
+Blabber will automatically load all JSON files in the `data/[namespace]/blabber/dialogues` directory.
 Those can be provided either by mods, or by datapacks.
 
 Each file describes the various states a dialogue can be in.
@@ -131,6 +131,8 @@ Here is an example of conditional choices in JSON:
 ### Online Dialogue Maker
 
 If you are allergic to code, try this online tool: [blabber dialogue editor](dialogue_generator)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Hm_bQlgqSCQ?si=A5SH8mRNEkGSi14i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Validation
 
