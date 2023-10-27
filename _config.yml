@@ -2,7 +2,7 @@ title: Ladysnake's Website
 markdown: kramdown
 sass:
     style: compressed
-exclude: [README.md, servesite, servesite.bat]
+exclude: [README.md, servesite, servesite.bat, flake.nix, flake.lock, gemset.nix]
 # note that the source attribute is hardcoded by github pages
 collections:
     mods:
