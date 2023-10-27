@@ -30,10 +30,6 @@ og:
                 </span>
             </label>
         </div>
-        <div class="option">
-            <input type="checkbox" id="dialogue-unskippable" checked/>
-            <label for="dialogue-unskippable">Can this dialogue be skipped? <i>(e.g. with the escape key)</i></label>
-        </div>
         <fieldset id="dialogue-text-format">
             <legend>Which format should this editor use for texts? </legend>
             <span class="option">
@@ -46,6 +42,10 @@ og:
                 <input id="json-text" type="radio" name="text-format" value="json"/><label for="json-text"><span aria-hidden="true" class="icon">💻</span>Raw JSON <i>(See also <a href="https://minecraft.wiki/w/Raw_JSON_text_format">the wiki page {%include svg/external-link.svg%}</a>, or <a href="https://minecraft.tools/en/json_text.php">a generator {%include svg/external-link.svg%}</a>)</i></label>
             </span>
         </fieldset>
+        <div class="option">
+            <input type="checkbox" id="dialogue-unskippable" checked/>
+            <label for="dialogue-unskippable">Can this dialogue be skipped? <i>(e.g. with the escape key)</i></label>
+        </div>
         <div class="dialogue-state-name">
             <label for="start_dialogue_state_name">Pick an internal ID for your first dialogue state:</label>
             <input id="start_dialogue_state_name" class="name-input" pattern="[a-z0-9_\-]+" type="text" placeholder="start, first_steps, ..." value="start"/>

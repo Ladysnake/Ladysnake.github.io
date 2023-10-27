@@ -35,7 +35,7 @@ import BlabberDialogue from "./blabber-dialogue.js";
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const unskippable = document.getElementById('dialogue-unskippable').value;
+        const unskippable = document.getElementById('dialogue-unskippable').checked;
         const textFormat = textFormatInputs.find((it) => it.checked)?.value;
 
         if (![filenameField, startStateField, endStateField].every((e) => validateIdentifierField(e))) {
