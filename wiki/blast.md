@@ -24,7 +24,57 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 
 ### Basic Bombs
 
-![Bombs](blast/Grid.png)
+<table>
+<tr><th></th><th style="width:32%">Iron Tier</th><th style="width:32%">Gold Tier</th><th style="width:32%">Diamond Tier</th></tr>
+<tr><th rowspan=2 style="transform:rotate(270deg)">Timer</th><td>
+<h4>Bomb</h4>
+
+<p>A simple bomb with an explosion power of 1 and a fuse time of 2 seconds.</p>
+
+<p>Is defused and drops when coming into contact with water.</p>
+</td><td>
+<h4>Golden Bomb</h4>
+
+<p>Works like the normal bomb, but applies Fortune III to all blown up blocks.</p>
+
+<p>Like other gold items, Piglins love this bomb!</p>
+</td><td>
+<h4>Diamond Bomb</h4>
+
+<p>Ignores explosion resistance, and therefore can destroy blocks like obsidian.</p>
+
+<p>Exceptions are bedrock, barriers, end portal frames, and other admin-exclusive blocks.</p>
+</td></tr>
+<tr>
+<td><img src="/wiki/blast/RecipeBomb.png" /></td>
+<td><img src="/wiki/blast/RecipeGoldBomb.png" /></td>
+<td><img src="/wiki/blast/RecipeDiamondBomb.png" /></td>
+</tr>
+<tr><th rowspan=2 style="transform:rotate(270deg)">Trigger</th><td>
+<h4>Trigger Bomb</h4>
+
+<p>A simple bomb with an explosion power of 1 on impact instead of after a certain amount of time.</p>
+
+<p>Explodes underwater, but will not destroy any blocks.</p>
+</td><td>
+<h4>Golden Trigger Bomb</h4>
+
+<p>A version of the golden bomb with a trigger instead of a fuse.</p>
+
+<p>It also explodes underwater without causing block destruction.</p>
+</td><td>
+<h4>Diamond Trigger Bomb</h4>
+
+<p>A version of the diamond bomb with a trigger instead of a fuse.</p>
+
+<p>It also explodes underwater without causing block destruction.</p>
+</td></tr>
+<tr>
+<td><img src="/wiki/blast/RecipeTriggerBomb.png" /></td>
+<td><img src="/wiki/blast/RecipeGoldTriggerBomb.png" /></td>
+<td><img src="/wiki/blast/RecipeDiamondTriggerBomb.png" /></td>
+</tr>
+</table>
 
 ### Dirt Bombs
 
@@ -121,7 +171,7 @@ Both the normal and fresh variant can be converted to Dried Folly Red Paint, whi
 ## Claim / Protection Mod Support
 
 Blast version 1.12 and above has support for Patbox's [Common Protection API](https://github.com/Patbox/common-protection-api).
-This means BLAST itema and blocks are un-able to bypass claim protections for any mod that implements this common API.
+This means BLAST items and blocks respect claim protections for any mod that implements this common API.
 This currently includes but is not limited to:
 
 - [Cadmus](https://github.com/Patbox/get-off-my-lawn-reserved) 
