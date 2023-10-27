@@ -20,10 +20,15 @@
  * @property {?DialogueChoice[]} [choices]
  */
 /**
+ * @typedef {Object} DialogueLayout
+ * @property {?string} [type]
+ */
+/**
  * @typedef {Object} DialogueData
  * @property {?Object.<string, DialogueState>} [states]
  * @property {?string} [start_at]
  * @property {?boolean} [unskippable]
+ * @property {?DialogueLayout} [layout]
  */
 
 export default class BlabberDialogue {
@@ -61,6 +66,19 @@ export default class BlabberDialogue {
             this.markDirty();
         }
         return !!this.data.unskippable;
+    }
+
+    /**
+     *
+     * @param {string} [layout]
+     * @returns {?string}
+     */
+    layout(layout) {
+        if (layout !== undefined) {
+            this.data.layout = {type: layout};
+            this.markDirty();
+        }
+        return this.data.layout?.type;
     }
 
     /**

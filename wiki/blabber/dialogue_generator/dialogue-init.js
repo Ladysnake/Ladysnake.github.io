@@ -36,6 +36,7 @@ import BlabberDialogue from "./blabber-dialogue.js";
         e.preventDefault();
 
         const unskippable = document.getElementById('dialogue-unskippable').checked;
+        const layout = document.querySelector('input[name=layout]:checked').value;
         const textFormat = textFormatInputs.find((it) => it.checked)?.value;
 
         if (![filenameField, startStateField, endStateField].every((e) => validateIdentifierField(e))) {
@@ -55,6 +56,7 @@ import BlabberDialogue from "./blabber-dialogue.js";
         const startState = startStateField.value;
         const endState = endStateField.value;
         dialogue.filename = filenameField.value;
+        dialogue.layout(layout);
         dialogue.unskippable(unskippable);
         dialogue.startAt(startState);
         dialogue.data.states = {

@@ -31,7 +31,7 @@ og:
             </label>
         </div>
         <fieldset id="dialogue-text-format">
-            <legend>Which format should this editor use for texts? </legend>
+            <legend>Which format should this editor use for texts?</legend>
             <span class="option">
                 <input id="literal-text" type="radio" name="text-format" value="literal"/><label for="literal-text"><span aria-hidden="true" class="icon">📃</span>Literal Text <i>(Easier for playing around)</i></label>
             </span>
@@ -40,6 +40,15 @@ og:
             </span>
             <span class="option">
                 <input id="json-text" type="radio" name="text-format" value="json"/><label for="json-text"><span aria-hidden="true" class="icon">💻</span>Raw JSON <i>(See also <a href="https://minecraft.wiki/w/Raw_JSON_text_format">the wiki page {%include svg/external-link.svg%}</a>, or <a href="https://minecraft.tools/en/json_text.php">a generator {%include svg/external-link.svg%}</a>)</i></label>
+            </span>
+        </fieldset>
+        <fieldset>
+            <legend>What layout do you want your dialogue to use for regular states?</legend>
+            <span class="option">
+                <input id="layout-classic" type="radio" name="layout" value="blabber:classic" checked/><label for="layout-classic">Classic <i>(full screen, good for long texts)</i></label>
+            </span>
+            <span class="option">
+                <input id="layout-rpg" type="radio" name="layout" value="blabber:rpg"/><label for="layout-rpg">RPG <i>(reduced size, good for NPC dialogues with short choices)</i></label>
             </span>
         </fieldset>
         <div class="option">
