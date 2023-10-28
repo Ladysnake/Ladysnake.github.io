@@ -77,6 +77,12 @@ Here's the JSON file corresponding to what we just described:
 
 As noted in [the previous section](#how-it-looks), you can choose if your dialogue uses the classic layout, or the RPG
 layout (first and second screenshot, respectively).
+
+When using the RPG layout, be mindful of how many choices you have and how long they are. While they may fit
+on the screen just fine in languages like English, they may take up too much space once translated
+(this also applies to the classic layout, though to a lesser degree).
+{:.admonition.admonition-important.admonition-icon}
+
 The JSON looks like this (goes at the top level, replace `"blabber:classic"` with `"blabber:rpg"` for the alternative look):
 
 {% capture summary %}<h5 id="simple-layout-json" class="no_anchor">Simple layout JSON</h5>{% endcapture %}
@@ -106,13 +112,13 @@ When you make a choice conditional, you specify when the choice should be availa
 The condition is given as an identifier for a [predicate](https://minecraft.wiki/w/Predicate).
 
 Mods can register their own `LootCondition`s to allow virtually any check in said predicates.
-{:.admonition .admonition-note}
+{:.admonition .admonition-note .admonition-icon}
 
 As for the display, you can either make it so the choice is *grayed out*, displaying a little lock icon and explanation message when hovered, or
 set it to be *hidden*.
 
 Note that you should avoid the hidden option with choices that can enable or disable themselves mid-dialogue, as it may cause some frustration due to player misclicks.
-{:.admonition .admonition-warning}
+{:.admonition .admonition-warning .admonition-icon}
 
 Here is an example of conditional choices in JSON:
 

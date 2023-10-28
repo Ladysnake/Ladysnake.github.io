@@ -15,6 +15,21 @@
   --admonition-color: var(--color-warning);
 }
 
+.admonition-icon {
+  &::before {
+    margin-right: 1em;
+  }
+  &.admonition-note::before {
+    content: '💡';
+  }
+  &.admonition-warning::before {
+    content: '⚠️';
+  }
+  &.admonition-important::before {
+    content: '💬';
+  }
+}
+
 .admonition-heading {
   color: var(--admonition-color);
 }
