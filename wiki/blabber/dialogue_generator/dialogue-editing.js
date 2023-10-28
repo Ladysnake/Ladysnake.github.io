@@ -15,6 +15,7 @@ import BlabberDialogue from "./blabber-dialogue.js";
     const exportButton = document.getElementById('dialogue-export');
     const startInput = document.getElementById('dialogue-start-at');
     const unskippableInput = document.getElementById('dialogue-unskippable');
+    const dialogueLayoutInputs = document.querySelectorAll('input[name=dialogue-layout]');
     const choiceEditor = document.querySelector('.dialogue-choice-editor');
     const stateList = document.getElementById('dialogue-state-list');
 
@@ -24,6 +25,9 @@ import BlabberDialogue from "./blabber-dialogue.js";
     startInput.disabled = true;
     startInput.addEventListener('change', e => dialogue.startAt(e.target.value));
     unskippableInput.addEventListener('change', e => dialogue.unskippable(e.target.value));
+    dialogueLayoutInputs.forEach((e) => e.addEventListener('change', (ev) => {
+        dialogue.layout(document.querySelector('input[name=dialogue-layout]:checked').value);
+    }))
 
     const textFormatSelect = document.getElementById('dialogue-text-format');
 
@@ -81,6 +85,7 @@ import BlabberDialogue from "./blabber-dialogue.js";
         }
 
         unskippableInput.checked = dialogue.unskippable();
+        dialogueLayoutInputs.forEach((e) => e.checked = e.value === dialogue.layout());
         startInput.value = dialogue.startAt();
     }
 

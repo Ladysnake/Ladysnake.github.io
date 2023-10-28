@@ -5,6 +5,16 @@
   "description": "A dialogue to be given to a player",
   "type": "object",
   "properties": {
+    "layout": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of layout used for the default screen",
+          "enum": ["blabber:classic", "blabber:rpg"]
+        }
+      }
+    },
     "start_at": {
       "description": "The entrypoint for this dialogue",
       "type": "string"

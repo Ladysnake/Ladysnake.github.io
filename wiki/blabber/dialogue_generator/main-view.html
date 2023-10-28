@@ -28,6 +28,7 @@ og:
             <div class="menu">
 <!--                <label for="dialogue-filename-input">File name</label><input id="dialogue-filename-input" type="text"/>-->
                 <label for="dialogue-unskippable">Skippable?</label><span class="yes-no-container"><input type="checkbox" class="yes-no-input" id="dialogue-unskippable"/><label for="dialogue-unskippable" class="btn btn-xs btn-yes">{% include svg/checked-box.svg %} Yes</label><label for="dialogue-unskippable" class="btn btn-xs btn-no">{% include svg/unchecked-box.svg %} No</label></span>
+                <label>Layout</label><span class="dialogue-layout-selection"><input type="radio" id="dialogue-layout-classic" name="dialogue-layout" value="blabber:classic" checked/><label for="dialogue-layout-classic">Classic</label><input type="radio" id="dialogue-layout-rpg" name="dialogue-layout" value="blabber:rpg"/><label for="dialogue-layout-rpg">RPG</label></span>
                 <label for="dialogue-start-at">Starting state</label><select title="Starting state selector; requires at least one state to exist" id="dialogue-start-at"></select>
                 <label for="dialogue-text-format">Editor text format</label>
                 <span>

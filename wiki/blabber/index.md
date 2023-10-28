@@ -20,6 +20,12 @@ Like that:
 
 ![Example Dialogue Screen](example-dialogue-screen.png){:.rounded}
 
+Or like that:
+
+![Example Alt Dialogue Screen](example-dialogue-screen-rpg.png){:.rounded}
+
+You get to choose per-dialogue.
+
 ## How it works
 
 ### Commands
@@ -59,10 +65,28 @@ We can fix this by adding an action to the `end_success` state; a command action
 
 Here's the JSON file corresponding to what we just described:
 
-{% capture summary %}<h4 id="basic-dialogue-json">basic-dialogue.json</h4>{% endcapture %}
+{% capture summary %}<h4 id="basic-dialogue-json" class="no_anchor">basic-dialogue.json</h4>{% endcapture %}
 {% capture example_json %}
 ```json
 {% include_relative basic-dialogue.json %}
+```
+{% endcapture %}
+{% include details.liquid summary=summary content=example_json %}
+
+#### Layout
+
+As noted in [the previous section](#how-it-looks), you can choose if your dialogue uses the classic layout, or the RPG
+layout (first and second screenshot, respectively).
+The JSON looks like this (goes at the top level, replace `"blabber:classic"` with `"blabber:rpg"` for the alternative look):
+
+{% capture summary %}<h5 id="simple-layout-json" class="no_anchor">Simple layout JSON</h5>{% endcapture %}
+{% capture example_json %}
+```json
+{
+  "layout": {
+    "type": "blabber:classic"
+  }
+}
 ```
 {% endcapture %}
 {% include details.liquid summary=summary content=example_json %}
@@ -92,7 +116,7 @@ Note that you should avoid the hidden option with choices that can enable or dis
 
 Here is an example of conditional choices in JSON:
 
-{% capture summary %}<h5 id="grayed-out-choice-json">Grayed out choice</h5>{% endcapture %}
+{% capture summary %}<h5 id="grayed-out-choice-json" class="no_anchor">Grayed out choice JSON</h5>{% endcapture %}
 {% capture example_json %}
 ```json
 {
@@ -110,7 +134,7 @@ Here is an example of conditional choices in JSON:
 ```
 {% endcapture %}
 {% include details.liquid summary=summary content=example_json %}
-{% capture summary %}<h5 id="hidden-choice-json">Hidden choice</h5>{% endcapture %}
+{% capture summary %}<h5 id="hidden-choice-json" class="no_anchor">Hidden choice JSON</h5>{% endcapture %}
 {% capture example_json %}
 ```json
 {
@@ -288,11 +312,17 @@ and the latest CCA version in the [appropriate repository](https://github.com/On
 
 ### API
 
-Everything is currently done with 2 methods:
+The two most relevant methods are as follow:
 - `Blabber#startDialogue(ServerPlayerEntity, Identifier)`: starts the dialogue with the given id for the given player
 - `Blabber#registerAction`: registers an action for use in dialogues, 2 overloads available:
   - `registerAction(Identifier, DialogueAction)`: registers a simple action that takes no additional configuration from the dialogue description file.
   - `registerAction(Identifier, Codec<? extends DialogueAction)`: registers an action type. The codec is used to create new dialogue actions based on the action `value` specified in the dialogue description file.
+
+#### Custom layouts
+
+It is possible to register your own custom layout with its completely custom screen by calling `BlabberScreenRegistry#register`
+in your client entrypoint. The API is however marked unstable, as the layout system is susceptible to being refactored to allow arbitrary data being passed to the screen
+(contributions welcome).
 
 ### JSON Schema
 
