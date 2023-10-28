@@ -65,7 +65,7 @@ We can fix this by adding an action to the `end_success` state; a command action
 
 Here's the JSON file corresponding to what we just described:
 
-{% capture summary %}<h4 id="basic-dialogue-json">basic-dialogue.json</h4>{% endcapture %}
+{% capture summary %}<h4 id="basic-dialogue-json" class="no_anchor">basic-dialogue.json</h4>{% endcapture %}
 {% capture example_json %}
 ```json
 {% include_relative basic-dialogue.json %}
@@ -79,6 +79,8 @@ As noted in [the previous section](#how-it-looks), you can choose if your dialog
 layout (first and second screenshot, respectively).
 The JSON looks like this (goes at the top level, replace `"blabber:classic"` with `"blabber:rpg"` for the alternative look):
 
+{% capture summary %}<h5 id="simple-layout-json" class="no_anchor">Simple layout JSON</h5>{% endcapture %}
+{% capture example_json %}
 ```json
 {
   "layout": {
@@ -86,6 +88,8 @@ The JSON looks like this (goes at the top level, replace `"blabber:classic"` wit
   }
 }
 ```
+{% endcapture %}
+{% include details.liquid summary=summary content=example_json %}
 
 #### Conditional choices
 
@@ -112,7 +116,7 @@ Note that you should avoid the hidden option with choices that can enable or dis
 
 Here is an example of conditional choices in JSON:
 
-{% capture summary %}<h5 id="grayed-out-choice-json">Grayed out choice</h5>{% endcapture %}
+{% capture summary %}<h5 id="grayed-out-choice-json" class="no_anchor">Grayed out choice JSON</h5>{% endcapture %}
 {% capture example_json %}
 ```json
 {
@@ -130,7 +134,7 @@ Here is an example of conditional choices in JSON:
 ```
 {% endcapture %}
 {% include details.liquid summary=summary content=example_json %}
-{% capture summary %}<h5 id="hidden-choice-json">Hidden choice</h5>{% endcapture %}
+{% capture summary %}<h5 id="hidden-choice-json" class="no_anchor">Hidden choice JSON</h5>{% endcapture %}
 {% capture example_json %}
 ```json
 {

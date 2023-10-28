@@ -20,9 +20,11 @@ details {
     &:hover {
       background-color: var(--accent-background-color);
     }
-  }
 
-  h5, h6 {
-    font-size: inherit;
+    h5, h6 {
+      font-size: inherit;
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
   }
 }
