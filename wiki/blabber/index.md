@@ -33,14 +33,16 @@ You get to choose per-dialogue.
 Blabber adds the `/blabber` command, allowing server operators and mapmakers to interact with the mod through commands.
 
 - `/blabber dialogue`
-    - `/blabber dialogue start <dialogue> [<targets]` : Starts a dialogue for one or more players.
+    - `/blabber dialogue start <dialogue> [<targets>] [<interlocutor>]` : Starts a dialogue for one or more players.
         - `<dialogue>` : the unique identifier for the dialogue
         - `[<targets>]` (optional) : If specified, must be either a player's username or a target selector. If unspecified, defaults to the player using the command. When used in a command block, `[<targets>]` is not optional.
+        - `[<interlocutor>]` (optional) : If specified, must be a target selector for a single entity. If unspecified, defaults to no interlocutor.
 
 ### Format
 
 Blabber will automatically load all JSON files in the `data/[namespace]/blabber/dialogues` directory.
-Those can be provided either by mods, or by datapacks.
+Those can be provided either by mods, or by datapacks. They will also be reloaded when running `/reload`, just like
+tags and functions.
 
 Each file describes the various states a dialogue can be in.
 
@@ -157,6 +159,68 @@ Here is an example of conditional choices in JSON:
 ```
 {% endcapture %}
 {% include details.liquid summary=summary content=example_json %}
+
+### Interlocutors
+
+Of course, dialogues often involve talking to *someone* (or something). Since version 1.2.0, Blabber lets you specify
+an *interlocutor* entity. This relationship can be used in several ways:
+
+#### In commands and texts
+
+Blabber adds a new `@interlocutor` selector, which targets the current interlocutor of the command's source.
+It only works when `@s` is a player, which includes commands run from dialogue actions and commands run through `execute as <player> run ...`.
+
+Example use:
+
+{% capture example %}
+```
+effect give @interlocutor regeneration
+```
+{% endcapture %}
+<figure>
+<figcaption>Command using @interlocutor</figcaption>
+{{ example | markdownify }}
+</figure>
+
+{% capture example %}
+```json
+{
+  "text": [
+    {"text":"I am "},
+    {"selector":"@interlocutor"},
+    {"text":". Pleased to make your acquaintance..."}
+  ]
+}
+```
+{% endcapture %}
+<figure>
+<figcaption>Text using @interlocutor</figcaption>
+{{ example | markdownify }}
+</figure>
+
+You can use `@interlocutor` in any of a dialogue's text, including choices and locked content hints.
+You can also use any other selector in the same way, keeping in mind that `@s` will refer to the player themselves.
+{:.admonition.admonition-note.admonition-icon}
+
+Here is how the above text may be used:
+
+![Example of a dialogue referring to the interlocutor](example-interlocutor.png){:.rounded}
+
+#### In predicates
+
+The interlocutor entity can also be used in [predicates files](https://minecraft.wiki/w/Predicate) by using the `blabber:interlocutor_properties` condition type.
+This new condition type lets you apply the same checks to a player's current interlocutor as `minecraft:entity_properties`
+would on the player themselves.
+
+For example:
+```json
+{
+  "condition": "blabber:interlocutor_properties",
+  "predicate": {
+    "type": "minecraft:villager"
+  }
+}
+```
 
 ### Online Dialogue Maker
 
