@@ -90,7 +90,7 @@ import {hsvToRgbString} from "./color-transform.js";
             if (e.nodes?.length) {
                 storeDialogueToSession(dialogue, e.nodes[0]);
                 dialogue.data.states = null;
-                window.location.replace('../dialogue_generator');
+                window.location.replace('./main-view');
             }
         });
         network.on('select', e => network.setOptions({
