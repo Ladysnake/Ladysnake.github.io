@@ -1,7 +1,7 @@
 - type: embed
   embeds:
     - title: Welcome to the Rattiest Gang server!
-      color: 0x00ff00
+      color: 0x5764f2
       description: >
         Before doing anything else, please attentively read this "read me".
         It contains most of the information you'll need for your stay, including rules,
@@ -108,13 +108,36 @@
       emoji: "❓"
       description: "Get notified on messages in <#924374151018446909>!"
 
-- type: links
-  title: Useful Links
-  links:
-    RAT's YouTube: https://www.youtube.com/c/doctor4t/
-    RAT's Twitter: https://twitter.com/doctor4t_
-    Eight's YouTube: https://www.youtube.com/c/eightSidedSquare/
-    Eight's Twitter: https://twitter.com/SidedSquare
+- type: embed
+  embeds:
+    - title: Useful Links
+      color: 0x5764f2
+      fields:
+        - name: RAT
+          inline: true
+          value: |
+            [YouTube](https://www.youtube.com/c/doctor4t/)
+            [Twitter](https://twitter.com/doctor4t_)
+        - name: EightSidedSquare
+          inline: true
+          value: |
+            [YouTube](https://www.youtube.com/c/eightSidedSquare/)
+            [Twitter](https://twitter.com/SidedSquare)
+        - name: Lux
+          inline: true
+          value: |
+            [YouTube](https://www.youtube.com/channel/UCvBIYNzQ2OM93y8xsBCxlAg)
+            [Twitter](https://twitter.com/luxintrus)
+        - name: Diansu
+          inline: true
+          value: |
+            [YouTube](https://www.youtube.com/channel/UCrFDp7oy5Nqo5Cl1Cq0Pn7A)
+            [Twitter](https://twitter.com/Diansu16)
+        - name: WinSweep
+          inline: true
+          value: |
+            [YouTube](https://www.youtube.com/channel/UCi8kdQUD0PcHZThSbac9GdQ)
+            [Twitter](https://twitter.com/winsweep_)
 
 - type: text
   text: <a:ratkid:811987606530293790>
