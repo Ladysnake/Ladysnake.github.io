@@ -1,7 +1,7 @@
 ---
 title: Spawn Lanterns
 link: /wiki/spawn-lanterns
-icon: /img/spawn-lanterns.png
+icon: img/spawn-lanterns.png
 discontinued: true
 ---
 

@@ -11,7 +11,7 @@
     padding-left: 20px;
     border-left: 1px dashed #ddd;
 
-    @include darkMode(&) {
+    @include darkMode {
       border-color: #333;
     }
   }
@@ -39,7 +39,7 @@
       background-position: center top;
       background-size: 75% auto;
 
-      @include darkMode(&) {
+      @include darkMode {
         filter: hue-rotate(120deg);
       }
     }

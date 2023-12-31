@@ -10,19 +10,21 @@
 {% unless meta_desc %}{% assign meta_desc = "Home of a small group of developers called Ladysnake" %}{% endunless %}
 
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="content-type" content="text/html">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ full_title }}</title>
 
+    {% comment %}
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ site.baseurl }}/css/bootstrap.css">
+    {% endcomment %}
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700' rel='stylesheet' type='text/css'>
     <!-- Font Awesome -->
-    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet'
-        type='text/css'>
+    {% comment %}<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet'
+        type='text/css'>{% endcomment %}
     <!-- Style -->
     <link href='{{ site.baseurl }}/css/style.css' rel='stylesheet' type='text/css'>
     {%- if page.extra_css %}<link href='{{ site.baseurl }}{{ page.extra_css }}' rel="stylesheet" type="text/css">{% endif %}

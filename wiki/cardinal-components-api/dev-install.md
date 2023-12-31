@@ -4,67 +4,20 @@ breadcrumb: Dev Installation
 layout: cca_wiki
 ---
 
-<script src="/scripts/modrinthVersionCheck.js"></script>
-There are several ways of getting Cardinal Components into your workspace, most involving just a few lines in your Gradle buildscript (`build.gradle` file). To minimize user inconvenience, it is also recommended to use the [Jar-in-Jar](https://fabricmc.net/wiki/tutorial:loader04x#nested_jars) mechanism provided by the Fabric toolchain to include Cardinal Components in your own builds, eliminating the need for manual install.
+There are several ways of getting Cardinal Components into your workspace,
+most involving just a few lines in your Gradle buildscript (`build.gradle` file).
+To minimize user inconvenience, it is also recommended to use the [Jar-in-Jar](https://fabricmc.net/wiki/tutorial:loader04x#nested_jars)
+mechanism provided by the Fabric toolchain to include Cardinal Components in your own builds, eliminating the need for manual install.
 
 Unless specified otherwise, the following block must be added to your `build.gradle` **after** the relevant `repositories` block:
 
 <label for="select-mcversion">Select a Minecraft Version:</label>
-<input list="mcversion-list" id="select-mcversion" name="select-mcversion" />
-<datalist id="mcversion-list">
-    <option value="1.20.1" />
-</datalist>
-<script type="application/javascript">
-    const versionList = document.getElementById("mcversion-list");
-    const versionSelect = document.getElementById('select-mcversion');
-    function clearVersions() {
-        versionSelect.value = '';
-        versionSelect.removeEventListener('focus', clearVersions);
-    }
-    function doReplace(version) {
-        if(!version) {
-            version = '<VERSION>';
-        }
-        document.querySelectorAll('.mc-version').forEach(e => {
-            e.innerText = version;
-        });
-    }
-    versionSelect.addEventListener('focus', clearVersions);
-    getVersions("K01OU20C").then(versions => {
-        versionSelect.addEventListener('change', () => {
-            const version = versions.find(v => v.id === versionSelect.value);
-            if (version) {
-                // update the window URL to include the selected version
-                const state = history.state;
-                const title = document.title;
-                const url = new URL(window.location.href);
-                url.searchParams.set('version', version.id);
-                history.replaceState(state, title, url);
-
-                // replace the version in the buildscript
-            }
-            doReplace(version?.versions[0]?.name);
-        });
-
-        function update() {
-            const showPreReleases = document.getElementById('include-prereleases')?.checked || false;
-            const validVersions = versions.filter(v => showPreReleases || !v.isSnapshot);
-
-            versionSelect.value = validVersions.length > 0 && validVersions[0].id || "1.20.1";
-
-            versionList.replaceChildren(...validVersions.map(v => {
-                const option = document.createElement('option');
-                option.value = v.id;
-                option.innerText = `Minecraft ${v.id}`;
-                return option;
-            }));
-        }
-
-        //need this for the checkbox
-        window.cca_mr_update = update;
-
-        update();
-    });
+<select id="select-mcversion" class="mc-version-select" name="select-mcversion" disabled>
+<option>Loading...</option>
+</select>
+<script type="module">
+import * as ModrinthApi from '/scripts/modrinth-api.js';
+ModrinthApi.setUpSmartBuildscript("K01OU20C");
 </script>
 
 {% capture groovy %}
@@ -89,7 +42,7 @@ dependencies {
 cca_version = <VERSION>
 ```
 
-`build.gradle`:
+`build.gradle.kts`:
 ```kotlin
 dependencies {
     val ccaVersion = property("cca_version") as String
@@ -124,19 +77,7 @@ dependencies {
 }
 ```
 {% endcapture %}
-{%- capture groovy_title %}
-{% include svg/groovy-logo.svg %} build.gradle
-{%- endcapture %}
-{% capture kts_title %}
-{% include svg/kotlin-logo.svg %} build.gradle.kts
-{% endcapture %}
-{% capture catalogue_title %}
-{% include svg/gradle-logo.svg %} Version Catalogues
-{% endcapture %}
-{%- assign tab_names = "" | split: "," | push: groovy_title | push: kts_title | push: catalogue_title %}
-{%- assign tabs = "" | split: "," | push: groovy | push: kts | push: catalogue %}
-
-{%- include tabbed.liquid key="buildscript" tab_names=tab_names tabs=tabs %}
+{%- include tabbed_builscript.liquid groovy=groovy kts=kts catalogue=catalogue %}
 
 
 ## Ladysnake Reposilite
@@ -156,7 +97,11 @@ This maven repository contains binaries for every version since 3.0.0-21w06a.
 
 ## Jitpack
 
-[Jitpack](https://jitpack.io#OnyxStudios/Cardinal-Components-API) is a simple alternative to dedicated mavens, building GitHub repositories on demand. It can be used to get any version of Cardinal Components, including snapshots of development branches. Note however that it tends to slow down your builds, and that it often times out the first time it builds an artefact (just restart the build when that happens). Further use information can be found on the website itself.
+[Jitpack](https://jitpack.io#OnyxStudios/Cardinal-Components-API) is a simple alternative to dedicated mavens,
+building GitHub repositories on demand. It can be used to get any version of Cardinal Components,
+including snapshots of development branches. Note however that it tends to slow down your builds,
+and that it often times out the first time it builds an artefact (just restart the build when that happens).
+Further use information can be found on the website itself.
 
 ```gradle
 repositories {
@@ -178,7 +123,8 @@ repositories {
 }
 ```
 
-This maven repository contained binaries for every version between 3.0.0-21w06a and 5.2.1. Due to JFrog Artifactory's free tier shutting down, it is now unavailable.
+This maven repository contained binaries for every version between 3.0.0-21w06a and 5.2.1.
+Due to JFrog Artifactory's free tier shutting down, it is now unavailable.
 
 ## Ladysnake bintray
 
@@ -191,7 +137,8 @@ repositories {
 }
 ```
 
-This maven repository contained binaries for every version between 2.3.5 (MC 1.15) and 2.7.11 (MC 1.16). Due to bintray shutting down, it is now unavailable.
+This maven repository contained binaries for every version between 2.3.5 (MC 1.15) and 2.7.11 (MC 1.16).
+Due to bintray shutting down, it is now unavailable.
 
 ## OnyxStudios Maven
 
@@ -208,9 +155,12 @@ repositories {
 
 ## Curseforge
 
-CurseForge is mostly a platform for distributing mods to users. Although not recommended, it can be used as a maven repository by following [the instructions on the website](https://authors.curseforge.com/knowledge-base/projects/529-api). A slightly better way to do it is using the [CurseMaven Gradle plugin](https://github.com/Wyn-Price/CurseMaven).
+CurseForge is mostly a platform for distributing mods to users.
+Although not recommended, it can be used as a maven repository by following [the instructions on the website](https://authors.curseforge.com/knowledge-base/projects/529-api).
+A slightly better way to do it is using the [CurseMaven Gradle plugin](https://github.com/Wyn-Price/CurseMaven).
 
-You are however encouraged to declare [Cardinal Components API](https://www.curseforge.com/minecraft/mc-mods/cardinal-components-api) as an *embedded library* of your project, for documentation purposes and to make it simpler for users to report issues to the right repository.
+You are however encouraged to declare [Cardinal Components API](https://www.curseforge.com/minecraft/mc-mods/cardinal-components-api)
+as an *embedded library* of your project, for documentation purposes and to make it simpler for users to report issues to the right repository.
 
 ## Modrinth
 

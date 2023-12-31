@@ -1,23 +1,35 @@
-{% if page.curse_project %}
-    <li class="cf-link toc-external-link"><a href="https://www.curseforge.com/minecraft/mc-mods/{{ page.slug }}">
-            {% include svg/cf-logo.svg %}
-            {% include svg/external-link.svg %}
-        </a></li>
-{% endif %}
-{% if page.modrinth %}
-    <li class="mr-link toc-external-link">
-        <a href="https://www.modrinth.com/mod/{{ page.slug }}">
-            {% include svg/modrinth-logo.svg %}
+<ul role="group">
+    {% if page.curse_project %}
+        <li>
+            <a class="cf-link toc-external-link" href="https://www.curseforge.com/minecraft/mc-mods/{{ page.slug }}">
+                <span>
+                    {% include svg/cf-logo.svg %} CurseForge Page
+                </span>
+                {% include svg/external-link.svg %}
+            </a>
+        </li>
+    {% endif %}
+    {% if page.modrinth %}
+        <li>
+            <a class="mr-link toc-external-link" href="https://modrinth.com/mod/{{ page.slug }}">
+                <span>
+                    {% include svg/modrinth-logo.svg %} Modrinth Page
+                </span>
+                {% include svg/external-link.svg %}
+            </a>
+        </li>
+    {% endif %}
+    <li>
+        <a class="gh-link toc-external-link" href="https://github.com/Ladysnake/{{ page.slug }}">
+            <span>
+                {% include svg/github-logo.svg %} GitHub Repository
+            </span>
             {% include svg/external-link.svg %}
         </a>
     </li>
-{% endif %}
-<li class="gh-link toc-external-link">
-    <a href="https://www.github.com/Ladysnake/{{ page.slug }}">
-        <img src="/img/GitHubWord_0.png" alt="GitHub"/>
-        {% include svg/external-link.svg %}
-    </a>
-</li>
-{% if page.extra_toc_links %}
-    {% include {{page.extra_toc_links}} %}
-{% endif %}
+    {% if page.extra_toc_links %}
+        {% include {{page.extra_toc_links}} %}
+    {% endif %}
+</ul>
+
+<hr/>

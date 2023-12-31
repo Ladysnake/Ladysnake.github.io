@@ -11,13 +11,20 @@
     border: 1px solid var(--button-outline);
   }
 
+  input[name=query]:focus-visible {
+    border-color: var(--button-selected-outline);
+    outline: 1px solid var(--button-selected-outline);
+    background-color: var(--accent-background-color);
+  }
+
   input[type=submit] {
     background-color: transparent;
     border-color: transparent;
     width: fit-content;
     position: absolute;
-    top: 1.9em;
-    left: 85%;
+    top: 45%;
+    left: 86%;
+    cursor: pointer;
   }
 }
 

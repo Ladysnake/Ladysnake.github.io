@@ -5,27 +5,34 @@
 @import "./mixins.scss";
 
 @import "./parts/globals.scss";
-@import "./parts/navbar.scss";
+@import "./parts/site-header.scss";
 @import "./parts/dropdown.scss";
 
 :root {
 	--color-primary: #1abc9c;
 	--color-success: #2ecc71;
-	--color-info: #2ecc71;
+	--color-info: #0969da;
+	--color-important: #8250df;
 	--color-warning: #e67e22;
 	--color-danger: #e74c3c;
 	--base-text-color: #2c3e50;
 	--accent-text-color: #2d3436;
 	--base-background-color: #f6f8f9;
+	--accent-background-color: #eaeaef;
 	--color-invalid: #d9534f;
+	--anchor-color: #337ab7;
+	--anchor-hover-color: #23527c;
 	--dark-mode-display: none;
 	--light-mode-display: unset;
 
-	@include darkMode(null) {
+	@include darkModeAtRoot {
 		--color-warning: #f39c12;
 		--base-text-color: #f6f8f9;
-		--accent-text-color: #dfe6e9;
+		--accent-text-color: #fff;
 		--base-background-color: #171717;
+		--accent-background-color: #343434;
+		--anchor-color: #8ab4f8;
+		--anchor-hover-color: #e9ebee;
 		--dark-mode-display: unset;
 		--light-mode-display: none;
 	}
@@ -35,52 +42,17 @@
 /*
 This section will be all about DARK MODE
 */
-@include darkMode(null) {
-	code.language-plaintext {
-		background-color: #2c292d;
-		color: #ff6188;
-	}
-
-	pre {
-		background-color: #2c292d;
-		color: #ddd;
-		border-color: #333;
-	}
-
-	a {
-		color: #8ab4f8;
-		// color: #48dbfb;
-		// color: #0fbcf9;
-		&:hover {
-			color: #e9ebee;
-		}
-	}
-
+@include darkModeAtRoot {
 	.breadcrumb {
-		background-color: #0b0b0b;
-		.active {
-			color: #888;
-		}
 	}
 }
 
-#darkmode-icon {
-	height: 25px;
-	vertical-align: middle;
-	cursor: pointer;
-}
 /* a.dark-mode {
 	color: #f6f8f9;
 } */
 
 /* other stuff that sschr15 made and things */
 
-span {
-	padding: 0 8px 0 8px;
-}
-code span {
-	padding: 0;
-}
 .container img.wiki {
 	max-width: 100%;
 }
@@ -136,6 +108,13 @@ div.itemThing div:hover .overlayCopy {
 
 a {
 	transition: all 0.3s;
+	text-decoration: none;
+	color: var(--anchor-color);
+
+	&:hover, &:focus {
+		color: var(--anchor-hover-color);
+		text-decoration: underline;
+	}
 }
 
 /*	FORMS */
@@ -164,35 +143,21 @@ body:not(.dark-mode) .form-control {
 	}
 }
 
+@import "./parts/admonitions.scss";
+@import "./parts/breadcrumb.scss";
 @import "./parts/buttons.scss";
+@import "./parts/code.scss";
 @import "./parts/details.scss";
 @import "./parts/section.scss";
+@import "./parts/headings.scss";
 @import "./parts/hero.scss";
-@import "./parts/service.scss";
 @import "./parts/blog.scss";
 @import "./parts/menu_grid.scss";
-@import "./parts/page_listing.scss";
 @import "./parts/scrolltop.scss";
 @import "./parts/tabbed.scss";
 @import "./parts/toc.scss";
 @import "./parts/search.scss";
-
-.page_listing_item:hover, .page_listing_item:focus-visible {
-	.mod_icon {
-		fill: var(--accent-text-color)
-	}
-}
-
-.mod_icon {
-	height: 150px;
-	width: 150px;
-	fill: var(--base-text-color);
-
-	svg {
-		width: 100%;
-		height: 100%;
-	}
-}
+@import "./parts/hover-effects.scss";
 
 .profile_pic {
 	height: 150px;
@@ -220,7 +185,7 @@ body:not(.dark-mode) .form-control {
 
 .p-wiki-icon {
 	height: 18px;
-	margin: 10px 0 1px 0;
+	margin-left: 1em;
 	display: inline-block;
 	vertical-align: bottom;
 	svg {
@@ -244,35 +209,41 @@ body:not(.dark-mode) .form-control {
 	margin-top: 10px;
 }
 
-.h3,
-h3 {
-	font-size: 24px;
-	display: inline-block;
-	margin: 10px 0 5px 0;
-}
-
-.h2,
-h2 {
-	font-size: 30px;
-	margin: 20px 0 10px 0;
-	border-bottom: solid 1px black;
-}
-
-.h1,
-h1 {
-	margin: 20px 10px 20px 0;
-	display: inline-block;
-	vertical-align: middle;
-}
-
 .home {
 	border-bottom: 0;
 	text-align: center;
 }
 
-.breadcrumb {
-	@media print {
-		visibility: collapse;
+hr {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 0;
+	border-top: 1px solid var(--button-background);
+}
+
+footer {
+	font-size: 14px;
+	width: 100%;
+	padding-bottom: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@include mobile {
+		flex-direction: column;
+	}
+}
+
+label {
+	font-weight: bold;
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+// bootstrap leftover
+.collapse {
+	display: none;
+	&.in {
+		display: block;
 	}
 }
 

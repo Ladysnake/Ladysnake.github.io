@@ -2,41 +2,31 @@
 layout: default
 ---
 
-<div class="row">
-	<div class="col-md-12 text-center">
-		<h2 class="section-title home">Our Minecraft Mods</h2>
-		<p class="section-description home">Our current maintained and up-to-date Minecraft mods</p>
-	</div>
-</div>
+<hgroup>
+	<h2 class="section-title home">Our Minecraft Mods</h2>
+	<p class="section-description home">Our current maintained and up-to-date Minecraft mods</p>
+</hgroup>
 {%- assign mods = site.mods | where_exp: "mod", "mod.discontinued != true" -%}
 {% include mod_listing.liquid mods=mods %}
-<div class="row">
-	<div class="col-md-12 text-center">
-		<h2 class="section-title home">Discontinued Mods</h2>
-		<p class="section-description home">Minecraft mods that we no longer maintain for various reasons</p>
-	</div>
-</div>
+<hgroup>
+	<h2 class="section-title home">Discontinued Mods</h2>
+	<p class="section-description home">Minecraft mods that we no longer maintain for various reasons</p>
+</hgroup>
 {%- assign mods = site.mods | where_exp: "mod", "mod.discontinued" -%}
 {% include mod_listing.liquid mods=mods %}
-<div class="row">
-	<div class="col-md-12 text-center">
-		<h2 class="section-title home">Our Other Projects</h2>
-		<p class="section-description home">The other stuff we made that aren't Minecraft mods</p>
-	</div>
-</div>
-<div class="menu-grid-row">
-	<div class="menu-grid-desc">
+<hgroup>
+	<h2 class="section-title home">Our Other Projects</h2>
+	<p class="section-description home">The other stuff we made that aren't Minecraft mods</p>
+</hgroup>
+<div class="menu-grid">
+	<div class="menu-grid-item">
         <h2 class="home">Chenille</h2>
         <p class="home">Gradle plugin to facilitate mod development.</p>
+    	<a href="wiki/chenille" title="Chenille" class="btn menu-grid-btn btn-sm btn-primary">Learn More</a>
 	</div>
-    <div class="menu-grid-btn">
-        <a href="wiki/chenille" title="Chenille" class="btn btn-sm btn-primary">Learn More</a>
-    </div>
-	<div class="menu-grid-desc">
+	<div class="menu-grid-item">
         <h2 class="home">Old Site</h2>
         <p>Our long outdated version of the Ladysnake website, created by the talented Voltra</p>
+	    <a href="oldsite/" title="Old Site" class="btn menu-grid-btn btn-sm btn-primary">Go there now!</a>
 	</div>
-    <div class="menu-grid-btn">
-        <a href="oldsite/" title="Old Site" class="btn btn-sm btn-primary">Go there now!</a>
-    </div>
 </div>

@@ -1,7 +1,134 @@
 ---
 ---
+.dialogue-landing {
+  display: flex;
+
+  #dialogue-import-export {
+    outline: none;
+    border: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+#new-dialogue {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  flex: none;
+  gap: 0.8em;
+  padding-right: 2em;
+
+  label[for=filename] {
+    width: Min(100%, 30em);
+  }
+
+  .dialogue-filename {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+
+    input {
+      padding: 0.5em;
+      font-weight: normal;
+    }
+
+    .file-extension {
+      pointer-events: none;
+      color: var(--button-outline);
+    }
+  }
+
+  i {
+    font-weight: normal;
+    margin-left: 1em;
+  }
+
+  .option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    input {
+      position: absolute;
+      left: 1em;
+    }
+    label {
+      margin-bottom: 0;
+      padding: 0.8em 1em 0.8em 3em;
+      width: 100%;
+    }
+    .icon {
+      margin-right: 0.5em;
+    }
+
+    label:hover, input:hover + label, input:focus-visible + label {
+      background-color: var(--accent-background-color);
+    }
+  }
+
+  .dialogue-state-name {
+    display: flex;
+    flex-direction: column;
+
+    input[type=text] {
+      width: 30%;
+    }
+  }
+
+  .name-input {
+    padding: 0.5em;
+  }
+
+  .skippability {
+    input ~ label {
+      width: 100%;
+    }
+  }
+
+  fieldset {
+    border: 2px solid transparent;
+    transition: border-color 0.1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+
+    &:invalid {
+      border-color: var(--color-invalid);
+    }
+  }
+
+  legend {
+    font-weight: bold;
+  }
+}
+
+
 #dialogue-state-list {
   padding-bottom: 2.5rem;
+}
+
+input[type=text] {
+  width: 99%;
+  margin-left: 2px;
+  border: 2px solid transparent;
+  &:invalid {
+    border-color: var(--color-invalid);
+    color: var(--color-invalid);
+    & + input[type=submit] {
+      background-color: var(--color-invalid);
+    }
+  }
+}
+
+#dialogue-filename {
+  border-radius: 0.1em;
+  &:not(:focus-visible):hover {
+    outline: 1px solid var(--button-outline);
+  }
 }
 
 #new_dialogue_state {
@@ -15,20 +142,7 @@
     white-space: normal;
   }
 
-  input {
-    width: 99%;
-    margin-left: 2px;
-    border: 1px transparent;
-    &:invalid {
-      border: 1px solid var(--color-invalid);
-      color: var(--color-invalid);
-      & + input[type=submit] {
-        background-color: var(--color-invalid);
-      }
-    }
-  }
-
-  &_name {
+  .name-input {
     border: none;
     display: block;
     height: 45px;
@@ -56,8 +170,7 @@
       background-color: var(--button-background);
     }
     svg {
-      margin-top: -3.9rem;
-      margin-bottom: -3.9rem;
+      width: 100%;
     }
   }
   &:checked + label {
@@ -81,6 +194,10 @@
   padding: 1rem;
   align-items: center;
 
+  svg {
+    font-weight: normal;
+  }
+
   input {
     background-color: transparent;
     border: 1px solid var(--button-outline);
@@ -95,24 +212,49 @@
 
 #dialogue-state-pane {
   width: 100%;
+  padding-top: 1rem;
 }
 
 .dialogue-global-properties {
+  margin-bottom: 0.2rem;
+
   h3 {
-    display: block;
     margin-bottom: 1rem;
+    font-size: 20px;
   }
 
-  div {
-    display: flex;
-    justify-content: space-around;
+  .menu {
+    display: grid;
+    width: 100%;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: min-content min-content;
+    place-items: center;
+    gap: 0.5em;
 
-    & > span {
+    .yes-no-container {
+      position: relative;
+      input {
+        position: absolute;
+      }
+    }
+
+    .dialogue-layout-selection {
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      padding-right: 1em;
+      gap: 0.2em;
+      label {
+        margin-bottom: 0;
+        margin-right: 2em;
+      }
+    }
+
+    & > * {
       display: flex;
       flex-direction: column;
-      & > span {
-        margin-top: 0.2rem;
-      }
+      width: 100%;
     }
   }
 
@@ -227,6 +369,7 @@
 .dialogue-io-log {
   text-align: center;
   font-weight: bold;
+  width: 100%;
   margin: 0;
   &.error-log {
     background-color: var(--color-invalid);

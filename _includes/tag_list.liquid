@@ -1,17 +1,18 @@
-{% unless include.name %}<ul class="directory-list"><li class="folder">{% endunless %}
+{% unless include.name %}<ul class="directory-list" role="tree"><li class="folder" role="treeitem">{% endunless %}
     {%capture folder%}{%if include.folder%}{{include.folder}}{%if include.name%}/{{include.name}}{%endif%}{%else%}{{include.type}}s{%endif%}{%endcapture%}
     {%capture path%}{{site.data.requiem.links.data_src}}/tags/{{folder}}{%endcapture%}
-    <a href="{{path}}" class="tag-name">{%if include.name%}{{include.name}}{%else%}{{include.modid}}:tags/{{folder}}{%endif%}</a>
-    <ul>
+    {% capture link_id %}tag-dir-{{ folder | slugify }}{% endcapture %}
+    <a href="{{path}}" id="{{ link_id }}" class="tag-name">{%if include.name%}{{include.name}}{%else%}{{include.modid}}:tags/{{folder}}{%endif%}</a>
+    <ul role="group" aria-labelledby="{{ link_id }}">
         {% for tag in include.tags %}
             {%comment%}Need to recompute this otherwise it gets set by the children{%endcomment%}
             {%capture folder%}{%if include.folder%}{{include.folder}}{%if include.name%}/{{include.name}}{%endif%}{%else%}{{include.type}}s{%endif%}{%endcapture%}
             {% if tag.children %}
-                <li class="folder">
+                <li class="folder" role="treeitem">
                 {%include tag_list.liquid modid=include.modid type=include.type name=tag.name folder=folder tags=tag.children%}
                 </li>
             {% else %}
-                <li>
+                <li role="treeitem">
                 {%capture name%}{{tag.name}}.json{%endcapture%}
                 {%include mctag.liquid modid=include.modid type=include.type name=name tag=tag path=path folder=folder%}
                 </li>

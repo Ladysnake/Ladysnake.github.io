@@ -3,6 +3,7 @@ layout: wiki
 title: Blabber
 slug: blabber
 curse_project: 565396
+modrinth: true
 extra_toc_links: extra/blabber_editor_link.liquid
 ---
 
@@ -17,7 +18,13 @@ Just write your dialogue description files, then start them on demand!
 
 Like that:
 
-![Example Dialogue Screen](example-dialogue-screen.png)
+![Example Dialogue Screen](example-dialogue-screen.png){:.rounded}
+
+Or like that:
+
+![Example Alt Dialogue Screen](example-dialogue-screen-rpg.png){:.rounded}
+
+You get to choose per-dialogue.
 
 ## How it works
 
@@ -26,14 +33,16 @@ Like that:
 Blabber adds the `/blabber` command, allowing server operators and mapmakers to interact with the mod through commands.
 
 - `/blabber dialogue`
-    - `/blabber dialogue start <dialogue> [<targets]` : Starts a dialogue for one or more players.
+    - `/blabber dialogue start <dialogue> [<targets>] [<interlocutor>]` : Starts a dialogue for one or more players.
         - `<dialogue>` : the unique identifier for the dialogue
         - `[<targets>]` (optional) : If specified, must be either a player's username or a target selector. If unspecified, defaults to the player using the command. When used in a command block, `[<targets>]` is not optional.
+        - `[<interlocutor>]` (optional) : If specified, must be a target selector for a single entity. If unspecified, defaults to no interlocutor.
 
 ### Format
 
-Blabber will automatically load all JSON files in the `data/[namespace]/blabber_dialogues` directory.
-Those can be provided either by mods, or by datapacks.
+Blabber will automatically load all JSON files in the `data/[namespace]/blabber/dialogues` directory.
+Those can be provided either by mods, or by datapacks. They will also be reloaded when running `/reload`, just like
+tags and functions.
 
 Each file describes the various states a dialogue can be in.
 
@@ -58,7 +67,7 @@ We can fix this by adding an action to the `end_success` state; a command action
 
 Here's the JSON file corresponding to what we just described:
 
-{% capture summary %}<h4 id="basic-dialogue-json">basic-dialogue.json</h4>{% endcapture %}
+{% capture summary %}<h4 id="basic-dialogue-json" class="no_anchor">basic-dialogue.json</h4>{% endcapture %}
 {% capture example_json %}
 ```json
 {% include_relative basic-dialogue.json %}
@@ -66,61 +75,324 @@ Here's the JSON file corresponding to what we just described:
 {% endcapture %}
 {% include details.liquid summary=summary content=example_json %}
 
+#### Layout
+
+As noted in [the previous section](#how-it-looks), you can choose if your dialogue uses the classic layout, or the RPG
+layout (first and second screenshot, respectively).
+
+When using the RPG layout, be mindful of how many choices you have and how long they are. While they may fit
+on the screen just fine in languages like English, they may take up too much space once translated
+(this also applies to the classic layout, though to a lesser degree).
+{:.admonition.admonition-important.admonition-icon}
+
+The JSON looks like this (goes at the top level, replace `"blabber:classic"` with `"blabber:rpg"` for the alternative look):
+
+{% capture summary %}<h5 id="simple-layout-json" class="no_anchor">Simple layout JSON</h5>{% endcapture %}
+{% capture example_json %}
+```json
+{
+  "layout": {
+    "type": "blabber:classic"
+  }
+}
+```
+{% endcapture %}
+{% include details.liquid summary=summary content=example_json %}
+
+#### Conditional choices
+
+So what if you want to add requirements for specific dialogue paths? You could always make a separate dialogue file
+for each possible combination and trigger one based on prior conditions, but that becomes quite tedious when you have multiple
+conditions in a single dialogue, and it also does not give players any indication of what choices they may have missed.
+
+To help with that situation, Blabber gives you the ability to lock some dialogue choices behind [predicates](https://minecraft.wiki/w/Predicate).
+Here is what a locked choice may look like:
+
+![Example locked dialogue choice](./example-locked-choice.png){:.rounded}
+
+When you make a choice conditional, you specify when the choice should be available, and how it should be displayed if not.
+The condition is given as an identifier for a [predicate](https://minecraft.wiki/w/Predicate).
+
+Mods can register their own `LootCondition`s to allow virtually any check in said predicates.
+{:.admonition .admonition-note .admonition-icon}
+
+As for the display, you can either make it so the choice is *grayed out*, displaying a little lock icon and explanation message when hovered, or
+set it to be *hidden*.
+
+Note that you should avoid the hidden option with choices that can enable or disable themselves mid-dialogue, as it may cause some frustration due to player misclicks.
+{:.admonition .admonition-warning .admonition-icon}
+
+Here is an example of conditional choices in JSON:
+
+{% capture summary %}<h5 id="grayed-out-choice-json" class="no_anchor">Grayed out choice JSON</h5>{% endcapture %}
+{% capture example_json %}
+```json
+{
+  "text": "I have money.",
+  "illustration": "emerald",
+  "next": "barter",
+  "only_if": {
+    "predicate": "babblings:holding_emerald",
+    "when_unavailable": {
+      "display": "gray_out",
+      "message": "You must be holding an emerald to pick this option."
+    }
+  }
+}
+```
+{% endcapture %}
+{% include details.liquid summary=summary content=example_json %}
+{% capture summary %}<h5 id="hidden-choice-json" class="no_anchor">Hidden choice JSON</h5>{% endcapture %}
+{% capture example_json %}
+```json
+{
+  "text": "I have money.",
+  "illustration": "emerald",
+  "next": "barter",
+  "only_if": {
+    "predicate": "babblings:holding_emerald",
+    "when_unavailable": {
+      "display": "hidden"
+    }
+  }
+}
+```
+{% endcapture %}
+{% include details.liquid summary=summary content=example_json %}
+
+### Interlocutors
+
+Of course, dialogues often involve talking to *someone* (or something). Since version 1.2.0, Blabber lets you specify
+an *interlocutor* entity. This relationship can be used in several ways:
+
+#### In commands and texts
+
+Blabber adds a new `@interlocutor` selector, which targets the current interlocutor of the command's source.
+It only works when `@s` is a player, which includes commands run from dialogue actions and commands run through `execute as <player> run ...`.
+
+Example use:
+
+{% capture example %}
+```
+effect give @interlocutor regeneration
+```
+{% endcapture %}
+<figure>
+<figcaption>Command using @interlocutor</figcaption>
+{{ example | markdownify }}
+</figure>
+
+{% capture example %}
+```json
+{
+  "text": [
+    {"text":"I am "},
+    {"selector":"@interlocutor"},
+    {"text":". Pleased to make your acquaintance..."}
+  ]
+}
+```
+{% endcapture %}
+<figure>
+<figcaption>Text using @interlocutor</figcaption>
+{{ example | markdownify }}
+</figure>
+
+You can use `@interlocutor` in any of a dialogue's text, including choices and locked content hints.
+You can also use any other selector in the same way, keeping in mind that `@s` will refer to the player themselves.
+{:.admonition.admonition-note.admonition-icon}
+
+Here is how the above text may be used:
+
+![Example of a dialogue referring to the interlocutor](example-interlocutor.png){:.rounded}
+
+#### In predicates
+
+The interlocutor entity can also be used in [predicates files](https://minecraft.wiki/w/Predicate) by using the `blabber:interlocutor_properties` condition type.
+This new condition type lets you apply the same checks to a player's current interlocutor as `minecraft:entity_properties`
+would on the player themselves.
+
+For example:
+```json
+{
+  "condition": "blabber:interlocutor_properties",
+  "predicate": {
+    "type": "minecraft:villager"
+  }
+}
+```
+
 ### Online Dialogue Maker
 
 If you are allergic to code, try this online tool: [blabber dialogue editor](dialogue_generator)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Hm_bQlgqSCQ?si=A5SH8mRNEkGSi14i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+### Validation
+
+To help creators design dialogues, and prevent players from getting stuck in a *(possibly non-skippable)* dialogue with no ending,
+both the online dialogue maker and the mod itself will perform several validation checks on dialogue files.
+
+The validation process checks for the following issues and reports them by either logging a warning or failing with an error:
+
+**Errors:**
+- **States with no choices:** Every non-end state must have at least one choice leading out of it. If any state has no choices defined, an error will be thrown.
+- **Softlock states:** Every state must have a path leading to an ending (no infinite loops). If any state is lacking a path to an end state, an error will be thrown.
+
+**Warnings:**
+- **Conditional softlock states:** Any state that only has *conditional* paths leading to an ending will be reported. Blabber cannot tell whether a condition will necessarily be fulfilled when getting to such a state, and thus cannot prove that the player *will not* be softlocked.
+- **Unreachable states:** Any state that is disconnected from the main dialogue graph will be reported with a warning message. While they do not cause immediate issues for players, you may want to connect or remove such orphan states.
 
 ## Using Blabber (for developers)
 
 If you are a developer, you can use Blabber as a library for your own project by inserting the following in your `build.gradle` :
 
+You can then add the library version to your `gradle.properties`file:
+
+{% capture groovy %}
+`gradle.properties`:
+```properties
+# Blabber
+blabber_version = <BLABBER_VERSION>
+# Fabric Permissions API
+fpa_version = 0.2-SNAPSHOT
+# Cardinal Components
+cca_version = <CCA_VERSION>
+```
+
+`build.gradle`:
 ```gradle
 repositories {
-	maven { 
+    maven { 
         name = "Ladysnake Mods"
-        url = "https://ladysnake.jfrog.io/artifactory/mods"
+        url = "https://maven.ladysnake.org/releases"
         content {
             includeGroup 'io.github.ladysnake'
-            includeGroupByRegex 'io\\.github\\.onyxstudios.*'
+            includeGroup 'org.ladysnake'
+            includeGroupByRegex 'dev\\.onyxstudios.*'
         }
     }
     maven {
         name = "Nexus Repository Manager"
-        url = 'https://oss.sonatype.org/content/repositories/snapshots'
+        url = "https://oss.sonatype.org/content/repositories/snapshots"
     }
 }
 
 dependencies {
-    modImplementation "io.github.ladysnake:blabber:${blabber_version}"
-    include "io.github.ladysnake:blabber:${blabber_version}"
+    modImplementation "org.ladysnake:blabber:${blabber_version}"
+    include "org.ladysnake:blabber:${blabber_version}"
     // Blabber dependencies
     include "me.lucko:fabric-permissions-api:${fpa_version}"
-    include "com.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${cca_version}"
-    include "com.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${cca_version}"
+    include "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cca_version}"
+    include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}"
 }
 ```
-
-You can then add the library version to your `gradle.properties`file:
-
+{% endcapture %}
+{% capture kts %}
+`gradle.properties`:
 ```properties
 # Blabber
-blabber_version = 0.x.y
+blabber_version = <BLABBER_VERSION>
 # Fabric Permissions API
-fpa_version = 0.1-SNAPSHOT
+fpa_version = 0.2-SNAPSHOT
 # Cardinal Components
-cca_version = 2.x.y
+cca_version = <CCA_VERSION>
 ```
+
+`build.gradle.kts`:
+```kotlin
+repositories {
+    maven {
+        name = "Ladysnake Mods"
+        url = "https://maven.ladysnake.org/releases"
+        content {
+            includeGroup("io.github.ladysnake")
+            includeGroup("org.ladysnake")
+            includeGroupByRegex("""dev\.onyxstudios.*""")
+        }
+    }
+    maven {
+        name = "Nexus Repository Manager"
+        url = "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+}
+
+dependencies {
+    val blabberVersion = property("blabber_version") as String
+    val ccaVersion = property("cca_version") as String
+    val fpaVersion = property("fpa_version") as String
+    modImplementation("org.ladysnake:blabber:${blabber_version}")
+    include("org.ladysnake:blabber:${blabber_version}")
+    // Blabber dependencies
+    include("me.lucko:fabric-permissions-api:${fpa_version}")
+    include("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cca_version}")
+    include("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}")
+}
+```
+{% endcapture %}
+{% capture catalogue %}
+`libs.versions.toml`:
+```toml
+[versions]
+blabber = '<BLABBER_VERSION>'
+cardinalComponentsApi = '<CCA_VERSION>'
+fabricPermissionsApi = '0.2-SNAPSHOT'
+
+[libraries]
+cca-base = { module = "dev.onyxstudios.cardinal-components-api:cardinal-components-base", version.ref = "cardinalComponentsApi" }
+cca-entity = { module = "dev.onyxstudios.cardinal-components-api:cardinal-components-entity", version.ref = "cardinalComponentsApi" }
+fpa = { module = "me.lucko:fabric-permissions-api", version.ref = "fabricPermissionsApi" }
+blabber = { module = "org.ladysnake:blabber", version.ref = "blabber" }
+
+[bundles]
+blabber = [ "cca-base", "cca-entity", "fpa", "blabber" ]
+```
+
+`build.gradle` or `build.gradle.kts`:
+```kotlin
+repositories {
+    maven {
+        name = "Ladysnake Mods"
+        url = "https://maven.ladysnake.org/releases"
+        content {
+            includeGroup("io.github.ladysnake")
+            includeGroup("org.ladysnake")
+            includeGroupByRegex("""dev.onyxstudios.*""")
+        }
+    }
+    maven {
+        name = "Nexus Repository Manager"
+        url = "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+}
+
+dependencies {
+    // Replace modImplementation with modApi if you expose Blabber's interfaces in your own API
+    modImplementation(libs.bundles.blabber)
+    // Includes Blabber and its dependencies as a Jar-in-Jar dependency (optional but recommended)
+    include(libs.bundles.blabber)
+}
+```
+{% endcapture %}
+{%- include tabbed_builscript.liquid groovy=groovy kts=kts catalogue=catalogue %}
+
 
 You can find the current version of Blabber in the [releases](https://github.com/Ladysnake/Blabber/releases) tab of the repository on Github,
 and the latest CCA version in the [appropriate repository](https://github.com/OnyxStudios/Cardinal-Components-API/releases).
 
 ### API
 
-Everything is currently done with 2 methods:
+The two most relevant methods are as follow:
 - `Blabber#startDialogue(ServerPlayerEntity, Identifier)`: starts the dialogue with the given id for the given player
 - `Blabber#registerAction`: registers an action for use in dialogues, 2 overloads available:
   - `registerAction(Identifier, DialogueAction)`: registers a simple action that takes no additional configuration from the dialogue description file.
   - `registerAction(Identifier, Codec<? extends DialogueAction)`: registers an action type. The codec is used to create new dialogue actions based on the action `value` specified in the dialogue description file.
+
+#### Custom layouts
+
+It is possible to register your own custom layout with its completely custom screen by calling `BlabberScreenRegistry#register`
+in your client entrypoint. The API is however marked unstable, as the layout system is susceptible to being refactored to allow arbitrary data being passed to the screen
+(contributions welcome).
 
 ### JSON Schema
 

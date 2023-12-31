@@ -1,4 +1,7 @@
+.jekyll-cache
 .vscode
+.idea
+.bundle
 System Volume Information/
 #bootstrap.css
 node_modules/

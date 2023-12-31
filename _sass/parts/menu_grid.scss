@@ -1,48 +1,74 @@
 @import '../mixins';
 
-.menu-grid-row {
+$menu-grid-col-max: 3;
+
+.menu-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: [descriptions] auto [buttons] auto;
+  grid-template-columns: repeat($menu-grid-col-max, 1fr);
+  grid-template-rows: auto;
   column-gap: 3rem;
-  margin-bottom: 30px;
-
-  .menu-grid-desc {
-    grid-row: descriptions;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 30px 0 10px;
-
-    p {
-      width: 80%;
-      margin-left: 10%;
-      margin-right: 10%;
-      flex-grow: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-  }
+  row-gap: 6rem;
+  padding: 3rem 3rem 0 3rem;
+  justify-items: center;
 
   .menu-grid-btn {
-    grid-row: buttons;
     text-align: center;
+    width: fit-content;
+    margin-top: 10px;
   }
 
   @include mobile {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, [descriptions] auto [buttons] auto);
+  }
 
-    @for $i from 1 through 3 {
-      .menu-grid-desc:nth-child(0n + #{$i*2-1}) {
-        grid-row: descriptions $i;
-      }
+  .wiki-container & {
+    padding: 0 0 0 1rem;
+    row-gap: 3rem;
+  }
+}
 
-      .menu-grid-btn:nth-child(0n + #{$i*2}) {
-        grid-row: buttons $i;
+.menu-grid-item {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  padding: 2rem 0;
+
+  .mod-listing & {
+    grid-template-rows: max-content max-content 1fr max-content;
+    border-radius: 1rem;
+    transition: border-color 0.2s ease-in;
+    border: 0.5rem dotted transparent;
+
+    &:hover {
+      @media(prefers-reduced-motion: no-preference) {
+        border-color: var(--accent-background-color);
       }
     }
+  }
+
+  .member-listing & {
+    grid-template-rows: max-content max-content max-content 1fr;
+  }
+
+  .wiki-listing & {
+    margin-bottom: 10px;
+    grid-template-rows: max-content 1fr;
+  }
+
+  p {
+    max-width: 90%;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: bolder;
+    margin: 30px 0;
+    line-height: 1;
   }
 }

@@ -15,10 +15,10 @@ header_preprocessor: wiki_header_preprocessor.liquid
 	<div class="toc-pane">
 		<h3>{% if page.breadcrumb %}{{ page.breadcrumb }}{% else %}{{ page.title }}{% endif %}</h3>
 		<nav class="toc">
-			<ul>{% include toc.liquid html=content sanitize=true %}</ul>
+			{% include toc.liquid html=content sanitize=true submenu_class="toc-subgroup" %}
 		</nav>
 	</div>
-	<div id="printJS-Content">
+	<main id="printJS-Content">
 
 		<h1>{{ page.title }}&nbsp;</h1>
 		{% if page.icon %}
@@ -27,5 +27,5 @@ header_preprocessor: wiki_header_preprocessor.liquid
 
 		{{ content }}
 
-	</div>
+	</main>
 </div>

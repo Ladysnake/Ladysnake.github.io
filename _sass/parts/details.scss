@@ -1,5 +1,6 @@
 details {
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0, rgba(27, 31, 35, 0.15) 0 0 0 1px;
+  margin-bottom: 2em;
   div {
     padding: 1rem;
   }
@@ -8,11 +9,22 @@ details {
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0, rgba(27, 31, 35, 0.15) 0 0 0 1px;
     cursor: pointer;
     padding: 0.1rem;
+    display: block;
 
     > * {
       margin-left: 1rem;
       display: list-item;
       list-style-position: inside;
+    }
+
+    &:hover {
+      background-color: var(--accent-background-color);
+    }
+
+    h5, h6 {
+      font-size: inherit;
+      margin-top: 1em;
+      margin-bottom: 1em;
     }
   }
 }

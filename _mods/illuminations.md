@@ -1,7 +1,7 @@
 ---
 title: Illuminations
 link: /wiki/illuminations
-icon: /img/illuminations.png
+icon: img/illuminations.png
 discontinued: true
 ---
 

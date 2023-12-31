@@ -1,7 +1,7 @@
 ---
 title: Nomad Books
 link: /wiki/nomad-books
-icon: /img/nomad-books.png
+icon: img/nomad-books.png
 discontinued: true
 ---
 

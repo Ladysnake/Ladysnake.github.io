@@ -1,4 +1,10 @@
-import {commonDialogueInit, storeDialogueToSession} from "./dialogue-common.js";
+import {
+    commonDialogueInit,
+    EDITOR_TEXT_FORMAT_KEY,
+    setupFieldNameValidation,
+    storeDialogueToSession,
+    validateIdentifierField
+} from "./dialogue-common.js";
 import BlabberDialogue from "./blabber-dialogue.js";
 
 (() => {
@@ -9,6 +15,7 @@ import BlabberDialogue from "./blabber-dialogue.js";
     const exportButton = document.getElementById('dialogue-export');
     const startInput = document.getElementById('dialogue-start-at');
     const unskippableInput = document.getElementById('dialogue-unskippable');
+    const dialogueLayoutInputs = document.querySelectorAll('input[name=dialogue-layout]');
     const choiceEditor = document.querySelector('.dialogue-choice-editor');
     const stateList = document.getElementById('dialogue-state-list');
 
@@ -18,6 +25,9 @@ import BlabberDialogue from "./blabber-dialogue.js";
     startInput.disabled = true;
     startInput.addEventListener('change', e => dialogue.startAt(e.target.value));
     unskippableInput.addEventListener('change', e => dialogue.unskippable(e.target.value));
+    dialogueLayoutInputs.forEach((e) => e.addEventListener('change', (ev) => {
+        dialogue.layout(document.querySelector('input[name=dialogue-layout]:checked').value);
+    }))
 
     const textFormatSelect = document.getElementById('dialogue-text-format');
 
@@ -57,7 +67,9 @@ import BlabberDialogue from "./blabber-dialogue.js";
 
     function detectTextFormat() {
         const texts = Object.values(dialogue.data.states).flatMap(state => [state.text, ...(state.choices?.map(choice => choice.text) ?? [])]);
-        return texts.filter(it => it).map(text => typeof text === 'string' ? 'literal' : (typeof text === 'object' && text.translate) ? 'translate' : 'json').reduce((v1, v2) => v1 === v2 ? v1 : 'json') ?? 'literal';
+        return texts.filter(it => it)
+            .map(text => typeof text === 'string' ? 'literal' : (typeof text === 'object' && text.translate) ? 'translate' : 'json')
+            .reduce((v1, v2) => v1 === undefined ? v2 : (v1 === v2 ? v1 : 'json'), undefined) ?? localStorage.getItem(EDITOR_TEXT_FORMAT_KEY) ?? 'literal';
     }
 
     function initDialogueEditor() {
@@ -73,6 +85,7 @@ import BlabberDialogue from "./blabber-dialogue.js";
         }
 
         unskippableInput.checked = dialogue.unskippable();
+        dialogueLayoutInputs.forEach((e) => e.checked = e.value === dialogue.layout());
         startInput.value = dialogue.startAt();
     }
 
@@ -250,29 +263,13 @@ import BlabberDialogue from "./blabber-dialogue.js";
 
     (function setupNewStateForm() {
         const stateNameField = document.getElementById('new_dialogue_state_name');
-
-        stateNameField.addEventListener('input', e => {
-            if (e.target.validity.patternMismatch) {
-                e.target.setCustomValidity('Must be a valid non-namespaced identifier (lowercase letters, numbers and dashes/underscores only)');
-            } else if (dialogue.data.states && stateNameField.value in dialogue.data.states) {
-                stateNameField.setCustomValidity('A state with that name already exists');
-            } else {
-                e.target.setCustomValidity('');
-            }
-            e.target.reportValidity();
-        });
+        setupFieldNameValidation(stateNameField, dialogue, true);
 
         document.getElementById('new_dialogue_state').addEventListener('submit', e => {
             const log = document.getElementById('new_dialogue_state_log');
             if (!dialogue.data.states) dialogue.data.states = {};
 
-            if (!stateNameField.value) {
-                stateNameField.setCustomValidity('Please enter a valid non-namespaced identifier');
-                stateNameField.reportValidity();
-            } else if (stateNameField.value in dialogue.data.states) {
-                stateNameField.setCustomValidity('A state with that name already exists');
-                stateNameField.reportValidity();
-            } else {
+            if (validateIdentifierField(stateNameField)) {
                 log.textContent = '';
                 const newState = stateNameField.value;
                 dialogue.data.states[newState] = {
@@ -286,10 +283,10 @@ import BlabberDialogue from "./blabber-dialogue.js";
         });
     })();
 
-    function loadDialogueData(newData, newSelectedState) {
-        dialogue.data = newData;
+    function loadDialogueData(newSelectedState) {
         selectedState = undefined;
         startInput.textContent = '';
+        document.getElementById('dialogue-filename').textContent = dialogue.filename;
         initDialogueEditor();
         resetStateList();
         initTable(newSelectedState ?? dialogue.startAt());

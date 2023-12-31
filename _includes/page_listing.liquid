@@ -1,27 +1,17 @@
-{% assign len = include.pages | size | minus: 1 %}
-{% for i in (0..len) %}
-{% assign col = i | modulo: 3 %}
-{% assign page = include.pages[i] %}
-{% if col == 0 %}
-<div class="page_listing_row">
-{% endif %}
-<a class="hoverable-card" href="{{ include.root_url }}/{{ page.ref }}">
-    <div class="page_listing_item">
-        {% capture img_id %}{{ include.root_url | slugify }}-{{ page.ref | slugify }}{% endcapture %}
-        {% if page.svg_icon %}
-            <div id="{{ img_id }}" class="mod_icon">
-            {% include svg/{{page.svg_icon}}.svg %}
-            </div>
-        {% else %}
-           <img id="{{ img_id }}" alt="{{ page.ref }} Icon" src="{{ page.icon }}" class="mod_icon{% if page.pixel_art %} pixel-art{% endif %}" {% if page.hover_icon %} data-hover-icon="{{ page.hover_icon }}" {%endif%}>
-        {% endif %}
-        <h2 class="home no_toc no_anchor">{{ page.title }}</h2>
+<div class="menu-grid wiki-listing">
+{% for page in include.pages %}
+<a class="menu-grid-item hoverable-card" href="{{ include.root_url }}/{{ page.ref }}">
+    <div class="mod-icon{% if page.class %} {{ page.class }}{% endif %}">
+    {%- if page.svg_icon %}
+        {% include svg/{{page.svg_icon}}.svg %}
+    {%- else %}
+       <img alt="{{ page.ref | capitalize }} Icon" src="{{ page.icon }}" class="{% if page.pixel_art %} pixel-art{% endif %}" width="150px" height="150px">
+        {%- if page.hover_icon %}
+        <img alt="{{ page.ref | capitalize }} Icon" src="{{ page.hover_icon }}" class="hovered-alt{% if page.pixel_art %} pixel-art{% endif %}" aria-hidden="true" width="150px" height="150px" loading="lazy">
+        {%- endif %}
+    {%- endif %}
     </div>
+    <h2 class="home no_toc no_anchor">{{ page.title }}</h2>
 </a>
-{% if col == 2 %}
-</div>
-{% endif %}
 {% endfor %}
-{% if col != 2 %}
 </div>
-{% endif %}

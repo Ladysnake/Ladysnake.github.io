@@ -9,7 +9,7 @@ $code-font: Menlo, Monaco, Consolas, "Courier New", monospace;
   --gamerule-name-color: #c73e26;
   --tag-name-color: #6610f2;
   --tag-name-hover-color: #8126c7;
-  @include darkMode(null) {
+  @include darkModeAtRoot {
     --text-description-color: #b2bec3;
     --gamerule-name-color: #e6472c;
     --tag-name-color: #a530ff;

@@ -3,6 +3,7 @@ Source repository for https://ladysnake.github.io
 To run the site locally, follow these steps:
 0. Clone this repository
     - If you already installed Jekyll, skip to step 4
+    - If you run NixOS with Flakes enabled, run `nix develop` and skip to step 4
 1. Install [Ruby](https://www.ruby-lang.org/en/downloads/) with its development headers
 2. Install Bundler (requires admin rights):
 	```bash

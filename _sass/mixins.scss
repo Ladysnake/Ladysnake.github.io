@@ -2,15 +2,28 @@
 
 /// Apply styles only for dark mode
 /// $target should generally be either & or null (null for global, & for local)
-@mixin darkMode($target) {
+@mixin darkMode {
 	// When the user did not touch the button: use the browser preferences
 	@media(prefers-color-scheme: dark) {
-		@at-root body:not(.light-mode) #{$target} {
+		@at-root body:not(.light-mode) & {
 			@content
 		}
 	}
 	// When the user touched the button: use the JS-set class
-	@at-root body.dark-mode #{$target} {
+	@at-root body.dark-mode & {
+		@content;
+	}
+}
+
+@mixin darkModeAtRoot {
+	// When the user did not touch the button: use the browser preferences
+	@media(prefers-color-scheme: dark) {
+		@at-root body:not(.light-mode) {
+			@content
+		}
+	}
+	// When the user touched the button: use the JS-set class
+	@at-root body.dark-mode {
 		@content;
 	}
 }
@@ -32,6 +45,12 @@
 	@media only screen and (max-width: $screen-mobile-max) {
 		@content;
 	}
+}
+
+@mixin notMobile {
+    @media only screen and (min-width: $screen-tablet-min) {
+        @content;
+    }
 }
 
 @mixin tablet {

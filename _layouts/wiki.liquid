@@ -13,13 +13,13 @@ header_preprocessor: mod_header_preprocessor.liquid
 	<div class="toc-pane">
 		<h3>{{ page.title }}</h3>
 		<nav class="toc">
-			<ul>
-				{% include mod_links.liquid %}
-				{% include toc.liquid html=content sanitize=true %}
-			</ul>
+		    <h4>Available here:</h4>
+			{% include mod_links.liquid %}
+			<h4>Page contents:</h4>
+			{% include toc.liquid html=content sanitize=true submenu_class="toc-subgroup" %}
 		</nav>
 	</div>
-	<div class="main">
+	<main id="printJS-Content">
 		{% unless page.custom_title %}
 		<h1 id="{{ page.slug }}" class="wiki-title">
 			<img src="/img/{% if page.mod_logo %}{{ page.mod_logo }}{% else %}{{ page.slug }}.png{% endif %}"
@@ -29,5 +29,5 @@ header_preprocessor: mod_header_preprocessor.liquid
 		</h1>
 		{% endunless %}
 		{{ content }}
-	</div>
+	</main>
 </div>

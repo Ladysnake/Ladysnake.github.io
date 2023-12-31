@@ -26,6 +26,6 @@
     {% assign first_char = url | slice: 0, 1 %}
     {% comment %}it's actually easier to just remove the possibly existing base url than to check for its existence first{% endcomment %}
     {% if first_char == '/' %}{% assign url=url | remove_first: site.baseurl | relative_url %}{% endif %}
-    {% capture edited_html %}{{ edited_html }}<!--detected {{ tag }}: {{ node }}-->{{ before }}{{ url }}{{ after }}{% endcapture %}
+    {% capture edited_html %}{{ edited_html }}{% comment %}<!--detected {{ tag }}: {{ node }}-->{% endcomment %}{{ before }}{{ url }}{{ after }}{% endcapture %}
 {% endfor %}
 {{ edited_html }}

@@ -1,29 +1,34 @@
 /**
  * @typedef {string|Object} McText
- * @property {?string} translate
+ * @property {?string} [translate]
  */
 /**
  * @typedef {Object} DialogueAction
- * @property {?string} type
- * @property {?string} value
+ * @property {?string} [type]
+ * @property {?string} [value]
  */
 /**
  * @typedef {Object} DialogueChoice
- * @property {?McText} text
- * @property {?string} next
+ * @property {?McText} [text]
+ * @property {?string} [next]
  */
 /**
  * @typedef {Object} DialogueState
- * @property {?string} type
- * @property {?McText} text
- * @property {?DialogueAction} action
- * @property {?DialogueChoice[]} choices
+ * @property {?string} [type]
+ * @property {?McText} [text]
+ * @property {?DialogueAction} [action]
+ * @property {?DialogueChoice[]} [choices]
+ */
+/**
+ * @typedef {Object} DialogueLayout
+ * @property {?string} [type]
  */
 /**
  * @typedef {Object} DialogueData
- * @property ?{Object.<string, DialogueState>} states
- * @property {?string} start_at
- * @property {?boolean} unskippable
+ * @property {?Object.<string, DialogueState>} [states]
+ * @property {?string} [start_at]
+ * @property {?boolean} [unskippable]
+ * @property {?DialogueLayout} [layout]
  */
 
 export default class BlabberDialogue {
@@ -31,9 +36,11 @@ export default class BlabberDialogue {
      * Constructs a new dialogue with no data
      *
      * @property {DialogueData} data
+     * @property {string} filename
      */
     constructor() {
         this.data = {};
+        this.filename = 'untitled';
     }
 
     /**
@@ -59,6 +66,19 @@ export default class BlabberDialogue {
             this.markDirty();
         }
         return !!this.data.unskippable;
+    }
+
+    /**
+     *
+     * @param {string} [layout]
+     * @returns {?string}
+     */
+    layout(layout) {
+        if (layout !== undefined) {
+            this.data.layout = {type: layout};
+            this.markDirty();
+        }
+        return this.data.layout?.type;
     }
 
     /**

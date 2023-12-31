@@ -1,0 +1,31 @@
+hgroup {
+  margin-top: 30px;
+}
+
+// Adapted from Bootstrap 4 CSS under MIT
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+h4 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+h3 {
+  font-size: 24px;
+  margin: 10px 0 5px 0;
+}
+
+h2 {
+  font-size: 30px;
+  margin: 20px 0 10px 0;
+  border-bottom: solid 1px var(--accent-text-color);
+}
+
+h1 {
+  font-size: 36px;
+  margin: 20px 10px 20px 0;
+  vertical-align: middle;
+}

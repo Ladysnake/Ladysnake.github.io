@@ -1,10 +1,24 @@
 @import "../mixins";
 
+.styled-checkbox {
+	opacity: 0;
+	width: 0;
+	height: 0;
+	position: absolute;
+
+	& + label {
+		background-color: transparent;
+		cursor: pointer;
+		user-select: none;
+	}
+}
+
+// .btn-* classes adapted from Bootstrap 4 CSS under MIT
 .btn-default {
 	background-color: #34495e;
 	color: #fff;
 
-	@include darkMode(&) {
+	@include darkMode {
 		background-color: #fff;
 		color: #171717;
 	}
@@ -13,7 +27,7 @@
 		background-color: #2c3e50;
 		color: #fff;
 
-		@include darkMode(&) {
+		@include darkMode {
 			background-color: #ddd;
 			color: #171717;
 		}
@@ -21,6 +35,8 @@
 }
 
 .btn {
+	display: inline-block;
+	user-select: none;
 	border-radius: 0;
 	text-transform: uppercase;
 	font-weight: bold;
@@ -28,6 +44,13 @@
 	font-size: 12px;
 	padding: 0 30px;
 	line-height: 50px;
+	color: #fff;
+	cursor: pointer;
+
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 65%;
+	}
 }
 .btn-xs {
 	padding: 0 20px;
@@ -55,10 +78,15 @@
 	&:hover {
 		background-color: #55efc4;
 	}
+
+	&:focus {
+		outline-color: var(--button-selected-outline);
+	}
 }
 
 a.btn-primary {
-	@include darkMode(&) {
+	color: #fff;
+	@include darkMode {
 		color: #0e6d5a;
 	}
 }
@@ -122,10 +150,10 @@ a.btn-primary {
 		}
 	}
 	&:checked + label {
-		visibility: collapse;
+		display: none;
 	}
 	&:not(:checked) + label + label {
-		visibility: collapse;
+		display: none;
 	}
 }
 
@@ -134,7 +162,7 @@ a.btn-primary {
 	--button-outline: #636e72;
 	--button-hover-outline: #2d3436;
 	--button-selected-outline: #0984e3;
-	@include darkMode(null) {
+	@include darkModeAtRoot {
 		--button-background: #2d3436;
 		--button-outline: #b2bec3;
 		--button-hover-outline: #dfe6e9;
@@ -143,9 +171,31 @@ a.btn-primary {
 }
 
 input {
+	font: inherit;
 	border-radius: 0.4em;
 	background-color: var(--button-background);
 	border-color: var(--button-outline);
 	margin: 0.2rem;
 	padding: 0.4rem;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	margin: 0;
+	font: inherit;
+	color: inherit;
+}
+
+select {
+	padding: 0.2em 1.2em;
+	background-color: var(--button-background);
+	border: 0.14em solid var(--button-outline);
+	border-radius: 0.5em;
+}
+
+button.rounded {
+	border-radius: 0.6em;
 }
