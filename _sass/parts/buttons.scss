@@ -189,6 +189,13 @@ textarea {
 	color: inherit;
 }
 
+select {
+	padding: 0.2em 1.2em;
+	background-color: var(--button-background);
+	border: 0.14em solid var(--button-outline);
+	border-radius: 0.5em;
+}
+
 button.rounded {
 	border-radius: 0.6em;
 }

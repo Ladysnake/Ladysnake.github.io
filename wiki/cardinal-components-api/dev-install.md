@@ -11,6 +11,15 @@ mechanism provided by the Fabric toolchain to include Cardinal Components in you
 
 Unless specified otherwise, the following block must be added to your `build.gradle` **after** the relevant `repositories` block:
 
+<label for="select-mcversion">Select a Minecraft Version:</label>
+<select id="select-mcversion" class="mc-version-select" name="select-mcversion" disabled>
+<option>Loading...</option>
+</select>
+<script type="module">
+import * as ModrinthApi from '/scripts/modrinth-api.js';
+ModrinthApi.setUpSmartBuildscript("K01OU20C");
+</script>
+
 {% capture groovy %}
 `gradle.properties`:
 ```properties
