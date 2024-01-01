@@ -14,6 +14,8 @@ The version strings may be invalid maven identifiers, as they are currently pull
 blabber_version = <BLABBER_VERSION>
 # Cardinal Components
 cca_version = <CCA_VERSION>
+# Cloth Config API
+cloth_config_version = <CLOTH_VERSION>
 # EMI
 emi = "<EMI_VERSION>"
 # Mod Menu
@@ -29,6 +31,8 @@ rei = "<REI_VERSION>"
 blabber_version = <BLABBER_VERSION>
 # Cardinal Components
 cca_version = <CCA_VERSION>
+# Cloth Config API
+cloth_config_version = <CLOTH_VERSION>
 # EMI
 emi = "<EMI_VERSION>"
 # Mod Menu
@@ -45,6 +49,8 @@ rei = "<REI_VERSION>"
 blabber = "<BLABBER_VERSION>"
 # Cardinal Components API
 cca = "<CCA_VERSION>"
+# Cloth Config API
+clothConfig = "<CLOTH_VERSION>"
 # EMI
 emi = "<EMI_VERSION>"
 # Mod Menu
@@ -54,8 +60,9 @@ rei = "<REI_VERSION>"
 
 [libraries]
 blabber = { module = "org.ladysnake:blabber", version.ref = "blabber" }
-cca-base = { module = "dev.onyxstudios.cardinal-components-api:cardinal-components-base", version.ref = "cardinalComponentsApi" }
-cca-entity = { module = "dev.onyxstudios.cardinal-components-api:cardinal-components-entity", version.ref = "cardinalComponentsApi" }
+cca-base = { module = "dev.onyxstudios.cardinal-components-api:cardinal-components-base", version.ref = "cca" }
+cca-entity = { module = "dev.onyxstudios.cardinal-components-api:cardinal-components-entity", version.ref = "cca" }
+clothConfig = { module = "me.shedaniel.cloth:cloth-config-fabric", version.ref = "clothConfig"}
 emi = { module = "dev.emi:emi-fabric", version.ref = "emi" }
 modmenu = { module = "com.terraformersmc:modmenu", version.ref = "modmenu"}
 rei-api = { module = "me.shedaniel:RoughlyEnoughItems-api-fabric", version.ref = "rei" }
@@ -65,6 +72,8 @@ rei-api = { module = "me.shedaniel:RoughlyEnoughItems-api-fabric", version.ref =
 {%- assign mods = "" | split: "," | push: blabber %}
 {%- assign cca = "cca:K01OU20C" | split: ":" %}
 {%- assign mods = mods | push: cca %}
+{%- assign cloth = "cloth:9s6osm5g" | split: ":" %}
+{%- assign mods = mods | push: cloth %}
 {%- assign emi = "emi:fRiHVvU7" | split: ":" %}
 {%- assign mods = mods | push: emi %}
 {%- assign modmenu = "modmenu:mOgUt4GM" | split: ":" %}
