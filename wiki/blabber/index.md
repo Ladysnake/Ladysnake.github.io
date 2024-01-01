@@ -374,7 +374,7 @@ dependencies {
 }
 ```
 {% endcapture %}
-{%- include tabbed_builscript.liquid groovy=groovy kts=kts catalogue=catalogue %}
+{%- include tabbed_builscript.liquid mod1="blabber:2oRMVFgd" mod2="cca:K01OU20C" groovy=groovy kts=kts catalogue=catalogue %}
 
 
 You can find the current version of Blabber in the [releases](https://github.com/Ladysnake/Blabber/releases) tab of the repository on Github,

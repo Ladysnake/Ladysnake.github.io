@@ -14,6 +14,10 @@ function handleRequestTask(req) {
     });
 }
 
+export const compareMcVersions = (a, b) => {
+    return b[1].mcVersion.releaseTime - a[1].mcVersion.releaseTime;
+};
+
 /**
  * @typedef {Object} ModrinthVersion
  * @property {string} name
@@ -84,5 +88,5 @@ export async function getVersions(modrinthProjectId) {
             isSnapshot: pistonMeta.get(id)?.type !== 'release',
         },
         modVersions: versions,
-    }])).sort((a, b) => b[1].mcVersion.releaseTime - a[1].mcVersion.releaseTime));
+    }])).sort(compareMcVersions));
 }

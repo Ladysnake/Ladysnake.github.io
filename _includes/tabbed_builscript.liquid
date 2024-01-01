@@ -12,12 +12,15 @@
 {%- if include.mods %}
 {%- assign mods = include.mods %}
 {%- else %}
-{%- assign mods = "" | split: "," | push: include.mod1 %}
+{%- assign mod1 = include.mod1 | split: ":" %}
+{%- assign mods = "" | split: "," | push: mod1 %}
 {%- if include.mod2 %}
-{%- assign mods = mods | push: include.mod2 %}
+{%- assign mod2 = include.mod2 | split: ":" %}
+{%- assign mods = mods | push: mod2 %}
 {%- endif %}
 {%- if include.mod3 %}
-{%- assign mods = mods | push: include.mod3 %}
+{%- assign mod3 = include.mod3 | split: ":" %}
+{%- assign mods = mods | push: mod3 %}
 {%- endif %}
 {%- endif %}
 {%- capture result %}
@@ -25,9 +28,19 @@
 {%- endcapture %}
 {% for mod in mods %}
 {%- capture result %}
-{%- capture replacement_key %}&lt;{% if mods.size > 1 %}{{ mod | upcase }}_{% endif %}VERSION&gt;{% endcapture %}
-{%- capture replacement %}<span class="mod-version-{{ mod }}">{{ replacement_key }}</span>{% endcapture %}
+{%- capture replacement_key %}&lt;{% if mods.size > 1 %}{{ mod[0] | upcase }}_{% endif %}VERSION&gt;{% endcapture %}
+{%- capture replacement %}<span class="mod-version-{{ mod[0] }}">{{ replacement_key }}</span>{% endcapture %}
 {{ result | replace: replacement_key, replacement }}
 {%- endcapture %}
 {% endfor %}
+{% if mods.size > 0 and mods[0].size > 1 %}
+<label for="select-mcversion">Select a Minecraft Version:</label>
+<select id="select-mcversion" class="mc-version-select" name="select-mcversion" disabled>
+    <option>Loading...</option>
+</select>
+<script type="module">
+import {setUpSmartBuildscript} from "/scripts/smart-buildscript.js";
+setUpSmartBuildscript({ {% for mod in mods %}{{ mod[0] }}: '{{ mod[1] }}'{% unless forloop.last %}, {% endunless %}{% endfor %} });
+</script>
+{% endif %}
 {{ result }}

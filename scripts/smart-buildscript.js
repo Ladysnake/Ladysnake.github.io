@@ -1,4 +1,4 @@
-import { getVersions } from "./modrinth-api.js";
+import {compareMcVersions, getVersions} from "./modrinth-api.js";
 
 /**
  * @typedef {Object} McIndexedVersion
@@ -16,7 +16,7 @@ function pickDefaultVersion(versions) {
         return versions.get(pinned);
     }
 
-    return versions[0];
+    return versions.values().next().value;
 }
 
 /**
@@ -36,15 +36,7 @@ function indexVersions(projectVersions) {
             result.get(mcVersionId).modVersions.set(mod, modVersions);
         }
     }
-    if (projectVersions.length > 1) {
-        // iterate again to prune every version that is lacking one of the mods
-        for (const [mcVersion, mods] of result) {
-            if (mods.size < projectVersions.length) { // missing one or more mods
-                result.delete(mcVersion);
-            }
-        }
-    }
-    return result;
+    return new Map([...result].sort(compareMcVersions));
 }
 
 function doReplace(modName, version = 'VERSION') {
@@ -55,35 +47,35 @@ function doReplace(modName, version = 'VERSION') {
 
 /**
  * @param {McIndexedVersion} version
+ * @param {string[]} mods
  * @param {boolean?} pin
  */
-function selectVersion(version, pin) {
+function selectVersion(version, mods, pin) {
     // update the window URL to include the selected version
-    const state = history.state;
-    const title = document.title;
     if (pin) {
         const url = new URL(window.location.href);
         url.searchParams.set('version', version.mcVersion.id);
-        history.replaceState(state, title, url);
+        history.replaceState(history.state, document.title, url);
     }
 
     // replace the version in the buildscript
-    for (const [modName, modVersions] of version.modVersions) {
-        doReplace(modName, modVersions[0]?.name);
+    for (const modName of mods) {
+        doReplace(modName, version.modVersions.get(modName)?.[0]?.name ?? `<${modName.toLocaleUpperCase()}_VERSION>`);
     }
 }
 
 /**
  * @param {Map<string, McIndexedVersion>} projectVersions
+ * @param {string[]} mods
  */
-function updateVersionSelects(projectVersions) {
+function updateVersionSelects(projectVersions, mods) {
     const showPreReleases = document.getElementById('include-prereleases')?.checked || false;
     /** @type {Map<string, McIndexedVersion>} */
     const validVersions = new Map([...projectVersions].filter(([_, { mcVersion }]) => showPreReleases || !mcVersion.isSnapshot));
 
     const selectedVersion = pickDefaultVersion(validVersions);
     if (selectedVersion) {
-        selectVersion(selectedVersion);
+        selectVersion(selectedVersion, mods);
     }
     for (const versionSelect of document.getElementsByClassName('mc-version-select')) {
         versionSelect.value = selectedVersion?.id;
@@ -103,6 +95,7 @@ function updateVersionSelects(projectVersions) {
  * @returns {Promise<void>}
  */
 export async function setUpSmartBuildscript(modrinthProjectIds) {
+    const mods = Object.keys(modrinthProjectIds);
     const projectVersions = indexVersions(await Promise.all(
         Object.entries(modrinthProjectIds).map(
             ([mod, modrinthProjectId]) =>
@@ -113,10 +106,10 @@ export async function setUpSmartBuildscript(modrinthProjectIds) {
     for (const versionSelect of document.getElementsByClassName('mc-version-select')) {
         versionSelect.addEventListener('change', () => {
             if (projectVersions.has(versionSelect.value)) {
-                selectVersion(projectVersions.get(versionSelect.value), true);
+                selectVersion(projectVersions.get(versionSelect.value), mods, true);
             }
         });
     }
 
-    updateVersionSelects(projectVersions);
+    updateVersionSelects(projectVersions, mods);
 }
