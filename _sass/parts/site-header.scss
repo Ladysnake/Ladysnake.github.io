@@ -199,3 +199,14 @@
 	vertical-align: middle;
 	cursor: pointer;
 }
+
+.download-notice {
+	@extend .admonition;
+	@extend .admonition-warning;
+
+	display: inline-block;
+	max-width: 15em;
+	line-height: 95%;
+	font-size: 80%;
+	margin-bottom: 0.8em;
+}
