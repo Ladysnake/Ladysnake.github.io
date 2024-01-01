@@ -60,7 +60,7 @@ function selectVersion(version, mods, pin) {
 
     // replace the version in the buildscript
     for (const modName of mods) {
-        doReplace(modName, version.modVersions.get(modName)?.filter((v) => v.loaders.includes('fabric') || v.loaders.includes('quilt'))?.[0]?.name ?? `<${modName.toLocaleUpperCase()}_VERSION>`);
+        doReplace(modName, version.modVersions.get(modName)?.filter((v) => v.loaders.includes('fabric') || v.loaders.includes('quilt'))?.[0]?.version ?? `<${modName.toLocaleUpperCase()}_VERSION>`);
     }
 }
 
