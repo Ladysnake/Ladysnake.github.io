@@ -3,6 +3,7 @@ layout: wiki
 title: Rat's Mischief
 slug: rats-mischief
 curse_project: 431787
+modrinth: true
 ---
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -78,7 +79,7 @@ td {border: 1px solid dimgrey; padding: 5px}
 {% capture content %}
 
 <video width="720" height="450" controls muted>
-    <source src="rats-mischief/Ratification.mp4" type="video/mp4" />
+    <source src="Ratification.mp4" type="video/mp4" />
     Your browser does not support the video tag.
 </video>
 
@@ -108,7 +109,7 @@ Naturally spawning rats will always be either a Wild Rat or a Golden Rat.
 - **Wild Rat**
 - **Golden Rat** (spawn chance of 1 in 150)
 
-![Natural Rat Types](rats-mischief/NaturalRatTypes.png) 
+![Natural Rat Types](NaturalRatTypes.png) 
 
 #### Pet Rat Types
 
@@ -122,7 +123,7 @@ Pet rats can be obtained by breeding wild rats. Their offsprings will then be 1 
 - **Chocolate**
 - **Black**
 
-![Pet Rat Types](rats-mischief/PetRatTypes.png)
+![Pet Rat Types](PetRatTypes.png)
 
 #### Special Rat Types
 
@@ -152,21 +153,21 @@ Renaming rats with the following names will give them a new, special appearance 
 
   Rat Kids are an especially special rat type as they can be dyed just like sheep in order to variate their skins, resulting in 16 different versions. Breeding 2 Rat Kids will also spawn a new, unnamed Rat Kid instead of a normal pet rat.
 
-![Special Rat Types](rats-mischief/SpecialRatTypes.png) 
+![Special Rat Types](SpecialRatTypes.png) 
 
-![Rat Kid Types](rats-mischief/RatKidTypes.png)
+![Rat Kid Types](RatKidTypes.png)
 
 ### Elytrats
 
 Elytrats are a special rat variant, acquired by equipping rats with the elytrat item, crafted as shown below. Equip/unequip a rat by simply shift-using the rat with the elytrat/bare fist. Normal rats will also equip elytrats upon picking them up from the floor.
 
-![Elytrat Recipe](rats-mischief/ElytratRecipe.png)
+![Elytrat Recipe](ElytratRecipe.png)
 
 Elytrats can and will fly to attack enemies and to follow you on your airborne adventures! Just as any other rat they can be picked up with rat pouches. Elytrats also feature custom elytra textures for special rat types and the golden rat.
 
-![Elytrat](rats-mischief/Elytrat.png)
+![Elytrat](Elytrat.png)
 
-![Elytrat Formation](rats-mischief/ElytratFormation.png)
+![Elytrat Formation](ElytratFormation.png)
 
 ### Accessories
 
@@ -185,11 +186,11 @@ Rat pouches can be used to quickly gather rats back. Using a pouch on a rat will
 Pouches can be crafted like bundles with leather, twisted vines and popped chorus fruit, to produce respectively pouches with a capacity of 5, 10 and 20 rats.
 Rats stored in Pouches won't age, meaning they will keep status effects, health, their variant and names.
 
-![Leather Pouch Recipe](rats-mischief/LeatherPouchRecipe.png)
+![Leather Pouch Recipe](LeatherPouchRecipe.png)
 
-![Twisted Pouch Recipe](rats-mischief/TwistedPouchRecipe.png)
+![Twisted Pouch Recipe](TwistedPouchRecipe.png)
 
-![Purpur Pouch Recipe](rats-mischief/PurpurPouchRecipe.png)
+![Purpur Pouch Recipe](PurpurPouchRecipe.png)
 
 
 #### Mask of Rat
@@ -200,7 +201,7 @@ The person wearing this mask will not be able to harm wild or tamed rats and all
 
 This item can be repaired in an anvil using phantom membranes.
 
-![Mask Of Rat](rats-mischief/MaskOfRat.png)
+![Mask Of Rat](MaskOfRat.png)
 
 ## FAQ
 
@@ -223,7 +224,8 @@ Sorry, we **don't** port our mods to forge or backport them for various reasons.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It ain&#39;t much but it&#39;s honest work <a href="https://t.co/vILMVJ3mBn">pic.twitter.com/vILMVJ3mBn</a></p>&mdash; RAT (@doctor4t_) <a href="https://twitter.com/doctor4t_/status/1358888046435958791?ref_src=twsrc%5Etfw">February 8, 2021</a></blockquote>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Rats make fine herbalists too! <a href="https://t.co/OxESLzNmhX">pic.twitter.com/OxESLzNmhX</a></p>&mdash; RAT (@doctor4t_) <a href="https://twitter.com/doctor4t_/status/1359138165672583169?ref_src=twsrc%5Etfw">February 9, 2021</a></blockquote>
-![Flat Rat](rats-mischief/FlatRat.png)
-![Rat Offering](rats-mischief/RatOffering.png)
-![Ratater](rats-mischief/Ratater.png)
-![Rat Party](rats-mischief/RatParty.png)
+
+![Flat Rat](FlatRat.png)
+![Rat Offering](RatOffering.png)
+![Ratater](Ratater.png)
+![Rat Party](RatParty.png)

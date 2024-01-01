@@ -3,6 +3,7 @@ title: Effective
 slug: effective
 layout: wiki
 curse_project: 556381
+modrinth: true
 ---
 
 **Effective**  is a client-side Fabric mod that adds  various visual and auditory effects lacking in Vanilla Minecraft 
@@ -10,9 +11,9 @@ to improve overall ambience and feel of the game.
 Currently, it adds water  and lava splashes to entities falling in liquids, as well as cascade
 visual and sound effects.
 
-See also [the Illuminations documentation](illuminations) for more features that have been integrated into the mod.
+See also [the Illuminations documentation](../illuminations) for more features that have been integrated into the mod.
 
-![Cascade showcase](effective/cascade_showcase.jpg){:.wiki .rounded}
+![Cascade showcase](cascade_showcase.jpg){:.wiki .rounded}
 
 ## Showcase Videos
 
