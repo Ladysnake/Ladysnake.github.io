@@ -77,7 +77,12 @@ export async function getVersions(modrinthProjectId) {
                 versions.set(gameVersion, []);
             }
 
-            versions.get(gameVersion).push({ version: modrinthVersion.version_number, name: modrinthVersion.name, modrinthId: modrinthVersion.id });
+            versions.get(gameVersion).push({
+                version: modrinthVersion.version_number,
+                name: modrinthVersion.name,
+                modrinthId: modrinthVersion.id,
+                loaders: modrinthVersion.loaders,
+            });
         });
     });
 
