@@ -16,8 +16,8 @@ Unless specified otherwise, the following block must be added to your `build.gra
 <option>Loading...</option>
 </select>
 <script type="module">
-import * as ModrinthApi from '/scripts/modrinth-api.js';
-ModrinthApi.setUpSmartBuildscript("K01OU20C");
+import {setUpSmartBuildscript} from "/scripts/smart-buildscript.js";
+setUpSmartBuildscript({cca: "K01OU20C"});
 </script>
 
 {% capture groovy %}
@@ -77,7 +77,7 @@ dependencies {
 }
 ```
 {% endcapture %}
-{%- include tabbed_builscript.liquid groovy=groovy kts=kts catalogue=catalogue %}
+{%- include tabbed_builscript.liquid mod1="cca" groovy=groovy kts=kts catalogue=catalogue %}
 
 
 ## Ladysnake Reposilite

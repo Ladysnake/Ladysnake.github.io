@@ -9,5 +9,25 @@
 {% endcapture %}
 {%- assign tab_names = "" | split: "," | push: groovy_title | push: kts_title | push: catalogue_title %}
 {%- assign tabs = "" | split: "," | push: include.groovy | push: include.kts | push: include.catalogue %}
-
+{%- if include.mods %}
+{%- assign mods = include.mods %}
+{%- else %}
+{%- assign mods = "" | split: "," | push: include.mod1 %}
+{%- if include.mod2 %}
+{%- assign mods = mods | push: include.mod2 %}
+{%- endif %}
+{%- if include.mod3 %}
+{%- assign mods = mods | push: include.mod3 %}
+{%- endif %}
+{%- endif %}
+{%- capture result %}
 {%- include tabbed.liquid key="buildscript" tab_names=tab_names tabs=tabs %}
+{%- endcapture %}
+{% for mod in mods %}
+{%- capture result %}
+{%- capture replacement_key %}&lt;{% if mods.size > 1 %}{{ mod | upcase }}_{% endif %}VERSION&gt;{% endcapture %}
+{%- capture replacement %}<span class="mod-version-{{ mod }}">{{ replacement_key }}</span>{% endcapture %}
+{{ result | replace: replacement_key, replacement }}
+{%- endcapture %}
+{% endfor %}
+{{ result }}

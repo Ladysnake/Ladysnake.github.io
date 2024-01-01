@@ -16,7 +16,7 @@
       {% if forloop.first %}checked{% endif %}>
     <label for="{{ tabbed_id }}-tab{{ forloop.index }}" style="grid-area: tab{{ forloop.index }}">{{ tab_name }}</label>
     <div id="{{ panel_id }}" role="tabpanel">
-      {{ tab | markdownify | replace: '&lt;VERSION&gt;', '<span class="mod-version">&lt;VERSION&gt;</span>' }}
+      {{ tab | markdownify }}
     </div>
   {% endfor %}
 </fieldset>
