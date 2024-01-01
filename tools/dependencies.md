@@ -7,6 +7,9 @@ This page is here to help us quickly find dependency versions we often use in ou
 The version strings may be invalid maven identifiers, as they are currently pulled from Modrinth.
 {:.admonition .admonition-warning}
 
+- [Fabric dependency helper](https://fabricmc.net/develop/)
+- [Quilt dependency helper](https://lambdaurora.dev/tools/import_quilt.html)
+
 {% capture groovy %}
 `gradle.properties`:
 ```properties
