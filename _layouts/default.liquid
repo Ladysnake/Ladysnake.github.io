@@ -39,10 +39,15 @@
                 <span class="dropdown-backdrop"></span>
                 <ul id="mod-list-dropdown" class="dropdown-menu">
                     {% for mod in site.mods %}
+                        {% unless mod.discontinued %}
                         <li class="dropdown-item"><a href="{{ mod.link }}" title="{{ mod.title }}">{{ mod.title }}</a></li>
+                        {% endunless %}
                     {% endfor %}
                     <li>
                         <hr/>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="/#discontinued-mods" title="Discontinued Mods">Discontinued Mods</a>
                     </li>
                     <!-- Will be adding Fabric libraries here "shortly" -->
                 </ul>

@@ -9,7 +9,7 @@ layout: default
 {%- assign mods = site.mods | where_exp: "mod", "mod.discontinued != true" -%}
 {% include mod_listing.liquid mods=mods %}
 <hgroup>
-	<h2 class="section-title home">Discontinued Mods</h2>
+	<h2 id="discontinued-mods" class="section-title home">Discontinued Mods</h2>
 	<p class="section-description home">Minecraft mods that we no longer maintain for various reasons</p>
 </hgroup>
 {%- assign mods = site.mods | where_exp: "mod", "mod.discontinued" -%}
