@@ -33,6 +33,8 @@ rei_version = <REI_VERSION>
 satin_version = <SATIN_VERSION>
 # Sodium (rendering optimizations)
 sodium_version = <SODIUM_VERSION>
+# Trinkets
+trinkets_version = <TRINKETS_VERSION>
 ```
 {% endcapture %}
 {% capture catalogue %}
@@ -59,6 +61,8 @@ rei = "<REI_VERSION>"
 satin = "<SATIN_VERSION>"
 # Sodium (rendering optimizations)
 sodium = "<SODIUM_VERSION>"
+# Trinkets
+trinkets = "<TRINKETS_VERSION>"
 
 [libraries]
 blabber = { module = "org.ladysnake:blabber", version.ref = "blabber" }
@@ -72,6 +76,7 @@ modmenu = { module = "com.terraformersmc:modmenu", version.ref = "modmenu"}
 rei-api = { module = "me.shedaniel:RoughlyEnoughItems-api-fabric", version.ref = "rei" }
 satin = { module = "org.ladysnake:satin", version.ref = "satin" }
 sodium = { module = "maven.modrinth:sodium", version.ref = "sodium" }
+trinkets = { module = "dev.emi:trinkets", version.ref = "trinkets" }
 ```
 {% endcapture %}
 {%- assign blabber = "blabber:2oRMVFgd" | split: ":" %}
@@ -94,4 +99,6 @@ sodium = { module = "maven.modrinth:sodium", version.ref = "sodium" }
 {%- assign mods = mods | push: satin %}
 {%- assign sodium = "sodium:AANobbMI" | split: ":" %}
 {%- assign mods = mods | push: sodium %}
+{%- assign trinkets = "trinkets:5aaWibi9" | split: ":" %}
+{%- assign mods = mods | push: trinkets %}
 {%- include tabbed_builscript.liquid mods=mods groovy=kts kts=kts catalogue=catalogue %}
