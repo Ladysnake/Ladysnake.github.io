@@ -21,6 +21,8 @@ cca_version = <CCA_VERSION>
 cloth_config_version = <CLOTH_VERSION>
 # EMI
 emi_version = <EMI_VERSION>
+# Geckolib (entity animations)
+geckolib_version = <GECKOLIB_VERSION>
 # Iris (shaders mod)
 iris_version = <IRIS_VERSION>
 # Midnight Lib (config)
@@ -49,6 +51,8 @@ cca = "<CCA_VERSION>"
 clothConfig = "<CLOTH_VERSION>"
 # EMI
 emi = "<EMI_VERSION>"
+# Geckolib
+geckolib = "<GECKOLIB_VERSION>"
 # Iris (shaders mod)
 iris = "<IRIS_VERSION>"
 # Midnight Lib (config)
@@ -70,6 +74,7 @@ cca-base = { module = "dev.onyxstudios.cardinal-components-api:cardinal-componen
 cca-entity = { module = "dev.onyxstudios.cardinal-components-api:cardinal-components-entity", version.ref = "cca" }
 clothConfig = { module = "me.shedaniel.cloth:cloth-config-fabric", version.ref = "clothConfig"}
 emi = { module = "dev.emi:emi-fabric", version.ref = "emi" }
+geckolib = { module = "software.bernie.geckolib:geckolib-fabric-1.20.1", version.ref = "geckolib" }
 iris = { module = "maven.modrinth:iris", version.ref = "iris" }
 midnightLib = { module = "maven.modrinth:midnightlib", version.ref = "midnightLib" }
 modmenu = { module = "com.terraformersmc:modmenu", version.ref = "modmenu"}
@@ -87,6 +92,8 @@ trinkets = { module = "dev.emi:trinkets", version.ref = "trinkets" }
 {%- assign mods = mods | push: cloth %}
 {%- assign emi = "emi:fRiHVvU7" | split: ":" %}
 {%- assign mods = mods | push: emi %}
+{%- assign geckolib = "geckolib:8BmcQJ2H" | split: ":" %}
+{%- assign mods = mods | push: geckolib %}
 {%- assign iris = "iris:YL57xq9U" | split: ":" %}
 {%- assign mods = mods | push: iris %}
 {%- assign midnight = "midnight:codAaoxh" | split: ":" %}
