@@ -24,7 +24,7 @@ import BlabberDialogue from "./blabber-dialogue.js";
     exportButton.disabled = true;
     startInput.disabled = true;
     startInput.addEventListener('change', e => dialogue.startAt(e.target.value));
-    unskippableInput.addEventListener('change', e => dialogue.unskippable(e.target.value));
+    unskippableInput.addEventListener('change', e => dialogue.unskippable(e.target.checked));
     dialogueLayoutInputs.forEach((e) => e.addEventListener('change', (ev) => {
         dialogue.layout(document.querySelector('input[name=dialogue-layout]:checked').value);
     }))
