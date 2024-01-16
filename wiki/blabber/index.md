@@ -129,7 +129,6 @@ Here is an example of conditional choices in JSON:
 ```json
 {
   "text": "I have money.",
-  "illustration": "emerald",
   "next": "barter",
   "only_if": {
     "predicate": "babblings:holding_emerald",
@@ -147,7 +146,6 @@ Here is an example of conditional choices in JSON:
 ```json
 {
   "text": "I have money.",
-  "illustration": "emerald",
   "next": "barter",
   "only_if": {
     "predicate": "babblings:holding_emerald",
