@@ -134,7 +134,7 @@ Here is an example of conditional choices in JSON:
   "only_if": {
     "predicate": "babblings:holding_emerald",
     "when_unavailable": {
-      "display": "gray_out",
+      "display": "grayed_out",
       "message": "You must be holding an emerald to pick this option."
     }
   }

@@ -79,7 +79,7 @@
                       "type": "object",
                       "properties": {
                         "action": {
-                          "enum": ["gray_out", "hide"]
+                          "enum": ["grayed_out", "hide"]
                         },
                         "message": {
                           "description": "The message to display for why the choice is unavailable. Only applicable if the action is gray_out.",
