@@ -9,12 +9,13 @@ export function initTooltips() {
             document.body.appendChild(tooltip);
         })
         el.addEventListener('mousemove', (event) => {
-            tooltip.style.top = `${event.clientY - 30}px`;
-            tooltip.style.left = `${event.clientX + 10}px`;
             title.textContent = el.dataset.minetipTitle;
+            const { width: tooltipWidth, height: tooltipHeight } = tooltip.getBoundingClientRect();
+            tooltip.style.top = `${Math.min(event.clientY - 30, document.body.clientHeight - tooltipHeight - 10)}px`;
+            tooltip.style.left = `${Math.min(event.clientX + 10, document.body.clientWidth - tooltipWidth - 10)}px`;
         });
-        el.addEventListener('mouseleave', (event) => {
+        el.addEventListener('mouseleave', () => {
             document.body.removeChild(tooltip);
         });
-    })
+    });
 }
