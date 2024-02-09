@@ -1,0 +1,13 @@
+{%- assign item = site.data.minecraft.items[include.item] -%}
+<span class="invslot{% if include.large %} invslot-large{% endif %}">
+{%- if item -%}
+<span class="invslot-item invslot-item-image" data-minetip-title="{{ item.name }}">
+{%- if item.link -%}<a href="{{ item.link }}">{%- endif -%}
+<img alt="Invicon {{ item.name }}.png: Inventory sprite for {{ item.name }} in Minecraft as shown in-game linking to {{ item.name }} with description: {{ item.name }}"
+ src="{{ item.icon }}" decoding="async" loading="lazy" width="32"
+ height="32">
+{%- if item.link -%}</a>{%- endif -%}
+{%- if include.count > 1 -%}<span class="invslot-stacksize">{{ include.count }}</span>{%- endif -%}
+</span>
+{%- endif -%}
+</span>

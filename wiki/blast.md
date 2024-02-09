@@ -46,9 +46,15 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 <p>Exceptions are bedrock, barriers, end portal frames, and other admin-exclusive blocks.</p>
 </td></tr>
 <tr>
-<td><img src="/wiki/blast/RecipeBomb.png" /></td>
-<td><img src="/wiki/blast/RecipeGoldBomb.png" /></td>
-<td><img src="/wiki/blast/RecipeDiamondBomb.png" /></td>
+<td>
+{% include mc/crafting.liquid i1="minecraft:gunpowder" i2="minecraft:iron_ingot" i3="minecraft:string" result="blast:bomb" count=4 %}
+</td>
+<td>
+{% include mc/crafting.liquid i1="minecraft:gunpowder" i2="minecraft:gold_ingot" i3="minecraft:string" result="blast:golden_bomb" count=4 %}
+</td>
+<td>
+{% include mc/crafting.liquid i1="minecraft:gunpowder" i2="minecraft:diamond" i3="minecraft:string" result="blast:diamond_bomb" count=4 %}
+</td>
 </tr>
 <tr><th rowspan=2 style="transform:rotate(270deg)">Trigger</th><td>
 <h4>Trigger Bomb</h4>

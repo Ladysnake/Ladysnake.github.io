@@ -1,0 +1,33 @@
+"blast:bomb":
+  name: Bomb
+  icon: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources/assets/blast/textures/item/bomb.png
+"blast:golden_bomb":
+  name: Golden Bomb
+  icon: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources/assets/blast/textures/item/golden_bomb.png
+"blast:diamond_bomb":
+  name: Diamond Bomb
+  icon: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources/assets/blast/textures/item/diamond_bomb.png
+"minecraft:diamond":
+  name: Diamond
+  link: https://minecraft.wiki/w/Diamond
+  icon: https://minecraft.wiki/images/Invicon_Diamond.png
+"minecraft:gold_ingot":
+  name: Gold Ingot
+  link: https://minecraft.wiki/w/Gold_Ingot
+  icon: https://minecraft.wiki/images/Invicon_Gold_Ingot.png
+"minecraft:gunpowder":
+  name: Gunpowder
+  link: https://minecraft.wiki/w/Gunpowder
+  icon: https://minecraft.wiki/images/Invicon_Gunpowder.png
+"minecraft:iron_ingot":
+  name: Iron Ingot
+  link: https://minecraft.wiki/w/Iron_Ingot
+  icon: https://minecraft.wiki/images/Invicon_Iron_Ingot.png
+"minecraft:redstone":
+  name: Redstone Dust
+  link: https://minecraft.wiki/w/Redstone_Dust
+  icon: https://minecraft.wiki/images/Invicon_Redstone.png
+"minecraft:string":
+  name: String
+  link: https://minecraft.wiki/w/String
+  icon: https://minecraft.wiki/images/Invicon_String.png

@@ -1,0 +1,20 @@
+{%- assign slots = "" | split: ","
+        | push: include.i1
+        | push: include.i2
+        | push: include.i3
+        | push: include.i4
+        | push: include.i5
+        | push: include.i6
+        | push: include.i7
+        | push: include.i8
+        | push: include.i9
+-%}
+<div class="mcui crafting-table">
+<img class="mcui-background" src="/img/wiki-crafting-recipe.png" alt="Crafting recipe" height="198" width="450"/>
+<div class="crafting-grid">
+{%- for slot in slots -%}
+{%- include mc/inventory_slot.liquid item=slot -%}
+{%- endfor -%}
+</div>
+{%- include mc/inventory_slot.liquid item=include.result count=include.count large="true"-%}
+</div>
