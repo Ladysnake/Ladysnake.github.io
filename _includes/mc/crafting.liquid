@@ -13,8 +13,9 @@
 <img class="mcui-background" src="/img/wiki-crafting-recipe.png" alt="Crafting recipe" height="198" width="450"/>
 <div class="crafting-grid">
 {%- for slot in slots -%}
-{%- include mc/inventory_slot.liquid item=slot -%}
+{%- capture alt_prefix-%}Ingredient {{ forloop.index }}: {% endcapture -%}
+{%- include mc/inventory_slot.liquid item=slot alt_prefix=alt_prefix -%}
 {%- endfor -%}
 </div>
-{%- include mc/inventory_slot.liquid item=include.result count=include.count large="true"-%}
+{%- include mc/inventory_slot.liquid item=include.result count=include.count alt_prefix="Result: " large="true"-%}
 </div>
