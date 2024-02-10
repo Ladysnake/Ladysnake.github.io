@@ -2,11 +2,6 @@
 
 @import "../mixins";
 
-@font-face {
-  font-family: "Minecraft";
-  src: local("Minecraft"), url("/fonts/Minecraft.woff2") format("woff2");
-}
-
 .invslot {
   position: relative;
   display: inline-block;

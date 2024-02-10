@@ -8,6 +8,11 @@
 @import "./parts/site-header.scss";
 @import "./parts/dropdown.scss";
 
+@font-face {
+	font-family: "Minecraft";
+	src: local("Minecraft"), url("{{ site.baseurl }}/fonts/Minecraft.woff2") format("woff2");
+}
+
 :root {
 	--color-primary: #1abc9c;
 	--color-success: #2ecc71;
