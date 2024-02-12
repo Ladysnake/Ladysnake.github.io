@@ -275,7 +275,7 @@ Download the
 <a href="textanimator-blabber-demo.mp4">MP4</a>
 video.
 </video>
-<figcaption>Text animator with Blabber and Heracles demo (warning: movement and color flashes)</figcaption>
+<figcaption>Text animator with Blabber demo (warning: movement and color flashes)</figcaption>
 </figure>
 
 
