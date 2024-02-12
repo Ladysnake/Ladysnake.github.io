@@ -48,9 +48,9 @@ Each file describes the various states a dialogue can be in.
 
 Here's a super basic example:
 
-<figure style="text-align: center; margin: 2em;">
+<figure class="mediafigure">
 {% include_relative basic-dialogue.svg %}
-<figcaption style="font-style: italic">State diagram for a dialogue with 2 intermediate states and 2 end states</figcaption>
+<figcaption>State diagram for a dialogue with 2 intermediate states and 2 end states</figcaption>
 </figure>
 
 This dialogue has 5 states: `start`, `accept`, `end_success`, `refuse`, and `end_failure`.
@@ -238,7 +238,9 @@ For example:
 
 If you are allergic to code, try this online tool: [blabber dialogue editor](dialogue_generator)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Hm_bQlgqSCQ?si=A5SH8mRNEkGSi14i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="mediafigure">
+<iframe width="672" height="378" src="https://www.youtube.com/embed/Hm_bQlgqSCQ?si=A5SH8mRNEkGSi14i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 ### Validation
 
@@ -266,7 +268,15 @@ to incorporate dialogues into your modpack's or server's quests.
 
 The [Text Animator](https://modrinth.com/mod/text-animator) mod can be used to add special effects to your dialogues' texts :
 
-![Text animator with Blabber demo](https://cdn.modrinth.com/data/HBIG5nRf/images/e15e996bb6b5311bc0c0ae9e71d42a9d07ba9911.webp)
+<figure class="mediafigure">
+<video controls width="650">
+<source src="textanimator-blabber-demo.mp4" type="video/webm" />
+Download the
+<a href="textanimator-blabber-demo.mp4">MP4</a>
+video.
+</video>
+<figcaption>Text animator with Blabber and Heracles demo (warning: movement and color flashes)</figcaption>
+</figure>
 
 
 ## Using Blabber (for developers)
