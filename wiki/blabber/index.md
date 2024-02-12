@@ -48,9 +48,10 @@ Each file describes the various states a dialogue can be in.
 
 Here's a super basic example:
 
-<p>
+<figure style="text-align: center; margin: 2em;">
 {% include_relative basic-dialogue.svg %}
-</p>
+<figcaption style="font-style: italic">State diagram for a dialogue with 2 intermediate states and 2 end states</figcaption>
+</figure>
 
 This dialogue has 5 states: `start`, `accept`, `end_success`, `refuse`, and `end_failure`.
 When a player gets this dialogue, they will first be shown "Do you want potatoes?" with the options "Yes please!" and "No thanks.".
@@ -74,6 +75,18 @@ Here's the JSON file corresponding to what we just described:
 ```
 {% endcapture %}
 {% include details.liquid summary=summary content=example_json %}
+
+#### Text
+
+Texts in dialogues use the [standard minecraft text format](https://minecraft.wiki/w/Raw_JSON_text_format#Java_Edition).
+
+A couple of things to keep in mind :
+
+- you can write `\n` in text literals or translations to make a new line
+- fancy text content like entity selectors should work as expected,
+  however they are resolved only once at the start of a dialogue
+  (which means if you use a "nearest entity" selector and entities around the player move,
+  the selector will keep targeting the one that was closest when the dialogue started)
 
 #### Layout
 
@@ -161,7 +174,8 @@ Here is an example of conditional choices in JSON:
 ### Interlocutors
 
 Of course, dialogues often involve talking to *someone* (or something). Since version 1.2.0, Blabber lets you specify
-an *interlocutor* entity. This relationship can be used in several ways:
+an *interlocutor* entity when starting a dialogue (using an optional argument in the command / in the API).
+This relationship can be used in several ways:
 
 #### In commands and texts
 
@@ -240,6 +254,20 @@ The validation process checks for the following issues and reports them by eithe
 **Warnings:**
 - **Conditional softlock states:** Any state that only has *conditional* paths leading to an ending will be reported. Blabber cannot tell whether a condition will necessarily be fulfilled when getting to such a state, and thus cannot prove that the player *will not* be softlocked.
 - **Unreachable states:** Any state that is disconnected from the main dialogue graph will be reported with a warning message. While they do not cause immediate issues for players, you may want to connect or remove such orphan states.
+
+## Mod Compatibility
+
+### Heracles
+
+The [Heracles](https://modrinth.com/mod/heracles) quest mod can be used with the [Heracles for Blabber](https://modrinth.com/mod/heracles-for-blabber) add-on
+to incorporate dialogues into your modpack's or server's quests.
+
+### Text Animator
+
+The [Text Animator](https://modrinth.com/mod/text-animator) mod can be used to add special effects to your dialogues' texts :
+
+![Text animator with Blabber demo](https://cdn.modrinth.com/data/HBIG5nRf/images/e15e996bb6b5311bc0c0ae9e71d42a9d07ba9911.webp)
+
 
 ## Using Blabber (for developers)
 
