@@ -175,6 +175,17 @@ Here is an example of conditional choices in JSON:
 
 Of course, dialogues often involve talking to *someone* (or something). Since version 1.2.0, Blabber lets you specify
 an *interlocutor* entity when starting a dialogue (using an optional argument in the command / in the API).
+
+{% capture example %}
+```
+blabber dialogue start <dialogue> @s @e[limit=1,sort=nearest]
+```
+{% endcapture %}
+<figure>
+<figcaption>Example command to start a dialogue with the closest entity as interlocutor</figcaption>
+{{ example | markdownify }}
+</figure>
+
 This relationship can be used in several ways:
 
 #### In commands and texts
