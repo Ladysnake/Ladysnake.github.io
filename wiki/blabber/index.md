@@ -112,6 +112,62 @@ The JSON looks like this (goes at the top level, replace `"blabber:classic"` wit
 {% endcapture %}
 {% include details.liquid summary=summary content=example_json %}
 
+#### Illustrations
+
+Starting with version 1.5.0 of Blabber, dialogues can make use of *illustrations* - graphical content that help
+bring them to life 🧑‍🎨
+
+![Example of illustrations, featuring a player talking to an illager](example-illustrations.png){:.rounded.wiki}
+
+Illustrations can be set for a regular dialogue state, or for individual choices within a state.
+In the former case they are positioned relative to the window, in the latter they are positioned relative to the choice's
+text (which is notably useful to keep up with localization shifting those around).
+
+There are currently 3 types of illustrations:
+
+- `blabber:item`: renders an item stack with optional NBT
+- `blabber:entity`: renders an entity taken from the player's world using a selector (compatible with [`@interlocutor`](#interlocutors))
+- `blabber:fake_entity`: renders a fake entity of the desired type, with optional NBT
+
+Here is the JSON object used to create the "conversation" in the above screenshot:
+
+{% capture summary %}<h5 id="example-illustration-json" class="no_anchor">Example Illustration JSON</h5>{% endcapture %}
+{% capture example_json %}
+```json
+{
+  "illustrations": {
+    "discussion": [
+      {
+        "type": "blabber:entity",
+        "entity": "@interlocutor",
+        "x1": 0,
+        "y1": 80,
+        "x2": 100,
+        "y2": 180,
+        "size": 100,
+        "y_offset": 0.5,
+        "stare_at_x": 50,
+        "stare_at_y": 0
+      },
+      {
+        "type": "blabber:entity",
+        "entity": "@s",
+        "x1": 100,
+        "y1": 80,
+        "x2": 200,
+        "y2": 180,
+        "size": 100,
+        "y_offset": 0.5,
+        "stare_at_x": -50,
+        "stare_at_y": 0
+      }
+    ]
+  }
+}
+```
+{% endcapture %}
+{% include details.liquid summary=summary content=example_json %}
+
 #### Conditional choices
 
 So what if you want to add requirements for specific dialogue paths? You could always make a separate dialogue file
