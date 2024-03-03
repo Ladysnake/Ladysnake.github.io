@@ -103,47 +103,6 @@ repositories {
 }
 ```
 
-## Ladysnake artifactory
-
-```gradle
-repositories {
-    maven {
-        name = "Ladysnake Mods"
-        url = 'https://ladysnake.jfrog.io/artifactory/mods'
-    }
-}
-```
-
-This maven repository contained binaries for every version between 3.0.0-21w06a and 5.2.1.
-Due to JFrog Artifactory's free tier shutting down, it is now unavailable.
-
-## Ladysnake bintray
-
-```gradle
-repositories {
-    maven {
-        name = "Ladysnake Libs"
-        url = 'https://dl.bintray.com/ladysnake/libs'
-    }
-}
-```
-
-This maven repository contained binaries for every version between 2.3.5 (MC 1.15) and 2.7.11 (MC 1.16).
-Due to bintray shutting down, it is now unavailable.
-
-## OnyxStudios Maven
-
-The official maven, that contains versions up to 2.3.0:
-
-```gradle
-repositories {
-    maven {
-        name = "OnyxStudios"
-        url = "https://maven.abusedmaster.xyz"
-    }
-}
-```
-
 ## Curseforge
 
 CurseForge is mostly a platform for distributing mods to users.
@@ -158,3 +117,48 @@ as an *embedded library* of your project, for documentation purposes and to make
 Modrinth is also a platform for distributing mods to users, which can also be used as a maven repository by following [the instructions on their website](https://docs.modrinth.com/docs/tutorials/maven/).
 
 Same as with Curseforge, you are encouraged to declare [Cardinal Components API](https://modrinth.com/mod/cardinal-components-api/) as an "Embedded" dependency.
+
+## Historical mavens
+
+These mavens may be referenced in older buildscripts, but cannot be used anymore.
+
+### Ladysnake artifactory
+
+```gradle
+repositories {
+    maven {
+        name = "Ladysnake Mods"
+        url = 'https://ladysnake.jfrog.io/artifactory/mods'
+    }
+}
+```
+
+This maven repository contained binaries for every version between 3.0.0-21w06a and 5.2.1.
+Due to JFrog Artifactory's free tier shutting down, it is now unavailable.
+
+### Ladysnake bintray
+
+```gradle
+repositories {
+    maven {
+        name = "Ladysnake Libs"
+        url = 'https://dl.bintray.com/ladysnake/libs'
+    }
+}
+```
+
+This maven repository contained binaries for every version between 2.3.5 (MC 1.15) and 2.7.11 (MC 1.16).
+Due to bintray shutting down, it is now unavailable.
+
+### OnyxStudios Maven
+
+The former official maven, that contains versions up to 2.3.0:
+
+```gradle
+repositories {
+    maven {
+        name = "OnyxStudios"
+        url = "https://maven.abusedmaster.xyz"
+    }
+}
+```
