@@ -4,6 +4,7 @@ title: Rat's Mischief
 slug: rats-mischief
 curse_project: 431787
 modrinth: true
+recipe_root: https://raw.githubusercontent.com/Ladysnake/RATs-Mischief/2.0/src/main/resources/data/ratsmischief/recipes/
 ---
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -186,12 +187,11 @@ Rat pouches can be used to quickly gather rats back. Using a pouch on a rat will
 Pouches can be crafted like bundles with leather, twisted vines and popped chorus fruit, to produce respectively pouches with a capacity of 5, 10 and 20 rats.
 Rats stored in Pouches won't age, meaning they will keep status effects, health, their variant and names.
 
-![Leather Pouch Recipe](LeatherPouchRecipe.png)
-
-![Twisted Pouch Recipe](TwistedPouchRecipe.png)
-
-![Purpur Pouch Recipe](PurpurPouchRecipe.png)
-
+<figure>
+{% recipe leather_rat_pouch.json %}
+{% recipe twisted_rat_pouch.json %}
+{% recipe purpur_rat_pouch.json %}
+</figure>
 
 #### Mask of Rat
 

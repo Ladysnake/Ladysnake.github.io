@@ -23,6 +23,14 @@
   name: Iron Ingot
   link: https://minecraft.wiki/w/Iron_Ingot
   icon: https://minecraft.wiki/images/Invicon_Iron_Ingot.png
+"minecraft:leather":
+  name: Leather
+  link: https://minecraft.wiki/w/Leather
+  icon: https://minecraft.wiki/images/Invicon_Leather.png
+"minecraft:popped_chorus_fruit":
+  name: Popped Chorus Fruit
+  link: https://minecraft.wiki/w/Popped_Chorus_Fruit
+  icon: https://minecraft.wiki/images/Invicon_Popped_Chorus_Fruit.png
 "minecraft:redstone":
   name: Redstone Dust
   link: https://minecraft.wiki/w/Redstone_Dust
@@ -31,3 +39,16 @@
   name: String
   link: https://minecraft.wiki/w/String
   icon: https://minecraft.wiki/images/Invicon_String.png
+"minecraft:twisting_vines":
+  name: Twisting Vines
+  link: https://minecraft.wiki/w/Twisting_Vines
+  icon: https://minecraft.wiki/images/Invicon_Twisting_Vines.png
+"ratsmischief:leather_rat_pouch":
+  name: Leather Pouch
+  icon: https://raw.githubusercontent.com/Ladysnake/RATs-Mischief/2.0/src/main/resources/assets/ratsmischief/textures/item/leather_rat_pouch.png
+"ratsmischief:purpur_rat_pouch":
+  name: Purpur Pouch
+  icon: https://raw.githubusercontent.com/Ladysnake/RATs-Mischief/2.0/src/main/resources/assets/ratsmischief/textures/item/purpur_rat_pouch.png
+"ratsmischief:twisted_rat_pouch":
+  name: Twisted Pouch
+  icon: https://raw.githubusercontent.com/Ladysnake/RATs-Mischief/2.0/src/main/resources/assets/ratsmischief/textures/item/twisted_rat_pouch.png
