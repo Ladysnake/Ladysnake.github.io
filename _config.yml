@@ -1,8 +1,9 @@
 title: Ladysnake's Website
+source: "public"
 markdown: kramdown
 sass:
     style: compressed
-exclude: [README.md, servesite, servesite.bat, flake.nix, flake.lock, gemset.nix]
+exclude: []
 # note that the source attribute is hardcoded by github pages
 collections:
     mods:
