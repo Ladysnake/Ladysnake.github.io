@@ -1,5 +1,6 @@
 title: Ladysnake's Website
-source: "public"
+source: ./public
+plugins_dir: ./jekyll_plugins
 markdown: kramdown
 sass:
     style: compressed

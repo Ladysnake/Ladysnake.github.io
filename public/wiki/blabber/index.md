@@ -296,7 +296,8 @@ If you are a developer, you can use Blabber as a library for your own project by
 
 You can then add the library version to your `gradle.properties`file:
 
-{% capture groovy %}
+{%- buildscript %}
+[- groovy -]
 `gradle.properties`:
 ```properties
 # Blabber
@@ -334,8 +335,8 @@ dependencies {
     include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}"
 }
 ```
-{% endcapture %}
-{% capture kts %}
+
+[- kts -]
 `gradle.properties`:
 ```properties
 # Blabber
@@ -376,8 +377,8 @@ dependencies {
     include("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}")
 }
 ```
-{% endcapture %}
-{% capture catalogue %}
+
+[- catalogue -]
 `libs.versions.toml`:
 ```toml
 [versions]
@@ -420,8 +421,8 @@ dependencies {
     include(libs.bundles.blabber)
 }
 ```
-{% endcapture %}
-{%- include tabbed_builscript.liquid mod1="blabber:2oRMVFgd" mod2="cca:K01OU20C" groovy=groovy kts=kts catalogue=catalogue %}
+
+{%- endbuildscript [blabber:2oRMVFgd], [cca:K01OU20C] -%}
 
 
 You can find the current version of Blabber in the [releases](https://github.com/Ladysnake/Blabber/releases) tab of the repository on Github,

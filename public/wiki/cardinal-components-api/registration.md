@@ -18,7 +18,15 @@ To register a component, you must first **declare your component's identifier** 
 
 *Note: It is safe to declare a component type that belongs to another mod. It is also safe to declare an id that may not be registered at runtime.*
 
-{% capture quilt %}
+{%- capture quilt_title %}
+![Quilt Logo](/img/quilt_logo_transparent.png) On Quilt
+{%- endcapture %}
+{% capture fabric_title %}
+![Fabric Logo](/img/fabric-logo.png) On Fabric
+{% endcapture %}
+
+{% tabbed modloader %}
+[- {{ quilt_title }} -]
 Declare your component's identifier in your `quilt.mod.json` at the top level. This is done by adding the identifier to an array of strings with the key `"cardinal-components"`. For more information on the structure of the `quilt.mod.json` file, refer to the [Quilt RFC](https://github.com/QuiltMC/rfcs/blob/master/specification/0002-quilt.mod.json.md#the-entrypoints-field).
 
 For example, if your mod uses a component with the id `"mymod:magik"`, your `quilt.mod.json` should contain the following custom field (in addition to everything else that is already there) :
@@ -33,8 +41,8 @@ For example, if your mod uses a component with the id `"mymod:magik"`, your `qui
     ]
 }
 ```
-{%- endcapture %}
-{%- capture fabric %}
+
+[- {{ fabric_title}} -]
 Declare your component's identifier in your `fabric.mod.json`'s `custom` properties. This is done by adding the identifier to an array of strings with the key `"cardinal-components"`. For more information on the structure of the `fabric.mod.json` file, refer to the [fabric wiki](https://fabricmc.net/wiki/documentation:fabric_mod_json_spec).
 
 For example, if your mod uses a component with the id `"mymod:magik"`, your `fabric.mod.json` should contain the following custom field (in addition to everything else that is already there) :
@@ -50,17 +58,8 @@ For example, if your mod uses a component with the id `"mymod:magik"`, your `fab
     }
 }
 ```
-{%- endcapture %}
-{%- capture quilt_title %}
-![Quilt Logo](/img/quilt_logo_transparent.png) On Quilt
-{%- endcapture %}
-{% capture fabric_title %}
-![Fabric Logo](/img/fabric-logo.png) On Fabric
-{% endcapture %}
-{%- assign tab_names = "" | split: "," | push: quilt_title | push: fabric_title %}
-{%- assign tabs = "" | split: "," | push: quilt | push: fabric %}
 
-{%- include tabbed.liquid key="modloader" tab_names=tab_names tabs=tabs %}
+{% endtabbed %}
 
 ### ComponentKey
 
@@ -105,7 +104,10 @@ Where `X` is one of the possible component providers (eg. [`EntityComponentIniti
 
 The component registrar should then be added as an entrypoint to your mod's metadata:
 
-{% capture quilt %}
+{% tabbed modloader %}
+
+[- {{ quilt_title }} -]
+
 [Entrypoint documentation](https://github.com/QuiltMC/rfcs/blob/master/specification/0002-quilt.mod.json.md#the-entrypoints-field)
 
 ```json
@@ -124,8 +126,9 @@ The component registrar should then be added as an entrypoint to your mod's meta
     ]
 }
 ```
-{%- endcapture %}
-{%- capture fabric %}
+
+[- {{ fabric_title }} -]
+
 [Entrypoint documentation](https://fabricmc.net/wiki/documentation:entrypoint)
 
 ```json
@@ -146,17 +149,8 @@ The component registrar should then be added as an entrypoint to your mod's meta
     }
 }
 ```
-{%- endcapture %}
-{%- capture quilt_title %}
-![Quilt Logo](/img/quilt_logo_transparent.png) On Quilt
-{%- endcapture %}
-{% capture fabric_title %}
-![Fabric Logo](/img/fabric-logo.png) On Fabric
-{% endcapture %}
-{%- assign tab_names = "" | split: "," | push: quilt_title | push: fabric_title %}
-{%- assign tabs = "" | split: "," | push: quilt | push: fabric %}
 
-{%- include tabbed.liquid key="modloader" tab_names=tab_names tabs=tabs %}
+{%- endtabbed -%}
 
 ---
 

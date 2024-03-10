@@ -58,7 +58,8 @@ Simply prepend the desired node's full path with `locki.access.` before checking
 You can add the library by inserting the following in your `build.gradle` :
 
 
-{% capture groovy %}
+{% buildscript [locki:qS8U15sj], [cca:K01OU20C] %}
+[- groovy -]
 `gradle.properties`:
 ```properties
 # Locki
@@ -96,8 +97,8 @@ dependencies {
     include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}"
 }
 ```
-{% endcapture %}
-{% capture kts %}
+
+[- kts -]
 `gradle.properties`:
 ```properties
 # Locki
@@ -138,8 +139,8 @@ dependencies {
     include("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}")
 }
 ```
-{% endcapture %}
-{% capture catalogue %}
+
+[- catalogue -]
 `libs.versions.toml`:
 ```toml
 [versions]
@@ -182,8 +183,7 @@ dependencies {
     include(libs.bundles.locki)
 }
 ```
-{% endcapture %}
-{%- include tabbed_builscript.liquid mod1="locki:qS8U15sj" mod2="cca:K01OU20C" groovy=groovy kts=kts catalogue=catalogue %}
+{% endbuildscript %}
 
 ### Using Locki's API
 

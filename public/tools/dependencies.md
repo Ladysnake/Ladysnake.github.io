@@ -10,7 +10,7 @@ The version strings may be invalid maven identifiers, as they are currently pull
 - [Fabric dependency helper](https://fabricmc.net/develop/)
 - [Quilt dependency helper](https://lambdaurora.dev/tools/import_quilt.html)
 
-{% capture kts %}
+{% capture gradleproperties %}
 `gradle.properties`:
 ```properties
 # Blabber (dialogues)
@@ -39,7 +39,28 @@ sodium_version = <SODIUM_VERSION>
 trinkets_version = <TRINKETS_VERSION>
 ```
 {% endcapture %}
-{% capture catalogue %}
+
+{%- buildscript
+    [blabber:2oRMVFgd],
+    [cca:K01OU20C],
+    [cloth:9s6osm5g],
+    [emi:fRiHVvU7],
+    [geckolib:8BmcQJ2H],
+    [iris:YL57xq9U],
+    [midnight:codAaoxh],
+    [modmenu:mOgUt4GM],
+    [rei:nfn13YXA],
+    [satin:fRbqPLg4],
+    [sodium:AANobbMI],
+    [trinkets:5aaWibi9],
+-%}
+[- groovy -]
+{{ gradleproperties }}
+
+[- kts -]
+{{ gradleproperties }}
+
+[- catalogue -]
 `libs.versions.toml`:
 ```toml
 [versions]
@@ -83,29 +104,5 @@ satin = { module = "org.ladysnake:satin", version.ref = "satin" }
 sodium = { module = "maven.modrinth:sodium", version.ref = "sodium" }
 trinkets = { module = "dev.emi:trinkets", version.ref = "trinkets" }
 ```
-{% endcapture %}
-{%- assign blabber = "blabber:2oRMVFgd" | split: ":" %}
-{%- assign mods = "" | split: "," | push: blabber %}
-{%- assign cca = "cca:K01OU20C" | split: ":" %}
-{%- assign mods = mods | push: cca %}
-{%- assign cloth = "cloth:9s6osm5g" | split: ":" %}
-{%- assign mods = mods | push: cloth %}
-{%- assign emi = "emi:fRiHVvU7" | split: ":" %}
-{%- assign mods = mods | push: emi %}
-{%- assign geckolib = "geckolib:8BmcQJ2H" | split: ":" %}
-{%- assign mods = mods | push: geckolib %}
-{%- assign iris = "iris:YL57xq9U" | split: ":" %}
-{%- assign mods = mods | push: iris %}
-{%- assign midnight = "midnight:codAaoxh" | split: ":" %}
-{%- assign mods = mods | push: midnight %}
-{%- assign modmenu = "modmenu:mOgUt4GM" | split: ":" %}
-{%- assign mods = mods | push: modmenu %}
-{%- assign rei = "rei:nfn13YXA" | split: ":" %}
-{%- assign mods = mods | push: rei %}
-{%- assign satin = "satin:fRbqPLg4" | split: ":" %}
-{%- assign mods = mods | push: satin %}
-{%- assign sodium = "sodium:AANobbMI" | split: ":" %}
-{%- assign mods = mods | push: sodium %}
-{%- assign trinkets = "trinkets:5aaWibi9" | split: ":" %}
-{%- assign mods = mods | push: trinkets %}
-{%- include tabbed_builscript.liquid mods=mods groovy=kts kts=kts catalogue=catalogue %}
+
+{% endbuildscript %}

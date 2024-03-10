@@ -11,7 +11,8 @@ mechanism provided by the Fabric toolchain to include Cardinal Components in you
 
 Unless specified otherwise, the following block must be added to your `build.gradle` **after** the relevant `repositories` block:
 
-{% capture groovy %}
+{% buildscript [cca:K01OU20C] %}
+[- groovy -]
 `gradle.properties`:
 ```properties
 cca_version = <VERSION>
@@ -26,8 +27,8 @@ dependencies {
     include "dev.onyxstudios.cardinal-components-api:<MODULE>:${project.cca_version}"
 }
 ```
-{% endcapture %}
-{% capture kts %}
+
+[- kts -]
 `gradle.properties`:
 ```properties
 cca_version = <VERSION>
@@ -43,8 +44,8 @@ dependencies {
     include("dev.onyxstudios.cardinal-components-api:<MODULE>:$ccaVersion")
 }
 ```
-{% endcapture %}
-{% capture catalogue %}
+
+[- catalogue -]
 `libs.versions.toml`:
 ```toml
 [versions]
@@ -67,9 +68,7 @@ dependencies {
     include(libs.bundles.cca)
 }
 ```
-{% endcapture %}
-{%- include tabbed_builscript.liquid mod1="cca:K01OU20C" groovy=groovy kts=kts catalogue=catalogue %}
-
+{% endbuildscript %}
 
 ## Ladysnake Reposilite
 

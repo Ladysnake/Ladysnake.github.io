@@ -49,13 +49,15 @@ commands.
 
 If you are a developer, you can use Impersonate as a library for your own project by inserting the following in your `build.gradle` :
 
+{%- buildscript [impersonate:xBZuWXoj], [cca:K01OU20C] -%}
+[- groovy -]
 ```gradle
 repositories {
 	maven { 
         name = "Ladysnake Mods"
-        url = "https://ladysnake.jfrog.io/artifactory/mods"
+        url = "https://maven.ladysnake.org/releases"
         content {
-            includeGroup 'io.github.ladysnake'
+            includeGroupByRegex 'org\\.ladysnake.*'
             includeGroupByRegex 'io\\.github\\.onyxstudios.*'
         }
     }
@@ -66,12 +68,12 @@ repositories {
 }
 
 dependencies {
-    modImplementation "io.github.ladysnake:Impersonate:${impersonate_version}"
-    include "io.github.ladysnake:Impersonate:${impersonate_version}"
+    modImplementation "org.ladysnake:impersonate:${impersonate_version}"
+    include "org.ladysnake:impersonate:${impersonate_version}"
     // Impersonate dependencies
     include "me.lucko:fabric-permissions-api:${fpa_version}"
-    include "com.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${cca_version}"
-    include "com.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${cca_version}"
+    include "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${cca_version}"
+    include "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${cca_version}"
 }
 ```
 
@@ -79,12 +81,20 @@ You can then add the library version to your `gradle.properties`file:
 
 ```properties
 # Impersonate
-impersonate_version = 1.x.y
+impersonate_version = <IMPERSONATE_VERSION>
 # Fabric Permissions API
-fpa_version = 0.1-SNAPSHOT
+fpa_version = 0.2-SNAPSHOT
 # Cardinal Components
-cca_version = 2.x.y
+cca_version = <CCA_VERSION>
 ```
+
+[- kts -]
+{% include wip.liquid message="*For now, take a look at the groovy build.gradle tab*" %}
+
+[- catalogue -]
+{% include wip.liquid message="*For now, take a look at the groovy build.gradle tab*" %}
+
+{% endbuildscript %}
 
 You can find the current version of Impersonate in the [releases](https://github.com/Ladysnake/Impersonate/releases) tab of the repository on Github,
 and the latest CCA version in the [appropriate repository](https://github.com/OnyxStudios/Cardinal-Components-API/releases). 
