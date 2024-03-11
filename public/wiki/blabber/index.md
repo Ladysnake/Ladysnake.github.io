@@ -144,7 +144,7 @@ Here is an example of conditional choices in JSON:
   "text": "I have money.",
   "next": "barter",
   "only_if": {
-    "predicate": "babblings:holding_emerald",
+    "predicate": "testmod:holding_emerald",
     "when_unavailable": {
       "display": "grayed_out",
       "message": "You must be holding an emerald to pick this option."
@@ -161,7 +161,7 @@ Here is an example of conditional choices in JSON:
   "text": "I have money.",
   "next": "barter",
   "only_if": {
-    "predicate": "babblings:holding_emerald",
+    "predicate": "testmod:holding_emerald",
     "when_unavailable": {
       "display": "hidden"
     }
@@ -170,6 +170,8 @@ Here is an example of conditional choices in JSON:
 ```
 {% endcapture %}
 {% include details.liquid summary=summary content=example_json %}
+
+The full example with predicate included is available in [Blabber's test mod](https://github.com/Ladysnake/Blabber/tree/main/src/testmod/resources/data/babblings).
 
 ### Interlocutors
 
