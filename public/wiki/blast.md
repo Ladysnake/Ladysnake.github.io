@@ -24,63 +24,74 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 
 ### Basic Bombs
 
-<table>
-<tr><th></th><th style="width:32%">Iron Tier</th><th style="width:32%">Gold Tier</th><th style="width:32%">Diamond Tier</th></tr>
-<tr><th rowspan=2 style="transform:rotate(270deg)">Timer</th><td>
-<h4>Bomb</h4>
+<link href="bomb_table.css" rel="stylesheet"/>
 
+<section class="bomb-table">
+<h4>Iron Tier</h4>
+<!--<span class="bomb-trigger-type">Timer</span>-->
+
+<div class="bomb-type">
+<h5>Bomb</h5>
+
+<div>
 <p>A simple bomb with an explosion power of 1 and a fuse time of 2 seconds.</p>
-
 <p>Is defused and drops when coming into contact with water.</p>
-</td><td>
-<h4>Golden Bomb</h4>
+</div>
 
-<p>Works like the normal bomb, but applies Fortune III to all blown up blocks.</p>
-
-<p>Like other gold items, Piglins love this bomb!</p>
-</td><td>
-<h4>Diamond Bomb</h4>
-
-<p>Ignores explosion resistance, and therefore can destroy blocks like obsidian.</p>
-
-<p>Exceptions are bedrock, barriers, end portal frames, and other admin-exclusive blocks.</p>
-</td></tr>
-<tr>
-<td>
 {% include mc/crafting.liquid i1="minecraft:gunpowder" i2="minecraft:iron_ingot" i3="minecraft:string" result="blast:bomb" count=4 %}
-</td>
-<td>
-{% include mc/crafting.liquid i1="minecraft:gunpowder" i2="minecraft:gold_ingot" i3="minecraft:string" result="blast:golden_bomb" count=4 %}
-</td>
-<td>
-{% include mc/crafting.liquid i1="minecraft:gunpowder" i2="minecraft:diamond" i3="minecraft:string" result="blast:diamond_bomb" count=4 %}
-</td>
-</tr>
-<tr><th rowspan=2 style="transform:rotate(270deg)">Trigger</th><td>
-<h4>Trigger Bomb</h4>
 
+</div>
+<div class="bomb-type">
+<h5>Trigger Bomb</h5>
+
+<div>
 <p>A simple bomb with an explosion power of 1 on impact instead of after a certain amount of time.</p>
-
 <p>Explodes underwater, but will not destroy any blocks.</p>
-</td><td>
-<h4>Golden Trigger Bomb</h4>
+</div>
 
+<img src="/wiki/blast/RecipeTriggerBomb.png" />
+
+</div>
+<h4>Gold Tier</h4>
+<div class="bomb-type">
+<h5>Golden Bomb</h5>
+
+<div>
+<p>Works like the normal bomb, but applies Fortune III to all blown up blocks.</p>
+<p>Like other gold items, Piglins love this bomb!</p>
+</div>
+
+{% include mc/crafting.liquid i1="minecraft:gunpowder" i2="minecraft:gold_ingot" i3="minecraft:string" result="blast:golden_bomb" count=4 %}
+
+</div>
+<div class="bomb-type">
+<h5>Golden Trigger Bomb</h5>
+<div>
 <p>A version of the golden bomb with a trigger instead of a fuse.</p>
-
 <p>It also explodes underwater without causing block destruction.</p>
-</td><td>
-<h4>Diamond Trigger Bomb</h4>
+</div>
+<img src="/wiki/blast/RecipeGoldTriggerBomb.png" />
+</div>
+<h4>Diamond Tier</h4>
+<div class="bomb-type">
+<h5>Diamond Bomb</h5>
+<div>
+<p>Ignores explosion resistance, and therefore can destroy blocks like obsidian.</p>
+<p>Exceptions are bedrock, barriers, end portal frames, and other admin-exclusive blocks.</p>
+</div>
 
+{% include mc/crafting.liquid i1="minecraft:gunpowder" i2="minecraft:diamond" i3="minecraft:string" result="blast:diamond_bomb" count=4 %}
+</div>
+<!--<span class="bomb-trigger-type">Trigger</span>-->
+<div class="bomb-type">
+<h5>Diamond Trigger Bomb</h5>
+<div>
 <p>A version of the diamond bomb with a trigger instead of a fuse.</p>
-
 <p>It also explodes underwater without causing block destruction.</p>
-</td></tr>
-<tr>
-<td><img src="/wiki/blast/RecipeTriggerBomb.png" /></td>
-<td><img src="/wiki/blast/RecipeGoldTriggerBomb.png" /></td>
-<td><img src="/wiki/blast/RecipeDiamondTriggerBomb.png" /></td>
-</tr>
-</table>
+</div>
+<img src="/wiki/blast/RecipeDiamondTriggerBomb.png" />
+</div>
+</section>
 
 ### Dirt Bombs
 

@@ -1,0 +1,90 @@
+---
+---
+
+@import 'mixins';
+
+.bomb-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: min-content repeat(2, 4ex max-content min-content);
+  grid-auto-flow: column;
+  column-gap: 1em;
+  width: 80%;
+  // On tablets or equivalent, transpose the table: rows are material, columns are trigger type
+  @media (max-width: 1100px) {
+    width: 100%;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, min-content 4ex max-content min-content);
+    @include notMobile {
+      h4 {
+        grid-column-end: span 2;
+      }
+      .mcui {
+        font-size: 2vi;
+      }
+    }
+  }
+
+  // On mobiles, display everything as a single column
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+
+  // On large screens, display a little row indicator on the left
+  @media (min-width: 1400px) {
+    margin-inline-start: 2em;
+
+    .bomb-type::before {
+      position: absolute;
+      transform: rotate(270deg);
+      font-size: 18px;
+      top: 50%;
+      inset-inline-start: -3em;
+    }
+
+    .bomb-type:nth-child(2)::before {
+      content: 'Timer';
+    }
+
+    .bomb-type:nth-child(3)::before {
+      content: 'Trigger';
+    }
+  }
+
+  h4 {
+    font-weight: bold;
+    @include desktop {
+      font-weight: initial;
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+
+  h5 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0.5em 0 0 0;
+  }
+
+  .bomb-type {
+    margin-bottom: 2em;
+    position: relative;
+    display: grid;
+    grid-template-rows: subgrid;
+    @include mobile {
+      grid-template-rows: min-content max-content min-content;
+    }
+    grid-auto-flow: column;
+    grid-row-end: span 3;
+
+    & > p {
+      flex: auto;
+    }
+
+    & > div, & > img {
+      flex: initial;
+      justify-self: center;
+    }
+  }
+}
