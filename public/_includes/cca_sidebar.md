@@ -11,6 +11,10 @@
 - [Ticking components](/wiki/cardinal-components-api/ticking)
 - [Migrating components (removing/renaming them)](/wiki/cardinal-components-api/migrating-components)
 
+### Upgrade Instructions
+{:.no_anchor}
+- [Upgrading from 5.x to 6.x](/wiki/cardinal-components-api/upgrade-instructions/CCA-6-changes)
+
 ## Advanced
 {:.no_anchor}
 - [Making custom component providers](/wiki/cardinal-components-api/advanced/custom-component-providers)
