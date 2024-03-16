@@ -2,7 +2,6 @@ title: Ladysnake's Website
 source: ./public
 plugins_dir: ./jekyll_plugins
 markdown: kramdown
-incremental: true
 sass:
     style: compressed
 exclude: []
