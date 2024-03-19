@@ -11,9 +11,14 @@ const {tooltip, title} = createTooltip();
 
 const placeTooltipForFocus = (el) => {
     title.textContent = el.dataset.minetipTitle;
-    tooltip.style.top = '-30px';
-    tooltip.style.left = '10px';
+    const { x: left, y: top } = el.getBoundingClientRect();
+    const { width: tooltipWidth } = tooltip.getBoundingClientRect();
+    // Position our tooltip within the element so that it scrolls and gets picked up by assistive technologies accordingly
     tooltip.style.position = 'absolute';
+    // Ensure the tooltip fits horizontally within the page
+    tooltip.style.left = `${Math.min(10, document.body.clientWidth - left - tooltipWidth - 10)}px`;
+    // We can almost certainly scroll vertically to get our tooltip into view so don't bother with vertical fit
+    tooltip.style.top = `-30px`;
 }
 
 export function initTooltips() {
@@ -22,6 +27,11 @@ export function initTooltips() {
     document.querySelectorAll('[data-minetip-title]').forEach((el) => {
         el.addEventListener('mouseenter', () => {
             document.body.appendChild(tooltip);
+        });
+        // Prevent focusing this specific element from mouse click
+        el.addEventListener('mousedown', (e) => {
+            e.stopImmediatePropagation();
+            e.preventDefault();
         });
         el.addEventListener('focusin', () => {
             focusedElement = el;

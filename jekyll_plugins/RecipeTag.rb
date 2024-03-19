@@ -30,6 +30,50 @@ module Ladysnake
       @height = height
     end
 
+    def self.parse(data)
+      pattern = data["pattern"]
+      height = pattern.size
+
+      # Check preconditions
+      if height > 3
+        raise "Invalid pattern: too many rows, 3 is maximum"
+      elsif pattern.empty?
+        raise "Invalid pattern: empty pattern not allowed"
+      end
+
+      width = pattern[0].length
+      pattern.each { |row|
+        if row.length > 3
+          raise "Invalid pattern: too many columns, 3 is maximum"
+        elsif row.length != width
+          raise "Invalid pattern: each row must be the same width"
+        end
+      }
+
+      # Parse the pattern and key into a list of ingredients
+      ingredients = Array.new(width * height) { Ingredient::EMPTY }
+      keys = data["key"]
+      (0...height).each { |y|
+        row = pattern[y]
+        (0...row.length).each { |x|
+          char = row[x]
+          ingredient = keys[char] ? Ingredient.new(keys[char]) : Ingredient::EMPTY
+          if ingredient.empty? && char != ' '
+            raise "Pattern references symbol '#{char}' but it's not defined in the key"
+          end
+          ingredients[x + width * y] = ingredient
+        }
+      }
+
+      # Check postconditions
+      unused_symbols = keys.keys - pattern.join.chars
+      unless unused_symbols.empty?
+        raise "Key defines symbols that aren't used in pattern: #{unused_symbols.join(", ")}"
+      end
+
+      ShapedRecipe.new(data["result"], ingredients, width, height)
+    end
+
     def result
       @result
     end
@@ -38,7 +82,15 @@ module Ladysnake
       @ingredients
     end
 
-    def pad_ingredients
+    def width
+      @width
+    end
+
+    def height
+      @height
+    end
+
+    def to_3x3_grid
       if @width == 3
         if @height == 3
           # Nothing do do here
@@ -58,22 +110,45 @@ module Ladysnake
       end
     end
 
-    def width
-      @width
+    def to_s
+      "ShapedRecipe[#{@width}x#{@height}]"
+    end
+  end
+
+  class ShapelessRecipe
+    def initialize(result, ingredients)
+      @result = result
+      @ingredients = ingredients
+    end
+    def result
+      @result
     end
 
-    def height
-      @height
+    def ingredients
+      @ingredients
+    end
+
+    def self.parse(data)
+      ingredients = data["ingredients"].map do |i|
+        Ingredient.new(i)
+      end
+      ShapelessRecipe.new(data["result"], ingredients)
+    end
+
+    def to_3x3_grid
+      @ingredients + [Ingredient::EMPTY] * (9 - ingredients.size)
     end
 
     def to_s
-      "Recipe[#{@width}x#{@height}]"
+      "ShapelessRecipe[#{@ingredients.join(',')}=>#{result}]"
     end
   end
 
   class RecipeTag < Liquid::Tag
     def self.cache
       @cache ||= Jekyll::Cache.new("Ladysnake::RecipeTag")
+      @cache.clear
+      @cache
     end
 
     def cache
@@ -93,47 +168,13 @@ module Ladysnake
 
           data = JSON.parse(json_data)
 
-          pattern = data["pattern"]
-          height = pattern.size
+          type = data["type"]
 
-          # Check preconditions
-          if height > 3
-            raise "Invalid pattern: too many rows, 3 is maximum"
-          elsif pattern.empty?
-            raise "Invalid pattern: empty pattern not allowed"
+          if type == "minecraft:crafting_shaped"
+            ShapedRecipe.parse(data)
+          elsif type == "minecraft:crafting_shapeless"
+            ShapelessRecipe.parse(data)
           end
-
-          width = pattern[0].length
-          pattern.each { |row|
-            if row.length > 3
-              raise "Invalid pattern: too many columns, 3 is maximum"
-            elsif row.length != width
-              raise "Invalid pattern: each row must be the same width"
-            end
-          }
-
-          # Parse the pattern and key into a list of ingredients
-          ingredients = Array.new(width * height) { Ingredient::EMPTY }
-          keys = data["key"]
-          (0...height).each { |y|
-            row = pattern[y]
-            (0...row.length).each { |x|
-              char = row[x]
-              ingredient = keys[char] ? Ingredient.new(keys[char]) : Ingredient::EMPTY
-              if ingredient.empty? && char != ' '
-                raise "Pattern references symbol '#{char}' but it's not defined in the key"
-              end
-              ingredients[x + width * y] = ingredient
-            }
-          }
-
-          # Check postconditions
-          unused_symbols = keys.keys - pattern.join.chars
-          unless unused_symbols.empty?
-            raise "Key defines symbols that aren't used in pattern: #{unused_symbols.join(", ")}"
-          end
-
-          ShapedRecipe.new(data["result"], ingredients, width, height)
         rescue StandardError => e
           puts "Error loading JSON data: #{e.message}"
           nil
@@ -142,7 +183,7 @@ module Ladysnake
 
       # Check if the data was loaded successfully
       if recipe
-        context["slots"] = recipe.pad_ingredients.map { |i| i.item }
+        context["slots"] = recipe.to_3x3_grid.map { |i| i.item }
         context["result"] = recipe.result["item"]
         context["count"] = recipe.result["count"]
         Liquid::Template.parse("{% include mc/crafting.liquid slots=slots result=result count=count %}").render(context)

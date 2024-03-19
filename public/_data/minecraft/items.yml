@@ -1,12 +1,21 @@
 "blast:bomb":
   name: Bomb
   icon: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources/assets/blast/textures/item/bomb.png
+"blast:trigger_bomb":
+  name: Trigger Bomb
+  icon: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources/assets/blast/textures/item/trigger_bomb.png
 "blast:golden_bomb":
   name: Golden Bomb
   icon: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources/assets/blast/textures/item/golden_bomb.png
+"blast:golden_trigger_bomb":
+  name: Golden Trigger Bomb
+  icon: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources/assets/blast/textures/item/golden_trigger_bomb.png
 "blast:diamond_bomb":
   name: Diamond Bomb
   icon: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources/assets/blast/textures/item/diamond_bomb.png
+"blast:diamond_trigger_bomb":
+  name: Diamond Trigger Bomb
+  icon: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources/assets/blast/textures/item/diamond_trigger_bomb.png
 "minecraft:diamond":
   name: Diamond
   link: https://minecraft.wiki/w/Diamond

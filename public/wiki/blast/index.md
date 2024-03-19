@@ -4,6 +4,7 @@ title: BLAST
 slug: blast
 curse_project: 349938
 modrinth: true
+recipe_root: https://raw.githubusercontent.com/Ladysnake/BLAST/1.13/src/main/resources/data/blast/recipes/
 ---
 
 BLAST is a Minecraft fabric mod adding multiple explosives for use in survival or for messing around in creative.
@@ -38,7 +39,7 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 <p>Is defused and drops when coming into contact with water.</p>
 </div>
 
-{% include mc/crafting.liquid i1="minecraft:gunpowder" i2="minecraft:iron_ingot" i3="minecraft:string" result="blast:bomb" count=4 %}
+{% recipe bomb.json %}
 
 </div>
 <div class="bomb-type">
@@ -49,7 +50,7 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 <p>Explodes underwater, but will not destroy any blocks.</p>
 </div>
 
-<img src="/wiki/blast/RecipeTriggerBomb.png" />
+{% recipe trigger_bomb.json %}
 
 </div>
 <h4>Gold Tier</h4>
@@ -61,7 +62,7 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 <p>Like other gold items, Piglins love this bomb!</p>
 </div>
 
-{% include mc/crafting.liquid i1="minecraft:gunpowder" i2="minecraft:gold_ingot" i3="minecraft:string" result="blast:golden_bomb" count=4 %}
+{% recipe golden_bomb.json %}
 
 </div>
 <div class="bomb-type">
@@ -70,7 +71,7 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 <p>A version of the golden bomb with a trigger instead of a fuse.</p>
 <p>It also explodes underwater without causing block destruction.</p>
 </div>
-<img src="/wiki/blast/RecipeGoldTriggerBomb.png" />
+{% recipe golden_trigger_bomb.json %}
 </div>
 <h4>Diamond Tier</h4>
 <div class="bomb-type">
@@ -80,7 +81,7 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 <p>Exceptions are bedrock, barriers, end portal frames, and other admin-exclusive blocks.</p>
 </div>
 
-{% include mc/crafting.liquid i1="minecraft:gunpowder" i2="minecraft:diamond" i3="minecraft:string" result="blast:diamond_bomb" count=4 %}
+{% recipe diamond_bomb.json %}
 </div>
 <!--<span class="bomb-trigger-type">Trigger</span>-->
 <div class="bomb-type">
@@ -89,7 +90,7 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 <p>A version of the diamond bomb with a trigger instead of a fuse.</p>
 <p>It also explodes underwater without causing block destruction.</p>
 </div>
-<img src="/wiki/blast/RecipeDiamondTriggerBomb.png" />
+{% recipe diamond_trigger_bomb.json %}
 </div>
 </section>
 
