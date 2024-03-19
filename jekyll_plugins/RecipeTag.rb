@@ -147,8 +147,6 @@ module Ladysnake
   class RecipeTag < Liquid::Tag
     def self.cache
       @cache ||= Jekyll::Cache.new("Ladysnake::RecipeTag")
-      @cache.clear
-      @cache
     end
 
     def cache
