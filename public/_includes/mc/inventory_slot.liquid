@@ -1,7 +1,7 @@
 {%- assign item = site.data.minecraft.items[include.item] -%}
 <span class="invslot{% if include.large %} invslot-large{% endif %}">
 {%- if item -%}
-<span class="invslot-item invslot-item-image" data-minetip-title="{{ item.name }}">
+<span class="invslot-item invslot-item-image" data-minetip-title="{{ item.name }}" {% unless item.link %}tabindex="0"{% endunless %}>
 {%- if item.link -%}<a href="{{ item.link }}">{%- endif -%}
 <img alt="{{ include.alt_prefix }}{{ item.name }}" src="{{ item.icon }}" decoding="async" loading="lazy" width="32" height="32">
 {%- if item.link -%}</a>{%- endif -%}

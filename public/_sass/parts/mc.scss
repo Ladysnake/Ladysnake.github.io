@@ -35,8 +35,21 @@
 }
 
 .invslot-large {
+  height: 3em;
+  width: 3em;
   padding: 0.5em;
-  box-sizing: content-box;
+}
+
+.invslot-item:hover::after, .invslot-item:focus-within::after {
+  position: absolute;
+  content: '';
+  top: 0.125em;
+  left: 0.125em;
+  width: 1.75em;
+  height: 1.75em;
+  background-color: white;
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .invslot-item,
@@ -47,6 +60,7 @@
   padding: 0.125em;
   width: 2em;
   height: 2em;
+  outline: none;
 
   img {
     height: 100%;
@@ -65,8 +79,9 @@
 
 .invslot-stacksize {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  font-size: 0.9em;
+  right: 0.1125em;
+  bottom: 0.02em;
   font-family: Minecraft, sans-serif !important;
   font-weight: normal !important;
   color: #FFF !important;
@@ -120,6 +135,10 @@
 .crafting-grid {
   display: grid;
   grid-template-columns: min-content min-content min-content;
+}
+
+[data-minetip-title] {
+  position: relative;
 }
 
 #minetip-tooltip {

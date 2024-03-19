@@ -9,7 +9,6 @@
   grid-template-rows: min-content repeat(2, 4ex max-content min-content);
   grid-auto-flow: column;
   column-gap: 1em;
-  width: 80%;
   // On tablets or equivalent, transpose the table: rows are material, columns are trigger type
   @media (max-width: 1100px) {
     width: 100%;
@@ -86,5 +85,9 @@
       flex: initial;
       justify-self: center;
     }
+  }
+
+  .header-anchor {
+    display: none;
   }
 }

@@ -37,7 +37,7 @@ h4, h5, h6 {
 
 .header-anchor {
 	opacity: 0;
-	%headings:hover & {
+	%headings:hover &, &:focus-visible {
 		opacity: 100%;
 	}
 }
