@@ -11,7 +11,7 @@ modrinth: true
 Pick Your Poison is a Minecraft fabric mod bringing poison dart frogs and 6 new effects to the game!
 
 <div>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6fby-ANNjVw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6fby-ANNjVw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## Poison Dart Frogs

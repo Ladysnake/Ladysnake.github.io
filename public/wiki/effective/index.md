@@ -19,12 +19,12 @@ See also [the Illuminations documentation](../illuminations) for more features t
 
 ### Water Splashes
 <div>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/gx4mNQHiOUc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gx4mNQHiOUc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ### Cascades
 <div>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AnwoxryEn2g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/AnwoxryEn2g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 *Lava Splashes have been removed in more recent versions*
 

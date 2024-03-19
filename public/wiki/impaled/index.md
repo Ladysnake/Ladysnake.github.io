@@ -8,7 +8,7 @@ modrinth: true
 **Impaled** is a fabric mod adding a few new tridents to the game and reworking some of the mechanics revolving around them. This mod features compatibility with the [Canvas Renderer](https://www.curseforge.com/minecraft/mc-mods/canvas-renderer).
 
 <div>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9JhblcRTRu8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9JhblcRTRu8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## Features
