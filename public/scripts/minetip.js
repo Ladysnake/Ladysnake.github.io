@@ -79,7 +79,7 @@ export function initTooltips() {
         el.addEventListener('focusin', onFocusIn);
         el.addEventListener('mousemove', onMouseMove);
         el.addEventListener('mouseleave', onMouseLeave);
-        // el.addEventListener('focusout', onFocusOut);
+        el.addEventListener('focusout', onFocusOut);
 
         // tabindex set => artificially keyboard-focusable => prevent focusing this element from mouse click
         if (el.tabIndex === 0) {
