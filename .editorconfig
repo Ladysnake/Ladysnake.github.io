@@ -1,0 +1,2 @@
+[{*.js,*.mjs}]
+ij_javascript_spaces_within_object_literal_braces = true
