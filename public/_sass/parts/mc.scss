@@ -135,9 +135,13 @@
   width: 17em;
   height: 7.48em;
   justify-content: space-around;
+  background: center / contain no-repeat url('/img/wiki-crafting-recipe.png');
 }
 
 .crafting-grid {
+  padding: 0;
+  margin: 0;
+  list-style: none;
   display: grid;
   grid-template-columns: min-content min-content min-content;
 }
@@ -191,5 +195,6 @@
 #minetip-tooltip > .description,
 #minetip-tooltip > .minetip-description {
   display: block;
-  margin-top: 0.25em
+  margin-top: 0.25em;
+  color: #A0A0A0;
 }

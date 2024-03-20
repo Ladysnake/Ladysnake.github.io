@@ -13,13 +13,19 @@
         | push: include.i9
 -%}
 {%- endif -%}
-<div class="mcui crafting-table">
-<img class="mcui-background" src="/img/wiki-crafting-recipe.png" alt="Crafting recipe" height="198" width="450"/>
-<div class="crafting-grid">
+<article class="mcui crafting-table" aria-label="Crafting recipe">
+{% if include.shaped %}{% assign grid_tag = "ol" %}{% else %}{% assign grid_tag = "ul" %}{% endif %}
+<{{ grid_tag }} class="crafting-grid">
 {%- for slot in slots -%}
+<li class="invslot">
+{% if slot %}
 {%- capture alt_prefix-%}Ingredient {{ forloop.index }}: {% endcapture -%}
-{%- include mc/inventory_slot.liquid item=slot alt_prefix=alt_prefix -%}
+{%- include mc/itemstack.liquid item=slot alt_prefix=alt_prefix -%}
+{% endif %}
+</li>
 {%- endfor -%}
+</{{ grid_tag }}>
+<div class="invslot invslot-large">
+{%- include mc/itemstack.liquid item=include.result count=include.count alt_prefix="Result: " large="true"-%}
 </div>
-{%- include mc/inventory_slot.liquid item=include.result count=include.count alt_prefix="Result: " large="true"-%}
-</div>
+</article>

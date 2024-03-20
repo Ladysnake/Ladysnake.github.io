@@ -1,3 +1,6 @@
+MISSING:
+  name: Unknown Item
+  icon: https://minecraft.wiki/images/Missing_Texture_JE4.png?db402&format=original
 "blast:bomb":
   name: Bomb
   icon: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources/assets/blast/textures/item/bomb.png

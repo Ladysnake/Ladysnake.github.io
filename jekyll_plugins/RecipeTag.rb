@@ -93,7 +93,7 @@ module Ladysnake
     def to_3x3_grid
       if @width == 3
         if @height == 3
-          # Nothing do do here
+          # Nothing to do here
           return @ingredients
         else
           # Missing ingredients must be at the end of the list, so we can just append them
@@ -136,7 +136,11 @@ module Ladysnake
     end
 
     def to_3x3_grid
-      @ingredients + [Ingredient::EMPTY] * (9 - ingredients.size)
+      if @ingredients.size == 9
+        @ingredients
+      else
+        @ingredients + [Ingredient::EMPTY] * (9 - @ingredients.size)
+      end
     end
 
     def to_s
@@ -181,10 +185,11 @@ module Ladysnake
 
       # Check if the data was loaded successfully
       if recipe
-        context["slots"] = recipe.to_3x3_grid.map { |i| i.item }
+        context["slots"] = recipe.to_3x3_grid.map { |i| if i.empty? then nil else i.item end }
         context["result"] = recipe.result["item"]
         context["count"] = recipe.result["count"]
-        Liquid::Template.parse("{% include mc/crafting.liquid slots=slots result=result count=count %}").render(context)
+        context["shaped"] = recipe.class == ShapedRecipe
+        Liquid::Template.parse("{% include mc/crafting.liquid slots=slots result=result count=count shaped=shaped %}").render(context)
       else
         puts "Failed to load recipe from #{url}"
         "<em>Failed to load recipe #{recipe_path}</em>"
