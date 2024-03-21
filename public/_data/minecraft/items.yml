@@ -7,6 +7,10 @@
 MISSING:
   name: Unknown Item
   icon: https://minecraft.wiki/images/Missing_Texture_JE4.png?db402&format=original
+"minecraft:amethyst_block":
+  name: Block of Amethyst
+  link: https://minecraft.wiki/w/Block_of_Amethyst
+  icon: https://minecraft.wiki/images/Invicon_Block_of_Amethyst.png
 "minecraft:diamond":
   name: Diamond
   link: https://minecraft.wiki/w/Diamond
@@ -35,6 +39,10 @@ MISSING:
   name: Redstone Dust
   link: https://minecraft.wiki/w/Redstone_Dust
   icon: https://minecraft.wiki/images/Invicon_Redstone.png
+"minecraft:slime_ball":
+  name: Slimeball
+  link: https://minecraft.wiki/w/Slimeball
+  icon: https://minecraft.wiki/images/Invicon_Slimeball.png
 "minecraft:string":
   name: String
   link: https://minecraft.wiki/w/String

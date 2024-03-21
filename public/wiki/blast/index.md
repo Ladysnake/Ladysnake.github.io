@@ -102,7 +102,7 @@ Dirt Bombs can be crafted by surrounding normal bombs with 8 Dirt Blocks. Instea
 {% recipe "blast:dirt_bomb" %}
 {% recipe "blast:dirt_trigger_bomb" %}
 </div>
-<img src="./DirtBombs.png" alt="Dirt Bombs"/>
+<img src="./DirtBombs.png" alt="Dirt Bomb exploding" class="rounded" width="1168" height="882" style="width: 80%; height: auto; align-self: end"/>
 </figure>
 
 ### Pearl Bombs
@@ -110,42 +110,68 @@ Dirt Bombs can be crafted by surrounding normal bombs with 8 Dirt Blocks. Instea
 Crafted like normal bombs with an Enderpearl as base material, this bomb has a **silk touch effect on all blocks in the explosion** radius. As a side effect, it will also **randomly teleport entities** that get caught in the explosion.
 
 <figure class="bomb-showcase">
-<div style="bottom:1.7em; right:0; gap: 1em; font-size: 20px">
+<div style="font-size: 20px; bottom:1.7em; right:0; gap: 1em">
 {% recipe "blast:pearl_bomb" %}
 {% recipe "blast:pearl_trigger_bomb" %}
 </div>
-<img src="./PearlBombs.png" alt="Pearl Bomb Explosion" width="493" height="368" class="rounded" style="width: 90%; height: auto"/>
+<img src="./PearlBombs.png" alt="Pearl Bomb exploding" width="493" height="368" class="rounded" style="width: 90%; height: auto"/>
 </figure>
 
 ### Confetti Bombs
 
 Confetti Bombs come, as most other bombs, in 2 variants: As a trigger bomb and as a timed bomb. Instead of blowing your world up however, Confetti bombs make it prettier: **They will spread confetti particles upon exploding!** Those particles come in multiple different colours and **remain on the ground for 1 minute** after the explosion. Confetti Bombs are crafted shapelessly with 7 Paper, 1 Gunpowder and either 1 String (timed) or 1 Redstone Dust (trigger).
 
-![Confetti Bombs](ConfettiBombs.png)
+<figure class="bomb-showcase">
+<div style="font-size: 22px; top:1.4em; left:0; gap: 1.6em">
+{% recipe "blast:confetti_bomb" %}
+{% recipe "blast:confetti_trigger_bomb" %}
+</div>
+<img src="./ConfettiBombs.png" alt="Confetti Bomb exploding" class="rounded" width="899" height="889" style="align-self: end"/>
+</figure>
 
 ### Slime Bombs
 
 Slime Bombs can be crafted using **1 gunpowder, 1 Slimeball and 1 String/Redstone Dust**. Slime Bombs do **not deal any damage** to entities but have **increased knockback!**
 
-![Slime Bomb](SlimeBomb.png)
+<figure class="bomb-showcase">
+<div style="font-size: 18px; bottom:2em; left:2em; gap: 0.4em">
+{% recipe "blast:slime_bomb" %}
+{% recipe "blast:slime_trigger_bomb" %}
+</div>
+<img src="./SlimeBomb.png" alt="Slime Bomb exploding" class="rounded" width="813" height="489" style="width: 60em; align-self: center"/>
+</figure>
 
 ### Amethyst Bombs
 
 Crafted like any other bomb with an **Amethyst Block as base material**, the Amethyst Bomb **adds 70 amethyst shards to your explosion**, at the **cost of the normal explosion damage**. These shards will spread in all directions and **deal 8 damage (4 hearts) per shard**.
 
-![Amethyst Bomb](AmethystBomb.png)
+<figure class="bomb-showcase">
+<div style="font-size: 18px; bottom:2em; right: 2em; gap: 0.4em">
+{% recipe "blast:amethyst_bomb" %}
+{% recipe "blast:amethyst_trigger_bomb" %}
+</div>
+<img src="./AmethystBomb.png" alt="Amethyst Bomb exploding" class="rounded" width="627" height="763" style="width: 40em; align-self: end; margin-right: 10em; max-width: calc(100% - 10em)"/>
+</figure>
 
 ### Frost Bombs
 
 Being an alternative to Amethyst Bombs, Frost Bombs are crafted by adding **Packed Ice as base material** and **replace the amethyst shards with icicles.** These icicles deal only **0.01 damage** but **apply freezing effects** to their targets, bypassing armor without damaging it.
 
-![Frost Bomb](FrostBomb.png)
+<figure class="bomb-showcase">
+<div style="font-size: 18px; bottom:2em; left: 2em; gap: 0.4em">
+{% recipe "blast:frost_bomb" %}
+{% recipe "blast:frost_trigger_bomb" %}
+</div>
+<img src="./FrostBomb.png" alt="Frost Bomb exploding" class="rounded" width="679" height="647" style="width: 40em; margin-left: 10em; max-width: calc(100% - 10em)"/>
+</figure>
 
 ### Naval Mines
 
 Naval Mines are bombs that trigger on impact and **can destroy blocks underwater**. In comparison to standard bombs the naval mine has an explosion power of 4 and **only** exists as a **trigger bomb** variant.
 
-![Naval Mine Recipe](NavalMineRecipe.png)
+<figure class="recipes">
+{% recipe "blast:naval_mine" %}
+</figure>
 
 
 
@@ -227,9 +253,9 @@ Sorry, we **don't** port our mods to forge or backport them for various reasons.
 
 # Gallery
 
-![Mining Tunnel](MiningTunnel.png)
+![Mining Tunnel](MiningTunnel.png){:.rounded}
 
-![Naval Mines](NavalMines.png)
+![Naval Mines](NavalMines.png){:.rounded}
 
-![Confetti Rain](ConfettiRain.png)
+![Confetti Rain](ConfettiRain.png){:.rounded}
 

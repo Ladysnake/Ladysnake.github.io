@@ -94,23 +94,31 @@
 
 .bomb-showcase {
   position: relative;
-  width: 100%;
-  margin: 0;
+  margin: 1em;
   display: flex;
   flex-direction: column;
 
   & > div {
-    display: none;
     position: absolute;
+    display: flex;
     flex-direction: column;
     font-size: 21px;
+  }
 
-    @include desktop {
-      display: flex;
-    }
+  & > img {
+    width: auto;
+    height: auto;
   }
 
   .mcui {
-    font-size: inherit;
+    font-size: 100%;
+
+    @include tablet {
+      font-size: 80%;
+    }
+
+    @include mobile {
+      font-size: Max(50%, 14px);
+    }
   }
 }

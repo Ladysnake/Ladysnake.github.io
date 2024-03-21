@@ -111,13 +111,18 @@
   }
 }
 
+figure.recipes {
+  font-size: 26.5px;
+  margin-left: 0.9em;
+}
+
 .mcui {
   user-select: none;
   position: relative;
   font-size: 20px;
 
-  figure.recipes & {
-    font-size: 26.5px;
+  figure & {
+    font-size: inherit;
   }
 }
 
