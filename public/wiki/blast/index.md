@@ -4,7 +4,6 @@ title: BLAST
 slug: blast
 curse_project: 349938
 modrinth: true
-recipe_root: https://raw.githubusercontent.com/Ladysnake/BLAST/1.13/src/main/resources/data/blast/recipes/
 ---
 
 BLAST is a Minecraft fabric mod adding multiple explosives for use in survival or for messing around in creative.
@@ -39,7 +38,7 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 <p>Is defused and drops when coming into contact with water.</p>
 </div>
 
-{% recipe bomb.json %}
+{% recipe "blast:bomb" %}
 
 </div>
 <div class="bomb-type">
@@ -50,7 +49,7 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 <p>Explodes underwater, but will not destroy any blocks.</p>
 </div>
 
-{% recipe trigger_bomb.json %}
+{% recipe "blast:trigger_bomb" %}
 
 </div>
 <h4>Gold Tier</h4>
@@ -62,7 +61,7 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 <p>Like other gold items, Piglins love this bomb!</p>
 </div>
 
-{% recipe golden_bomb.json %}
+{% recipe "blast:golden_bomb" %}
 
 </div>
 <div class="bomb-type">
@@ -71,7 +70,7 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 <p>A version of the golden bomb with a trigger instead of a fuse.</p>
 <p>It also explodes underwater without causing block destruction.</p>
 </div>
-{% recipe golden_trigger_bomb.json %}
+{% recipe "blast:golden_trigger_bomb" %}
 </div>
 <h4>Diamond Tier</h4>
 <div class="bomb-type">
@@ -81,7 +80,7 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 <p>Exceptions are bedrock, barriers, end portal frames, and other admin-exclusive blocks.</p>
 </div>
 
-{% recipe diamond_bomb.json %}
+{% recipe "blast:diamond_bomb" %}
 </div>
 <!--<span class="bomb-trigger-type">Trigger</span>-->
 <div class="bomb-type">
@@ -90,7 +89,7 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 <p>A version of the diamond bomb with a trigger instead of a fuse.</p>
 <p>It also explodes underwater without causing block destruction.</p>
 </div>
-{% recipe diamond_trigger_bomb.json %}
+{% recipe "blast:diamond_trigger_bomb" %}
 </div>
 </section>
 
@@ -100,8 +99,8 @@ Dirt Bombs can be crafted by surrounding normal bombs with 8 Dirt Blocks. Instea
 
 <figure class="bomb-showcase">
 <div style="top:1.4em; left:0">
-{% recipe dirt_bomb.json %}
-{% recipe dirt_trigger_bomb.json %}
+{% recipe "blast:dirt_bomb" %}
+{% recipe "blast:dirt_trigger_bomb" %}
 </div>
 <img src="./DirtBombs.png" alt="Dirt Bombs"/>
 </figure>
@@ -112,8 +111,8 @@ Crafted like normal bombs with an Enderpearl as base material, this bomb has a *
 
 <figure class="bomb-showcase">
 <div style="bottom:1.7em; right:0; gap: 1em; font-size: 20px">
-{% recipe pearl_bomb.json %}
-{% recipe pearl_trigger_bomb.json %}
+{% recipe "blast:pearl_bomb" %}
+{% recipe "blast:pearl_trigger_bomb" %}
 </div>
 <img src="./PearlBombs.png" alt="Pearl Bomb Explosion" width="493" height="368" class="rounded" style="width: 90%; height: auto"/>
 </figure>

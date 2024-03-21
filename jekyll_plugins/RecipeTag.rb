@@ -135,10 +135,16 @@ module Ladysnake
       self.class.cache
     end
 
+    def initialize(tag_name, markup, tokens)
+      super
+      @recipe_id = Liquid::Expression.parse(markup.strip)
+    end
+
     def render(context)
-      recipe_root = context.registers[:page]["recipe_root"]
-      recipe_path = @markup.strip
-      url = recipe_root + recipe_path
+      site = context.registers[:site]
+      recipe_namespace, recipe_path = context.evaluate(@recipe_id).split(':')
+      recipe_root = site.data["mods"]["resource_roots"][recipe_namespace]
+      url = "#{recipe_root}/data/#{recipe_namespace}/recipes/#{recipe_path}.json"
 
       recipe = cache.getset(url) do
         begin

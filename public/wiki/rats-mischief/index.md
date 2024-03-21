@@ -4,7 +4,6 @@ title: Rat's Mischief
 slug: rats-mischief
 curse_project: 431787
 modrinth: true
-recipe_root: https://raw.githubusercontent.com/Ladysnake/RATs-Mischief/2.0/src/main/resources/data/ratsmischief/recipes/
 ---
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -188,9 +187,9 @@ Pouches can be crafted like bundles with leather, twisted vines and popped choru
 Rats stored in Pouches won't age, meaning they will keep status effects, health, their variant and names.
 
 <figure class="recipes">
-{% recipe leather_rat_pouch.json %}
-{% recipe twisted_rat_pouch.json %}
-{% recipe purpur_rat_pouch.json %}
+{% recipe "ratsmischief:leather_rat_pouch" %}
+{% recipe "ratsmischief:twisted_rat_pouch" %}
+{% recipe "ratsmischief:purpur_rat_pouch" %}
 </figure>
 
 #### Mask of Rat
