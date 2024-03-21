@@ -102,13 +102,15 @@
   & > div {
     display: none;
     position: absolute;
+    flex-direction: column;
+    font-size: 21px;
 
     @include desktop {
-      display: initial;
+      display: flex;
     }
   }
 
   .mcui {
-    font-size: 21px;
+    font-size: inherit;
   }
 }

@@ -99,7 +99,7 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 Dirt Bombs can be crafted by surrounding normal bombs with 8 Dirt Blocks. Instead of destroying blocks however, they will **create a dirt pile wherever they explode.** As such, they are a great counter to creeper holes!
 
 <figure class="bomb-showcase">
-<div style="top:2em; left:0">
+<div style="top:1.4em; left:0">
 {% recipe dirt_bomb.json %}
 {% recipe dirt_trigger_bomb.json %}
 </div>
@@ -110,7 +110,13 @@ Dirt Bombs can be crafted by surrounding normal bombs with 8 Dirt Blocks. Instea
 
 Crafted like normal bombs with an Enderpearl as base material, this bomb has a **silk touch effect on all blocks in the explosion** radius. As a side effect, it will also **randomly teleport entities** that get caught in the explosion.
 
-![Pearl Bombs](PearlBombs.png)
+<figure class="bomb-showcase">
+<div style="bottom:1.7em; right:0; gap: 1em; font-size: 20px">
+{% recipe pearl_bomb.json %}
+{% recipe pearl_trigger_bomb.json %}
+</div>
+<img src="./PearlBombs.png" alt="Pearl Bomb Explosion" width="493" height="368" class="rounded" style="width: 90%; height: auto"/>
+</figure>
 
 ### Confetti Bombs
 
