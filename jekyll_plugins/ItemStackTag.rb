@@ -79,7 +79,6 @@ module Ladysnake
     end
 
     def fetch_model_data(resource_root_url, namespace, path)
-      name = "#{namespace}:#{path}"
       json_url = "#{resource_root_url}/assets/#{namespace}/models/item/#{path}.json"
 
       uri = URI.parse(json_url)
@@ -92,18 +91,17 @@ module Ladysnake
           if texture_namespace == namespace
             "#{resource_root_url}/assets/#{texture_namespace}/textures/#{texture_path}.png"
           else
-            raise "Texture in external namespace #{texture_namespace} for #{name}"
+            raise "Texture in external namespace '#{texture_namespace}'"
           end
         else
-          raise "Unsupported model parent for #{name}: #{model_data["parent"]}"
+          raise "Unsupported model parent '#{model_data["parent"]}' (only basic 2D item models are supported)"
         end
       else
-        raise "Failed to fetch JSON data for #{name} at #{json_url}: #{response.code} #{response.message}"
+        raise "Failed to fetch JSON model data at #{json_url}: #{response.code} #{response.message}"
       end
     end
 
     def fetch_localized_name(resource_root_url, namespace, path)
-      item_name = "#{namespace}:#{path}"
       lang_url = "#{resource_root_url}/assets/#{namespace}/lang/en_us.json"
 
       lang_data = Ladysnake::Lang.fetch(lang_url)
@@ -117,7 +115,7 @@ module Ladysnake
 
       # If neither the item nor the block name was found, raise an error
       if localized_name.nil?
-        raise "Localized name not found for #{item_name}"
+        raise "Localized name not found in #{lang_url}"
       end
 
       localized_name
@@ -143,16 +141,13 @@ module Ladysnake
               "icon" => icon_url
             }
           else
-            puts "Error: Icon request failed with status code #{icon_response.code} for item #{item_name}"
-            nil
+            raise "Wiki Icon request at #{icon_url} failed with status code #{icon_response.code}"
           end
         else
-          puts "Error: Wiki page request failed with status code #{response.code} for item #{item_name}"
-          nil
+          raise "Wiki page request at #{url} failed with status code #{response.code}"
         end
       rescue StandardError => e
-        puts "Error: #{e.class}: #{e.message} for item #{item_name}"
-        nil
+        raise "#{e.class} while fetching Wiki pages: #{e.message}"
       end
     end
 
@@ -167,6 +162,9 @@ module Ladysnake
           nil
         end
       end
+    rescue StandardError => e
+      puts "Error loading default data for item '#{item_name}': #{e.message}"
+      nil
     end
   end
 end
