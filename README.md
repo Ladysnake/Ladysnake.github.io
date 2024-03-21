@@ -17,7 +17,11 @@ To run the site locally, follow these steps:
 	> Fetching dependency metadata from https://rubygems.org/..
 	> Resolving dependencies...
 	```
-4. Start the site (from the root of this repository):
+4. Setup NPM in the [svelte_sprinkles](./svelte_sprinkles) directory:
+    ```bash
+    $ npm --prefix svelte_sprinkles install
+    ```
+5. Start the site (from the root of this repository):
 	```bash
 	$ bundle exec jekyll serve
 	> Configuration file: /Users/octocat/ladysnake.github.io/_config.yml
@@ -31,4 +35,17 @@ To run the site locally, follow these steps:
 	>    Server address: http://127.0.0.1:4000/
 	>  Server running... press ctrl-c to stop.
 	```
-5. Preview your copy of the site in your web browser at http://localhost:4000.
+6. Preview your copy of the site in your web browser at http://localhost:4000.
+
+## Dynamic Content
+
+### Build-time
+
+This website makes use of a number of [custom Jekyll plugins](./jekyll_plugins), most notably to
+dynamically generate crafting recipe widgets based on the JSON data available in our mod repositories.
+
+### Runtime
+
+Some pages like the Blabber dialogue editor use sprinkles of dynamic content in the form of [Svelte components](./svelte_sprinkles).
+These sprinkles are automatically built each time you run `jekyll build` or `jekyll serve`.
+When working on those sprinkles, one can open a separate terminal and use the `npm run watch` command in the `svelte_sprinkles` directory.
