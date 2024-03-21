@@ -20,12 +20,12 @@
 <li class="invslot">
 {% if slot %}
 {%- capture alt_prefix-%}Ingredient {{ forloop.index }}: {% endcapture -%}
-{%- include mc/itemstack.liquid item=slot alt_prefix=alt_prefix -%}
+{%- itemstack item=slot alt_prefix=alt_prefix -%}
 {% endif %}
 </li>
 {%- endfor -%}
 </{{ grid_tag }}>
 <div class="invslot invslot-large">
-{%- include mc/itemstack.liquid item=include.result count=include.count alt_prefix="Result: " large="true"-%}
+{%- itemstack item=include.result count=include.count alt_prefix="Result: " large=true -%}
 </div>
 </article>

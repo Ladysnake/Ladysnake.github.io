@@ -91,3 +91,24 @@
     display: none;
   }
 }
+
+.bomb-showcase {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+
+  & > div {
+    display: none;
+    position: absolute;
+
+    @include desktop {
+      display: initial;
+    }
+  }
+
+  .mcui {
+    font-size: 21px;
+  }
+}

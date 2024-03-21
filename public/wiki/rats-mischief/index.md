@@ -187,7 +187,7 @@ Rat pouches can be used to quickly gather rats back. Using a pouch on a rat will
 Pouches can be crafted like bundles with leather, twisted vines and popped chorus fruit, to produce respectively pouches with a capacity of 5, 10 and 20 rats.
 Rats stored in Pouches won't age, meaning they will keep status effects, health, their variant and names.
 
-<figure>
+<figure class="recipes">
 {% recipe leather_rat_pouch.json %}
 {% recipe twisted_rat_pouch.json %}
 {% recipe purpur_rat_pouch.json %}

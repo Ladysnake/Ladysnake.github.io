@@ -3,15 +3,13 @@ require 'json'
 
 module Ladysnake
   class Ingredient
+    attr_reader :item
+
     def initialize(data)
       @item = data["item"]
     end
 
     EMPTY = Ingredient.new(Hash["item", "minecraft:air"])
-
-    def item
-      @item
-    end
 
     def empty?
       @item == "minecraft:air"
@@ -23,6 +21,8 @@ module Ladysnake
   end
 
   class ShapedRecipe
+    attr_reader :result, :ingredients, :width, :height
+
     def initialize(result, ingredients, width, height)
       @result = result
       @ingredients = ingredients
@@ -74,22 +74,6 @@ module Ladysnake
       ShapedRecipe.new(data["result"], ingredients, width, height)
     end
 
-    def result
-      @result
-    end
-
-    def ingredients
-      @ingredients
-    end
-
-    def width
-      @width
-    end
-
-    def height
-      @height
-    end
-
     def to_3x3_grid
       if @width == 3
         if @height == 3
@@ -116,18 +100,12 @@ module Ladysnake
   end
 
   class ShapelessRecipe
+    attr_reader :result, :ingredients
+
     def initialize(result, ingredients)
       @result = result
       @ingredients = ingredients
     end
-    def result
-      @result
-    end
-
-    def ingredients
-      @ingredients
-    end
-
     def self.parse(data)
       ingredients = data["ingredients"].map do |i|
         Ingredient.new(i)

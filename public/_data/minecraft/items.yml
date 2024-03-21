@@ -1,24 +1,12 @@
+# This file contains data for Minecraft item stack rendering
+#
+# If an item ID is not present in this file, the plugin will try these steps:
+#  - If the namespace is "minecraft", it will attempt to guess Minecraft Wiki links for the icon and link
+#  - If the namespace is listed in ../mods/resource_roots, it will attempt to load data from the corresponding repository
+#  - Else, it will fall back to the MISSING item data
 MISSING:
   name: Unknown Item
   icon: https://minecraft.wiki/images/Missing_Texture_JE4.png?db402&format=original
-"blast:bomb":
-  name: Bomb
-  icon: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources/assets/blast/textures/item/bomb.png
-"blast:trigger_bomb":
-  name: Trigger Bomb
-  icon: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources/assets/blast/textures/item/trigger_bomb.png
-"blast:golden_bomb":
-  name: Golden Bomb
-  icon: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources/assets/blast/textures/item/golden_bomb.png
-"blast:golden_trigger_bomb":
-  name: Golden Trigger Bomb
-  icon: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources/assets/blast/textures/item/golden_trigger_bomb.png
-"blast:diamond_bomb":
-  name: Diamond Bomb
-  icon: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources/assets/blast/textures/item/diamond_bomb.png
-"blast:diamond_trigger_bomb":
-  name: Diamond Trigger Bomb
-  icon: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources/assets/blast/textures/item/diamond_trigger_bomb.png
 "minecraft:diamond":
   name: Diamond
   link: https://minecraft.wiki/w/Diamond
@@ -51,16 +39,3 @@ MISSING:
   name: String
   link: https://minecraft.wiki/w/String
   icon: https://minecraft.wiki/images/Invicon_String.png
-"minecraft:twisting_vines":
-  name: Twisting Vines
-  link: https://minecraft.wiki/w/Twisting_Vines
-  icon: https://minecraft.wiki/images/Invicon_Twisting_Vines.png
-"ratsmischief:leather_rat_pouch":
-  name: Leather Pouch
-  icon: https://raw.githubusercontent.com/Ladysnake/RATs-Mischief/2.0/src/main/resources/assets/ratsmischief/textures/item/leather_rat_pouch.png
-"ratsmischief:purpur_rat_pouch":
-  name: Purpur Pouch
-  icon: https://raw.githubusercontent.com/Ladysnake/RATs-Mischief/2.0/src/main/resources/assets/ratsmischief/textures/item/purpur_rat_pouch.png
-"ratsmischief:twisted_rat_pouch":
-  name: Twisted Pouch
-  icon: https://raw.githubusercontent.com/Ladysnake/RATs-Mischief/2.0/src/main/resources/assets/ratsmischief/textures/item/twisted_rat_pouch.png

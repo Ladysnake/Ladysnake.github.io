@@ -98,7 +98,13 @@ BLAST mainly focuses on various types of bombs with some common attributes:
 
 Dirt Bombs can be crafted by surrounding normal bombs with 8 Dirt Blocks. Instead of destroying blocks however, they will **create a dirt pile wherever they explode.** As such, they are a great counter to creeper holes!
 
-![Dirt Bombs](DirtBombs.png)
+<figure class="bomb-showcase">
+<div style="top:2em; left:0">
+{% recipe dirt_bomb.json %}
+{% recipe dirt_trigger_bomb.json %}
+</div>
+<img src="./DirtBombs.png" alt="Dirt Bombs"/>
+</figure>
 
 ### Pearl Bombs
 
