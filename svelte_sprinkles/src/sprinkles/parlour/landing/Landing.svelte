@@ -1,7 +1,9 @@
 <div id="dialogue-editor" class="dialogue-landing">
     <NewDialogueForm />
     <span class="vertical-separator"></span>
-    <DialogueImportExport landingPage/>
+    <DialogueImportExport importOnly>
+      <i>Or drop a dialogue file in this area to import</i>
+    </DialogueImportExport>
 </div>
 
 <script>

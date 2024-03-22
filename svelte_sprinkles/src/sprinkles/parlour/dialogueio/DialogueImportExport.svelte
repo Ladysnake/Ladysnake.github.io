@@ -1,11 +1,19 @@
-<div id="dialogue-import-export" class:landingPage>
-  <input id="dialogue-import" type="file" accept="application/json"/>
+<div id="dialogue-import-export" role="region" class:landing-page={importOnly}
+     on:drop|preventDefault={onDrop}>
+  <input id="dialogue-import" type="file" accept="application/json" on:change={importDialogue}/>
   <label class="btn btn-info" for="dialogue-import">
     <span class="icon"><OcticonUpload/></span>
     Import JSON dialogue file
   </label>
-  <i>Or drop a dialogue file in this area to import</i>
-  <div class="drop-zone">
+  <slot></slot>
+  {#if !importOnly}
+    <button class="btn btn-warning" id="dialogue-export" on:click={exportDialogue}>
+      <span class="icon"><OcticonDownload/></span>
+      Export JSON dialogue file
+    </button>
+  {/if}
+  <div class="drop-zone" class:active={draggingInWindow > 0} class:hovered={draggingInDropZone > 0}
+       on:dragover|preventDefault>
     <span class="icon"><OcticonUpload/></span>
     Drop a dialogue file <strong class="drop-zone">here</strong> to import
   </div>
@@ -16,16 +24,124 @@
 
 <script lang="ts">
   import OcticonUpload from "../../../assets/OcticonUpload.svelte";
+  import BlabberDialogue from "../BlabberDialogue";
+  import {dialogueData, dialogueFilename} from "../dialogueDataStore";
+  import {validateDialogue} from "../validation";
+  import {onMount} from "svelte";
+  import {saveAs} from "file-saver";
+  import OcticonDownload from "../../../assets/OcticonDownload.svelte";
 
   let info: string = '';
   let warning: string = '';
   let error: string = '';
+  let draggingInWindow = 0;
+  let draggingInDropZone = 0;
 
-  export let landingPage = false;
+  export let importOnly = false;
+
+  const logIoInfo = (text: string) => info = text;
+  const logIoWarning = (text: string) => warning = text;
+  const logIoError = (text: string) => error = text;
+  const clearIoLogs = () => {
+    info = '';
+    warning = '';
+    error = '';
+  }
+
+  function loadDialogueFile(file: File) {
+    if (!file.type.startsWith('application/json')) {
+      logIoError(`${file.name} is not a valid JSON file`);
+      return;
+    }
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      try {
+        clearIoLogs();
+        if (typeof reader.result !== 'string') {
+          logIoError(`Could not parse ${file.name}`);
+          return;
+        }
+        const d = JSON.parse(reader.result);
+        if (!d.states) {
+          logIoError(`${file.name} is missing dialogue state data`);
+        } else {
+          // You can go back to the previous dialogue after loading a new one!
+          if ($dialogueData.isLoaded()) window.history.pushState(null, '');
+
+          $dialogueData = new BlabberDialogue(d);
+          $dialogueFilename = file.name.endsWith('.json') ? file.name.substring(0, file.name.length - 5) : file.name;
+          logIoInfo(`Loaded dialogue from ${file.name}`);
+          $dialogueData.saveToWindow();
+        }
+      } catch (err: any) {
+        console.error(err);
+        logIoError(`Failed to read ${file.name}: ${err.message}`);
+      }
+    });
+    reader.readAsText(file);
+  }
+
+  function importDialogue(e: Event & { currentTarget: HTMLInputElement }) {
+    const curFiles = e.currentTarget.files;
+    if (curFiles && curFiles.length > 0) {
+      loadDialogueFile(curFiles[0]);
+    } else {
+      logIoError('No files currently selected for upload');
+    }
+  }
+
+  function exportDialogue() {
+    clearIoLogs();
+    if (validateDialogue($dialogueData, logIoError, logIoWarning)) {
+      $dialogueData.prune();
+      saveAs(new Blob([JSON.stringify($dialogueData.data, null, 2)], { type: 'application/json' }), $dialogueFilename + '.json');
+    }
+  }
+
+  function onDrop(e: DragEvent) {
+    try {
+      if (e.dataTransfer?.items && e.dataTransfer.items.length) {
+        // If dropped items aren't files, reject them
+        if (e.dataTransfer.items[0].kind === 'file') {
+          loadDialogueFile(e.dataTransfer.items[0].getAsFile()!);
+        }
+      } else if (e.dataTransfer?.files.length) {
+        // Use DataTransfer interface to access the file(s)
+        loadDialogueFile(e.dataTransfer.files[0])
+      }
+    } finally {
+      draggingInWindow = 0;
+      draggingInDropZone = 0;
+    }
+  }
+
+  onMount(() => {
+    function onDragEnter(e: DragEvent) {
+      draggingInWindow++;
+      if ((e.target as HTMLElement | null)?.classList?.contains('drop-zone')) {
+        draggingInDropZone++;
+      }
+    }
+
+    function onDragLeave(e: DragEvent) {
+      draggingInWindow--;
+      if ((e.target as HTMLElement | null)?.classList.contains('drop-zone')) {
+        draggingInDropZone--;
+      }
+    }
+
+    document.body.addEventListener('dragenter', onDragEnter);
+    document.body.addEventListener('dragleave', onDragLeave);
+
+    return () => {
+      document.body.removeEventListener('dragenter', onDragEnter);
+      document.body.removeEventListener('dragleave', onDragLeave);
+    }
+  });
 </script>
 
 <style>
-  #dialogue-import-export.landingPage {
+  #dialogue-import-export.landing-page {
     outline: none;
     border: none;
     width: 100%;

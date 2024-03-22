@@ -53,8 +53,8 @@ export default class BlabberDialogue {
     return this.data.layout?.type;
   }
 
-  get states(): string[] {
-    return Object.keys(this.data.states ?? {});
+  get states(): [string, DialogueState][] {
+    return Object.entries(this.data.states ?? {});
   }
 
   stateData(key: string): DialogueState | undefined {
@@ -75,6 +75,11 @@ export default class BlabberDialogue {
 
   isLoaded(): boolean {
     return this.data.states !== null;
+  }
+
+  saveToWindow() {
+    const newState = {...(window.history.state ?? {}), data: this.data};
+    window.history.replaceState(newState, '');
   }
 
   prune() {
