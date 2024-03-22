@@ -6,11 +6,13 @@ import {svelte} from '@sveltejs/vite-plugin-svelte'
 export default defineConfig(({ mode }: ConfigEnv) => ({
   // Web build
   plugins: [svelte()],
+  publicDir: '../_site',
   build: {
     sourcemap: mode === "development",
     // Build directly into the Jekyll output directory
     outDir: "../_site/scripts/sprinkles",
     emptyOutDir: true,
+    copyPublicDir: false,
     rollupOptions: {
       input: {
           'blabber-parlour': './src/sprinkles/parlour/main.ts'

@@ -3,3 +3,10 @@ ij_javascript_spaces_within_object_literal_braces = true
 
 [*.ts]
 ij_typescript_spaces_within_object_literal_braces = true
+
+[*.html]
+indent_size = 2
+
+[*.svelte]
+indent_size = 2
+ij_typescript_spaces_within_object_literal_braces = true
