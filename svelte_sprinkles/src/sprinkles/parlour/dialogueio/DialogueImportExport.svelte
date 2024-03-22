@@ -1,3 +1,4 @@
+<svelte:body on:dragenter={onDragEnter} on:dragleave={onDragLeave}/>
 <div id="dialogue-import-export" role="region" class:landing-page={importOnly}
      on:drop|preventDefault={onDrop}>
   <input id="dialogue-import" type="file" accept="application/json" on:change={importDialogue}/>
@@ -115,29 +116,19 @@
     }
   }
 
-  onMount(() => {
-    function onDragEnter(e: DragEvent) {
-      draggingInWindow++;
-      if ((e.target as HTMLElement | null)?.classList?.contains('drop-zone')) {
-        draggingInDropZone++;
-      }
+  function onDragEnter(e: DragEvent) {
+    draggingInWindow++;
+    if ((e.target as HTMLElement | null)?.classList?.contains('drop-zone')) {
+      draggingInDropZone++;
     }
+  }
 
-    function onDragLeave(e: DragEvent) {
-      draggingInWindow--;
-      if ((e.target as HTMLElement | null)?.classList.contains('drop-zone')) {
-        draggingInDropZone--;
-      }
+  function onDragLeave(e: DragEvent) {
+    draggingInWindow--;
+    if ((e.target as HTMLElement | null)?.classList.contains('drop-zone')) {
+      draggingInDropZone--;
     }
-
-    document.body.addEventListener('dragenter', onDragEnter);
-    document.body.addEventListener('dragleave', onDragLeave);
-
-    return () => {
-      document.body.removeEventListener('dragenter', onDragEnter);
-      document.body.removeEventListener('dragleave', onDragLeave);
-    }
-  });
+  }
 </script>
 
 <style>
