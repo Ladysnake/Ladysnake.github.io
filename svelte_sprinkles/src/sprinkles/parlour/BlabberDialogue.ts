@@ -1,7 +1,12 @@
-export interface McText {
+export interface McTextRaw {
   readonly value: string | object;
+}
+
+export interface McTextTranslatable {
   readonly translate?: string;
 }
+
+export type McText = string | McTextTranslatable | McTextRaw;
 
 export interface DialogueAction {
   readonly type?: string;
@@ -53,12 +58,8 @@ export default class BlabberDialogue {
     return this.data.layout?.type;
   }
 
-  get states(): [string, DialogueState][] {
-    return Object.entries(this.data.states ?? {});
-  }
-
-  stateData(key: string): DialogueState | undefined {
-    return this.data.states?.[key];
+  get states(): Record<string, DialogueState> {
+    return this.data.states ?? {};
   }
 
   withStartAt(state?: string) {
@@ -71,6 +72,23 @@ export default class BlabberDialogue {
 
   withLayout(layout: string) {
     return new BlabberDialogue({ ...this.data, layout: { type: layout } });
+  }
+
+  withAddedState(newState: string) {
+    return this.withUpdatedState(newState, () => ({
+      text: '',
+      choices: [],
+    }));
+  }
+
+  withUpdatedState(key: string, updater: (state: DialogueState) => DialogueState) {
+    return new BlabberDialogue({
+      ...this.data,
+      states: {
+        ...(this.data.states ?? {}),
+        [key]: updater(this.data?.states?.[key] ?? {}),
+      }
+    });
   }
 
   isLoaded(): boolean {

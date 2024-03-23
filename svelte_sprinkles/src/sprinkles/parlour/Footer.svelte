@@ -1,7 +1,5 @@
 <script lang="ts">
-  import DialogueImport from "./dialogueio/DialogueImport.svelte";
-  import GraphOutline from "../../assets/GraphOutline.svelte";
-  import ViewDashboardOutline from "../../assets/ViewDashboardOutline.svelte";
+  import DialogueImportExport from "./dialogueio/DialogueImportExport.svelte";
 
   export let mainView = true;
 
@@ -10,14 +8,25 @@
   }
 </script>
 <div class="dialogue-footer">
-  <DialogueImport>
+  <DialogueImportExport>
     <button id="dialogue-view-toggle" class="btn btn-success" on:click={toggleView}>
       {#if mainView}
-        <GraphOutline alt="Toggle"/>
+        <svg inline-src="graph-outline" />
       {:else}
-        <ViewDashboardOutline alt="Toggle"/>
+        <svg inline-src="view-dashboard-outline"/>
       {/if}
       Toggle Graph View
     </button>
-  </DialogueImport>
+  </DialogueImportExport>
 </div>
+
+<style>
+  .btn {
+    display: flex;
+    align-items: center;
+  }
+  .dialogue-footer {
+    position: sticky;
+    bottom: 0;
+  }
+</style>

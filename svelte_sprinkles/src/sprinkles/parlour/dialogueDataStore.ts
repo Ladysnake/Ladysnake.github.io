@@ -1,4 +1,4 @@
-import {writable, get, derived, type Writable} from 'svelte/store';
+import {writable, derived, type Writable} from 'svelte/store';
 import BlabberDialogue from './BlabberDialogue';
 
 function createDialogueData() {
@@ -23,6 +23,7 @@ export const dialogueStart: Writable<string | undefined> = {
   set: (startAt: string) => dialogueData.update((d) => d.withStartAt(startAt)),
   update: (fn: (startAt: string | undefined) => string) => dialogueData.update((d) => d.withStartAt(fn(d.startAt)))
 }
+export const dialogueStateKeys = derived(dialogueData,(d) => Object.keys(d.states));
 export const dialogueUnskippable: Writable<boolean> = {
   ...(derived(dialogueData,(d) => d.unskippable)),
   set: (unskippable: boolean) => dialogueData.update((d) => d.withUnskippability(unskippable)),

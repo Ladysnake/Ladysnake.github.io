@@ -1,36 +1,44 @@
 <svelte:body on:dragenter={onDragEnter} on:dragleave={onDragLeave}/>
-<div id="dialogue-import-export" role="region" class:landing-page={importOnly}
-     on:drop|preventDefault={onDrop}>
+<div
+  id="dialogue-import-export"
+  role="region"
+  aria-label="Dialogue import/export"
+  class:landing-page={importOnly}
+  on:drop|preventDefault={onDrop}
+>
   <input id="dialogue-import" type="file" accept="application/json" on:change={importDialogue}/>
   <label class="btn btn-info" for="dialogue-import">
-    <span class="icon"><OcticonUpload/></span>
+    <svg inline-src="octicon-upload" />
     Import JSON dialogue file
   </label>
   <slot></slot>
   {#if !importOnly}
     <button class="btn btn-warning" id="dialogue-export" on:click={exportDialogue}>
-      <span class="icon"><OcticonDownload/></span>
+      <svg inline-src="octicon-download" />
       Export JSON dialogue file
     </button>
   {/if}
-  <div class="drop-zone" class:active={draggingInWindow > 0} class:hovered={draggingInDropZone > 0}
-       on:dragover|preventDefault>
-    <span class="icon"><OcticonUpload/></span>
+  <div
+    class="drop-zone"
+    role="region"
+    aria-label="File drop zone for importing dialogue"
+    class:active={draggingInWindow > 0}
+    class:hovered={draggingInDropZone > 0}
+    on:dragover|preventDefault
+  >
+    <svg inline-src="octicon-upload" />
     Drop a dialogue file <strong class="drop-zone">here</strong> to import
   </div>
-  <p class="dialogue-io-log info-log">{info}</p>
-  <p class="dialogue-io-log warning-log">{warning}</p>
-  <p class="dialogue-io-log error-log">{error}</p>
 </div>
+<p class="dialogue-io-log info-log">{info}</p>
+<p class="dialogue-io-log warning-log">{warning}</p>
+<p class="dialogue-io-log error-log">{error}</p>
 
 <script lang="ts">
-  import OcticonUpload from "../../../assets/OcticonUpload.svelte";
   import BlabberDialogue from "../BlabberDialogue";
   import {dialogueData, dialogueFilename} from "../dialogueDataStore";
   import {validateDialogue} from "../validation";
-  import {onMount} from "svelte";
   import {saveAs} from "file-saver";
-  import OcticonDownload from "../../../assets/OcticonDownload.svelte";
 
   let info: string = '';
   let warning: string = '';
@@ -143,6 +151,7 @@
   }
 
   #dialogue-import-export {
+    flex: auto;
     position: relative;
     display: flex;
     justify-content: space-around;
@@ -152,7 +161,7 @@
     outline: 2px solid var(--base-background-color);
   }
 
-  .icon {
+  svg {
     margin-right: 1rem;
   }
 
@@ -215,6 +224,7 @@
     font-weight: bold;
     width: 100%;
     margin: 0;
+    align-self: end;
   }
 
   .error-log {

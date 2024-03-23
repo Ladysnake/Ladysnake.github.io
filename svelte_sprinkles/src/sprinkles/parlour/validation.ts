@@ -21,7 +21,7 @@ function validateStructure(dialogue: BlabberDialogue, logWarning: (msg: string) 
   const waitList: Set<string> = new Set();
   const unvalidated: Set<string> = new Set();
 
-  for (const [state, { type, choices }] of dialogue.states) {
+  for (const [state, { type, choices }] of Object.entries(dialogue.states)) {
     if (type === 'end_dialogue') {
       waitList.add(state);
     } else if (!choices) {

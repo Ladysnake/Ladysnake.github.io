@@ -1,5 +1,4 @@
 <script lang="ts">
-  import ExternalLink from "../../../assets/ExternalLink.svelte";
   import {EDITOR_TEXT_FORMAT_KEY} from "../localStorageKeys";
   import {validateIdentifierField} from "../validation";
   import BlabberDialogue from "../BlabberDialogue";
@@ -8,7 +7,7 @@
   let filename: string | undefined;
   let textFormat: string | null = localStorage.getItem(EDITOR_TEXT_FORMAT_KEY);
   let layout: 'blabber:classic' | 'blabber:rpg' = 'blabber:classic';
-  let unskippable = true;
+  let skippable = true;
   let startDialogueStateName = 'start';
   let endDialogueStateName = 'end';
 
@@ -43,7 +42,6 @@
       }
       return;
     }
-    console.log(`Setting file name to ${filename}`)
     $dialogueFilename = filename;
     $dialogueData = new BlabberDialogue({
       states: {
@@ -53,7 +51,7 @@
         }
       }
     }).withLayout(layout)
-      .withUnskippability(unskippable)
+      .withUnskippability(!skippable)
       .withStartAt(startDialogueStateName);
   }
 </script>
@@ -108,8 +106,8 @@
               bind:group={textFormat}
             />
             <label for="json-text"><span aria-hidden="true" class="icon">💻</span>Raw JSON <i>(See also <a
-              href="https://minecraft.wiki/w/Raw_JSON_text_format">the wiki page <ExternalLink/></a>, or <a
-              href="https://minecraft.tools/en/json_text.php">a generator <ExternalLink/></a>)</i></label>
+              href="https://minecraft.wiki/w/Raw_JSON_text_format">the wiki page <svg inline-src="external-link"/></a>, or <a
+              href="https://minecraft.tools/en/json_text.php">a generator <svg inline-src="external-link"/></a>)</i></label>
         </span>
   </fieldset>
   <fieldset>
@@ -136,7 +134,7 @@
     </span>
   </fieldset>
   <div class="option">
-    <input type="checkbox" id="dialogue-unskippable" bind:checked={unskippable}/>
+    <input type="checkbox" id="dialogue-unskippable" bind:checked={skippable}/>
     <label for="dialogue-unskippable">Can this dialogue be skipped? <i>(e.g. with the escape key)</i></label>
   </div>
   <div class="dialogue-state-name">
