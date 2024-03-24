@@ -6,6 +6,12 @@
   class:landing-page={importOnly}
   on:drop|preventDefault={onDrop}
 >
+  {#if !importOnly}
+    <button class="btn btn-danger" id="dialogue-reset" on:click={resetDialogue}>
+      <svg inline-src="octicon-trashcan" />
+      Reset dialogue
+    </button>
+  {/if}
   <input id="dialogue-import" type="file" accept="application/json" on:change={importDialogue}/>
   <label class="btn btn-info" for="dialogue-import">
     <svg inline-src="octicon-upload" />
@@ -88,6 +94,13 @@
       }
     });
     reader.readAsText(file);
+  }
+
+  function resetDialogue() {
+    if (window.confirm('Do you really want to reset the dialogue?\n\n(You can undo this action by using the "Go Back" button of your browser)')) {
+      window.history.pushState({}, '', '#');
+      $dialogueData = new BlabberDialogue();
+    }
   }
 
   function importDialogue(e: Event & { currentTarget: HTMLInputElement }) {

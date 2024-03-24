@@ -7,23 +7,17 @@
 
   export let mainView = true;
 
-  const pageAccessedByReload = (
-    (window.performance.navigation && window.performance.navigation.type === 1) ||
-    window.performance
-      .getEntriesByType('navigation')
-      .find((nav) => nav instanceof PerformanceNavigationTiming && nav.type === 'reload')
-  );
-  // Reloading the page should reset the dialogue
-  if (pageAccessedByReload) {
-    if (window.history.state?.data?.states) window.history.pushState({data: {}}, '');
-  } else {
+  function loadDraft() {
     const wipDialogue = window.history.state;
-    if (wipDialogue && wipDialogue.filename) {
+    if (wipDialogue) {
       $dialogueData = new BlabberDialogue(wipDialogue.data, wipDialogue.filename);
     }
   }
+
+  loadDraft();
 </script>
 
+<svelte:window on:popstate={loadDraft}/>
 <main>
   {#if (!$dialogueFilename)}
     <Landing/>

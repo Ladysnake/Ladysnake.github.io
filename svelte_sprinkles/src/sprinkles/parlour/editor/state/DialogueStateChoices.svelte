@@ -10,7 +10,7 @@
   const stateData = getStateData();
   const stateKey = getStateKey();
   const stateChoices: Writable<DialogueChoice[]> = {
-    ...derived(stateData, (state) => state.choices ?? []),
+    ...derived(stateData, (state) => state?.choices ?? []),
     set: (choices: DialogueChoice[]) => stateData.update((oldState) => ({
       ...oldState,
       choices,

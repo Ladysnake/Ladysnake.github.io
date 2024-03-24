@@ -3,6 +3,11 @@
   import NewDialogueState from "./NewDialogueState.svelte";
 
   export let selectedState: string | undefined = undefined;
+
+  function selectState(state: string) {
+    selectedState = state;
+    window.history.replaceState(window.history.state, '', `#${state}`);
+  }
 </script>
 
 <div class="toc-pane">
@@ -10,7 +15,7 @@
   <nav class="toc">
     <ul id="dialogue-state-list">
       {#each $dialogueStateKeys as state}
-        <li data-state={state}><a href="#{state}" on:click={() => selectedState = state}>{state}</a></li>
+        <li data-state={state}><a href="#{state}" on:click|preventDefault={() => selectState(state)}>{state}</a></li>
       {/each}
     </ul>
     <NewDialogueState/>

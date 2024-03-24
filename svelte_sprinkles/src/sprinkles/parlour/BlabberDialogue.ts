@@ -61,15 +61,15 @@ export default class BlabberDialogue {
   }
 
   withStartAt(state?: string) {
-    return new BlabberDialogue({ ...this.data, start_at: state });
+    return new BlabberDialogue({ ...this.data, start_at: state }, this.filename);
   }
 
   withUnskippability(unskippable: boolean) {
-    return new BlabberDialogue({ ...this.data, unskippable });
+    return new BlabberDialogue({ ...this.data, unskippable }, this.filename);
   }
 
   withLayout(layout: string) {
-    return new BlabberDialogue({ ...this.data, layout: { type: layout } });
+    return new BlabberDialogue({ ...this.data, layout: { type: layout } }, this.filename);
   }
 
   withAddedState(newState: string) {
@@ -86,7 +86,7 @@ export default class BlabberDialogue {
         ...(this.data.states ?? {}),
         [key]: updater(this.data?.states?.[key] ?? {}),
       }
-    });
+    }, this.filename);
   }
 
   isLoaded(): boolean {
