@@ -30,7 +30,7 @@ function validateStructure(dialogue: BlabberDialogue, logWarning: (msg: string) 
       unvalidated.add(state);
       for (const {next} of choices) {
         if (!next) continue;
-        if (!ancestors[next]) ancestors[state] = new Set();
+        if (!ancestors[next]) ancestors[next] = new Set();
         ancestors[next].add(state);
       }
     }

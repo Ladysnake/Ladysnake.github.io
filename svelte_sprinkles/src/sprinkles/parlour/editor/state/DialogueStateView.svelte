@@ -38,7 +38,9 @@
 <div class="main" id="dialogue-state-pane">
   <h3>State Properties: {selectedState}</h3>
   <DialogueStateProperties/>
-  <DialogueStateChoices state={selectedState}/>
+  {#if $stateData.type !== 'end_dialogue'}
+    <DialogueStateChoices/>
+  {/if}
 </div>
 <style>
   #dialogue-state-pane {
