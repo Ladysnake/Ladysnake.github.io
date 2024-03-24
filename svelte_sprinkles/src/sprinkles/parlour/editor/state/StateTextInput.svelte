@@ -1,12 +1,14 @@
 <script lang="ts">
-  import {dialogueData, dialogueTextFormat} from "../../dialogueDataStore";
+  import {dialogueTextFormat} from "../../dialogueDataStore";
   import {McTextType, type McText} from "../../../../lib/McText";
   import McTextInput from "../../../../lib/McTextInput.svelte";
-  import {type DialogueState} from "../../BlabberDialogue";
+  import {getStateData, getStateKey} from "./DialogueStateView.svelte";
 
-  export let state: string;
+  const stateKey = getStateKey();
+  const stateData = getStateData();
 
-  $: value = $dialogueData.states[state]?.text ?? '';
+  $: value = $stateData.text ?? '';
+  $: console.log($stateKey, $stateData);
 
   let placeholder: string;
 
@@ -16,7 +18,7 @@
         placeholder = 'Welcome traveller, ...';
         break;
       case McTextType.TRANSLATION_KEY:
-        placeholder = `mymod:dialogue.my_dialogue.${state}.text`;
+        placeholder = `mymod:dialogue.my_dialogue.${$stateKey}.text`;
         break;
       case McTextType.JSON:
         placeholder = '{...}';
@@ -25,10 +27,10 @@
   }
 
   function updateText(text: McText) {
-    $dialogueData = $dialogueData.withUpdatedState(state, (oldState) => ({
-      ...oldState,
+    $stateData = {
+      ...$stateData,
       text,
-    } as DialogueState));
+    };
   }
 </script>
 

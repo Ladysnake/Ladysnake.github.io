@@ -1,20 +1,19 @@
 <script lang="ts">
-import ConfirmDialogueLayout from "./ConfirmDialogueLayout.svelte";
-import EndDialogueLayout from "./EndDialogueLayout.svelte";
-import DefaultDialogueLayout from "./DefaultDialogueLayout.svelte";
-import {dialogueData} from "../../../dialogueDataStore";
+  import ConfirmDialogueLayout from "./ConfirmDialogueLayout.svelte";
+  import EndDialogueLayout from "./EndDialogueLayout.svelte";
+  import DefaultDialogueLayout from "./DefaultDialogueLayout.svelte";
+  import {getStateData} from "../DialogueStateView.svelte";
 
-export let state: string;
+  const stateData = getStateData();
 
-$: value = $dialogueData.states[state]?.type ?? 'default';
+  $: value = $stateData.type ?? 'default';
 
-function onChange(event: Event & { currentTarget: HTMLInputElement }) {
-  $dialogueData = $dialogueData.withUpdatedState(state, (oldState) => ({
-    ...oldState,
-    type: event.currentTarget.value
-  }));
-  $dialogueData.saveToWindow();
-}
+  function onChange(event: Event & { currentTarget: HTMLInputElement }) {
+    $stateData = {
+      ...$stateData,
+      type: event.currentTarget.value
+    };
+  }
 </script>
 
 <fieldset>

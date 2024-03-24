@@ -12,7 +12,7 @@
   <div class="wiki-container">
     <DialogueStateList bind:selectedState/>
     {#if selectedState}
-      <DialogueStateView state={selectedState}/>
+      <DialogueStateView selectedState={selectedState}/>
     {/if}
   </div>
 </div>

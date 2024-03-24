@@ -1,35 +1,44 @@
+<script context="module" lang="ts">
+  import {getContext} from "svelte";
+  import type {Readable, Writable} from "svelte/store";
+  import type {DialogueState} from "../../BlabberDialogue";
+
+  const DIALOGUE_STATE_CONTEXT_KEY = 'dialogue_state_data';
+  const DIALOGUE_STATE_NAME_CONTEXT_KEY = 'dialogue_state_name_data';
+
+  export function getStateData(): Writable<DialogueState> {
+    return getContext(DIALOGUE_STATE_CONTEXT_KEY);
+  }
+
+  export function getStateKey(): Readable<string> {
+    return getContext(DIALOGUE_STATE_NAME_CONTEXT_KEY);
+  }
+</script>
 <script lang="ts">
   import DialogueStateProperties from "./DialogueStateProperties.svelte";
+  import DialogueStateChoices from "./DialogueStateChoices.svelte";
+  import {derived, readonly, writable} from "svelte/store";
+  import {dialogueData} from "../../dialogueDataStore";
+  import {setContext} from "svelte";
 
-  export let state: string;
+  export let selectedState: string;
+
+  const stateKey = writable<string>();
+  $: $stateKey = selectedState;
+
+  const stateData: Writable<DialogueState> = {
+    ...(derived([dialogueData, stateKey], ([d, k]) => d.states[k])),
+    set: (newState: DialogueState) => dialogueData.update((d) => d.withUpdatedState(selectedState, () => newState)),
+    update: (fn: (oldState: DialogueState) => DialogueState) => dialogueData.update((d) => d.withUpdatedState(selectedState, fn)),
+  };
+
+  setContext(DIALOGUE_STATE_CONTEXT_KEY, stateData);
+  setContext(DIALOGUE_STATE_NAME_CONTEXT_KEY, readonly(stateKey));
 </script>
 <div class="main" id="dialogue-state-pane">
-  <h3>State Properties: {state}</h3>
-  <DialogueStateProperties state={state}/>
-  <!-- Editable table -->
-  <div class="card dialogue-choice-editor not-dialogue-ending">
-    <h3 class="no_toc card-header font-weight-bold py-4 dialogue-editor-header">
-      Available Choices
-      <span class="table-add float-right mb-3 mr-2"><button type="button"
-                                                            class="btn btn-success btn-rounded btn-sm my-0">New choice</button></span>
-    </h3>
-    <div class="card-body">
-      <div class="table-editable">
-        <table class="table table-bordered table-responsive-md table-striped text-center">
-          <thead>
-          <tr>
-            <th class="text-center">Text</th>
-            <th class="text-center table-buttons">Next State</th>
-            <th class="text-center table-buttons">Sort</th>
-            <th class="text-center table-buttons">Remove</th>
-          </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+  <h3>State Properties: {selectedState}</h3>
+  <DialogueStateProperties/>
+  <DialogueStateChoices state={selectedState}/>
 </div>
 <style>
   #dialogue-state-pane {

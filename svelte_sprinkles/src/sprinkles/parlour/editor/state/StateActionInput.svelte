@@ -18,24 +18,24 @@
   }
 </script>
 <script lang="ts">
-  import {dialogueData} from "../../dialogueDataStore";
-  import type {DialogueAction, DialogueState} from "../../BlabberDialogue";
+  import type {DialogueAction} from "../../BlabberDialogue";
+  import {getStateData} from "./DialogueStateView.svelte";
 
-  export let state: string;
+  const stateData = getStateData();
+  console.log(stateData);
 
-  $: type = $dialogueData.states[state]?.action?.type ?? '';
-  $: value = $dialogueData.states[state]?.action?.value ?? '';
+  $: type = $stateData.action?.type ?? '';
+  $: value = $stateData.action?.value ?? '';
   $: typeMetadata = actionTypeMetadata[type];
 
   function updateAction(newValue: Partial<DialogueAction>) {
-    $dialogueData = $dialogueData.withUpdatedState(state, (oldState) => ({
-      ...oldState,
+    $stateData = {
+      ...$stateData,
       action: {
-        ...(oldState.action ?? {}),
+        ...($stateData.action ?? {}),
         ...newValue,
       }
-    } as DialogueState));
-    $dialogueData.saveToWindow();
+    }
   }
 
   function onTypeChange(event: Event & { currentTarget: HTMLSelectElement }) {
