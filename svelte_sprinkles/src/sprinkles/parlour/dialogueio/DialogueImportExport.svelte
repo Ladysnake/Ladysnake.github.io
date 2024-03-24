@@ -176,6 +176,13 @@
 
   svg {
     margin-right: 1rem;
+    font-size: 18px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
   }
 
   div.drop-zone {
