@@ -8,7 +8,6 @@
   const stateData = getStateData();
 
   $: value = $stateData.text ?? '';
-  $: console.log($stateKey, $stateData);
 
   let placeholder: string;
 

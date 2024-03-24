@@ -1,10 +1,27 @@
 <script lang="ts">
   import Landing from "./landing/Landing.svelte";
-  import {dialogueFilename} from "./dialogueDataStore";
+  import {dialogueData, dialogueFilename} from "./dialogueDataStore";
   import Footer from "./Footer.svelte";
   import MainEditor from "./editor/MainEditor.svelte";
+  import BlabberDialogue from "./BlabberDialogue";
 
   export let mainView = true;
+
+  const pageAccessedByReload = (
+    (window.performance.navigation && window.performance.navigation.type === 1) ||
+    window.performance
+      .getEntriesByType('navigation')
+      .find((nav) => nav instanceof PerformanceNavigationTiming && nav.type === 'reload')
+  );
+  // Reloading the page should reset the dialogue
+  if (pageAccessedByReload) {
+    if (window.history.state?.data?.states) window.history.pushState({data: {}}, '');
+  } else {
+    const wipDialogue = window.history.state;
+    if (wipDialogue && wipDialogue.filename) {
+      $dialogueData = new BlabberDialogue(wipDialogue.data, wipDialogue.filename);
+    }
+  }
 </script>
 
 <main>

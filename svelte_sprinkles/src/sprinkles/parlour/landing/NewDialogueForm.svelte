@@ -44,7 +44,6 @@
       return;
     }
     $dialogueTextFormat = parseMcTextType(textFormat);
-    $dialogueFilename = filename;
     $dialogueData = new BlabberDialogue({
       states: {
         [startDialogueStateName]: {},
@@ -54,7 +53,8 @@
       }
     }).withLayout(layout)
       .withUnskippability(!skippable)
-      .withStartAt(startDialogueStateName);
+      .withStartAt(startDialogueStateName)
+      .withFilename(filename);
   }
 </script>
 

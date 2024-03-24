@@ -30,12 +30,14 @@ export interface DialogueData {
 
 export default class BlabberDialogue {
   readonly data: DialogueData;
+  readonly filename: string | undefined;
 
   /**
    * Constructs a new dialogue with no data
    */
-  constructor(data: DialogueData = {}) {
+  constructor(data: DialogueData = {}, filename: string | undefined = undefined) {
     this.data = data;
+    this.filename = filename;
   }
 
   get startAt(): string | undefined {
@@ -52,6 +54,10 @@ export default class BlabberDialogue {
 
   get states(): Record<string, DialogueState> {
     return this.data.states ?? {};
+  }
+
+  withFilename(filename: string | undefined) {
+    return new BlabberDialogue(this.data, filename);
   }
 
   withStartAt(state?: string) {
@@ -88,7 +94,11 @@ export default class BlabberDialogue {
   }
 
   saveToWindow() {
-    const newState = {...(window.history.state ?? {}), data: this.data};
+    const newState = {
+      ...(window.history.state ?? {}),
+      data: this.data,
+      filename: this.filename,
+    };
     window.history.replaceState(newState, '');
   }
 

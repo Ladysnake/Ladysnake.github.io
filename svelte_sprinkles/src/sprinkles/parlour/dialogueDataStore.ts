@@ -1,21 +1,19 @@
-import {writable, derived, type Writable} from 'svelte/store';
+import {derived, type Readable, writable, type Writable} from 'svelte/store';
 import BlabberDialogue from './BlabberDialogue';
 import {McTextType} from "../../lib/McText";
 
 function createDialogueData() {
-  let store = writable(new BlabberDialogue());
-  const { subscribe, set, update } = store;
+  const store = writable(new BlabberDialogue());
+  let initialized = false;
 
-  function unload(): void {
-    set(new BlabberDialogue());
-  }
+  store.subscribe((value) => {
+    if (initialized) {
+      value.saveToWindow();
+    }
+  });
 
-  return {
-    subscribe,
-    set,
-    update,
-    unload,
-  };
+  initialized = true;
+  return store;
 }
 
 export const dialogueData = createDialogueData();
@@ -24,7 +22,7 @@ export const dialogueStart: Writable<string | undefined> = {
   set: (startAt: string) => dialogueData.update((d) => d.withStartAt(startAt)),
   update: (fn: (startAt: string | undefined) => string) => dialogueData.update((d) => d.withStartAt(fn(d.startAt)))
 }
-export const dialogueStateKeys = derived(dialogueData,(d) => Object.keys(d.states));
+export const dialogueStateKeys: Readable<string[]> = derived(dialogueData,(d) => Object.keys(d.states));
 export const dialogueUnskippable: Writable<boolean> = {
   ...(derived(dialogueData,(d) => d.unskippable)),
   set: (unskippable: boolean) => dialogueData.update((d) => d.withUnskippability(unskippable)),
@@ -35,5 +33,9 @@ export const dialogueLayout: Writable<string | undefined> = {
   set: (layout: string) => dialogueData.update((d) => d.withLayout(layout)),
   update: (fn: (layout: string | undefined) => string) => dialogueData.update((d) => d.withLayout(fn(d.layout)))
 }
-export const dialogueFilename = writable<string | undefined>();
-export const dialogueTextFormat = writable(McTextType.PLAIN);
+export const dialogueFilename: Writable<string | undefined> = {
+  ...(derived(dialogueData,(d) => d.filename)),
+  set: (filename: string | undefined) => dialogueData.update((d) => d.withFilename(filename)),
+  update: (fn: (filename: string | undefined) => string | undefined) => dialogueData.update((d) => d.withFilename(fn(d.filename))),
+};
+export const dialogueTextFormat: Writable<McTextType> = writable(McTextType.PLAIN);

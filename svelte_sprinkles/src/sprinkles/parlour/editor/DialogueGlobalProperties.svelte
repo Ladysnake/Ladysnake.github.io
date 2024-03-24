@@ -1,5 +1,4 @@
 <script lang="ts">
-
   import {
     dialogueLayout,
     dialogueStart,
@@ -7,8 +6,6 @@
     dialogueTextFormat,
     dialogueUnskippable
   } from "../dialogueDataStore";
-
-  console.log('Dialogue skippable: ' + $dialogueUnskippable);
 </script>
 <div class="dialogue-properties">
   <details class="dialogue-global-properties">

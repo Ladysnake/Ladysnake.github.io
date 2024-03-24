@@ -22,7 +22,6 @@
   import {getStateData} from "./DialogueStateView.svelte";
 
   const stateData = getStateData();
-  console.log(stateData);
 
   $: type = $stateData.action?.type ?? '';
   $: value = $stateData.action?.value ?? '';
