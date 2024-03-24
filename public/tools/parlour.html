@@ -30,4 +30,10 @@ desc: Online editor for blabber dialogues
 </noscript>
 <div id="blabber-parlour"></div>
 <link rel="stylesheet" href="/scripts/sprinkles/blabber-parlour.css"/>
+<script type="module">
+  // If the browser tries loading a module that is no longer here, reload the page
+  window.addEventListener('vite:preloadError', () => {
+    window.location.reload();
+  });
+</script>
 <script src="/scripts/sprinkles/blabber-parlour.js" type="module"></script>

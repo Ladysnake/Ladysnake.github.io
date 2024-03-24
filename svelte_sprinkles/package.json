@@ -22,6 +22,7 @@
     "vite": "^5.2.0"
   },
   "dependencies": {
-    "file-saver": "^2.0.5"
+    "file-saver": "^2.0.5",
+    "vis-network": "^9.1.9"
   }
 }

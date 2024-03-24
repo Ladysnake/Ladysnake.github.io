@@ -17,6 +17,7 @@ export default defineConfig(() => ({
     svelte()
   ],
   publicDir: '../_site',
+  base: './',
   build: {
     sourcemap: true,
     // Build directly into the Jekyll output directory

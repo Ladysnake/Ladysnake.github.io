@@ -1,11 +1,17 @@
+<script context="module" lang="ts">
+  import 'vite/modulepreload-polyfill';
+</script>
 <script lang="ts">
   import Landing from "./landing/Landing.svelte";
   import {dialogueData, dialogueFilename} from "./dialogueDataStore";
-  import Footer from "./Footer.svelte";
-  import MainEditor from "./editor/MainEditor.svelte";
   import BlabberDialogue from "./BlabberDialogue";
+  import {type ComponentType, onMount} from "svelte";
 
-  export let mainView = true;
+  let MainEditor: Promise<ComponentType>;
+
+  onMount(() => {
+    MainEditor = import('./editor/MainEditor.svelte').then(m => m.default);
+  });
 
   function loadDraft() {
     const wipDialogue = window.history.state;
@@ -22,13 +28,9 @@
   {#if (!$dialogueFilename)}
     <Landing/>
   {:else}
-    {#if mainView}
-      <MainEditor/>
-    {:else}
-      <p>{$dialogueFilename}</p>
-      <button on:click={() => $dialogueFilename = undefined}>Reset</button>
-    {/if}
-    <Footer bind:mainView/>
+      {#await MainEditor then MainEditor}
+        <svelte:component this={MainEditor}/>
+      {/await}
   {/if}
 </main>
 
