@@ -1,5 +1,6 @@
 import {writable, derived, type Writable} from 'svelte/store';
 import BlabberDialogue from './BlabberDialogue';
+import {McTextType} from "../../lib/McText";
 
 function createDialogueData() {
   let store = writable(new BlabberDialogue());
@@ -35,3 +36,4 @@ export const dialogueLayout: Writable<string | undefined> = {
   update: (fn: (layout: string | undefined) => string) => dialogueData.update((d) => d.withLayout(fn(d.layout)))
 }
 export const dialogueFilename = writable<string | undefined>();
+export const dialogueTextFormat = writable(McTextType.PLAIN);

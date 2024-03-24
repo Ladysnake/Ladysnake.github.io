@@ -1,38 +1,45 @@
 <script lang="ts">
-  import {dialogueData} from "../../dialogueDataStore";
-  import type {McText, McTextTranslatable} from "../../BlabberDialogue";
+  import {dialogueData, dialogueTextFormat} from "../../dialogueDataStore";
+  import {McTextType, type McText} from "../../../../lib/McText";
+  import McTextInput from "../../../../lib/McTextInput.svelte";
+  import {type DialogueState} from "../../BlabberDialogue";
 
   export let state: string;
-  export let textFormat: string = '';
 
   $: value = $dialogueData.states[state]?.text ?? '';
 
-  function importDialogueText(text: McText) {
-    if (!text) return '';
-    switch (textFormat) {
-      case 'literal': return `${text}`;
-      case 'translate': return (text as McTextTranslatable).translate;
-      default: return JSON.stringify(text);
+  let placeholder: string;
+
+  $: {
+    switch ($dialogueTextFormat) {
+      case McTextType.PLAIN:
+        placeholder = 'Welcome traveller, ...';
+        break;
+      case McTextType.TRANSLATION_KEY:
+        placeholder = `mymod:dialogue.my_dialogue.${state}.text`;
+        break;
+      case McTextType.JSON:
+        placeholder = '{...}';
+        break;
     }
   }
 
-  function exportDialogueText(text: string | undefined): McText | undefined {
-    if (!text) return undefined;
-    switch (textFormat) {
-      case 'literal': return text;
-      case 'translate': return {translate: text};
-      default: return JSON.parse(text);
-    }
+  function updateText(text: McText) {
+    $dialogueData = $dialogueData.withUpdatedState(state, (oldState) => ({
+      ...oldState,
+      text,
+    } as DialogueState));
   }
 </script>
 
 <label for="dialogue-state-text" class="not-dialogue-ending">Text</label>
 <span class="not-dialogue-ending">
-  <input
-    type="text"
+  <McTextInput
+    textFormat={$dialogueTextFormat}
+    value={value}
     class="mc-text-input"
     id="dialogue-state-text"
-    data-placeholder-literal="Welcome traveller, ..."
-    data-placeholder-translate="mymod:dialogue.my_dialogue.{state}.text"
+    placeholder={placeholder}
+    on:change={(e) => updateText(e.detail)}
   />
 </span>

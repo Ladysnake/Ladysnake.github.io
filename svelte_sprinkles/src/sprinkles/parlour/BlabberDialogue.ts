@@ -1,12 +1,4 @@
-export interface McTextRaw {
-  readonly value: string | object;
-}
-
-export interface McTextTranslatable {
-  readonly translate?: string;
-}
-
-export type McText = string | McTextTranslatable | McTextRaw;
+import type {McText} from "../../lib/McText";
 
 export interface DialogueAction {
   readonly type?: string;

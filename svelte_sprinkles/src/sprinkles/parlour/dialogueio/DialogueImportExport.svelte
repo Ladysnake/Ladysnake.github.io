@@ -217,6 +217,10 @@
       display: flex;
       align-items: center;
     }
+
+    &:focus-visible + label {
+      outline: auto;
+    }
   }
 
   .dialogue-io-log {

@@ -19,7 +19,7 @@
 </script>
 <script lang="ts">
   import {dialogueData} from "../../dialogueDataStore";
-  import type {DialogueAction} from "../../BlabberDialogue";
+  import type {DialogueAction, DialogueState} from "../../BlabberDialogue";
 
   export let state: string;
 
@@ -34,7 +34,7 @@
         ...(oldState.action ?? {}),
         ...newValue,
       }
-    }));
+    } as DialogueState));
     $dialogueData.saveToWindow();
   }
 

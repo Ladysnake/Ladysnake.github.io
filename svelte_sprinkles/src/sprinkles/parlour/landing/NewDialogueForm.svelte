@@ -2,7 +2,8 @@
   import {EDITOR_TEXT_FORMAT_KEY} from "../localStorageKeys";
   import {validateIdentifierField} from "../validation";
   import BlabberDialogue from "../BlabberDialogue";
-  import {dialogueData, dialogueFilename} from "../dialogueDataStore";
+  import {dialogueData, dialogueFilename, dialogueTextFormat} from "../dialogueDataStore";
+  import {parseMcTextType} from "../../../lib/McText.js";
 
   let filename: string | undefined;
   let textFormat: string | null = localStorage.getItem(EDITOR_TEXT_FORMAT_KEY);
@@ -42,6 +43,7 @@
       }
       return;
     }
+    $dialogueTextFormat = parseMcTextType(textFormat);
     $dialogueFilename = filename;
     $dialogueData = new BlabberDialogue({
       states: {
@@ -82,7 +84,7 @@
         id="literal-text"
         type="radio"
         name="text-format"
-        value="literal"
+        value="plain"
         bind:group={textFormat}
       />
       <label for="literal-text"><span aria-hidden="true" class="icon">📃</span>Literal Text <i>(Easier for playing around)</i></label>
@@ -92,7 +94,7 @@
         id="translation-keys"
         type="radio"
         name="text-format"
-        value="translate"
+        value="translation_key"
         bind:group={textFormat}
       />
       <label for="translation-keys"><span aria-hidden="true" class="icon">🌐</span>Translation Key <i>(Recommended for public releases)</i></label>
@@ -105,9 +107,14 @@
               value="json"
               bind:group={textFormat}
             />
-            <label for="json-text"><span aria-hidden="true" class="icon">💻</span>Raw JSON <i>(See also <a
-              href="https://minecraft.wiki/w/Raw_JSON_text_format">the wiki page <svg inline-src="external-link"/></a>, or <a
-              href="https://minecraft.tools/en/json_text.php">a generator <svg inline-src="external-link"/></a>)</i></label>
+            <label for="json-text">
+              <span aria-hidden="true" class="icon">💻</span>
+              Raw JSON
+              <i>(See also <a href="https://minecraft.wiki/w/Raw_JSON_text_format">
+                the wiki page <svg inline-src="external-link"/>
+              </a>, or <a href="https://minecraft.tools/en/json_text.php">
+                a generator <svg inline-src="external-link"/>
+              </a>)</i></label>
         </span>
   </fieldset>
   <fieldset>

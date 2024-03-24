@@ -1,6 +1,12 @@
 <script lang="ts">
 
-  import {dialogueLayout, dialogueUnskippable} from "../dialogueDataStore";
+  import {
+    dialogueLayout,
+    dialogueStart,
+    dialogueStateKeys,
+    dialogueTextFormat,
+    dialogueUnskippable
+  } from "../dialogueDataStore";
 
   console.log('Dialogue skippable: ' + $dialogueUnskippable);
 </script>
@@ -45,12 +51,16 @@
         <label for="dialogue-layout-rpg">RPG</label>
       </fieldset>
       <label for="dialogue-start-at">Starting state</label>
-      <select title="Starting state selector; requires at least one state to exist" id="dialogue-start-at"></select>
+      <select title="Starting state selector; requires at least one state to exist" id="dialogue-start-at" disabled={!($dialogueStateKeys.length)} bind:value={$dialogueStart}>
+        {#each $dialogueStateKeys as state}
+          <option value={state}>{state}</option>
+        {/each}
+      </select>
       <label for="dialogue-text-format">Editor text format</label>
       <span>
-        <select id="dialogue-text-format">
-          <option value="literal">📃 Literal Text</option>
-          <option value="translate">🌐 Translation Key</option>
+        <select id="dialogue-text-format" bind:value={$dialogueTextFormat}>
+          <option value="plain">📃 Literal Text</option>
+          <option value="translation_key">🌐 Translation Key</option>
           <option value="json">💻 Raw JSON</option>
         </select>
         <span id="raw-text-tip" hidden>See also <a href="https://minecraft.tools/en/json_text.php">Minecraft Tools' Text Generator</a></span>
