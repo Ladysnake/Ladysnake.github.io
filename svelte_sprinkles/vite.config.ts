@@ -26,7 +26,8 @@ export default defineConfig(() => ({
     copyPublicDir: false,
     rollupOptions: {
       input: {
-        'blabber-parlour': './src/sprinkles/parlour/main.ts'
+        'blabber-parlour': './src/sprinkles/parlour/main.ts',
+        'darkmode-toggle': './src/sprinkles/darkmode/main.ts',
       },
       output: {
         entryFileNames: `[name].js`,

@@ -2,16 +2,24 @@
 <!DOCTYPE html>
 <html lang="en-US">
 {% include header.liquid %}
-<body>
-<!-- Custom Night mode Option -->
-<script src="/scripts/darkmode.js"></script>
+<body class="uninitialized-dark-mode">
+<script>
+    // Immediately initialize dark mode
+    const darkModeSetting = localStorage.getItem("dark-mode");
+    if (darkModeSetting) {
+        if (darkModeSetting === 'true') {
+            document.body.classList.add("dark-mode");
+        } else {
+            document.body.classList.add("light-mode");
+        }
+    }
+</script>
 <header id="ladysnake-header">
     <a id="ladysnake_logo" class="ladysnake-logo" href="/" title="Ladysnake Home Page">
         <img alt="Ladysnake Logo" src="/img/ladysnake-logo-light.png">
     </a>
 
-    <button onclick="darkMode.toggleDarkMode()" title="Toggle Dark Mode"><img alt="Dark Mode Icon" id="preload-darkmodeicon"
-                                                     src="/img/placeholder.png"/></button>
+    <div id="darkmode-toggle"></div>
 
     <input id="header-mobile-nav-toggle" type="checkbox"/>
 
@@ -35,7 +43,7 @@
             <li class="nav-item"><a href="/about.html">About Us</a></li>
             <li class="nav-item dropdown">
                 <input type="checkbox" autocomplete="off" id="mod-list-dropdown-toggle">
-                <label for="mod-list-dropdown-toggle">Mods {% include svg/dropdown.svg %}</label>
+                <label class="dropdown-toggle" for="mod-list-dropdown-toggle">Mods {% include svg/dropdown.svg %}</label>
                 <span class="dropdown-backdrop"></span>
                 <ul id="mod-list-dropdown" class="dropdown-menu">
                     {% for mod in site.mods %}
@@ -80,10 +88,6 @@
     <a href="https://github.com/Ladysnake" title="Find the Ladysnake org on GitHub!" class="p-wiki-icon">{% include svg/github-logo.svg %}</a>
 </footer>
 
-<!-- Dark mode image loading -->
-<script>
-    darkMode.setupDarkModeButton()
-</script>
 {% if page.datapack_editor %}
     <!--Datapack editing-->
     {% comment %}Datapack editing still uses bootstrap collapsables{% endcomment %}
