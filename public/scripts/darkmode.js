@@ -89,5 +89,6 @@ class DarkMode {
 }
 
 const darkMode = new DarkMode();
+globalThis.ladysnakeDarkMode = darkMode;
 
 darkMode.init();

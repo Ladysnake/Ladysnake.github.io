@@ -27,12 +27,16 @@
     </div>
   {:else}
     {#await GraphView then GraphView}
-      <svelte:component this={GraphView}/>
+      <svelte:component this={GraphView} bind:selectedState bind:mainView/>
     {/await}
   {/if}
   <Footer bind:mainView/>
 </div>
 
 <style>
-
+:global(#dialogue-import-export) {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
 </style>

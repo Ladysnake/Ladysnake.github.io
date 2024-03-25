@@ -31,8 +31,8 @@ export default defineConfig(() => ({
       output: {
         entryFileNames: `[name].js`,
         chunkFileNames: `[name].[hash].js`,
-        assetFileNames: `[name].[ext]`
-      }
+        assetFileNames: `[name].[ext]`,
+      },
     }
   }
 }) as UserConfig);
