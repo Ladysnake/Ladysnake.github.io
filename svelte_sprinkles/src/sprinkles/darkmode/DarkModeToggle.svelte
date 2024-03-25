@@ -1,7 +1,8 @@
 <script>
-  import {darkModeEnabled} from "../../lib/darkModeStore";
+  import {darkModeSetting, darkModeEnabled} from "../../lib/darkModeStore";
   import {crossfade} from "svelte/transition";
   import {quintInOut} from "svelte/easing";
+  import {onMount} from "svelte";
 
   const key = 'darkmode-toggle-transition';
 
@@ -11,11 +12,10 @@
   });
 
   $: {
-    if ($darkModeEnabled === undefined) {
-      $darkModeEnabled = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    }
-
-    if ($darkModeEnabled) {
+    if ($darkModeSetting === undefined) {
+      document.body.classList.remove("light-mode");
+      document.body.classList.remove("dark-mode");
+    } else if ($darkModeEnabled) {
       document.body.classList.remove("light-mode");
       document.body.classList.add("dark-mode");
     } else {
@@ -24,10 +24,16 @@
     }
   }
 
-  document.body.classList.remove("uninitialized-dark-mode");
+  onMount(() => {
+    document.body.classList.remove("uninitialized-dark-mode");
+  });
+
+  function toggleDarkMode() {
+    darkModeEnabled.update((v) => !v);
+  }
 </script>
 
-<button on:click={darkModeEnabled.toggle} title="Toggle Dark Mode">
+<button on:click={toggleDarkMode} title="Toggle Dark Mode">
   {#if ($darkModeEnabled)}
     <svg inline-src="darkmode_1" aria-label="Light Mode Icon" in:send={{ key }} out:receive={{ key }}></svg>
   {:else}
