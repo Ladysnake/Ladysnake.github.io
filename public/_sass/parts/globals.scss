@@ -7,6 +7,9 @@ body {
 	font-size: 16px;
 	line-height: 1.4;
 	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 
 	color: var(--base-text-color);
 	background: var(--base-background-color);
@@ -30,6 +33,9 @@ html {
 	padding-left: 15px;
 	margin-right: auto;
 	margin-left: auto;
+	flex: auto;
+	display: flex;
+	flex-direction: column;
 
     @include desktop {
         width: 97.5%;

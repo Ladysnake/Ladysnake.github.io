@@ -35,6 +35,9 @@
 </main>
 
 <style>
+  main {
+    flex: auto;
+  }
   /* Artificially decrease specificity using where selectors */
   :where(main) :global(input:where([type=text])) {
     width: 99%;

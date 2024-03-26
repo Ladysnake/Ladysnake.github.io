@@ -39,4 +39,9 @@
   width: 100%;
   bottom: 0;
 }
+#dialogue-editor {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 </style>

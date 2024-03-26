@@ -176,7 +176,8 @@
 
   svg {
     margin-right: 1rem;
-    font-size: 18px;
+    width: 16px;
+    height: auto;
   }
 
   .btn {

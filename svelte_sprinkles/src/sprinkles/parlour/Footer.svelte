@@ -26,6 +26,7 @@
     align-items: center;
   }
   .dialogue-footer {
+    margin-top: auto;
     position: sticky;
     bottom: 0;
   }

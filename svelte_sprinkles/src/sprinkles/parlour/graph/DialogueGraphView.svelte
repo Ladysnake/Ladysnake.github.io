@@ -1,6 +1,4 @@
 <script context="module" lang="ts">
-  import type {DataSet} from 'vis-data';
-  import type {Network} from 'vis-network';
   import {darkModeEnabled} from "../../../lib/darkMode";
 
   /**
@@ -22,6 +20,9 @@
   import {hsvToRgbString} from "./color-transform";
   import {dialogueData} from "../dialogueDataStore";
   import {fade} from "svelte/transition";
+  import {sineOut} from "svelte/easing";
+  import type {DataSetEdges, DataSetNodes} from "vis-network";
+  import type {Network} from 'vis-network';
 
   export let selectedState: string | undefined;
   export let mainView;
@@ -43,10 +44,8 @@
 
       if (!$dialogueData.data.states) return;
 
-      container.style.height = '85vh';
-
-      const nodes = new DataSet() as DataSet<any>;
-      const edges = new DataSet() as DataSet<any>;
+      const nodes: DataSetNodes = new DataSet();
+      const edges: DataSetEdges = new DataSet();
       for (const [state, stateData] of Object.entries($dialogueData.states)) {
         const color = colorGen(state, darkMode);
         let shape;
@@ -101,13 +100,30 @@
   }
 </script>
 
-<!--Vis Network is so massive we have to load it in separate chunks-->
-{#await Promise.all([import('vis-data'), import('vis-network')]) }
-  Loading...
-{:then [{DataSet}, {Network}]}
-<div id="dialogue-graph" use:setupGraph={{DataSet, Network}} transition:fade>
-  <p>
-    Import a dialogue or create some states in the table view to get started
-  </p>
+<div class="graph-container">
+  <!--Vis Network is so massive we have to load it in separate chunks-->
+  {#await Promise.all([import('vis-data'), import('vis-network')]) }
+    <p class="loading" transition:fade={{ duration: 200, easing: sineOut}}>
+      Loading...
+    </p>
+  {:then [{DataSet}, {Network}]}
+    <div id="dialogue-graph" use:setupGraph={{DataSet, Network}} transition:fade>
+      <p>
+        Import a dialogue or create some states in the table view to get started
+      </p>
+    </div>
+  {/await}
 </div>
-{/await}
+
+<style>
+  .graph-container {
+    height: 85vh;
+  }
+  #dialogue-graph {
+    width: 100%;
+    height: 100%;
+  }
+  .loading {
+    position: absolute;
+  }
+</style>

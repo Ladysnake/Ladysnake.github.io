@@ -4,9 +4,11 @@
   z-index: 1;
   float: right;
   margin: -2.8rem 1rem 0.4rem;
+  margin-inline-start: auto;
   padding: 0.4rem;
   background: var(--button-selected-outline);
   border-radius: 100%;
+  width: fit-content;
   outline: none;
   border: none;
   box-shadow:
