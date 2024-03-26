@@ -23,15 +23,15 @@
   <!-- Simply prevent unwanted resets from clicking on the label -->
   <!-- svelte-ignore a11y-no-noninteractive-element-interactions a11y-click-events-have-key-events -->
   <label for="clear-settings" on:click|preventDefault>
-    <svg inline-src="octicon-trashcan"/>
-    <span>Reset all settings to default</span>
+    <svg class="icon" inline-src="octicon-trashcan"/>
+    <span class="title">Reset all settings to default</span>
   </label>
   <button type="reset" id="clear-settings" class="btn btn-warning btn-sm" on:click|preventDefault={reset}>Clear</button>
   <hr/>
   <label for="dark-mode-setting">
     <svg inline-src="darkmode-enable"/>
-    <span>Dark Mode: What theme do you want to use?</span>
-    <p>You can toggle this with the button at the top of the page.</p>
+    <span class="title">Dark Mode: What theme do you want to use?</span>
+    <span class="desc">You can toggle this with the button at the top of the page.</span>
   </label>
   <select id="dark-mode-setting" bind:value={$darkMode}>
     <option value="enable">Dark Mode</option>
@@ -55,13 +55,7 @@
     grid-column: 1 / span 3;
     width: 100%;
     border-width: 2px;
-    margin: 0.5em;
-  }
-
-  p {
-    grid-area: desc;
-    margin: 0;
-    font-weight: normal;
+    margin: 1em;
   }
 
   label {
@@ -73,14 +67,22 @@
     align-items: center;
     column-gap: 1em;
     justify-content: start;
+    align-content: center;
+    margin: 0;
   }
 
-  label > svg {
+  .icon {
     grid-area: icon;
     height: 25px;
   }
 
-  label > span {
+  .title {
     grid-area: title;
+  }
+
+  .desc {
+    grid-area: desc;
+    margin: 0;
+    font-weight: normal;
   }
 </style>
