@@ -33,7 +33,9 @@ desc: Online editor for blabber dialogues
 <script type="module">
   // If the browser tries loading a module that is no longer here, reload the page
   window.addEventListener('vite:preloadError', () => {
-    window.location.reload();
+    if (window.confirm('There was an error loading some component in this page. Do you want to reload the page?')) {
+      window.location.reload();
+    }
   });
 </script>
 <script src="/scripts/sprinkles/blabber-parlour.js" type="module"></script>
