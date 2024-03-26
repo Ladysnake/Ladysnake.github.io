@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
   import type {DataSet} from 'vis-data';
   import type {Network} from 'vis-network';
-  import {darkModeEnabled} from "../../../lib/darkModeStore";
+  import {darkModeEnabled} from "../../../lib/darkMode";
 
   /**
    * https://stackoverflow.com/a/52171480
