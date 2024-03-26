@@ -15,7 +15,9 @@
   <nav class="toc">
     <ul id="dialogue-state-list">
       {#each $dialogueStateKeys as state}
-        <li data-state={state}><a href="#{state}" on:click|preventDefault={() => selectState(state)}>{state}</a></li>
+        <li data-state={state} class:toc-highlighted-link={selectedState === state}>
+          <a href="#{state}" on:click|preventDefault={() => selectState(state)}>{state}</a>
+        </li>
       {/each}
     </ul>
     <NewDialogueState/>
