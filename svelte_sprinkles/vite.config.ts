@@ -28,6 +28,7 @@ export default defineConfig(() => ({
       input: {
         'blabber-parlour': './src/sprinkles/parlour/main.ts',
         'darkmode-toggle': './src/sprinkles/darkmode/main.ts',
+        'ladysnake-settings': './src/sprinkles/settings/main.ts',
       },
       output: {
         entryFileNames: `[name].js`,

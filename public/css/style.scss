@@ -312,6 +312,12 @@ body:not(.dark-mode) .form-control {
   }
 }
 
+.settings-link {
+  margin-left: 1em;
+  padding-left: 0.5em;
+  border-left: 1px solid var(--accent-text-color);
+}
+
 .pt-3-half {
   padding-top: 1.4rem;
 }
