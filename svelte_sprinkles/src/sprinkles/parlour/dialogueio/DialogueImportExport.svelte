@@ -114,7 +114,7 @@
 
   function exportDialogue() {
     clearIoLogs();
-    if (validateDialogue($dialogueData, logIoError, logIoWarning)) {
+    if (validateDialogue($dialogueData, logIoWarning, logIoError)) {
       $dialogueData.prune();
       saveAs(new Blob([JSON.stringify($dialogueData.data, null, 2)], { type: 'application/json' }), $dialogueFilename + '.json');
     }

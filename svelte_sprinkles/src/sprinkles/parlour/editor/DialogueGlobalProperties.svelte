@@ -67,6 +67,7 @@
 </div>
 
 <style>
+  /*
   #dialogue-filename {
     border-radius: 0.1em;
 
@@ -74,6 +75,7 @@
       outline: 1px solid var(--button-outline);
     }
   }
+  */
 
   .dialogue-global-properties {
     margin-bottom: 0.2rem;
