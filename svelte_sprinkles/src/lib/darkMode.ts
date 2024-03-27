@@ -1,4 +1,4 @@
-import {derived, writable} from "svelte/store";
+import {type Updater, type Writable, writable} from "svelte/store";
 
 function createDarkMode() {
   const darkModeSetting = localStorage.getItem("dark-mode");
@@ -32,12 +32,27 @@ function createDarkMode() {
 
 export const darkModeSetting = createDarkMode();
 
-const mediaDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
-export const darkModeEnabled = {
-  ...derived(darkModeSetting, (d) => d ?? mediaDarkMode.matches),
-  set: (enabled: boolean) => darkModeSetting.set(enabled === mediaDarkMode.matches ? undefined : enabled),
-  update: (fn: (enabled: boolean) => boolean) => darkModeSetting.update((e) => {
-    const newValue = fn(e ?? mediaDarkMode.matches);
-    return newValue === mediaDarkMode.matches ? undefined : newValue;
-  }),
-};
+function createDarkModeEnabled(): Writable<boolean> {
+  const mediaDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
+  const { set: _set, subscribe } = writable(false);
+  let currentSetting: boolean | undefined;
+  mediaDarkMode.addEventListener('change', (e) => {
+    if (currentSetting === undefined) {
+      _set(e.matches);
+    }
+  });
+  darkModeSetting.subscribe((value) => {
+    currentSetting = value;
+    _set(value ?? mediaDarkMode.matches);
+  });
+  const set = (enabled: boolean) => {
+    darkModeSetting.set(enabled === mediaDarkMode.matches ? undefined : enabled);
+  };
+  const update = (updater: Updater<boolean>) => set(updater(currentSetting ?? mediaDarkMode.matches));
+  return {
+    set,
+    update,
+    subscribe,
+  };
+}
+export const darkModeEnabled = createDarkModeEnabled();
