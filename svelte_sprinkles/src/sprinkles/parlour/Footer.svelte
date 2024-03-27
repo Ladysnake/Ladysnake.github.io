@@ -8,7 +8,7 @@
   }
 </script>
 <div class="dialogue-footer">
-  <DialogueImportExport>
+  <DialogueImportExport on:load>
     <button id="dialogue-view-toggle" class="btn btn-success" on:click={toggleView}>
       {#if mainView}
         <svg inline-src="graph-outline" />

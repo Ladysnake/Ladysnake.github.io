@@ -2,11 +2,22 @@
   import DialogueGlobalProperties from "./DialogueGlobalProperties.svelte";
   import DialogueStateList from "./DialogueStateList.svelte";
   import DialogueStateView from "./state/DialogueStateView.svelte";
-  import {dialogueStart} from "../dialogueDataStore";
+  import {dialogueData, dialogueStart, dialogueStateKeys} from "../dialogueDataStore";
   import {type ComponentType, onMount} from "svelte";
   import Footer from "../Footer.svelte";
 
-  let selectedState: string | undefined = $dialogueStart;
+  function loadSelectedState() {
+    const hash = decodeURIComponent(window.location.hash);
+    if (hash.length) {
+      const state = hash.substring(1);
+      if (state in $dialogueData.states) {
+        return state;
+      }
+    }
+    return null;
+  }
+
+  let selectedState: string | undefined = loadSelectedState() ?? $dialogueStart;
   let mainView = true;
 
   let GraphView: Promise<ComponentType>;
@@ -30,7 +41,7 @@
       <svelte:component this={GraphView} bind:selectedState bind:mainView/>
     {/await}
   {/if}
-  <Footer bind:mainView/>
+  <Footer bind:mainView on:load={(e) => selectedState = e.detail.startAt}/>
 </div>
 
 <style>

@@ -45,6 +45,7 @@
   import {dialogueData, dialogueFilename} from "../dialogueDataStore";
   import {validateDialogue} from "../validation";
   import {saveAs} from "file-saver";
+  import {createEventDispatcher} from "svelte";
 
   let info: string = '';
   let warning: string = '';
@@ -53,6 +54,10 @@
   let draggingInDropZone = 0;
 
   export let importOnly = false;
+
+  const dispatch = createEventDispatcher<{
+    'load': BlabberDialogue,
+  }>();
 
   const logIoInfo = (text: string) => info = text;
   const logIoWarning = (text: string) => warning = text;
@@ -83,10 +88,10 @@
           // You can go back to the previous dialogue after loading a new one!
           if ($dialogueData.isLoaded()) window.history.pushState(null, '');
 
-          $dialogueData = new BlabberDialogue(d);
-          $dialogueFilename = file.name.endsWith('.json') ? file.name.substring(0, file.name.length - 5) : file.name;
+          let filename = file.name.endsWith('.json') ? file.name.substring(0, file.name.length - 5) : file.name;
+          $dialogueData = new BlabberDialogue(d, filename);
+          dispatch('load', $dialogueData);
           logIoInfo(`Loaded dialogue from ${file.name}`);
-          $dialogueData.saveToWindow();
         }
       } catch (err: any) {
         console.error(err);
