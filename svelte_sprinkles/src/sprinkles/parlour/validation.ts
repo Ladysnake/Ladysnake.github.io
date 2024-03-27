@@ -28,10 +28,15 @@ function validateStructure(dialogue: BlabberDialogue, logWarning: (msg: string) 
       logError(`${state} has no available choices but is not an end state`);
     } else {
       unvalidated.add(state);
-      for (const {next} of choices) {
+      let missingText = false;
+      for (const {next, text} of choices) {
+        if (!text || (typeof text === "string" && !text.length)) missingText = true;
         if (!next) continue;
         if (!ancestors[next]) ancestors[next] = new Set();
         ancestors[next].add(state);
+      }
+      if (missingText) {
+        logError(`${state} has one or more choices with no text`);
       }
     }
   }

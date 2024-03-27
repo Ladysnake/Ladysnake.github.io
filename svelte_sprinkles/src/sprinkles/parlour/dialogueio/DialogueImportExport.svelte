@@ -41,7 +41,7 @@
 <p class="dialogue-io-log error-log">{error}</p>
 
 <script lang="ts">
-  import BlabberDialogue from "../BlabberDialogue";
+  import BlabberDialogue, {choiceIdKey, type DialogueChoice, genChoiceId} from "../BlabberDialogue";
   import {dialogueData, dialogueFilename} from "../dialogueDataStore";
   import {validateDialogue} from "../validation";
   import {saveAs} from "file-saver";
@@ -81,7 +81,13 @@
           logIoError(`Could not parse ${file.name}`);
           return;
         }
-        const d = JSON.parse(reader.result);
+        const d = JSON.parse(reader.result, (key, value) => {
+          if (key === 'choices') {
+            for (const choice of value) {
+              choice[choiceIdKey] = genChoiceId();
+            }
+          }
+        });
         if (!d.states) {
           logIoError(`${file.name} is missing dialogue state data`);
         } else {
@@ -120,8 +126,19 @@
   function exportDialogue() {
     clearIoLogs();
     if (validateDialogue($dialogueData, logIoWarning, logIoError)) {
-      $dialogueData.prune();
-      saveAs(new Blob([JSON.stringify($dialogueData.data, null, 2)], { type: 'application/json' }), $dialogueFilename + '.json');
+      saveAs(new Blob([JSON.stringify(
+        $dialogueData.data,
+        (key, value) => {
+          if (key === 'action' && value.type === '') {
+            return undefined;
+          } else if (key === choiceIdKey) {
+            return undefined;
+          } else {
+            return value;
+          }
+        },
+        2,
+      )], { type: 'application/json' }), $dialogueFilename + '.json');
     }
   }
 
@@ -154,6 +171,16 @@
     if ((e.target as HTMLElement | null)?.classList.contains('drop-zone')) {
       draggingInDropZone--;
     }
+  }
+
+  function isEmpty(obj: object) {
+    for (const prop in obj) {
+      if (Object.hasOwn(obj, prop)) {
+        return false;
+      }
+    }
+
+    return true;
   }
 </script>
 

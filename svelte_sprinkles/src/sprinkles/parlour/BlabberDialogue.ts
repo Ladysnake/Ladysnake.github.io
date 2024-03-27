@@ -5,9 +5,20 @@ export interface DialogueAction {
   readonly value?: string;
 }
 
+// Internal identifier to keep track of values when reordering
+export const choiceIdKey = '_id';
+
+// Initialize with a random number to avoid duplicating identifiers on page reload
+let nextChoiceId = Math.random();
+
+export function genChoiceId() {
+  return nextChoiceId++;
+}
+
 export interface DialogueChoice {
   readonly text?: McText;
   readonly next?: string;
+  readonly [choiceIdKey]?: number;
 }
 
 export interface DialogueState {
@@ -100,14 +111,5 @@ export default class BlabberDialogue {
       filename: this.filename,
     };
     window.history.replaceState(newState, '');
-  }
-
-  prune() {
-    return new BlabberDialogue({
-      ...this.data,
-      states: Object.fromEntries(Object.entries(this.data.states ?? {}).map(([key, { action, ...state }]) => {
-        return [key, action?.type === '' ? { ...state } : { action, ...state }];
-      })),
-    });
   }
 }

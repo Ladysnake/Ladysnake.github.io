@@ -1,6 +1,7 @@
 <script lang="ts">
   import {type McText, type McTextTranslatable, McTextType} from "./McText";
   import { createEventDispatcher } from 'svelte';
+  import type {Action} from "svelte/action";
 
   const dispatch = createEventDispatcher<{
     'change': McText,
@@ -13,6 +14,7 @@
   export let placeholder: string | undefined = undefined;
   export let value: McText = '';
   export let textFormat: McTextType = McTextType.PLAIN;
+  export let action: Action<HTMLInputElement> = () => {};
 
   function importDialogueText(text: McText): string {
     if (!text) return '';
@@ -41,4 +43,5 @@
     value = exportDialogueText(e.currentTarget.value);
     dispatch('change', value);
   }}
+  use:action
 />

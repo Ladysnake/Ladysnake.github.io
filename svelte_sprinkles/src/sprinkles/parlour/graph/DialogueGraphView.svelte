@@ -107,7 +107,7 @@
       Loading...
     </p>
   {:then [{DataSet}, {Network}]}
-    <div id="dialogue-graph" use:setupGraph={{DataSet, Network}} transition:fade>
+    <div id="dialogue-graph" use:setupGraph={{DataSet, Network}} transition:fade={{duration: 100}}>
       <p>
         Import a dialogue or create some states in the table view to get started
       </p>

@@ -1,4 +1,6 @@
 <script context="module" lang="ts">
+  import type {Readable} from "svelte/store";
+
   function shiftElementBackward<E>(arr: E[], index: number) {
     if (index <= 0) throw Error('Cannot shift backward the first element of an array');
     const ret = [...arr];
@@ -20,11 +22,15 @@
     ret.splice(index, 1);
     return ret;
   }
+
+  export type KeyExtractor<T> = (item: T, index: number) => unknown;
 </script>
 <script lang="ts" generics="T">
   import type {Writable} from "svelte/store";
+  import {afterUpdate, beforeUpdate} from "svelte";
 
   export let items: Writable<T[]>;
+  export let keyExtractor: KeyExtractor<T>;
 
   function moveUp(index: number) {
     $items = shiftElementBackward($items, index);
@@ -37,30 +43,60 @@
   function deleteRow(index: number) {
     $items = deleteElement($items, index);
   }
+
+  let table: HTMLTableElement;
+
+  // Ensures focus is preserved when swapping table rows
+  let activeElement: HTMLElement | null;
+
+  beforeUpdate(() => {
+    activeElement = document.activeElement as HTMLElement | null;
+  });
+
+  afterUpdate(() => {
+    if (activeElement && table.contains(activeElement)) {
+      if ((activeElement as any).disabled) {
+        if (activeElement.classList.contains('sort-up')) {
+          (activeElement.parentElement?.querySelector('.sort-down') as HTMLElement)?.focus();
+        } else if (activeElement.classList.contains('sort-down')) {
+          (activeElement.parentElement?.querySelector('.sort-up') as HTMLElement)?.focus();
+        }
+      } else {
+        activeElement.focus();
+      }
+    }
+    activeElement = null;
+  });
 </script>
 <div class="table-editable">
-  <table>
+  <table bind:this={table}>
     <thead>
     <tr>
-      <th>Text</th>
-      <th class="table-buttons">Next State</th>
-      <th class="table-buttons">Sort</th>
-      <th class="table-buttons">Remove</th>
+      <slot name="head"/>
+      <th class="col-sort">Sort</th>
+      <th class="col-remove">Remove</th>
     </tr>
     </thead>
     <tbody>
-    {#each $items as item, index}
+    {#each $items as item, index (keyExtractor?.(item, index) ?? index)}
       <tr>
-        <slot item={item} index={index}/>
-        <td class="table-buttons">
-          <span class="table-up"><button disabled={index === 0} on:click={() => moveUp(index)}>🔼</button></span>
-          <span class="table-down"><button disabled={index + 1 >= $items.length} on:click={() => moveDown(index)}>🔽</button></span>
+        <slot name="row" item={item} index={index}/>
+        <td class="col-sort">
+          <button class="sort-up" disabled={index === 0} on:click={() => moveUp(index)}><svg inline-src="octicon-arrow-up"/></button>
+          <button class="sort-down" disabled={index + 1 >= $items.length} on:click={() => moveDown(index)}><svg inline-src="octicon-arrow-down"/></button>
         </td>
-        <td class="table-buttons">
-          <span class="table-remove"><button type="button" on:click={() => deleteRow(index)}>❌</button></span>
+        <td class="col-remove">
+            <button type="button" on:click={() => deleteRow(index)}>
+            <svg inline-src="octicon-x"/>
+          </button>
         </td>
       </tr>
     {/each}
     </tbody>
   </table>
 </div>
+<style>
+  table {
+    width: 100%;
+  }
+</style>

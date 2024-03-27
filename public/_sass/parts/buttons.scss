@@ -43,7 +43,7 @@
   border: none;
   font-size: 12px;
   padding: 0 30px;
-  line-height: 50px;
+  min-height: 50px;
   color: #fff;
   cursor: pointer;
 
@@ -55,24 +55,24 @@
 
 .btn-xs {
   padding: 0 20px;
-  line-height: 30px;
+  min-height: 30px;
   font-size: 10px;
 }
 
 .btn-sm {
   padding: 0 25px;
-  line-height: 40px;
+  min-height: 40px;
   font-size: 11px;
 }
 
 .btn-md {
   padding: 0 30px;
-  line-height: 50px;
+  min-height: 50px;
 }
 
 .btn-lg {
   padding: 0 45px;
-  line-height: 70px;
+  min-height: 70px;
   font-size: 14px;
 }
 
