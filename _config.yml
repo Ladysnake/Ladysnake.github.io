@@ -5,6 +5,8 @@ markdown: kramdown
 sass:
     style: compressed
 exclude: []
+keep_files:
+    - scripts/sprinkles
 # note that the source attribute is hardcoded by github pages
 collections:
     mods:

@@ -5,9 +5,15 @@
     {%- if page.svg_icon %}
         {% include svg/{{page.svg_icon}}.svg %}
     {%- else %}
-       <img alt="{{ page.ref | capitalize }} Icon" src="{{ page.icon }}" class="{% if page.pixel_art %} pixel-art{% endif %}" width="150px" height="150px">
+       <img alt="{{ page.ref | capitalize }} Icon" src="{{ page.icon }}" class="{% if page.pixel_art %}pixel-art{% endif %}" width="150px" height="150px">
+        {%- if page.dark_mode_icon %}
+        <img alt="{{ page.ref | capitalize }} Icon" src="{{ page.dark_mode_icon }}" class="dark-mode-alt{% if page.pixel_art %} pixel-art{% endif %}" aria-hidden="true" width="150px" height="150px" loading="lazy">
+        {%- endif %}
         {%- if page.hover_icon %}
-        <img alt="{{ page.ref | capitalize }} Icon" src="{{ page.hover_icon }}" class="hovered-alt{% if page.pixel_art %} pixel-art{% endif %}" aria-hidden="true" width="150px" height="150px" loading="lazy">
+        <img alt="{{ page.ref | capitalize }} Icon" src="{{ page.hover_icon }}" class="{%- if page.dark_mode_hover_icon %}light-mode-{% endif %}hovered-alt{% if page.pixel_art %} pixel-art{% endif %}" aria-hidden="true" width="150px" height="150px" loading="lazy">
+        {%- endif %}
+        {%- if page.dark_mode_hover_icon %}
+            <img alt="{{ page.ref | capitalize }} Icon" src="{{ page.dark_mode_hover_icon }}" class="dark-mode-hovered-alt{% if page.pixel_art %} pixel-art{% endif %}" aria-hidden="true" width="150px" height="150px" loading="lazy">
         {%- endif %}
     {%- endif %}
     </div>

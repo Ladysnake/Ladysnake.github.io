@@ -49,6 +49,7 @@ current:
 removed:
   - title: Opus Daemonium
     icon: img/items/opus_daemonium.png
-    hover_icon: img/items/opus_daemonium_hover_0.png
+    hover_icon: img/items/opus_daemonium_hover_light.png
+    dark_mode_hover_icon: img/items/opus_daemonium_hover_dark.png
     pixel_art: true
     ref: opus_daemonium

@@ -1,6 +1,14 @@
 @import "../mixins";
 
-.hovered-alt {
+.dark-mode-alt {
+  transition: opacity var(--dark-mode-transition-duration) var(--dark-mode-transition-function);
+  @include darkMode {
+    opacity: 100;
+  }
+  opacity: 0;
+}
+
+.hovered-alt, .dark-mode-hovered-alt, .light-mode-hovered-alt {
   transition: opacity 100ms ease-in-out;
   @supports (-webkit-hyphens:none) {  // ?????? Safari weird blur when updating opacity
     transition: none;
@@ -47,6 +55,18 @@
 .hoverable-card:hover, .hoverable-card:focus {
   .hovered-alt {
     opacity: 100%;
+  }
+
+  @include lightMode(&) {
+    .light-mode-hovered-alt {
+      opacity: 100;
+    }
+  }
+
+  @include darkMode {
+    .dark-mode-hovered-alt {
+      opacity: 100;
+    }
   }
 
   svg {
