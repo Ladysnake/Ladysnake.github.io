@@ -155,6 +155,10 @@ body {
   max-width: 100%;
 }
 
+.hidden {
+  display: none !important;
+}
+
 li a span svg.download-icon {
   float: right;
   fill: currentColor;

@@ -19,7 +19,14 @@
         <img alt="Ladysnake Logo" src="/img/ladysnake-logo-light.png">
     </a>
 
-    <div id="darkmode-toggle"></div>
+    <button id="darkmode-toggle" class="hidden" title="Toggle Dark Mode">
+        <span aria-label="Dark Mode Icon">
+            {% include svg/darkmode-enable.svg %}
+        </span>
+        <span aria-label="Light Mode Icon" class="dark-mode-alt">
+            {% include svg/darkmode-disable.svg %}
+        </span>
+    </button>
 
     <input id="header-mobile-nav-toggle" type="checkbox"/>
 

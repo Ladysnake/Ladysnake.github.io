@@ -1,5 +1,20 @@
 @import "../mixins";
 
+#darkmode-toggle {
+  display: inline-grid;
+
+  span {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  svg {
+    height: 25px;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+}
+
 .styled-checkbox {
   opacity: 0;
   width: 0;

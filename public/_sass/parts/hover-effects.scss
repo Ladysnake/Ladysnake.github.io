@@ -1,11 +1,14 @@
 @import "../mixins";
 
 .dark-mode-alt {
-  transition: opacity var(--dark-mode-transition-duration) var(--dark-mode-transition-function);
+  transition: opacity var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
+  visibility var(--dark-mode-transition-duration);
   @include darkMode {
+    visibility: visible;
     opacity: 100;
   }
   opacity: 0;
+  visibility: hidden;
 }
 
 .hovered-alt, .dark-mode-hovered-alt, .light-mode-hovered-alt {
