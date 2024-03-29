@@ -212,12 +212,6 @@
     height: auto;
   }
 
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    margin: 0;
-  }
-
   div.drop-zone {
     position: absolute;
     top: 0;

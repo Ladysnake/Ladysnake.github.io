@@ -21,10 +21,6 @@
 </div>
 
 <style>
-  .btn {
-    display: flex;
-    align-items: center;
-  }
   .dialogue-footer {
     margin-top: auto;
     position: sticky;
