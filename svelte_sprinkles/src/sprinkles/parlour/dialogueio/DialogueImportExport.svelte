@@ -8,19 +8,19 @@
 >
   {#if !importOnly}
     <button class="btn btn-danger" id="dialogue-reset" on:click={resetDialogue}>
-      <svg inline-src="octicon-trashcan" />
+      <svg inline-src="octicon-trashcan"/>
       Reset dialogue
     </button>
   {/if}
   <input id="dialogue-import" type="file" accept="application/json" on:change={importDialogue}/>
   <label class="btn btn-info" for="dialogue-import">
-    <svg inline-src="octicon-upload" />
+    <svg inline-src="octicon-upload"/>
     Import JSON dialogue file
   </label>
   <slot></slot>
   {#if !importOnly}
     <button class="btn btn-warning" id="dialogue-export" on:click={exportDialogue}>
-      <svg inline-src="octicon-download" />
+      <svg inline-src="octicon-download"/>
       Export JSON dialogue file
     </button>
   {/if}
@@ -32,7 +32,7 @@
     class:hovered={draggingInDropZone > 0}
     on:dragover|preventDefault
   >
-    <svg inline-src="octicon-upload" />
+    <svg inline-src="octicon-upload"/>
     Drop a dialogue file <strong class="drop-zone">here</strong> to import
   </div>
 </div>
@@ -41,7 +41,7 @@
 <p class="dialogue-io-log error-log">{error}</p>
 
 <script lang="ts">
-  import BlabberDialogue, {choiceIdKey, type DialogueChoice, genChoiceId} from "../BlabberDialogue";
+  import BlabberDialogue, {choiceIdKey, genChoiceId} from "../BlabberDialogue";
   import {dialogueData, dialogueFilename} from "../dialogueDataStore";
   import {validateDialogue} from "../validation";
   import {saveAs} from "file-saver";
@@ -126,19 +126,24 @@
   function exportDialogue() {
     clearIoLogs();
     if (validateDialogue($dialogueData, logIoWarning, logIoError)) {
-      saveAs(new Blob([JSON.stringify(
-        $dialogueData.data,
-        (key, value) => {
-          if (key === 'action' && value.type === '') {
-            return undefined;
-          } else if (key === choiceIdKey) {
-            return undefined;
-          } else {
-            return value;
-          }
-        },
-        2,
-      )], { type: 'application/json' }), $dialogueFilename + '.json');
+      saveAs(new Blob(
+          [JSON.stringify(
+            $dialogueData.data,
+            function (key, value) {
+              if (key === 'action' && value.type === '') {
+                return undefined;
+              } else if (key === choiceIdKey) {
+                return undefined;
+              } else if (key === 'choices' && this.type === 'end_dialogue') {
+                return undefined;
+              } else {
+                return value;
+              }
+            },
+            2,
+          )],
+          { type: 'application/json' }),
+        $dialogueFilename + '.json');
     }
   }
 
