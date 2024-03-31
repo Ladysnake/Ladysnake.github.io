@@ -43,6 +43,8 @@ jobs:
           node-version: latest
           cache: "npm"
           cache-dependency-path: svelte_sprinkles/package-lock.json
+      - name: Install node modules
+        run: npm --prefix svelte_sprinkles ci
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
