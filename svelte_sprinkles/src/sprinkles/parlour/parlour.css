@@ -1,5 +1,6 @@
 #blabber-parlour {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   flex: auto;
+  gap: 1em;
 }
