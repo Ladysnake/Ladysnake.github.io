@@ -1,19 +1,15 @@
 import type BlabberDialogue from "./BlabberDialogue";
 
-export function validateIdentifierField(element: HTMLInputElement, dialogue?: BlabberDialogue, acceptEmpty?: boolean) {
-  if (!(acceptEmpty || element.value)) {
-    element.setCustomValidity('Please enter a valid non-namespaced identifier');
-  } else if (element.validity.patternMismatch) {
-    element.setCustomValidity('Must be a valid non-namespaced identifier (lowercase letters, numbers and dashes/underscores only)');
-  } else if (dialogue && dialogue.data.states && element.value in dialogue.data.states) {
-    element.setCustomValidity('A state with that name already exists');
+function toOrdinal(n: number) {
+  if (n % 10 == 1 && n % 100 != 11) {
+    return n + 'st';
+  } else if (n % 10 == 2 && n % 100 != 12) {
+    return n + 'nd';
+  } else if (n % 10 == 3 && n % 100 != 13) {
+    return n + 'rd';
   } else {
-    element.setCustomValidity('');
-    element.reportValidity();
-    return true;
+    return n + 'th';
   }
-  element.reportValidity();
-  return false;
 }
 
 function validateStructure(dialogue: BlabberDialogue, logWarning: (msg: string) => void, logError: (msg: string) => void) {
@@ -25,18 +21,24 @@ function validateStructure(dialogue: BlabberDialogue, logWarning: (msg: string) 
     if (type === 'end_dialogue') {
       waitList.add(state);
     } else if (!choices) {
-      logError(`${state} has no available choices but is not an end state`);
+      logError(`State "${state}" has no available choices but is not an end state`);
     } else {
       unvalidated.add(state);
-      let missingText = false;
-      for (const {next, text} of choices) {
-        if (!text || (typeof text === "string" && !text.length)) missingText = true;
+      let missingText = [];
+      for (let i = 0; i < choices.length; i++){
+        const { next, text } = choices[i];
+        if (!text || (typeof text === "string" && !text.length)) missingText.push(i);
         if (!next) continue;
         if (!ancestors[next]) ancestors[next] = new Set();
         ancestors[next].add(state);
       }
-      if (missingText) {
-        logError(`${state} has one or more choices with no text`);
+      if (missingText.length) {
+        const invalidChoices = missingText.map(toOrdinal);
+        if (missingText.length > 1) {
+          logError(`${invalidChoices.join(', ')} choices in state "${state}" have no text`);
+        } else {
+          logError(`${invalidChoices[0]} choice in state "${state}" has no text`);
+        }
       }
     }
   }
@@ -52,7 +54,7 @@ function validateStructure(dialogue: BlabberDialogue, logWarning: (msg: string) 
         }
       }
     } else if (state !== dialogue.startAt) {
-      logWarning(`${state} is unreachable`);
+      logWarning(`State "${state}" is unreachable`);
     }
   }
 
@@ -60,12 +62,12 @@ function validateStructure(dialogue: BlabberDialogue, logWarning: (msg: string) 
     let log;
     if (bad !== dialogue.startAt && !ancestors[bad]) {
       // Unreachable states do not cause infinite loops, but we still want to be aware of them
-      logWarning(`${bad} is unreachable`);
+      logWarning(`State "${bad}" is unreachable`);
       log = logWarning;
     } else {
       log = logError;
     }
-    log(`${bad} does not have any path to the end of the dialogue`);
+    log(`State "${bad}" does not have any path to the end of the dialogue`);
   }
 }
 

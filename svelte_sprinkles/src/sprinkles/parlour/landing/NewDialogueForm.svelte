@@ -1,8 +1,7 @@
 <script lang="ts">
   import {EDITOR_TEXT_FORMAT_KEY} from "../localStorageKeys";
-  import {validateIdentifierField} from "../validation";
   import BlabberDialogue from "../BlabberDialogue";
-  import {dialogueData, dialogueFilename, dialogueTextFormat} from "../dialogueDataStore";
+  import {dialogueData, dialogueTextFormat} from "../dialogueDataStore";
   import {parseMcTextType} from "../../../lib/McText.js";
 
   let filename: string | undefined;
@@ -11,6 +10,34 @@
   let skippable = true;
   let startDialogueStateName = 'start';
   let endDialogueStateName = 'end';
+
+  export function validateFilename(element: HTMLInputElement) {
+    if (!element.value) {
+      element.setCustomValidity('Please enter a valid non-namespaced identifier');
+    } else if (element.validity.patternMismatch) {
+      element.setCustomValidity('Must be a valid non-namespaced identifier (lowercase letters, numbers and dashes/underscores only)');
+    } else {
+      element.setCustomValidity('');
+      element.reportValidity();
+      return true;
+    }
+    element.reportValidity();
+    return false;
+  }
+
+  export function validateStateName(element: HTMLInputElement) {
+    if (!element.value) {
+      element.setCustomValidity('Please enter a valid non-namespaced identifier');
+    } else if (element.validity.patternMismatch) {
+      element.setCustomValidity('Must be a valid non-namespaced identifier (lowercase letters, numbers and dashes/underscores only)');
+    } else {
+      element.setCustomValidity('');
+      element.reportValidity();
+      return true;
+    }
+    element.reportValidity();
+    return false;
+  }
 
   function setupTextFormatValidation(fieldset: HTMLElement) {
     const textFormatInputs = [...fieldset.querySelectorAll('input[name=text-format]')] as HTMLInputElement[];
@@ -30,7 +57,7 @@
     const endStateField = document.getElementById('end_dialogue_state_name') as HTMLInputElement;
     const textFormatInputs = [...event.currentTarget.querySelectorAll('input[name=text-format]')] as HTMLInputElement[];
 
-    if (![filenameField, startStateField, endStateField].every((e) => validateIdentifierField(e))) {
+    if (!(validateFilename(filenameField) && validateStateName(startStateField) && validateStateName(endStateField))) {
       return;
     }
 
@@ -71,7 +98,7 @@
           type="text"
           placeholder="my_awesome_dialogue"
           bind:value={filename}
-          on:change={(e) => validateIdentifierField(e.currentTarget)}
+          on:change={(e) => validateFilename(e.currentTarget)}
         />
         <span class="file-extension">.json</span>
       </span>
@@ -153,7 +180,7 @@
       type="text"
       placeholder="start, first_steps, ..."
       bind:value={startDialogueStateName}
-      on:change={(e) => validateIdentifierField(e.currentTarget)}
+      on:change={(e) => validateStateName(e.currentTarget)}
     />
   </div>
   <div class="dialogue-state-name">
@@ -166,7 +193,7 @@
       type="text"
       placeholder="end, goodbyes, ..."
       bind:value={endDialogueStateName}
-      on:change={(e) => validateIdentifierField(e.currentTarget)}
+      on:change={(e) => validateStateName(e.currentTarget)}
     />
   </div>
   <button type="submit" class="btn btn-success rounded">Start editing</button>
