@@ -66,9 +66,13 @@
 
         nodes.add({ id: state, label: state, font, color, opacity, shape, shapeProperties });
 
-        for (const { next, text } of (stateData.choices ?? [])) {
+        for (const { next, text, condition } of (stateData.choices ?? [])) {
           edges.add({
-            from: state, to: next, color, title: JSON.stringify(text),
+            from: state,
+            to: next,
+            color,
+            title: JSON.stringify(text),
+            dashes: condition != undefined,
           });
         }
       }
