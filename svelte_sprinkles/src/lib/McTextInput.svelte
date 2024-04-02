@@ -1,7 +1,8 @@
 <script lang="ts">
   import {type McText, type McTextTranslatable, McTextType} from "./McText";
-  import { createEventDispatcher } from 'svelte';
+  import {createEventDispatcher} from 'svelte';
   import type {Action} from "svelte/action";
+  import {dialogueTextFormat} from "../sprinkles/parlour/dialogueDataStore";
 
   const dispatch = createEventDispatcher<{
     'change': McText,
@@ -11,10 +12,12 @@
   let className: string | undefined = undefined;
   // noinspection ReservedWordAsName
   export { className as class };
-  export let placeholder: string | undefined = undefined;
+  export let placeholders: Record<McTextType, string> | undefined = undefined;
   export let value: McText = '';
-  export let textFormat: McTextType = McTextType.PLAIN;
+  export let textFormat: McTextType = $dialogueTextFormat;
   export let action: Action<HTMLInputElement> = () => {};
+
+  $: placeholder = placeholders?.[textFormat];
 
   function importDialogueText(text: McText): string {
     if (!text) return '';

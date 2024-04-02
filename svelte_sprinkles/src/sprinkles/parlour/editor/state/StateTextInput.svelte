@@ -9,22 +9,6 @@
 
   $: value = $stateData.text ?? '';
 
-  let placeholder: string;
-
-  $: {
-    switch ($dialogueTextFormat) {
-      case McTextType.PLAIN:
-        placeholder = 'Welcome traveller, ...';
-        break;
-      case McTextType.TRANSLATION_KEY:
-        placeholder = `mymod:dialogue.my_dialogue.${$stateKey}.text`;
-        break;
-      case McTextType.JSON:
-        placeholder = '{...}';
-        break;
-    }
-  }
-
   function updateText(text: McText) {
     $stateData = {
       ...$stateData,
@@ -40,7 +24,11 @@
     value={value}
     class="mc-text-input"
     id="dialogue-state-text"
-    placeholder={placeholder}
+    placeholders={{
+      [McTextType.PLAIN]: 'Welcome traveller, ...',
+      [McTextType.TRANSLATION_KEY]: `mymod:dialogue.my_dialogue.${$stateKey}.text`,
+      [McTextType.JSON]: '{...}',
+    }}
     on:change={(e) => updateText(e.detail)}
   />
 </span>

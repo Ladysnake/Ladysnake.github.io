@@ -72,17 +72,6 @@
     ];
   }
 
-  function suggestTranslationKey(index: number) {
-    switch ($dialogueTextFormat) {
-      case McTextType.PLAIN:
-        return 'Thank you, ...';
-      case McTextType.TRANSLATION_KEY:
-        return `mymod:dialogue.my_dialogue.${$stateKey}.choice_${index}.text`;
-      case McTextType.JSON:
-        return '{...}';
-    }
-  }
-
   afterUpdate(() => {
     newChoiceId = null;
   });
@@ -117,7 +106,11 @@
             value={item.text}
             class="table-input"
             textFormat={$dialogueTextFormat}
-            placeholder={suggestTranslationKey(index)}
+            placeholders={{
+              [McTextType.PLAIN]: 'Thank you, ...',
+              [McTextType.TRANSLATION_KEY]: `mymod:dialogue.my_dialogue.${$stateKey}.choice_${index}.text`,
+              [McTextType.JSON]: '{...}',
+            }}
             action={(node) => focusNewChoice(node, item)}
             on:change={(e) => updateText(index, e.detail)}
           />
@@ -129,7 +122,11 @@
             {/each}
           </select></td>
         <td class="col-advanced input-cell">
-          <ChoiceConditionEditor choice={stateChoice(index)}/>
+          <ChoiceConditionEditor
+            stateKey={$stateKey}
+            choiceIndex={index}
+            choice={stateChoice(index)}
+          />
         </td>
       </svelte:fragment>
     </EditableTable>

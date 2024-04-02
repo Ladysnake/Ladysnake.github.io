@@ -2,9 +2,11 @@
   import {choiceIdKey, type DialogueChoice, UnavailableDisplay,} from "../../../model/DialogueChoice";
   import type {Writable} from "svelte/store";
   import McTextInput from "../../../../../lib/McTextInput.svelte";
-  import type {Identifier, McText} from "../../../../../lib/McText";
+  import {type Identifier, type McText, McTextType} from "../../../../../lib/McText";
 
   export let choice: Writable<DialogueChoice>;
+  export let choiceIndex: number;
+  export let stateKey: string;
 
   let dialog: HTMLDialogElement;
   let predicateLocation: Identifier;
@@ -91,7 +93,7 @@
     </div>
     <fieldset disabled={!predicateLocationMatch}>
       <legend>When condition is not met:</legend>
-      <div>
+      <div class="hide">
         <input id={`${idBase}-unavailable-hide`} type="checkbox" bind:checked={hideChoice}/>
         <label for={`${idBase}-unavailable-hide`}>
           Hide choice
@@ -102,7 +104,15 @@
           <label for={`${idBase}-unavailable-message`}>
             Show this hint:
           </label>
-          <McTextInput id={`${idBase}-unavailable-message`} placeholder="“Find the meaning of life to unlock this path”" bind:value={unavailableMessage}/>
+          <McTextInput
+            id={`${idBase}-unavailable-message`}
+            placeholders={{
+              [McTextType.PLAIN]: "“Find the meaning of life to unlock this path”",
+              [McTextType.TRANSLATION_KEY]: `mymod:dialogue.my_dialogue.${stateKey}.choice_${choiceIndex}.hint`,
+              [McTextType.JSON]: "{...}",
+            }}
+            bind:value={unavailableMessage}
+          />
         </div>
       {/if}
     </fieldset>
@@ -156,6 +166,16 @@
     }
     &:disabled {
       background-color: var(--button-outline);
+    }
+  }
+
+  .hide {
+    display: flex;
+    align-items: center;
+    & label {
+      flex: auto;
+      padding-left: 0.5em;
+      margin: 0;
     }
   }
 
