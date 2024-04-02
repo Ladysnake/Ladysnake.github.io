@@ -106,6 +106,7 @@ module Ladysnake
       @result = result
       @ingredients = ingredients
     end
+
     def self.parse(data)
       ingredients = data["ingredients"].map do |i|
         Ingredient.new(i)
@@ -142,12 +143,19 @@ module Ladysnake
 
     def render(context)
       site = context.registers[:site]
+      page = context.registers[:page]
       recipe_namespace, recipe_path = context.evaluate(@recipe_id).split(':')
-      recipe_root = site.data["mods"]["resource_roots"][recipe_namespace]
+      recipe_root = (page["resource_roots"] || site.data["mods"]["resource_roots"])[recipe_namespace]
+
+      unless recipe_root
+        puts "Failed to load recipe '#{recipe_namespace}:#{recipe_path}': no known resource root for namespace #{recipe_namespace}"
+        return "<em>Failed to load recipe #{recipe_path}</em>"
+      end
+
       url = "#{recipe_root}/data/#{recipe_namespace}/recipes/#{recipe_path}.json"
 
-      recipe = cache.getset(url) do
-        begin
+      begin
+        recipe = cache.getset(url) do
           json_data = URI.open(url) do |io|
             io.read
           end
@@ -161,20 +169,19 @@ module Ladysnake
           elsif type == "minecraft:crafting_shapeless"
             ShapelessRecipe.parse(data)
           end
-        rescue StandardError => e
-          puts "Error loading JSON data: #{e.message}"
-          nil
         end
-      end
-
-      # Check if the data was loaded successfully
-      if recipe
-        context["slots"] = recipe.to_3x3_grid.map { |i| if i.empty? then nil else i.item end }
+        context["slots"] = recipe.to_3x3_grid.map { |i|
+          if i.empty?
+            nil
+          else
+            i.item
+          end }
         context["result"] = recipe.result["item"]
         context["count"] = recipe.result["count"]
         context["shaped"] = recipe.class == ShapedRecipe
         Liquid::Template.parse("{% include mc/crafting.liquid slots=slots result=result count=count shaped=shaped %}").render(context)
-      else
+      rescue StandardError => e
+        puts "Error loading JSON data: #{e.message}"
         puts "Failed to load recipe from #{url}"
         "<em>Failed to load recipe #{recipe_path}</em>"
       end

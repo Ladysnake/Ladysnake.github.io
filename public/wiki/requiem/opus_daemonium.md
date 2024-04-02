@@ -2,6 +2,8 @@
 title: Opus Daemonium
 icon: img/items/opus_daemonium.gif
 layout: requiem_wiki
+resource_roots:
+  requiem: https://raw.githubusercontent.com/Ladysnake/Requiem/1.7.5/src/main/resources
 ---
 Opus Daemoniums are items that allow a Player to activate or deactivate
 Requiem's death mechanics, by respectively awakening or destroying a
