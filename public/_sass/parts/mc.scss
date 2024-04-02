@@ -151,6 +151,20 @@ figure.recipes {
   grid-template-columns: min-content min-content min-content;
 }
 
+// more specificity to override the data-minetip-title position
+.shapeless-icon, .shapeless-icon[data-minetip-title] {
+  width: 2.7em;
+  height: 2.15em;
+  left: 8.7em;
+  position: absolute;
+
+  & > img {
+    image-rendering: pixelated;
+    width: 100%;
+    height: auto;
+  }
+}
+
 [data-minetip-title] {
   position: relative;
 }

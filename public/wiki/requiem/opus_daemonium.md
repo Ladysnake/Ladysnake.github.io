@@ -54,4 +54,4 @@ vitam vagrate" inside it and sign it.
 
 ## Recipe
 
-<img class="recipe" alt="crafting recipe" src="img/recipes/opus_daemonium.png">
+{% recipe "requiem:opus_daemonium" %}
