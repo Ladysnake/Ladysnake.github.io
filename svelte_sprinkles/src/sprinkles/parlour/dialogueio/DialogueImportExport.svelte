@@ -41,11 +41,12 @@
 <p class="dialogue-io-log error-log">{error}</p>
 
 <script lang="ts">
-  import BlabberDialogue, {choiceIdKey, genChoiceId} from "../BlabberDialogue";
+  import BlabberDialogue from "../model/BlabberDialogue";
   import {dialogueData, dialogueFilename} from "../dialogueDataStore";
-  import {validateDialogue} from "../validation";
+  import {validateDialogue} from "../validation/DialogueValidator";
   import {saveAs} from "file-saver";
   import {createEventDispatcher} from "svelte";
+  import {choiceIdKey, genChoiceId} from "../model/DialogueChoice";
 
   let info: string = '';
   let warning: string = '';
@@ -130,7 +131,9 @@
           [JSON.stringify(
             $dialogueData.data,
             function (key, value) {
-              if (key === 'action' && value.type === '') {
+              if (key === 'action' && typeof value === 'object' && value.type === '') {
+                return undefined;
+              } else if (key === 'condition' && typeof value === 'object' && !value.predicate) {
                 return undefined;
               } else if (key === choiceIdKey) {
                 return undefined;

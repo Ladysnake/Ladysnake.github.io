@@ -18,7 +18,7 @@
   }
 </script>
 <script lang="ts">
-  import type {DialogueAction} from "../../BlabberDialogue";
+  import type {DialogueAction} from "../../model/BlabberDialogue";
   import {getStateData} from "./DialogueStateView.svelte";
 
   const stateData = getStateData();

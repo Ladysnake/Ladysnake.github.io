@@ -1,7 +1,7 @@
 <script lang="ts">
 
   import {dialogueData} from "../dialogueDataStore";
-  import type BlabberDialogue from "../BlabberDialogue";
+  import type BlabberDialogue from "../model/BlabberDialogue";
 
   let log = '';
 

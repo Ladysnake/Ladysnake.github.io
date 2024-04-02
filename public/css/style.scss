@@ -13,10 +13,52 @@
   src: local("Minecraft"), url("{{ site.baseurl }}/fonts/Minecraft.woff2") format("woff2");
 }
 
+@property --color-blue {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0969da;
+}
+
+@property --color-info {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0969da;
+}
+
+@property --color-purple {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #8250df;
+}
+
+@property --color-important {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #8250df;
+}
+
+@property --color-orange {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e67e22;
+}
+
 @property --color-warning {
   syntax: "<color>";
   inherits: true;
   initial-value: #e67e22;
+}
+
+@property --color-red {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e74c3c;
+}
+
+@property --color-danger {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e74c3c;
 }
 
 @property --base-text-color {
@@ -88,12 +130,17 @@
 :root {
   --color-primary: #1abc9c;
   --color-success: #2ecc71;
-  --color-info: #0969da;
-  --color-important: #8250df;
-  --color-warning: #e67e22;
-  --color-danger: #e74c3c;
+  --color-blue: #0969da;
+  --color-info: var(--color-blue);
+  --color-purple: #8250df;
+  --color-important: var(--color-purple);
+  --color-orange: #e67e22;
+  --color-warning: var(--color-orange);
+  --color-red: #e74c3c;
+  --color-danger: var(--color-red);
   --base-text-color: #2c3e50;
   --accent-text-color: #2d3436;
+  --bright-text-color: #f6f8f9;
   --base-background-color: #f6f8f9;
   --accent-background-color: #eaeaef;
   --color-invalid: #d9534f;
@@ -109,8 +156,8 @@
   --dark-mode-transition-function: cubic-bezier(.86,0,.07,1);
 
   @include darkModeAtRoot {
-    --color-warning: #f39c12;
-    --base-text-color: #f6f8f9;
+    --color-orange: #f39c12;
+    --base-text-color: var(--bright-text-color);
     --accent-text-color: #fff;
     --base-background-color: #171717;
     --accent-background-color: #343434;
@@ -266,6 +313,7 @@ body:not(.dark-mode) .form-control {
 @import "./parts/buttons.scss";
 @import "./parts/code.scss";
 @import "./parts/details.scss";
+@import "./parts/dialogs.scss";
 @import "./parts/section.scss";
 @import "./parts/figures.scss";
 @import "./parts/headings.scss";
@@ -365,6 +413,10 @@ label {
   font-weight: bold;
   display: inline-block;
   margin-bottom: 5px;
+}
+
+label input {
+  font-weight: initial;
 }
 
 // bootstrap leftover

@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
   import {getContext} from "svelte";
   import type {Readable, Writable} from "svelte/store";
-  import type {DialogueState} from "../../BlabberDialogue";
+  import type {DialogueState} from "../../model/BlabberDialogue";
 
   const DIALOGUE_STATE_CONTEXT_KEY = 'dialogue_state_data';
   const DIALOGUE_STATE_NAME_CONTEXT_KEY = 'dialogue_state_name_data';
@@ -16,7 +16,7 @@
 </script>
 <script lang="ts">
   import DialogueStateProperties from "./DialogueStateProperties.svelte";
-  import DialogueStateChoices from "./DialogueStateChoices.svelte";
+  import DialogueStateChoices from "./choice/DialogueStateChoices.svelte";
   import {derived, readonly, writable} from "svelte/store";
   import {dialogueData} from "../../dialogueDataStore";
   import {setContext} from "svelte";

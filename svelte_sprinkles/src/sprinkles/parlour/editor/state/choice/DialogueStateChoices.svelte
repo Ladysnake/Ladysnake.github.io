@@ -1,18 +1,19 @@
 <script lang="ts">
-  import {getStateData, getStateKey} from "./DialogueStateView.svelte";
-  import EditableTable from "../../../../lib/EditableTable.svelte";
+  import {getStateData, getStateKey} from "../DialogueStateView.svelte";
+  import EditableTable from "../../../../../lib/EditableTable.svelte";
   import {derived, type Writable} from "svelte/store";
-  import {choiceIdKey, type DialogueChoice, genChoiceId} from "../../BlabberDialogue";
-  import McTextInput from "../../../../lib/McTextInput.svelte";
-  import {dialogueStateKeys, dialogueTextFormat} from "../../dialogueDataStore";
-  import {type McText, McTextType} from "../../../../lib/McText";
+  import McTextInput from "../../../../../lib/McTextInput.svelte";
+  import {dialogueStateKeys, dialogueTextFormat} from "../../../dialogueDataStore";
+  import {type McText, McTextType} from "../../../../../lib/McText";
   import './dialogue-state-choices.css';
   import {afterUpdate} from "svelte";
+  import {choiceIdKey, type DialogueChoice, genChoiceId} from "../../../model/DialogueChoice";
+  import ChoiceConditionEditor from "./ChoiceConditionEditor.svelte";
 
   const stateData = getStateData();
   const stateKey = getStateKey();
   const stateChoices: Writable<DialogueChoice[]> = {
-    ...derived(stateData, (state) => state?.choices ?? [{[choiceIdKey]: genChoiceId()}]),
+    ...derived(stateData, (state) => state?.choices ?? [{ [choiceIdKey]: genChoiceId() }]),
     set: (choices: DialogueChoice[]) => stateData.update((oldState) => ({
       ...oldState,
       choices,
@@ -22,6 +23,22 @@
       choices: fn(oldState.choices ?? []),
     })),
   };
+
+  function stateChoice(index: number) {
+    return {
+      ...derived(stateChoices, (choices) => choices[index]),
+      set: (choice: DialogueChoice) => stateChoices.update((choices) => {
+        const newChoices = [...choices];
+        newChoices[index] = choice;
+        return newChoices;
+      }),
+      update: (fn: (old: DialogueChoice) => DialogueChoice) => stateChoices.update((choices) => {
+        const newChoices = [...choices];
+        newChoices[index] = fn(choices[index]);
+        return newChoices;
+      }),
+    };
+  }
 
   let newChoiceId: number | null;
 
@@ -92,22 +109,28 @@
       <svelte:fragment slot="head">
         <th class="col-text">Text</th>
         <th class="col-next">Next State</th>
+        <th class="col-advanced">Condition</th>
       </svelte:fragment>
       <svelte:fragment slot="row" let:item let:index>
         <td class="col-text input-cell">
           <McTextInput
             value={item.text}
+            class="table-input"
             textFormat={$dialogueTextFormat}
             placeholder={suggestTranslationKey(index)}
             action={(node) => focusNewChoice(node, item)}
             on:change={(e) => updateText(index, e.detail)}
           />
         </td>
-        <td class="col-next input-cell"><select class="dialogue-choice-next-input" on:change={(e) => updateNext(index, e.currentTarget.value)}>
-          {#each $dialogueStateKeys as state}
-            <option value={state} selected={state === item.next}>{state}</option>
-          {/each}
-        </select></td>
+        <td class="col-next input-cell">
+          <select class="table-input" on:change={(e) => updateNext(index, e.currentTarget.value)}>
+            {#each $dialogueStateKeys as state}
+              <option value={state} selected={state === item.next}>{state}</option>
+            {/each}
+          </select></td>
+        <td class="col-advanced input-cell">
+          <ChoiceConditionEditor choice={stateChoice(index)}/>
+        </td>
       </svelte:fragment>
     </EditableTable>
   </div>

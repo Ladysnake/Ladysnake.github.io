@@ -1,0 +1,12 @@
+dialog::backdrop {
+  background-color: black;
+  opacity: 50%;
+}
+
+dialog {
+  background-color: var(--base-background-color);
+  color: var(--base-text-color);
+  border: none;
+  border-radius: 1em;
+  padding: 1em;
+}

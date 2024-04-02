@@ -1,6 +1,6 @@
 <script lang="ts">
   import {EDITOR_TEXT_FORMAT_KEY} from "../localStorageKeys";
-  import BlabberDialogue from "../BlabberDialogue";
+  import BlabberDialogue from "../model/BlabberDialogue";
   import {dialogueData, dialogueTextFormat} from "../dialogueDataStore";
   import {parseMcTextType} from "../../../lib/McText.js";
 
@@ -11,7 +11,7 @@
   let startDialogueStateName = 'start';
   let endDialogueStateName = 'end';
 
-  export function validateFilename(element: HTMLInputElement) {
+  function validateFilename(element: HTMLInputElement) {
     if (!element.value) {
       element.setCustomValidity('Please enter a valid non-namespaced identifier');
     } else if (element.validity.patternMismatch) {
@@ -25,7 +25,7 @@
     return false;
   }
 
-  export function validateStateName(element: HTMLInputElement) {
+  function validateStateName(element: HTMLInputElement) {
     if (!element.value) {
       element.setCustomValidity('Please enter a valid non-namespaced identifier');
     } else if (element.validity.patternMismatch) {

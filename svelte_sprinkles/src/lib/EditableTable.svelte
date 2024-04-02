@@ -1,6 +1,4 @@
 <script context="module" lang="ts">
-  import type {Readable} from "svelte/store";
-
   function shiftElementBackward<E>(arr: E[], index: number) {
     if (index <= 0) throw Error('Cannot shift backward the first element of an array');
     const ret = [...arr];
@@ -82,11 +80,11 @@
       <tr>
         <slot name="row" item={item} index={index}/>
         <td class="col-sort">
-          <button class="sort-up" disabled={index === 0} on:click={() => moveUp(index)}><svg inline-src="octicon-arrow-up"/></button>
-          <button class="sort-down" disabled={index + 1 >= $items.length} on:click={() => moveDown(index)}><svg inline-src="octicon-arrow-down"/></button>
+          <button class="table-input sort-up" disabled={index === 0} on:click={() => moveUp(index)}><svg inline-src="octicon-arrow-up"/></button>
+          <button class="table-input sort-down" disabled={index + 1 >= $items.length} on:click={() => moveDown(index)}><svg inline-src="octicon-arrow-down"/></button>
         </td>
         <td class="col-remove">
-            <button type="button" on:click={() => deleteRow(index)}>
+            <button class="table-input" type="button" on:click={() => deleteRow(index)}>
             <svg inline-src="octicon-x"/>
           </button>
         </td>

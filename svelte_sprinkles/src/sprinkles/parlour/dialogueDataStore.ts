@@ -1,5 +1,5 @@
 import {derived, type Readable, writable, type Writable} from 'svelte/store';
-import BlabberDialogue from './BlabberDialogue';
+import BlabberDialogue from './model/BlabberDialogue';
 import {McTextType} from "../../lib/McText";
 
 function createDialogueData() {

@@ -4,7 +4,7 @@
 <script lang="ts">
   import Landing from "./landing/Landing.svelte";
   import {dialogueData, dialogueFilename} from "./dialogueDataStore";
-  import BlabberDialogue from "./BlabberDialogue";
+  import BlabberDialogue from "./model/BlabberDialogue";
   import {type ComponentType, onMount} from "svelte";
   import DialogueFilenameInput from "./DialogueFilenameInput.svelte";
 
@@ -37,14 +37,6 @@
     {/if}
   </ol>
 </nav>
-<div class="admonition admonition-warning">
-  <div class="admonition-heading">
-    <strong>🚧 This page is still under construction! 🚧</strong>
-  </div>
-  <div>
-    <p>Conditional choices (added in Blabber 1.0) are not yet available in this editor.</p>
-  </div>
-</div>
 <main>
   {#if (!$dialogueFilename)}
     <Landing/>

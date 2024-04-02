@@ -1,28 +1,15 @@
-import type {McText} from "../../lib/McText";
+import type {McText} from "../../../lib/McText";
+import type {DialogueChoice} from "./DialogueChoice";
 
 export interface DialogueAction {
   readonly type?: string;
   readonly value?: string;
 }
 
-// Internal identifier to keep track of values when reordering
-export const choiceIdKey = '_id';
-
-// Initialize with a random number to avoid duplicating identifiers on page reload
-let nextChoiceId = Math.random();
-
-export function genChoiceId() {
-  return nextChoiceId++;
-}
-
-export interface DialogueChoice {
-  readonly text?: McText;
-  readonly next?: string;
-  readonly [choiceIdKey]?: number;
-}
+export type ChoiceResult = 'default' | 'end_dialogue' | 'ask_confirmation';
 
 export interface DialogueState {
-  readonly type?: string;
+  readonly type?: ChoiceResult;
   readonly text?: McText;
   readonly action?: DialogueAction;
   readonly choices?: DialogueChoice[];

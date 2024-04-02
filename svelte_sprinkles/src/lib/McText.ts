@@ -1,3 +1,5 @@
+export type Identifier = string;
+
 export interface McTextRaw {
   readonly value: string | object;
 }
