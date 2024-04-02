@@ -2,10 +2,11 @@
   import {EDITOR_TEXT_FORMAT_KEY} from "../localStorageKeys";
   import BlabberDialogue from "../model/BlabberDialogue";
   import {dialogueData, dialogueTextFormat} from "../dialogueDataStore";
-  import {parseMcTextType} from "../../../lib/McText.js";
+  import {McTextType} from "../../../lib/McText.js";
 
   let filename: string | undefined;
-  let textFormat: string | null = localStorage.getItem(EDITOR_TEXT_FORMAT_KEY);
+  const savedTextFormat = localStorage.getItem(EDITOR_TEXT_FORMAT_KEY);
+  let textFormat: McTextType | null = Object.values(McTextType).includes(savedTextFormat as McTextType) ? savedTextFormat as McTextType : null;
   let layout: 'blabber:classic' | 'blabber:rpg' = 'blabber:classic';
   let skippable = true;
   let startDialogueStateName = 'start';
@@ -70,7 +71,7 @@
       }
       return;
     }
-    $dialogueTextFormat = parseMcTextType(textFormat);
+    $dialogueTextFormat = textFormat;
     $dialogueData = new BlabberDialogue({
       states: {
         [startDialogueStateName]: {},
