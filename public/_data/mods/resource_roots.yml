@@ -1,2 +1,4 @@
 blast: https://raw.githubusercontent.com/Ladysnake/BLAST/1.20/src/main/resources
 ratsmischief: https://raw.githubusercontent.com/Ladysnake/Rats-Mischief/2.0/src/main/resources
+# TODO have per-page resource roots
+requiem: https://raw.githubusercontent.com/Ladysnake/Requiem/1.7.15/src/main/resources

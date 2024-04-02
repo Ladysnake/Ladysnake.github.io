@@ -8,50 +8,10 @@
   align-items: center;
   padding: 0 15px;
   margin: 2.5ex auto 0;
-
-  @include desktop {
-    width: 97.5%;
-
-    .navbar-brand {
-      margin-left: -15px;
-    }
-  }
+  width: 97.5%;
 
   @include mobile {
     grid-template-areas: "logo darkmode toggle" "nav nav nav";
-  }
-
-  .nav-item {
-    @include mobile {
-      width: 100%;
-    }
-  }
-
-  .nav-item > a, .nav-item > label {
-    display: block;
-  }
-
-  .nav-item > a, .nav-item > label, button {
-    text-transform: none;
-    color: var(--base-text-color);
-    background-color: transparent;
-    border: none;
-    padding: 15px;
-    font-weight: unset;
-    margin-bottom: 0;
-    text-align: center;
-
-    &.discord-invite {
-      padding-bottom: 1.4ex;
-    }
-
-    &:hover, &:focus-visible {
-      text-decoration: underline;
-    }
-
-    &:focus-visible {
-      outline: 5px auto var(--button-selected-outline);
-    }
   }
 }
 
@@ -71,29 +31,58 @@
     border-bottom: 1px solid var(--base-text-color);
     margin-bottom: 1ex;
   }
+}
 
+.header-nav-item {
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.header-nav-btn {
+  display: block;
+  text-transform: none;
+  color: var(--base-text-color);
+  background-color: transparent;
+  border: none;
+  padding: 15px;
+  font-weight: unset;
+  margin-bottom: 0;
+  text-align: center;
+
+  &:hover, &:focus-visible {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 5px auto var(--button-selected-outline);
+  }
+}
+
+.discord-invite {
+  padding-bottom: 1.4ex;
   svg {
     height: 30px;
   }
+}
 
-  & > ul {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.header-nav-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 
-    @include mobile {
-      flex-direction: column;
-      justify-content: center;
-    }
+  @include mobile {
+    flex-direction: column;
+    justify-content: center;
+  }
 
-    & > .open > a {
-      &,
-      &:focus,
-      &:hover {
-        background-color: var(--button-background);
-      }
+  & > .open > a {
+    &,
+    &:focus,
+    &:hover {
+      background-color: var(--button-background);
     }
   }
 }
@@ -157,7 +146,7 @@
       }
     }
 
-    svg {
+    & > svg {
       rect {
         transition: all .3s;
       }
@@ -181,13 +170,13 @@
 #ladysnake_logo {
   grid-area: logo;
   justify-self: left;
-  width: 340px;
-  height: 80px;
+  width: max-content;
+  height: max-content;
 
   img {
     vertical-align: middle;
-    min-width: 340px;
-    min-height: 80px;
+    width: 340px;
+    height: 80px;
 
     // replace the real image with a solid color
     content: linear-gradient(var(--base-text-color), var(--base-text-color));
@@ -196,6 +185,8 @@
     mask-repeat: no-repeat;
     mask-size: contain;
     @include mobile {
+      width: 80px;
+      height: 80px;
       mask-image: url('/img/ladysnake-icon-light.png');
       @include darkMode {
         mask-image: url('/img/ladysnake-icon-dark.png');

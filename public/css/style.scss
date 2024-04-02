@@ -3,6 +3,7 @@
 
 @import "./variables.scss";
 @import "./mixins.scss";
+@import "./colors.scss";
 
 @import "./parts/globals.scss";
 @import "./parts/site-header.scss";
@@ -13,240 +14,17 @@
   src: local("Minecraft"), url("{{ site.baseurl }}/fonts/Minecraft.woff2") format("woff2");
 }
 
-@property --color-blue {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #0969da;
-}
-
-@property --color-info {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #0969da;
-}
-
-@property --color-purple {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #8250df;
-}
-
-@property --color-important {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #8250df;
-}
-
-@property --color-orange {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #e67e22;
-}
-
-@property --color-warning {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #e67e22;
-}
-
-@property --color-red {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #e74c3c;
-}
-
-@property --color-danger {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #e74c3c;
-}
-
-@property --base-text-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #2c3e50;
-}
-
-@property --accent-text-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #2d3436;
-}
-
-@property --base-background-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #171717;
-}
-
-@property --accent-background-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #343434;
-}
-
-@property --anchor-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #8ab4f8;
-}
-
-@property --anchor-hover-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #e9ebee;
-}
-
-@property --button-background {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #dfe6e9;
-}
-
-@property --button-outline {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #636e72;
-}
-
-@property --button-hover-outline {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #2d3436;
-}
-
-@property --button-selected-outline {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #0984e3;
-}
-
-@property --dark-mode-transition-duration {
-  syntax: "<time>";
-  inherits: true;
-  initial-value: 1s;
-}
-
-:root {
-  --color-primary: #1abc9c;
-  --color-success: #2ecc71;
-  --color-blue: #0969da;
-  --color-info: var(--color-blue);
-  --color-purple: #8250df;
-  --color-important: var(--color-purple);
-  --color-orange: #e67e22;
-  --color-warning: var(--color-orange);
-  --color-red: #e74c3c;
-  --color-danger: var(--color-red);
-  --base-text-color: #2c3e50;
-  --accent-text-color: #2d3436;
-  --bright-text-color: #f6f8f9;
-  --base-background-color: #f6f8f9;
-  --accent-background-color: #eaeaef;
-  --color-invalid: #d9534f;
-  --anchor-color: #337ab7;
-  --anchor-hover-color: #23527c;
-  --button-background: #dfe6e9;
-  --button-outline: #636e72;
-  --button-hover-outline: #2d3436;
-  --button-selected-outline: #0984e3;
-  --dark-mode-display: none;
-  --light-mode-display: unset;
-  --dark-mode-transition-duration: 0.8s;
-  --dark-mode-transition-function: cubic-bezier(.86,0,.07,1);
-
-  @include darkModeAtRoot {
-    --color-orange: #f39c12;
-    --base-text-color: var(--bright-text-color);
-    --accent-text-color: #fff;
-    --base-background-color: #171717;
-    --accent-background-color: #343434;
-    --anchor-color: #8ab4f8;
-    --anchor-hover-color: #e9ebee;
-    --button-background: #2d3436;
-    --button-outline: #b2bec3;
-    --button-hover-outline: #dfe6e9;
-    --button-selected-outline: #74b9ff;
-    --dark-mode-display: unset;
-    --light-mode-display: none;
-  }
-}
-
-body.uninitialized-dark-mode {
-  --dark-mode-transition-duration: 0s;
-}
-
-body {
-  // Note: these transitions will be Webkit exclusive until Firefox 126 comes out (May 2024 presumably)
-  transition: --base-text-color var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
-  --color-warning  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
-  --base-text-color  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
-  --accent-text-color  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
-  --base-background-color  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
-  --accent-background-color  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
-  --anchor-color  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
-  --anchor-hover-color  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
-  --button-background  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
-  --button-outline  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
-  --button-hover-outline  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
-  --button-selected-outline  var(--dark-mode-transition-duration) var(--dark-mode-transition-function);
-}
-
-/* a.dark-mode {
-	color: #f6f8f9;
-} */
-
 /* other stuff that sschr15 made and things */
-
-.container img.wiki {
-  max-width: 100%;
-}
 
 .hidden {
   display: none !important;
 }
 
-li a span svg.download-icon {
+.download-icon {
   float: right;
   fill: currentColor;
   height: 20px;
   width: 20px;
-}
-
-li ul li a span {
-  padding: 0 0 0 0;
-}
-
-div.itemThing div {
-  cursor: pointer;
-  width: auto;
-  position: relative;
-}
-
-.hissiemote {
-  opacity: 1;
-  transition: 0.5s ease;
-  backface-visibility: hidden;
-  height: auto;
-}
-
-.overlayCopy {
-  transition: 0.5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -400%);
-  text-align: center;
-  font-weight: bold;
-}
-
-div.itemThing div:hover .hissiemote {
-  opacity: 0.2;
-}
-
-div.itemThing div:hover .overlayCopy {
-  opacity: 1;
 }
 
 #printLogo {
@@ -264,136 +42,34 @@ div.itemThing div:hover .overlayCopy {
 
 /* ok back to your regularly scheduled content */
 
-@property --anchor-hover {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 0%;
-}
-
-a {
-  text-decoration: none;
-  --anchor-hover: 0%;
-  transition: --anchor-hover 0.3s;
-  color: color-mix(in srgb, var(--anchor-color), var(--anchor-hover-color) var(--anchor-hover));
-
-  &:hover, &:focus {
-    --anchor-hover: 100%;
-    text-decoration: underline;
-  }
-}
-
-/*	FORMS */
-body:not(.dark-mode) .form-control {
-  border: 2px solid #cbd0d3;
-  border-radius: 0;
-  padding: 0 25px;
-  line-height: 45px;
-  height: 45px;
-}
-
 /*	EXTRA CLASSES */
-@import "./parts/utilities/spacing.scss";
-@import "./parts/utilities/fonts.scss";
 @import "./parts/utilities/colors.scss";
-@import "./parts/utilities/backgrounds.scss";
 @import "./parts/utilities/images.scss";
 
-/*	COLORS */
-
-.dark-bg {
-  &,
-  a,
-  a:hover {
-    color: #fff;
-  }
-}
-
 @import "./parts/admonitions.scss";
+@import "./parts/badges.scss";
+@import "./parts/blog.scss";
 @import "./parts/breadcrumb.scss";
 @import "./parts/buttons.scss";
 @import "./parts/code.scss";
 @import "./parts/details.scss";
 @import "./parts/dialogs.scss";
-@import "./parts/section.scss";
+@import "./parts/dynamic-images.scss";
 @import "./parts/figures.scss";
 @import "./parts/headings.scss";
 @import "./parts/hero.scss";
-@import "./parts/blog.scss";
+@import "./parts/links.scss";
+@import "./parts/mc.scss";
 @import "./parts/menu_grid.scss";
 @import "./parts/scrolltop.scss";
+@import "./parts/search.scss";
+@import "./parts/section.scss";
 @import "./parts/tabbed.scss";
 @import "./parts/toc.scss";
-@import "./parts/search.scss";
-@import "./parts/hover-effects.scss";
-@import "./parts/mc.scss";
-
-.profile_pic {
-  height: 150px;
-}
-
-.wiki {
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-.h1-wiki-icon {
-  height: 48px;
-  width: 48px;
-  vertical-align: middle;
-  margin: 20px 0 20px 0;
-  display: inline-block;
-}
-
-.h3-wiki-icon {
-  height: 24px;
-  margin: 10px 0 1px 5px;
-  display: inline-block;
-  vertical-align: bottom;
-}
-
-.p-wiki-icon {
-  height: 18px;
-  margin-left: 1em;
-  display: inline-block;
-  vertical-align: bottom;
-
-  svg {
-    width: 100%;
-    height: 100%;
-    fill: var(--base-text-color);
-  }
-}
-
-.settings-link {
-  margin-left: 1em;
-  padding-left: 0.5em;
-  border-left: 1px solid var(--accent-text-color);
-}
-
-.pt-3-half {
-  padding-top: 1.4rem;
-}
-
-.table-buttons {
-  width: 12rem;
-}
-
-.recipe {
-  height: 160px;
-  image-rendering: crisp-edges;
-  margin-top: 10px;
-}
 
 .home {
   border-bottom: 0;
   text-align: center;
-}
-
-hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 0;
-  border-top: 1px solid var(--button-background);
 }
 
 footer {
@@ -413,18 +89,8 @@ label {
   font-weight: bold;
   display: inline-block;
   margin-bottom: 5px;
-}
 
-label input {
-  font-weight: initial;
-}
-
-// bootstrap leftover
-.collapse {
-  display: none;
-
-  &.in {
-    display: block;
+  input {
+    font-weight: initial;
   }
 }
-

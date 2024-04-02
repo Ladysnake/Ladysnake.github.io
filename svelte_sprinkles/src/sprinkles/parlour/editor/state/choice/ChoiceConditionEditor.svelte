@@ -78,7 +78,7 @@
         bind:this={predicateLocationInput}
         on:input={(e) => validateIdentifier(e.currentTarget)}
       />
-      <button class="clear btn-danger" type="button" title="Remove condition" disabled={!predicateLocation} on:click={clear}>
+      <button class="clear btn-danger rounded" type="button" title="Remove condition" disabled={!predicateLocation} on:click={clear}>
         <svg inline-src="octicon-trashcan"/>
       </button>
       <p class="predicate-tip">
@@ -153,7 +153,6 @@
 
   .clear {
     margin: 0 0.4em;
-    border-radius: 0.5em;
     border: none;
     height: 3em;
     width: 3em;

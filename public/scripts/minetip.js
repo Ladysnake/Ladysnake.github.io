@@ -42,48 +42,46 @@ function placeTooltipForCursor(el, mouseX, mouseY) {
     tooltip.style.top = `${Math.min(mouseY - 30, document.body.clientHeight - tooltipHeight - 10)}px`;
 }
 
-export function initTooltips() {
-    let focusedElement = null;
+let focusedElement = null;
 
-    function onMouseEnter(e) {
-        placeTooltipForCursor(e.currentTarget, e.clientX, e.clientY);
-        document.body.appendChild(tooltip);
-    }
-
-    function onFocusIn(e) {
-        focusedElement = e.currentTarget;
-        placeTooltipForFocus(e.currentTarget);
-        e.currentTarget.appendChild(tooltip);
-    }
-
-    function onMouseMove(e) {
-        return placeTooltipForCursor(e.currentTarget, e.clientX, e.clientY);
-    }
-
-    function onMouseLeave() {
-        if (focusedElement == null) {
-            document.body.removeChild(tooltip);
-        } else {
-            focusedElement.appendChild(tooltip);
-            placeTooltipForFocus(focusedElement);
-        }
-    }
-
-    function onFocusOut(e) {
-        focusedElement = null;
-        e.currentTarget.removeChild(tooltip);
-    }
-
-    document.querySelectorAll('[data-minetip-title]').forEach((el) => {
-        el.addEventListener('mouseenter', onMouseEnter);
-        el.addEventListener('focusin', onFocusIn);
-        el.addEventListener('mousemove', onMouseMove);
-        el.addEventListener('mouseleave', onMouseLeave);
-        el.addEventListener('focusout', onFocusOut);
-
-        // tabindex set => artificially keyboard-focusable => prevent focusing this element from mouse click
-        if (el.tabIndex === 0) {
-            el.addEventListener('mousedown', (e) => e.preventDefault());
-        }
-    });
+function onMouseEnter(e) {
+    placeTooltipForCursor(e.currentTarget, e.clientX, e.clientY);
+    document.body.appendChild(tooltip);
 }
+
+function onFocusIn(e) {
+    focusedElement = e.currentTarget;
+    placeTooltipForFocus(e.currentTarget);
+    e.currentTarget.appendChild(tooltip);
+}
+
+function onMouseMove(e) {
+    return placeTooltipForCursor(e.currentTarget, e.clientX, e.clientY);
+}
+
+function onMouseLeave() {
+    if (focusedElement == null) {
+        document.body.removeChild(tooltip);
+    } else {
+        focusedElement.appendChild(tooltip);
+        placeTooltipForFocus(focusedElement);
+    }
+}
+
+function onFocusOut(e) {
+    focusedElement = null;
+    e.currentTarget.removeChild(tooltip);
+}
+
+document.querySelectorAll('[data-minetip-title]').forEach((el) => {
+    el.addEventListener('mouseenter', onMouseEnter);
+    el.addEventListener('focusin', onFocusIn);
+    el.addEventListener('mousemove', onMouseMove);
+    el.addEventListener('mouseleave', onMouseLeave);
+    el.addEventListener('focusout', onFocusOut);
+
+    // tabindex set => artificially keyboard-focusable => prevent focusing this element from mouse click
+    if (el.tabIndex === 0) {
+        el.addEventListener('mousedown', (e) => e.preventDefault());
+    }
+});

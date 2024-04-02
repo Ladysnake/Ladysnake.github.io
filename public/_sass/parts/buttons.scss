@@ -52,6 +52,7 @@
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   margin: 0;
   user-select: none;
   border-radius: 0;
@@ -96,27 +97,24 @@
 .btn-primary {
   background-color: #1abc9c;
 
-  &:hover {
-    background-color: #55efc4;
+  &:hover, &:focus-visible {
+    background-color: #00af71;
   }
 
-  &:focus {
+  &:focus-visible {
     outline-color: var(--button-selected-outline);
   }
 }
 
 a.btn-primary {
-  color: #fff;
-  @include darkMode {
-    color: #0e6d5a;
-  }
+  color: var(--bright-text-color);
 }
 
 .btn-success, .btn-yes {
   background-color: #2ecc71;
   color: #fff;
 
-  &:hover {
+  &:hover, &:focus-visible {
     background-color: #27ae60;
     color: #fff;
   }

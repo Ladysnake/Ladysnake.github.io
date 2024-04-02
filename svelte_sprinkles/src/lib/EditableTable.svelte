@@ -27,6 +27,9 @@
   import type {Writable} from "svelte/store";
   import {afterUpdate, beforeUpdate} from "svelte";
 
+  let className: string = '';
+  // noinspection ReservedWordAsName
+  export { className as class };
   export let items: Writable<T[]>;
   export let keyExtractor: KeyExtractor<T>;
 

@@ -1,31 +1,31 @@
 .search-bar {
   position: relative;
+}
 
-  form {
-    display: flex;
-    flex-direction: column;
-  }
+.search-form {
+  display: flex;
+  flex-direction: column;
+}
 
-  input {
-    max-width: 100%;
-    border: 1px solid var(--button-outline);
-  }
+.search-input {
+  max-width: 100%;
+  border: 1px solid var(--button-outline);
+}
 
-  input[name=query]:focus-visible {
-    border-color: var(--button-selected-outline);
-    outline: 1px solid var(--button-selected-outline);
-    background-color: var(--accent-background-color);
-  }
+.search-input[type=text]:focus-visible {
+  border-color: var(--button-selected-outline);
+  outline: 1px solid var(--button-selected-outline);
+  background-color: var(--accent-background-color);
+}
 
-  input[type=submit] {
-    background-color: transparent;
-    border-color: transparent;
-    width: fit-content;
-    position: absolute;
-    top: 45%;
-    left: 86%;
-    cursor: pointer;
-  }
+.search-input[type=submit] {
+  background-color: transparent;
+  border-color: transparent;
+  width: fit-content;
+  position: absolute;
+  top: 45%;
+  left: 86%;
+  cursor: pointer;
 }
 
 #search-results {

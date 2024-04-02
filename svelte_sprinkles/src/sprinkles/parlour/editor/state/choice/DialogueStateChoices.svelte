@@ -94,7 +94,7 @@
       </span>
   </h3>
   <div class="table-container">
-    <EditableTable items={stateChoices} keyExtractor={(c) => c[choiceIdKey]}>
+    <EditableTable class="table-striped" items={stateChoices} keyExtractor={(c) => c[choiceIdKey]}>
       <svelte:fragment slot="head">
         <th class="col-text">Text</th>
         <th class="col-next">Next State</th>
