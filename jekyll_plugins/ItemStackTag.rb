@@ -49,11 +49,12 @@ module Ladysnake
 
     def render(context)
       site = context.registers[:site]
+      page = context.registers[:page]
       data = site.data["minecraft"]["items"]
       item_name = context.evaluate(@item_name)
       alt_prefix = context.evaluate(@alt_prefix) || ""
       count = context.evaluate(@count) || 1
-      item = data[item_name] || default_data(site.data["mods"]["resource_roots"], item_name)
+      item = data[item_name] || default_data(page["resource_roots"] || site.data["mods"]["resource_roots"], item_name)
       if item.nil?
         item = data["MISSING"]
         missing = true
@@ -136,7 +137,7 @@ module Ladysnake
 
           if icon_response.is_a?(Net::HTTPSuccess)
             return {
-              "name" => wiki_name,
+              "name" => wiki_name.gsub('_', ' '),
               "link" => url,
               "icon" => icon_url
             }

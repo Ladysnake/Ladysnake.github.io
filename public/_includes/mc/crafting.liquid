@@ -25,6 +25,11 @@
 </li>
 {%- endfor -%}
 </{{ grid_tag }}>
+{%- unless include.shaped -%}
+<div class="shapeless-icon" data-minetip-title="Shapeless Recipe" tabindex="0">
+    <img src="/img/wiki-crafting-shapeless.png" alt="Shapeless Recipe" width="39" height="31"/>
+</div>
+{%- endunless -%}
 <div class="invslot invslot-large">
 {%- itemstack item=include.result count=include.count alt_prefix="Result: " large=true -%}
 </div>
