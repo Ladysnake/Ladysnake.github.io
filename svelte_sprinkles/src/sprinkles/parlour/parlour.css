@@ -4,3 +4,11 @@
   flex: auto;
   gap: 1em;
 }
+
+#dialogue-filename {
+  border-radius: 0.1em;
+
+  &:not(:focus-visible):hover {
+    outline: 1px solid var(--button-outline);
+  }
+}

@@ -29,11 +29,11 @@
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item"><a href="/wiki/blabber">Blabber</a></li>
-    {#if !$dialogueFilename}
-      <li class="breadcrumb-item active">Dialogue Editor</li>
-    {:else}
-      <li class="breadcrumb-item"><a href="/wiki/blabber/dialogue_generator">Dialogue Editor</a></li>
-      <li class="breadcrumb-item active" aria-current="page"><DialogueFilenameInput bind:value={$dialogueFilename} />.json</li>
+    <li class="breadcrumb-item active">Dialogue Editor</li>
+    {#if $dialogueFilename}
+      <li class="breadcrumb-item" aria-current="page">
+        <DialogueFilenameInput bind:value={$dialogueFilename}/>.json
+      </li>
     {/if}
   </ol>
 </nav>
@@ -41,9 +41,9 @@
   {#if (!$dialogueFilename)}
     <Landing/>
   {:else}
-      {#await MainEditor then MainEditor}
-        <svelte:component this={MainEditor}/>
-      {/await}
+    {#await MainEditor then MainEditor}
+      <svelte:component this={MainEditor}/>
+    {/await}
   {/if}
 </main>
 
@@ -51,6 +51,7 @@
   main {
     flex: auto;
   }
+
   /* Artificially decrease specificity using where selectors */
   :where(main) :global(input:where([type=text])) {
     width: 99%;

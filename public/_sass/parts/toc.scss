@@ -98,12 +98,12 @@
   .toc-highlighted-link, .toc-external-link {
     border-left: 5px solid var(--button-hover-outline);
 
-    span {
+    & > span {
       color: var(--base-text-color);
       display: inline-flex;
       align-items: center;
 
-      svg {
+      & > svg, & > img {
         margin-right: 0.5em;
       }
     }
@@ -135,6 +135,13 @@
   .gh-link {
     img {
       height: 1.2em;
+    }
+  }
+
+  .parlour-link {
+    img {
+      height: 1.6em;
+      width: auto;
     }
   }
 
