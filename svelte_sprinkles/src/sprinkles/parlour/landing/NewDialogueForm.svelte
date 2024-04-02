@@ -218,6 +218,7 @@
     display: flex;
     align-items: center;
     position: relative;
+    left: 0.5em;
     z-index: 1;
   }
 

@@ -70,7 +70,7 @@
   });
 </script>
 <div class="table-editable">
-  <table bind:this={table}>
+  <table bind:this={table} class={className}>
     <thead>
     <tr>
       <slot name="head"/>
