@@ -18,7 +18,7 @@
 </script>
 
 <label for="dialogue-state-text" class="not-dialogue-ending">Text</label>
-<span class="not-dialogue-ending">
+<div class="not-dialogue-ending">
   <McTextInput
     textFormat={$dialogueTextFormat}
     value={value}
@@ -31,4 +31,10 @@
     }}
     on:change={(e) => updateText(e.detail)}
   />
-</span>
+</div>
+
+<style>
+  .not-dialogue-ending {
+    overflow-x: auto;
+  }
+</style>

@@ -182,12 +182,11 @@ a.btn-primary {
   }
 }
 
-input {
+input, textarea, .textarea-mirror {
   font: inherit;
   border-radius: 0.4em;
   background-color: var(--button-background);
   border-color: var(--button-outline);
-  margin: 0.2rem;
   padding: 0.4rem;
 }
 
@@ -195,7 +194,8 @@ button,
 input,
 optgroup,
 select,
-textarea {
+textarea,
+.textarea-mirror {
   margin: 0;
   font: inherit;
   color: inherit;
