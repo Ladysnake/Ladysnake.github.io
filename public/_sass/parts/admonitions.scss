@@ -1,3 +1,9 @@
+@property --admonition-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #000;
+}
+
 .admonition {
   border-left: 0.3em solid var(--admonition-color);
   padding: 0 1em;

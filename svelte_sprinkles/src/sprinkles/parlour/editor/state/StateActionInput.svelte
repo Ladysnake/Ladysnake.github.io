@@ -23,9 +23,9 @@
 
   const stateData = getStateData();
 
-  $: type = $stateData.action?.type ?? '';
-  $: value = $stateData.action?.value ?? '';
-  $: typeMetadata = actionTypeMetadata[type];
+  $: actionType = $stateData.action?.type ?? '';
+  $: actionValue = $stateData.action?.value ?? '';
+  $: typeMetadata = actionTypeMetadata[actionType];
 
   function updateAction(newValue: Partial<DialogueAction>) {
     $stateData = {
@@ -65,16 +65,15 @@
   <select
     autocomplete="off"
     id="dialogue-state-action-type"
-    bind:value={type}
     on:change={onTypeChange}
   >
-    <option selected value="">
+    <option value="">
       No Action
     </option>
-    <option value="blabber:command">
+    <option selected={actionType === 'blabber:command'} value="blabber:command">
       Command
     </option>
-    <option value="requiem:remnant_choice">
+    <option selected={actionType === 'requiem:remnant_choice'} value="requiem:remnant_choice">
       [Requiem] Remnant Choice
     </option>
   </select>
@@ -84,15 +83,24 @@
     disabled={!typeMetadata}
     placeholder={typeMetadata?.placeholder}
     pattern={typeMetadata?.pattern?.source}
-    value={value}
+    value={actionValue}
     on:change={onValueChange}
     on:input={onValueInput}
   />
+  {#if actionType === 'blabber:command'}
+    <p class="command-tip admonition admonition-note">To put multiple commands, try using a <a href="https://minecraft.wiki/w/Function_(Java_Edition)" target="_blank">function file</a>.</p>
+  {/if}
 </fieldset>
 
 <style>
-  fieldset {
-    display: flex;
+  #dialogue-state-action {
+    display: grid;
+    grid: "label input" "tip tip" / min-content 1fr;
+  }
+
+  .command-tip {
+    margin: 0.5em 0 0 0.2em;
+    grid-area: tip;
   }
 
   #dialogue-state-action-value {
