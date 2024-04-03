@@ -23,6 +23,7 @@
   import {sineOut} from "svelte/easing";
   import type {DataSetEdges, DataSetNodes} from "vis-network";
   import type {Network} from 'vis-network';
+  import 'vis-network/styles/vis-network.css';
 
   export let selectedState: string | undefined;
   export let mainView;
