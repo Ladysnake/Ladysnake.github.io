@@ -10,9 +10,8 @@
   }>();
 
   export let id: string | undefined = undefined;
-  let className: string | undefined = undefined;
-  // noinspection ReservedWordAsName
-  export {className as class};
+  export let inputClass: string | undefined = undefined;
+  export let containerClass: string | undefined = undefined;
   export let placeholders: Record<McTextType, string> | undefined = undefined;
   export let value: McText = '';
   export let textFormat: McTextType = $dialogueTextFormat;
@@ -50,7 +49,8 @@
   }
 </script>
 <ResizingInput
-  class={className}
+  containerClass={containerClass}
+  inputClass={inputClass}
   id={id}
   placeholder={placeholder}
   value={importDialogueText(value)}

@@ -6,32 +6,30 @@
   export let maxRows: number | undefined;
   export let id: string | undefined = undefined;
   export let placeholder: string | undefined = undefined;
-  let className: string | undefined = undefined;
-  // noinspection ReservedWordAsName
-  export {className as class};
+  export let containerClass: string | undefined = undefined;
+  export let inputClass: string | undefined = undefined;
   export let action: Action<HTMLTextAreaElement | HTMLInputElement> = () => {};
 
   $: minHeight = `${1 + minRows * 1.2}em`;
   $: maxHeight = maxRows ? `${1 + maxRows * 1.2}em` : `auto`;
 </script>
 
-<div class="textarea-container ${className}">
+<div class="textarea-container ${containerClass}">
   {#if maxRows === undefined || maxRows > 1}
     <div
       aria-hidden="true"
       class="textarea-mirror"
       style="min-height: {minHeight}; max-height: {maxHeight}"
     >{value + '\n'}</div>
-    <textarea id={id} placeholder={placeholder} bind:value on:change use:action></textarea>
+    <textarea id={id} class={inputClass} placeholder={placeholder} bind:value on:change use:action></textarea>
   {:else}
-    <input id={id} placeholder={placeholder} bind:value on:change use:action/>
+    <input id={id} class={inputClass} placeholder={placeholder} bind:value on:change use:action/>
   {/if}
 </div>
 
 <style>
   .textarea-container {
     position: relative;
-    overflow-x: scroll;
     width: 100%;
   }
 
@@ -39,12 +37,13 @@
     font-family: inherit;
     padding: 0.5em;
     box-sizing: border-box;
-    border: 1px solid #eee;
+    border: 1px solid var(--button-outline);
     line-height: 1.2;
     overflow: hidden;
   }
 
   .textarea-mirror {
+    visibility: hidden;
     white-space: pre-wrap;
   }
 
@@ -54,5 +53,9 @@
     height: 100%;
     top: 0;
     resize: none;
+  }
+
+  input {
+    width: 100%;
   }
 </style>

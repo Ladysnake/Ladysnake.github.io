@@ -104,7 +104,7 @@
         <td class="col-text input-cell">
           <McTextInput
             value={item.text}
-            class="table-input"
+            inputClass="table-input"
             textFormat={$dialogueTextFormat}
             placeholders={{
               [McTextType.PLAIN]: 'Thank you, ...',

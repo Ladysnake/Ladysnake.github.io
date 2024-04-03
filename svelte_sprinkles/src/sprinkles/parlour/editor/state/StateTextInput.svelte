@@ -34,7 +34,4 @@
 </div>
 
 <style>
-  .not-dialogue-ending {
-    overflow-x: auto;
-  }
 </style>
