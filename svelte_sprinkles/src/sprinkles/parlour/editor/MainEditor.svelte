@@ -27,35 +27,28 @@
   });
 </script>
 
-<div id="dialogue-editor">
-  {#if mainView}
-    <DialogueGlobalProperties/>
-    <div class="wiki-container">
-      <DialogueStateList bind:selectedState/>
-      {#if selectedState}
-        <DialogueStateView selectedState={selectedState}/>
-      {/if}
-    </div>
-  {:else}
-    {#await GraphView then GraphView}
-      <svelte:component this={GraphView} on:select={(e) => {
-        mainView = true;
-        selectedState = e.detail;
-      }}/>
-    {/await}
-  {/if}
-  <Footer bind:mainView on:load={(e) => selectedState = e.detail.startAt}/>
-</div>
+{#if mainView}
+  <DialogueGlobalProperties/>
+  <div class="wiki-container">
+    <DialogueStateList bind:selectedState/>
+    {#if selectedState}
+      <DialogueStateView selectedState={selectedState}/>
+    {/if}
+  </div>
+{:else}
+  {#await GraphView then GraphView}
+    <svelte:component this={GraphView} on:select={(e) => {
+      mainView = true;
+      selectedState = e.detail;
+    }}/>
+  {/await}
+{/if}
+<Footer bind:mainView on:load={(e) => selectedState = e.detail.startAt}/>
 
 <style>
 :global(#dialogue-import-export) {
   position: absolute;
   width: 100%;
   bottom: 0;
-}
-#dialogue-editor {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
 }
 </style>

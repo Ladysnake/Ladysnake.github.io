@@ -50,6 +50,8 @@
 <style>
   main {
     flex: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   /* Artificially decrease specificity using where selectors */
