@@ -22,7 +22,6 @@
   <McTextInput
     textFormat={$dialogueTextFormat}
     value={value}
-    class="mc-text-input"
     id="dialogue-state-text"
     placeholders={{
       [McTextType.PLAIN]: 'Welcome traveller, ...',

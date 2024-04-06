@@ -2,11 +2,16 @@
   import StateTypeInput from "./type/StateTypeInput.svelte";
   import StateActionInput from "./StateActionInput.svelte";
   import StateTextInput from "./StateTextInput.svelte";
+  import {getStateData} from "./DialogueStateView.svelte";
+
+  const stateData = getStateData();
 </script>
 <form id="dialogue-state-properties">
   <StateTypeInput/>
   <StateActionInput/>
-  <StateTextInput/>
+  {#if $stateData.type !== 'end_dialogue'}
+    <StateTextInput/>
+  {/if}
 </form>
 
 <style>
