@@ -82,12 +82,13 @@
           logIoError(`Could not parse ${file.name}`);
           return;
         }
-        const d = JSON.parse(reader.result, (key, value) => {
+        const d = JSON.parse(reader.result, function (key, value) {
           if (key === 'choices') {
             for (const choice of value) {
               choice[choiceIdKey] = genChoiceId();
             }
           }
+          return value;
         });
         if (!d.states) {
           logIoError(`${file.name} is missing dialogue state data`);
