@@ -1,6 +1,10 @@
 @import '../mixins';
 
 // THIS IS GLOBAL
+html {
+	scrollbar-gutter: stable both-edges;
+}
+
 body {
 	font-family: "Poppins", sans-serif;
 	text-align: justify;
@@ -38,6 +42,8 @@ body {
 	flex-direction: column;
 
     @include desktop {
-        width: 97.5%;
+		// Account for scrollbar width (assuming stable both-edges)
+		// Note: a typical scrollbar takes 15px
+        width: calc(97.5% + 20px);
     }
 }
