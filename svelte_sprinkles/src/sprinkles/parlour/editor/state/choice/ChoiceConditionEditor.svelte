@@ -9,7 +9,7 @@
   export let stateKey: string;
 
   let dialog: HTMLDialogElement;
-  let predicateLocation: Identifier;
+  let predicateLocation: Identifier | '';
   let predicateLocationInput: HTMLInputElement;
   let hideChoice: boolean;
   let unavailableMessage: McText;
@@ -46,7 +46,7 @@
     if (validateIdentifier(predicateLocationInput)) {
       $choice = {
         ...$choice,
-        only_if: predicateLocation.length ? {
+        only_if: predicateLocation !== '' ? {
           predicate: predicateLocation,
           when_unavailable: {
             display: hideChoice ? UnavailableDisplay.HIDDEN : UnavailableDisplay.GRAYED_OUT,

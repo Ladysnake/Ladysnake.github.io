@@ -1,4 +1,5 @@
-export type Identifier = string;
+// https://github.com/Microsoft/TypeScript/wiki/FAQ#can-i-make-a-type-alias-nominal
+export type Identifier = string & {'this is an identifier': {}};
 
 export interface McTextRaw {
   readonly value: string | object;
