@@ -3,6 +3,7 @@
   import EndDialogueLayout from "./EndDialogueLayout.svelte";
   import DefaultDialogueLayout from "./DefaultDialogueLayout.svelte";
   import {getStateData} from "../DialogueStateView.svelte";
+  import type {ChoiceResult} from "../../../model/BlabberDialogue";
 
   const stateData = getStateData();
 
@@ -11,7 +12,7 @@
   function onChange(event: Event & { currentTarget: HTMLInputElement }) {
     $stateData = {
       ...$stateData,
-      type: event.currentTarget.value
+      type: event.currentTarget.value as ChoiceResult,
     };
   }
 </script>

@@ -38,7 +38,10 @@
     </div>
   {:else}
     {#await GraphView then GraphView}
-      <svelte:component this={GraphView} bind:selectedState bind:mainView/>
+      <svelte:component this={GraphView} on:select={(e) => {
+        mainView = true;
+        selectedState = e.detail;
+      }}/>
     {/await}
   {/if}
   <Footer bind:mainView on:load={(e) => selectedState = e.detail.startAt}/>
