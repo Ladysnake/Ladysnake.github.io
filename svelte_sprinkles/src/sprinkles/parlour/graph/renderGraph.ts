@@ -2,7 +2,7 @@ import {dialogueData, dialogueStart} from "../dialogueDataStore";
 import type {DataSetEdges, DataSetNodes, Network, Node} from "vis-network";
 import {darkModeEnabled} from "../../../lib/darkMode";
 import {derived} from "svelte/store";
-import type BlabberDialogue from "../model/BlabberDialogue";
+import BlabberDialogue, {StateType} from "../model/BlabberDialogue";
 import {hsvToRgbString} from "./color-transform";
 import type {Action, ActionReturn} from "svelte/action";
 
@@ -67,7 +67,7 @@ export const setupGraph: Action<HTMLElement, DynamicImports, GraphEvents> = (
       const color = colorGen(state, darkMode);
 
       const node: Node = { id: state, label: state, color }
-      if (stateData.type === 'end_dialogue') {
+      if (stateData.type === StateType.END_DIALOGUE) {
         node.shape = 'box';
         (node.shapeProperties ??= {}).borderRadius = 0;
         node.borderWidth = 2;

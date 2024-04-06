@@ -1,6 +1,6 @@
 <script lang="ts">
   import {EDITOR_TEXT_FORMAT_KEY} from "../localStorageKeys";
-  import BlabberDialogue from "../model/BlabberDialogue";
+  import BlabberDialogue, {StateType} from "../model/BlabberDialogue";
   import {dialogueData, dialogueTextFormat} from "../dialogueDataStore";
   import {McTextType} from "../../../lib/McText.js";
 
@@ -76,7 +76,7 @@
       states: {
         [startDialogueStateName]: {},
         [endDialogueStateName]: {
-          type: 'end_dialogue'
+          type: StateType.END_DIALOGUE,
         }
       }
     }).withLayout(layout)

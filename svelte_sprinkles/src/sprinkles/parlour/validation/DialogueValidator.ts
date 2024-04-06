@@ -1,8 +1,9 @@
-import type BlabberDialogue from "../model/BlabberDialogue";
+import BlabberDialogue, {StateType} from "../model/BlabberDialogue";
 import {
   ConditionalSoftLock,
   NoChoiceError,
-  NoTextError, SoftLockError,
+  NoTextError,
+  SoftLockError,
   StrandedWarning,
   UnreachableWarning,
   ValidationError,
@@ -21,7 +22,7 @@ function validateStructure(dialogue: BlabberDialogue, warnings: ValidationWarnin
   const unvalidated: Record<string, Reachability> = {};
 
   for (const [state, { type, choices }] of Object.entries(dialogue.states)) {
-    if (type === 'end_dialogue') {
+    if (type === StateType.END_DIALOGUE) {
       waitList.add(state);
     } else if (!choices?.length) {
       errors.push(new NoChoiceError(state));

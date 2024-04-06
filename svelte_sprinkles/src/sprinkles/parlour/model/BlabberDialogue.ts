@@ -6,10 +6,14 @@ export interface DialogueAction {
   readonly value?: string;
 }
 
-export type ChoiceResult = 'default' | 'end_dialogue' | 'ask_confirmation';
+export enum StateType {
+  DEFAULT = 'default',
+  END_DIALOGUE = 'end_dialogue',
+  ASK_CONFIRMATION = 'ask_confirmation',
+}
 
 export interface DialogueState {
-  readonly type?: ChoiceResult;
+  readonly type?: StateType;
   readonly text?: McText;
   readonly action?: DialogueAction;
   readonly choices?: DialogueChoice[];

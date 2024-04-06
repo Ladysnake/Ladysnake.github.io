@@ -20,6 +20,7 @@
   import {derived, readonly, writable} from "svelte/store";
   import {dialogueData} from "../../dialogueDataStore";
   import {setContext} from "svelte";
+  import {StateType} from "../../model/BlabberDialogue";
 
   export let selectedState: string;
 
@@ -38,7 +39,7 @@
 <div class="main" id="dialogue-state-pane">
   <h3>State Properties: {selectedState}</h3>
   <DialogueStateProperties/>
-  {#if $stateData.type !== 'end_dialogue'}
+  {#if $stateData.type !== StateType.END_DIALOGUE}
     <DialogueStateChoices/>
   {/if}
 </div>

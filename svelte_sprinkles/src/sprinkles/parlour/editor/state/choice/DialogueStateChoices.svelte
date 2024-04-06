@@ -1,3 +1,10 @@
+<script context="module" lang="ts">
+  import {choiceIdKey, type DialogueChoice, genChoiceId} from "../../../model/DialogueChoice";
+
+  function createChoice() {
+    return { [choiceIdKey]: genChoiceId() };
+  }
+</script>
 <script lang="ts">
   import {getStateData, getStateKey} from "../DialogueStateView.svelte";
   import EditableTable from "../../../../../lib/EditableTable.svelte";
@@ -7,13 +14,22 @@
   import {type McText, McTextType} from "../../../../../lib/McText";
   import './dialogue-state-choices.css';
   import {afterUpdate} from "svelte";
-  import {choiceIdKey, type DialogueChoice, genChoiceId} from "../../../model/DialogueChoice";
   import ChoiceConditionEditor from "./ChoiceConditionEditor.svelte";
+  import {StateType} from "../../../model/BlabberDialogue";
 
   const stateData = getStateData();
   const stateKey = getStateKey();
+
   const stateChoices: Writable<DialogueChoice[]> = {
-    ...derived(stateData, (state) => state?.choices ?? [{ [choiceIdKey]: genChoiceId() }]),
+    ...derived(stateData, (state) => {
+      if (state.type === StateType.ASK_CONFIRMATION) {
+        return [
+          state?.choices?.[0] ?? createChoice(),
+          state?.choices?.[1] ?? createChoice(),
+        ]
+      }
+      return state?.choices ?? [createChoice()];
+    }),
     set: (choices: DialogueChoice[]) => stateData.update((oldState) => ({
       ...oldState,
       choices,
@@ -87,18 +103,28 @@
 <div class="dialogue-choice-editor">
   <h3>
     Available Choices
-    <span>
-        <button type="button" class="btn btn-success btn-rounded" on:click={appendChoice}>
-          New choice
-        </button>
-      </span>
+    {#if $stateData.type !== StateType.ASK_CONFIRMATION}
+      <button type="button" class="btn btn-success btn-rounded" on:click={appendChoice}>
+        New choice
+      </button>
+    {/if}
   </h3>
+  {#if $stateData.type === StateType.ASK_CONFIRMATION}
+    <p><em>There can only be 2 (unconditioned) choices for states asking confirmation.</em></p>
+  {/if}
   <div class="table-container">
-    <EditableTable class="table-striped" items={stateChoices} keyExtractor={(c) => c[choiceIdKey]}>
+    <EditableTable
+      class="table-striped"
+      items={stateChoices}
+      keyExtractor={(c) => c[choiceIdKey]}
+      allowDelete={$stateData.type !== StateType.ASK_CONFIRMATION}
+    >
       <svelte:fragment slot="head">
         <th class="col-text">Text</th>
         <th class="col-next">Next State</th>
-        <th class="col-advanced">Condition</th>
+        {#if $stateData.type !== StateType.ASK_CONFIRMATION}
+          <th class="col-advanced">Condition</th>
+        {/if}
       </svelte:fragment>
       <svelte:fragment slot="row" let:item let:index>
         <td class="col-text input-cell">
@@ -121,13 +147,15 @@
               <option value={state} selected={state === item.next}>{state}</option>
             {/each}
           </select></td>
-        <td class="col-advanced input-cell">
-          <ChoiceConditionEditor
-            stateKey={$stateKey}
-            choiceIndex={index}
-            choice={stateChoice(index)}
-          />
-        </td>
+        {#if $stateData.type !== StateType.ASK_CONFIRMATION}
+          <td class="col-advanced input-cell">
+            <ChoiceConditionEditor
+              stateKey={$stateKey}
+              choiceIndex={index}
+              choice={stateChoice(index)}
+            />
+          </td>
+        {/if}
       </svelte:fragment>
     </EditableTable>
   </div>

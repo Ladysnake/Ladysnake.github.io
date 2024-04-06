@@ -41,7 +41,7 @@
 <p class="dialogue-io-log error-log">{error}</p>
 
 <script lang="ts">
-  import BlabberDialogue from "../model/BlabberDialogue";
+  import BlabberDialogue, {StateType} from "../model/BlabberDialogue";
   import {dialogueData, dialogueFilename} from "../dialogueDataStore";
   import {validateDialogue} from "../validation/DialogueValidator";
   import {saveAs} from "file-saver";
@@ -138,7 +138,7 @@
                 return undefined;
               } else if (key === choiceIdKey) {
                 return undefined;
-              } else if (key === 'choices' && this.type === 'end_dialogue') {
+              } else if (key === 'choices' && this.type === StateType.END_DIALOGUE) {
                 return undefined;
               } else {
                 return value;

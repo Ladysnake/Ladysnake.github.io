@@ -3,7 +3,7 @@
   import EndDialogueLayout from "./EndDialogueLayout.svelte";
   import DefaultDialogueLayout from "./DefaultDialogueLayout.svelte";
   import {getStateData} from "../DialogueStateView.svelte";
-  import type {ChoiceResult} from "../../../model/BlabberDialogue";
+  import {StateType} from "../../../model/BlabberDialogue";
 
   const stateData = getStateData();
 
@@ -12,7 +12,7 @@
   function onChange(event: Event & { currentTarget: HTMLInputElement }) {
     $stateData = {
       ...$stateData,
-      type: event.currentTarget.value as ChoiceResult,
+      type: event.currentTarget.value as StateType,
     };
   }
 </script>
@@ -23,7 +23,7 @@
     type="radio"
     autocomplete="off"
     class="layout-selection"
-    value="default"
+    value={StateType.DEFAULT}
     id="dialogue-state-default-type"
     name="dialogue-state-type"
     bind:group={value}
@@ -37,7 +37,7 @@
     type="radio"
     autocomplete="off"
     class="layout-selection"
-    value="ask_confirmation"
+    value={StateType.ASK_CONFIRMATION}
     id="dialogue-state-confirm-type"
     name="dialogue-state-type"
     bind:group={value}
@@ -51,7 +51,7 @@
     type="radio"
     autocomplete="off"
     class="layout-selection"
-    value="end_dialogue"
+    value={StateType.END_DIALOGUE}
     id="dialogue-state-ending-type"
     name="dialogue-state-type"
     bind:group={value}

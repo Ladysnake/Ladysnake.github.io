@@ -1,4 +1,4 @@
-import type {ChoiceResult} from "../model/BlabberDialogue";
+import type {StateType} from "../model/BlabberDialogue";
 
 export abstract class ValidationWarning {
   state: string;
@@ -103,7 +103,7 @@ export class InvalidIllustratedState extends ValidationError {
   type;
   illustrations;
 
-  constructor(state: string, type: ChoiceResult, illustrations: string[]) {
+  constructor(state: string, type: StateType, illustrations: string[]) {
     super(state);
     this.type = type;
     this.illustrations = illustrations;

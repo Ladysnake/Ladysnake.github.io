@@ -32,6 +32,7 @@
   export { className as class };
   export let items: Writable<T[]>;
   export let keyExtractor: KeyExtractor<T>;
+  export let allowDelete = true;
 
   function moveUp(index: number) {
     $items = shiftElementBackward($items, index);
@@ -75,7 +76,9 @@
     <tr>
       <slot name="head"/>
       <th class="col-sort">Sort</th>
+      {#if allowDelete}
       <th class="col-remove">Remove</th>
+      {/if}
     </tr>
     </thead>
     <tbody>
@@ -86,11 +89,13 @@
           <button class="table-input sort-up" disabled={index === 0} on:click={() => moveUp(index)}><svg inline-src="octicon-arrow-up"/></button>
           <button class="table-input sort-down" disabled={index + 1 >= $items.length} on:click={() => moveDown(index)}><svg inline-src="octicon-arrow-down"/></button>
         </td>
+        {#if allowDelete}
         <td class="col-remove">
             <button class="table-input" type="button" on:click={() => deleteRow(index)}>
             <svg inline-src="octicon-x"/>
           </button>
         </td>
+        {/if}
       </tr>
     {/each}
     </tbody>

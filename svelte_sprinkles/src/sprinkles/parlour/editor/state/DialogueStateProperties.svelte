@@ -3,13 +3,14 @@
   import StateActionInput from "./StateActionInput.svelte";
   import StateTextInput from "./StateTextInput.svelte";
   import {getStateData} from "./DialogueStateView.svelte";
+  import {StateType} from "../../model/BlabberDialogue";
 
   const stateData = getStateData();
 </script>
 <form id="dialogue-state-properties">
   <StateTypeInput/>
   <StateActionInput/>
-  {#if $stateData.type !== 'end_dialogue'}
+  {#if $stateData.type !== StateType.END_DIALOGUE}
     <StateTextInput/>
   {/if}
 </form>

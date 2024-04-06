@@ -18,6 +18,26 @@
             display: grid;
             grid-template-columns: subgrid;
             grid-column: start / end;
+            counter-reset: choice-nb;
+
+            & tr {
+                position: relative;
+                counter-increment: choice-nb;
+
+                &::before {
+                    content: '#' counter(choice-nb);
+                    position: absolute;
+                    width: 2em;
+                    height: 100%;
+                    left: -2.3em;
+                    background-color: var(--base-background-color);
+                    color: var(--button-outline);
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: end;
+                    font-family: monospace;
+                }
+            }
         }
 
         & tr {
