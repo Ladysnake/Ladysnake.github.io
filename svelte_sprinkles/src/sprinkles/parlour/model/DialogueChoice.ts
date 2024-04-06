@@ -12,7 +12,7 @@ export interface UnavailableAction {
 
 export interface DialogueChoiceCondition {
   readonly predicate?: Identifier,
-  readonly whenUnavailable?: UnavailableAction,
+  readonly when_unavailable?: UnavailableAction,
 }
 
 // Internal identifier to keep track of values when reordering
@@ -27,6 +27,6 @@ export function genChoiceId() {
 export interface DialogueChoice {
   readonly text?: McText;
   readonly next?: string;
-  readonly condition?: DialogueChoiceCondition;
+  readonly only_if?: DialogueChoiceCondition;
   readonly [choiceIdKey]?: number;
 }

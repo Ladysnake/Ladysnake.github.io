@@ -87,13 +87,13 @@ export const setupGraph: Action<HTMLElement, DynamicImports, GraphEvents> = (
 
       nodes.add(node);
 
-      for (const { next, text, condition } of (stateData.choices ?? [])) {
+      for (const { next, text, only_if } of (stateData.choices ?? [])) {
         edges.add({
           from: state,
           to: next,
           color,
           title: JSON.stringify(text),
-          dashes: condition != undefined,
+          dashes: only_if != undefined,
         });
       }
     }

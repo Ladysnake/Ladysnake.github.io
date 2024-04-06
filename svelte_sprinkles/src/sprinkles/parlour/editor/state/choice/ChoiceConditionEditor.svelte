@@ -18,9 +18,9 @@
   $: predicateLocationMatch = predicateLocation?.match(/^(.+):(.+)$/);
 
   function openEditor() {
-    predicateLocation = $choice.condition?.predicate ?? '';
-    hideChoice = $choice.condition?.whenUnavailable?.display === UnavailableDisplay.HIDDEN;
-    unavailableMessage = $choice.condition?.whenUnavailable?.message ?? '';
+    predicateLocation = $choice.only_if?.predicate ?? '';
+    hideChoice = $choice.only_if?.when_unavailable?.display === UnavailableDisplay.HIDDEN;
+    unavailableMessage = $choice.only_if?.when_unavailable?.message ?? '';
     dialog.showModal();
   }
 
@@ -46,9 +46,9 @@
     if (validateIdentifier(predicateLocationInput)) {
       $choice = {
         ...$choice,
-        condition: predicateLocation.length ? {
+        only_if: predicateLocation.length ? {
           predicate: predicateLocation,
-          whenUnavailable: {
+          when_unavailable: {
             display: hideChoice ? UnavailableDisplay.HIDDEN : UnavailableDisplay.GRAYED_OUT,
             message: unavailableMessage,
           }
@@ -58,8 +58,8 @@
   }
 </script>
 
-<button class="table-input" on:click={openEditor} title={$choice.condition ? 'Configure condition' : 'Add condition'}>
-  {#if $choice.condition}
+<button class="table-input" on:click={openEditor} title={$choice.only_if ? 'Configure condition' : 'Add condition'}>
+  {#if $choice.only_if}
     <svg role="graphics-symbol" inline-src="octicon-gear-16"/>
   {:else}
     <svg role="graphics-symbol" inline-src="octicon-plus-16"/>

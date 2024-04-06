@@ -30,11 +30,11 @@ function validateStructure(dialogue: BlabberDialogue, warnings: ValidationWarnin
       let missingText = [];
 
       for (let i = 0; i < choices.length; i++){
-        const { next, text, condition } = choices[i];
+        const { next, text, only_if } = choices[i];
         if (!text || (typeof text === "string" && !text.length)) missingText.push(i);
         if (!next) continue;
         if (!parents[next]) parents[next] = {};
-        parents[next][state] = condition?.predicate ? Reachability.CONDITIONAL : Reachability.PROVEN;
+        parents[next][state] = only_if?.predicate ? Reachability.CONDITIONAL : Reachability.PROVEN;
       }
 
       if (missingText.length) {
