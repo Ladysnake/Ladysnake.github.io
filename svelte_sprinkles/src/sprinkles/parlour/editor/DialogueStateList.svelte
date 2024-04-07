@@ -24,8 +24,7 @@
     return false;
   }
 
-  async function onKeypress(event: KeyboardEvent, state: string) {
-    console.log(event);
+  async function onKeydown(event: KeyboardEvent, state: string) {
     if (event.key === "Backspace" || event.key === "Delete") {
       await deleteState(state);
     }
@@ -44,7 +43,7 @@
             title="View state '{state}'"
             tabindex="0"
             on:click|preventDefault={() => selectState(state)}
-            on:keydown={(e) => onKeypress(e, state)}
+            on:keydown={(e) => onKeydown(e, state)}
           >
             {state}
           </a>
