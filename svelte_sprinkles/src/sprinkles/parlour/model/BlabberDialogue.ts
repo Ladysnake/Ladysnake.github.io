@@ -75,10 +75,16 @@ export default class BlabberDialogue {
   }
 
   withAddedState(newState: string) {
-    return this.withUpdatedState(newState, () => ({
+    let updated = this.withUpdatedState(newState, () => ({
       text: '',
       choices: [],
     }));
+    if (Object.keys(this.states).length === 0) {
+      // We just added our only state
+      return updated.withStartAt(newState);
+    } else {
+      return updated;
+    }
   }
 
   withUpdatedState(key: string, updater: (state: DialogueState) => DialogueState) {
@@ -93,6 +99,43 @@ export default class BlabberDialogue {
 
   isLoaded(): boolean {
     return this.data.states !== null;
+  }
+
+  /**
+   * Finds all states that have choices which reference a given state
+   */
+  findReferences(state: string) {
+    const references = [];
+    for (const [key, other] of Object.entries(this.states)) {
+      if (key !== state) {
+        for (let i = 0; i < (other?.choices ?? []).length; i++) {
+          const { next } = (other?.choices ?? [])[i];
+          if (next === state) {
+            references.push({ state: key, choice: i });
+          }
+        }
+      }
+    }
+    return references;
+  }
+
+  withoutState(stateToDelete: string) {
+    const newStates: Record<string, DialogueState> = {};
+
+    for (const [existingKey, { choices, ...existingState }] of Object.entries(this.states)) {
+      if (existingKey === stateToDelete) continue;
+
+      newStates[existingKey] = {
+        ...existingState,
+        choices: choices?.filter((c) => c.next !== stateToDelete)
+      };
+    }
+
+    return new BlabberDialogue({
+      ...this.data,
+      states: newStates,
+      start_at: stateToDelete === this.startAt ? undefined : this.startAt,
+    }, this.filename);
   }
 
   saveToWindow() {

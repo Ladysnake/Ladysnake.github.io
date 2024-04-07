@@ -19,7 +19,7 @@
   </label>
   <slot></slot>
   {#if !importOnly}
-    <button class="btn btn-warning" id="dialogue-export" on:click={exportDialogue}>
+    <button class="btn btn-warning" id="dialogue-export" disabled={Object.keys($dialogueData.states).length === 0} on:click={exportDialogue}>
       <svg inline-src="octicon-download"/>
       Export JSON dialogue file
     </button>
@@ -180,16 +180,6 @@
     if ((e.target as HTMLElement | null)?.classList.contains('drop-zone')) {
       draggingInDropZone--;
     }
-  }
-
-  function isEmpty(obj: object) {
-    for (const prop in obj) {
-      if (Object.hasOwn(obj, prop)) {
-        return false;
-      }
-    }
-
-    return true;
   }
 </script>
 

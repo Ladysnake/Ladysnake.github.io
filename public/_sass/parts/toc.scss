@@ -54,10 +54,12 @@
     padding-bottom: 0.2em;
     border-bottom: 1px solid var(--button-background);
   }
+}
 
-  ul {
-    list-style: none;
-  }
+.toc-list, .toc-subgroup {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .toc {
@@ -145,12 +147,6 @@
     }
   }
 
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
   a {
     padding: 0.4rem 1rem;
     text-overflow: ellipsis;
@@ -158,6 +154,7 @@
     display: inline-block;
     overflow: hidden;
     vertical-align: middle;
+    transition-duration: 0s;
 
     &:hover, &:focus-visible {
       background-color: var(--accent-background-color);

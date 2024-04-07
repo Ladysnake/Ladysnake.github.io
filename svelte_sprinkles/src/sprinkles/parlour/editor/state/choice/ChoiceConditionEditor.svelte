@@ -66,7 +66,7 @@
   {/if}
 </button>
 <dialog bind:this={dialog}>
-  <form method="dialog" on:submit={save}>
+  <form class="dialog-form" method="dialog" on:submit={save}>
     <div class="predicate">
       <label class="predicate-label" for={`${idBase}-predicate`}>Predicate</label>
       <input
@@ -116,7 +116,7 @@
         </div>
       {/if}
     </fieldset>
-    <div class="exit">
+    <div class="dialog-exit">
       <button class="btn btn-sm btn-warning" type="button" on:click={() => dialog.close()}>Cancel</button>
       <button class="btn btn-sm btn-info" type="submit" disabled={!!predicateLocation && !predicateLocationMatch}>Save {#if !predicateLocation}without condition{/if}</button>
     </div>
@@ -126,12 +126,6 @@
 <style>
   dialog {
     width: min(80%, 60rem);
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
   }
 
   fieldset:disabled, button:disabled {
@@ -176,12 +170,5 @@
       padding-left: 0.5em;
       margin: 0;
     }
-  }
-
-  .exit {
-    display: flex;
-    justify-content: end;
-    gap: 1em;
-    margin: 0 1em;
   }
 </style>

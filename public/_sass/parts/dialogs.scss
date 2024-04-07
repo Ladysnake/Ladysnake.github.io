@@ -10,3 +10,20 @@ dialog {
   border-radius: 1em;
   padding: 1em;
 }
+
+.dialog-danger {
+  border: 0.5em solid var(--color-danger);
+}
+
+.dialog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.dialog-exit {
+  display: flex;
+  justify-content: end;
+  gap: 1em;
+  margin: 0 1em;
+}

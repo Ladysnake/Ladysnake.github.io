@@ -28,7 +28,7 @@
   $: $stateKey = selectedState;
 
   const stateData: Writable<DialogueState> = {
-    ...(derived([dialogueData, stateKey], ([d, k]) => d.states[k])),
+    ...(derived([dialogueData, stateKey], ([d, k]) => d.states[k] ?? {})),
     set: (newState: DialogueState) => dialogueData.update((d) => d.withUpdatedState(selectedState, () => newState)),
     update: (fn: (oldState: DialogueState) => DialogueState) => dialogueData.update((d) => d.withUpdatedState(selectedState, fn)),
   };

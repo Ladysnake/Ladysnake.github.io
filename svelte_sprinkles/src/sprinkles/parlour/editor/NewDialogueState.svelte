@@ -47,6 +47,7 @@
 </form>
 <style>
   form {
+    align-self: center;
     display: flex;
     flex-direction: column;
     width: 95%;

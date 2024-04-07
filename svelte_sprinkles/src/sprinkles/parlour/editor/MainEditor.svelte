@@ -18,6 +18,13 @@
   }
 
   let selectedState: string | undefined = loadSelectedState() ?? $dialogueStart;
+
+  $: {
+    if (!(selectedState && selectedState in $dialogueData.states)) {
+      selectedState = $dialogueStart;
+    }
+  }
+
   let mainView = true;
 
   let GraphView: Promise<ComponentType>;
@@ -31,7 +38,7 @@
   <DialogueGlobalProperties/>
   <div class="wiki-container">
     <DialogueStateList bind:selectedState/>
-    {#if selectedState}
+    {#if selectedState && $dialogueData.states[selectedState]}
       <DialogueStateView selectedState={selectedState}/>
     {/if}
   </div>

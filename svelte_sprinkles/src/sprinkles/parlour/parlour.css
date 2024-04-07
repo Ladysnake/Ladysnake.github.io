@@ -12,3 +12,8 @@
     outline: 1px solid var(--button-outline);
   }
 }
+
+.choice-index {
+  font-family: monospace;
+  color: var(--accent-text-color);
+}

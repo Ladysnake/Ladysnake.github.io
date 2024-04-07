@@ -2,7 +2,9 @@
 
 // THIS IS GLOBAL
 html {
-	scrollbar-gutter: stable both-edges;
+	// TODO add both-edges once https://bugzilla.mozilla.org/show_bug.cgi?id=1874091 is fixed
+	// then set the desktop width on .container to calc(97.5% + 20px)
+	scrollbar-gutter: stable;
 }
 
 body {
@@ -44,6 +46,6 @@ body {
     @include desktop {
 		// Account for scrollbar width (assuming stable both-edges)
 		// Note: a typical scrollbar takes 15px
-        width: calc(97.5% + 20px);
+        width: calc(97.5% + 15px);
     }
 }
