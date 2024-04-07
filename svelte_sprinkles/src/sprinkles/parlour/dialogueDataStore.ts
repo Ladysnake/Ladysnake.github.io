@@ -1,6 +1,7 @@
 import {derived, type Readable, writable, type Writable} from 'svelte/store';
 import BlabberDialogue from './model/BlabberDialogue';
 import {McTextType} from "../../lib/McText";
+import {loadChosenTextFormat, tryCastTextFormat} from "./localStorageKeys";
 
 function createDialogueData() {
   const store = writable(new BlabberDialogue());
@@ -38,4 +39,23 @@ export const dialogueFilename: Writable<string | undefined> = {
   set: (filename: string | undefined) => dialogueData.update((d) => d.withFilename(filename)),
   update: (fn: (filename: string | undefined) => string | undefined) => dialogueData.update((d) => d.withFilename(fn(d.filename))),
 };
-export const dialogueTextFormat: Writable<McTextType> = writable(McTextType.PLAIN);
+
+function createDialogueTextFormat() {
+  const store = writable(tryCastTextFormat(window.history.state?.textFormat) ?? loadChosenTextFormat() ?? McTextType.PLAIN);
+  let initialized = false;
+
+  store.subscribe((value) => {
+    if (initialized) {
+      console.log('New value', value);
+      window.history.replaceState({
+        ...(window.history.state ?? {}),
+        textFormat: value,
+      }, '');
+    }
+  });
+
+  initialized = true;
+  return store;
+}
+
+export const dialogueTextFormat: Writable<McTextType> = createDialogueTextFormat();

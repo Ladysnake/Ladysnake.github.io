@@ -7,13 +7,13 @@ import type {EventDispatcher} from "svelte";
 import {validateDialogue} from "../validation/DialogueValidator";
 import {saveAs} from "file-saver";
 import {McTextType} from "../../../lib/McText";
-import {getSavedTextFormat} from "../localStorageKeys";
+import {loadChosenTextFormat} from "../localStorageKeys";
 
 function detectTextFormat(dialogue: BlabberDialogue) {
   const texts = Object.values(dialogue.states).flatMap(state => [state.text, ...(state.choices?.map(choice => choice.text) ?? [])]);
   return texts.filter(it => it)
       .map(text => typeof text === 'string' ? McTextType.PLAIN : (typeof text === 'object' && 'translate' in text) ? McTextType.TRANSLATION_KEY : McTextType.JSON)
-      .reduce((v1: McTextType | undefined, v2) => v1 === undefined ? v2 : (v1 === v2 ? v1 : McTextType.JSON), undefined) ?? getSavedTextFormat() ?? McTextType.PLAIN;
+      .reduce((v1: McTextType | undefined, v2) => v1 === undefined ? v2 : (v1 === v2 ? v1 : McTextType.JSON), undefined) ?? loadChosenTextFormat() ?? McTextType.PLAIN;
 }
 
 export function loadDialogueFile(file: File, ioLogger: HtmlLogger, dispatch: EventDispatcher<{ load: BlabberDialogue }>) {
