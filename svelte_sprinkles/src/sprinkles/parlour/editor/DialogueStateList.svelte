@@ -23,6 +23,13 @@
     }
     return false;
   }
+
+  async function onKeypress(event: KeyboardEvent, state: string) {
+    console.log(event);
+    if (event.key === "Backspace" || event.key === "Delete") {
+      await deleteState(state);
+    }
+  }
 </script>
 
 <div class="toc-pane">
@@ -31,8 +38,16 @@
     <ul id="dialogue-state-list" class="toc-list">
       {#each $dialogueStateKeys as state}
         <li class="toc-item" data-state={state} class:toc-highlighted-link={selectedState === state}>
-          <a class="toc-link" href="#{state}" title="View state '{state}'"
-             on:click|preventDefault={() => selectState(state)}>{state}</a>
+          <a
+            class="toc-link"
+            href="#{state}"
+            title="View state '{state}'"
+            tabindex="0"
+            on:click|preventDefault={() => selectState(state)}
+            on:keydown={(e) => onKeypress(e, state)}
+          >
+            {state}
+          </a>
           <button class="btn btn-xs btn-default edit" title="Rename or delete state '{state}'"
                   on:click|preventDefault={() => renameDialog.show(state, state === selectedState)}>
             <svg inline-src="octicon-pencil-16"/>
