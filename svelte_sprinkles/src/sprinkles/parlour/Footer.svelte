@@ -42,4 +42,9 @@
     position: sticky;
     bottom: 0;
   }
+
+  #dialogue-view-toggle {
+    justify-content: space-around;
+    width: 15em;
+  }
 </style>
