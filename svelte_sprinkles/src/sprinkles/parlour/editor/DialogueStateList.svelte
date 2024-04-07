@@ -48,7 +48,7 @@
           >
             {state}
           </a>
-          <button class="btn btn-xs btn-default edit" title="Rename or delete state '{state}'"
+          <button class="btn btn-xs btn-info edit" title="Rename or delete state '{state}'"
                   on:click|preventDefault={() => renameDialog.show(state, state === selectedState)}>
             <svg inline-src="octicon-pencil-16"/>
           </button>

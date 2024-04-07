@@ -14,6 +14,8 @@
     currentName = state;
     newName = state;
     currentlySelected = selected;
+    stateNameField?.setCustomValidity('');
+    stateNameField?.reportValidity();
     dialog.showModal();
   }
 
@@ -63,13 +65,18 @@
       bind:value={newName}
       on:input={validateNewName}
     />
-    <input id="new_state_name_submit" type="submit" class="btn btn-info btn-sm" value="Rename">
-    <button type="button" class="delete btn btn-warning btn-sm" on:click={tryDelete}>Delete</button>
-    <button type="button" class="cancel btn btn-default btn-sm" on:click={() => dialog.close()}>Cancel</button>
+    <input id="new_state_name_submit" type="submit" class="btn btn-info btn-sm rename" value="Rename">
+    <button type="button" class="delete btn btn-danger btn-sm" on:click={tryDelete}>Delete</button>
+    <button type="button" class="cancel btn btn-warning btn-sm" on:click={() => dialog.close()}>Cancel</button>
   </form>
   {/if}
 </dialog>
 <style>
+  form:invalid .rename {
+    cursor: not-allowed;
+    background-color: color-mix(in srgb, var(--color-invalid) 65%, transparent);
+  }
+
   .cancel {
     margin-top: 1.5em;
   }
