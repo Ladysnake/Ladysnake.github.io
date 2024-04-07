@@ -1,201 +1,217 @@
 @import "../mixins";
 
-.styled-checkbox {
-	opacity: 0;
-	width: 0;
-	height: 0;
-	position: absolute;
+#darkmode-toggle {
+  display: inline-grid;
 
-	& + label {
-		background-color: transparent;
-		cursor: pointer;
-		user-select: none;
-	}
+  span {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  svg {
+    height: 25px;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+}
+
+.styled-checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+
+  & + label {
+    background-color: transparent;
+    cursor: pointer;
+    user-select: none;
+  }
 }
 
 // .btn-* classes adapted from Bootstrap 4 CSS under MIT
 .btn-default {
-	background-color: #34495e;
-	color: #fff;
+  background-color: #34495e;
+  color: #fff;
 
-	@include darkMode {
-		background-color: #fff;
-		color: #171717;
-	}
+  @include darkMode {
+    background-color: #fff;
+    color: #171717;
+  }
 
-	&:hover {
-		background-color: #2c3e50;
-		color: #fff;
+  &:hover, &:focus-visible {
+    background-color: #2c3e50;
+    color: #fff;
 
-		@include darkMode {
-			background-color: #ddd;
-			color: #171717;
-		}
-	}
+    @include darkMode {
+      background-color: #ddd;
+      color: #171717;
+    }
+  }
 }
 
 .btn {
-	display: inline-block;
-	user-select: none;
-	border-radius: 0;
-	text-transform: uppercase;
-	font-weight: bold;
-	border: none;
-	font-size: 12px;
-	padding: 0 30px;
-	line-height: 50px;
-	color: #fff;
-	cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  user-select: none;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  font-size: 12px;
+  padding: 0 30px;
+  min-height: 50px;
+  color: #fff;
+  cursor: pointer;
 
-	&:disabled {
-		cursor: not-allowed;
-		opacity: 65%;
-	}
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 65%;
+  }
 }
+
 .btn-xs {
-	padding: 0 20px;
-	line-height: 30px;
-	font-size: 10px;
+  padding: 0 20px;
+  min-height: 30px;
+  font-size: 10px;
 }
+
 .btn-sm {
-	padding: 0 25px;
-	line-height: 40px;
-	font-size: 11px;
+  padding: 0 25px;
+  min-height: 40px;
+  font-size: 11px;
 }
+
 .btn-md {
-	padding: 0 30px;
-	line-height: 50px;
+  padding: 0 30px;
+  min-height: 50px;
 }
+
 .btn-lg {
-	padding: 0 45px;
-	line-height: 70px;
-	font-size: 14px;
+  padding: 0 45px;
+  min-height: 70px;
+  font-size: 14px;
 }
 
 .btn-primary {
-	background-color: #1abc9c;
+  background-color: #1abc9c;
 
-	&:hover {
-		background-color: #55efc4;
-	}
+  &:hover, &:focus-visible {
+    background-color: #00af71;
+  }
 
-	&:focus {
-		outline-color: var(--button-selected-outline);
-	}
+  &:focus-visible {
+    outline-color: var(--button-selected-outline);
+  }
+}
+
+.btn-icon {
+  margin-right: 1rem;
 }
 
 a.btn-primary {
-	color: #fff;
-	@include darkMode {
-		color: #0e6d5a;
-	}
+  color: var(--bright-text-color);
 }
 
 .btn-success, .btn-yes {
-	background-color: #2ecc71;
-	color: #fff;
+  background-color: #2ecc71;
+  color: #fff;
 
-	&:hover {
-		background-color: #27ae60;
-		color: #fff;
-	}
+  &:hover, &:focus-visible {
+    background-color: #27ae60;
+    color: #fff;
+  }
 }
 
 .btn-info {
-	background-color: #3498db;
+  background-color: #3498db;
 
-	&:hover {
-		background-color: #2980b9;
-	}
+  &:hover, &:focus-visible {
+    background-color: #2980b9;
+  }
 }
 
 .btn-warning {
-	background-color: #e67e22;
+  background-color: #e67e22;
 
-	&:hover {
-		background-color: #d35400;
-	}
+  &:hover, &:focus-visible {
+    background-color: #d35400;
+  }
 }
 
 .btn-danger, .btn-no {
-	background-color: #e74c3c;
-	color: #fff;
+  background-color: #e74c3c;
+  color: #fff;
 
-	&:hover {
-		background-color: #c0392b;
-		color: #fff;
-	}
+  &:hover, &:focus-visible {
+    background-color: #c0392b;
+    color: #fff;
+  }
 }
 
 .yes-no-input {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	&:focus + label.btn-yes, &:focus + label + label.btn-yes {
-		background-color: #449d44;
-	}
-	&:focus + label.btn-no, &:focus + label + label.btn-no {
-		background-color: #c9302c;
-	}
-	& + label, & + label + label {
-		position: relative;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		svg {
-			position: absolute;
-			left: 0.5rem;
-			height: 2rem;
-			width: 2rem;
-		}
-	}
-	&:checked + label {
-		display: none;
-	}
-	&:not(:checked) + label + label {
-		display: none;
-	}
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+
+  &:focus + label.btn-yes, &:focus + label + label.btn-yes {
+    background-color: #449d44;
+  }
+
+  &:focus + label.btn-no, &:focus + label + label.btn-no {
+    background-color: #c9302c;
+  }
+
+  & + label, & + label + label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      position: absolute;
+      left: 0.5rem;
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+
+  &:checked + label {
+    display: none;
+  }
+
+  &:not(:checked) + label + label {
+    display: none;
+  }
 }
 
-:root {
-	--button-background: #dfe6e9;
-	--button-outline: #636e72;
-	--button-hover-outline: #2d3436;
-	--button-selected-outline: #0984e3;
-	@include darkModeAtRoot {
-		--button-background: #2d3436;
-		--button-outline: #b2bec3;
-		--button-hover-outline: #dfe6e9;
-		--button-selected-outline: #74b9ff;
-	}
-}
-
-input {
-	font: inherit;
-	border-radius: 0.4em;
-	background-color: var(--button-background);
-	border-color: var(--button-outline);
-	margin: 0.2rem;
-	padding: 0.4rem;
+input, textarea, .textarea-mirror {
+  font: inherit;
+  border-radius: 0.4em;
+  background-color: var(--button-background);
+  border-color: var(--button-outline);
+  padding: 0.4rem;
 }
 
 button,
 input,
 optgroup,
 select,
-textarea {
-	margin: 0;
-	font: inherit;
-	color: inherit;
+textarea,
+.textarea-mirror {
+  margin: 0;
+  font: inherit;
+  color: inherit;
 }
 
 select {
-	padding: 0.2em 1.2em;
-	background-color: var(--button-background);
-	border: 0.14em solid var(--button-outline);
-	border-radius: 0.5em;
+  padding: 0.2em 1.2em;
+  background-color: var(--button-background);
+  border: 0.14em solid var(--button-outline);
+  border-radius: 0.5em;
 }
 
 button.rounded {
-	border-radius: 0.6em;
+  border-radius: 0.6em;
 }

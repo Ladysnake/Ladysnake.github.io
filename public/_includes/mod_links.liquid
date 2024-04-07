@@ -1,6 +1,6 @@
-<ul role="group">
+<ul role="group" class="toc-list">
     {% if page.curse_project %}
-        <li>
+        <li class="toc-item">
             <a class="cf-link toc-external-link" href="https://www.curseforge.com/minecraft/mc-mods/{{ page.slug }}">
                 <span>
                     {% include svg/cf-logo.svg %} CurseForge Page
@@ -10,7 +10,7 @@
         </li>
     {% endif %}
     {% if page.modrinth %}
-        <li>
+        <li class="toc-item">
             <a class="mr-link toc-external-link" href="https://modrinth.com/mod/{{ page.slug }}">
                 <span>
                     {% include svg/modrinth-logo.svg %} Modrinth Page
@@ -19,7 +19,7 @@
             </a>
         </li>
     {% endif %}
-    <li>
+    <li class="toc-item">
         <a class="gh-link toc-external-link" href="https://github.com/Ladysnake/{{ page.slug }}">
             <span>
                 {% include svg/github-logo.svg %} GitHub Repository

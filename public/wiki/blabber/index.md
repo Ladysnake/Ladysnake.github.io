@@ -249,7 +249,7 @@ For example:
 
 ### Online Dialogue Maker
 
-If you are allergic to code, try this online tool: [blabber dialogue editor](dialogue_generator)
+If you are allergic to code, try [Parlour](/tools/parlour)! It is an online tool to create dialogues, right on this website.
 
 <div class="mediafigure">
 <iframe width="672" height="378" src="https://www.youtube-nocookie.com/embed/Hm_bQlgqSCQ?si=A5SH8mRNEkGSi14i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

@@ -15,7 +15,7 @@ header_preprocessor: wiki_header_preprocessor.liquid
 	<div class="toc-pane">
 		<h3>{% if page.breadcrumb %}{{ page.breadcrumb }}{% else %}{{ page.title }}{% endif %}</h3>
 		<nav class="toc">
-			{% include toc.liquid html=content sanitize=true submenu_class="toc-subgroup" %}
+			{% include toc.liquid html=content sanitize=true submenu_class="toc-subgroup" item_class="toc-item" class="toc_list"  %}
 		</nav>
 	</div>
 	<main id="printJS-Content">
@@ -29,3 +29,5 @@ header_preprocessor: wiki_header_preprocessor.liquid
 
 	</main>
 </div>
+
+<script type="module" src="/scripts/minetip.js"></script>

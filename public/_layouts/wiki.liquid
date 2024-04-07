@@ -16,7 +16,7 @@ header_preprocessor: mod_header_preprocessor.liquid
 		    <h4>Available here:</h4>
 			{% include mod_links.liquid %}
 			<h4>Page contents:</h4>
-			{% include toc.liquid html=content sanitize=true submenu_class="toc-subgroup" %}
+			{% include toc.liquid html=content sanitize=true submenu_class="toc-subgroup" item_class="toc-item" class="toc-list" %}
 		</nav>
 	</div>
 	<main id="printJS-Content">
@@ -32,8 +32,4 @@ header_preprocessor: mod_header_preprocessor.liquid
 	</main>
 </div>
 
-<script type="module">
-	import {initTooltips} from "/scripts/minetip.js";
-
-	initTooltips();
-</script>
+<script type="module" src="/scripts/minetip.js"></script>

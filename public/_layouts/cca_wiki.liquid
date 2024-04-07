@@ -25,7 +25,7 @@ header_preprocessor: wiki_header_preprocessor.liquid
                 {% include mod_links.liquid %}
             {% endif %}
 			<h4>Page contents:</h4>
-            {% include toc.liquid html=content sanitize=true submenu_class="toc-subgroup" %}
+            {% include toc.liquid html=content sanitize=true submenu_class="toc-subgroup" item_class="toc-item" class="toc-list" %}
         </nav>
     </div>
     {%- endunless %}
@@ -41,10 +41,10 @@ header_preprocessor: wiki_header_preprocessor.liquid
     <div class="toc-pane">
         <h2>CCA Dev Wiki</h2>
         <div id="search-bar" class="search-bar" hidden="">
-            <form action="/wiki/cardinal-components-api/search" method="get" role="search">
+            <form class="search-form" action="/wiki/cardinal-components-api/search" method="get" role="search">
                 <label for="cca-wiki-search">Search</label>
-                <input id="cca-wiki-search" name="query"/>
-                <input type="submit" value="🔎" class="search-submit">
+                <input id="cca-wiki-search" class="search-input" type="text" name="query"/>
+                <input type="submit" value="🔎" class="search-input">
             </form>
         </div>
         <script>
@@ -52,7 +52,7 @@ header_preprocessor: wiki_header_preprocessor.liquid
             document.getElementById('search-bar').hidden = false
         </script>
         <nav class="sidebar">
-            <ul>{% capture sidebar %}{% include cca_sidebar.md %}{% endcapture %}{{ sidebar | markdownify }}</ul>
+            <ul class="toc-list">{% capture sidebar %}{% include cca_sidebar.md %}{% endcapture %}{{ sidebar | markdownify }}</ul>
         </nav>
     </div>
 </div>

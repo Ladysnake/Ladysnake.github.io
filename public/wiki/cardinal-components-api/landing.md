@@ -21,7 +21,7 @@ Cardinal Components API is a Quilt and Fabric library that allows Minecraft mods
 For a short description and associated examples, see the repository's [README](https://github.com/OnyxStudios/Cardinal-Components-API#readme).
 
 <div id="search-bar" hidden="">
-    <form action="search" method="get">
+    <form class="search-form" action="/wiki/cardinal-components-api/search" method="get">
         <h2><label for="search-box" style="font-weight: inherit">Search a page</label></h2>
         <input type="text" id="search-box" name="query">
         <input type="submit" value="search">

@@ -35,6 +35,7 @@ async function updateDropdown(slug, versions, down, downloadIcon) {
             let span = document.createElement("span");
 
             a.href = `https://modrinth.com/mod/${slug}/version/${versionData.modVersions[0].name}`;
+            a.classList.add('mod-dropdown-link')
             span.innerHTML += version;
             span.innerHTML += downloadIcon;
             span.querySelector("svg").classList.add("download-icon");

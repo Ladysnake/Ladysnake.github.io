@@ -1,0 +1,44 @@
+---
+layout: default
+no_anchor_headings: true
+title: Blabber Dialogue Editor
+redirect_from:
+  - /wiki/blabber/dialogue_generator/index.html
+  - /wiki/blabber/dialogue_generator/graph-view.html
+  - /wiki/blabber/dialogue_generator/main-view.html
+og:
+img: /img/blabber.png
+img_alt: blabber logo
+desc: Online editor for blabber dialogues
+---
+<noscript>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href="/wiki/blabber">Blabber</a></li>
+      <li class="breadcrumb-item active">Dialogue Editor</li>
+    </ol>
+  </nav>
+
+  <p>
+    Sorry, this page requires Javascript to function. Here's a few options for you:
+  </p>
+
+  <ul>
+    <li><a href="https://www.whatismybrowser.com/guides/how-to-enable-javascript/auto">Try enabling Javascript on your
+      browser</a></li>
+    <li><a href="../">Go back to Blabber's description</a></li>
+    <li><a href="../dialogue.schema.json">Look at the Dialogue Schema specification</a></li>
+  </ul>
+</noscript>
+<div id="blabber-parlour"></div>
+<link rel="stylesheet" href="/scripts/sprinkles/blabber-parlour.css"/>
+<script type="module">
+  // If the browser tries loading a module that is no longer here, reload the page
+  window.addEventListener('vite:preloadError', () => {
+    if (window.confirm('There was an error loading some component in this page. Do you want to reload the page?')) {
+      window.location.reload();
+    }
+  });
+</script>
+<script src="/scripts/sprinkles/blabber-parlour.js" type="module"></script>

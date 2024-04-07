@@ -3,254 +3,94 @@
 
 @import "./variables.scss";
 @import "./mixins.scss";
+@import "./colors.scss";
 
 @import "./parts/globals.scss";
 @import "./parts/site-header.scss";
 @import "./parts/dropdown.scss";
 
 @font-face {
-	font-family: "Minecraft";
-	src: local("Minecraft"), url("{{ site.baseurl }}/fonts/Minecraft.woff2") format("woff2");
+  font-family: "Minecraft";
+  src: local("Minecraft"), url("{{ site.baseurl }}/fonts/Minecraft.woff2") format("woff2");
 }
-
-:root {
-	--color-primary: #1abc9c;
-	--color-success: #2ecc71;
-	--color-info: #0969da;
-	--color-important: #8250df;
-	--color-warning: #e67e22;
-	--color-danger: #e74c3c;
-	--base-text-color: #2c3e50;
-	--accent-text-color: #2d3436;
-	--base-background-color: #f6f8f9;
-	--accent-background-color: #eaeaef;
-	--color-invalid: #d9534f;
-	--anchor-color: #337ab7;
-	--anchor-hover-color: #23527c;
-	--dark-mode-display: none;
-	--light-mode-display: unset;
-
-	@include darkModeAtRoot {
-		--color-warning: #f39c12;
-		--base-text-color: #f6f8f9;
-		--accent-text-color: #fff;
-		--base-background-color: #171717;
-		--accent-background-color: #343434;
-		--anchor-color: #8ab4f8;
-		--anchor-hover-color: #e9ebee;
-		--dark-mode-display: unset;
-		--light-mode-display: none;
-	}
-}
-
-
-/*
-This section will be all about DARK MODE
-*/
-@include darkModeAtRoot {
-	.breadcrumb {
-	}
-}
-
-/* a.dark-mode {
-	color: #f6f8f9;
-} */
 
 /* other stuff that sschr15 made and things */
 
-.container img.wiki {
-	max-width: 100%;
+.hidden {
+  display: none !important;
 }
-li a span svg.download-icon {
-	float: right;
-	fill: currentColor;
-	height: 20px;
-	width: 20px;
+
+.download-icon {
+  float: right;
+  fill: currentColor;
+  height: 20px;
+  width: 20px;
 }
-li ul li a span {
-	padding: 0 0 0 0;
-}
-div.itemThing div {
-	cursor: pointer;
-	width: auto;
-	position: relative;
-}
-.hissiemote {
-	opacity: 1;
-	transition: 0.5s ease;
-	backface-visibility: hidden;
-	height: auto;
-}
-.overlayCopy {
-	transition: 0.5s ease;
-	opacity: 0;
-	position: absolute;
-	top: 0;
-	left: 50%;
-	transform: translate(-50%, -400%);
-	text-align: center;
-	font-weight: bold;
-}
-div.itemThing div:hover .hissiemote {
-	opacity: 0.2;
-}
-div.itemThing div:hover .overlayCopy {
-	opacity: 1;
-}
+
 #printLogo {
-	@media print {
-		visibility: collapse;
-	}
-	position: relative;
-	cursor: pointer;
-	svg {
-		width: 25px;
-		height: 25px;
-	}
+  @media print {
+    visibility: collapse;
+  }
+  position: relative;
+  cursor: pointer;
+
+  svg {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 /* ok back to your regularly scheduled content */
 
-a {
-	transition: all 0.3s;
-	text-decoration: none;
-	color: var(--anchor-color);
-
-	&:hover, &:focus {
-		color: var(--anchor-hover-color);
-		text-decoration: underline;
-	}
-}
-
-/*	FORMS */
-body:not(.dark-mode) .form-control {
-	border: 2px solid #cbd0d3;
-	border-radius: 0;
-	padding: 0 25px;
-	line-height: 45px;
-	height: 45px;
-}
-
 /*	EXTRA CLASSES */
-@import "./parts/utilities/spacing.scss";
-@import "./parts/utilities/fonts.scss";
 @import "./parts/utilities/colors.scss";
-@import "./parts/utilities/backgrounds.scss";
 @import "./parts/utilities/images.scss";
 
-/*	COLORS */
-
-.dark-bg {
-	&,
-	a,
-	a:hover {
-		color: #fff;
-	}
-}
-
 @import "./parts/admonitions.scss";
+@import "./parts/badges.scss";
+@import "./parts/blog.scss";
 @import "./parts/breadcrumb.scss";
 @import "./parts/buttons.scss";
 @import "./parts/code.scss";
 @import "./parts/details.scss";
-@import "./parts/section.scss";
+@import "./parts/dialogs.scss";
+@import "./parts/dynamic-images.scss";
 @import "./parts/figures.scss";
 @import "./parts/headings.scss";
 @import "./parts/hero.scss";
-@import "./parts/blog.scss";
+@import "./parts/links.scss";
+@import "./parts/mc.scss";
 @import "./parts/menu_grid.scss";
 @import "./parts/scrolltop.scss";
+@import "./parts/search.scss";
+@import "./parts/section.scss";
 @import "./parts/tabbed.scss";
 @import "./parts/toc.scss";
-@import "./parts/search.scss";
-@import "./parts/hover-effects.scss";
-@import "./parts/mc.scss";
-
-.profile_pic {
-	height: 150px;
-}
-
-.wiki {
-	margin-top: 40px;
-	margin-bottom: 40px;
-}
-
-.h1-wiki-icon {
-	height: 48px;
-	width: 48px;
-	vertical-align: middle;
-	margin: 20px 0 20px 0;
-	display: inline-block;
-}
-
-.h3-wiki-icon {
-	height: 24px;
-	margin: 10px 0 1px 5px;
-	display: inline-block;
-	vertical-align: bottom;
-}
-
-.p-wiki-icon {
-	height: 18px;
-	margin-left: 1em;
-	display: inline-block;
-	vertical-align: bottom;
-	svg {
-		width: 100%;
-		height: 100%;
-		fill: var(--base-text-color);
-	}
-}
-
-.pt-3-half {
-	padding-top: 1.4rem;
-}
-
-.table-buttons {
-	width: 12rem;
-}
-
-.recipe {
-	height: 160px;
-	image-rendering: crisp-edges;
-	margin-top: 10px;
-}
 
 .home {
-	border-bottom: 0;
-	text-align: center;
-}
-
-hr {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	border: 0;
-	border-top: 1px solid var(--button-background);
+  border-bottom: 0;
+  text-align: center;
 }
 
 footer {
-	font-size: 14px;
-	width: 100%;
-	padding-bottom: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	@include mobile {
-		flex-direction: column;
-	}
+  font-size: 14px;
+  width: 100%;
+  padding-bottom: 10px;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include mobile {
+    flex-direction: column;
+  }
 }
 
 label {
-	font-weight: bold;
-	display: inline-block;
-	margin-bottom: 5px;
-}
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 5px;
 
-// bootstrap leftover
-.collapse {
-	display: none;
-	&.in {
-		display: block;
-	}
+  input {
+    font-weight: initial;
+  }
 }
-

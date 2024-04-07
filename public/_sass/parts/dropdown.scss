@@ -83,30 +83,27 @@
 	}
 }
 
-.dropdown-item {
-	a {
-		padding-left: 1em;
-		padding-right: 1em;
-		padding-top: 0.7ex;
-		color: var(--base-text-color);
-		height: 4ex;
-	}
+.dropdown-link {
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 0.7ex;
+	color: var(--base-text-color);
+	height: 4ex;
 }
 
-#mod-list-dropdown,
-#mod-download-dropdown {
-	& > li > a {
-		display: block;
-		clear: both;
-		font-weight: normal;
-		line-height: 1.42857143;
-		white-space: nowrap;
+.mod-dropdown-link {
+	@extend .dropdown-link;
 
-		&:hover,
-		&:focus {
-			color: var(--accent-text-color);
-			background-color: var(--accent-background-color);
-			text-decoration: none;
-		}
+	display: block;
+	clear: both;
+	font-weight: normal;
+	line-height: 1.42857143;
+	white-space: nowrap;
+
+	&:hover,
+	&:focus {
+		color: var(--accent-text-color);
+		background-color: var(--accent-background-color);
+		text-decoration: none;
 	}
 }

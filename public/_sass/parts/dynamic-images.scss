@@ -1,0 +1,92 @@
+@import "../mixins";
+
+.dark-mode-alt {
+  transition: opacity var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
+  visibility var(--dark-mode-transition-duration);
+  @include darkMode {
+    visibility: visible;
+    opacity: 100;
+  }
+  opacity: 0;
+  visibility: hidden;
+}
+
+.hovered-alt, .dark-mode-hovered-alt, .light-mode-hovered-alt {
+  transition: opacity 100ms ease-in-out;
+  @supports (-webkit-hyphens:none) {  // ?????? Safari weird blur when updating opacity
+    transition: none;
+  }
+  opacity: 0;
+}
+
+.glow-when-hovered {
+  transition: opacity 200ms ease-in-out;
+  opacity: 0;
+}
+
+.rotate-when-hovered {
+  transition: transform 400ms cubic-bezier(.42,.08,.3,1.52);
+}
+
+.blinking-when-hovered {
+  opacity: 0;
+
+  @keyframes blinking {
+    0% {
+      opacity: 0;
+    }
+    1% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    51% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  animation-name: blinking;
+  animation-duration: 1.25s;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+}
+
+.hoverable-card:hover, .hoverable-card:focus {
+  .hovered-alt {
+    opacity: 100%;
+  }
+
+  @include lightMode(&) {
+    .light-mode-hovered-alt {
+      opacity: 100;
+    }
+  }
+
+  @include darkMode {
+    .dark-mode-hovered-alt {
+      opacity: 100;
+    }
+  }
+
+  svg {
+    fill: var(--accent-text-color);
+  }
+
+  .blinking-when-hovered {
+    animation-play-state: running;
+  }
+
+  .rotate-when-hovered {
+    transform: rotate(40deg);
+  }
+
+  .glow-when-hovered {
+    @include darkMode {
+      opacity: 100%;
+    }
+  }
+}
