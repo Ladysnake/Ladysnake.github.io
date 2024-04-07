@@ -1,12 +1,11 @@
 <script lang="ts">
-  import {EDITOR_TEXT_FORMAT_KEY} from "../localStorageKeys";
+  import {EDITOR_TEXT_FORMAT_KEY, getSavedTextFormat} from "../localStorageKeys";
   import BlabberDialogue, {StateType} from "../model/BlabberDialogue";
   import {dialogueData, dialogueTextFormat} from "../dialogueDataStore";
   import {McTextType} from "../../../lib/McText.js";
 
   let filename: string | undefined;
-  const savedTextFormat = localStorage.getItem(EDITOR_TEXT_FORMAT_KEY);
-  let textFormat: McTextType | null = Object.values(McTextType).includes(savedTextFormat as McTextType) ? savedTextFormat as McTextType : null;
+  let textFormat: McTextType | null = getSavedTextFormat();
   let layout: 'blabber:classic' | 'blabber:rpg' = 'blabber:classic';
   let skippable = true;
   let startDialogueStateName = 'start';

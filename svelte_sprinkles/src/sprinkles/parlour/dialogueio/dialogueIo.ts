@@ -1,11 +1,20 @@
 import type {HtmlLogger} from "../../../lib/htmlLogger";
 import {choiceIdKey, genChoiceId} from "../model/DialogueChoice";
-import {dialogueData, dialogueFilename} from "../dialogueDataStore";
+import {dialogueData, dialogueTextFormat} from "../dialogueDataStore";
 import BlabberDialogue, {StateType} from "../model/BlabberDialogue";
 import {get} from "svelte/store";
 import type {EventDispatcher} from "svelte";
 import {validateDialogue} from "../validation/DialogueValidator";
 import {saveAs} from "file-saver";
+import {McTextType} from "../../../lib/McText";
+import {getSavedTextFormat} from "../localStorageKeys";
+
+function detectTextFormat(dialogue: BlabberDialogue) {
+  const texts = Object.values(dialogue.states).flatMap(state => [state.text, ...(state.choices?.map(choice => choice.text) ?? [])]);
+  return texts.filter(it => it)
+      .map(text => typeof text === 'string' ? McTextType.PLAIN : (typeof text === 'object' && 'translate' in text) ? McTextType.TRANSLATION_KEY : McTextType.JSON)
+      .reduce((v1: McTextType | undefined, v2) => v1 === undefined ? v2 : (v1 === v2 ? v1 : McTextType.JSON), undefined) ?? getSavedTextFormat() ?? McTextType.PLAIN;
+}
 
 export function loadDialogueFile(file: File, ioLogger: HtmlLogger, dispatch: EventDispatcher<{ load: BlabberDialogue }>) {
   if (!file.type.startsWith('application/json')) {
@@ -37,6 +46,7 @@ export function loadDialogueFile(file: File, ioLogger: HtmlLogger, dispatch: Eve
         let filename = file.name.endsWith('.json') ? file.name.substring(0, file.name.length - 5) : file.name;
         const importedDialogue = new BlabberDialogue(d, filename);
         dialogueData.set(importedDialogue);
+        dialogueTextFormat.set(detectTextFormat(importedDialogue));
         dispatch('load', importedDialogue);
         ioLogger.logInfo(`Loaded dialogue from ${file.name}`);
       }
