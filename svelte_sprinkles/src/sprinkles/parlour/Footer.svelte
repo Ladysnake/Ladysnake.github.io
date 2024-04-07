@@ -1,23 +1,39 @@
 <script lang="ts">
-  import DialogueImportExport from "./dialogueio/DialogueImportExport.svelte";
+  import {createHtmlLogger} from "../../lib/htmlLogger";
+  import DialogueResetButton from "./dialogueio/DialogueResetButton.svelte";
+  import LogDisplay from "./dialogueio/LogDisplay.svelte";
+  import DialogueDropZone from "./dialogueio/DialogueDropZone.svelte";
+  import DialogueFileExport from "./dialogueio/DialogueFileExport.svelte";
+  import DialogueFileInput from "./dialogueio/DialogueFileInput.svelte";
 
   export let mainView = true;
 
   function toggleView(): void {
     mainView = !mainView;
   }
+
+  const htmlLogger = createHtmlLogger();
 </script>
 <div class="dialogue-footer">
-  <DialogueImportExport on:load>
+  <div
+    id="dialogue-import-export"
+    aria-label="Dialogue import/export"
+  >
+    <DialogueResetButton/>
+    <DialogueFileInput ioLogger={htmlLogger}/>
     <button id="dialogue-view-toggle" class="btn btn-success" on:click={toggleView}>
       {#if mainView}
-        <svg inline-src="graph-outline" />
+        <svg class="btn-icon" inline-src="graph-outline" />
+        Graph View
       {:else}
-        <svg inline-src="view-dashboard-outline"/>
+        <svg class="btn-icon" inline-src="octicon-browser-24"/>
+        Main View
       {/if}
-      Toggle Graph View
     </button>
-  </DialogueImportExport>
+    <DialogueFileExport ioLogger={htmlLogger}/>
+    <DialogueDropZone on:load ioLogger={htmlLogger}/>
+  </div>
+  <LogDisplay logger={htmlLogger}/>
 </div>
 
 <style>

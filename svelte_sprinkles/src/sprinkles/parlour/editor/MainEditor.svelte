@@ -53,9 +53,4 @@
 <Footer bind:mainView on:load={(e) => selectedState = e.detail.startAt}/>
 
 <style>
-:global(#dialogue-import-export) {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-}
 </style>

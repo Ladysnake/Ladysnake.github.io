@@ -13,6 +13,17 @@
   }
 }
 
+#dialogue-import-export {
+  flex: auto;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  background-color: var(--base-background-color);
+  border-top: 1px solid var(--button-outline);
+  outline: 2px solid var(--base-background-color);
+}
+
 .choice-index {
   font-family: monospace;
   color: var(--accent-text-color);
