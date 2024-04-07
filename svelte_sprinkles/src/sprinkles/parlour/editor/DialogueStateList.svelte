@@ -2,12 +2,13 @@
   import {dialogueData, dialogueStart, dialogueStateKeys} from "../dialogueDataStore.js";
   import NewDialogueState from "./NewDialogueState.svelte";
   import DeleteStateDialog from "./DeleteStateDialog.svelte";
+  import RenameStateDialog from "./RenameStateDialog.svelte";
 
   export let selectedState: string | undefined = undefined;
+  let renameDialog: RenameStateDialog;
   let deleteDialog: DeleteStateDialog;
 
   function selectState(state: string) {
-    console.log('Selecting state', state);
     selectedState = state;
     window.history.replaceState(window.history.state, '', `#${state}`);
   }
@@ -18,7 +19,9 @@
       selectedState = $dialogueStart;
       // The actual deletion should not reuse the references, in case the choices changed somehow
       $dialogueData = $dialogueData.withoutState(state);
+      return true;
     }
+    return false;
   }
 </script>
 
@@ -30,15 +33,16 @@
         <li class="toc-item" data-state={state} class:toc-highlighted-link={selectedState === state}>
           <a class="toc-link" href="#{state}" title="View state '{state}'"
              on:click|preventDefault={() => selectState(state)}>{state}</a>
-          <button class="btn btn-xs btn-danger delete" title="Delete state '{state}'"
-                  on:click|preventDefault={async () => deleteState(state)}>
-            <svg inline-src="octicon-trashcan"/>
+          <button class="btn btn-xs btn-default edit" title="Rename or delete state '{state}'"
+                  on:click|preventDefault={() => renameDialog.show(state, state === selectedState)}>
+            <svg inline-src="octicon-pencil-16"/>
           </button>
         </li>
       {/each}
     </ul>
   </nav>
   <DeleteStateDialog bind:this={deleteDialog}/>
+  <RenameStateDialog selectState={selectState} deleteState={deleteState} bind:this={renameDialog}/>
   <NewDialogueState/>
 </div>
 
@@ -70,17 +74,17 @@
     margin-left: 2px;
   }
 
-  .delete {
+  .edit {
     visibility: collapse;
     padding: 0 0.5em;
     cursor: pointer;
   }
 
-  li:hover .delete, .toc-link:focus-visible + .delete, li:focus-within a:not(:focus) + .delete {
+  li:hover .edit, .toc-link:focus-visible + .edit, li:focus-within a:not(:focus) + .edit {
     visibility: visible;
   }
 
-  .delete svg {
+  .edit svg {
     height: 16px;
     width: auto;
   }

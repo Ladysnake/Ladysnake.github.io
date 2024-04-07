@@ -104,7 +104,7 @@
   <h3>
     Available Choices
     {#if $stateData.type !== StateType.ASK_CONFIRMATION}
-      <button type="button" class="btn btn-success btn-rounded" on:click={appendChoice}>
+      <button type="button" class="btn btn-success btn-sm rounded" on:click={appendChoice}>
         New choice
       </button>
     {/if}

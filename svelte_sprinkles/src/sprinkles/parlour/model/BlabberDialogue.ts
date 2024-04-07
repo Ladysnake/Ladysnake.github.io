@@ -138,6 +138,26 @@ export default class BlabberDialogue {
     }, this.filename);
   }
 
+  withRenamedState(currentName: string, newName: string) {
+    const newStates: Record<string, DialogueState> = {};
+
+    for (const [existingKey, { choices, ...existingState }] of Object.entries(this.states)) {
+      newStates[existingKey === currentName ? newName : existingKey] = {
+        ...existingState,
+        choices: choices?.map((c) => c.next === currentName ? {
+          ...c,
+          next: newName,
+        } : c),
+      };
+    }
+
+    return new BlabberDialogue({
+      ...this.data,
+      states: newStates,
+      start_at: currentName === this.startAt ? newName : this.startAt,
+    }, this.filename);
+  }
+
   saveToWindow() {
     const newState = {
       ...(window.history.state ?? {}),

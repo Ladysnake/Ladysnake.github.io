@@ -4,27 +4,26 @@
   import type BlabberDialogue from "../model/BlabberDialogue";
 
   let log = '';
+  let stateNameField: HTMLInputElement;
 
-  function validateNewState(element: HTMLInputElement, dialogue: BlabberDialogue, acceptEmpty: boolean) {
-    if (!(acceptEmpty || element.value)) {
-      element.setCustomValidity('Please enter a valid non-namespaced identifier');
-    } else if (element.validity.patternMismatch) {
-      element.setCustomValidity('Must be a valid non-namespaced identifier (lowercase letters, numbers and dashes/underscores only)');
-    } else if (element.value in dialogue.states) {
-      element.setCustomValidity('A state with that name already exists');
+  function validateNewState(dialogue: BlabberDialogue, acceptEmpty: boolean) {
+    if (!(acceptEmpty || stateNameField.value)) {
+      stateNameField.setCustomValidity('Please enter a valid non-namespaced identifier');
+    } else if (stateNameField.validity.patternMismatch) {
+      stateNameField.setCustomValidity('Must be a valid non-namespaced identifier (lowercase letters, numbers and dashes/underscores only)');
+    } else if (stateNameField.value in dialogue.states) {
+      stateNameField.setCustomValidity('A state with that name already exists');
     } else {
-      element.setCustomValidity('');
-      element.reportValidity();
+      stateNameField.setCustomValidity('');
+      stateNameField.reportValidity();
       return true;
     }
-    element.reportValidity();
+    stateNameField.reportValidity();
     return false;
   }
 
   function submit() {
-    const stateNameField = document.getElementById('new_dialogue_state_name') as HTMLInputElement;
-
-    if (validateNewState(stateNameField, $dialogueData, false)) {
+    if (validateNewState($dialogueData, false)) {
       log = '';
       const newState = stateNameField.value;
       $dialogueData = $dialogueData.withAddedState(newState);
@@ -40,7 +39,8 @@
     pattern="[a-z0-9_\-]+"
     type="text"
     placeholder="first_steps, goodbyes, ..."
-    on:input={(e) => validateNewState(e.currentTarget, $dialogueData, true)}
+    bind:this={stateNameField}
+    on:input={() => validateNewState($dialogueData, true)}
   />
   <input id="new_dialogue_state_submit" type="submit" class="btn btn-success btn-sm" value="New State">
   <p id="new_dialogue_state_log">{log}</p>

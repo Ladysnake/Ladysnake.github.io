@@ -16,26 +16,26 @@
     return false;
   }
 </script>
-<ConfirmDialogue bind:this={dialog} danger let:arg>
-  {#if arg.references.length}
+<ConfirmDialogue bind:this={dialog} danger let:arg={{references, state}}>
+  {#if references.length}
     <p>
-      The following {arg.references.length > 1 ? 'states reference' : 'state references'} <code>{arg.state}</code>:
+      The following {references.length > 1 ? 'states reference' : 'state references'} <code>{state}</code>:
     </p>
 
-    <ul class="confirm-refs" role={arg.references.length > 1 ? 'list' : 'none'}>
-      {#each arg.references as reference}
+    <ul class="confirm-refs" role={references.length > 1 ? 'list' : 'none'}>
+      {#each references as reference}
         <li><code>{reference.state}</code> (choice <span class="choice-index">#{reference.choice + 1}</span>)</li>
       {/each}
     </ul>
   {/if}
 
-  {#if arg.state === $dialogueStart}
+  {#if state === $dialogueStart}
     <p>You are attempting to delete the starting state. Please select a replacement before proceeding.</p>
     <label>
       New starting state:
       <select bind:value={newStartingState}>
         {#each $dialogueStateKeys as otherState}
-          {#if otherState !== arg.state}
+          {#if otherState !== state}
             <option value={otherState}>{otherState}</option>
           {/if}
         {/each}
@@ -43,7 +43,7 @@
     </label>
   {/if}
 
-  <strong>Do you want to delete <code>{arg.state}</code> {#if arg.references.length}and every choice referencing it{/if}{#if arg.state === $dialogueStart}, and set <code>{newStartingState}</code> as the new starting state{/if}?</strong>
+  <strong>Do you want to delete <code>{state}</code> {#if references.length}and every choice referencing it{/if}{#if state === $dialogueStart}, and set <code>{newStartingState}</code> as the new starting state{/if}?</strong>
 </ConfirmDialogue>
 
 <style>
