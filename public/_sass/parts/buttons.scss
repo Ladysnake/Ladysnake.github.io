@@ -38,7 +38,7 @@
     color: #171717;
   }
 
-  &:hover {
+  &:hover, &:focus-visible {
     background-color: #2c3e50;
     color: #fff;
 
@@ -127,7 +127,7 @@ a.btn-primary {
 .btn-info {
   background-color: #3498db;
 
-  &:hover {
+  &:hover, &:focus-visible {
     background-color: #2980b9;
   }
 }
@@ -135,7 +135,7 @@ a.btn-primary {
 .btn-warning {
   background-color: #e67e22;
 
-  &:hover {
+  &:hover, &:focus-visible {
     background-color: #d35400;
   }
 }
@@ -144,7 +144,7 @@ a.btn-primary {
   background-color: #e74c3c;
   color: #fff;
 
-  &:hover {
+  &:hover, &:focus-visible {
     background-color: #c0392b;
     color: #fff;
   }
