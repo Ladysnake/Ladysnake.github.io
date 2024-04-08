@@ -79,7 +79,7 @@
         on:input={(e) => validateIdentifier(e.currentTarget)}
       />
       <button class="clear btn-danger rounded" type="button" title="Remove condition" disabled={!predicateLocation} on:click={clear}>
-        <svg inline-src="octicon-trashcan"/>
+        <svg inline-src="octicon-trashcan-24"/>
       </button>
       <p class="predicate-tip">
         {#if predicateLocationMatch}
