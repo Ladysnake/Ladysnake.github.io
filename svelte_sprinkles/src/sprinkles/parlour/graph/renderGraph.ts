@@ -81,7 +81,7 @@ export const setupGraph: Action<HTMLElement, DynamicImports, GraphEvents> = (
         node.shape = 'ellipse';
       }
       node.font = {
-        color: getComputedStyle(container).getPropertyValue('--base-text-color'),
+        color: getComputedStyle(container).getPropertyValue(darkMode ? '--brightest-text-color' : '--darkest-text-color'),
       }
       node.opacity = 1.0;
 
