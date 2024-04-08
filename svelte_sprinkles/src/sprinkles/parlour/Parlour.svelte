@@ -7,6 +7,9 @@
   import BlabberDialogue from "./model/BlabberDialogue";
   import {type ComponentType, onMount} from "svelte";
   import DialogueFilenameInput from "./DialogueFilenameInput.svelte";
+  import {loadChosenTextFormat, tryCastTextFormat} from "./localStorageKeys";
+  import {McTextType} from "../../lib/McText";
+  import {dialogueTextFormat} from "./dialogueDataStore.js";
 
   let MainEditor: Promise<ComponentType>;
 
@@ -18,6 +21,7 @@
     const wipDialogue = window.history.state;
     if (wipDialogue) {
       $dialogueData = new BlabberDialogue(wipDialogue.data, wipDialogue.filename);
+      $dialogueTextFormat = tryCastTextFormat(window.history.state?.textFormat) ?? loadChosenTextFormat() ?? McTextType.PLAIN;
     }
   }
 

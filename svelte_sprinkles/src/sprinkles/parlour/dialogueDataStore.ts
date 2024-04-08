@@ -41,12 +41,11 @@ export const dialogueFilename: Writable<string | undefined> = {
 };
 
 function createDialogueTextFormat() {
-  const store = writable(tryCastTextFormat(window.history.state?.textFormat) ?? loadChosenTextFormat() ?? McTextType.PLAIN);
+  const store = writable(McTextType.PLAIN);
   let initialized = false;
 
   store.subscribe((value) => {
     if (initialized) {
-      console.log('New value', value);
       window.history.replaceState({
         ...(window.history.state ?? {}),
         textFormat: value,
