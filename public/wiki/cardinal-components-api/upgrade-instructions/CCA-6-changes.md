@@ -4,12 +4,18 @@ breadcrumb: 6.x upgrade
 layout: cca_wiki
 ---
 
-Minecraft 1.20.5 brought some rather large changes impacting Cardinal Components API, prompting a few breaking changes.
+Minecraft 1.20.5 has been quite the deal in terms of technical changes.
+With networking and item NBT being completely redone, Cardinal Components API had to adapt - prompting several breaking changes.
+
+This page details the main changes in the 6.0.0 update, and how to deal with them.
+
+Note that the 6.0.0 update is not completely done yet, and therefore this page may be amended before the full release.
+{:.admonition.admonition-warning.admonition-icon}
 
 ## Package migration
 
-The root package has changed from `dev.onyxstudios` to `org.ladysnake`.
-You can migrate quickly by using your IDE's global search feature - here are the instructions for Intellij Idea:
+This new major version has brought the opportunity to update the library's maven group and package, from `dev.onyxstudios` to `org.ladysnake`.
+You can migrate imports quickly by using your IDE's global search feature - here are the instructions for Intellij Idea:
 
 1. press <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd></kbd> (or <kbd><kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd></kbd> on MacOS) to open the global replace window
    - make sure the "Regex" option (the `.*` button to the right of the search field) is *disabled*
@@ -18,11 +24,15 @@ You can migrate quickly by using your IDE's global search feature - here are the
 4. Click on <samp>Replace All</samp> to perform the replacement
 5. You're done!
 
+On the maven side of things, the old maven group is aliased to the new one, so your builds should keep working.
+However, to avoid future issues, you should still update the dependency information in your Gradle buildscript, substituting `dev.onyxstudios.cardinal-components-api` with `org.ladysnake.cardinal-components-api`.
+
 ## Changes to the Base module
 
 `AutoSyncedComponent` now reads from and writes to a `RegistryByteBuf` instead of a `PacketByteBuf`.
-This new type can be used in exactly the same way, while also allowing to use more vanilla serialization methods.
-You can use the same Search/Replace procedure as above to handle this migration, first replacing `public void writeSyncPacket(PacketByteBuf` with `public void writeSyncPacket(RegistryByteBuf`,
+This new type can be used in exactly the same way, while also allowing the use of more vanilla serialization methods (notably the new `PacketCodec`s).
+
+You can use the same *Search/Replace* procedure as above to handle this migration, first replacing `public void writeSyncPacket(PacketByteBuf` with `public void writeSyncPacket(RegistryByteBuf`,
 then replacing `public void applySyncPacket(PacketByteBuf` with `public void applySyncPacket(RegistryByteBuf`.
 
 ## Changes to the Item module
@@ -42,4 +52,5 @@ The basic idea is:
 
 ## Changes to the Entity module
 
-The `PlayerCopyCallback` has been removed. If you were using it, you can switch to `ServerPlayerEvents.COPY_FROM` from Fabric API.
+- The `PlayerCopyCallback` has been removed. If you were using it, you can switch to `ServerPlayerEvents.COPY_FROM` from Fabric API.
+- `RespawnCopyStrategy` is now called for mobs other when players when they get converted (think smitten pigs turning to piglins, or zombies drowning)
