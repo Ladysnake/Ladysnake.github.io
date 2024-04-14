@@ -10,7 +10,7 @@ With networking and item NBT being completely redone, Cardinal Components API ha
 This page details the main changes in the 6.0.0 update, and how to deal with them.
 
 Note that the 6.0.0 update is not completely done yet, and therefore this page may be amended before the full release.
-{:.admonition.admonition-warning.admonition-icon}
+{:.admonition.admonition-warning.admonition-icon.large-icon}
 
 ## Package migration
 
@@ -37,9 +37,11 @@ then replacing `public void applySyncPacket(PacketByteBuf` with `public void app
 
 ## Changes to the Item module
 
+**Item components have been entirely removed from Cardinal Components API.**
+{:.admonition.admonition-warning}
+
 With Minecraft 1.20.5 adding data components for item stacks,
 all the functionality of the `cardinal-components-item` module has been superseded by vanilla components and Fabric API's [API Lookup API](https://github.com/FabricMC/fabric/blob/1.20.5/fabric-api-lookup-api-v1/README.md).
-As such, **item components have been entirely removed from Cardinal Components API.**
 
 You can find an example of a component interface reimplemented with the new APIs in [CCA's test mod](https://github.com/Ladysnake/Cardinal-Components-API/blob/1.20.5/src/testmod/java/org/ladysnake/componenttest/content/vita/ItemVita.java).
 The basic idea is:

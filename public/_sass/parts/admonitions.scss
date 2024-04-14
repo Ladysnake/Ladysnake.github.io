@@ -6,7 +6,8 @@
 
 .admonition {
   border-left: 0.3em solid var(--admonition-color);
-  padding: 0 1em;
+  background: padding-box color-mix(in srgb, var(--admonition-color), transparent 90%);
+  padding: 0.5em 1em;
 }
 
 .admonition-note {
@@ -22,8 +23,14 @@
 }
 
 .admonition-icon {
+  overflow: hidden; // ensures the floating ::before stays contained within this element
   &::before {
+    float: left;
     margin-right: 1em;
+  }
+  &.large-icon::before {
+    font-size: 200%;
+    margin-right: 0.5em;
   }
   &.admonition-note::before {
     content: '💡';
