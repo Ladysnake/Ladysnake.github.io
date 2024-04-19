@@ -7,7 +7,6 @@
 
 {%- unless og_img %}{% assign og_img = "/img/colored-ladysnake-icon.png" %}{% endunless -%}
 {%- unless og_img_alt %}{% assign og_img_alt = "Ladysnake Logo" %}{% endunless -%}
-{%- unless meta_desc %}{% assign meta_desc = "Home of a small group of developers called Ladysnake" %}{% endunless -%}
 
 <head>
     <meta http-equiv="content-type" content="text/html">
@@ -37,10 +36,12 @@
     <meta property="og:title" content="{{ full_title }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}" />
+    {% if meta_desc %}
     <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ og_img }}" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="300" />
     <meta property="og:image:height" content="300" />
     <meta property="og:image:alt" content="{{ og_img_alt }}" />
     <meta property="og:description" content="{{ meta_desc }}" />
+    {% endif %}
 </head>

@@ -35,6 +35,12 @@ defaults:
         values:
             mod_name: Requiem
             mod_slug: requiem
+    -
+        scope:
+            path: "wiki/cardinal-components-api"
+        values:
+            mod_name: Cardinal Components API
+            mod_slug: cardinal-components-api
 
 responsive_image:
     template: _includes/responsive_image.liquid
