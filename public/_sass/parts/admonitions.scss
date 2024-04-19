@@ -22,6 +22,12 @@
   --admonition-color: var(--color-warning);
 }
 
+.admonition.large-icon > .aligned {
+    margin-top: 0.6em;
+    vertical-align: middle;
+    display: inline-block;
+}
+
 .admonition-icon {
   overflow: hidden; // ensures the floating ::before stays contained within this element
   &::before {

@@ -50,10 +50,12 @@
     color: #960050;
   }
   .highlight .gd {
-    color: #49483e;
+    // CUSTOM: handle diff on dark mode
+    color: var(--color-red);
   }
   .highlight .gi {
-    color: #49483e;
+    // CUSTOM: handle diff on dark mode
+    color: var(--color-success);
   }
   .highlight .ge {
     color: #49483e;

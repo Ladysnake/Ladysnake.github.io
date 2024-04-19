@@ -4,7 +4,7 @@ layout: cca_wiki
 breadcrumb: Items
 ---
 
-**Item components have been entirely removed from Cardinal Components API in version 6.0.0.**
+**Item components have been entirely removed from Cardinal Components API in version 6.0.0.**{:.aligned}
 {:.admonition.admonition-warning.admonition-icon.large-icon}
 
 The `cardinal-components-item` module now contains an `ItemComponentMigrationRegistry`, which is used to help you migrate to vanilla components.
@@ -13,23 +13,23 @@ You can find more information in [the migration page](../upgrade-instructions/CC
 {% capture before_v6 %}
 This module allows mods to attach components to `ItemStack` instances in the form of a wrapper around the stack's NBT.
 
-## Features
-### Registration
+### Features
+#### Registration
 Item components are registered by an [`ItemComponentInitializer`](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-item/src/main/java/org/ladysnake/cca/api/v3/item/ItemComponentInitializer.java), exposed as `cardinal-components-item` in the mod json (more information on the [component registration page](../registration#2-attaching-your-component)).
 
 Component factories can be registered to all stacks of a given `Item`, using its identifier. You can also register a component factory with a `Predicate<Item>`, which lets you use your own criteria like "implements a specific interface" or "cannot be stacked" (or even to all items, although this is discouraged for performance reasons).
 Registering a factory using both a predicate and an item ID will cause the latter factory to override the former, letting you eg. use a different implementation for your tools than for others'.
 
-### Synchronization
+#### Synchronization
 Item components are automatically and systematically synchronized whenever their stack is. **The `AutoSyncedComponent` interface has *no effect* when the component is attached to a stack.**
 
-### Ticking
+#### Ticking
 Item components **do not support ticking**. If you want the stack to change over time, you should store the time it was created/last updated and compute the age when needed.
 
-### Emptiness guarantee
+#### Emptiness guarantee
 Empty item stacks never expose any components, no matter what was originally attached to them. The components will become available again with no loss if the stack stops being empty at any point.
 
-## Transient Item Components
+### Transient Item Components
 
 In most cases, Item components should store their data in their stack's NBT. Since version 2.7.10 of Cardinal Components API, this is facilitated with the [`ItemComponent`](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-item/src/main/java/org/ladysnake/cca/api/v3/item/ItemComponent.java) abstract class.
 
@@ -55,7 +55,7 @@ For example, assuming the existence of a `ComponentKey<IntComponent> MAGIK` cons
     }
 ```
 
-### Data Initialization
+#### Data Initialization
 
 If your component has specific default values, you should set them lazily. This lets you not use any memory until you actually start using your component.
 
@@ -73,7 +73,7 @@ For example:
     }
 ```
 
-### Caching (Advanced)
+#### Caching (Advanced)
 If you perform a lot of read operations, and especially if your data is costly to deserialize, you may want to cache your component's data. You can invalidate your caches in the `onTagInvalidated` method from `ItemTagInvalidationListener` (implemented by `ItemComponent`).
 
 For example:
@@ -105,7 +105,7 @@ For example:
     }
 ```
 
-#### Live Structures (Very Advanced)
+##### Live Structures (Very Advanced)
 If you need your component to use live objects for speed or API reasons, you can create dedicated classes binding live data to your stack's NBT.
 
 The following example demonstrates an item component that associates identifiers with mutable color objects. Note that this could be more easily implemented through individual methods like `getRed(Identifier)`/`setRed(Identifier, byte)`, but it may be slightly slower or more complex for API users.
@@ -182,7 +182,7 @@ public class ItemColorComponent {
 }
 ```
 
-### A note on component initialization
+#### A note on component initialization
 
 For performance reasons, item stacks initialize their components lazily, only the first time they are queried. Because of this, components may get displayed clientside before they get initialized serverside. For this reason, ItemStack component initialization must be pure and constant, ie. the initial value of each field must not be random or based on volatile data like stack count or NBT. Failing that can lead to desynchronization, causing clientside item stacks to hold "ghost data" - data that does not match the server's expectations.
 
@@ -201,7 +201,21 @@ public void init() { // explicit init method
 }
 ```
 
-## Hard Item Components (pre-4.0.0)
+### Vanilla Alternative: Stack NBT
+```diff
++ No dependency
++ No setup required, readily available on every stack
++ No overhead whatsoever until the data is actually added
+= Automatically synchronized
+- Requires a mixin to add data to every created stack
+- Must be (de)serialized for every use (can be slow)
+- Can only carry raw public data, no private fields, no methods, no interface implementing
+```
+{% endcapture %}
+
+{% include details.liquid summary="## Before V6" content=before_v6 %}
+
+{% capture before_v4 %}
 
 **This feature has been removed as of 4.0.0 (for MC 1.18). The following is documentation for the feature as it existed before the API Lookup API.**
 
@@ -237,16 +251,6 @@ public void init() {
 ### Equality
 Stack equality methods `areTagsEqual` and `isEqualIgnoreDamage` are modified to check component equality. If you have issues when attaching components to item stacks, it usually means you forgot to implement a meaningful `equals` check on your component.
 
-## Vanilla Alternative: Stack NBT
-```diff
-+ No dependency
-+ No setup required, readily available on every stack
-+ No overhead whatsoever until the data is actually added
-= Automatically synchronized
-- Requires a mixin to add data to every created stack
-- Must be (de)serialized for every use (can be slow)
-- Can only carry raw public data, no private fields, no methods, no interface implementing
-```
 {% endcapture %}
 
-{% include details.liquid summary="### Before V6" content=before_v6 %}
+{% include details.liquid summary="## Hard Item Components (pre-4.0.0)" content=before_v4 %}
