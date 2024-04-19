@@ -16,7 +16,7 @@ Just download the version that works for you - Cardinal Components API does not 
 
 If you are a developer, **detailed information is available in the [developer wiki](landing)** *(check the sidebar)*.
 The information below is a condensed form of the latter. You can also find a short description and associated examples
-in the repository's [README](https://github.com/OnyxStudios/Cardinal-Components-API#readme).
+in the repository's [README](https://github.com/Ladysnake/Cardinal-Components-API#readme).
 
 ## An example
 

@@ -4,15 +4,18 @@ layout: cca_wiki
 breadcrumb: Items
 ---
 
-## **This module's functionality has been superseded by Fabric API's [API Lookup API](https://github.com/FabricMC/fabric/blob/1.19/fabric-api-lookup-api-v1/README.md). Consider replacing uses of CCA for items with equivalent lookups.**
+**Item components have been entirely removed from Cardinal Components API in version 6.0.0.**
+{:.admonition.admonition-warning.admonition-icon.large-icon}
 
----
+The `cardinal-components-item` module now contains an `ItemComponentMigrationRegistry`, which is used to help you migrate to vanilla components.
+You can find more information in [the migration page](../upgrade-instructions/CCA-6-changes#changes-to-the-item-module).
 
+{% capture before_v6 %}
 This module allows mods to attach components to `ItemStack` instances in the form of a wrapper around the stack's NBT.
 
 ## Features
 ### Registration
-Item components are registered by an [`ItemComponentInitializer`](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/cardinal-components-item/src/main/java/dev/onyxstudios/cca/api/v3/item/ItemComponentInitializer.java), exposed as `cardinal-components-item` in the mod json (more information on the [component registration page](../registration#2-attaching-your-component)).
+Item components are registered by an [`ItemComponentInitializer`](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-item/src/main/java/org/ladysnake/cca/api/v3/item/ItemComponentInitializer.java), exposed as `cardinal-components-item` in the mod json (more information on the [component registration page](../registration#2-attaching-your-component)).
 
 Component factories can be registered to all stacks of a given `Item`, using its identifier. You can also register a component factory with a `Predicate<Item>`, which lets you use your own criteria like "implements a specific interface" or "cannot be stacked" (or even to all items, although this is discouraged for performance reasons).
 Registering a factory using both a predicate and an item ID will cause the latter factory to override the former, letting you eg. use a different implementation for your tools than for others'.
@@ -28,7 +31,7 @@ Empty item stacks never expose any components, no matter what was originally att
 
 ## Transient Item Components
 
-In most cases, Item components should store their data in their stack's NBT. Since version 2.7.10 of Cardinal Components API, this is facilitated with the [`ItemComponent`](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/cardinal-components-item/src/main/java/dev/onyxstudios/cca/api/v3/item/ItemComponent.java) abstract class.
+In most cases, Item components should store their data in their stack's NBT. Since version 2.7.10 of Cardinal Components API, this is facilitated with the [`ItemComponent`](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-item/src/main/java/org/ladysnake/cca/api/v3/item/ItemComponent.java) abstract class.
 
 The following example demonstrates re-implementing the `IntComponent` interface as defined in [Implementing the Component interface](../implementing-component) as an `ItemComponent`.
 
@@ -244,3 +247,6 @@ Stack equality methods `areTagsEqual` and `isEqualIgnoreDamage` are modified to 
 - Must be (de)serialized for every use (can be slow)
 - Can only carry raw public data, no private fields, no methods, no interface implementing
 ```
+{% endcapture %}
+
+{% include details.liquid summary="### Before V6" content=before_v6 %}

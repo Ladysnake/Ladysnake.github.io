@@ -29,11 +29,23 @@ However, to avoid future issues, you should still update the dependency informat
 
 ## Changes to the Base module
 
+### Synchronization
+
 `AutoSyncedComponent` now reads from and writes to a `RegistryByteBuf` instead of a `PacketByteBuf`.
 This new type can be used in exactly the same way, while also allowing the use of more vanilla serialization methods (notably the new `PacketCodec`s).
 
 You can use the same *Search/Replace* procedure as above to handle this migration, first replacing `public void writeSyncPacket(PacketByteBuf` with `public void writeSyncPacket(RegistryByteBuf`,
 then replacing `public void applySyncPacket(PacketByteBuf` with `public void applySyncPacket(RegistryByteBuf`.
+
+#### Client-optional components
+
+Cardinal Components API 6.0 has improved handling of unknown components during client-server sync.
+
+Attempting to sync a component to a player who does not have your mod installed clientside will now result in a disconnection.
+{:.admonition.admonition-important}
+
+You can override the `isRequiredOnClient` method in your `PlayerSyncPredicate` (typically your `AutoSyncComponent` implementation)
+to avoid updates disconnecting players who do not have your mod installed.
 
 ## Changes to the Item module
 
@@ -51,8 +63,36 @@ The basic idea is:
 4. reimplement your component interface by delegating reads and writes to the new data component, using `ItemStack#get`, `ItemStack#set`, and `ItemStack#apply` as required
 5. register an `ItemApiLookup<T, Void>` for your component interface
 6. replace uses of `COMPONENT_KEY.get(stack)` with `API_LOOKUP.get(stack, null)`
+7. in your CCA item entrypoint, implement the `registerItemComponentMigrations` method so that item data can be migrated when your players upgrade their world
+
+## Changes to the Level module
+
+Level components are now formally deprecated.
+{:.admonition.admonition-warning}
+
+Level components have been made redundant since the moment scoreboard components were introduced, but until now they still retained first-class support.
+Starting from this release, **you are officially encouraged to migrate to [scoreboard components](../modules/scoreboard)**,
+which serve the same purpose of global data storage and have an API more consistent with that of other modules (notably regarding sync).
 
 ## Changes to the Entity module
 
 - The `PlayerCopyCallback` has been removed. If you were using it, you can switch to `ServerPlayerEvents.COPY_FROM` from Fabric API.
 - `RespawnCopyStrategy` is now called for mobs other when players when they get converted (think smitten pigs turning to piglins, or zombies drowning)
+
+### Client-to-Server messages
+
+Many mods making use of synced components also need to send back messages to the server to affect the state of said components - typically in reaction to a key press or to a GUI click.
+These mods can now be simplified with the new `C2SSelfMessagingComponent` utility interface, removing the need to create and register a custom packet type.
+
+As most use cases apply to a player component sending a message to itself, `C2SSelfMessagingComponent` is tailored for this scenario.
+As such, this interface only works when implemented on a component that is attached to a player.
+{:.admonition.admonition-note}
+
+## Changes to the World module
+
+- You can now restrict a component to specific dimensions, using the new `WorldComponentRegistry#registerFor` methods
+
+## Changes to the Scoreboard module
+
+- Scoreboard and team components now support [client ticking](../ticking)
+

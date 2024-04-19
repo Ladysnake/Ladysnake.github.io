@@ -8,7 +8,7 @@ Once you are done [writing your own implementation of the `Component` interface]
 ## 1) Registering your component
 
 Components are provided by various objects through the `ComponentProvider` interface. 
-To interact with those, you need to obtain a [`ComponentKey`](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/dev/onyxstudios/cca/api/v3/component/ComponentKey.java) instance - a unique key made up of an identifier and of the component's type information. Such an instance can be retrieved in a few ways, all using the [`ComponentRegistry`](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/dev/onyxstudios/cca/api/v3/component/ComponentRegistry.java). Note that the same `Component` implementation can be reused between several `ComponentKey`s.
+To interact with those, you need to obtain a [`ComponentKey`](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/org/ladysnake/cca/api/v3/component/ComponentKey.java) instance - a unique key made up of an identifier and of the component's type information. Such an instance can be retrieved in a few ways, all using the [`ComponentRegistry`](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/org/ladysnake/cca/api/v3/component/ComponentRegistry.java). Note that the same `Component` implementation can be reused between several `ComponentKey`s.
 
 ### Mod Metadata
 
@@ -63,7 +63,7 @@ For example, if your mod uses a component with the id `"mymod:magik"`, your `fab
 
 ### ComponentKey
 
-Then, to retrieve the [`ComponentKey`](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/dev/onyxstudios/cca/api/v3/component/ComponentKey.java), you need to call [`ComponentRegistry.getOrCreate(Identifier, Class)`](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/dev/onyxstudios/cca/api/v3/component/ComponentRegistry.java#L44-L76). The first argument is the identifier you put in your `fabric.mod.json`. The second argument should be the component class you wish to use. This class should be the superclass or superinterface of all implementations you may use with the resulting key (eg. `MyComponent`, not `MyComponentImpl`).
+Then, to retrieve the [`ComponentKey`](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/org/ladysnake/cca/api/v3/component/ComponentKey.java), you need to call [`ComponentRegistry.getOrCreate(Identifier, Class)`](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/org/ladysnake/cca/api/v3/component/ComponentRegistry.java#L44-L76). The first argument is the identifier you put in your `fabric.mod.json`. The second argument should be the component class you wish to use. This class should be the superclass or superinterface of all implementations you may use with the resulting key (eg. `MyComponent`, not `MyComponentImpl`).
 
 For example, if you created an `IntComponent` class like in the [Implementing the Component interface](implementing-component) page, you would retrieve the corresponding key as such :
 
@@ -98,7 +98,7 @@ public final class MyComponents implements XComponentInitializer[, YComponentIni
     }
 }
 ```
-Where `X` is one of the possible component providers (eg. [`EntityComponentInitializer`](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/cardinal-components-entity/src/main/java/dev/onyxstudios/cca/api/v3/entity/EntityComponentInitializer.java), [`ItemComponentInitializer`](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/cardinal-components-item/src/main/java/dev/onyxstudios/cca/api/v3/item/ItemComponentInitializer.java)).
+Where `X` is one of the possible component providers (eg. [`EntityComponentInitializer`](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-entity/src/main/java/org/ladysnake/cca/api/v3/entity/EntityComponentInitializer.java), [`ItemComponentInitializer`](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-item/src/main/java/org/ladysnake/cca/api/v3/item/ItemComponentInitializer.java)).
 
 *Note:`XIntComponent::new` is a [constructor reference](https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html). You can also write `it -> new XIntComponent()` if your constructor does not take parameters.*
 
@@ -168,7 +168,7 @@ Components are added to a provider in the order they were registered. Some modul
 
 ## 3) Using your component
 
-Once the component is getting attached to at least one provider, you can access it with the `ComponentKey` you obtained earlier. To do this, simply pass an object of the right type to [`ComponentKey#get`](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/dev/onyxstudios/cca/api/v3/component/ComponentKey.java#L78-L87) or one of its variants ([`ComponentKey#maybeGet`](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/dev/onyxstudios/cca/api/v3/component/ComponentKey.java#L89-L97) and [`ComponentKey#getNullable`](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/dev/onyxstudios/cca/api/v3/component/ComponentKey.java#L66-L76)).
+Once the component is getting attached to at least one provider, you can access it with the `ComponentKey` you obtained earlier. To do this, simply pass an object of the right type to [`ComponentKey#get`](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/org/ladysnake/cca/api/v3/component/ComponentKey.java#L78-L87) or one of its variants ([`ComponentKey#maybeGet`](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/org/ladysnake/cca/api/v3/component/ComponentKey.java#L89-L97) and [`ComponentKey#getNullable`](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/org/ladysnake/cca/api/v3/component/ComponentKey.java#L66-L76)).
 
 The following example demonstrates getting an `IntComponent` - as written in the [Implementing the Component interface](implementing-component) page - that was attached to instances of the `Entity` class using the [`cardinal-components-entity`](Cardinal-Components-Entity) module.
 ```java

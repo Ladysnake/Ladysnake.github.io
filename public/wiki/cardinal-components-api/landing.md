@@ -18,7 +18,7 @@ layout: default
 
 Cardinal Components API is a Quilt and Fabric library that allows Minecraft mods to attach custom data to game objects in the form of components. Its goals are to offer an accessible API that is just as fast as direct mixins attachments, as well as to promote interoperability between mods using it.
 
-For a short description and associated examples, see the repository's [README](https://github.com/OnyxStudios/Cardinal-Components-API#readme).
+For a short description and associated examples, see the repository's [README](https://github.com/Ladysnake/Cardinal-Components-API#readme).
 
 <div id="search-bar" hidden="">
     <form class="search-form" action="/wiki/cardinal-components-api/search" method="get">

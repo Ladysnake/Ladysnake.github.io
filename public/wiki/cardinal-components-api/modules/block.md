@@ -10,7 +10,7 @@ This module has two purposes, allowing mods to attach components to `BlockEntity
 **Warning: BlockEntity components currently require their holder to call both `super.readNbt(nbt)` and `super.writeNbt(nbt)`.** (Modded) block entities that do not fulfill this criteria will not get their components properly saved.
 
 ### Registration
-Entity components are registered by a [`BlockComponentInitializer`](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/cardinal-components-block/src/main/java/dev/onyxstudios/cca/api/v3/block/BlockComponentInitializer.java), exposed as `cardinal-components-block` in the mod json (more information on the [component registration page](../registration#2-attaching-your-component)).
+Entity components are registered by a [`BlockComponentInitializer`](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-block/src/main/java/org/ladysnake/cca/api/v3/block/BlockComponentInitializer.java), exposed as `cardinal-components-block` in the mod json (more information on the [component registration page](../registration#2-attaching-your-component)).
 
 Component factories are registered per block entity class, thereby attaching components to all instances of that class and of its subclasses.
 Registering a factory to both a class and its subclass will cause the latter factory to override the former, letting you eg. use a different implementation for trapped chests than for generic containers.
@@ -18,10 +18,10 @@ Registering a factory to both a class and its subclass will cause the latter fac
 Instead of a specific class, you can also register a component factory with a `Predicate<Class<? extends BlockEntity>>`. This lets you use your own criteria like "implements a specific interface".
 
 ### Synchronization
-BlockEntity components can be automatically synchronized by implementing [`AutoSyncedComponent`](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/dev/onyxstudios/cca/api/v3/component/sync/AutoSyncedComponent.java) - more information is available on [the component synchronization page](../synchronization).
+BlockEntity components can be automatically synchronized by implementing [`AutoSyncedComponent`](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/org/ladysnake/cca/api/v3/component/sync/AutoSyncedComponent.java) - more information is available on [the component synchronization page](../synchronization).
 
 ### Ticking
-BlockEntity components also support both [server](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/dev/onyxstudios/cca/api/v3/component/tick/ServerTickingComponent.java) and [client](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/dev/onyxstudios/cca/api/v3/component/tick/ClientTickingComponent.java) ticking. Components get ticked right after the block entity they are attached to, provided the latter gets ticked through `World#tickBlockEntities`. **This means that only block entities that implement `Tickable` are currently supported.**
+BlockEntity components also support both [server](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/org/ladysnake/cca/api/v3/component/tick/ServerTickingComponent.java) and [client](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/org/ladysnake/cca/api/v3/component/tick/ClientTickingComponent.java) ticking. Components get ticked right after the block entity they are attached to, provided the latter gets ticked through `World#tickBlockEntities`. **This means that only block entities that implement `Tickable` are currently supported.**
 
 ### API Lookup integration
 
@@ -52,7 +52,7 @@ This component could be then used to expose the `FLUID_CONTAINER` API on any blo
 ```
 
 ## V1/V2 API (legacy)
-Blocks implement the `BlockComponentProvider` interface instead of the regular `ComponentProvider`. Custom blocks may re-implement that interface themselves to provide components independently of the presence of a BlockEntity. Usually the block simply proxies its Block Entity, however the Block Entity does not need to implement `BlockComponentProvider` if the block already has a custom implementation. The module also includes [several utility classes](https://github.com/OnyxStudios/Cardinal-Components-API/tree/master/cardinal-components-block/src/main/java/nerdhub/cardinal/components/api/util/sided) to help with providing block components.
+Blocks implement the `BlockComponentProvider` interface instead of the regular `ComponentProvider`. Custom blocks may re-implement that interface themselves to provide components independently of the presence of a BlockEntity. Usually the block simply proxies its Block Entity, however the Block Entity does not need to implement `BlockComponentProvider` if the block already has a custom implementation. The module also includes [several utility classes](https://github.com/Ladysnake/Cardinal-Components-API/tree/master/cardinal-components-block/src/main/java/nerdhub/cardinal/components/api/util/sided) to help with providing block components.
 
 Components are entirely compatible with [LibBlockAttributes](https://github.com/AlexIIL/LibBlockAttributes)' attributes.
 Since `Component` is an interface, any attribute instance can easily implement it. Conversely, making an `Attribute`

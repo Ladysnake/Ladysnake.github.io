@@ -44,6 +44,6 @@ class RandomIntComponent implements IntComponent {
 
 ## Extensions
 
-A `Component` implementation can also implement some extended interfaces to help with tasks such as [server-client synchronization](synchronization), [data transfers](https://github.com/OnyxStudios/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/dev/onyxstudios/cca/api/v3/component/CopyableComponent.java) or [ticking](ticking). More information on those interfaces is available in the javadoc and in the documentation for each module.
+A `Component` implementation can also implement some extended interfaces to help with tasks such as [server-client synchronization](synchronization), [data transfers](https://github.com/Ladysnake/Cardinal-Components-API/blob/master/cardinal-components-base/src/main/java/org/ladysnake/cca/api/v3/component/CopyableComponent.java) or [ticking](ticking). More information on those interfaces is available in the javadoc and in the documentation for each module.
 
 **[Next up: Registering and using a component](registration)**

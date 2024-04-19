@@ -428,7 +428,7 @@ dependencies {
 
 
 You can find the current version of Blabber in the [releases](https://github.com/Ladysnake/Blabber/releases) tab of the repository on Github,
-and the latest CCA version in the [appropriate repository](https://github.com/OnyxStudios/Cardinal-Components-API/releases).
+and the latest CCA version in the [appropriate repository](https://github.com/Ladysnake/Cardinal-Components-API/releases).
 
 ### API
 
