@@ -77,7 +77,7 @@ which serve the same purpose of global data storage and have an API more consist
 ## Changes to the Entity module
 
 - The `PlayerCopyCallback` has been removed. If you were using it, you can switch to `ServerPlayerEvents.COPY_FROM` from Fabric API.
-- `RespawnCopyStrategy` is now called for mobs other when players when they get converted (think smitten pigs turning to piglins, or zombies drowning)
+- `RespawnCopyStrategy` is now called for mobs other than players when they get converted (think smitten pigs turning to piglins, or zombies drowning)
 
 ### Client-to-Server messages
 
