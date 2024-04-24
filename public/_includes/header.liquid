@@ -32,6 +32,11 @@
     <link id="syntax-stylesheet" rel="stylesheet" href="{{ site.baseurl }}/css/syntax-monokai.css">
     <!-- Dark Mode -->
     <script src="/scripts/sprinkles/darkmode-toggle.js" type="module"></script>
+    {%- comment -%}
+    Disable Dark Reader extension (we already have our dark mode)
+    https://github.com/darkreader/darkreader/blob/main/CONTRIBUTING.md#disabling-dark-reader-on-your-site
+    {%- endcomment %}
+    <meta name="darkreader-lock">
     <!-- Embed -->
     <meta property="og:title" content="{{ full_title }}" />
     <meta property="og:type" content="website" />
