@@ -29,12 +29,29 @@ However, to avoid future issues, you should still update the dependency informat
 
 ## Changes to the Base module
 
+### Serialization
+
+All the NBT serialization methods in Cardinal Components API now take an additional `RegistryWrapper.WrapperLookup` parameter.
+This lookup object is required when serializing various vanilla objects, like `ItemStack`s and `Text`s.
+
+You can again use *Search/Replace* to handle this migration - here the Intellij Idea instructions, *with regex* this time:
+
+1. open the global replace window
+2. ***enable*** the "Regex" option (the `.*` button to the right of the search field)
+3. type `public void readFromNbt\(NbtCompound (.*)\)` in the search field
+4. type `public void readFromNbt(NbtCompound $1, RegistryWrapper.WrapperLookup registryLookup)` in the replace field
+5. Review each replacement, ensure you are only doing it in `Component` implementations
+6. Add missing imports
+7. Repeat steps 3 to 5 with `public void writeToNbt\(NbtCompound (.*)\)` -> `public void writeToNbt(NbtCompound $1, RegistryWrapper.WrapperLookup registryLookup)`
+8. You're done!
+
 ### Synchronization
 
 `AutoSyncedComponent` now reads from and writes to a `RegistryByteBuf` instead of a `PacketByteBuf`.
 This new type can be used in exactly the same way, while also allowing the use of more vanilla serialization methods (notably the new `PacketCodec`s).
 
-You can use the same *Search/Replace* procedure as above to handle this migration, first replacing `public void writeSyncPacket(PacketByteBuf` with `public void writeSyncPacket(RegistryByteBuf`,
+You can use the same *Search/Replace* procedure as the package migration (*without regex*),
+first replacing `public void writeSyncPacket(PacketByteBuf` with `public void writeSyncPacket(RegistryByteBuf`,
 then replacing `public void applySyncPacket(PacketByteBuf` with `public void applySyncPacket(RegistryByteBuf`.
 
 #### Client-optional components
@@ -73,6 +90,9 @@ Level components are now formally deprecated.
 Level components have been made redundant since the moment scoreboard components were introduced, but until now they still retained first-class support.
 Starting from this release, **you are officially encouraged to migrate to [scoreboard components](../modules/scoreboard)**,
 which serve the same purpose of global data storage and have an API more consistent with that of other modules (notably regarding sync).
+
+Due to the [serialization changes](#serialization), level component deserialization now happens in `LevelStorage#parseSaveProperties`,
+which should not change anything in a vanilla context, but means your components may not be correctly loaded if some mod calls `LevelProperties#readProperties` directly.
 
 ## Changes to the Entity module
 
