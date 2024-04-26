@@ -12,6 +12,9 @@ This page details the main changes in the 6.0.0 update, and how to deal with the
 Note that the 6.0.0 update is not completely done yet, and therefore this page may be amended before the full release.
 {:.admonition.admonition-warning.admonition-icon.large-icon}
 
+This page is using Yarn mappings. The corresponding Quilt mappings are added as footnotes when they differ.
+{:.admonition.admonition-important.admonition-icon}
+
 ## Package migration
 
 This new major version has brought the opportunity to update the library's maven group and package, from `dev.onyxstudios` to `org.ladysnake`.
@@ -25,13 +28,14 @@ You can migrate imports quickly by using your IDE's global search feature - here
 5. You're done!
 
 On the maven side of things, the old maven group is aliased to the new one, so your builds should keep working.
-However, to avoid future issues, you should still update the dependency information in your Gradle buildscript, substituting `dev.onyxstudios.cardinal-components-api` with `org.ladysnake.cardinal-components-api`.
+However, to avoid future issues, you should still update the dependency information in your Gradle buildscript,
+substituting `dev.onyxstudios.cardinal-components-api` with `org.ladysnake.cardinal-components-api`.
 
 ## Changes to the Base module
 
 ### Serialization
 
-All the NBT serialization methods in Cardinal Components API now take an additional `RegistryWrapper.WrapperLookup` parameter.
+All the NBT serialization methods in Cardinal Components API now take an additional `RegistryWrapper.WrapperLookup`[^qm-1] parameter.
 This lookup object is required when serializing various vanilla objects, like `ItemStack`s and `Text`s.
 
 You can again use *Search/Replace* to handle this migration - here the Intellij Idea instructions, *with regex* this time:
@@ -39,10 +43,10 @@ You can again use *Search/Replace* to handle this migration - here the Intellij 
 1. open the global replace window
 2. ***enable*** the "Regex" option (the `.*` button to the right of the search field)
 3. type `public void readFromNbt\(NbtCompound (.*)\)` in the search field
-4. type `public void readFromNbt(NbtCompound $1, RegistryWrapper.WrapperLookup registryLookup)` in the replace field
+4. type `public void readFromNbt(NbtCompound $1, RegistryWrapper.WrapperLookup registryLookup)`[^qm-2] in the replace field
 5. Review each replacement, ensure you are only doing it in `Component` implementations
 6. Add missing imports
-7. Repeat steps 3 to 5 with `public void writeToNbt\(NbtCompound (.*)\)` -> `public void writeToNbt(NbtCompound $1, RegistryWrapper.WrapperLookup registryLookup)`
+7. Repeat steps 3 to 5 with `public void writeToNbt\(NbtCompound (.*)\)` -> `public void writeToNbt(NbtCompound $1, RegistryWrapper.WrapperLookup registryLookup)`[^qm-3]
 8. You're done!
 
 ### Synchronization
@@ -116,3 +120,6 @@ As such, this interface only works when implemented on a component that is attac
 
 - Scoreboard and team components now support [client ticking](../ticking)
 
+[^qm-1]: `HolderLookup.Provider`
+[^qm-2]: `public void readFromNbt(NbtCompound $1, HolderLookup.Provider registryLookup)`
+[^qm-3]: `public void writeToNbt(NbtCompound $1, HolderLookup.Provider registryLookup)`
