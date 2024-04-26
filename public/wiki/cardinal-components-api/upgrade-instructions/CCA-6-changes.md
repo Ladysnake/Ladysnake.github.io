@@ -12,7 +12,7 @@ This page details the main changes in the 6.0.0 update, and how to deal with the
 Note that the 6.0.0 update is not completely done yet, and therefore this page may be amended before the full release.
 {:.admonition.admonition-warning.admonition-icon.large-icon}
 
-This page is using Yarn mappings. The corresponding Quilt mappings are added as footnotes when they differ.
+This page is using Yarn mappings. The corresponding Quilt mappings are added as [footnotes](#quilt-mappings-equivalents) when they differ.
 {:.admonition.admonition-important.admonition-icon}
 
 ## Package migration
@@ -120,6 +120,10 @@ As such, this interface only works when implemented on a component that is attac
 
 - Scoreboard and team components now support [client ticking](../ticking)
 
-[^qm-1]: `HolderLookup.Provider`
+---
+
+## Quilt Mappings Equivalents
+
+[^qm-1]: `RegistryWrapper.WrapperLookup` → `HolderLookup.Provider`
 [^qm-2]: `public void readFromNbt(NbtCompound $1, HolderLookup.Provider registryLookup)`
 [^qm-3]: `public void writeToNbt(NbtCompound $1, HolderLookup.Provider registryLookup)`
