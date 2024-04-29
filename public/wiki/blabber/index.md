@@ -41,7 +41,7 @@ Blabber adds the `/blabber` command, allowing server operators and mapmakers to 
 ### Format
 
 Blabber will automatically load all JSON files in the `data/[namespace]/blabber/dialogues` directory.
-If you are making a mod, this directory is in `src/resources`, next to your `fabric.mod.json` or `quilt.mod.json`.
+If you are making a mod, the `data` directory in question is in `src/resources`, next to your `fabric.mod.json` or `quilt.mod.json`.
 Otherwise, if you are making a datapack, this directory is at the root, right next to your `pack.mcmeta`.
 
 <figure>
