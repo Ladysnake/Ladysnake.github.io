@@ -41,12 +41,27 @@ Blabber adds the `/blabber` command, allowing server operators and mapmakers to 
 ### Format
 
 Blabber will automatically load all JSON files in the `data/[namespace]/blabber/dialogues` directory.
-Those can be provided either by mods, or by datapacks. They will also be reloaded when running `/reload`, just like
-tags and functions.
+If you are making a mod, this directory is in `src/resources`, next to your `fabric.mod.json` or `quilt.mod.json`.
+Otherwise, if you are making a datapack, this directory is at the root, right next to your `pack.mcmeta`.
 
-Each file describes the various states a dialogue can be in.
+<figure>
+<ul class="directory-list">
+    <li class="folder"><span>data</span>
+        <ul><li class="folder"><span><code>&lt;namespace&gt;</code></span>
+            <ul><li class="folder"><span>blabber</span>
+                <ul><li class="folder"><span>dialogues</span>
+                    <ul><li><span><code>&lt;dialogue_name&gt;</code>.json</span></li></ul>
+                </li></ul>
+            </li></ul>
+        </li></ul>
+    </li>
+</ul>
+<figcaption>Location of a dialogue file in a datapack/mod - the resulting dialogue will be registered as <code>&lt;namespace&gt;:&lt;dialogue_name&gt;</code>.</figcaption>
+</figure>
 
-Here's a super basic example:
+These files will also be reloaded when running `/reload`, just like tags and functions.
+
+Each file describes the various states a dialogue can be in. Here is a super basic example:
 
 <figure class="mediafigure">
 {% include_relative basic-dialogue.svg %}
