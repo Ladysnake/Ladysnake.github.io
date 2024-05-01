@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ladysnake.org/schemas/minecraft/itemstack_v2.schema.json",
+  "title": "Item Stack (post-1.20.5)",
+  "properties": {
+    "id": {
+      "title": "Registry Identifier",
+      "description": "The type of item stored in the stack",
+      "type": "string",
+      "pattern": "^([a-z_-]+:[a-z_/-]+)"
+    },
+    "count": {
+      "description": "The number of items contained in the stack",
+      "type": "integer",
+      "minimum": 0
+    },
+    "components": {
+      "type": "object",
+      "title": "Item Component Data"
+    }
+  },
+  "required": ["id"]
+}

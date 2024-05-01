@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://ladysnake.org/wiki/blabber/dialogue.schema.json",
+  "$id": "https://ladysnake.org/schemas/blabber/dialogue.schema.json",
   "title": "Dialogue",
   "description": "A dialogue to be given to a player",
   "type": "object",
@@ -91,9 +91,22 @@
                 }
               }
             }
+          },
+          "illustrations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "required": []
+      }
+    },
+    "illustrations": {
+      "type": "object",
+      "description": "Available illustrations in dialogue states",
+      "additionalProperties": {
+        "$ref": "/schemas/blabber/dialogue_illustration.schema.json"
       }
     }
   },
