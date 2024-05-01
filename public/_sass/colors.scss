@@ -1,0 +1,188 @@
+/*	COLORS */
+
+@property --color-blue {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0969da;
+}
+
+@property --color-info {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0969da;
+}
+
+@property --color-purple {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #8250df;
+}
+
+@property --color-important {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #8250df;
+}
+
+@property --color-orange {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e67e22;
+}
+
+@property --color-warning {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e67e22;
+}
+
+@property --color-red {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e74c3c;
+}
+
+@property --color-danger {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e74c3c;
+}
+
+@property --base-text-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #2c3e50;
+}
+
+@property --accent-text-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #2d3436;
+}
+
+@property --base-background-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #171717;
+}
+
+@property --accent-background-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #343434;
+}
+
+@property --anchor-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #8ab4f8;
+}
+
+@property --anchor-hover-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e9ebee;
+}
+
+@property --button-background {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #dfe6e9;
+}
+
+@property --button-outline {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #636e72;
+}
+
+@property --button-hover-outline {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #2d3436;
+}
+
+@property --button-selected-outline {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0984e3;
+}
+
+@property --dark-mode-transition-duration {
+  syntax: "<time>";
+  inherits: true;
+  initial-value: 1s;
+}
+
+:root {
+  --color-primary: #1abc9c;
+  --color-success: #2ecc71;
+  --color-blue: #0969da;
+  --color-info: var(--color-blue);
+  --color-purple: #8250df;
+  --color-important: var(--color-purple);
+  --color-orange: #e67e22;
+  --color-warning: var(--color-orange);
+  --color-red: #e74c3c;
+  --color-danger: var(--color-red);
+  --darkest-text-color: #2d3436;
+  --brightest-text-color: #fff;
+  --base-text-color: #2c3e50;
+  --accent-text-color: var(--darkest-text-color);
+  --bright-text-color: #f6f8f9;
+  --base-background-color: #f6f8f9;
+  --accent-background-color: #eaeaef;
+  --color-invalid: #d9534f;
+  --anchor-color: #337ab7;
+  --anchor-hover-color: #23527c;
+  --button-background: #dfe6e9;
+  --button-outline: #636e72;
+  --button-hover-outline: #2d3436;
+  --button-selected-outline: #0984e3;
+  --dark-mode-display: none;
+  --light-mode-display: unset;
+  --dark-mode-transition-duration: 0.8s;
+  --dark-mode-transition-function: cubic-bezier(.86,0,.07,1);
+
+  @include darkModeAtRoot {
+    --color-blue: #2f81f7;
+    --color-info: var(--color-blue); // somehow, this must be restated
+    --color-orange: #f39c12;
+    --color-warning: var(--color-orange);
+    --base-text-color: var(--bright-text-color);
+    --accent-text-color: var(--brightest-text-color);
+    --base-background-color: #171717;
+    --accent-background-color: #343434;
+    --anchor-color: #8ab4f8;
+    --anchor-hover-color: #e9ebee;
+    --button-background: #2d3436;
+    --button-outline: #b2bec3;
+    --button-hover-outline: #dfe6e9;
+    --button-selected-outline: #74b9ff;
+    --dark-mode-display: unset;
+    --light-mode-display: none;
+  }
+}
+
+body.uninitialized-dark-mode {
+  --dark-mode-transition-duration: 0s;
+}
+
+body {
+  // Note: these transitions will be Webkit exclusive until Firefox 126 comes out (May 2024 presumably)
+  transition: --base-text-color var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
+  --color-blue  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
+  --color-info  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
+  --color-orange  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
+  --color-warning  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
+  --base-text-color  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
+  --accent-text-color  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
+  --base-background-color  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
+  --accent-background-color  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
+  --anchor-color  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
+  --anchor-hover-color  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
+  --button-background  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
+  --button-outline  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
+  --button-hover-outline  var(--dark-mode-transition-duration) var(--dark-mode-transition-function),
+  --button-selected-outline  var(--dark-mode-transition-duration) var(--dark-mode-transition-function);
+}

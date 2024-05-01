@@ -1,0 +1,51 @@
+#scrolltop {
+  position: sticky;
+  bottom: 0.8rem;
+  z-index: 1;
+  float: right;
+  margin: -2.8rem 1rem 0.4rem;
+  margin-inline-start: auto;
+  padding: 0.4rem;
+  background: var(--button-selected-outline);
+  border-radius: 100%;
+  width: fit-content;
+  outline: none;
+  border: none;
+  box-shadow:
+          0 0.4rem   1rem    hsla(0, 0%, 0%, 0.1),
+          0 0.05rem  0.1rem  hsla(0, 0%, 0%, 0.1);
+  transform: translateY(0);
+  transition:
+          opacity          125ms,
+          transform        125ms cubic-bezier(0.4, 0, 0.2, 1),
+          background-color 125ms;
+
+  // Adjust for right-to-left languages
+  [dir="rtl"] & {
+    float: left;
+  }
+
+  // Back-to-top button in hidden state
+  &[data-btn-state="hidden"] {
+    transform: translateY(-0.4rem);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  // Back-to-top button on focus/hover
+  &:focus,
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:focus-visible {
+    outline: 2px solid;
+  }
+
+  svg {
+    width: 3rem;
+    height: 3rem;
+    display: block;
+    color: var(--base-background-color);
+  }
+}

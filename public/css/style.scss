@@ -1,0 +1,97 @@
+---
+---
+
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "./colors.scss";
+
+@import "./parts/globals.scss";
+@import "./parts/site-header.scss";
+@import "./parts/dropdown.scss";
+
+@font-face {
+  font-family: "Minecraft";
+  src: local("Minecraft"), url("{{ site.baseurl }}/fonts/Minecraft.woff2") format("woff2");
+}
+
+/* other stuff that sschr15 made and things */
+
+.hidden {
+  display: none !important;
+}
+
+.download-icon {
+  float: right;
+  fill: currentColor;
+  height: 20px;
+  width: 20px;
+}
+
+#printLogo {
+  @media print {
+    visibility: collapse;
+  }
+  position: relative;
+  cursor: pointer;
+
+  svg {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/* ok back to your regularly scheduled content */
+
+/*	EXTRA CLASSES */
+@import "./parts/utilities/colors.scss";
+@import "./parts/utilities/images.scss";
+
+@import "./parts/admonitions.scss";
+@import "./parts/badges.scss";
+@import "./parts/blog.scss";
+@import "./parts/breadcrumb.scss";
+@import "./parts/buttons.scss";
+@import "./parts/code.scss";
+@import "./parts/details.scss";
+@import "./parts/dialogs.scss";
+@import './parts/directory_list';
+@import "./parts/dynamic-images.scss";
+@import "./parts/figures.scss";
+@import "./parts/headings.scss";
+@import "./parts/hero.scss";
+@import "./parts/links.scss";
+@import "./parts/mc.scss";
+@import "./parts/menu_grid.scss";
+@import "./parts/scrolltop.scss";
+@import "./parts/search.scss";
+@import "./parts/section.scss";
+@import "./parts/tabbed.scss";
+@import "./parts/toc.scss";
+
+.home {
+  border-bottom: 0;
+  text-align: center;
+}
+
+footer {
+  font-size: 14px;
+  width: 100%;
+  padding-bottom: 10px;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+label {
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 5px;
+
+  input {
+    font-weight: initial;
+  }
+}

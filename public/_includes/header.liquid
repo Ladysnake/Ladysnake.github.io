@@ -1,0 +1,52 @@
+{%- capture full_title %}{% if page.title %}{{page.title}} - {% endif %}Ladysnake 🐍{% endcapture -%}
+{%- if page.og.img %}{% assign og_img = page.og.img %}{% endif -%}
+{%- if page.og.img_alt %}{% assign og_img_alt = page.og.img_alt %}{% endif -%}
+{%- if page.og.desc %}{% assign meta_desc = page.og.desc %}{% elsif page.slug %}{% endif -%}
+
+{%- if layout.header_preprocessor %}{% include {{ layout.header_preprocessor }} %}{% endif -%}
+
+{%- unless og_img %}{% assign og_img = "/img/colored-ladysnake-icon.png" %}{% endunless -%}
+{%- unless og_img_alt %}{% assign og_img_alt = "Ladysnake Logo" %}{% endunless -%}
+
+<head>
+    <meta http-equiv="content-type" content="text/html">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ full_title }}</title>
+
+    {% comment %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/bootstrap.css">
+    {% endcomment %}
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700' rel='stylesheet' type='text/css'>
+    <!-- Font Awesome -->
+    {% comment %}<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet'
+        type='text/css'>{% endcomment %}
+    <!-- Style -->
+    <link href='{{ site.baseurl }}/css/style.css' rel='stylesheet' type='text/css'>
+    {%- if page.extra_css %}<link href='{{ site.baseurl }}{{ page.extra_css }}' rel="stylesheet" type="text/css">{% endif %}
+    <!-- Syntax Highlighting -->
+    <link id="syntax-stylesheet" rel="stylesheet" href="{{ site.baseurl }}/css/syntax-github.css">
+    <link id="syntax-stylesheet" rel="stylesheet" href="{{ site.baseurl }}/css/syntax-monokai.css">
+    <!-- Dark Mode -->
+    <script src="/scripts/sprinkles/darkmode-toggle.js" type="module"></script>
+    {%- comment -%}
+    Disable Dark Reader extension (we already have our dark mode)
+    https://github.com/darkreader/darkreader/blob/main/CONTRIBUTING.md#disabling-dark-reader-on-your-site
+    {%- endcomment %}
+    <meta name="darkreader-lock">
+    <!-- Embed -->
+    <meta property="og:title" content="{{ full_title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}" />
+    {% if meta_desc %}
+    <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ og_img }}" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:image:alt" content="{{ og_img_alt }}" />
+    <meta property="og:description" content="{{ meta_desc }}" />
+    {% endif %}
+</head>

@@ -1,0 +1,184 @@
+@import '../mixins';
+
+.wiki-container {
+  display: flex;
+  font-size: 14px;
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.toc-pane {
+  @media print {
+    visibility: collapse;
+  }
+
+  text-align: start;
+  overflow: auto;
+  width: 33rem;
+  flex-shrink: 0.3;
+  padding-top: 2rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  &:first-child {
+    margin-right: 1rem;
+  }
+
+  &:last-child {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-right: -1rem;
+
+    @include notMobile {
+      max-width: 18.5em;
+    }
+  }
+
+  @include mobile {
+    position: inherit;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--button-hover-outline);
+    max-height: 30vh;
+    width: 100%;
+  }
+
+  & > h2 {
+    margin-top: 0;
+  }
+
+  h3 {
+    width: 100%;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid var(--button-background);
+  }
+}
+
+.toc-list, .toc-subgroup {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc {
+  white-space: nowrap;
+
+  .cf-link {
+    svg {
+      height: 1.6em;
+    }
+  }
+
+  .gh-link {
+    svg {
+      height: 1.6em;
+      fill: black;
+      @include darkMode {
+        fill: white;
+      }
+    }
+  }
+
+  .mr-link svg {
+    height: 1.6em;
+    --color-brand: #00af5c;
+    @include darkMode {
+      --color-brand: #1bd96a;
+    }
+  }
+
+  .gradle-link svg {
+    height: 1.6em;
+    --color-brand: #02303a;
+    @include darkMode {
+      --color-brand: white;
+    }
+  }
+
+  .toc-highlighted-link, .toc-external-link {
+    border-left: 5px solid var(--button-hover-outline);
+
+    & > span {
+      color: var(--base-text-color);
+      display: inline-flex;
+      align-items: center;
+
+      & > svg, & > img {
+        margin-right: 0.5em;
+      }
+    }
+  }
+
+  .toc-external-link {
+    font-weight: bold;
+    margin: 0.4rem 0;
+    height: 1.6em;
+    text-decoration: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:hover, &:focus {
+      border-color: var(--button-selected-outline);
+    }
+    .external-link-icon {
+      color: inherit;
+    }
+  }
+
+  .toc-subgroup {
+    padding-left: 1em;
+  }
+
+  .gh-link {
+    img {
+      height: 1.2em;
+    }
+  }
+
+  .parlour-link {
+    img {
+      height: 1.6em;
+      width: auto;
+    }
+  }
+
+  a {
+    padding: 0.4rem 1rem;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+    transition-duration: 0s;
+
+    &:hover, &:focus-visible {
+      background-color: var(--accent-background-color);
+    }
+  }
+}
+
+.sidebar {
+  font-size: 12px;
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  h3 {
+    font-size: 1.25em;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+main {
+  flex-grow: 1
+}

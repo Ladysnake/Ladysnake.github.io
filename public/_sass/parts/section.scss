@@ -1,0 +1,61 @@
+.section {
+	padding-top: 80px;
+	padding-bottom: 80px;
+	position: relative;
+	overflow: hidden;
+}
+.section .background-image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+
+h2.section-title {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 26px;
+	letter-spacing: 5px;
+	margin-bottom: 80px;
+}
+p.section-description {
+	font-weight: lighter;
+	font-size: 18px;
+	margin: 5px 0 5px 0;
+}
+h2.section-title + p {
+	margin-top: -70px;
+	margin-bottom: 20px;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+	@extend %headings !optional;
+}
+
+.header-anchor {
+	opacity: 0;
+	%headings:hover &, &:focus-visible {
+		opacity: 100%;
+	}
+}
+
+.panel-body, .panel-footer {
+    background-color: var(--base-background-color);
+}
+
+.vertical-separator {
+	width: 2px;
+	background-color: var(--base-text-color);
+	border-radius: 1em;
+	flex: none;
+}
+
+hr {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 0;
+	border-top: 1px solid var(--button-background);
+}

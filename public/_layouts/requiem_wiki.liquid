@@ -1,0 +1,33 @@
+---
+layout: default
+header_preprocessor: wiki_header_preprocessor.liquid
+---
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="/">Home</a></li>
+		<li class="breadcrumb-item"><a href="/wiki/requiem">Requiem</a></li>
+		<li class="breadcrumb-item"><a href="/wiki/requiem/landing">Wiki</a></li>
+		<li class="breadcrumb-item active" aria-current="page">{% if page.breadcrumb %}{{ page.breadcrumb }}{% else %}{{ page.title }}{% endif %}</li>
+	</ol>
+</nav>
+
+<div class="wiki-container">
+	<div class="toc-pane">
+		<h3>{% if page.breadcrumb %}{{ page.breadcrumb }}{% else %}{{ page.title }}{% endif %}</h3>
+		<nav class="toc">
+			{% include toc.liquid html=content sanitize=true submenu_class="toc-subgroup" item_class="toc-item" class="toc_list"  %}
+		</nav>
+	</div>
+	<main id="printJS-Content">
+
+		<h1>{{ page.title }}&nbsp;</h1>
+		{% if page.icon %}
+		<img alt="Icon" class="h1-wiki-icon" src="{{ page.icon }}">
+		{% endif %}
+
+		{{ content }}
+
+	</main>
+</div>
+
+<script type="module" src="/scripts/minetip.js"></script>

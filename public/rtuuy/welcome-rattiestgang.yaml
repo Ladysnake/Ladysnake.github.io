@@ -1,0 +1,159 @@
+- type: embed
+  embeds:
+    - title: Welcome to the Rattiest Gang server!
+      color: 0x5764f2
+      description: >
+        Before doing anything else, please attentively read this "read me".
+        It contains most of the information you'll need for your stay, including rules,
+        channel and role description. Please note that if you do not read this
+        and ask a question that is answered here, you'll be redirected to this page
+        and asked to read it.
+
+- type: rules
+  rules:
+    General Housekeeping: >
+      - Follow Discord's [Community Guidelines](https://discord.com/guidelines) and
+        [Terms of Service](https://discord.com/terms).
+        They will be enforced as rules, even if the individual clauses aren't spelled out here.
+
+
+
+      - Follow the spirit of the rules, not just the text as is written
+
+      - Please communicate in legible English only. (This includes runes, zalgo text, and other screen reader inaccessible text formats)
+
+      - Please keep every channel's intended purpose in mind, and read the channel descriptions if you are unsure.
+
+      - If you have any questions or concerns regarding the rules, please contact a Moderator - they always have the final say.
+
+    Be Civil: >
+      - Insults, slurs, and hate towards any individual or group are not tolerated.
+
+      - Your profile must not have an offensive profile picture, or an offensive bio, name or nickname.
+
+      - Constant antagonistic behavior is considered uncivil and therefore not accepted. This includes voice channels. Sarcasm is not a toxicity permit.
+
+      - Bloody media, Guns/Firearms, or other potentially triggering themes must be censored and give proper warning of what is inside the spoiler.
+
+      - Swearing is tolerated, but do not abuse it.
+
+      - Keep your posts PG-13. This includes avoiding mentions or implications of substances or explicit content.
+
+      - Please avoid controversial or sensitive subjects entirely, unless there is a specific moderator-designated channel for it.
+
+      - **Animal cruelty in any way or form is absolutely forbidden.**
+
+    Be Considerate: >
+      - **Before posting in a channel for the first time, read the channel topic.**
+
+      - Channel topics often contain important information about the channel and extra rules that must be followed as if they were part of the server-wide rules.
+      
+        - Disrespecting channel-specific rules is equivalent to breaking server-wide rules.
+
+      - Using the bots in a way to do prohibited stuff for normal users is naturally prohibited.
+
+      - Please do not spam, flood, or excessively ping people, especially if they ask you not to ping them. Pinging particularly important users or roles may cause automatic moderation actions to be taken against you.
+      
+        - Check if a reply ends up pinging by accident - those count as pings too.
+
+      - Avoid venting in the server, especially regarding heavy themes.
+      
+        - Users are not professionals and are not qualified to help you. If you ever find yourself struggling with mental health please contact a professional or the respective hotline of your country
+
+      Consider the other users around you, and don't annoy them. Moderators hold to right to judge this accordingly.
+
+    Have Etiquette: >
+      - Promotion, advertising and Discord server invitations are forbidden, unless you are given a specific authorization by one of the moderators.
+
+      - Talking in another channel to circumvent a lockdown will earn you a timeout, and may result in that channel being locked down for everyone.
+
+      - Hoisting (using special characters to make your nickname appear at the top of the user list) is forbidden.
+
+      - Size-changing videos and repost "memes" (ex. "Post this to another server", "Repost this to get a free cookie", etc.) are not welcome here.
+
+      - Do not act as or impersonate another user or nick yourself in a way that is confusing or misleading.
+
+      - Spreading misinformation will not be tolerated. You must have an up-to-date, reliable source for any information you share. Using an invalid source or using justification like "so-and-so told me" counts as spreading misinformation.
+
+    Keep Note: >
+      Do not ping <@251798331536310273>, <@484072044787400736>, or other members of <@&970817029730861127> without prior permission. In some cases, automatic action may be taken against you.
+
+      - Joining Content SMP is very rare and exclusive to only particular chosen people.
+      
+        - Asking to join will not get you anywhere.
+
+- type: embed
+  embeds:
+    - title: Advice
+      color: 0xe91e63
+      description: >
+        - Not sure what a channel is for? Every channel has a topic, so please read it to make sure you're in the right place.
+          Some channels are not designed for chatting, but for posting content. Discussions can be held in threads.
+
+        - Before asking a question, checking pinned messages and searching the channel history is a good idea.
+
+        - If you think someone is breaking the rules, don't hesitate to ping <@&926214810637586492>.
+
+          - Please do not ping this role for requesting general answers, only for reporting rule-breaking behaviour or when you feel there is a problem.
+        
+        - For general questions, feel free to ask in <#924374894085566475> or <#924695867783536690>, Our users would be glad to help you.
+
+- type: roles
+  id: ladysnake-roles
+
+  title: Redeemable Roles
+  description: Click the button to assign or remove any of the mod ping roles below.
+  template: "{EMOJI} **{NAME}**\n"
+
+  roles:
+    926553550853664808:
+      emoji: "🐀"
+      description: "Get notified when <@!251798331536310273> does things!"
+    926553637306650686:
+      emoji: "🟩"
+      description: "Get notified when <@!484072044787400736> does things!"
+    926553807838646272:
+      emoji: "🗓️"
+      description: "Get notified when a special Rattiest Gang event is happening!"
+    946415903778697277:
+      emoji: "❓"
+      description: "Get notified on messages in <#924374151018446909>!"
+
+- type: embed
+  embeds:
+    - title: Useful Links
+      color: 0x5764f2
+      fields:
+        - name: RAT
+          inline: true
+          value: |
+            [YouTube](https://www.youtube.com/c/doctor4t/)
+            [Twitter](https://twitter.com/doctor4t_)
+            [Supporter Discord](https://discord.gg/mzz8bsmNvb)
+        - name: EightSidedSquare
+          inline: true
+          value: |
+            [YouTube](https://www.youtube.com/c/eightSidedSquare/)
+            [Twitter](https://twitter.com/SidedSquare)
+            [Website](https://eightsidedsquare.com/)
+        - name: Lux
+          inline: true
+          value: |
+            [YouTube](https://www.youtube.com/channel/UCvBIYNzQ2OM93y8xsBCxlAg)
+            [Twitter](https://twitter.com/luxintrus)
+            [Supporter Discord](https://discord.gg/aRYt63rPCj)
+        - name: Diansu
+          inline: true
+          value: |
+            [YouTube](https://www.youtube.com/channel/UCrFDp7oy5Nqo5Cl1Cq0Pn7A)
+            [Twitter](https://twitter.com/Diansu16)
+            [Art](https://twitter.com/Diansuarts)
+        - name: WinSweep
+          inline: true
+          value: |
+            [YouTube](https://www.youtube.com/channel/UCi8kdQUD0PcHZThSbac9GdQ)
+            [Twitter](https://twitter.com/winsweep_)
+            [Supporter Discord](https://discord.gg/knpjx85r)
+
+- type: text
+  text: <a:ratkid:811987606530293790>

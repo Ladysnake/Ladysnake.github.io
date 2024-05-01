@@ -1,0 +1,140 @@
+{% capture html %}
+<!DOCTYPE html>
+<html lang="en-US">
+{% include header.liquid %}
+<body class="uninitialized-dark-mode">
+<script>
+    // Immediately initialize dark mode
+    const darkModeSetting = localStorage.getItem("dark-mode");
+    if (darkModeSetting) {
+        if (darkModeSetting === 'true') {
+            document.body.classList.add("dark-mode");
+        } else {
+            document.body.classList.add("light-mode");
+        }
+    }
+</script>
+<header id="ladysnake-header">
+    <a id="ladysnake_logo" class="ladysnake-logo" href="/" title="Ladysnake Home Page">
+        <img alt="Ladysnake Logo" src="/img/ladysnake-logo-light.png">
+    </a>
+
+    <button id="darkmode-toggle" class="header-nav-btn hidden" title="Toggle Dark Mode">
+        <span aria-label="Dark Mode Icon">
+            {% include svg/darkmode-enable.svg %}
+        </span>
+        <span aria-label="Light Mode Icon" class="dark-mode-alt">
+            {% include svg/darkmode-disable.svg %}
+        </span>
+    </button>
+
+    <input id="header-mobile-nav-toggle" type="checkbox"/>
+
+    <label for="header-mobile-nav-toggle">
+        {% include svg/hamburger-menu.svg %}
+    </label>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <nav id="ladysnake-navbar">
+        <ul class="header-nav-list">
+            {% if page.modrinth %}
+                <li class="header-nav-item dropdown">
+                    <input id="mod-download-dropdown-toggle" type="checkbox" autocomplete="off"/>
+                    <label for="mod-download-dropdown-toggle">Download {% include svg/dropdown.svg %}</label>
+                    <span class="dropdown-backdrop"></span>
+                    <!--Filled by JS-->
+                    <ul id="mod-download-dropdown" class="dropdown-menu"></ul>
+                </li>
+            {% endif %}
+            <li class="header-nav-item"><a class="header-nav-btn" href="/index.html">Home</a></li>
+            <li class="header-nav-item"><a class="header-nav-btn" href="/about.html">About Us</a></li>
+            <li class="header-nav-item dropdown">
+                <input type="checkbox" autocomplete="off" id="mod-list-dropdown-toggle">
+                <label class="header-nav-btn dropdown-toggle" for="mod-list-dropdown-toggle">Mods {% include svg/dropdown.svg %}</label>
+                <span class="dropdown-backdrop"></span>
+                <ul id="mod-list-dropdown" class="dropdown-menu">
+                    {% for mod in site.mods %}
+                        {% unless mod.discontinued %}
+                        <li class="dropdown-item">
+                            <a href="{{ mod.link }}" title="{{ mod.title }}" class="mod-dropdown-link">
+                                {{ mod.title }}
+                            </a>
+                        </li>
+                        {% endunless %}
+                    {% endfor %}
+                    <li>
+                        <hr/>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="/#discontinued-mods" title="Discontinued Mods" class="mod-dropdown-link">
+                            Discontinued Mods
+                        </a>
+                    </li>
+                    <!-- Will be adding Fabric libraries here "shortly" -->
+                </ul>
+            </li>
+            <li class="header-nav-item"><a href="/oldsite/" class="header-nav-btn">Old Site</a></li>
+            <li class="header-nav-item">
+                <a href="https://discord.ladysnake.org" title="Discord" class="header-nav-btn discord-invite">
+                    {% include svg/discord-word.svg %}
+                </a>
+            </li>
+        </ul>
+    </nav><!-- /.navbar-collapse -->
+</header>
+
+<!-- START SECTION -->
+<div class="container">
+    {% capture icon %}{% include svg/octicon-link.svg %}{% endcapture %}
+    {% unless page.no_anchor_headings %}
+    {% capture content %}{% include anchor_headings.liquid html=content anchorBody=icon anchorTitle="Permalink" anchorClass="header-anchor" %}{% endcapture %}
+    {% endunless %}
+    {{ content }}
+</div>
+
+{% include scrolltop.liquid %}
+
+<!--/.section -->
+<footer>
+    <!-- This is the footer! Created by sschr15... -->
+    Site owned and operated by Ladysnake.
+    <a href="https://github.com/Ladysnake" title="Find the Ladysnake org on GitHub!" class="p-wiki-icon">{% include svg/github-logo.svg %}</a>
+    <a href="/settings" class="settings-link">Settings</a>
+</footer>
+
+{% if page.datapack_editor %}
+    <!--Datapack editing-->
+    {% comment %}Datapack editing still uses bootstrap collapsables{% endcomment %}
+    <script async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/scripts/jszip.min.js"></script>
+    <script src="/scripts/FileSaver.min.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+    </script>
+    <script src="/scripts/datapack-editing.js"></script>
+{% endif %}
+{% if page.modrinth %}
+    <!-- Mod downloading dropdown, (almost) direct from our site! -->
+    <script type="module">
+        import { mountModDownloads } from "/scripts/mod-download.js";
+        mountModDownloads('{{ page.slug }}', `{% include svg/download-icon.svg %}`);
+    </script>
+{% endif %}
+{% if page.curse_project %}
+    <!-- adding the ability to print the pages out -->
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+{% endif %}
+
+</body>
+
+</html>
+{% endcapture %}
+{% capture html %}{% include relativized_links.liquid html=html src_attr="src" tag="script" %}{% endcapture %}
+{% capture html %}{% include relativized_links.liquid html=html src_attr="src" tag="img" %}{% endcapture %}
+{% capture html %}{% include relativized_links.liquid html=html src_attr="href" tag="a" %}{% endcapture %}
+{{ html | strip }}

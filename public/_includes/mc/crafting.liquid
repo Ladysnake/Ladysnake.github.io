@@ -1,0 +1,36 @@
+{%- if include.slots -%}
+{%- assign slots = include.slots -%}
+{%- else -%}
+{%- assign slots = "" | split: ","
+        | push: include.i1
+        | push: include.i2
+        | push: include.i3
+        | push: include.i4
+        | push: include.i5
+        | push: include.i6
+        | push: include.i7
+        | push: include.i8
+        | push: include.i9
+-%}
+{%- endif -%}
+<article class="mcui crafting-table" aria-label="Crafting recipe">
+{% if include.shaped %}{% assign grid_tag = "ol" %}{% else %}{% assign grid_tag = "ul" %}{% endif %}
+<{{ grid_tag }} class="crafting-grid">
+{%- for slot in slots -%}
+<li class="invslot">
+{% if slot %}
+{%- capture alt_prefix-%}Ingredient {{ forloop.index }}: {% endcapture -%}
+{%- itemstack item=slot alt_prefix=alt_prefix -%}
+{% endif %}
+</li>
+{%- endfor -%}
+</{{ grid_tag }}>
+{%- unless include.shaped -%}
+<div class="shapeless-icon" data-minetip-title="Shapeless Recipe" tabindex="0">
+    <img src="/img/wiki-crafting-shapeless.png" alt="Shapeless Recipe" width="39" height="31"/>
+</div>
+{%- endunless -%}
+<div class="invslot invslot-large">
+{%- itemstack item=include.result count=include.count alt_prefix="Result: " large=true -%}
+</div>
+</article>

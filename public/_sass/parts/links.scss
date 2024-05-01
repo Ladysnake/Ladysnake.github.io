@@ -1,0 +1,27 @@
+/* We need to handle transitions from both dark mode and hover
+   They both have different durations, which is basically impossible to handle with a regular transition
+   So instead, we transition a custom property which is then used as as a progress parameter in a color-mix transition */
+@property --anchor-hover {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+a {
+  text-decoration: none;
+  --anchor-hover: 0%;
+  transition: --anchor-hover 0.3s, background-color 0.3s;
+  // manual multi-transition
+  color: color-mix(in srgb, var(--anchor-color), var(--anchor-hover-color) var(--anchor-hover));
+
+  &:hover, &:focus {
+    --anchor-hover: 100%;
+    text-decoration: underline;
+  }
+}
+
+.settings-link {
+  margin-left: 1em;
+  padding-left: 0.5em;
+  border-left: 1px solid var(--accent-text-color);
+}

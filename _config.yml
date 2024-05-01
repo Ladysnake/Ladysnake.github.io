@@ -1,8 +1,12 @@
 title: Ladysnake's Website
+source: ./public
+plugins_dir: ./jekyll_plugins
 markdown: kramdown
 sass:
     style: compressed
-exclude: [README.md, servesite, servesite.bat, flake.nix, flake.lock, gemset.nix]
+exclude: []
+keep_files:
+    - scripts/sprinkles
 # note that the source attribute is hardcoded by github pages
 collections:
     mods:
@@ -31,6 +35,12 @@ defaults:
         values:
             mod_name: Requiem
             mod_slug: requiem
+    -
+        scope:
+            path: "wiki/cardinal-components-api"
+        values:
+            mod_name: Cardinal Components API
+            mod_slug: cardinal-components-api
 
 responsive_image:
     template: _includes/responsive_image.liquid

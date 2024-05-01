@@ -1,0 +1,39 @@
+.table-striped {
+	& > tbody {
+		& > tr:nth-of-type(odd) {
+			background-color: #f9f9f9;
+			@include darkMode {
+				background-color: #2f2f2f;
+			}
+		}
+	}
+}
+
+.table {
+	& > tbody {
+		& > tr {
+			& > td.input-cell {
+				padding: 0;
+			}
+		}
+	}
+}
+
+.table-buttons {
+	width: 12rem;
+}
+
+.table-bordered {
+	& > thead,
+	& > tbody,
+	& > tfoot {
+		& > tr {
+			& > th,
+			& > td {
+				@include darkMode {
+					border-color: #333;
+				}
+			}
+		}
+	}
+}

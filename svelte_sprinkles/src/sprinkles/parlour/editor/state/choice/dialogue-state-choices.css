@@ -1,0 +1,129 @@
+@supports (grid-template-columns: subgrid) {
+    .dialogue-choice-editor {
+        & table {
+            display: grid;
+            grid-template-columns: [start text-start] 1fr [text-end next-start] max-content [next-end advanced-start] max-content [advanced-end sort-start sort-up-start] max-content [sort-up-end] max-content [sort-end remove-start] max-content [remove-end];
+            column-gap: 0.5em;
+            border: 1px solid var(--accent-background-color);
+            border-radius: 0.5em;
+        }
+
+        & thead {
+            display: grid;
+            grid-template-columns: subgrid;
+            grid-column: start / end;
+        }
+
+        & tbody {
+            display: grid;
+            grid-template-columns: subgrid;
+            grid-column: start / end;
+            counter-reset: choice-nb;
+
+            & tr {
+                position: relative;
+                counter-increment: choice-nb;
+
+                &::before {
+                    content: '#' counter(choice-nb);
+                    position: absolute;
+                    width: 2em;
+                    height: 100%;
+                    left: -2.3em;
+                    background-color: var(--base-background-color);
+                    color: var(--button-outline);
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: end;
+                    font-family: monospace;
+                }
+            }
+        }
+
+        & tr {
+            display: grid;
+            grid-template-columns: subgrid;
+            grid-column: start / end;
+            padding: 0.2em;
+        }
+
+        & tbody tr:nth-of-type(2n + 1) {
+            background-color: var(--accent-background-color);
+        }
+
+        & td, & th {
+            display: flex;
+            align-items: stretch;
+            align-content: stretch;
+            justify-content: center;
+            min-width: 5em;
+        }
+
+        & th {
+            padding: 0.5em;
+        }
+
+        & .col-text {
+            grid-column: text-start / text-end;
+        }
+
+        & .col-next {
+            grid-column: next-start / next-end;
+        }
+
+        & .col-next {
+            grid-column: next-start / next-end;
+        }
+
+        & .col-advanced {
+            grid-column: advanced-start / advanced-end;
+
+            & .table-input:hover, & .table-input:focus-visible {
+                background-color: var(--color-blue);
+                color: var(--bright-text-color);
+            }
+        }
+
+        & .col-sort {
+            grid-column: sort-start / sort-end;
+            gap: 0.2em;
+
+            & .table-input:hover, & .table-input:focus-visible {
+                background-color: var(--color-purple);
+                color: var(--bright-text-color);
+            }
+
+            & .table-input:disabled {
+                display: none;
+            }
+        }
+
+        & td:hover, & td:focus-within {
+            text-decoration: underline;
+        }
+
+        & .table-input {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            border-radius: 0.5em;
+            border: 1px solid transparent;
+
+            &:hover {
+                border-color: var(--base-text-color);
+            }
+        }
+
+        & .col-remove {
+            grid-column: remove-start / remove-end;
+
+            & .table-input:hover, & .table-input:focus-visible {
+                background-color: var(--color-red);
+                color: var(--bright-text-color);
+            }
+        }
+    }
+}

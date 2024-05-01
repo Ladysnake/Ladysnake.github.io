@@ -1,0 +1,219 @@
+/* Styling for Minecraft components, most of it taken from minecraft.wiki */
+
+@import "../mixins";
+
+.invslot {
+  position: relative;
+  display: inline-block;
+  background: #8B8B8B no-repeat center center / 32px 32px;
+  line-height: 1;
+  width: 2em;
+  height: 2em;
+  border: 0.125em solid;
+  border-color: #373737 #FFF #FFF #373737;
+  text-align: left;
+  vertical-align: bottom;
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    background-color: #8B8B8B;
+    height: 0.125em;
+    width: 0.125em;
+    pointer-events: none;
+  }
+
+  &::before {
+    bottom: -0.125em;
+    left: -0.125em;
+  }
+
+  &::after {
+    top: -0.125em;
+    right: -0.125em;
+  }
+}
+
+.invslot-large {
+  height: 3em;
+  width: 3em;
+  padding: 0.5em;
+}
+
+.invslot-item:hover::after, .invslot-item:focus-within::after {
+  position: absolute;
+  content: '';
+  top: 0.125em;
+  left: 0.125em;
+  width: 1.75em;
+  height: 1.75em;
+  background-color: white;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+// Ensure the focus outline does not overlap with other slots
+.invslot-item:focus-within {
+  z-index: 100;
+}
+
+.invslot-item,
+.invslot-item > a:first-child {
+  position: relative;
+  display: block;
+  margin: -0.125em;
+  padding: 0.125em;
+  width: 2em;
+  height: 2em;
+
+  img {
+    height: 100%;
+    width: 100%;
+    image-rendering: pixelated;
+  }
+}
+
+.invslot-item-image > a.new:first-child {
+  background: url(https://minecraft.wiki/images/Grid_Unknown.png?4cbf2) no-repeat content-box;
+  width: 2em;
+  height: 2em;
+  text-indent: -9999px;
+  overflow: hidden
+}
+
+.invslot-stacksize {
+  position: absolute;
+  font-size: 0.9em;
+  right: 0.1125em;
+  bottom: 0.02em;
+  font-family: Minecraft, sans-serif !important;
+  font-weight: normal !important;
+  color: #FFF !important;
+  text-shadow: 0.125em 0.125em 0 #3F3F3F;
+  filter: dropshadow(color=#3F3F3F, offx=2, offy=2);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.invslot-plain {
+  background-color: transparent;
+  border: 0;
+
+  &::before,
+  &::after {
+    content: none
+  }
+
+  & > .invslot-item,
+  & > .invslot-item > a:first-child {
+    margin: 0;
+    padding: 0
+  }
+}
+
+figure.recipes {
+  font-size: 26.5px;
+  margin-left: 0.9em;
+}
+
+.mcui {
+  user-select: none;
+  position: relative;
+  font-size: 20px;
+
+  figure & {
+    font-size: inherit;
+  }
+}
+
+.mcui-background {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: auto;
+}
+
+.mcui.crafting-table {
+  display: flex;
+  align-items: center;
+  width: 17em;
+  height: 7.48em;
+  justify-content: space-around;
+  background: center / contain no-repeat url('/img/wiki-crafting-recipe.png');
+}
+
+.crafting-grid {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: min-content min-content min-content;
+}
+
+// more specificity to override the data-minetip-title position
+.shapeless-icon, .shapeless-icon[data-minetip-title] {
+  width: 2.7em;
+  height: 2.15em;
+  left: 8.7em;
+  position: absolute;
+
+  & > img {
+    image-rendering: pixelated;
+    width: 100%;
+    height: auto;
+  }
+}
+
+[data-minetip-title] {
+  position: relative;
+}
+
+#minetip-tooltip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #100010;
+  background-color: rgba(16, 0, 16, 0.94);
+  color: white;
+  padding: 0.375em;
+  font-family: Minecraft, sans-serif;
+  font-size: 16px;
+  word-spacing: 4px;
+  white-space: nowrap;
+  line-height: 1.25em;
+  margin: 0.125em 0.25em;
+  pointer-events: none;
+  z-index: 9999
+}
+
+#minetip-tooltip::before {
+  content: "";
+  position: absolute;
+  top: 0.125em;
+  right: -0.125em;
+  bottom: 0.125em;
+  left: -0.125em;
+  border: 0.15em solid #100010;
+  border-style: none solid;
+  border-color: rgba(16, 0, 16, 0.94)
+}
+
+#minetip-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 0.125em;
+  right: 0;
+  bottom: 0.125em;
+  left: 0;
+  border: 0.125em solid #2D0A63;
+  border-image: -webkit-linear-gradient(rgba(80, 0, 255, 0.31), rgba(40, 0, 127, 0.31)) 1;
+  border-image: linear-gradient(rgba(80, 0, 255, 0.31), rgba(40, 0, 127, 0.31)) 1
+}
+
+#minetip-tooltip > .description,
+#minetip-tooltip > .minetip-description {
+  display: block;
+  margin-top: 0.25em;
+  color: #A0A0A0;
+}

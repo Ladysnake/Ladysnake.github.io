@@ -1,0 +1,54 @@
+@property --admonition-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #000;
+}
+
+.admonition {
+  border-left: 0.3em solid var(--admonition-color);
+  background: padding-box color-mix(in srgb, var(--admonition-color), transparent 90%);
+  padding: 0.5em 1em;
+}
+
+.admonition-note {
+  --admonition-color: var(--color-info);
+}
+
+.admonition-important {
+  --admonition-color: var(--color-important);
+}
+
+.admonition-warning {
+  --admonition-color: var(--color-warning);
+}
+
+.admonition.large-icon > .aligned {
+    margin-top: 0.6em;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.admonition-icon {
+  overflow: hidden; // ensures the floating ::before stays contained within this element
+  &::before {
+    float: left;
+    margin-right: 1em;
+  }
+  &.large-icon::before {
+    font-size: 200%;
+    margin-right: 0.5em;
+  }
+  &.admonition-note::before {
+    content: '💡';
+  }
+  &.admonition-warning::before {
+    content: '⚠️';
+  }
+  &.admonition-important::before {
+    content: '💬';
+  }
+}
+
+.admonition-heading {
+  color: var(--admonition-color);
+}

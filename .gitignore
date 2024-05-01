@@ -1,10 +1,10 @@
-.jekyll-cache
+**/.jekyll-cache
+**/.jekyll-metadata
 .vscode
 .idea
 .bundle
 System Volume Information/
 #bootstrap.css
 node_modules/
-package-lock.json
 currentsetting.htm
 _site/

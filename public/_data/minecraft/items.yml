@@ -1,0 +1,49 @@
+# This file contains data for Minecraft item stack rendering
+#
+# If an item ID is not present in this file, the plugin will try these steps:
+#  - If the namespace is "minecraft", it will attempt to guess Minecraft Wiki links for the icon and link
+#  - If the namespace is listed in ../mods/resource_roots, it will attempt to load data from the corresponding repository
+#  - Else, it will fall back to the MISSING item data
+MISSING:
+  name: Unknown Item
+  icon: https://minecraft.wiki/images/Missing_Texture_JE4.png?db402&format=original
+"minecraft:amethyst_block":
+  name: Block of Amethyst
+  link: https://minecraft.wiki/w/Block_of_Amethyst
+  icon: https://minecraft.wiki/images/Invicon_Block_of_Amethyst.png
+"minecraft:diamond":
+  name: Diamond
+  link: https://minecraft.wiki/w/Diamond
+  icon: https://minecraft.wiki/images/Invicon_Diamond.png
+"minecraft:gold_ingot":
+  name: Gold Ingot
+  link: https://minecraft.wiki/w/Gold_Ingot
+  icon: https://minecraft.wiki/images/Invicon_Gold_Ingot.png
+"minecraft:gunpowder":
+  name: Gunpowder
+  link: https://minecraft.wiki/w/Gunpowder
+  icon: https://minecraft.wiki/images/Invicon_Gunpowder.png
+"minecraft:iron_ingot":
+  name: Iron Ingot
+  link: https://minecraft.wiki/w/Iron_Ingot
+  icon: https://minecraft.wiki/images/Invicon_Iron_Ingot.png
+"minecraft:leather":
+  name: Leather
+  link: https://minecraft.wiki/w/Leather
+  icon: https://minecraft.wiki/images/Invicon_Leather.png
+"minecraft:popped_chorus_fruit":
+  name: Popped Chorus Fruit
+  link: https://minecraft.wiki/w/Popped_Chorus_Fruit
+  icon: https://minecraft.wiki/images/Invicon_Popped_Chorus_Fruit.png
+"minecraft:redstone":
+  name: Redstone Dust
+  link: https://minecraft.wiki/w/Redstone_Dust
+  icon: https://minecraft.wiki/images/Invicon_Redstone.png
+"minecraft:slime_ball":
+  name: Slimeball
+  link: https://minecraft.wiki/w/Slimeball
+  icon: https://minecraft.wiki/images/Invicon_Slimeball.png
+"minecraft:string":
+  name: String
+  link: https://minecraft.wiki/w/String
+  icon: https://minecraft.wiki/images/Invicon_String.png

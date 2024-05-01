@@ -1,0 +1,29 @@
+dialog::backdrop {
+  background-color: black;
+  opacity: 50%;
+}
+
+dialog {
+  background-color: var(--base-background-color);
+  color: var(--base-text-color);
+  border: none;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+.dialog-danger {
+  border: 0.5em solid var(--color-danger);
+}
+
+.dialog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.dialog-exit {
+  display: flex;
+  justify-content: end;
+  gap: 1em;
+  margin: 0 1em;
+}

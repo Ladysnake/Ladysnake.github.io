@@ -1,0 +1,51 @@
+@import '../mixins';
+
+// THIS IS GLOBAL
+html {
+	// TODO add both-edges once https://bugzilla.mozilla.org/show_bug.cgi?id=1874091 is fixed
+	// then set the desktop width on .container to calc(97.5% + 20px)
+	scrollbar-gutter: stable;
+}
+
+body {
+	font-family: "Poppins", sans-serif;
+	text-align: justify;
+	font-size: 16px;
+	line-height: 1.4;
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	color: var(--base-text-color);
+	background: var(--base-background-color);
+}
+
+:root {
+	font-size: 10px;
+}
+
+* {
+	box-sizing: border-box;
+
+	@media(prefers-reduced-motion: reduce) {
+		transition: none !important;
+		animation: none !important;
+	}
+}
+
+.container {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	flex: auto;
+	display: flex;
+	flex-direction: column;
+
+    @include desktop {
+		// Account for scrollbar width (assuming stable both-edges)
+		// Note: a typical scrollbar takes 15px
+        width: calc(97.5% + 15px);
+    }
+}
