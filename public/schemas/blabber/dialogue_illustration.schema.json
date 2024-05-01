@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ladysnake.org/schemas/blabber/dialogue_illustration.schema.json",
+  "$ref": "#/definitions/illustration",
+  "title": "Dialogue Illustration",
+  "description": "An illustration that can be referenced in dialogue states",
+  "definitions": {
+    "illustration": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/illustration_object"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/illustration"
+          },
+          "title": "Illustration Group",
+          "description": "Equivalent to {\"type\": \"blabber:group\", \"elements\": [...]}"
+        }
+      ]
+    },
+    "illustration_object": {
+      "oneOf": [
+        {
+          "title": "Item Illustration",
+          "properties": {
+            "type": {
+              "const": "blabber:item"
+            },
+            "item": {
+              "$ref": "/schemas/minecraft/itemstack.schema.json"
+            }
+          },
+          "required": ["type", "item"]
+        },
+        {
+          "title": "Entity Illustration",
+          "properties": {
+            "type": {
+              "const": "blabber:entity"
+            },
+            "entity": {
+              "$ref": "/schemas/minecraft/entity_selector.schema.json"
+            }
+          },
+          "required": ["type", "entity"]
+        },
+        {
+          "title": "Fake Entity Illustration",
+          "properties": {
+            "type": {
+              "const": "blabber:fake_entity"
+            },
+            "id": {
+              "$ref": "/schemas/minecraft/entity_selector.schema.json"
+            }
+          },
+          "required": ["type", "entity"]
+        },
+        {
+          "title": "Illustration Composition",
+          "properties": {
+            "type": {
+              "const": "blabber:group"
+            },
+            "elements": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/illustration"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

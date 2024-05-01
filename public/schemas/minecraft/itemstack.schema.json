@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ladysnake.org/schemas/minecraft/itemstack.schema.json",
+  "title": "Item Stack",
+  "oneOf": [
+    {
+      "$ref": "/schemas/minecraft/itemstack_v1.schema.json"
+    },
+    {
+      "$ref": "/schemas/minecraft/itemstack_v2.schema.json"
+    }
+  ]
+}

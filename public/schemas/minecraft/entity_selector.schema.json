@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ladysnake.org/schemas/minecraft/entity_selector.schema.json",
+  "title": "Entity Selector",
+  "type": "string",
+  "pattern": "^@\\w+(\\[(\\w+=.*)(,\\w+=.*)*\\])?$"
+}
