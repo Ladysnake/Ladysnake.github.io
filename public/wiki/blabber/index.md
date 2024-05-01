@@ -140,27 +140,44 @@ text (which is notably useful to keep up with localization shifting those around
 
 There are currently 3 types of illustrations, plus the group type:
 
-- `blabber:item`: renders an item stack with optional NBT. Properties:
-  - `item` (type: [`item stack`](https://minecraft.wiki/w/Item_format)): the data for the item to render
-  - `x` (type: `integer`): the `X` coordinate for rendering the stack on the screen
-  - `y` (type: `integer`): the `Y` coordinate for rendering the stack on the screen
-  - `show_tooltip` (type: `boolean`, optional): if set to `true`, will render the item tooltip when the illustration is hovered in the dialogue screen
-- `blabber:entity`: renders an entity taken from the player's world, in a frame similar to the inventory's player rendering. Properties:
-  - `entity` (type: `string`): an entity selector (compatible with [`@interlocutor`](#interlocutors)). If this selector finds nothing at the time the dialogue starts, the illustration will not be drawn.
-  - `x1` (type: `integer`): the `X` coordinate of the frame's upper left corner
-  - `y1` (type: `integer`): the `Y` coordinate of the frame's upper left corner
-  - `x2` (type: `integer`): the `Y` coordinate of the frame's lower right corner
-  - `y2` (type: `integer`): the `Y` coordinate of the frame's lower right corner
-  - `size` (type: `integer`, optional): the scaling factor for the entity (`1` is the default size)
-  - `y_offset` (type: `decimal number`): how far down the entity should be pushed within the frame
-  - `stare_at_x` (type: `integer`, optional): the `X` coordinate, relative to the frame's center, towards which the entity should look. If left unspecified, the entity's stare will horizontally follow the player's cursor.
-  - `stare_at_y` (type: `integer`, optional): the `Y` coordinate, relative to the frame's center, towards which the entity should look. If left unspecified, the entity's stare will vertically follow the player's cursor.
-  - {:.admonition.admonition-warning.admonition-icon}The backport of Blabber for Minecraft 1.20.1 does not support cropping the entity nor pushing it down in the frame.
-- `blabber:fake_entity`: just like `blabber:entity`, but renders a fake entity of the desired type, with optional NBT. Properties:
-  - `id` (type: `string`): the ID for the entity's type (e.g. `minecraft:villager`)
-  - `data` (type: `object`, optional): NBT data to apply to the rendered entity
-  - `x1`, `y1`, `x2`, `y2`, `size`, `y_offset`, `stare_at_x`, `stare_at_y`: refer to the documentation for `blabber:entity`
-- `blabber:group`: groups several illustrations together. This type can be nested as desired.
+{% capture summary %}<h5 id="illustration-types" class="no_anchor">Illustration Types</h5>{% endcapture %}
+{% capture illustration_types %}
+###### Item (`blabber:item`)
+
+Renders an item stack with optional NBT. Properties:
+- `item` (type: [`item stack`](https://minecraft.wiki/w/Item_format)): the data for the item to render
+- `x` (type: `integer`): the `X` coordinate for rendering the stack on the screen
+- `y` (type: `integer`): the `Y` coordinate for rendering the stack on the screen
+- `show_tooltip` (type: `boolean`, optional): if set to `true`, will render the item tooltip when the illustration is hovered in the dialogue screen
+
+###### Entity (`blabber:entity`)
+
+Renders an entity taken from the player's world, in a frame similar to the inventory's player rendering. Properties:
+- `entity` (type: `string`): an entity selector (compatible with [`@interlocutor`](#interlocutors)). If this selector finds nothing at the time the dialogue starts, the illustration will not be drawn.
+- `x1` (type: `integer`): the `X` coordinate of the frame's upper left corner
+- `y1` (type: `integer`): the `Y` coordinate of the frame's upper left corner
+- `x2` (type: `integer`): the `Y` coordinate of the frame's lower right corner
+- `y2` (type: `integer`): the `Y` coordinate of the frame's lower right corner
+- `size` (type: `integer`, optional): the scaling factor for the entity (`1` is the default size)
+- `y_offset` (type: `decimal number`): how far down the entity should be pushed within the frame
+- `stare_at_x` (type: `integer`, optional): the `X` coordinate, relative to the frame's center, towards which the entity should look. If left unspecified, the entity's stare will horizontally follow the player's cursor.
+- `stare_at_y` (type: `integer`, optional): the `Y` coordinate, relative to the frame's center, towards which the entity should look. If left unspecified, the entity's stare will vertically follow the player's cursor.
+- {:.admonition.admonition-warning.admonition-icon}The backport of Blabber for Minecraft 1.20.1 does not support cropping the entity nor pushing it down in the frame.
+
+###### Fake Entity (`blabber:fake_entity`)
+
+Just like `blabber:entity`, but renders a fake entity of the desired type, with optional NBT. Properties:
+- `id` (type: `string`): the ID for the entity's type (e.g. `minecraft:villager`)
+- `data` (type: `object`, optional): NBT data to apply to the rendered entity
+- `x1`, `y1`, `x2`, `y2`, `size`, `y_offset`, `stare_at_x`, `stare_at_y`: refer to the documentation for `blabber:entity`
+
+###### Composition (`blabber:group`)
+
+Groups several illustrations together. This type can be nested as desired. Properties:
+- `items` (type: `array`): an array of illustrations that get grouped together
+
+{% endcapture %}
+{% include details.liquid summary=summary content=illustration_types %}
 
 Here is the JSON object used to create the "conversation" in the above screenshot:
 
