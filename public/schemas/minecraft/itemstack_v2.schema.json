@@ -6,8 +6,7 @@
     "id": {
       "title": "Registry Identifier",
       "description": "The type of item stored in the stack",
-      "type": "string",
-      "pattern": "^([a-z_-]+:[a-z_/-]+)"
+      "$ref": "https://ladysnake.org/schemas/minecraft/resource_location.schema.json"
     },
     "count": {
       "description": "The number of items contained in the stack",

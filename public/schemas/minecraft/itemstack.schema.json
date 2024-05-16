@@ -4,10 +4,10 @@
   "title": "Item Stack",
   "oneOf": [
     {
-      "$ref": "/schemas/minecraft/itemstack_v1.schema.json"
+      "$ref": "https://ladysnake.org/schemas/minecraft/itemstack_v1.schema.json"
     },
     {
-      "$ref": "/schemas/minecraft/itemstack_v2.schema.json"
+      "$ref": "https://ladysnake.org/schemas/minecraft/itemstack_v2.schema.json"
     }
   ]
 }

@@ -106,7 +106,7 @@
       "type": "object",
       "description": "Available illustrations in dialogue states",
       "additionalProperties": {
-        "$ref": "/schemas/blabber/dialogue_illustration.schema.json"
+        "$ref": "https://ladysnake.org/schemas/blabber/dialogue_illustration.schema.json"
       }
     }
   },

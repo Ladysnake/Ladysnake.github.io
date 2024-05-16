@@ -1,19 +1,19 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ladysnake.org/schemas/blabber/dialogue_illustration.schema.json",
-  "$ref": "#/definitions/illustration",
+  "$ref": "#/$defs/illustration",
   "title": "Dialogue Illustration",
   "description": "An illustration that can be referenced in dialogue states",
-  "definitions": {
+  "$defs": {
     "illustration": {
       "anyOf": [
         {
-          "$ref": "#/definitions/illustration_object"
+          "$ref": "#/$defs/illustration_object"
         },
         {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/illustration"
+            "$ref": "#/$defs/illustration"
           },
           "title": "Illustration Group",
           "description": "Equivalent to {\"type\": \"blabber:group\", \"elements\": [...]}"
@@ -29,7 +29,7 @@
               "const": "blabber:item"
             },
             "item": {
-              "$ref": "/schemas/minecraft/itemstack.schema.json"
+              "$ref": "https://ladysnake.org/schemas/minecraft/itemstack.schema.json"
             }
           },
           "required": ["type", "item"]
@@ -41,7 +41,7 @@
               "const": "blabber:entity"
             },
             "entity": {
-              "$ref": "/schemas/minecraft/entity_selector.schema.json"
+              "$ref": "https://ladysnake.org/schemas/minecraft/entity_selector.schema.json"
             }
           },
           "required": ["type", "entity"]
@@ -53,10 +53,10 @@
               "const": "blabber:fake_entity"
             },
             "id": {
-              "$ref": "/schemas/minecraft/entity_selector.schema.json"
+              "$ref": "https://ladysnake.org/schemas/minecraft/entity_selector.schema.json"
             }
           },
-          "required": ["type", "entity"]
+          "required": ["type", "id"]
         },
         {
           "title": "Illustration Composition",
@@ -67,10 +67,11 @@
             "elements": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/illustration"
+                "$ref": "#/$defs/illustration"
               }
             }
-          }
+          },
+          "required": ["type", "elements"]
         }
       ]
     }

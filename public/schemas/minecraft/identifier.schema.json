@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ladysnake.org/schemas/minecraft/resource_location.schema.json",
+  "title": "Identifier",
+  "type": "string",
+  "pattern": "^([a-z_-]+:[a-z_/-]+)"
+}
