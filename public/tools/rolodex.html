@@ -1,0 +1,41 @@
+---
+layout: default
+no_anchor_headings: true
+title: Minecraft Rolodex
+og:
+desc: Online tool to fetch Minecraft player profile information
+---
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/tools">Tools</a></li>
+    <li class="breadcrumb-item active">Rolodex</li>
+  </ol>
+</nav>
+
+<h1>Minecraft Rolodex</h1>
+
+<p><em>Note: this page only makes requests from your browser to <a href="https://playerdb.co">PlayerDB</a>,
+nothing you look up here is ever seen by us.</em></p>
+
+<noscript>
+  <p>
+    Sorry, this page requires Javascript to function. Here's a few options for you:
+  </p>
+
+  <ul>
+    <li><a href="https://www.whatismybrowser.com/guides/how-to-enable-javascript/auto">Try enabling Javascript on your
+      browser</a></li>
+    <li>Make direct requests from one of these APIs:
+      <ul>
+        <li>Official Mojang session API: <code>https://sessionserver.mojang.com/session/minecraft/profile/&lt;uuid&gt;</code></li>
+        <li>PlayerDB: <code>https://playerdb.co/api/player/minecraft/&lt;uuid or username&gt;</code></li>
+      </ul>
+    </li>
+  </ul>
+</noscript>
+
+<div id="rolodex"></div>
+<link rel="stylesheet" href="/scripts/sprinkles/rolodex.css"/>
+<script src="/scripts/sprinkles/rolodex.js" type="module"></script>

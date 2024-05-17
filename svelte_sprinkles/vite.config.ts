@@ -30,6 +30,7 @@ export default defineConfig(() => ({
         'darkmode-toggle': './src/sprinkles/darkmode/main.ts',
         'better-details': './src/sprinkles/details/main.ts',
         'ladysnake-settings': './src/sprinkles/settings/main.ts',
+        'rolodex': './src/sprinkles/rolodex/main.ts',
       },
       output: {
         entryFileNames: `[name].js`,
