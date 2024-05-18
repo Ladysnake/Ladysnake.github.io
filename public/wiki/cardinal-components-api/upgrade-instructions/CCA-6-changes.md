@@ -9,9 +9,6 @@ With networking and item NBT being completely redone, Cardinal Components API ha
 
 This page details the main changes in the 6.0.0 update, and how to deal with them.
 
-Note that the 6.0.0 update is not completely done yet, and therefore this page may be amended before the full release.
-{:.admonition.admonition-warning.admonition-icon.large-icon}
-
 This page is using Yarn mappings. The corresponding Quilt mappings are added as [footnotes](#quilt-mappings-equivalents) when they differ.
 {:.admonition.admonition-important.admonition-icon}
 
@@ -119,6 +116,12 @@ As such, this interface only works when implemented on a component that is attac
 ## Changes to the Scoreboard module
 
 - Scoreboard and team components now support [client ticking](../ticking)
+
+## Other Changes
+
+- Component registration now occurs at the same time every mod is initialized by Fabric/Quilt Loader.
+  This is not expected to have any significant side effect beside possibly triggering some other object registrations slightly earlier,
+  for mods that perform registration at class init.
 
 ---
 
