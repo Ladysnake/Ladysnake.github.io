@@ -6,8 +6,11 @@ layout: cca_wiki
 
 There are several ways of getting Cardinal Components into your workspace,
 most involving just a few lines in your Gradle buildscript (`build.gradle` file).
-To minimize user inconvenience, it is also recommended to use the [Jar-in-Jar](https://fabricmc.net/wiki/tutorial:loader04x#nested_jars)
-mechanism provided by the Fabric toolchain to include Cardinal Components in your own builds, eliminating the need for manual install.
+To minimize user inconvenience, you can use the [Jar-in-Jar](https://fabricmc.net/wiki/tutorial:loader04x#nested_jars)
+mechanism provided by the Fabric toolchain to include Cardinal Components in your own builds,
+eliminating the need for manual install at the cost of inflated modpack size.
+
+*The following instructions are for versions 6.0 and up. For previous versions, refer to [the table below](#previous-maven-coordinates).*
 
 Unless specified otherwise, the following block must be added to your `build.gradle` **after** the relevant `repositories` block:
 
@@ -69,6 +72,16 @@ dependencies {
 }
 ```
 {% endbuildscript %}
+
+### Previous maven coordinates
+
+| CCA Version | Minecraft version | Maven Group                                   | Additional notes            |
+|-------------|-------------------|-----------------------------------------------|-----------------------------|
+| 1.0         | 1.14              | com.github.NerdHubMC                          | Single artifact (no module) |
+| 2.0         | 1.14.3            | com.github.NerdHubMC.Cardinal-Components-API  | First modularized version   |
+| 2.4.0       | 1.16              | io.github.onyxstudios.Cardinal-Components-API |                             |
+| 4.1.0       | 1.18              | dev.onyxstudios.cardinal-components-api       | Lowercased group            |
+| 6.0.0       | 1.20.5            | org.ladysnake.cardinal-components-api         |                             |
 
 ## Ladysnake Reposilite
 
