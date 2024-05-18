@@ -75,13 +75,14 @@ dependencies {
 
 ### Previous maven coordinates
 
-| CCA Version | Minecraft version | Maven Group                                   | Additional notes            |
-|-------------|-------------------|-----------------------------------------------|-----------------------------|
-| 1.0         | 1.14              | com.github.NerdHubMC                          | Single artifact (no module) |
-| 2.0         | 1.14.3            | com.github.NerdHubMC.Cardinal-Components-API  | First modularized version   |
-| 2.4.0       | 1.16              | io.github.onyxstudios.Cardinal-Components-API |                             |
-| 4.1.0       | 1.18              | dev.onyxstudios.cardinal-components-api       | Lowercased group            |
-| 6.0.0       | 1.20.5            | org.ladysnake.cardinal-components-api         |                             |
+| CCA Version | MC Version | Maven Group                                   | Additional notes            |
+|-------------|------------|-----------------------------------------------|-----------------------------|
+| 1.0         | 1.14       | com.github.NerdHubMC                          | Single artifact (no module) |
+| 2.0         | 1.14.3     | com.github.NerdHubMC.Cardinal-Components-API  | First modularized version   |
+| 2.4.0       | 1.16       | io.github.onyxstudios.Cardinal-Components-API |                             |
+| 4.1.0       | 1.18       | dev.onyxstudios.cardinal-components-api       | Lowercased group            |
+| 6.0.0       | 1.20.5     | org.ladysnake.cardinal-components-api         |                             |
+{:.table-striped.table-figure}
 
 ## Ladysnake Reposilite
 
