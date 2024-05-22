@@ -41,6 +41,10 @@
     {/if}
   </ol>
 </nav>
+<div class="admonition admonition-warning">
+    <strong class="admonition-heading">🚧 This page is still under construction!</strong>
+    <span>Illustrations (added in Blabber 1.5) are not yet available in this editor.</span>
+</div>
 <main>
   {#if (!$dialogueFilename)}
     <Landing/>

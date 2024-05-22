@@ -37,6 +37,8 @@ Blabber adds the `/blabber` command, allowing server operators and mapmakers to 
         - `<dialogue>` : the unique identifier for the dialogue
         - `[<targets>]` (optional) : If specified, must be either a player's username or a target selector. If unspecified, defaults to the player using the command. When used in a command block, `[<targets>]` is not optional.
         - `[<interlocutor>]` (optional) : If specified, must be a target selector for a single entity. If unspecified, defaults to no interlocutor.
+    - `/blabber settings set <setting> <true|false>` : Toggles a debug setting.
+      - `<setting>` : the name of a [debug setting](#debug-modes) - currently, the only possible value is `debug.anchors`.
 
 ### Format
 
@@ -135,41 +137,95 @@ bring them to life 🧑‍🎨
 ![Example of illustrations, featuring a player talking to an illager](example-illustrations.png){:.rounded.wiki}
 
 Illustrations can be set for a regular dialogue state, or for individual choices within a state.
-In the former case they are positioned relative to the window, in the latter they are positioned relative to the choice's
-text (which is notably useful to keep up with localization shifting those around).
 
-There are currently 3 types of illustrations, plus the group type:
+This feature is still experimental - the JSON format and mod API are subject to evolve in future versions.
+{:.admonition.admonition-warning.admonition-icon}
+
+{% capture summary %}<h5 id="positioning-illustrations" class="no_anchor">Positioning Illustrations</h5>{% endcapture %}
+{% capture positioning_illustrations %}
+Illustrations are positioned on the screen by setting their `x` and `y` coordinates, in "logical pixels".
+By default, **coordinates start at `(0, 0)` in the top-left corner** of the screen, and *increase towards the bottom-right corner* of the screen.
+
+"Logical pixels" are Minecraft's way of dealing with screen resolution and GUI scales.
+They are only loosely related to the actual size of your screen, the main factors being the ratio of your game's window and your GUI scale option.
+When adding illustrations to a dialogue, you should try setting the GUI Scale option to "Auto" and resizing the game window in various ways to confirm that your dialogue
+displays decently on other devices.
+{:.admonition.admonition-important.admonition-icon}
+
+To help you position your illustrations, Blabber provides several *anchors* other than the window's top-left corner.
+When using a specific anchor, coordinates are translated such that `(0, 0)` is the position of the anchor itself.
+
+Available anchors are currently as follows:
+
+- Generic anchors: When using these anchors, general illustrations are positioned relative to a point of the window,
+  while illustrations attached to specific choices are positioned relative to the choice's
+  text (which is notably useful to keep up with localization shifting those around).
+  - `top_left` (the default)
+  - `top_right`
+  - `bottom_left`
+  - `bottom_right`
+  - `center`
+- Specific anchors: the position of these anchors is dictated by the [layout](#layout). Some layouts may not support them at all.
+  - `before_main_text`: matches the top-left corner of the main textbox for a given layout.
+  - `spot_1`, `spot_2`: arbitrary positions that are considered "good spots" for an illustration in the current layout.
+    The exact position of these spots for each default layout is not yet set in stone - feedback welcome.
+
+To better visualize the position of each anchor, you can enable the [relevant debug mode](#debug-modes).
+
+{% endcapture %}
+{% include details.liquid summary=summary content=positioning_illustrations %}
 
 {% capture summary %}<h5 id="illustration-types" class="no_anchor">Illustration Types</h5>{% endcapture %}
 {% capture illustration_types %}
+There are currently 3 types of illustrations, plus the group type:
+
 ###### Item (`blabber:item`)
 
-Renders an item stack with optional NBT. Properties:
+Renders an item stack with optional NBT, as if within an inventory slot. Properties:
 - `item` (type: [`item stack`](https://minecraft.wiki/w/Item_format)): the data for the item to render
-- `x` (type: `integer`): the `X` coordinate for rendering the stack on the screen
-- `y` (type: `integer`): the `Y` coordinate for rendering the stack on the screen
+- `anchor` (type: `IllustrationAnchor`): the point of the screen relative to which the `x` and `y` coordinates are computed. By default, will be the top-left corner of the screen.
+- `x` (type: `integer`): the `X` coordinate of the top-left corner for the drawn item
+- `y` (type: `integer`): the `Y` coordinate of the top-left corner for the drawn item
+- `scale` (type: `float`, optional): the size of the rendered item will be multiplied by this amount. By default, the item will be drawn at the same size as within an inventory slot.
 - `show_tooltip` (type: `boolean`, optional): if set to `true`, will render the item tooltip when the illustration is hovered in the dialogue screen
 
 ###### Entity (`blabber:entity`)
 
 Renders an entity taken from the player's world, in a frame similar to the inventory's player rendering. Properties:
 - `entity` (type: `string`): an entity selector (compatible with [`@interlocutor`](#interlocutors)). If this selector finds nothing at the time the dialogue starts, the illustration will not be drawn.
-- `x1` (type: `integer`): the `X` coordinate of the frame's upper left corner
-- `y1` (type: `integer`): the `Y` coordinate of the frame's upper left corner
-- `x2` (type: `integer`): the `Y` coordinate of the frame's lower right corner
-- `y2` (type: `integer`): the `Y` coordinate of the frame's lower right corner
-- `size` (type: `integer`, optional): the scaling factor for the entity (`1` is the default size)
+- `anchor` (type: `IllustrationAnchor`): the point of the screen relative to which the `x` and `y` coordinates are computed. By default, will be the top-left corner of the screen.
+- `x` (type: `integer`): the `X` coordinate of the frame's upper left corner
+- `y` (type: `integer`): the `Y` coordinate of the frame's upper left corner
+- `width` (type: `integer`): the width of the frame, in logical pixels
+- `height` (type: `integer`): the height of the frame, in logical pixels
+- `entity_size` (type: `integer`): the size of the entity within the frame (values should stay within the ballpark of the frame's width/height)
 - `y_offset` (type: `decimal number`): how far down the entity should be pushed within the frame
-- `stare_at_x` (type: `integer`, optional): the `X` coordinate, relative to the frame's center, towards which the entity should look. If left unspecified, the entity's stare will horizontally follow the player's cursor.
-- `stare_at_y` (type: `integer`, optional): the `Y` coordinate, relative to the frame's center, towards which the entity should look. If left unspecified, the entity's stare will vertically follow the player's cursor.
-- {:.admonition.admonition-warning.admonition-icon}The backport of Blabber for Minecraft 1.20.1 does not support cropping the entity nor pushing it down in the frame.
+- `stare_at` (type: `object`)
+  - `anchor` (type: `IllustrationAnchor`, optional): the point of the screen relative to which the `x` and `y` coordinates are computed. If left unspecified, will be the entity frame's center.
+  - `x` (type: `integer`, optional): the `X` coordinate, relative to the `anchor`, towards which the entity should look. If left unspecified, the entity's stare will horizontally follow the player's cursor.
+  - `y` (type: `integer`, optional): the `Y` coordinate, relative to the `anchor`, towards which the entity should look. If left unspecified, the entity's stare will vertically follow the player's cursor.
 
 ###### Fake Entity (`blabber:fake_entity`)
 
 Just like `blabber:entity`, but renders a fake entity of the desired type, with optional NBT. Properties:
 - `id` (type: `string`): the ID for the entity's type (e.g. `minecraft:villager`)
 - `data` (type: `object`, optional): NBT data to apply to the rendered entity
-- `x1`, `y1`, `x2`, `y2`, `size`, `y_offset`, `stare_at_x`, `stare_at_y`: refer to the documentation for `blabber:entity`
+- `anchor`, `x`, `y`, `width`, `height`, `entity_size`, `y_offset`, `stare_at`: refer to the documentation for `blabber:entity`
+
+###### Fake Player (`blabber:fake_player`)
+
+Just like `blabber:entity`, but renders a fake player with the desired profile, with optional NBT. Properties:
+- `profile` (type: `object`): the full profile of the player. You can get it using [this tool](/tools/rolodex).
+  - `id` (type: `string`): the UUID of the player, without dashes
+  - `name` (type: `string`): the name of the player - does not have to match the real player's name
+  - `properties` (type: `array`): additional properties, most relevant of which is the encoded player skin and the associated signature.
+    **Blabber will not be able to render the right skin without a valid value here.**
+- `data` (type: `object`, optional): NBT data to apply to the rendered entity
+- `model_customization` (type: `object`): options for the player model
+  - `main_hand` (type: `string`, optional): set to `"left"` to render the fake player as left-handed. Defaults to `"right"`.
+  - `visible_parts` (type: `array`, optional): a list that can contain the values `"cape"`, `"jacket"` `"left_sleeve"`, `"right_sleeve"`, `"left_pants_leg"`, `"right_pants_leg"`, and `"hat"`.
+    Parts that are *not* in this list will be hidden. By default, all parts are visible.
+- `anchor`, `x`, `y`, `width`, `height`, `entity_size`, `y_offset`, `stare_at`: refer to the documentation for `blabber:entity`
 
 ###### Composition (`blabber:group`)
 
@@ -386,10 +442,22 @@ The validation process checks for the following issues and reports them by eithe
 **Errors:**
 - **States with no choices:** Every non-end state must have at least one choice leading out of it. If any state has no choices defined, an error will be thrown.
 - **Softlock states:** Every state must have a path leading to an ending (no infinite loops). If any state is lacking a path to an end state, an error will be thrown.
+- **Nonexistent illustrations:** Illustrations must be defined in the appropriate section before getting referenced in a state. If any state is referencing an inexistant illustration, an error will be thrown.
+- **Invalid illustrated states:** Only regular dialogue states are allowed to have illustrations. If any confirmation or end state is using illustrations, an error will be thrown.
 
 **Warnings:**
 - **Conditional softlock states:** Any state that only has *conditional* paths leading to an ending will be reported. Blabber cannot tell whether a condition will necessarily be fulfilled when getting to such a state, and thus cannot prove that the player *will not* be softlocked.
 - **Unreachable states:** Any state that is disconnected from the main dialogue graph will be reported with a warning message. While they do not cause immediate issues for players, you may want to connect or remove such orphan states.
+
+### Debug Modes
+
+Blabber ships with a debug feature for dialogue screens, which can be enabled using the [`/blabber settings` command](#commands).
+Currently, the only debug mode available is `debug.anchors`, which displays the position of anchors, as well as the position of the cursor
+relative to each anchor.
+
+<figure>
+<img src="debug-anchors.png" alt="Debug Anchors Mode"/>
+</figure>
 
 ## Mod Compatibility
 
@@ -561,10 +629,14 @@ The two most relevant methods are as follow:
 
 #### Custom layouts
 
-It is possible to register your own custom layout with its completely custom screen by calling `BlabberScreenRegistry#register`
-in your client entrypoint. The API is however marked unstable, as the layout system is susceptible to being refactored to allow arbitrary data being passed to the screen
-(contributions welcome).
+It is possible to register your own custom layout with its completely custom screen by calling both `Blabber#registerLayout` in your main entrypoint and
+`BlabberScreenRegistry#register` in your client entrypoint. The API is currently marked as experimental, so some refactors may happen in future updates.
+
+#### Custom illustrations
+
+It is possible to register entirely custom illustrations by calling both `Blabber#registerIllustration` in your main entrypoint and
+`DialogueIllustrationRenderer#register` in your client entrypoint. The API is currently marked as experimental, so some refactors may happen in future updates.
 
 ### JSON Schema
 
-The schema for Blabber dialogue files is available here: [dialogue.schema.json](../../schemas/blabber/dialogue.schema.json)
+The schema for Blabber dialogue files is available here: [dialogue.schema.json](/schemas/blabber/dialogue.schema.json)
