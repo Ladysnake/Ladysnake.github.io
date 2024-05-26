@@ -6,7 +6,7 @@ curse_project: 556381
 modrinth: true
 ---
 
-**Effective**  is a client-side Fabric mod that adds  various visual and auditory effects lacking in Vanilla Minecraft 
+**Effective**  is a client-side Quilt mod that adds  various visual and auditory effects lacking in Vanilla Minecraft 
 to improve overall ambience and feel of the game.
 Currently, it adds water  and lava splashes to entities falling in liquids, as well as cascade
 visual and sound effects.
