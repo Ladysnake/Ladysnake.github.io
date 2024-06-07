@@ -115,6 +115,9 @@ on the screen just fine in languages like English, they may take up too much spa
 (this also applies to the classic layout, though to a lesser degree).
 {:.admonition.admonition-important.admonition-icon}
 
+Starting in version 1.6.0, layouts can take additional parameters to customize their render.
+Currently (1.6.0), the only supported parameter is `main_text_margins` on the `blabber:rpg` layout.
+
 The JSON looks like this (goes at the top level, replace `"blabber:classic"` with `"blabber:rpg"` for the alternative look):
 
 {% capture summary %}<h5 id="simple-layout-json" class="no_anchor">Simple layout JSON</h5>{% endcapture %}
@@ -123,6 +126,25 @@ The JSON looks like this (goes at the top level, replace `"blabber:classic"` wit
 {
   "layout": {
     "type": "blabber:classic"
+  }
+}
+```
+{% endcapture %}
+{% include details.liquid summary=summary content=example_json %}
+{% capture summary %}<h5 id="parameterized-layout-json" class="no_anchor">Parameterized layout JSON</h5>{% endcapture %}
+{% capture example_json %}
+```json
+{
+  "layout": {
+    "type": "blabber:rpg",
+    "params": {
+      "main_text_margins": {
+        "left": 52,
+        "right": -4,
+        "top": 10,
+        "bottom": 5
+      }
+    }
   }
 }
 ```
@@ -186,7 +208,7 @@ Renders an item stack with optional NBT, as if within an inventory slot. Propert
 - `anchor` (type: `IllustrationAnchor`): the point of the screen relative to which the `x` and `y` coordinates are computed. By default, will be the top-left corner of the screen.
 - `x` (type: `integer`): the `X` coordinate of the top-left corner for the drawn item
 - `y` (type: `integer`): the `Y` coordinate of the top-left corner for the drawn item
-- `scale` (type: `float`, optional): the size of the rendered item will be multiplied by this amount. By default, the item will be drawn at the same size as within an inventory slot.
+- `scale` (type: `float`, optional) <span class="badge badge-secondary">&gt;1.6.0</span>: the size of the rendered item will be multiplied by this amount. By default, the item will be drawn at the same size as within an inventory slot.
 - `show_tooltip` (type: `boolean`, optional): if set to `true`, will render the item tooltip when the illustration is hovered in the dialogue screen
 
 ###### Entity (`blabber:entity`)
@@ -212,7 +234,7 @@ Just like `blabber:entity`, but renders a fake entity of the desired type, with 
 - `data` (type: `object`, optional): NBT data to apply to the rendered entity
 - `anchor`, `x`, `y`, `width`, `height`, `entity_size`, `y_offset`, `stare_at`: refer to the documentation for `blabber:entity`
 
-###### Fake Player (`blabber:fake_player`)
+###### Fake Player (`blabber:fake_player`) <span class="badge badge-secondary">&gt;1.6.0</span>
 
 Just like `blabber:entity`, but renders a fake player with the desired profile, with optional NBT. Properties:
 - `profile` (type: `object`): the full profile of the player. You can get it using [this tool](/tools/rolodex).
@@ -226,6 +248,25 @@ Just like `blabber:entity`, but renders a fake player with the desired profile, 
   - `visible_parts` (type: `array`, optional): a list that can contain the values `"cape"`, `"jacket"` `"left_sleeve"`, `"right_sleeve"`, `"left_pants_leg"`, `"right_pants_leg"`, and `"hat"`.
     Parts that are *not* in this list will be hidden. By default, all parts are visible.
 - `anchor`, `x`, `y`, `width`, `height`, `entity_size`, `y_offset`, `stare_at`: refer to the documentation for `blabber:entity`
+
+###### Texture (`blabber:texture`) <span class="badge badge-secondary">&gt;1.6.0</span>
+
+Renders a rectangular texture or an area thereof. The texture can come from the base game, a mod, or a resourcepack that clients have installed.
+Textures may be animated using a `pack.mcmeta` file. Properties:
+- `texture` (type: `string`): the ID of the texture in the format `<namespace>:<path>`, where `<path>` is the path of the PNG image relative to the `assets` directory (extension included)
+- `anchor` (type: `IllustrationAnchor`): the point of the screen relative to which the `x` and `y` coordinates are computed. By default, will be the top-left corner of the screen.
+- `x` (type: `integer`): the `X` coordinate of the drawn area's upper left corner
+- `y` (type: `integer`): the `Y` coordinate of the drawn area's upper left corner
+- `width` (type: `integer`): the width of the drawn area, in logical pixels
+- `height` (type: `integer`): the height of the drawn area, in logical pixels
+
+The following properties are optional and allow you to draw a specific region of a texture file:
+- `u` (type: `integer`, optional): the `X` coordinate of the upper left corner in the texture file, in real pixels (defaults to 0)
+- `v` (type: `integer`, optional): the `Y` coordinate of the upper left corner in the texture file, in real pixels (defaults to 0)
+- `textureWidth` (type: `integer`, optional): the actual width of the texture file, in real pixels (defaults to `width`)
+- `textureHeight` (type: `integer`, optional): the actual height of the texture file, in real pixels (defaults to `height`)
+- `regionWidth` (type: `integer`, optional): the width of the region to draw from the file, in real pixels (defaults to `width`)
+- `regionHeight` (type: `integer`, optional): the height of the region to draw from the file, in real pixels (defaults to `height`)
 
 ###### Composition (`blabber:group`)
 
