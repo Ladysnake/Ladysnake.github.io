@@ -8,6 +8,7 @@
 </script>
 <script lang="ts">
   import type {PlayerDbResponse} from "./PlayerDbResponse.js";
+  import {darkModeEnabled} from "../../lib/darkMode";
 
   let uuidOrUsername: string = '';
   let log: string = '';
@@ -35,7 +36,7 @@
           icon: playerData.avatar,
           username: playerData.username,
           uuid: playerData.id,
-          // We can't fetch from that, CORS won't allow us - best we can do is display a link
+          // We can't fetch from that, CORS won't allow us - best we can do is display a link and an iframe
           mojangDataUrl: `https://sessionserver.mojang.com/session/minecraft/profile/${playerData.id}?unsigned=false`,
         }
         window.history.replaceState(playerInfo, '');
@@ -69,7 +70,7 @@
   <fieldset disabled={loading}>
     <label>
       UUID or Username
-      <input type="text" bind:value={uuidOrUsername}/>
+      <input type="text" bind:value={uuidOrUsername} autocomplete="off"/>
     </label>
     <input type="submit"/><br/>
     <output>{log}</output>
@@ -84,7 +85,15 @@
   </span>
   </h2>
   <p><span class="uuid-label">UUID: </span><code>{playerInfo.uuid}</code></p>
-  <p><a href={playerInfo.mojangDataUrl}>Get the full JSON serialized form for Blabber's illustrations</a></p>
+  <p><a href={playerInfo.mojangDataUrl}>JSON GameProfile for Blabber's illustrations:</a></p>
+
+  <iframe
+    class:dark={$darkModeEnabled}
+    src="{playerInfo.mojangDataUrl}"
+    title="Game Profile data from Mojang"
+    width="800"
+    height="320">
+  </iframe>
 {/if}
 
 <style>
@@ -102,5 +111,18 @@
 
   .uuid-label {
     font-weight: bold;
+  }
+
+  iframe {
+    background: white;
+    width: 100%;
+    border: 1px solid black;
+  }
+
+  /* Firefox shows JSON in white theme by default - other browsers do whatever */
+  @supports (-moz-appearance:none) {
+    iframe.dark {
+      filter: invert();
+    }
   }
 </style>
