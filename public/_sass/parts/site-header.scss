@@ -87,6 +87,11 @@
   }
 }
 
+label[for=mod-download-dropdown-toggle] {
+  font-weight: normal;
+  margin: 0;
+}
+
 #header-mobile-nav-toggle {
   @extend .styled-checkbox;
   display: none;
