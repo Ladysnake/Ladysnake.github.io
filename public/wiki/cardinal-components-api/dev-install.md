@@ -4,15 +4,15 @@ breadcrumb: Dev Installation
 layout: cca_wiki
 ---
 
-There are several ways of getting Cardinal Components into your workspace,
-most involving just a few lines in your Gradle buildscript (`build.gradle` file).
-To minimize user inconvenience, you can use the [Jar-in-Jar](https://fabricmc.net/wiki/tutorial:loader04x#nested_jars)
-mechanism provided by the Fabric toolchain to include Cardinal Components in your own builds,
-eliminating the need for manual install at the cost of inflated modpack size.
+Getting Cardinal Components into your workspace is a matter of adding a few lines in your Gradle buildscript (`build.gradle` file).
+Once you get to publishing your mod, you have two options:
 
-*The following instructions are for versions 6.0 and up. For previous versions, refer to [the table below](#previous-maven-coordinates).*
+1. Have users install the library from a mod distribution platform like [Modrinth](https://modrinth.com/mod/cardinal-components-api).
+   Most launchers can install it automatically if you correctly declare the dependency when publishing your mod.
+2. Include the library in your own builds using the [Jar-in-Jar](https://fabricmc.net/wiki/tutorial:loader04x#nested_jars)
+   mechanism provided by the Fabric toolchain. This eliminates the need for manual install, at the cost of inflated modpack size when several mods bundle it at once.
 
-Unless specified otherwise, the following block must be added to your `build.gradle` **after** the relevant `repositories` block:
+*The following instructions are valid for versions 4.1 and up. For previous versions, refer to [the table below](#previous-maven-coordinates).*
 
 {% buildscript [cca:K01OU20C] %}
 [- groovy -]
@@ -23,11 +23,19 @@ cca_version = <VERSION>
 
 `build.gradle`:
 ```gradle
+repositories {
+    maven {
+        name = "Ladysnake Mods"
+        url = 'https://maven.ladysnake.org/releases'
+    }
+}
+
 dependencies {
     // Replace modImplementation with modApi if you expose components in your own API
     modImplementation "<MAVEN_GROUP>.cardinal-components-api:cardinal-components-base:${project.cca_version}"
     modImplementation "<MAVEN_GROUP>.cardinal-components-api:cardinal-components-<MODULE>:${project.cca_version}"
-    // Includes Cardinal Components API as a Jar-in-Jar dependency (optional but recommended)
+    // Copy the following only if you want to bundle Cardinal Components API as a Jar-in-Jar dependency
+    // (otherwise, you should configure the dependency on Modrinth/Curseforge)
     include "<MAVEN_GROUP>.cardinal-components-api:cardinal-components-base:${project.cca_version}"
     include "<MAVEN_GROUP>.cardinal-components-api:cardinal-components-<MODULE>:${project.cca_version}"
 }
@@ -41,12 +49,20 @@ cca_version = <VERSION>
 
 `build.gradle.kts`:
 ```kotlin
+repositories {
+    maven {
+        name = "Ladysnake Mods"
+        url = "https://maven.ladysnake.org/releases"
+    }
+}
+
 dependencies {
     val ccaVersion = property("cca_version") as String
     // Replace modImplementation with modApi if you expose components in your own API
     modImplementation("<MAVEN_GROUP>.cardinal-components-api:cardinal-components-base:$ccaVersion")
     modImplementation("<MAVEN_GROUP>.cardinal-components-api:cardinal-components-<MODULE>:$ccaVersion")
-    // Includes Cardinal Components API as a Jar-in-Jar dependency (optional but recommended)
+    // Copy the following only if you want to bundle Cardinal Components API as a Jar-in-Jar dependency
+    // (otherwise, you should configure the dependency on Modrinth/Curseforge)
     include("<MAVEN_GROUP>.cardinal-components-api:cardinal-components-base:$ccaVersion")
     include("<MAVEN_GROUP>.cardinal-components-api:cardinal-components-<MODULE>:$ccaVersion")
 }
@@ -68,10 +84,18 @@ cca = [ "cca-base", "cca-<MODULE>" ]
 
 `build.gradle` or `build.gradle.kts`:
 ```kotlin
+repositories {
+    maven {
+        name = "Ladysnake Mods"
+        url = "https://maven.ladysnake.org/releases"
+    }
+}
+
 dependencies {
     // Replace modImplementation with modApi if you expose components in your own API
     modImplementation(libs.bundles.cca)
-    // Includes Cardinal Components API as a Jar-in-Jar dependency (optional but recommended)
+    // Copy the following only if you want to bundle Cardinal Components API as a Jar-in-Jar dependency
+    // (otherwise, you should configure the dependency on Modrinth/Curseforge)
     include(libs.bundles.cca)
 }
 ```
