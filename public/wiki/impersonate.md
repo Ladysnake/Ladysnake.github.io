@@ -51,15 +51,22 @@ If you are a developer, you can use Impersonate as a library for your own projec
 
 {%- buildscript [impersonate:xBZuWXoj], [cca:K01OU20C] -%}
 [- groovy -]
+`gradle.properties`
+```properties
+# Impersonate
+impersonate_version = <IMPERSONATE_VERSION>
+# Fabric Permissions API
+fpa_version = 0.2-SNAPSHOT
+# Cardinal Components
+cca_version = <CCA_VERSION>
+```
+
+`build.gradle`
 ```gradle
 repositories {
 	maven { 
         name = "Ladysnake Mods"
         url = "https://maven.ladysnake.org/releases"
-        content {
-            includeGroupByRegex 'org\\.ladysnake.*'
-            includeGroupByRegex 'io\\.github\\.onyxstudios.*'
-        }
     }
     maven {
         name = "Nexus Repository Manager"
@@ -72,13 +79,13 @@ dependencies {
     include "org.ladysnake:impersonate:${impersonate_version}"
     // Impersonate dependencies
     include "me.lucko:fabric-permissions-api:${fpa_version}"
-    include "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${cca_version}"
-    include "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${cca_version}"
+    include "<CCA_MAVEN_GROUP>.cardinal-components-api:cardinal-components-base:${cca_version}"
+    include "<CCA_MAVEN_GROUP>.cardinal-components-api:cardinal-components-entity:${cca_version}"
 }
 ```
 
-You can then add the library version to your `gradle.properties`file:
-
+[- kts -]
+`gradle.properties`
 ```properties
 # Impersonate
 impersonate_version = <IMPERSONATE_VERSION>
@@ -88,12 +95,67 @@ fpa_version = 0.2-SNAPSHOT
 cca_version = <CCA_VERSION>
 ```
 
-[- kts -]
-{% include wip.liquid message="*For now, take a look at the groovy build.gradle tab*" %}
+`build.gradle.kts`
+```gradle
+repositories {
+	maven {
+        name = "Ladysnake Mods"
+        url = "https://maven.ladysnake.org/releases"
+    }
+    maven {
+        name = "Nexus Repository Manager"
+        url = 'https://oss.sonatype.org/content/repositories/snapshots'
+    }
+}
+
+dependencies {
+    modImplementation("org.ladysnake:impersonate:${impersonate_version}")
+    include("org.ladysnake:impersonate:${impersonate_version}")
+    // Impersonate dependencies
+    include("me.lucko:fabric-permissions-api:${fpa_version}")
+    include("<CCA_MAVEN_GROUP>.cardinal-components-api:cardinal-components-base:${cca_version}")
+    include("<CCA_MAVEN_GROUP>.cardinal-components-api:cardinal-components-entity:${cca_version}")
+}
+```
 
 [- catalogue -]
-{% include wip.liquid message="*For now, take a look at the groovy build.gradle tab*" %}
+`libs.versions.toml`:
+```toml
+[versions]
+impersonate = '<IMPERSONATE_VERSION>'
+cardinalComponentsApi = '<CCA_VERSION>'
+fabricPermissionsApi = '0.2-SNAPSHOT'
 
+[libraries]
+cca-base = { module = "<CCA_MAVEN_GROUP>.cardinal-components-api:cardinal-components-base", version.ref = "cardinalComponentsApi" }
+cca-entity = { module = "<CCA_MAVEN_GROUP>.cardinal-components-api:cardinal-components-entity", version.ref = "cardinalComponentsApi" }
+fpa = { module = "me.lucko:fabric-permissions-api", version.ref = "fabricPermissionsApi" }
+impersonate = { module = "org.ladysnake:impersonate", version.ref = "impersonate" }
+
+[bundles]
+impersonate = [ "cca-base", "cca-entity", "fpa", "impersonate" ]
+```
+
+`build.gradle` or `build.gradle.kts`:
+```kotlin
+repositories {
+    maven {
+        name = "Ladysnake Mods"
+        url = "https://maven.ladysnake.org/releases"
+    }
+    maven {
+        name = "Nexus Repository Manager"
+        url = "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+}
+
+dependencies {
+    // Replace modImplementation with modApi if you expose Impersonate's interfaces in your own API
+    modImplementation(libs.bundles.impersonate)
+    // Includes Impersonate and its dependencies as a Jar-in-Jar dependency (optional but recommended)
+    include(libs.bundles.impersonate)
+}
+```
 {% endbuildscript %}
 
 You can find the current version of Impersonate in the [releases](https://github.com/Ladysnake/Impersonate/releases) tab of the repository on Github,

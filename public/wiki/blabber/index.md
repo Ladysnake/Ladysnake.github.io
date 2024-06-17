@@ -524,12 +524,12 @@ video.
 
 ## Using Blabber (for developers)
 
-If you are a developer, you can use Blabber as a library for your own project by inserting the following in your `build.gradle` :
+If you are a developer, you can use Blabber as a library for your own project by inserting the following in your buildscript :
 
-You can then add the library version to your `gradle.properties`file:
-
-{%- buildscript %}
+{%- buildscript [blabber:2oRMVFgd], [cca:K01OU20C] %}
 [- groovy -]
+Add the library version to your `gradle.properties`file:
+
 `gradle.properties`:
 ```properties
 # Blabber
@@ -546,11 +546,6 @@ repositories {
     maven { 
         name = "Ladysnake Mods"
         url = "https://maven.ladysnake.org/releases"
-        content {
-            includeGroup 'io.github.ladysnake'
-            includeGroup 'org.ladysnake'
-            includeGroupByRegex 'dev\\.onyxstudios.*'
-        }
     }
     maven {
         name = "Nexus Repository Manager"
@@ -563,12 +558,14 @@ dependencies {
     include "org.ladysnake:blabber:${blabber_version}"
     // Blabber dependencies
     include "me.lucko:fabric-permissions-api:${fpa_version}"
-    include "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cca_version}"
-    include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}"
+    include "<CCA_MAVEN_GROUP>.cardinal-components-api:cardinal-components-base:${cca_version}"
+    include "<CCA_MAVEN_GROUP>.cardinal-components-api:cardinal-components-entity:${cca_version}"
 }
 ```
 
 [- kts -]
+Add the library version to your `gradle.properties`file:
+
 `gradle.properties`:
 ```properties
 # Blabber
@@ -585,11 +582,6 @@ repositories {
     maven {
         name = "Ladysnake Mods"
         url = "https://maven.ladysnake.org/releases"
-        content {
-            includeGroup("io.github.ladysnake")
-            includeGroup("org.ladysnake")
-            includeGroupByRegex("""dev\.onyxstudios.*""")
-        }
     }
     maven {
         name = "Nexus Repository Manager"
@@ -605,12 +597,14 @@ dependencies {
     include("org.ladysnake:blabber:${blabber_version}")
     // Blabber dependencies
     include("me.lucko:fabric-permissions-api:${fpa_version}")
-    include("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cca_version}")
-    include("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}")
+    include("<CCA_MAVEN_GROUP>.cardinal-components-api:cardinal-components-base:${cca_version}")
+    include("<CCA_MAVEN_GROUP>.cardinal-components-api:cardinal-components-entity:${cca_version}")
 }
 ```
 
 [- catalogue -]
+Add the library to your `libs.versions.toml`file:
+
 `libs.versions.toml`:
 ```toml
 [versions]
@@ -619,8 +613,8 @@ cardinalComponentsApi = '<CCA_VERSION>'
 fabricPermissionsApi = '0.2-SNAPSHOT'
 
 [libraries]
-cca-base = { module = "dev.onyxstudios.cardinal-components-api:cardinal-components-base", version.ref = "cardinalComponentsApi" }
-cca-entity = { module = "dev.onyxstudios.cardinal-components-api:cardinal-components-entity", version.ref = "cardinalComponentsApi" }
+cca-base = { module = "<CCA_MAVEN_GROUP>.cardinal-components-api:cardinal-components-base", version.ref = "cardinalComponentsApi" }
+cca-entity = { module = "<CCA_MAVEN_GROUP>.cardinal-components-api:cardinal-components-entity", version.ref = "cardinalComponentsApi" }
 fpa = { module = "me.lucko:fabric-permissions-api", version.ref = "fabricPermissionsApi" }
 blabber = { module = "org.ladysnake:blabber", version.ref = "blabber" }
 
@@ -634,11 +628,6 @@ repositories {
     maven {
         name = "Ladysnake Mods"
         url = "https://maven.ladysnake.org/releases"
-        content {
-            includeGroup("io.github.ladysnake")
-            includeGroup("org.ladysnake")
-            includeGroupByRegex("""dev.onyxstudios.*""")
-        }
     }
     maven {
         name = "Nexus Repository Manager"

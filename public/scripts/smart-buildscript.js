@@ -22,9 +22,10 @@ function pickDefaultVersion(versions) {
 /**
  *
  * @param {[ModRef, Map<string, {mcVersion: McVersion, modVersions: ModVersion[]}>][]} projectVersions an array of pairs of mod name to available versions
+ * @param {string|undefined} primaryMod
  * @return {Map<string, McIndexedVersion>}
  */
-function indexVersions(projectVersions) {
+function indexVersions(projectVersions, primaryMod) {
     /** @type {Map<string, McIndexedVersion>} */
     const result = new Map();
     for (const [mod, versions] of projectVersions) {
@@ -36,7 +37,7 @@ function indexVersions(projectVersions) {
             result.get(mcVersionId).modVersions.set(mod, modVersions);
         }
     }
-    return new Map([...result].sort(compareMcVersions));
+    return new Map([...result].filter(([_, v]) => primaryMod == null || v.modVersions.has(primaryMod)).sort(compareMcVersions));
 }
 
 function doReplaceVersion(modName, version = 'VERSION') {
@@ -59,11 +60,12 @@ function doReplaceCcaModule(module) {
 
 /**
  * @param {string} modName
- * @param {string} modVersion
+ * @param {string|undefined} modVersion
  * @returns {string}
  */
 function getMavenGroup(modName, modVersion) {
     if (modName === 'cca') {
+        if (modVersion == null) return 'io.github.onyxstudios';
         const major = modVersion.split('.')[0];
         if (major < 4) {
             return '`see table below`';
@@ -124,9 +126,10 @@ function updateVersionSelects(projectVersions, mods) {
 
 /**
  * @param {Record<string, string>} modrinthProjectIds
+ * @param {boolean|undefined} showAllVersions if false, only the MC version relevant to the first mod in modrinthProjectIds will be displayed
  * @returns {Promise<void>}
  */
-export async function setUpSmartBuildscript(modrinthProjectIds) {
+export async function setUpSmartBuildscript(modrinthProjectIds, showAllVersions) {
     for (let controls of document.getElementsByClassName('smart-buildscript-controls')) {
         controls.hidden = null;
         for (let radio of controls.querySelectorAll('input[name=cca-module-picker]')) {
@@ -139,7 +142,7 @@ export async function setUpSmartBuildscript(modrinthProjectIds) {
             ([mod, modrinthProjectId]) =>
                 getVersions(modrinthProjectId).then((v) => [mod, v])
         )
-    ));
+    ), showAllVersions ? undefined : mods[0]);
 
     for (const versionSelect of document.getElementsByClassName('mc-version-select')) {
         versionSelect.addEventListener('change', () => {

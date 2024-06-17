@@ -30,7 +30,7 @@
     <option>Loading...</option>
 </select>
 </fieldset>
-{% if include.mods['cca'] %}
+{% if include.mods['cca'] and include.mods.size == 1 %}
 <fieldset class="smart-buildscript-controls" hidden="hidden">
     <legend>Select a module:</legend>
     <label>
@@ -62,7 +62,7 @@
 {% endif %}
 <script type="module">
 import {setUpSmartBuildscript} from "/scripts/smart-buildscript.js";
-setUpSmartBuildscript({ {% for mod in mods %}{{ mod[0] }}: '{{ mod[1] }}'{% unless forloop.last %}, {% endunless %}{% endfor %} });
+setUpSmartBuildscript({ {% for mod in mods %}{{ mod[0] }}: '{{ mod[1] }}'{% unless forloop.last %}, {% endunless %}{% endfor %} }, {{ include.show_all_versions }});
 </script>
 {% endif %}
 {{ result }}

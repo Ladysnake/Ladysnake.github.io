@@ -40,7 +40,7 @@ trinkets_version = <TRINKETS_VERSION>
 ```
 {% endcapture %}
 
-{%- buildscript
+{%- buildscript show_all_versions
     [blabber:2oRMVFgd],
     [cca:K01OU20C],
     [cloth:9s6osm5g],
