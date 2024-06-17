@@ -121,7 +121,7 @@
 {% if page.modrinth %}
     <!-- Mod downloading dropdown, (almost) direct from our site! -->
     <script type="module">
-        import { mountModDownloads } from "/scripts/mod-download.js";
+        import { mountModDownloads } from "/scripts/sprinkles/versions.js";
         mountModDownloads('{{ page.slug }}', `{% include svg/download-icon.svg %}`);
     </script>
 {% endif %}

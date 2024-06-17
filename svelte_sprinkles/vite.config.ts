@@ -25,12 +25,14 @@ export default defineConfig(() => ({
     emptyOutDir: true,
     copyPublicDir: false,
     rollupOptions: {
+      preserveEntrySignatures: 'allow-extension',
       input: {
         'blabber-parlour': './src/sprinkles/parlour/main.ts',
         'darkmode-toggle': './src/sprinkles/darkmode/main.ts',
         'better-details': './src/sprinkles/details/main.ts',
         'ladysnake-settings': './src/sprinkles/settings/main.ts',
         'rolodex': './src/sprinkles/rolodex/main.ts',
+        'versions': './src/sprinkles/versions/main.ts',
       },
       output: {
         entryFileNames: `[name].js`,
