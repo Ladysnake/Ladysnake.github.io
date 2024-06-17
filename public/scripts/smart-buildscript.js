@@ -39,9 +39,39 @@ function indexVersions(projectVersions) {
     return new Map([...result].sort(compareMcVersions));
 }
 
-function doReplace(modName, version = 'VERSION') {
+function doReplaceVersion(modName, version = 'VERSION') {
     for (const e of document.getElementsByClassName(`mod-version-${modName}`)) {
         e.innerText = version;
+    }
+}
+
+function doReplaceMavenGroup(modName, mavenGroup = 'MAVEN_GROUP') {
+    for (const e of document.getElementsByClassName(`maven-group-${modName}`)) {
+        e.innerText = mavenGroup;
+    }
+}
+
+function doReplaceCcaModule(module) {
+    for (const e of document.getElementsByClassName(`cca-module-template`)) {
+        e.innerText = module;
+    }
+}
+
+/**
+ * @param {string} modName
+ * @param {string} modVersion
+ * @returns {string}
+ */
+function getMavenGroup(modName, modVersion) {
+    if (modName === 'cca') {
+        const major = modVersion.split('.')[0];
+        if (major < 4) {
+            return '`see table below`';
+        } else if (major < 6) {
+            return 'dev.onyxstudios';
+        } else {
+            return 'org.ladysnake';
+        }
     }
 }
 
@@ -60,7 +90,9 @@ function selectVersion(version, mods, pin) {
 
     // replace the version in the buildscript
     for (const modName of mods) {
-        doReplace(modName, version.modVersions.get(modName)?.filter((v) => v.loaders.includes('fabric') || v.loaders.includes('quilt'))?.[0]?.version ?? `<${modName.toLocaleUpperCase()}_VERSION>`);
+        const modVersion = version.modVersions.get(modName)?.filter((v) => v.loaders.includes('fabric') || v.loaders.includes('quilt'))?.[0]?.version;
+        doReplaceVersion(modName, modVersion ?? `<${modName.toLocaleUpperCase()}_VERSION>`);
+        doReplaceMavenGroup(modName, getMavenGroup(modName, modVersion));
     }
 }
 
@@ -95,6 +127,12 @@ function updateVersionSelects(projectVersions, mods) {
  * @returns {Promise<void>}
  */
 export async function setUpSmartBuildscript(modrinthProjectIds) {
+    for (let controls of document.getElementsByClassName('smart-buildscript-controls')) {
+        controls.hidden = null;
+        for (let radio of controls.querySelectorAll('input[name=cca-module-picker]')) {
+            radio.addEventListener('change', e => radio.checked && doReplaceCcaModule(radio.value))
+        }
+    }
     const mods = Object.keys(modrinthProjectIds);
     const projectVersions = indexVersions(await Promise.all(
         Object.entries(modrinthProjectIds).map(

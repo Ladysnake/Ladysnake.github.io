@@ -25,9 +25,11 @@ cca_version = <VERSION>
 ```gradle
 dependencies {
     // Replace modImplementation with modApi if you expose components in your own API
-    modImplementation "org.ladysnake.cardinal-components-api:<MODULE>:${project.cca_version}"
+    modImplementation "<MAVEN_GROUP>.cardinal-components-api:cardinal-components-base:${project.cca_version}"
+    modImplementation "<MAVEN_GROUP>.cardinal-components-api:cardinal-components-<MODULE>:${project.cca_version}"
     // Includes Cardinal Components API as a Jar-in-Jar dependency (optional but recommended)
-    include "org.ladysnake.cardinal-components-api:<MODULE>:${project.cca_version}"
+    include "<MAVEN_GROUP>.cardinal-components-api:cardinal-components-base:${project.cca_version}"
+    include "<MAVEN_GROUP>.cardinal-components-api:cardinal-components-<MODULE>:${project.cca_version}"
 }
 ```
 
@@ -42,9 +44,11 @@ cca_version = <VERSION>
 dependencies {
     val ccaVersion = property("cca_version") as String
     // Replace modImplementation with modApi if you expose components in your own API
-    modImplementation("org.ladysnake.cardinal-components-api:<MODULE>:$ccaVersion")
+    modImplementation("<MAVEN_GROUP>.cardinal-components-api:cardinal-components-base:$ccaVersion")
+    modImplementation("<MAVEN_GROUP>.cardinal-components-api:cardinal-components-<MODULE>:$ccaVersion")
     // Includes Cardinal Components API as a Jar-in-Jar dependency (optional but recommended)
-    include("org.ladysnake.cardinal-components-api:<MODULE>:$ccaVersion")
+    include("<MAVEN_GROUP>.cardinal-components-api:cardinal-components-base:$ccaVersion")
+    include("<MAVEN_GROUP>.cardinal-components-api:cardinal-components-<MODULE>:$ccaVersion")
 }
 ```
 
@@ -55,8 +59,8 @@ dependencies {
 cca = '<VERSION>'
 
 [libraries]
-cca-base = { module = "org.ladysnake.cardinal-components-api:cardinal-components-base", version.ref = "cca" }
-cca-<MODULE> = { module = "org.ladysnake.cardinal-components-api:<MODULE>", version.ref = "cca" }
+cca-base = { module = "<MAVEN_GROUP>.cardinal-components-api:cardinal-components-base", version.ref = "cca" }
+cca-<MODULE> = { module = "<MAVEN_GROUP>.cardinal-components-api:cardinal-components-<MODULE>", version.ref = "cca" }
 
 [bundles]
 cca = [ "cca-base", "cca-<MODULE>" ]

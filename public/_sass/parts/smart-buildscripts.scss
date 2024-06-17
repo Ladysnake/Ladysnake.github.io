@@ -1,0 +1,14 @@
+.smart-buildscript-controls {
+  border: none;
+  display: flex;
+  gap: 1em;
+
+  legend {
+    font-weight: bold;
+    padding: 0;
+  }
+
+  legend ~ label {
+    font-weight: normal;
+  }
+}

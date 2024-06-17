@@ -16,16 +16,50 @@
 {%- comment -%}Render tabs and version selector{%- endcomment -%}
 {% for mod in include.mods %}
 {%- capture result %}
-{%- capture replacement_key %}&lt;{% if include.mods.size > 1 %}{{ mod[0] | upcase }}_{% endif %}VERSION&gt;{% endcapture %}
-{%- capture replacement %}<span class="mod-version-{{ mod[0] }}">{{ replacement_key }}</span>{% endcapture %}
-{{ result | replace: replacement_key, replacement }}
+{%- capture version_replacement_key %}&lt;{% if include.mods.size > 1 %}{{ mod[0] | upcase }}_{% endif %}VERSION&gt;{% endcapture %}
+{%- capture version_replacement %}<span class="mod-version-{{ mod[0] }}">{{ version_replacement_key }}</span>{% endcapture %}
+{%- capture maven_group_replacement_key %}&lt;{% if include.mods.size > 1 %}{{ mod[0] | upcase }}_{% endif %}MAVEN_GROUP&gt;{% endcapture %}
+{%- capture maven_group_replacement %}<span class="maven-group-{{ mod[0] }}">org.ladysnake</span>{% endcapture %}
+{{ result | replace: version_replacement_key, version_replacement | replace: maven_group_replacement_key, maven_group_replacement }}
 {%- endcapture %}
 {% endfor %}
 {% if include.mods %}
+<fieldset class="smart-buildscript-controls" hidden="hidden">
 <label for="select-mcversion">Select a Minecraft Version:</label>
 <select id="select-mcversion" class="mc-version-select" name="select-mcversion" disabled>
     <option>Loading...</option>
 </select>
+</fieldset>
+{% if include.mods['cca'] %}
+<fieldset class="smart-buildscript-controls" hidden="hidden">
+    <legend>Select a module:</legend>
+    <label>
+        Entity
+        <input type="radio" name="cca-module-picker" value="entity">
+    </label>
+    <label>
+        World
+        <input type="radio" name="cca-module-picker" value="world">
+    </label>
+    <label>
+        Scoreboard
+        <input type="radio" name="cca-module-picker" value="scoreboard">
+    </label>
+    <label>
+        Chunk
+        <input type="radio" name="cca-module-picker" value="chunk">
+    </label>
+    <label>
+        Block
+        <input type="radio" name="cca-module-picker" value="block">
+    </label>
+    <label>
+        Unspecified
+        <input type="radio" checked name="cca-module-picker" value="<MODULE>">
+    </label>
+</fieldset>
+{% capture result %}{{ result | replace: '&lt;MODULE&gt;', '<span class="cca-module-template">&lt;MODULE&gt;</span>' }}{% endcapture %}
+{% endif %}
 <script type="module">
 import {setUpSmartBuildscript} from "/scripts/smart-buildscript.js";
 setUpSmartBuildscript({ {% for mod in mods %}{{ mod[0] }}: '{{ mod[1] }}'{% unless forloop.last %}, {% endunless %}{% endfor %} });
