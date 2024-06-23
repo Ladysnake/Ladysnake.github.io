@@ -521,6 +521,17 @@ video.
 <figcaption>Text animator with Blabber demo (warning: movement and color flashes)</figcaption>
 </figure>
 
+### Taterzens
+
+The [Taterzens](https://modrinth.com/mod/taterzens) mod can be used to create NPCs that can trigger Blabber dialogues when interacted with.
+
+## FAQ
+
+**Q: (Neo)Forge?**
+
+A: I do not wish to spend development time supporting Forge.
+However, on 1.20.1, you can use the [Sinytra Connector](https://modrinth.com/mod/connector) mod to make Blabber run regardless.
+If you are a mod developer who wishes to provide support for another loader, you can get in touch with us on our Discord server.
 
 ## Using Blabber (for developers)
 
