@@ -531,7 +531,7 @@ The [Taterzens](https://modrinth.com/mod/taterzens) mod can be used to create NP
 
 A: I do not wish to spend development time supporting Forge.
 However, on 1.20.1, you can use the [Sinytra Connector](https://modrinth.com/mod/connector) mod to make Blabber run regardless.
-If you are a mod developer who wishes to provide support for another loader, you can get in touch with us on our Discord server.
+If you are a mod developer who wishes to provide support for another loader, you can get in touch with us on our [Discord server](https://discord.ladysnake.org).
 
 ## Using Blabber (for developers)
 
