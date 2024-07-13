@@ -1,4 +1,4 @@
-import {ConfigEnv, defineConfig, UserConfig} from 'vite'
+import {defineConfig, UserConfig} from 'vite'
 import {svelte} from '@sveltejs/vite-plugin-svelte'
 import {inlineSvg} from "@svelte-put/preprocess-inline-svg/vite";
 

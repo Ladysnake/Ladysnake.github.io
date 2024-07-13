@@ -172,6 +172,17 @@ label[for=mod-download-dropdown-toggle] {
   }
 }
 
+.ladysnake-logo-small {
+  content: linear-gradient(var(--base-text-color), var(--base-text-color));
+  color: transparent; // prevent the alt from showing
+  mask-image: url('/img/ladysnake-icon-light.png');
+  @include darkMode {
+    mask-image: url('/img/ladysnake-icon-dark.png');
+  }
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
 #ladysnake_logo {
   grid-area: logo;
   justify-self: left;

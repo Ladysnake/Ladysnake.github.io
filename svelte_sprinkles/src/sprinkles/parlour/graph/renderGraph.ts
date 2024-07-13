@@ -1,5 +1,5 @@
 import {dialogueData, dialogueStart} from "../dialogueDataStore";
-import type {DataSetEdges, DataSetNodes, Network, Node} from "vis-network";
+import type {Data, DataSetEdges, DataSetNodes, Network, Node, Options} from "vis-network";
 import {darkModeEnabled} from "../../../lib/darkMode";
 import {derived} from "svelte/store";
 import BlabberDialogue, {StateType} from "../model/BlabberDialogue";
@@ -98,8 +98,8 @@ export const setupGraph: Action<HTMLElement, DynamicImports, GraphEvents> = (
       }
     }
 
-    const networkData = { nodes, edges }
-    const networkOptions = {
+    const networkData: Data = { nodes, edges }
+    const networkOptions: Options = {
       edges: {
         arrows: 'to',
       },

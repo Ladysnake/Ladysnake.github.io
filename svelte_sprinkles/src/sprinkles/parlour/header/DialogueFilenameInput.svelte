@@ -36,3 +36,18 @@
   on:beforeinput={stripHtml}
   on:blur={save}
 >{value}</span>
+
+<style>
+  span {
+    height: 100%;
+    flex: auto;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    border: 1px dotted transparent;
+    text-decoration: underline;
+  }
+  span:hover {
+    border-color: var(--accent-text-color);
+  }
+</style>

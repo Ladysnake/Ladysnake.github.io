@@ -1,0 +1,24 @@
+{% capture html %}
+<!DOCTYPE html>
+<html lang="en-US">
+{% include header.liquid %}
+<body class="uninitialized-dark-mode">
+<script>
+    // Immediately initialize dark mode
+    const darkModeSetting = localStorage.getItem("dark-mode");
+    if (darkModeSetting) {
+        if (darkModeSetting === 'true') {
+            document.body.classList.add("dark-mode");
+        } else {
+            document.body.classList.add("light-mode");
+        }
+    }
+</script>
+{{ content }}
+</body>
+</html>
+{% endcapture %}
+{% capture html %}{% include relativized_links.liquid html=html src_attr="src" tag="script" %}{% endcapture %}
+{% capture html %}{% include relativized_links.liquid html=html src_attr="src" tag="img" %}{% endcapture %}
+{% capture html %}{% include relativized_links.liquid html=html src_attr="href" tag="a" %}{% endcapture %}
+{{ html | strip }}

@@ -1,9 +1,9 @@
-dialog::backdrop {
+dialog::backdrop, article[popover]::backdrop {
   background-color: black;
   opacity: 50%;
 }
 
-dialog {
+dialog, article[popover] {
   background-color: var(--base-background-color);
   color: var(--base-text-color);
   border: none;

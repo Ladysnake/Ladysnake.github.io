@@ -6,10 +6,10 @@
   import {dialogueData, dialogueFilename} from "./dialogueDataStore";
   import BlabberDialogue from "./model/BlabberDialogue";
   import {type ComponentType, onMount} from "svelte";
-  import DialogueFilenameInput from "./DialogueFilenameInput.svelte";
   import {loadChosenTextFormat, tryCastTextFormat} from "./localStorageKeys";
   import {McTextType} from "../../lib/McText";
   import {dialogueTextFormat} from "./dialogueDataStore.js";
+  import ParlourHeader from "./header/ParlourHeader.svelte";
 
   let MainEditor: Promise<ComponentType>;
 
@@ -29,23 +29,8 @@
 </script>
 
 <svelte:window on:popstate={loadDraft}/>
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item"><a href="/wiki/blabber">Blabber</a></li>
-    <li class="breadcrumb-item active">Dialogue Editor</li>
-    {#if $dialogueFilename}
-      <li class="breadcrumb-item" aria-current="page">
-        <DialogueFilenameInput bind:value={$dialogueFilename}/>.json
-      </li>
-    {/if}
-  </ol>
-</nav>
-<div class="admonition admonition-warning">
-    <strong class="admonition-heading">🚧 This page is still under construction!</strong>
-    <span>Illustrations (added in Blabber 1.5) are not yet available in this editor.</span>
-</div>
-<main>
+<ParlourHeader/>
+<main class="container">
   {#if (!$dialogueFilename)}
     <Landing/>
   {:else}

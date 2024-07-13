@@ -1,8 +1,7 @@
 <script lang="ts">
-  import DialogueGlobalProperties from "./DialogueGlobalProperties.svelte";
   import DialogueStateList from "./DialogueStateList.svelte";
   import DialogueStateView from "./state/DialogueStateView.svelte";
-  import {dialogueData, dialogueStart, dialogueStateKeys} from "../dialogueDataStore";
+  import {dialogueData, dialogueStart} from "../dialogueDataStore";
   import {type ComponentType, onMount} from "svelte";
   import Footer from "../Footer.svelte";
 
@@ -35,7 +34,6 @@
 </script>
 
 {#if mainView}
-  <DialogueGlobalProperties/>
   <div class="wiki-container">
     <DialogueStateList bind:selectedState/>
     {#if selectedState && $dialogueData.states[selectedState]}
