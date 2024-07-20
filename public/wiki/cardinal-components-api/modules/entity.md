@@ -18,6 +18,62 @@ Instead of a specific class, you can also register a component factory with a `P
 ### Synchronization
 Entity components can be automatically synchronized from the server to the client by implementing [`AutoSyncedComponent`](https://github.com/Ladysnake/Cardinal-Components-API/blob/main/cardinal-components-base/src/main/java/org/ladysnake/cca/api/v3/component/sync/AutoSyncedComponent.java) - more information is available on [the component synchronization page](../synchronization).
 
+### Client-to-Server networking
+
+Many mods making use of synced components also need to send back messages to the server to affect the state of said components - typically in reaction to a key press or to a GUI click.
+Since version 6.0.0, these mods can use the  `C2SSelfMessagingComponent` utility interface, removing the need to create and register a custom packet type.
+
+As most use cases apply to a player component sending a message to itself, `C2SSelfMessagingComponent` is tailored for this scenario.
+As such, this interface only works when implemented on a component that is attached to a player.
+{:.admonition.admonition-important}
+
+To showcase how this interface can be used, here's the basis for a component that lets players use custom powers,
+presumably by pressing a key or using a GUI:
+
+```java
+public class MyPlayerComponent implements C2SSelfMessagingComponent, AutoSyncedComponent, ServerTickingComponent {
+    private final PlayerEntity player;
+    private List<String> powers; // String for the demo but this should store actual objects
+    private int cooldown;
+    
+    public MyPlayerComponent(PlayerEntity player) {
+        this.player = player;
+        this.powers = List.of("fire", "water", "air", "earth");
+        this.cooldown = 0;
+    }
+
+    /** Method to call clientside when a player uses a keybind or clicks in a GUI */
+    public void usePower(int chosenPower) {
+        sendC2SMessage(buf -> buf.writeVarInt(chosenPower));
+    }
+
+    @Override
+    public void handleC2SMessage(RegistryByteBuf buf) {
+        int chosenPower = buf.readVarInt();
+
+        // ALWAYS MAKE SURE TO VALIDATE THE CLIENT'S INPUT IN THIS METHOD
+        // regardless of your clientside checks, a malicious or buggy client can always send a bad packet
+
+        // Obligatory check to avoid crashing the server
+        if (chosenPower < 0 || chosenPower >= this.powers.size()) return;
+        // Arbitrary check, let's assume our powers have a cooldown to avoid spamming them
+        if (this.cooldown > 0) return;
+        // Arbitrary check, let's assume players can't use fire in water
+        if ("fire".equals(this.powers.get(chosenPower)) && this.player.isTouchingWater()) return;
+
+        player.sendMessage("Used power " + powers.get(chosenPower));
+        cooldown = 40;
+    }
+
+    // serialization and ticking methods elided for brevity
+}
+```
+
+The serverside validation part is crucial here, just like with any client-to-server packet,
+without it your mod becomes an open door for all kinds of hacks and glitches.
+In particular, your mod should **never** call `readFromNbt` from the `handleC2SMessage` method.
+{:.admonition.admonition-warning.admonition-icon}
+
 ### Ticking
 Entity components support both [server](https://github.com/Ladysnake/Cardinal-Components-API/blob/main/cardinal-components-base/src/main/java/org/ladysnake/cca/api/v3/component/tick/ServerTickingComponent.java) and [client](https://github.com/Ladysnake/Cardinal-Components-API/blob/main/cardinal-components-base/src/main/java/org/ladysnake/cca/api/v3/component/tick/ClientTickingComponent.java) ticking.
 Components get ticked right after the entity they are attached to, provided the latter gets ticked through `(Server/Client)World#tickEntity`.

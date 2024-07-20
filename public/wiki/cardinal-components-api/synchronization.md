@@ -4,7 +4,14 @@ layout: cca_wiki
 tags: ['AutoSyncedComponent']
 ---
 
-Storing data is all well and good, but sometimes you need clients to be aware of what you put there. Most often it will be for visual effects, although it can be required for various clientside behaviour like player movement. And while you can set up your own packets and callbacks to keep your players updated, Cardinal Components API offers you facilities to handle synchronization with little to no effort.
+Storing data is all well and good, but sometimes you need clients to be aware of what you put there.
+Most often it will be for visual effects, although it can be required for various clientside behaviour like player movement.
+And while you can set up your own packets and callbacks to keep your players updated,
+Cardinal Components API offers you facilities to handle synchronization with little to no effort.
+
+Trying to send an update from the client to the server? Check out the new [Client-to-Server networking API](./modules/entity#client-to-server-networking)
+in the entity module.
+{:.admonition.admonition-note.admonition-icon}
 
 ## Synchronizing a Component
 

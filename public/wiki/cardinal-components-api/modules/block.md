@@ -32,7 +32,7 @@ One could write a compound component that can be attached to any `BlockEntity` a
  
 ```java
  public interface FluidContainerCompound extends Component {
-      ComponentKey<FluidContainerCompound> KEY = ComponentRegistry.register(new Identifier("mymod:fluid_container_compound"), FluidContainerCompound.class);
+      ComponentKey<FluidContainerCompound> KEY = ComponentRegistry.register(Identifier.of("mymod:fluid_container_compound"), FluidContainerCompound.class);
 
       FluidContainer get(Direction side);
  }

@@ -70,7 +70,7 @@ For example, if you created an `IntComponent` class like in the [Implementing th
 ```java
 // retrieving a type for my component or for a required dependency's
 public static final ComponentKey<IntComponent> MAGIK = 
-        ComponentRegistry.getOrCreate(new Identifier("mymod", "magik"), IntComponent.class);
+        ComponentRegistry.getOrCreate(Identifier.of("mymod", "magik"), IntComponent.class);
 ```
 
 ### Retrieval of an existing key
@@ -81,7 +81,7 @@ The following example demonstrates retrieving a component that another mod regis
 ```java
 // retrieving a component type registered by an optional dependency
 public static final Lazy<@Nullable ComponentKey<?>> BLUE = 
-        new Lazy<>(() -> ComponentRegistry.get(new Identifier("theirmod:blue")));
+        new Lazy<>(() -> ComponentRegistry.get(Identifier.of("theirmod:blue")));
 ```
 
 ## 2) Attaching your component
