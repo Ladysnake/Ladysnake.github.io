@@ -54,35 +54,57 @@ If left unspecified, it will default to `remapJar.archiveFile`.
 
 [Modrinth](https://modrinth.com) \[`withModrinthRelease`] publishing requires the `modrinth_api_key` user-level property and the following project-level properties:
 
-| name               | required? | description                                                                                                                           |
-|--------------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------|
-| `modrinth_id`      | required  | the ID or slug of the project (the ID can be obtained in the modrinth interface by clicking the three dots in the upper right corner) |
-| `release_type`     | required  | `alpha`, `beta`, or `release`                                                                                                         |
-| `mr_requirements`  | optional  | the semicolon-separated list of Modrinth projects required by your mod                                                                |
-| `mr_optionals`     | optional  | the semicolon-separated list of Modrinth projects with which your mod has optional compatibility features                             |
-| `mr_embeddeds`     | optional  | the semicolon-separated list of Modrinth projects that are embedded (Jar-in-Jar'ed) in your mod                                       |
-| `mr_incompatibles` | optional  | the semicolon-separated list of Modrinth projects that are incompatible with your mod                                                 |
+| name                | required?  | description                                                                                                                           |
+|---------------------|------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| `modrinth_id`       | required   | the ID or slug of the project (the ID can be obtained in the modrinth interface by clicking the three dots in the upper right corner) |
+| `modrinth_versions` | required\* | the semicolon-separated list of game versions supported by your mod                                                                   |
+| `release_type`      | required   | `alpha`, `beta`, or `release`                                                                                                         |
+| `mr_requirements`   | optional   | the semicolon-separated list of Modrinth projects required by your mod                                                                |
+| `mr_optionals`      | optional   | the semicolon-separated list of Modrinth projects with which your mod has optional compatibility features                             |
+| `mr_embeddeds`      | optional   | the semicolon-separated list of Modrinth projects that are embedded (Jar-in-Jar'ed) in your mod                                       |
+| `mr_incompatibles`  | optional   | the semicolon-separated list of Modrinth projects that are incompatible with your mod                                                 |
+
+\*If `modrinth_versions` if left unspecified, it will fall back to checking `curseforge_versions` and then `minecraft_version`.
+However these properties may not actually match Modrinth's version scheme, so you are strongly encouraged to set `modrinth_versions` directly.
 
 The loader setting will be set to `fabric` **and** `quilt` if `fabric-loom` is applied, otherwise it will be set to just `quilt`.
+
+You can further customize the Modrinth publication by using the `modrinth` extension provided by the 
+[minotaur plugin](https://github.com/modrinth/minotaur), which is automatically applied when you use `withModrinthRelease`:
+```groovy
+chenille {
+  configurePublishing {
+    mainArtifact = remapStandaloneJar.archiveFile
+    withModrinthRelease()
+  }
+}
+
+modrinth {
+  // advanced configuration
+}
+```
 
 #### Curseforge
 
 [Curseforge](https://curseforge.com/) \[`withCurseforgeRelease`] publishing requires the `curseforge_api_key` user-level property and the following project-level properties:
 
-| name               | required? | description                                                                                                 |
-|--------------------|-----------|-------------------------------------------------------------------------------------------------------------|
-| `curseforge_id`    | required  | the ID of the project on Curseforge                                                                         |
-| `release_type`     | required  | `alpha`, `beta`, or `release`                                                                               |
-| `cf_requirements`  | optional  | the semicolon-separated list of Curseforge projects required by your mod                                    |
-| `cf_optionals`     | optional  | the semicolon-separated list of Curseforge projects with which your mod has optional compatibility features |
-| `cf_embeddeds`     | optional  | the semicolon-separated list of Curseforge projects that are embedded (Jar-in-Jar'ed) in your mod           |
-| `cf_incompatibles` | optional  | the semicolon-separated list of Curseforge projects that are incompatible with your mod                     |
+| name                  | required? | description                                                                                                 |
+|-----------------------|-----------|-------------------------------------------------------------------------------------------------------------|
+| `curseforge_id`       | required  | the ID of the project on Curseforge                                                                         |
+| `curseforge_versions` | required  | the semicolon-separated list of game versions supported by your mod                                         |
+| `release_type`        | required  | `alpha`, `beta`, or `release`                                                                               |
+| `cf_requirements`     | optional  | the semicolon-separated list of Curseforge projects required by your mod                                    |
+| `cf_optionals`        | optional  | the semicolon-separated list of Curseforge projects with which your mod has optional compatibility features |
+| `cf_embeddeds`        | optional  | the semicolon-separated list of Curseforge projects that are embedded (Jar-in-Jar'ed) in your mod           |
+| `cf_incompatibles`    | optional  | the semicolon-separated list of Curseforge projects that are incompatible with your mod                     |
 
 Just like for Modrinth, the loader setting will be set to `fabric` **and** `quilt` if `fabric-loom` is applied, otherwise it will be set to just `quilt`.
 
 #### GitHub
 
 [GitHub](https://github.com) \[`withGithubRelease`] publishing requires the `github_api_key` user-level property.
+You can further customize the GitHub release by using the `githubRelease` extension provided by the
+[github-release plugin](https://github.com/BreadMoirai/github-release-gradle-plugin/wiki), which is automatically applied when you use `withGithubRelease`.
 
 #### Ladysnake Maven
 
@@ -108,7 +130,8 @@ Setting up at least one publication method with Chenille will trigger the creati
 #### Changelog
 
 Chenille configures your automated github, curseforge, and modrinth releases to use
-a changelog file from your project repository (defaulting to `/changelog.md`). The expected format is as follows :
+a changelog file from your project repository (defaulting to `/changelog.md`).
+The expected format is as follows :
 ```md
 ------------------------------------------------------
 Version x.y.2
@@ -120,6 +143,13 @@ Version x.y.1
 ------------------------------------------------------
 Changelog for version x y 1
 
+```
+
+The generated changelog for each version contains a link to the full changelog.
+You can customize that link by setting `changelogUrl`.
+By default, it guesses the link to the GitHub file as follows:
+```groovy
+"https://github.com/$owners/$displayName/blob/$modVersion/changelog.md"
 ```
 
 ### Default Repositories
