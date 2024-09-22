@@ -34,6 +34,8 @@ Chenille applies the `quilt-loom` plugin to your project, unless `fabric-loom` w
 Chenille can setup publishing to various platforms :
 
 ```gradle
+version = ... // Must be set before chenille configuration
+
 chenille {
     configurePublishing {
         mainArtifact = remapStandaloneJar.archiveFile
@@ -48,14 +50,50 @@ chenille {
 The `mainArtifact` option determines the main jar to upload.
 If left unspecified, it will default to `remapJar.archiveFile`.
 
-- [Artifactory](https://jfrog.com/artifactory/) \[`withArtifactory`] publishing requires the `artifactory_user` and `artifactory_api_key` user-level gradle properties
-  - This method is now deprecated as Jfrog ended their free tier for Open Source projects
-- [Curseforge](https://curseforge.com/) \[`withCurseforgeRelease`] publishing requires the `curseforge_api_key` user-level property and the `curseforge_id` project-level property
-- [Github](https://github.com) \[`withGithubRelease`] publishing requires the `github_api_key` user-level property
-- [Ladysnake Maven](https://maven.ladysnake.org) \[`withLadysnakeMaven`] publishing requires the `ladysnake_maven_username` and `ladysnake_maven_password` user-level property
-- [Modrinth](https://modrinth.com) \[`withModrinthRelease`] publishing requires the `modrinth_api_key` user-level property and the `modrinth_id` project-level property
+#### Modrinth
 
-On Curseforge and Modrinth, the loader setting will be set to `fabric` **and** `quilt` if `fabric-loom` is applied, otherwise it will be set to just `quilt`.
+[Modrinth](https://modrinth.com) \[`withModrinthRelease`] publishing requires the `modrinth_api_key` user-level property and the following project-level properties:
+
+| name               | required? | description                                                                                                                           |
+|--------------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------|
+| `modrinth_id`      | required  | the ID or slug of the project (the ID can be obtained in the modrinth interface by clicking the three dots in the upper right corner) |
+| `release_type`     | required  | `alpha`, `beta`, or `release`                                                                                                         |
+| `mr_requirements`  | optional  | the semicolon-separated list of Modrinth projects required by your mod                                                                |
+| `mr_optionals`     | optional  | the semicolon-separated list of Modrinth projects with which your mod has optional compatibility features                             |
+| `mr_embeddeds`     | optional  | the semicolon-separated list of Modrinth projects that are embedded (Jar-in-Jar'ed) in your mod                                       |
+| `mr_incompatibles` | optional  | the semicolon-separated list of Modrinth projects that are incompatible with your mod                                                 |
+
+The loader setting will be set to `fabric` **and** `quilt` if `fabric-loom` is applied, otherwise it will be set to just `quilt`.
+
+#### Curseforge
+
+[Curseforge](https://curseforge.com/) \[`withCurseforgeRelease`] publishing requires the `curseforge_api_key` user-level property and the following project-level properties:
+
+| name               | required? | description                                                                                                 |
+|--------------------|-----------|-------------------------------------------------------------------------------------------------------------|
+| `curseforge_id`    | required  | the ID of the project on Curseforge                                                                         |
+| `release_type`     | required  | `alpha`, `beta`, or `release`                                                                               |
+| `cf_requirements`  | optional  | the semicolon-separated list of Curseforge projects required by your mod                                    |
+| `cf_optionals`     | optional  | the semicolon-separated list of Curseforge projects with which your mod has optional compatibility features |
+| `cf_embeddeds`     | optional  | the semicolon-separated list of Curseforge projects that are embedded (Jar-in-Jar'ed) in your mod           |
+| `cf_incompatibles` | optional  | the semicolon-separated list of Curseforge projects that are incompatible with your mod                     |
+
+Just like for Modrinth, the loader setting will be set to `fabric` **and** `quilt` if `fabric-loom` is applied, otherwise it will be set to just `quilt`.
+
+#### GitHub
+
+[GitHub](https://github.com) \[`withGithubRelease`] publishing requires the `github_api_key` user-level property.
+
+#### Ladysnake Maven
+
+[Ladysnake Maven](https://maven.ladysnake.org) \[`withLadysnakeMaven`] publishing requires the `ladysnake_maven_username` and `ladysnake_maven_password` user-level property.
+
+#### Artifactory
+
+[Artifactory](https://jfrog.com/artifactory/) \[`withArtifactory`] publishing requires the `artifactory_user` and `artifactory_api_key` user-level gradle properties.
+This method is now deprecated as Jfrog ended their free tier for Open Source projects.
+
+#### The `release` task
 
 Setting up at least one publication method with Chenille will trigger the creation of a `release` task, which will :
 - build and test the project
