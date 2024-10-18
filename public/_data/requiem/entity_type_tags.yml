@@ -20,6 +20,8 @@
       description: Entities that give access to a portable 3x3 crafting inventory when possessed.
 - name: possession
   children:
+    - name: soulless
+      description: Entities that have no soul and can be possessed easily; zombies, skeletons, golems and phantoms by default.
     - name: frictionless_hosts
       description: Entities that can be dissociated from at any time, like golems in the base mod.
     - name: possessables
