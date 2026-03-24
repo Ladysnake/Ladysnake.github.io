@@ -32,6 +32,8 @@ jobs:
         with:
           fetch-depth: 0
           filter: tree:0
+      - name: Install ImageMagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick libmagickwand-dev
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -67,4 +69,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
