@@ -15,6 +15,7 @@
 
 ### Upgrade Instructions
 {:.no_anchor}
+- [Upgrading from 7.x to 8.x](/wiki/cardinal-components-api/upgrade-instructions/CCA-8-changes)
 - [Upgrading from 5.x to 6.x](/wiki/cardinal-components-api/upgrade-instructions/CCA-6-changes)
 {:.toc-subgroup}
 
