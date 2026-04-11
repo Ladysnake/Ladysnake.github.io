@@ -9,6 +9,11 @@ Thus comes Cardinal Components API v8 - The One Remapping.
 
 This page details the main changes in the 8.0.0 update, and how to deal with them. Note that the rest of the documentation is not updated yet, we thank you for your patience.
 
+## Components
+
+The main change: to avoid conflicts with Minecraft's text `Component` class, the library's main interface has been renamed to `CardinalComponent`.
+The new interfaces live in the `org.ladysnake.cca.v8` package.
+
 ## World, Level, and LevelData
 
 **Summary: `World` is now called `Level`. `LevelProperties` is now called `LevelData`**
