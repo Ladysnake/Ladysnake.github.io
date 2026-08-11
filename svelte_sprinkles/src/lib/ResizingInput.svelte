@@ -1,5 +1,6 @@
 <script lang="ts">
   import type {Action} from "svelte/action";
+  import classNames from "classnames";
 
   export let value = '';
   export let minRows = 1;
@@ -14,7 +15,7 @@
   $: maxHeight = maxRows ? `${1 + maxRows * 1.2}em` : `auto`;
 </script>
 
-<div class="textarea-container ${containerClass}">
+<div class={classNames("textarea-container", containerClass)}>
   {#if maxRows === undefined || maxRows > 1}
     <div
       aria-hidden="true"

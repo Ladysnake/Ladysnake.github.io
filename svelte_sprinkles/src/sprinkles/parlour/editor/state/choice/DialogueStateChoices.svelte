@@ -1,21 +1,19 @@
-<script context="module" lang="ts">
-  import {choiceIdKey, type DialogueChoice, genChoiceId} from "../../../model/DialogueChoice";
-
-  function createChoice() {
-    return { [choiceIdKey]: genChoiceId() };
-  }
-</script>
 <script lang="ts">
   import {getStateData, getStateKey} from "../DialogueStateView.svelte";
   import EditableTable from "../../../../../lib/EditableTable.svelte";
   import {derived, type Writable} from "svelte/store";
   import McTextInput from "../../../../../lib/McTextInput.svelte";
-  import {dialogueStateKeys, dialogueTextFormat} from "../../../dialogueDataStore";
+  import {dialogueStart, dialogueStateKeys, dialogueTextFormat} from "../../../dialogueDataStore";
   import {type McText, McTextType} from "../../../../../lib/McText";
   import './dialogue-state-choices.css';
   import {afterUpdate} from "svelte";
   import ChoiceConditionEditor from "./ChoiceConditionEditor.svelte";
   import {StateType} from "../../../model/BlabberDialogue";
+  import {choiceIdKey, type DialogueChoice, genChoiceId} from "../../../model/DialogueChoice";
+
+  function createChoice() {
+    return { [choiceIdKey]: genChoiceId(), next: $dialogueStart };
+  }
 
   const stateData = getStateData();
   const stateKey = getStateKey();

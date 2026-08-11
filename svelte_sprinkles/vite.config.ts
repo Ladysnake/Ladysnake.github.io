@@ -24,6 +24,7 @@ export default defineConfig(() => ({
     outDir: "../_site/scripts/sprinkles",
     emptyOutDir: true,
     copyPublicDir: false,
+    target: 'esnext',
     rollupOptions: {
       preserveEntrySignatures: 'allow-extension',
       input: {

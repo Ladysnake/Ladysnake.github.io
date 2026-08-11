@@ -3,6 +3,10 @@ dialog::backdrop, article[popover]::backdrop {
   opacity: 50%;
 }
 
+article[popover]::backdrop {
+  opacity: 20%;
+}
+
 dialog, article[popover] {
   background-color: var(--base-background-color);
   color: var(--base-text-color);

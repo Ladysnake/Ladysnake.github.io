@@ -4,6 +4,9 @@ const config: StorybookConfig = {
   stories: [{
     directory: '../src/sprinkles/parlour',
     titlePrefix: 'Parlour'
+  }, {
+    directory: '../src/lib',
+    titlePrefix: 'Lib'
   }],
   addons: [
     "@storybook/addon-svelte-csf",
